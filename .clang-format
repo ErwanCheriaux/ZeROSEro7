@@ -1,0 +1,25 @@
+BasedOnStyle:  				Google
+
+UseTab: 				Never
+IndentWidth: 				4
+IndentCaseLabels:			true
+BreakBeforeBraces: 			Custom
+BraceWrapping:
+    AfterFunction: 			true
+AlignConsecutiveDeclarations: 		true
+AlignConsecutiveAssignments: 		true
+AllowShortBlocksOnASingleLine: 		false
+AllowShortCaseLabelsOnASingleLine: 	true
+AllowShortFunctionsOnASingleLine:	false
+AllowShortIfStatementsOnASingleLine: 	false
+AllowShortLoopsOnASingleLine: 		false
+Cpp11BracedListStyle: 			true
+SpaceAfterCStyleCast: 			false
+SpaceBeforeAssignmentOperators:		true
+SpaceBeforeParens:			false
+SpaceInEmptyParentheses:		false
+SpacesInCStyleCastParentheses:		false
+SpacesInContainerLiterals: 		false
+SpacesInParentheses:			false
+SpacesInSquareBrackets: 		false
+ColumnLimit:				0
