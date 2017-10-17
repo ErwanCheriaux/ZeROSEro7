@@ -60,7 +60,7 @@
 | Smartphone application code           | Erwan            | 25/12/2017 |
 | BLE Connection between device and smartphone | Erwan     | 25/12/2017 |
 | Wi-Fi Connection between device and smartphone | Erwan   | 25/12/2017 |
-| Read/Write Data from smartphone to device | Erwan | 25/12/2017 |
+| Read/Write Data from smartphone to device | Erwan        | 25/12/2017 |
 | Someone can drop data without touch his smartphone | Erwan | 25/12/2017 |
 | Someone can collect data without touch his smartphone | Erwan | 25/12/2017 |
 | More than 2 users share and collect data | Erwan         | 25/12/2017 |
