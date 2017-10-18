@@ -4,20 +4,23 @@
 | µP chosen                             | Vincent          | 25/12/2017 |
 | OS chosen                             | Vincent          | 25/12/2017 |
 | Memory chosen                         | Vincent          | 25/12/2017 |
-| Communication chosen                  | Vincent          | 25/12/2017 |
-| IO chosen                             | Vincent          | 25/12/2017 |
-| Alim chosen                           | Vincent          | 25/12/2017 |
+| IO chosen (USB + Bluetooth + JTAG)    | Vincent          | 25/12/2017 |
 | PCB schematics                        | Vincent          | 25/12/2017 |
+| PCB rooted                            | Vincent          | 25/12/2017 |
 | PCB verified                          | Vincent          | 25/12/2017 |
 | PCB commanded                         | Vincent          | 25/12/2017 |
 | PCB welded                            | Vincent          | 25/12/2017 |
 | PCB Bring-up                          | Vincent          | 25/12/2017 |
-| Alim and power on                     | Vincent          | 25/12/2017 |
-| PCB hello world                       | Vincent          | 25/12/2017 |
-| Read/Write Data in Memory             | Vincent          | 25/12/2017 |
-| Collect data from keyboard            | Vincent          | 25/12/2017 |
-| Bluetooth connection with smartphone  | Vincent          | 25/12/2017 |
-| Read data with smartphone             | Vincent          | 25/12/2017 |
+| Server GDB (USB + JTAG)               | Vincent          | 25/12/2017 |
+| Exec Fibonaci from JTAG               | Vincent          | 25/12/2017 |
+| Keyboard works normally with the device plug between keyboard and computer | Vincent | 25/12/2017 |
+| Get pressed touch from keyboard with the device | Vincent          | 25/12/2017 |
+| The device Read/Write Data in Memory  | Vincent          | 25/12/2017 |
+| Bluetooth hello world                 | Vincent          | 25/12/2017 |
+| Collect data from the device with smartphone in Bluetooth | Vincent          | 25/12/2017 |
+| The device listen and wait a Bluetooth signature | Vincent | 25/12/2017 |
+| The device detect mail and password   | Vincent          | 25/12/2017 |
+| Bluetooth and keyboard work in same time | Vincent | 25/12/2017 |
 | Hacking test                          | Vincent          | 25/12/2017 |
 | Casing design                         | Vincent          | 25/12/2017 |
 | Prototype working                     | Vincent          | 25/12/2017 |
