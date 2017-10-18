@@ -17,6 +17,7 @@
 | Get pressed touch from keyboard with the device | Vincent          | 25/12/2017 |
 | The device Read/Write Data in Memory  | Vincent          | 25/12/2017 |
 | Bluetooth hello world                 | Vincent          | 25/12/2017 |
+| Bluetooth Parrot                      | Vincent          | 25/12/2017 |
 | Collect data from the device with smartphone in Bluetooth | Vincent          | 25/12/2017 |
 | The device listen and wait a Bluetooth signature | Vincent | 25/12/2017 |
 | The device detect mail and password   | Vincent          | 25/12/2017 |
@@ -27,22 +28,24 @@
 | **Spy Talk**                          |                  |            |
 | µP chosen                             | Enguerrand       | 25/12/2017 |
 | OS chosen                             | Enguerrand       | 25/12/2017 |
-| Communication chosen                  | Enguerrand       | 25/12/2017 |
-| IO chosen                             | Enguerrand       | 25/12/2017 |
+| IO chosen (USB + JTAG + LoRa)         | Enguerrand       | 25/12/2017 |
 | Alim chosen                           | Enguerrand       | 25/12/2017 |
 | PCB schematics                        | Enguerrand       | 25/12/2017 |
+| PCB rooted                            | Enguerrand       | 25/12/2017 |
 | PCB verified                          | Enguerrand       | 25/12/2017 |
 | PCB commanded                         | Enguerrand       | 25/12/2017 |
 | PCB welded                            | Enguerrand       | 25/12/2017 |
 | PCB Bring-up                          | Enguerrand       | 25/12/2017 |
-| Alim and power on                     | Enguerrand       | 25/12/2017 |
-| PCB hello world                       | Enguerrand       | 25/12/2017 |
-| Code                                  | Enguerrand       | 25/12/2017 |
-| Hello World via Lora                  | Enguerrand       | 25/12/2017 |
-| Parrot via Lora                       | Enguerrand       | 25/12/2017 |
-| Communication through 2 relay bridge  | Enguerrand       | 25/12/2017 |
-| Communication through dynamic bridge  | Enguerrand       | 25/12/2017 |
+| Server GDB (USB + JTAG)               | Enguerrand       | 25/12/2017 |
+| Exec Fibonaci from JTAG               | Enguerrand       | 25/12/2017 |
+| LoRa hello world                      | Enguerrand       | 25/12/2017 |
+| LaRo Parrot                           | Enguerrand       | 25/12/2017 |
+| Communication 2 phones 1 relay bridge | Enguerrand       | 25/12/2017 |
+| Communication n phones 1 relay bridge | Enguerrand       | 25/12/2017 |
+| Communication n phones 2 relay bridge | Enguerrand       | 25/12/2017 |
+| Communication n phones n relay bridge | Enguerrand       | 25/12/2017 |
 | Further network algorithms            | Enguerrand       | 25/12/2017 |
+| Encryption                            | Enguerrand       | 25/12/2017 |
 | Hacking test                          | Enguerrand       | 25/12/2017 |
 | Casing design                         | Enguerrand       | 25/12/2017 |
 | **Stealth Drop**                      |                  |            |
