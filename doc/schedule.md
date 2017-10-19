@@ -1,3 +1,5 @@
+# PSSC
+
 | Task                                  | Person in charge | Date       |
 | ------------------------------------- | ---------------- |:----------:|
 | **USB Sniffer**                       |                  |            |
@@ -74,17 +76,24 @@
 | Casing built                          | Enguerrand       | 26/01/2018 |
 | Final Prototype                       | Enguerrand       | 26/01/2018 |
 
-USB
-soft VINC
-hard Eng
-inté ERW
+# Assigns per category
+## USB sniffer
+| Task          | Who        |
+| ---------     | ---------- |
+| Hardware      | Enguerrand |
+| Software      | Vincent    |
+| Verification  | Erwan      |
 
-TALK
-soft ENG
-hard ERW
-inté VIN
+## Spy Talk
+| Task          | Who        |
+| ---------     | ---------- |
+| Hardware      | Erwan      |
+| Software      | Enguerrand |
+| Verification  | Vincent    |
 
-DROP
-soft ERW
-hard VINC
-inté ENG
+## Stealth Drops
+| Task          | Who        |
+| ---------     | ---------- |
+| Hardware      | Vincent    |
+| Software      | Erwan      |
+| Verification  | Enguerrand |
