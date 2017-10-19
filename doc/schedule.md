@@ -5,7 +5,7 @@
 | **USB Sniffer**                       |                  |            |
 | µP & OS chosen                        | Enguerrand       | 05/11/2017 |
 | Server GDB                            | Vincent          | 18/11/2017 |
-| Fibonaci from JTAG                    | Vincent          | 18/11/2017 |
+| Fibonacci from JTAG                   | Vincent          | 18/11/2017 |
 | Memory & alim chosen                  | Enguerrand       | 18/11/2017 |
 | IO chosen (USB + Bluetooth + JTAG)    | Enguerrand       | 18/11/2017 |
 | PCB schematics                        | Enguerrand       | 25/11/2017 |
@@ -22,15 +22,15 @@
 | Presort mail and password             | Vincent          | 23/12/2017 |
 | PCB welded                            | Enguerrand       | 13/01/2018 |
 | PCB Bring-up                          | Erwan            | 13/01/2018 |
-| Smartphone app                        | Vincent          | 13/01/2017 |
-| Bluetooth and keyboard in parallel    | Vincent          | 13/01/2017 |
+| Smartphone app                        | Vincent          | 13/01/2018 |
+| Bluetooth and keyboard in parallel    | Vincent          | 13/01/2018 |
 | All peripherals tested                | Erwan            | 20/01/2018 |
 | Casing built                          | Erwan            | 26/01/2018 |
 | Final Prototype                       | Erwan            | 26/01/2018 |
 | **Spy Talk**                          |                  |            |
 | µP & OS chosen                        | Erwan            | 05/11/2017 |
 | Server GDB                            | Enguerrand       | 18/11/2017 |
-| Fibonaci from JTAG                    | Enguerrand       | 18/11/2017 |
+| Fibonacci from JTAG                   | Enguerrand       | 18/11/2017 |
 | Memory & alim chosen                  | Erwan            | 18/11/2017 |
 | IO chosen (LoRa)                      | Erwan            | 18/11/2017 |
 | PCB schematics                        | Erwan            | 25/11/2017 |
@@ -45,7 +45,7 @@
 | Communication n phones 2 relay bridge | Enguerrand       | 23/12/2017 |
 | PCB welded                            | Erwan            | 13/01/2018 |
 | PCB Bring-up                          | Vincent          | 13/01/2018 |
-| Parrot Smartphone app                 | Enguerrand       | 13/01/2017 |
+| Parrot Smartphone app                 | Enguerrand       | 13/01/2018 |
 | Communication n phones n relay bridge | Enguerrand       | 13/01/2018 |
 | Encryption                            | Enguerrand       | 13/01/2018 |
 | All peripherals tested                | Vincent          | 20/01/2018 |
@@ -54,7 +54,7 @@
 | **Stealth Drop**                      |                  |            |
 | µP & OS chosen                        | Vincent          | 05/11/2017 |
 | Server GDB                            | Erwan            | 18/11/2017 |
-| Fibonaci from JTAG                    | Erwan            | 18/11/2017 |
+| Fibonacci from JTAG                   | Erwan            | 18/11/2017 |
 | Memory & alim chosen                  | Vincent          | 18/11/2017 |
 | IO chosen (BLE + Wifi)                | Vincent          | 18/11/2017 |
 | PCB schematics                        | Vincent          | 25/11/2017 |
