@@ -1,76 +1,90 @@
 | Task                                  | Person in charge | Date       |
 | ------------------------------------- | ---------------- |:----------:|
 | **USB Sniffer**                       |                  |            |
-| µP chosen                             | Vincent          | 25/12/2017 |
-| OS chosen                             | Vincent          | 25/12/2017 |
-| Memory chosen                         | Vincent          | 25/12/2017 |
-| IO chosen (USB + Bluetooth + JTAG)    | Vincent          | 25/12/2017 |
-| PCB schematics                        | Vincent          | 25/12/2017 |
-| PCB rooted                            | Vincent          | 25/12/2017 |
-| PCB verified                          | Vincent          | 25/12/2017 |
-| PCB commanded                         | Vincent          | 25/12/2017 |
-| PCB welded                            | Vincent          | 25/12/2017 |
-| PCB Bring-up                          | Vincent          | 25/12/2017 |
-| Server GDB (USB + JTAG)               | Vincent          | 25/12/2017 |
-| Exec Fibonaci from JTAG               | Vincent          | 25/12/2017 |
-| Keyboard works normally with the device plug between keyboard and computer | Vincent | 25/12/2017 |
-| Get pressed touch from keyboard with the device | Vincent          | 25/12/2017 |
-| Read/Write Data in Memory             | Vincent          | 25/12/2017 |
-| Bluetooth hello world                 | Vincent          | 25/12/2017 |
-| Bluetooth Parrot                      | Vincent          | 25/12/2017 |
-| Collect data from the device with smartphone in Bluetooth | Vincent          | 25/12/2017 |
-| The device listen and wait a Bluetooth signature | Vincent | 25/12/2017 |
-| The device detect mail and password   | Vincent          | 25/12/2017 |
-| Bluetooth and keyboard work in same time | Vincent | 25/12/2017 |
-| Hacking test                          | Vincent          | 25/12/2017 |
-| Casing design                         | Vincent          | 25/12/2017 |
-| Prototype working                     | Vincent          | 25/12/2017 |
+| µP & OS chosen                        | Enguerrand       | 05/11/2017 |
+| Server GDB                            | Vincent          | 18/11/2017 |
+| Fibonaci from JTAG                    | Vincent          | 18/11/2017 |
+| Memory & alim chosen                  | Enguerrand       | 18/11/2017 |
+| IO chosen (USB + Bluetooth + JTAG)    | Enguerrand       | 18/11/2017 |
+| PCB schematics                        | Enguerrand       | 25/11/2017 |
+| Detect if a keyboard is plugged       | Vincent          | 02/12/2017 |
+| Parrot Smartphone app                 | Vincent          | 09/12/2017 |
+| Bluetooth parrot                      | Vincent          | 09/12/2017 |
+| Casing design                         | Erwan            | 16/12/2017 |
+| PCB rooted                            | Enguerrand       | 16/12/2017 |
+| Basic keylogger                       | Vincent          | 16/12/2017 |
+| Send log data via Bluetooth           | Vincent          | 16/12/2017 |
+| PCB verified                          | Erwan            | 23/12/2017 |
+| PCB ordered                           | Erwan            | 23/12/2017 |
+| Waiting for a Bluetooth signature     | Vincent          | 23/12/2017 |
+| Presort mail and password             | Vincent          | 23/12/2017 |
+| PCB welded                            | Enguerrand       | 13/01/2018 |
+| PCB Bring-up                          | Erwan            | 13/01/2018 |
+| Smartphone app                        | Vincent          | 13/01/2017 |
+| Bluetooth and keyboard in parallel    | Vincent          | 13/01/2017 |
+| All peripherals tested                | Erwan            | 20/01/2018 |
+| Casing built                          | Erwan            | 26/01/2018 |
+| Final Prototype                       | Erwan            | 26/01/2018 |
 | **Spy Talk**                          |                  |            |
-| µP chosen                             | Enguerrand       | 25/12/2017 |
-| OS chosen                             | Enguerrand       | 25/12/2017 |
-| IO chosen (micro USB + JTAG + LoRa)   | Enguerrand       | 25/12/2017 |
-| Alim chosen                           | Enguerrand       | 25/12/2017 |
-| PCB schematics                        | Enguerrand       | 25/12/2017 |
-| PCB rooted                            | Enguerrand       | 25/12/2017 |
-| PCB verified                          | Enguerrand       | 25/12/2017 |
-| PCB commanded                         | Enguerrand       | 25/12/2017 |
-| PCB welded                            | Enguerrand       | 25/12/2017 |
-| PCB Bring-up                          | Enguerrand       | 25/12/2017 |
-| Server GDB (micro USB + JTAG)         | Enguerrand       | 25/12/2017 |
-| Exec Fibonaci from JTAG               | Enguerrand       | 25/12/2017 |
-| LoRa hello world                      | Enguerrand       | 25/12/2017 |
-| LaRo Parrot                           | Enguerrand       | 25/12/2017 |
-| Communication 2 phones 1 relay bridge | Enguerrand       | 25/12/2017 |
-| Communication n phones 1 relay bridge | Enguerrand       | 25/12/2017 |
-| Communication n phones 2 relay bridge | Enguerrand       | 25/12/2017 |
-| Communication n phones n relay bridge | Enguerrand       | 25/12/2017 |
-| Further network algorithms            | Enguerrand       | 25/12/2017 |
-| Encryption                            | Enguerrand       | 25/12/2017 |
-| Hacking test                          | Enguerrand       | 25/12/2017 |
-| Casing design                         | Enguerrand       | 25/12/2017 |
-| Prototype working                     | Enguerrand       | 25/12/2017 |
+| µP & OS chosen                        | Erwan            | 05/11/2017 |
+| Server GDB                            | Enguerrand       | 18/11/2017 |
+| Fibonaci from JTAG                    | Enguerrand       | 18/11/2017 |
+| Memory & alim chosen                  | Erwan            | 18/11/2017 |
+| IO chosen (LoRa)                      | Erwan            | 18/11/2017 |
+| PCB schematics                        | Erwan            | 25/11/2017 |
+| Parrot Smartphone app                 | Enguerrand       | 09/12/2017 |
+| LoRa Parrot                           | Enguerrand       | 09/12/2017 |
+| Communication 2 phones 1 relay bridge | Enguerrand       | 09/12/2017 |
+| Casing design                         | Vincent          | 16/12/2017 |
+| PCB rooted                            | Erwan            | 16/12/2017 |
+| Communication n phones 1 relay bridge | Enguerrand       | 16/12/2017 |
+| PCB verified                          | Vincent          | 23/12/2017 |
+| PCB ordered                           | Vincent          | 23/12/2017 |
+| Communication n phones 2 relay bridge | Enguerrand       | 23/12/2017 |
+| PCB welded                            | Erwan            | 13/01/2018 |
+| PCB Bring-up                          | Vincent          | 13/01/2018 |
+| Parrot Smartphone app                 | Enguerrand       | 13/01/2017 |
+| Communication n phones n relay bridge | Enguerrand       | 13/01/2018 |
+| Encryption                            | Enguerrand       | 13/01/2018 |
+| All peripherals tested                | Vincent          | 20/01/2018 |
+| Casing built                          | Vincent          | 26/01/2018 |
+| Final Prototype                       | Vincent          | 26/01/2018 |
 | **Stealth Drop**                      |                  |            |
-| µP chosen                             | Erwan            | 25/12/2017 |
-| OS chosen                             | Erwan            | 25/12/2017 |
-| Memory chosen                         | Erwan            | 25/12/2017 |
-| IO chosen (micro USB+JTAG+BLE+WiFi)   | Erwan            | 25/12/2017 |
-| Alim chosen                           | Erwan            | 25/12/2017 |
-| PCB schematics                        | Erwan            | 25/12/2017 |
-| PCB rooted                            | Erwan            | 25/12/2017 |
-| PCB verified                          | Erwan            | 25/12/2017 |
-| PCB commanded                         | Erwan            | 25/12/2017 |
-| PCB welded                            | Erwan            | 25/12/2017 |
-| PCB Bring-up                          | Erwan            | 25/12/2017 |
-| Server GDB (micro USB + JTAG)         | Erwan            | 25/12/2017 |
-| BLE hello world                       | Erwan            | 25/12/2017 |
-| WiFi hello world                      | Erwan            | 25/12/2017 |
-| From BLE to WiFi Parrot               | Erwan            | 25/12/2017 |
-| Read/Write Data in Memory from device | Erwan            | 25/12/2017 |
-| Read/Write Data from smartphone to device | Erwan        | 25/12/2017 |
-| The device listen and wait a Bluetooth signature | Erwan   | 25/12/2017 |
-| Someone can drop data without touch his smartphone | Erwan | 25/12/2017 |
-| Someone can collect data without touch his smartphone | Erwan | 25/12/2017 |
-| More than 2 users share and collect data | Erwan         | 25/12/2017 |
-| Hacking test                          | Erwan            | 25/12/2017 |
-| Casing design                         | Erwan            | 25/12/2017 |
-| Prototype working                     | Erwan            | 25/12/2017 |
+| µP & OS chosen                        | Vincent          | 05/11/2017 |
+| Server GDB                            | Erwan            | 18/11/2017 |
+| Fibonaci from JTAG                    | Erwan            | 18/11/2017 |
+| Memory & alim chosen                  | Vincent          | 18/11/2017 |
+| IO chosen (BLE + Wifi)                | Vincent          | 18/11/2017 |
+| PCB schematics                        | Vincent          | 25/11/2017 |
+| Parrot Smartphone app                 | Erwan            | 09/12/2017 |
+| BLE parrot                            | Erwan            | 09/12/2017 |
+| WiFi parrot                           | Erwan            | 09/12/2017 |
+| From BLE to WiFi parrot               | Erwan            | 09/12/2017 |
+| Casing design                         | Enguerrand       | 16/12/2017 |
+| PCB rooted                            | Vincent          | 16/12/2017 |
+| Smartphone BLE activation             | Erwan            | 16/12/2017 |
+| PCB verified                          | Enguerrand       | 23/12/2017 |
+| PCB ordered                           | Enguerrand       | 23/12/2017 |
+| PCB welded                            | Vincent          | 13/01/2018 |
+| PCB Bring-up                          | Enguerrand       | 13/01/2018 |
+| Smartphone app                        | Erwan            | 13/01/2018 |
+| Read/Write with smartphone            | Erwan            | 13/01/2018 |
+| Encryption                            | Erwan            | 13/01/2018 |
+| All peripherals tested                | Enguerrand       | 20/01/2018 |
+| Casing built                          | Enguerrand       | 26/01/2018 |
+| Final Prototype                       | Enguerrand       | 26/01/2018 |
+
+USB
+soft VINC
+hard Eng
+inté ERW
+
+TALK
+soft ENG
+hard ERW
+inté VIN
+
+DROP
+soft ERW
+hard VINC
+inté ENG
