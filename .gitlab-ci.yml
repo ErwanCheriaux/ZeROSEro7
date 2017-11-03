@@ -1,0 +1,28 @@
+#image: ruby:2.1
+services:
+#  - postgres
+
+before_script:
+#  - bundle install
+
+after_script:
+#  - rm secrets
+
+stages:
+  - build
+  - test
+  - deploy
+
+run_simple_test:
+  stage: build
+  script:
+    - echo "this is a small example of continued integration."
+
+#job1:
+#  stage: build
+#  script:
+#    - execute-script-for-job1
+#  only:
+#    - master
+#  tags:
+#    - docker

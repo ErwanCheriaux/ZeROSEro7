@@ -1,6 +1,7 @@
 # Summary
 
 (Summarize the feature concisely)
+(Describe the order, documenting, schematics ...)
 
 # Tasks to complete
 
@@ -14,7 +15,7 @@
 
 (What other tasks need to be completed before starting this one)
 
-/label ~feature
+/label ~other_issue
 GanttStart: 2017-11-27
 GanttDue: 2017-11-27
 /due <in 2 days | this Friday | December 31st>
