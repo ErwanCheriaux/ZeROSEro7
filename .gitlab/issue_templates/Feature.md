@@ -15,5 +15,7 @@
 (What other tasks need to be completed before starting this one)
 
 /label ~feature
+GanttStart: 2017-11-27
+GanttDue: 2017-11-27
 /due <in 2 days | this Friday | December 31st>
 /assign @username

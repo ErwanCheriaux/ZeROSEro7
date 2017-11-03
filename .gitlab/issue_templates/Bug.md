@@ -37,5 +37,7 @@ logs, and code as it's very hard to read otherwise.)
 (If you can, link to the line of code that might be responsible for the problem)
 
 /label ~bug
+GanttStart: 2017-11-27
+GanttDue: 2017-11-27
 /due <in 2 days | this Friday | December 31st>
 /assign @username
