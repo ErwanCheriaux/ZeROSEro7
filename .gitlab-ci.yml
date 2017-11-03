@@ -1,4 +1,4 @@
-#image: ruby:2.1
+image: rfc1149/rose-dev
 services:
 #  - postgres
 
@@ -14,7 +14,7 @@ stages:
   - deploy
 
 run_simple_test:
-  stage: build
+  stage: test
   script:
     - echo "this is a small example of continued integration."
 
