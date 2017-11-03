@@ -14,6 +14,10 @@
 
 (What other tasks need to be completed before starting this one)
 
+# Test
+
+(Describe how to test this feature)
+
 /label ~feature
 GanttStart: 2017-11-27
 GanttDue: 2017-11-27
