@@ -1,6 +1,6 @@
 # Summary
 
-(What have been done)
+(What has been done)
 
 # Notes
 
