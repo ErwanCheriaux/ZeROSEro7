@@ -30,6 +30,12 @@ build_stealth:
     - cd stealth_drop
     - make
 
+build_lora_discovery:
+  stage: build
+  script:
+    - cd lora_discovery
+    - make
+
 #job1:
 #  stage: build
 #  script:
