@@ -105,8 +105,10 @@ default: nrf52832_xxaa
 help:
 	@echo following targets are available:
 	@echo		nrf52832_xxaa
-	@echo		sdk_config - starting external tool for editing sdk_config.h
-	@echo		flash      - flashing binary
+	@echo		flash          - flashing binary
+	@echo		startgdbserver - open a gdb connection with the device
+	@echo		debug          - after startgdbserver, load and debug a prog on the device
+	@echo		clean          - remove _build
 
 TEMPLATE_PATH := $(SDK_ROOT)/components/toolchain/gcc
 
