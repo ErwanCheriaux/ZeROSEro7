@@ -18,6 +18,18 @@ run_simple_test:
   script:
     - echo "this is a small example of continued integration."
 
+build_spy:
+  stage: build
+  script:
+    - cd spy_talk
+    - make
+
+build_stealth:
+  stage: build
+  script:
+    - cd stealth_drop
+    - make
+
 #job1:
 #  stage: build
 #  script:
