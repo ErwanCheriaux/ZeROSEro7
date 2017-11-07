@@ -21,37 +21,37 @@ Maintainer: Miguel Luis and Gregory Cristian
   ******************************************************************************
   * @attention
   *
-  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V. 
+  * <h2><center>&copy; Copyright (c) 2017 STMicroelectronics International N.V.
   * All rights reserved.</center></h2>
   *
-  * Redistribution and use in source and binary forms, with or without 
+  * Redistribution and use in source and binary forms, with or without
   * modification, are permitted, provided that the following conditions are met:
   *
-  * 1. Redistribution of source code must retain the above copyright notice, 
+  * 1. Redistribution of source code must retain the above copyright notice,
   *    this list of conditions and the following disclaimer.
   * 2. Redistributions in binary form must reproduce the above copyright notice,
   *    this list of conditions and the following disclaimer in the documentation
   *    and/or other materials provided with the distribution.
-  * 3. Neither the name of STMicroelectronics nor the names of other 
-  *    contributors to this software may be used to endorse or promote products 
+  * 3. Neither the name of STMicroelectronics nor the names of other
+  *    contributors to this software may be used to endorse or promote products
   *    derived from this software without specific written permission.
-  * 4. This software, including modifications and/or derivative works of this 
+  * 4. This software, including modifications and/or derivative works of this
   *    software, must execute solely and exclusively on microcontroller or
   *    microprocessor devices manufactured by or for STMicroelectronics.
-  * 5. Redistribution and use of this software other than as permitted under 
-  *    this license is void and will automatically terminate your rights under 
-  *    this license. 
+  * 5. Redistribution and use of this software other than as permitted under
+  *    this license is void and will automatically terminate your rights under
+  *    this license.
   *
-  * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS" 
-  * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT 
-  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A 
+  * THIS SOFTWARE IS PROVIDED BY STMICROELECTRONICS AND CONTRIBUTORS "AS IS"
+  * AND ANY EXPRESS, IMPLIED OR STATUTORY WARRANTIES, INCLUDING, BUT NOT
+  * LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
   * PARTICULAR PURPOSE AND NON-INFRINGEMENT OF THIRD PARTY INTELLECTUAL PROPERTY
-  * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT 
+  * RIGHTS ARE DISCLAIMED TO THE FULLEST EXTENT PERMITTED BY LAW. IN NO EVENT
   * SHALL STMICROELECTRONICS OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT,
   * INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
-  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, 
-  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF 
-  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING 
+  * LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA,
+  * OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF
+  * LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
   * NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
   * EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
   *
@@ -66,7 +66,6 @@ Maintainer: Miguel Luis and Gregory Cristian
 #include "delay.h"
 #include "low_power.h"
 #include "vcom.h"
-
 
 #if defined( USE_BAND_868 )
 
@@ -190,15 +189,15 @@ int main( void )
   uint8_t i;
 
   HAL_Init( );
-  
+
   SystemClock_Config( );
-  
+
   DBG_Init( );
 
-  HW_Init( );  
-  
+  HW_Init( );
+
   /* Led Timers*/
-  TimerInit(&timerLed, OnledEvent);   
+  TimerInit(&timerLed, OnledEvent);
   TimerSetValue( &timerLed, LED_PERIOD_MS);
 
   TimerStart(&timerLed );
@@ -220,7 +219,7 @@ int main( void )
                                  LORA_SPREADING_FACTOR, LORA_CODINGRATE,
                                    LORA_PREAMBLE_LENGTH, LORA_FIX_LENGTH_PAYLOAD_ON,
                                    true, 0, 0, LORA_IQ_INVERSION_ON, 3000000 );
-    
+
   Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
                                    LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
                                    LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
@@ -232,7 +231,7 @@ int main( void )
                                   FSK_DATARATE, 0,
                                   FSK_PREAMBLE_LENGTH, FSK_FIX_LENGTH_PAYLOAD_ON,
                                   true, 0, 0, 0, 3000000 );
-    
+
   Radio.SetRxConfig( MODEM_FSK, FSK_BANDWIDTH, FSK_DATARATE,
                                   0, FSK_AFC_BANDWIDTH, FSK_PREAMBLE_LENGTH,
                                   0, FSK_FIX_LENGTH_PAYLOAD_ON, 0, true,
@@ -241,9 +240,9 @@ int main( void )
 #else
     #error "Please define a frequency band in the compiler options."
 #endif
-                                  
+
   Radio.Rx( RX_TIMEOUT_VALUE );
-                                  
+
   while( 1 )
   {
     switch( State )
@@ -257,25 +256,25 @@ int main( void )
           {
             TimerStop(&timerLed );
             LED_Off( LED_BLUE);
-            LED_Off( LED_GREEN ) ; 
+            LED_Off( LED_GREEN ) ;
             LED_Off( LED_RED1 ) ;;
             // Indicates on a LED that the received frame is a PONG
             LED_Toggle( LED_RED2 ) ;
 
 
-            // Send the next PING frame      
+            // Send the next PING frame
             Buffer[0] = 'P';
             Buffer[1] = 'I';
             Buffer[2] = 'N';
             Buffer[3] = 'G';
-            // We fill the buffer with numbers for the payload 
+            // We fill the buffer with numbers for the payload
             for( i = 4; i < BufferSize; i++ )
             {
               Buffer[i] = i - 4;
             }
             PRINTF("...PING\n\r");
 
-            DelayMs( 1 ); 
+            DelayMs( 1 );
             Radio.Send( Buffer, BufferSize );
             }
             else if( strncmp( ( const char* )Buffer, ( const char* )PingMsg, 4 ) == 0 )
@@ -300,7 +299,7 @@ int main( void )
               // Indicates on a LED that the received frame is a PING
               TimerStop(&timerLed );
               LED_Off( LED_RED1);
-              LED_Off( LED_RED2 ) ; 
+              LED_Off( LED_RED2 ) ;
               LED_Off( LED_GREEN ) ;
               LED_Toggle( LED_BLUE );
 
@@ -309,7 +308,7 @@ int main( void )
               Buffer[1] = 'O';
               Buffer[2] = 'N';
               Buffer[3] = 'G';
-              // We fill the buffer with numbers for the payload 
+              // We fill the buffer with numbers for the payload
               for( i = 4; i < BufferSize; i++ )
               {
                 Buffer[i] = i - 4;
@@ -348,7 +347,7 @@ int main( void )
         {
           Buffer[i] = i - 4;
         }
-        DelayMs( 1 ); 
+        DelayMs( 1 );
         Radio.Send( Buffer, BufferSize );
       }
       else
@@ -366,9 +365,9 @@ int main( void )
             // Set low power
       break;
     }
-    
+
     DISABLE_IRQ( );
-    /* if an interupt has occured after __disable_irq, it is kept pending 
+    /* if an interupt has occured after __disable_irq, it is kept pending
      * and cortex will not enter low power anyway  */
     if (State == LOWPOWER)
     {
@@ -377,7 +376,7 @@ int main( void )
 #endif
     }
     ENABLE_IRQ( );
-       
+
   }
 }
 
@@ -396,7 +395,7 @@ void OnRxDone( uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr )
     RssiValue = rssi;
     SnrValue = snr;
     State = RX;
-  
+
     PRINTF("OnRxDone\n\r");
     PRINTF("RssiValue=%d dBm, SnrValue=%d\n\r", rssi, snr);
 }
@@ -405,7 +404,7 @@ void OnTxTimeout( void )
 {
     Radio.Sleep( );
     State = TX_TIMEOUT;
-  
+
     PRINTF("OnTxTimeout\n\r");
 }
 
@@ -425,11 +424,10 @@ void OnRxError( void )
 
 static void OnledEvent( void )
 {
-  LED_Toggle( LED_BLUE ) ; 
-  LED_Toggle( LED_RED1 ) ; 
-  LED_Toggle( LED_RED2 ) ; 
-  LED_Toggle( LED_GREEN ) ;   
+  LED_Toggle( LED_BLUE ) ;
+  LED_Toggle( LED_RED1 ) ;
+  LED_Toggle( LED_RED2 ) ;
+  LED_Toggle( LED_GREEN ) ;
 
   TimerStart(&timerLed );
 }
-
