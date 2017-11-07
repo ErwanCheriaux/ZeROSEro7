@@ -37,7 +37,7 @@ DEFINES = -D STM32L072xx \
 LDSCRIPT = STM32L072CZYx_FLASH.ld
 CWARN = -Wall -Wextra -Werror -Wno-unused-parameter -Wno-sign-compare
 CFLAGS = $(ARCH) $(CWARN) $(DEFINES) -Og -ggdb -std=gnu11
-LDFLAGS = $(INCFILE) $(INCDIR) -T $(LDSCRIPT)
+LDFLAGS = $(INCFILE) $(INCDIR) -T $(LDSCRIPT) -specs=nosys.specs -specs=nano.specs
 
 ELF = main
 
