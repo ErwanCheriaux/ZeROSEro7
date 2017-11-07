@@ -4,13 +4,15 @@ include $(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/imports.mak
 CC = "$(GCC_ARMCOMPILER)/bin/arm-none-eabi-gcc"
 LNK = "$(GCC_ARMCOMPILER)/bin/arm-none-eabi-gcc"
 
-OBJECTS = uart_term.o main_nortos.o platform.o power_measure_nortos.o CC3220SF_LAUNCHXL.o
+OBJECTS = main.o CC3220SF_LAUNCHXL.o
 
 NAME = 007_stealth_drop
 
 CFLAGS = -Iincludes -DCC32XX "-I$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source" -DNORTOS_SUPPORT "-I$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/kernel/nortos" "-I$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/kernel/nortos/posix" -mcpu=cortex-m4 -march=armv7e-m -mthumb -mfloat-abi=soft -ffunction-sections -fdata-sections -g -gstrict-dwarf -Wall "-I$(GCC_ARMCOMPILER)/arm-none-eabi/include/newlib-nano" "-I$(GCC_ARMCOMPILER)/arm-none-eabi/include"
 
 LFLAGS = -Wl,-T,CC3220SF_LAUNCHXL_NoRTOS.lds "-Wl,-Map,$(NAME).map" "-L$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/ti/display/lib" -l:display.am4g "-L$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/ti/drivers/lib" -l:drivers_cc32xx.am4g "-L$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/third_party/fatfs/lib" -l:fatfs.am4g -eresetISR "-L$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/ti/drivers/net/wifi/gcc/nortos" -l:simplelink.a "-L$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/kernel/nortos/lib" -l:nortos_cc32xx.am4g "-L$(SIMPLELINK_CC32XX_SDK_INSTALL_DIR)/source/ti/devices/cc32xx/driverlib/gcc/Release" -l:driverlib.a -march=armv7e-m -mthumb -nostartfiles -static -Wl,--gc-sections "-L$(GCC_ARMCOMPILER)/arm-none-eabi/lib/thumb/v7e-m" -lgcc -lc -lm -lnosys --specs=nano.specs
+
+.PHNOY: all flash clean
 
 all: $(NAME)
 
@@ -21,6 +23,11 @@ all: $(NAME)
 $(NAME): $(OBJECTS)
 	@ echo linking...
 	@ $(LNK) $^ $(LFLAGS) -o $@
+
+# Flash and run program on board
+flash:
+	@ echo Flashing and running...
+	@ ~/ti/ccsv7/ccs_base/scripting/examples/uniflash/cmdLine/uniflash.sh -ccxml ~/workspace/power_measurement_CC3220SF_LAUNCHXL_nortos_ccs/targetConfigs/CC3220SF.ccxml -program $(NAME) -targetOp run
 
 clean:
 	@ echo Cleaning...
