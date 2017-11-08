@@ -81,6 +81,7 @@ test_fibo:
 
 artifacts_flashable:
   stage: deploy
+  script:
   artifacts:
     paths:
     - lora_discovery/main
