@@ -36,6 +36,16 @@ build_lora_discovery:
     - cd lora_discovery
     - make
 
+artifacts_flashable:
+  stage: deploy
+  artifacts:
+    paths:
+    - lora_discovery/main
+    - spy_talk/_build/nrf52832_xxaa.hex
+    - stealth_drop/main
+    expire_in: 1 week
+
+# Sample job
 #job1:
 #  stage: build
 #  script:
