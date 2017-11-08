@@ -12,7 +12,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 Maintainer: Miguel Luis and Gregory Cristian
 */
- /******************************************************************************
+/******************************************************************************
   * @file    hw.h
   * @author  MCD Application Team
   * @version V1.1.2
@@ -63,7 +63,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define __HW_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 /* Includes ------------------------------------------------------------------*/
 #include <math.h>
@@ -82,4 +82,3 @@ Maintainer: Miguel Luis and Gregory Cristian
 
 #endif /* __HW_H__ */
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-

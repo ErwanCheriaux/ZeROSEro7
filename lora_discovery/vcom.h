@@ -12,7 +12,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 Maintainer: Miguel Luis and Gregory Cristian
 */
- /******************************************************************************
+/******************************************************************************
   * @file    vcom.h
   * @author  MCD Application Team
   * @version V1.1.2
@@ -62,15 +62,15 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define __VCOM_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
-   
+
 /* Includes ------------------------------------------------------------------*/
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* External variables --------------------------------------------------------*/
 
-/* Exported functions ------------------------------------------------------- */ 
+/* Exported functions ------------------------------------------------------- */
 
 /** 
 * @brief  Init the VCOM.
@@ -79,34 +79,34 @@ Maintainer: Miguel Luis and Gregory Cristian
 */
 void vcom_Init(void);
 
-   /** 
+/** 
 * @brief  DeInit the VCOM.
 * @param  None
 * @return None
 */
 void vcom_DeInit(void);
 
-   /** 
+/** 
 * @brief  Init the VCOM IOs.
 * @param  None
 * @return None
 */
 void vcom_IoInit(void);
-  
-   /** 
+
+/** 
 * @brief  DeInit the VCOM IOs.
 * @param  None
 * @return None
 */
 void vcom_IoDeInit(void);
-  
+
 /** 
 * @brief  Records string on circular Buffer and set SW interrupt
 * @note   Set NVIC to call vcom_Send
 * @param  string
 * @return None
 */
-void vcom_Send( char *format, ... );
+void vcom_Send(char *format, ...);
 
 /** 
 * @brief  Sends circular Buffer on com port in IT mode
@@ -114,7 +114,7 @@ void vcom_Send( char *format, ... );
 * @param  None
 * @return None
 */
-void vcom_Print( void);
+void vcom_Print(void);
 
 /** 
 * @brief  Records string on circular Buffer
@@ -123,15 +123,14 @@ void vcom_Print( void);
 * @param  string
 * @return None
 */
-void vcom_Send_Lp( char *format, ... );
+void vcom_Send_Lp(char *format, ...);
 
 /* Exported macros -----------------------------------------------------------*/
 #if 1
-#define PRINTF(...)            vcom_Send(__VA_ARGS__)
+#define PRINTF(...) vcom_Send(__VA_ARGS__)
 #else
 #define PRINTF(...)
 #endif
-
 
 #ifdef __cplusplus
 }

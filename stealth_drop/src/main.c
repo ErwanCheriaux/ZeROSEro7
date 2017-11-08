@@ -15,8 +15,7 @@ int main(void)
     NoRTOS_start();
     Board_initGPIO();
 
-    while(1)
-    {
+    while(1) {
         // Turn on LED
         GPIO_write(Board_LED0, Board_LED_ON);
         ClockP_usleep(500000);

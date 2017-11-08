@@ -1,6 +1,6 @@
 BasedOnStyle:  				Google
 
-UseTab: 				Never
+UseTab: 				    Never
 IndentWidth: 				4
 IndentCaseLabels:			true
 BreakBeforeBraces: 			Custom
@@ -23,3 +23,4 @@ SpacesInContainerLiterals: 		false
 SpacesInParentheses:			false
 SpacesInSquareBrackets: 		false
 ColumnLimit:				0
+SortIncludes:               false
