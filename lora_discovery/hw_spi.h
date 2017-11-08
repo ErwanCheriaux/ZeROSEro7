@@ -12,7 +12,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 Maintainer: Miguel Luis and Gregory Cristian
 */
- /******************************************************************************
+/******************************************************************************
   * @file    hw_spi.h
   * @author  MCD Application Team
   * @version V1.1.2
@@ -62,28 +62,28 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define __HW_SPI_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
 /* External variables --------------------------------------------------------*/
 /* Exported macros -----------------------------------------------------------*/
-/* Exported functions ------------------------------------------------------- */ 
+/* Exported functions ------------------------------------------------------- */
 
 /*!
  * @brief Initializes the SPI object and MCU peripheral
  *
  * @param [IN] none
  */
-void HW_SPI_Init( void );
+void HW_SPI_Init(void);
 
 /*!
  * @brief De-initializes the SPI object and MCU peripheral
  *
  * @param [IN] none
  */
-void HW_SPI_DeInit( void );
+void HW_SPI_DeInit(void);
 
 /*!
  * @brief Sends outData and receives inData
@@ -91,22 +91,12 @@ void HW_SPI_DeInit( void );
  * @param [IN] outData Byte to be sent
  * @retval inData      Received byte.
  */
-uint16_t HW_SPI_InOut( uint16_t outData );
-
-
+uint16_t HW_SPI_InOut(uint16_t outData);
 
 #ifdef __cplusplus
 }
 #endif
 
-#endif  /* __HW_SPI_H__ */
+#endif /* __HW_SPI_H__ */
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/
-
-
-
-
-
-
-
-

@@ -12,7 +12,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 Maintainer: Miguel Luis and Gregory Cristian
 */
- /*******************************************************************************
+/*******************************************************************************
   * @file    stm32l4xx_hw.c
   * @author  MCD Application Team
   * @version V1.1.2
@@ -62,18 +62,16 @@ Maintainer: Miguel Luis and Gregory Cristian
 #include "debug.h"
 #include "vcom.h"
 
-
-
 /*!
  * Unique Devices IDs register set ( STM32L4xxx )
  */
-#define         ID1                                 ( 0x1FFF7590 )
-#define         ID2                                 ( 0x1FFF7594 )
-#define         ID3                                 ( 0x1FFF7594 )
+#define ID1 (0x1FFF7590)
+#define ID2 (0x1FFF7594)
+#define ID3 (0x1FFF7594)
 
- /* Internal voltage reference, parameter VREFINT_CAL*/
-#define VREFINT_CAL       ((uint16_t*) ((uint32_t) 0x1FFF75AA))
-#define LORAWAN_MAX_BAT   254
+/* Internal voltage reference, parameter VREFINT_CAL*/
+#define VREFINT_CAL ((uint16_t*)((uint32_t)0x1FFF75AA))
+#define LORAWAN_MAX_BAT 254
 
 static ADC_HandleTypeDef hadc;
 /*!
@@ -91,27 +89,26 @@ static bool McuInitialized = false;
   * @param None
   * @retval None
   */
-void HW_Init( void )
+void HW_Init(void)
 {
-  if( McuInitialized == false )
-  {
-#if defined( USE_BOOTLOADER )
-    // Set the Vector Table base location at 0x3000
-    NVIC_SetVectorTable( NVIC_VectTab_FLASH, 0x3000 );
+    if(McuInitialized == false) {
+#if defined(USE_BOOTLOADER)
+        // Set the Vector Table base location at 0x3000
+        NVIC_SetVectorTable(NVIC_VectTab_FLASH, 0x3000);
 #endif
 
-    HW_AdcInit( );
+        HW_AdcInit();
 
-    Radio.IoInit( );
-    
-    HW_SPI_Init( );
+        Radio.IoInit();
 
-    HW_RTC_Init( );
-    
-    vcom_Init( );
+        HW_SPI_Init();
 
-    McuInitialized = true;
-  }
+        HW_RTC_Init();
+
+        vcom_Init();
+
+        McuInitialized = true;
+    }
 }
 
 /**
@@ -119,15 +116,15 @@ void HW_Init( void )
   * @param None
   * @retval None
   */
-void HW_DeInit( void )
+void HW_DeInit(void)
 {
-  HW_SPI_DeInit( );
-  
-  Radio.IoDeInit( );
-  
-  vcom_DeInit( );
- 
-  McuInitialized = false;
+    HW_SPI_DeInit();
+
+    Radio.IoDeInit();
+
+    vcom_DeInit();
+
+    McuInitialized = false;
 }
 
 /**
@@ -150,43 +147,41 @@ void HW_DeInit( void )
   * @retval None
   */
 
-
-
-void SystemClock_Config( void )
+void SystemClock_Config(void)
 {
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
 
-  /* MSI is enabled after System reset, activate PLL with MSI as source */
-  RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_MSI;
-  RCC_OscInitStruct.MSIState = RCC_MSI_ON;
-  RCC_OscInitStruct.MSIClockRange = RCC_MSIRANGE_6;
-  RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
-  RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-  RCC_OscInitStruct.PLL.PLLSource = RCC_PLLSOURCE_MSI;
-  RCC_OscInitStruct.PLL.PLLM = 1;
-  RCC_OscInitStruct.PLL.PLLN = 40;
-  RCC_OscInitStruct.PLL.PLLR = 2;
-  RCC_OscInitStruct.PLL.PLLP = 7;
-  RCC_OscInitStruct.PLL.PLLQ = 4;
-  if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-  {
-    /* Initialization Error */
-    while(1);
-  }
-  
-  /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
+    /* MSI is enabled after System reset, activate PLL with MSI as source */
+    RCC_OscInitStruct.OscillatorType      = RCC_OSCILLATORTYPE_MSI;
+    RCC_OscInitStruct.MSIState            = RCC_MSI_ON;
+    RCC_OscInitStruct.MSIClockRange       = RCC_MSIRANGE_6;
+    RCC_OscInitStruct.MSICalibrationValue = RCC_MSICALIBRATION_DEFAULT;
+    RCC_OscInitStruct.PLL.PLLState        = RCC_PLL_ON;
+    RCC_OscInitStruct.PLL.PLLSource       = RCC_PLLSOURCE_MSI;
+    RCC_OscInitStruct.PLL.PLLM            = 1;
+    RCC_OscInitStruct.PLL.PLLN            = 40;
+    RCC_OscInitStruct.PLL.PLLR            = 2;
+    RCC_OscInitStruct.PLL.PLLP            = 7;
+    RCC_OscInitStruct.PLL.PLLQ            = 4;
+    if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+        /* Initialization Error */
+        while(1)
+            ;
+    }
+
+    /* Select PLL as system clock source and configure the HCLK, PCLK1 and PCLK2 
      clocks dividers */
-  RCC_ClkInitStruct.ClockType = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
-  RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
-  RCC_ClkInitStruct.AHBCLKDivider = RCC_SYSCLK_DIV1;
-  RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;  
-  RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;  
-  if(HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK)
-  {
-    /* Initialization Error */
-    while(1);
-  }
+    RCC_ClkInitStruct.ClockType      = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK1 | RCC_CLOCKTYPE_PCLK2);
+    RCC_ClkInitStruct.SYSCLKSource   = RCC_SYSCLKSOURCE_PLLCLK;
+    RCC_ClkInitStruct.AHBCLKDivider  = RCC_SYSCLK_DIV1;
+    RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+    RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+    if(HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_LATENCY_4) != HAL_OK) {
+        /* Initialization Error */
+        while(1)
+            ;
+    }
 }
 /**
   * @brief This function return a random seed
@@ -194,9 +189,9 @@ void SystemClock_Config( void )
   * @param None
   * @retval see
   */
-uint32_t HW_GetRandomSeed( void )
+uint32_t HW_GetRandomSeed(void)
 {
-  return ( ( *( uint32_t* )ID1 ) ^ ( *( uint32_t* )ID2 ) ^ ( *( uint32_t* )ID3 ) );
+    return ((*(uint32_t*)ID1) ^ (*(uint32_t*)ID2) ^ (*(uint32_t*)ID3));
 }
 
 /**
@@ -204,16 +199,16 @@ uint32_t HW_GetRandomSeed( void )
   * @param unique ID
   * @retval none
   */
-void HW_GetUniqueId( uint8_t *id )
+void HW_GetUniqueId(uint8_t* id)
 {
-    id[7] = ( ( *( uint32_t* )ID1 )+ ( *( uint32_t* )ID3 ) ) >> 24;
-    id[6] = ( ( *( uint32_t* )ID1 )+ ( *( uint32_t* )ID3 ) ) >> 16;
-    id[5] = ( ( *( uint32_t* )ID1 )+ ( *( uint32_t* )ID3 ) ) >> 8;
-    id[4] = ( ( *( uint32_t* )ID1 )+ ( *( uint32_t* )ID3 ) );
-    id[3] = ( ( *( uint32_t* )ID2 ) ) >> 24;
-    id[2] = ( ( *( uint32_t* )ID2 ) ) >> 16;
-    id[1] = ( ( *( uint32_t* )ID2 ) ) >> 8;
-    id[0] = ( ( *( uint32_t* )ID2 ) );
+    id[7] = ((*(uint32_t*)ID1) + (*(uint32_t*)ID3)) >> 24;
+    id[6] = ((*(uint32_t*)ID1) + (*(uint32_t*)ID3)) >> 16;
+    id[5] = ((*(uint32_t*)ID1) + (*(uint32_t*)ID3)) >> 8;
+    id[4] = ((*(uint32_t*)ID1) + (*(uint32_t*)ID3));
+    id[3] = ((*(uint32_t*)ID2)) >> 24;
+    id[2] = ((*(uint32_t*)ID2)) >> 16;
+    id[1] = ((*(uint32_t*)ID2)) >> 8;
+    id[0] = ((*(uint32_t*)ID2));
 }
 
 /**
@@ -221,37 +216,30 @@ void HW_GetUniqueId( uint8_t *id )
   * @param none
   * @retval the battery level  1 (very low) to 254 (fully charged)
   */
-uint8_t HW_GetBatteryLevel( void ) 
+uint8_t HW_GetBatteryLevel(void)
 {
-  uint8_t batteryLevel = 0;
-  uint16_t measuredLevel = 0;
-  uint32_t batteryLevelmV;
+    uint8_t  batteryLevel  = 0;
+    uint16_t measuredLevel = 0;
+    uint32_t batteryLevelmV;
 
-  measuredLevel = HW_AdcReadChannel( ADC_CHANNEL_VREFINT ); 
+    measuredLevel = HW_AdcReadChannel(ADC_CHANNEL_VREFINT);
 
-  if (measuredLevel == 0)
-  {
-    batteryLevelmV = 0;
-  }
-  else
-  {
-    batteryLevelmV= (( (uint32_t) VDDA_TEMP_CAL * (*VREFINT_CAL ) )/ measuredLevel);
-  }
+    if(measuredLevel == 0) {
+        batteryLevelmV = 0;
+    } else {
+        batteryLevelmV = (((uint32_t)VDDA_TEMP_CAL * (*VREFINT_CAL)) / measuredLevel);
+    }
 
-  if ( batteryLevelmV > VDD_BAT)
-  {
-    batteryLevel = LORAWAN_MAX_BAT;
-  }
-  else if ( batteryLevelmV < VDD_MIN)
-  {
-    batteryLevel = 0;
-  }
-  else
-    
-  {
-    batteryLevel = (( (uint32_t) (batteryLevelmV - VDD_MIN)*LORAWAN_MAX_BAT) /(VDD_BAT-VDD_MIN) ); 
-  }
-  return batteryLevel;
+    if(batteryLevelmV > VDD_BAT) {
+        batteryLevel = LORAWAN_MAX_BAT;
+    } else if(batteryLevelmV < VDD_MIN) {
+        batteryLevel = 0;
+    } else
+
+    {
+        batteryLevel = (((uint32_t)(batteryLevelmV - VDD_MIN) * LORAWAN_MAX_BAT) / (VDD_BAT - VDD_MIN));
+    }
+    return batteryLevel;
 }
 
 /**
@@ -259,52 +247,50 @@ uint8_t HW_GetBatteryLevel( void )
   * @param none
   * @retval none
   */
-void HW_AdcInit(  void )
+void HW_AdcInit(void)
 {
-  if( AdcInitialized == false )
-  {
-    AdcInitialized = true;
-    GPIO_InitTypeDef initStruct;
-    
-    hadc.Instance  = ADC1;
-    
-    hadc.Init.OversamplingMode      = DISABLE;
-  
-    hadc.Init.ClockPrescaler        = ADC_CLOCK_SYNC_PCLK_DIV1;
-    /* hadc.Init.LowPowerAutoPowerOff  = DISABLE; */
-    /* hadc.Init.LowPowerFrequencyMode = ENABLE; */
-    hadc.Init.LowPowerAutoWait      = DISABLE;
-    
-    hadc.Init.Resolution            = ADC_RESOLUTION_12B;
-    /* hadc.Init.SamplingTime          = ADC_SAMPLETIME_7CYCLES_5; */
-    hadc.Init.ScanConvMode          = ADC_SCAN_DISABLE;
-    hadc.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
-    hadc.Init.ContinuousConvMode    = DISABLE;
-    hadc.Init.DiscontinuousConvMode = DISABLE;
-    hadc.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
-    hadc.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;
-    hadc.Init.DMAContinuousRequests = DISABLE;
+    if(AdcInitialized == false) {
+        AdcInitialized = true;
+        GPIO_InitTypeDef initStruct;
 
-    ADCCLK_ENABLE();
-    
+        hadc.Instance = ADC1;
 
-    HAL_ADC_Init( &hadc );
+        hadc.Init.OversamplingMode = DISABLE;
 
-    initStruct.Mode =GPIO_MODE_ANALOG;
-    initStruct.Pull = GPIO_NOPULL;
-    initStruct.Speed = GPIO_SPEED_HIGH;
+        hadc.Init.ClockPrescaler = ADC_CLOCK_SYNC_PCLK_DIV1;
+        /* hadc.Init.LowPowerAutoPowerOff  = DISABLE; */
+        /* hadc.Init.LowPowerFrequencyMode = ENABLE; */
+        hadc.Init.LowPowerAutoWait = DISABLE;
 
-    HW_GPIO_Init(  BAT_LEVEL_PORT, BAT_LEVEL_PIN, &initStruct);
-  }
+        hadc.Init.Resolution = ADC_RESOLUTION_12B;
+        /* hadc.Init.SamplingTime          = ADC_SAMPLETIME_7CYCLES_5; */
+        hadc.Init.ScanConvMode          = ADC_SCAN_DISABLE;
+        hadc.Init.DataAlign             = ADC_DATAALIGN_RIGHT;
+        hadc.Init.ContinuousConvMode    = DISABLE;
+        hadc.Init.DiscontinuousConvMode = DISABLE;
+        hadc.Init.ExternalTrigConvEdge  = ADC_EXTERNALTRIGCONVEDGE_NONE;
+        hadc.Init.EOCSelection          = ADC_EOC_SINGLE_CONV;
+        hadc.Init.DMAContinuousRequests = DISABLE;
+
+        ADCCLK_ENABLE();
+
+        HAL_ADC_Init(&hadc);
+
+        initStruct.Mode  = GPIO_MODE_ANALOG;
+        initStruct.Pull  = GPIO_NOPULL;
+        initStruct.Speed = GPIO_SPEED_HIGH;
+
+        HW_GPIO_Init(BAT_LEVEL_PORT, BAT_LEVEL_PIN, &initStruct);
+    }
 }
 /**
   * @brief This function De-initializes the ADC
   * @param none
   * @retval none
   */
-void HW_AdcDeInit( void )
+void HW_AdcDeInit(void)
 {
-  AdcInitialized = false;
+    AdcInitialized = false;
 }
 
 /**
@@ -312,41 +298,37 @@ void HW_AdcDeInit( void )
   * @param Channel
   * @retval Value
   */
-uint16_t HW_AdcReadChannel( uint32_t Channel)
+uint16_t HW_AdcReadChannel(uint32_t Channel)
 {
+    ADC_ChannelConfTypeDef adcConf;
+    uint16_t               adcData = 0;
 
-  ADC_ChannelConfTypeDef adcConf;
-  uint16_t adcData = 0;
-  
-  if( AdcInitialized == true )
-  {
-      
-    ADCCLK_ENABLE();
-    
-    /*calibrate ADC if any calibraiton hardware*/
-    HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED );
-    
-      
-    /* configure adc channel */
-    adcConf.SamplingTime = ADC_SAMPLETIME_47CYCLES_5;
-    adcConf.Channel = Channel;
-    adcConf.Rank = ADC_REGULAR_RANK_1;
-    HAL_ADC_ConfigChannel( &hadc, &adcConf);
+    if(AdcInitialized == true) {
+        ADCCLK_ENABLE();
 
-    /* Start the conversion process */
-    HAL_ADC_Start( &hadc);
-      
-    /* Wait for the end of conversion */
-    HAL_ADC_PollForConversion( &hadc, HAL_MAX_DELAY );
-      
-    /* Get the converted value of regular channel */
-    adcData = HAL_ADC_GetValue ( &hadc);
+        /*calibrate ADC if any calibraiton hardware*/
+        HAL_ADCEx_Calibration_Start(&hadc, ADC_SINGLE_ENDED);
 
-    ADC_DISABLE( &hadc) ;
+        /* configure adc channel */
+        adcConf.SamplingTime = ADC_SAMPLETIME_47CYCLES_5;
+        adcConf.Channel      = Channel;
+        adcConf.Rank         = ADC_REGULAR_RANK_1;
+        HAL_ADC_ConfigChannel(&hadc, &adcConf);
 
-    ADCCLK_DISABLE();
-  }
-  return adcData;
+        /* Start the conversion process */
+        HAL_ADC_Start(&hadc);
+
+        /* Wait for the end of conversion */
+        HAL_ADC_PollForConversion(&hadc, HAL_MAX_DELAY);
+
+        /* Get the converted value of regular channel */
+        adcData = HAL_ADC_GetValue(&hadc);
+
+        ADC_DISABLE(&hadc);
+
+        ADCCLK_DISABLE();
+    }
+    return adcData;
 }
 
 /**
@@ -355,19 +337,18 @@ uint16_t HW_AdcReadChannel( uint32_t Channel)
   * @param none
   * @retval none
   */
-void HW_EnterStopMode( void)
+void HW_EnterStopMode(void)
 {
-  BACKUP_PRIMASK();
+    BACKUP_PRIMASK();
 
-  DISABLE_IRQ( );
+    DISABLE_IRQ();
 
-  HW_DeInit( );
-  
-  
-  RESTORE_PRIMASK( );
+    HW_DeInit();
 
-  /* Enter Stop Mode */
-  HAL_PWR_EnterSTOPMode ( PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI );
+    RESTORE_PRIMASK();
+
+    /* Enter Stop Mode */
+    HAL_PWR_EnterSTOPMode(PWR_LOWPOWERREGULATOR_ON, PWR_STOPENTRY_WFI);
 }
 /**
   * @brief Exists Low Power Stop Mode
@@ -375,55 +356,52 @@ void HW_EnterStopMode( void)
   * @param none
   * @retval none
   */
-void HW_ExitStopMode( void)
+void HW_ExitStopMode(void)
 {
-  /* Disable IRQ while the MCU is not running on PLL */
+    /* Disable IRQ while the MCU is not running on PLL */
 
-  BACKUP_PRIMASK();
-  RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
-  RCC_OscInitTypeDef RCC_OscInitStruct = {0};
-  uint32_t pFLatency = 0;
-  
-  DISABLE_IRQ( );  
+    BACKUP_PRIMASK();
+    RCC_ClkInitTypeDef RCC_ClkInitStruct = {0};
+    RCC_OscInitTypeDef RCC_OscInitStruct = {0};
+    uint32_t           pFLatency         = 0;
 
-  /* In case nvic had a pending IT, the arm doesn't enter stop mode
+    DISABLE_IRQ();
+
+    /* In case nvic had a pending IT, the arm doesn't enter stop mode
    * Hence the pll is not switched off and will cause HAL_RCC_OscConfig return 
     an error*/
-  if ( __HAL_RCC_GET_SYSCLK_SOURCE() != RCC_CFGR_SWS_PLL )
-  {
-    /* Enable Power Control clock */
-    __HAL_RCC_PWR_CLK_ENABLE( );
+    if(__HAL_RCC_GET_SYSCLK_SOURCE() != RCC_CFGR_SWS_PLL) {
+        /* Enable Power Control clock */
+        __HAL_RCC_PWR_CLK_ENABLE();
 
-    /* Get the Oscillators configuration according to the internal RCC registers */
-    HAL_RCC_GetOscConfig(&RCC_OscInitStruct);
-    
-    /* Enable PLL */
-    RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_NONE;
-    RCC_OscInitStruct.PLL.PLLState = RCC_PLL_ON;
-    if (HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK)
-    {
-      while(1);
+        /* Get the Oscillators configuration according to the internal RCC registers */
+        HAL_RCC_GetOscConfig(&RCC_OscInitStruct);
+
+        /* Enable PLL */
+        RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_NONE;
+        RCC_OscInitStruct.PLL.PLLState   = RCC_PLL_ON;
+        if(HAL_RCC_OscConfig(&RCC_OscInitStruct) != HAL_OK) {
+            while(1)
+                ;
+        }
+
+        /* Get the Clocks configuration according to the internal RCC registers */
+        HAL_RCC_GetClockConfig(&RCC_ClkInitStruct, &pFLatency);
+
+        /* Select PLL as system clock source and keep HCLK, PCLK1 and PCLK2 clocks dividers as before */
+        RCC_ClkInitStruct.ClockType    = RCC_CLOCKTYPE_SYSCLK;
+        RCC_ClkInitStruct.SYSCLKSource = RCC_SYSCLKSOURCE_PLLCLK;
+        if(HAL_RCC_ClockConfig(&RCC_ClkInitStruct, pFLatency) != HAL_OK) {
+            while(1)
+                ;
+        }
+    } else {
+        /*mcu did not enter stop mode beacuse NVIC had a pending IT*/
     }
 
-    /* Get the Clocks configuration according to the internal RCC registers */
-    HAL_RCC_GetClockConfig(&RCC_ClkInitStruct, &pFLatency);
+    HW_Init();
 
-    /* Select PLL as system clock source and keep HCLK, PCLK1 and PCLK2 clocks dividers as before */
-    RCC_ClkInitStruct.ClockType     = RCC_CLOCKTYPE_SYSCLK;
-    RCC_ClkInitStruct.SYSCLKSource  = RCC_SYSCLKSOURCE_PLLCLK;
-    if (HAL_RCC_ClockConfig(&RCC_ClkInitStruct, pFLatency) != HAL_OK)
-    {
-      while(1);
-    }
-  }
-  else
-  {
-    /*mcu did not enter stop mode beacuse NVIC had a pending IT*/
-  }
-  
-  HW_Init( );
-
-  RESTORE_PRIMASK( );
+    RESTORE_PRIMASK();
 }
 
 /**
@@ -432,7 +410,7 @@ void HW_ExitStopMode( void)
   * @param none
   * @retval none
   */
-void HW_EnterSleepMode( void)
+void HW_EnterSleepMode(void)
 {
     HAL_PWR_EnterSLEEPMode(PWR_MAINREGULATOR_ON, PWR_SLEEPENTRY_WFI);
 }

@@ -12,7 +12,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 Maintainer: Miguel Luis and Gregory Cristian
 */
- /******************************************************************************
+/******************************************************************************
   * @file    mlm32l0xx_it.c
   * @author  MCD Application Team
   * @version V1.1.2
@@ -92,23 +92,18 @@ void NMI_Handler(void)
 {
 }
 
-
 /**
   * @brief  This function handles Hard Fault exception.
   * @param  None
   * @retval None
   */
 
-
 void HardFault_Handler(void)
 {
-  while(1)
-  {
-    __NOP();
-  }
-
+    while(1) {
+        __NOP();
+    }
 }
-
 
 /**
   * @brief  This function handles Memory Manage exception.
@@ -117,10 +112,9 @@ void HardFault_Handler(void)
   */
 void MemManage_Handler(void)
 {
-  /* Go to infinite loop when Memory Manage exception occurs */
-  while (1)
-  {
-  }
+    /* Go to infinite loop when Memory Manage exception occurs */
+    while(1) {
+    }
 }
 
 /**
@@ -130,10 +124,9 @@ void MemManage_Handler(void)
   */
 void BusFault_Handler(void)
 {
-  /* Go to infinite loop when Bus Fault exception occurs */
-  while (1)
-  {
-  }
+    /* Go to infinite loop when Bus Fault exception occurs */
+    while(1) {
+    }
 }
 
 /**
@@ -143,10 +136,9 @@ void BusFault_Handler(void)
   */
 void UsageFault_Handler(void)
 {
-  /* Go to infinite loop when Usage Fault exception occurs */
-  while (1)
-  {
-  }
+    /* Go to infinite loop when Usage Fault exception occurs */
+    while(1) {
+    }
 }
 
 /**
@@ -183,7 +175,7 @@ void PendSV_Handler(void)
   */
 void SysTick_Handler(void)
 {
-  HAL_IncTick();
+    HAL_IncTick();
 }
 
 /******************************************************************************/
@@ -202,56 +194,55 @@ void SysTick_Handler(void)
 {
 }*/
 
-void USART2_IRQHandler( void )
+void USART2_IRQHandler(void)
 {
-   vcom_Print( );
+    vcom_Print();
 }
 
-void RTC_IRQHandler( void )
+void RTC_IRQHandler(void)
 {
-  HW_RTC_IrqHandler ( );
+    HW_RTC_IrqHandler();
 }
 
-void EXTI0_1_IRQHandler( void )
+void EXTI0_1_IRQHandler(void)
 {
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_0 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_0);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_1 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_1);
 }
 
-void EXTI2_3_IRQHandler( void )
+void EXTI2_3_IRQHandler(void)
 {
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_2 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_2);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_3 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_3);
 }
 
-
-void EXTI4_15_IRQHandler( void )
+void EXTI4_15_IRQHandler(void)
 {
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_4 );
-  
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_5 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_4);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_6 );
-  
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_7 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_5);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_8 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_6);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_9 );
-  
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_10 );
-  
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_11 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_7);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_12 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_8);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_13 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_9);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_14 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_10);
 
-  HAL_GPIO_EXTI_IRQHandler( GPIO_PIN_15 );
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_11);
+
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_12);
+
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_13);
+
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_14);
+
+    HAL_GPIO_EXTI_IRQHandler(GPIO_PIN_15);
 }
 
 /************************ (C) COPYRIGHT STMicroelectronics *****END OF FILE****/

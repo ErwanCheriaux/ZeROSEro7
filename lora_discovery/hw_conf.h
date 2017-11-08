@@ -12,7 +12,7 @@ License: Revised BSD License, see LICENSE.TXT file include in the project
 
 Maintainer: Miguel Luis and Gregory Cristian
 */
- /******************************************************************************
+/******************************************************************************
   * @file    hw_conf.h
   * @author  MCD Application Team
   * @version V1.1.2
@@ -63,68 +63,68 @@ Maintainer: Miguel Luis and Gregory Cristian
 #define __HW_CONF_H__
 
 #ifdef __cplusplus
- extern "C" {
+extern "C" {
 #endif
 
 /* Includes ------------------------------------------------------------------*/
 
 #ifdef USE_STM32F0XX_NUCLEO
-  #include "stm32f0xx_hal.h"
-  #include "stm32f0xx_nucleo.h"
-  #include "stm32f0xx_hal_conf.h"
-  #error "create stm32f0xx_hw_conf.h "
+#include "stm32f0xx_hal.h"
+#include "stm32f0xx_nucleo.h"
+#include "stm32f0xx_hal_conf.h"
+#error "create stm32f0xx_hw_conf.h "
 #endif
 
 #ifdef USE_STM32F1XX_NUCLEO
-  #include "stm32f1xx_hal.h"
-  #include "stm32f1xx_nucleo.h"
-  #include "stm32f1xx_hal_conf.h"
-  #error "create stm32f1xx_hw_conf.h "
+#include "stm32f1xx_hal.h"
+#include "stm32f1xx_nucleo.h"
+#include "stm32f1xx_hal_conf.h"
+#error "create stm32f1xx_hw_conf.h "
 #endif
 
 #ifdef USE_STM32F3XX_NUCLEO
-  #include "stm32f3xx_hal.h"
-  #include "stm32f3xx_nucleo.h"
-  #include "stm32f3xx_hal_conf.h"
-  #error "create stm32f3xx_hw_conf.h "
+#include "stm32f3xx_hal.h"
+#include "stm32f3xx_nucleo.h"
+#include "stm32f3xx_hal_conf.h"
+#error "create stm32f3xx_hw_conf.h "
 #endif
 
 #ifdef USE_STM32F4XX_NUCLEO
-  #include "stm32f4xx_hal.h"
-  #include "stm32f4xx_nucleo.h"
-  #include "stm32f4xx_hal_conf.h"
-  #error "create stm32f4xx_hw_conf.h "
+#include "stm32f4xx_hal.h"
+#include "stm32f4xx_nucleo.h"
+#include "stm32f4xx_hal_conf.h"
+#error "create stm32f4xx_hw_conf.h "
 #endif
 
 #ifdef USE_STM32L0XX_NUCLEO
-  #include "stm32l0xx_hal.h"
-  #include "stm32l0xx_nucleo.h"
-  #include "stm32l0xx_hal_conf.h"
-  #include "stm32l0xx_hw_conf.h"
+#include "stm32l0xx_hal.h"
+#include "stm32l0xx_nucleo.h"
+#include "stm32l0xx_hal_conf.h"
+#include "stm32l0xx_hw_conf.h"
 #endif
 
 #ifdef USE_STM32L1XX_NUCLEO
-  #include "stm32l1xx_hal.h"
-  #include "stm32l1xx_nucleo.h"
-  #include "stm32l1xx_hal_conf.h"
-  #include "stm32l1xx_hw_conf.h"
+#include "stm32l1xx_hal.h"
+#include "stm32l1xx_nucleo.h"
+#include "stm32l1xx_hal_conf.h"
+#include "stm32l1xx_hw_conf.h"
 #endif
 
 #ifdef USE_STM32L4XX_NUCLEO
-  #include "stm32l4xx_hal.h"
-  #include "stm32l4xx_nucleo.h"
-  #include "stm32l4xx_hal_conf.h"
-  #include "stm32l4xx_hw_conf.h"
+#include "stm32l4xx_hal.h"
+#include "stm32l4xx_nucleo.h"
+#include "stm32l4xx_hal_conf.h"
+#include "stm32l4xx_hw_conf.h"
 #endif
 
 #ifdef USE_B_L072Z_LRWAN1
-  #include "stm32l0xx_hal.h"
-  #include "b-l072z-lrwan1.h"
-  #include "stm32l0xx_hal_conf.h"
-  #include "mlm32l0xx_hw_conf.h"
+#include "stm32l0xx_hal.h"
+#include "b-l072z-lrwan1.h"
+#include "stm32l0xx_hal_conf.h"
+#include "mlm32l0xx_hw_conf.h"
 
 #else
-    #error "Please define wichi board is used."
+#error "Please define wichi board is used."
 #endif
 /* --------Preprocessor compile swicth------------ */
 /* debug swicthes in debug.h */
@@ -136,7 +136,6 @@ Maintainer: Miguel Luis and Gregory Cristian
 
 /* debug swicthes in bsp.c */
 //#define SENSOR_ENABLED
-
 
 /* Exported types ------------------------------------------------------------*/
 /* Exported constants --------------------------------------------------------*/
