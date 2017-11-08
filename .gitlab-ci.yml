@@ -15,11 +15,11 @@ stages:
   - deploy
 
 # LINT STAGE
-# Uses smaller image for faster lint
+# Use smaller image for faster lint
 
 lint_main:
   stage: lint
-  image: alabate/clang-format
+#  image: alabate/clang-format
   script:
     - cd spy_talk
     - make format
@@ -31,7 +31,7 @@ lint_main:
 
 lint_test:
   stage: lint
-  image: alabate/clang-format
+#  image: alabate/clang-format
   script:
     - cd test
     - cd fibo
