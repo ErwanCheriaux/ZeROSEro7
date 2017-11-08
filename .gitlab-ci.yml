@@ -9,6 +9,7 @@ after_script:
 #  - rm secrets
 
 stages:
+  - lint
   - build
   - test
   - deploy
@@ -17,6 +18,32 @@ run_simple_test:
   stage: test
   script:
     - echo "this is a small example of continued integration."
+
+# LINT STAGE
+# Uses smaller image for faster lint
+
+lint_main:
+  stage: lint
+  image: alabate/clang-format
+  script:
+    - cd spy_talk
+    - make format
+    - cd ../stealth_drop
+    - make format
+    - cd ../lora_discovery
+    - make format
+    - git status --porcelain
+
+lint_test:
+  stage: lint
+  image: alabate/clang-format
+  script:
+    - cd test
+    - cd fibo
+    - make format
+    - git status --porcelain
+
+# BUILD STAGE
 
 build_spy:
   stage: build
@@ -35,6 +62,22 @@ build_lora_discovery:
   script:
     - cd lora_discovery
     - make
+
+build_test:
+  stage: build
+  script:
+    - cd test/fibo
+    - make
+
+# TEST STAGE
+
+test_fibo:
+  stage: test
+  script:
+    - cd test/fibo
+    - ./main
+
+# DEPLOY STAGE
 
 artifacts_flashable:
   stage: deploy
