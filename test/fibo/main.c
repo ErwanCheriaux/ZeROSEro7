@@ -24,11 +24,13 @@ int main(void)
     fibo_result[8] = 34;
     fibo_result[9] = 55;
 
-    for(int i=0; i<NB_TEST; i++)
-        if(fibo_static(i) != fibo_result[i]) return 1;
+    for(int i = 0; i < NB_TEST; i++)
+        if(fibo_static(i) != fibo_result[i])
+            return 1;
 
-    for(int i=0; i<NB_TEST; i++)
-        if(fibo_recursive(i) != fibo_result[i]) return 1;
+    for(int i = 0; i < NB_TEST; i++)
+        if(fibo_recursive(i) != fibo_result[i])
+            return 1;
 
     return 0;
 }
