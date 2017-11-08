@@ -3,7 +3,7 @@ CFLAGS=-I.
 
 EXE  = main
 DEPS = fibo.h
-OBJ  = main.o fibo.o 
+OBJ  = main.o fibo.o
 
 %.o: %.c $(DEPS)
 	$(CC) -c -o $@ $< $(CFLAGS)
@@ -15,3 +15,6 @@ $(EXE): $(OBJ)
 
 clean:
 	rm -f $(EXE) $(OBJ)
+
+format: *.c *.h
+	clang-format -i $^
