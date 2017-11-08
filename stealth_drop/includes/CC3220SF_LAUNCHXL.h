@@ -50,7 +50,7 @@ extern "C" {
 #endif
 
 #define CC3220SF_LAUNCHXL_GPIO_LED_OFF (0)
-#define CC3220SF_LAUNCHXL_GPIO_LED_ON  (1)
+#define CC3220SF_LAUNCHXL_GPIO_LED_ON (1)
 
 /*!
  *  @def    CC3220SF_LAUNCHXL_ADCName

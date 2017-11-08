@@ -684,13 +684,12 @@ const uint_least8_t UART_count = CC3220SF_LAUNCHXL_UARTCOUNT;
 
 WatchdogCC32XX_Object watchdogCC3220SObjects[CC3220SF_LAUNCHXL_WATCHDOGCOUNT];
 
-const WatchdogCC32XX_HWAttrs watchdogCC3220SHWAttrs[CC3220SF_LAUNCHXL_WATCHDOGCOUNT] = {
-    {
-        .baseAddr    = WDT_BASE,
-        .intNum      = INT_WDT,
-        .intPriority = (~0),
-        .reloadValue = 80000000  // 1 second period at default CPU clock freq
-    }};
+const WatchdogCC32XX_HWAttrs watchdogCC3220SHWAttrs[CC3220SF_LAUNCHXL_WATCHDOGCOUNT] = {{
+    .baseAddr    = WDT_BASE,
+    .intNum      = INT_WDT,
+    .intPriority = (~0),
+    .reloadValue = 80000000  // 1 second period at default CPU clock freq
+}};
 
 const Watchdog_Config Watchdog_config[CC3220SF_LAUNCHXL_WATCHDOGCOUNT] = {
     {.fxnTablePtr = &WatchdogCC32XX_fxnTable,

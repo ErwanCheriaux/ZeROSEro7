@@ -24,16 +24,8 @@ $(NAME): $(OBJECTS)
 	@ echo linking...
 	@ $(LNK) $^ $(LFLAGS) -o $@
 
-format: $(OBJECTS:%.o=%.format)
-
-%.format: src/%.c
-	clang-format $^ > $@
-	mv $@ $^
-
-lint:
-	clang-format src/main.c > tmp_format
-	diff tmp_format src/main.c
-	rm -f tmp_format
+format: src/*.c includes/*.h
+	clang-format -i $^
 
 # Flash and run program on board
 flash:

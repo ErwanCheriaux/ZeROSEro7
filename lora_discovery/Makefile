@@ -35,7 +35,7 @@ DEFINES = -D STM32L072xx \
 	-D _DEBUG
 
 LDSCRIPT = STM32L072CZYx_FLASH.ld
-CWARN = -Wall -Wextra -Werror -Wno-unused-parameter -Wno-sign-compare
+CWARN = -Wall -Wextra -Werror -Wno-unused-parameter -Wno-sign-compare -Wno-comment
 CFLAGS = $(ARCH) $(CWARN) $(DEFINES) -Og -ggdb -std=gnu11
 LDFLAGS = $(INCFILE) $(INCDIR) -T $(LDSCRIPT) -specs=nosys.specs -specs=nano.specs
 
@@ -74,3 +74,6 @@ BL072Z_SRC = $(BSP)/B-L072Z-LRWAN1/b-l072z-lrwan1.c \
 CSRC = $(USER_SRC) $(BL072Z_SRC)
 
 $(ELF) : $(CSRC)
+
+format: *.c *.h
+	clang-format -i $^
