@@ -14,11 +14,6 @@ stages:
   - test
   - deploy
 
-run_simple_test:
-  stage: test
-  script:
-    - echo "this is a small example of continued integration."
-
 # LINT STAGE
 # Uses smaller image for faster lint
 
@@ -45,29 +40,31 @@ lint_test:
 
 # BUILD STAGE
 
-build_spy:
+build_main:
   stage: build
   script:
     - cd spy_talk
     - make
-
-build_stealth:
-  stage: build
-  script:
-    - cd stealth_drop
+    - cd ../stealth_drop
     - make
-
-build_lora_discovery:
-  stage: build
-  script:
-    - cd lora_discovery
+    - cd ../lora_discovery
     - make
+  artifacts:
+    paths:
+    - lora_discovery/main
+    - spy_talk/_build/nrf52832_xxaa.hex
+    - stealth_drop/main
+    expire_in: 1 week
 
 build_test:
   stage: build
   script:
     - cd test/fibo
     - make
+  artifacts:
+    paths:
+    - test/fibo/main
+    expire_in: 20 minutes
 
 # TEST STAGE
 
@@ -78,16 +75,6 @@ test_fibo:
     - ./main
 
 # DEPLOY STAGE
-
-artifacts_flashable:
-  stage: deploy
-  script:
-  artifacts:
-    paths:
-    - lora_discovery/main
-    - spy_talk/_build/nrf52832_xxaa.hex
-    - stealth_drop/main
-    expire_in: 1 week
 
 # Sample job
 #job1:
