@@ -7,11 +7,11 @@ This project consists in 3 spy gadgets for which we will design the PCB and choo
 
 Following are the descriptions for each of our three devices :
 
-1. Keyboard Sniffer
+1. USB Sniffer
 2. Spy Talk
 3. Stealth Drop
 
-# Keyboard Sniffer
+# USB Sniffer
 Need to know the passwords used on that computer? Or do you want to know email contacts of your targets ? Well, all of this could be retrieved with a keylogger but maybe their security is too high. We have another solution for you !
 
 This would be a small usb2usb device that you plug in between the computer and it’s keyboard. While for the user it will remain transparent and forward all traffic, it will log all the typing in the background and communicate it on demand through some wireless mean. It could even do some pre-sorting and mark susceptible passwords and emails. This gadget should be as small and discreet as possible so that no one notices the little man in the middle.
