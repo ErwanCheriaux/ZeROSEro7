@@ -21,7 +21,7 @@ lint_main:
   stage: lint
 #  image: alabate/clang-format
   script:
-    - cd spy_talk
+    - cd nrf52_dev_kit
     - make format
     - cd ../stealth_drop
     - make format
@@ -43,7 +43,7 @@ lint_test:
 build_main:
   stage: build
   script:
-    - cd spy_talk
+    - cd nrf52_dev_kit
     - make
     - cd ../stealth_drop
     - make
@@ -52,7 +52,7 @@ build_main:
   artifacts:
     paths:
     - lora_discovery/main
-    - spy_talk/_build/nrf52832_xxaa.hex
+    - nrf52_dev_kit/_build/nrf52832_xxaa.hex
     - stealth_drop/main
     expire_in: 1 week
 
