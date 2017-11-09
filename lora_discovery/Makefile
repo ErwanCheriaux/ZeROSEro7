@@ -90,7 +90,7 @@ format: *.c *.h
 .PHONY: clean startgdbserver debug
 
 startgdbserver :
-	openocd
+	st-utils
 
 debug : $(ELF)
 	$(GDB) $(ELF)
