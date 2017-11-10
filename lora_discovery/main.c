@@ -197,11 +197,9 @@ int main(void)
     HW_Init();
 
     BSP_LED_Init(LED_BLUE);
-    
-    LED_Toggle(LED_BLUE);
-    LED_Toggle(LED_GREEN);
-    LED_Toggle(LED_RED2);
-    LED_Toggle(LED_RED1);
+    BSP_LED_Init(LED_GREEN);
+    BSP_LED_Init(LED_RED1);
+    BSP_LED_Init(LED_RED2);
 
     /* Led Timers*/
     TimerInit(&timerLed, OnledEvent);
