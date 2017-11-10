@@ -37,29 +37,45 @@
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
  * 
  */
-/** @file
- *
- * @defgroup blinky_example_main main.c
- * @{
- * @ingroup blinky_example
- * @brief Blinky Example Application main file.
- *
- * This file contains the source code for a sample application to blink LEDs.
- *
- */
 
 #include <stdbool.h>
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
+#include "fibo.h"
 
 /**
  * @brief Function for application main entry.
  */
+
+#define NB_TEST 10
+
+static int fibo_result[NB_TEST];
+
 int main(void)
 {
+    /* Expected result. */
+    fibo_result[0] = 1;
+    fibo_result[1] = 1;
+    fibo_result[2] = 2;
+    fibo_result[3] = 3;
+    fibo_result[4] = 5;
+    fibo_result[5] = 8;
+    fibo_result[6] = 13;
+    fibo_result[7] = 21;
+    fibo_result[8] = 34;
+    fibo_result[9] = 55;
+
     /* Configure board. */
     bsp_board_leds_init();
+
+    for(int i = 0; i < NB_TEST; i++)
+        if(fibo_static(i) != fibo_result[i])
+            return 1;
+
+    for(int i = 0; i < NB_TEST; i++)
+        if(fibo_recursive(i) != fibo_result[i])
+            return 1;
 
     /* Toggle LEDs. */
     while(true) {
@@ -68,6 +84,8 @@ int main(void)
             nrf_delay_ms(100);
         }
     }
+
+    return 0;
 }
 
 /**
