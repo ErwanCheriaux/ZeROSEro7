@@ -6,13 +6,19 @@ SDK_ROOT     := ../nordic/nRF5_SDK
 COMMAND_ROOT := ../nordic/nRF5x-Command-Line-Tools
 PROJ_DIR     := .
 
-LINKER_SCRIPT := nrf52_xxaa.ld
+GNU_PREFIX    := arm-none-eabi
+LINKER_SCRIPT := $(TARGETS).ld
+
+GDB := $(GNU_PREFIX)-gdb
+ELF := $(OUTPUT_DIRECTORY)/$(TARGETS).out
+HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 
 # Source files common to all targets
 SRC_FILES += \
+  $(PROJ_DIR)/main.c \
+  $(PROJ_DIR)/../test/fibo/fibo.c \
   $(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf52.S \
   $(SDK_ROOT)/components/toolchain/system_nrf52.c \
-  $(PROJ_DIR)/main.c \
   $(SDK_ROOT)/components/boards/boards.c \
   $(SDK_ROOT)/components/libraries/util/app_error.c \
   $(SDK_ROOT)/components/libraries/util/app_error_weak.c \
@@ -22,6 +28,8 @@ SRC_FILES += \
 
 # Include folders common to all targets
 INC_FOLDERS += \
+  $(PROJ_DIR) \
+  $(PROJ_DIR)/../test/fibo \
   $(SDK_ROOT)/components \
   $(SDK_ROOT)/components/libraries/experimental_memobj \
   $(SDK_ROOT)/components/libraries/experimental_section_vars \
@@ -30,7 +38,6 @@ INC_FOLDERS += \
   $(SDK_ROOT)/components/libraries/balloc \
   $(SDK_ROOT)/components/libraries/experimental_log \
   $(SDK_ROOT)/components/libraries/experimental_log/src \
-  $(PROJ_DIR) \
   $(SDK_ROOT)/components/toolchain/gcc \
   $(SDK_ROOT)/components/libraries/bsp \
   $(SDK_ROOT)/components/drivers_nrf/nrf_soc_nosd \
@@ -45,12 +52,13 @@ INC_FOLDERS += \
 LIB_FILES += \
 
 # Optimization flags
-OPT = -O3 -g3
+OPT = -Og -g3
 # Uncomment the line below to enable link time optimization
 #OPT += -flto
 
 # C flags common to all targets
 CFLAGS += $(OPT)
+CFLAGS += -std=gnu11
 CFLAGS += -DBOARD_PCA10040
 CFLAGS += -DBSP_DEFINES_ONLY
 CFLAGS += -DCONFIG_GPIO_AS_PINRESET
@@ -59,7 +67,7 @@ CFLAGS += -DNRF52832_XXAA
 CFLAGS += -DNRF52_PAN_74
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror
+CFLAGS +=  -Wall -Wextra -Werror -Wno-unused-parameter
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
@@ -112,8 +120,6 @@ help:
 
 TEMPLATE_PATH := $(SDK_ROOT)/components/toolchain/gcc
 
-GDB := $(GNU_PREFIX)-gdb
-
 include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
@@ -121,7 +127,7 @@ $(foreach target, $(TARGETS), $(call define_target, $(target)))
 .PHONY: flash startgdbserver debug
 
 # Flash the program
-flash: $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
+flash: $(HEX)
 	@echo Flashing: $<
 	$(COMMAND_ROOT)/nrfjprog/nrfjprog -f nrf52 --program $< --sectorerase
 	$(COMMAND_ROOT)/nrfjprog/nrfjprog -f nrf52 --reset
@@ -129,7 +135,7 @@ flash: $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
 startgdbserver:
 	JLinkGDBServer -device nrf52832_xxAA -if swd -speed auto -port 2331
 
-debug: $(OUTPUT_DIRECTORY)/nrf52832_xxaa.hex
+debug: $(ELF)
 	$(GDB) $<
 
 format: *.c *.h
