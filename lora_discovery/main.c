@@ -196,6 +196,8 @@ int main(void)
 
     HW_Init();
 
+    BSP_LED_Init(LED_BLUE);
+    
     LED_Toggle(LED_BLUE);
     LED_Toggle(LED_GREEN);
     LED_Toggle(LED_RED2);
