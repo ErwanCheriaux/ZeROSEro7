@@ -24,13 +24,14 @@ make debug
 
 ```sh
 cd build/Release; sudo make install
-cp etc/udev/rules.d/* /etc/udev/rules.d
+cd ../..
+sudo cp etc/udev/rules.d/* /etc/udev/rules.d
 sudo udevadm control --reload-rules
 sudo udevadm trigger
 sudo addgroup stlink || sudo groupadd stlink
 sudo usermod -a -G stlink $USER
 ```
-
+Make sure /usr/local/lib is in your LD_LIBRARY_PATH
 
 - OR install to a directory (in A406) :
 
