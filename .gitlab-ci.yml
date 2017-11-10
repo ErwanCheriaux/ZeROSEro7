@@ -23,8 +23,8 @@ lint_main:
   script:
     - cd nrf52_dev_kit
     - make format
-    - cd ../stealth_drop
-    - make format
+#    - cd ../stealth_drop
+#    - make format
     - cd ../lora_discovery
     - make format
     - git status --porcelain
@@ -45,8 +45,8 @@ build_main:
   script:
     - cd nrf52_dev_kit
     - make
-    - cd ../stealth_drop
-    - make
+#    - cd ../stealth_drop
+#    - make
     - cd ../lora_discovery
     - make
   artifacts:
