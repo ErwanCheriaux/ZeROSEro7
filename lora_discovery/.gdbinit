@@ -1,6 +1,5 @@
 target extended localhost:4242
 
-mon endian little
 mon halt
 
 # User interface with asm, regs and cmd windows

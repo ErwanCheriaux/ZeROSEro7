@@ -196,6 +196,11 @@ int main(void)
 
     HW_Init();
 
+    LED_Toggle(LED_BLUE);
+    LED_Toggle(LED_GREEN);
+    LED_Toggle(LED_RED2);
+    LED_Toggle(LED_RED1);
+
     /* Led Timers*/
     TimerInit(&timerLed, OnledEvent);
     TimerSetValue(&timerLed, LED_PERIOD_MS);

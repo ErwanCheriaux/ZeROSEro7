@@ -11,7 +11,7 @@ OD   = $(TRGT)objdump
 SZ   = $(TRGT)size
 HEX  = $(CP) -O ihex
 BIN  = $(CP) -O binary
-ARCH = -mcpu=cortex-m0plus -mthumb -DTHUMB
+ARCH = -mcpu=cortex-m0plus -mthumb -DTHUMB -mlittle-endian
 
 CUBEEXPANSION = ../icube_lrwan/CubeExpansion
 DRIVERS = $(CUBEEXPANSION)/Drivers
@@ -90,7 +90,7 @@ format: *.c *.h
 .PHONY: clean startgdbserver debug
 
 startgdbserver :
-	st-utils
+	st-util
 
 debug : $(ELF)
 	$(GDB) $(ELF)
