@@ -1,0 +1,46 @@
+\hypertarget{LoRaMacCrypto_8c}{}\section{Mac/\+Lo\+Ra\+Mac\+Crypto.c File Reference}
+\label{LoRaMacCrypto_8c}\index{Mac/\+Lo\+Ra\+Mac\+Crypto.\+c@{Mac/\+Lo\+Ra\+Mac\+Crypto.\+c}}
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}aes.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}cmac.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac\+Crypto.\+h\char`\"{}}\newline
+Include dependency graph for Lo\+Ra\+Mac\+Crypto.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{LoRaMacCrypto_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{LoRaMacCrypto_8c_a5c3d9a633ffde7d6b49116095bf4395e}{L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE}~16
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga6ee265070494b83255e7fdc4dff985da}{Lo\+Ra\+Mac\+Compute\+Mic} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint32\+\_\+t $\ast$mic)
+\begin{DoxyCompactList}\small\item\em Computes the Lo\+Ra\+M\+AC frame M\+IC field. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga50339e60abea2186ca7e584b489718b1}{Lo\+Ra\+Mac\+Payload\+Encrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint8\+\_\+t $\ast$enc\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga41f9ba19f61b195420914ed58c8b94c7}{Lo\+Ra\+Mac\+Payload\+Decrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint8\+\_\+t $\ast$dec\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gac9216af326316c9e7f207d4e73aed199}{Lo\+Ra\+Mac\+Join\+Compute\+Mic} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t $\ast$mic)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gac2379cd7cbeb6febaa2a7be5d9f04b5c}{Lo\+Ra\+Mac\+Join\+Decrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint8\+\_\+t $\ast$dec\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gad6fc2ace27fa388ec860fc2e5ae1f544}{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys} (const uint8\+\_\+t $\ast$key, const uint8\+\_\+t $\ast$app\+Nonce, uint16\+\_\+t dev\+Nonce, uint8\+\_\+t $\ast$nwk\+S\+Key, uint8\+\_\+t $\ast$app\+S\+Key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{LoRaMacCrypto_8c_a5c3d9a633ffde7d6b49116095bf4395e}\label{LoRaMacCrypto_8c_a5c3d9a633ffde7d6b49116095bf4395e}} 
+\index{Lo\+Ra\+Mac\+Crypto.\+c@{Lo\+Ra\+Mac\+Crypto.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE@{L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE}}
+\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE@{L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE}!Lo\+Ra\+Mac\+Crypto.\+c@{Lo\+Ra\+Mac\+Crypto.\+c}}
+\subsubsection{\texorpdfstring{L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE}{LORAMAC\_MIC\_BLOCK\_B0\_SIZE}}
+{\footnotesize\ttfamily \#define L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+I\+C\+\_\+\+B\+L\+O\+C\+K\+\_\+\+B0\+\_\+\+S\+I\+ZE~16}
+
+C\+M\+A\+C/\+A\+ES Message Integrity Code (M\+IC) Block B0 size 

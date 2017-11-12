@@ -1,0 +1,83 @@
+\hypertarget{RegionCN779_8c}{}\section{Mac/region/\+Region\+C\+N779.c File Reference}
+\label{RegionCN779_8c}\index{Mac/region/\+Region\+C\+N779.\+c@{Mac/region/\+Region\+C\+N779.\+c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}radio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Region.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Region\+Common.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Region\+C\+N779.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+Include dependency graph for Region\+C\+N779.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{RegionCN779_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{RegionCN779_8c_a1b20a8de3ae59c0b063fb313f0c70890}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t} \hyperlink{group__REGIONCN779_gab45c9a48b25622ab197ab8510cc7cbc0}{Region\+C\+N779\+Get\+Phy\+Param} (\hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t} $\ast$get\+Phy)
+\begin{DoxyCompactList}\small\item\em The function gets a value of a specific phy attribute. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCN779_gab7e1485f1112861ad7dae9801995a2c4}{Region\+C\+N779\+Set\+Band\+Tx\+Done} (\hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t} $\ast$tx\+Done)
+\begin{DoxyCompactList}\small\item\em Updates the last TX done parameters of the current channel. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCN779_ga85953f37b52567b54689c354671a14f6}{Region\+C\+N779\+Init\+Defaults} (\hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t} type)
+\begin{DoxyCompactList}\small\item\em Initializes the channels masks and the channels. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCN779_ga7108626b64685883842049a36d865208}{Region\+C\+N779\+Verify} (\hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t} $\ast$verify, \hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t} phy\+Attribute)
+\begin{DoxyCompactList}\small\item\em Verifies a parameter. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCN779_ga7f02e6a802649d9b93c4c56eff271a26}{Region\+C\+N779\+Apply\+C\+F\+List} (\hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t} $\ast$apply\+C\+F\+List)
+\begin{DoxyCompactList}\small\item\em The function parses the input buffer and sets up the channels of the CF list. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCN779_ga06c5fe5ebbc02741394fb573944467b7}{Region\+C\+N779\+Chan\+Mask\+Set} (\hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t} $\ast$chan\+Mask\+Set)
+\begin{DoxyCompactList}\small\item\em Sets a channels mask. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCN779_ga4c114db1d998a5ba77bb87ab34316ff8}{Region\+C\+N779\+Adr\+Next} (\hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t} $\ast$adr\+Next, int8\+\_\+t $\ast$dr\+Out, int8\+\_\+t $\ast$tx\+Pow\+Out, uint32\+\_\+t $\ast$adr\+Ack\+Counter)
+\begin{DoxyCompactList}\small\item\em Calculates the next datarate to set, when A\+DR is on or off. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCN779_ga4f354a88e5bfee44eccaad7d2e18c87e}{Region\+C\+N779\+Compute\+Rx\+Window\+Parameters} (int8\+\_\+t datarate, uint8\+\_\+t min\+Rx\+Symbols, uint32\+\_\+t rx\+Error, \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$rx\+Config\+Params)
+\item 
+bool \hyperlink{group__REGIONCN779_ga89b2db72c7dd1dbaa07135d538e3c2fe}{Region\+C\+N779\+Rx\+Config} (\hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$rx\+Config, int8\+\_\+t $\ast$datarate)
+\begin{DoxyCompactList}\small\item\em Configuration of the RX windows. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCN779_gae628efcfcba9afc2620f3c1234b90c3d}{Region\+C\+N779\+Tx\+Config} (\hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t} $\ast$tx\+Config, int8\+\_\+t $\ast$tx\+Power, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$tx\+Time\+On\+Air)
+\begin{DoxyCompactList}\small\item\em TX configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCN779_gae3bdb6e223de1fd6b72182eb278f3828}{Region\+C\+N779\+Link\+Adr\+Req} (\hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t} $\ast$link\+Adr\+Req, int8\+\_\+t $\ast$dr\+Out, int8\+\_\+t $\ast$tx\+Pow\+Out, uint8\+\_\+t $\ast$nb\+Rep\+Out, uint8\+\_\+t $\ast$nb\+Bytes\+Parsed)
+\begin{DoxyCompactList}\small\item\em The function processes a Link A\+DR Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCN779_gad14dfe4070bdf46142d09d35d617b25c}{Region\+C\+N779\+Rx\+Param\+Setup\+Req} (\hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$rx\+Param\+Setup\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a RX Parameter Setup Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCN779_gab4c6ffa72f1da0e2ef40431ab7fd72fa}{Region\+C\+N779\+New\+Channel\+Req} (\hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t} $\ast$new\+Channel\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a Channel Request. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGIONCN779_ga6dc963da2e0b143e7313780fcd946855}{Region\+C\+N779\+Tx\+Param\+Setup\+Req} (\hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$tx\+Param\+Setup\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a TX Param\+Setup Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCN779_gaa34ccc032a50e5bef17fc59ca5eb89bc}{Region\+C\+N779\+Dl\+Channel\+Req} (\hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t} $\ast$dl\+Channel\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a Dl\+Channel Request. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGIONCN779_ga2ea0c39d57f08b798e30c7207f1cf165}{Region\+C\+N779\+Alternate\+Dr} (\hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t} $\ast$alternate\+Dr)
+\begin{DoxyCompactList}\small\item\em Alternates the datarate of the channel for the join request. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCN779_ga159d16a30e948dcab70399897672848b}{Region\+C\+N779\+Calc\+Back\+Off} (\hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t} $\ast$calc\+Back\+Off)
+\begin{DoxyCompactList}\small\item\em Calculates the back-\/off time. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCN779_ga6506624bcb6ec8ae3e13e97d32301aaf}{Region\+C\+N779\+Next\+Channel} (\hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t} $\ast$next\+Chan\+Params, uint8\+\_\+t $\ast$channel, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$time, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$aggregated\+Time\+Off)
+\begin{DoxyCompactList}\small\item\em Searches and set the next random available channel. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__REGIONCN779_ga087a9e4729bae8b825db62caca5f20d2}{Region\+C\+N779\+Channel\+Add} (\hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t} $\ast$channel\+Add)
+\begin{DoxyCompactList}\small\item\em Adds a channel. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCN779_ga3ea3d4f5fe7cb25f562f4e6f95396eed}{Region\+C\+N779\+Channels\+Remove} (\hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t} $\ast$channel\+Remove)
+\begin{DoxyCompactList}\small\item\em Removes a channel. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCN779_ga702d0d0348fdbcb2b66f7e9d5fb93a61}{Region\+C\+N779\+Set\+Continuous\+Wave} (\hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t} $\ast$continuous\+Wave)
+\begin{DoxyCompactList}\small\item\em Sets the radio into continuous wave mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCN779_gab03fbee2e88e81b71c04f907af8b283e}{Region\+C\+N779\+Apply\+Dr\+Offset} (uint8\+\_\+t downlink\+Dwell\+Time, int8\+\_\+t dr, int8\+\_\+t dr\+Offset)
+\begin{DoxyCompactList}\small\item\em Computes new datarate according to the given offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{RegionCN779_8c_a1b20a8de3ae59c0b063fb313f0c70890}\label{RegionCN779_8c_a1b20a8de3ae59c0b063fb313f0c70890}} 
+\index{Region\+C\+N779.\+c@{Region\+C\+N779.\+c}!C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE@{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE}}
+\index{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE@{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE}!Region\+C\+N779.\+c@{Region\+C\+N779.\+c}}
+\subsubsection{\texorpdfstring{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE}{CHANNELS\_MASK\_SIZE}}
+{\footnotesize\ttfamily \#define C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+S\+K\+\_\+\+S\+I\+ZE~1}
+

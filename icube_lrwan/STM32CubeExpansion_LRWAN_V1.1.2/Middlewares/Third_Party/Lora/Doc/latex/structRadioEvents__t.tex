@@ -1,0 +1,36 @@
+\hypertarget{structRadioEvents__t}{}\section{Radio\+Events\+\_\+t Struct Reference}
+\label{structRadioEvents__t}\index{Radio\+Events\+\_\+t@{Radio\+Events\+\_\+t}}
+
+
+Radio driver callback functions.  
+
+
+
+
+{\ttfamily \#include $<$radio.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{group__LORA_gafe2bdc503d6c09946dee1b800e2fb3a2}{Tx\+Done} )(void)
+\begin{DoxyCompactList}\small\item\em Tx Done callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1f435b15ceae4ce1e44af3d3c5845ffd}{Tx\+Timeout} )(void)
+\begin{DoxyCompactList}\small\item\em Tx Timeout callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga92665b4b0a07eb2df1b435dcef314b48}{Rx\+Done} )(uint8\+\_\+t $\ast$payload, uint16\+\_\+t size, int16\+\_\+t rssi, int8\+\_\+t snr)
+\begin{DoxyCompactList}\small\item\em Rx Done callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1566693134c9ae4bad8a0f90ed72fff2}{Rx\+Timeout} )(void)
+\begin{DoxyCompactList}\small\item\em Rx Timeout callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga17b9f56c75cbc08de07f5b2a9d234002}{Rx\+Error} )(void)
+\begin{DoxyCompactList}\small\item\em Rx Error callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1c7fd427d45e18c386c0dc10b496d74b}{Fhss\+Change\+Channel} )(uint8\+\_\+t current\+Channel)
+\begin{DoxyCompactList}\small\item\em F\+H\+SS Change Channel callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_gacf79a39fe3d615bed87b1414e73df6b2}{Cad\+Done} )(bool channel\+Activity\+Detected)
+\begin{DoxyCompactList}\small\item\em C\+AD Done callback prototype. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Radio driver callback functions. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Phy/\hyperlink{radio_8h}{radio.\+h}\end{DoxyCompactItemize}

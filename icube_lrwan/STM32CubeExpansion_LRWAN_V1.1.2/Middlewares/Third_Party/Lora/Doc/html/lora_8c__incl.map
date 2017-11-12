@@ -1,0 +1,7 @@
+<map id="Core/lora.c" name="Core/lora.c">
+<area shape="rect" id="node3" href="$timeServer_8h.html" title="timeServer.h" alt="" coords="80,80,176,107"/>
+<area shape="rect" id="node6" href="$LoRaMac_8h.html" title="LoRa MAC layer implementation. " alt="" coords="169,155,258,181"/>
+<area shape="rect" id="node7" href="$lora_8h.html" title="lora.h" alt="" coords="283,80,338,107"/>
+<area shape="rect" id="node4" href="$utilities_8h.html" title="utilities.h" alt="" coords="69,155,144,181"/>
+<area shape="rect" id="node9" href="$Region_8h.html" title="Region implementation. " alt="" coords="430,155,543,181"/>
+</map>

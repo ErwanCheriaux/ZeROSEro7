@@ -1,0 +1,352 @@
+\hypertarget{LoRaMac_8c}{}\section{Mac/\+Lo\+Ra\+Mac.c File Reference}
+\label{LoRaMac_8c}\index{Mac/\+Lo\+Ra\+Mac.\+c@{Mac/\+Lo\+Ra\+Mac.\+c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}radio.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}time\+Server.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}region/\+Region.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac\+Crypto.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}debug.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac\+Test.\+h\char`\"{}}\newline
+Include dependency graph for Lo\+Ra\+Mac.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{LoRaMac_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{LoRaMac_8c_a54769799fcc79d1d3fd1f19f123cc57b}{L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD}~255
+\item 
+\#define \hyperlink{LoRaMac_8c_a4ac517018d0390785daf8d90bf99df8f}{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH}~128
+\item 
+\#define \hyperlink{LoRaMac_8c_ae2ccbfeefb0390b3cafca4da463d245c}{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH}~15
+\item 
+\#define \hyperlink{LoRaMac_8c_a1d58cbd560840cdab3e4427797e88c3a}{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}~100
+\item 
+\#define \hyperlink{LoRaMac_8c_a70461da0dc970b3de51718ab397a81db}{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}~1000
+\item 
+\#define \hyperlink{LoRaMac_8c_ada6c3c87744e22f1c053caba7c40d26c}{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}~10000
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490}{e\+Lo\+Ra\+Mac\+State} \{ \newline
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a3af5105c630ff1cfa443789cfa2f318c}{L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE} = 0x00000000, 
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a5b4a3679d3966d49741f0aec6b15d731}{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG} = 0x00000001, 
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a51fd14464af45ead2dda2a90760e4bc4}{L\+O\+R\+A\+M\+A\+C\+\_\+\+RX} = 0x00000002, 
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a99ee636d0a66bf7f2a5644b5947dce2f}{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+EQ} = 0x00000004, 
+\newline
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490ac3b5306588342cdeffe6367350d875c3}{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+RY} = 0x00000008, 
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490aea3d825c5789497c1dd7515b26a8e8f8}{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+D\+E\+L\+A\+Y\+ED} = 0x00000010, 
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490ad649702e2b40e41dbed3ff5b2e3c21c5}{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+C\+O\+N\+F\+IG} = 0x00000020, 
+\hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a7c7d70244f468d92565a9e078d0790bf}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+X\+\_\+\+A\+B\+O\+RT} = 0x00000040
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{LoRaMac_8c_a1d5d30b5cbe0349bab89375480c377bf}{Send} (\hyperlink{group__LORAMAC_gaff5f7004a7a48d53d858e26834b53efa}{Lo\+Ra\+Mac\+Header\+\_\+t} $\ast$mac\+Hdr, uint8\+\_\+t f\+Port, void $\ast$f\+Buffer, uint16\+\_\+t f\+Buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC layer generic send frame. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{LoRaMac_8c_a1c2e41a970de949b0b59a8177cb8ef29}{Prepare\+Frame} (\hyperlink{group__LORAMAC_gaff5f7004a7a48d53d858e26834b53efa}{Lo\+Ra\+Mac\+Header\+\_\+t} $\ast$mac\+Hdr, \hyperlink{group__LORAMAC_ga12b0f3e7e6edd26cfdb9d10a1d873ab7}{Lo\+Ra\+Mac\+Frame\+Ctrl\+\_\+t} $\ast$f\+Ctrl, uint8\+\_\+t f\+Port, void $\ast$f\+Buffer, uint16\+\_\+t f\+Buffer\+Size)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC layer frame buffer initialization. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{LoRaMac_8c_a2a974677f0401e2575148082667331de}{Send\+Frame\+On\+Channel} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC layer prepared frame buffer transmission with channel specification. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{LoRaMac_8c_a6a476e328faedf4544aa63adf40f931e}{Set\+Tx\+Continuous\+Wave} (uint16\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Sets the radio in continuous transmission mode. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{LoRaMac_8c_a1974034d3a6ef2a0c38f4f853cfb62fb}{Set\+Tx\+Continuous\+Wave1} (uint16\+\_\+t timeout, uint32\+\_\+t frequency, uint8\+\_\+t power)
+\begin{DoxyCompactList}\small\item\em Sets the radio in continuous transmission mode. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga7ca445cf825e45999810b3991273eba5}{Lo\+Ra\+Mac\+Initialization} (\hyperlink{group__LORAMAC_gafc0443f59f49d8597c0accb5e6074c44}{Lo\+Ra\+Mac\+Primitives\+\_\+t} $\ast$primitives, \hyperlink{group__LORAMAC_ga2899a8ebbefe08452ddf89e14159a160}{Lo\+Ra\+Mac\+Callback\+\_\+t} $\ast$callbacks, \hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC layer initialization. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga8b0aeaf75f9404ce01da9b202252c231}{Lo\+Ra\+Mac\+Query\+Tx\+Possible} (uint8\+\_\+t size, \hyperlink{group__LORAMAC_ga3219fea2f3c3355f80d2ed29db613683}{Lo\+Ra\+Mac\+Tx\+Info\+\_\+t} $\ast$tx\+Info)
+\begin{DoxyCompactList}\small\item\em Queries the Lo\+Ra\+M\+AC if it is possible to send the next frame with a given payload size. The Lo\+Ra\+M\+AC takes scheduled M\+AC commands into account and reports, when the frame can be send or not. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga3e208a4f73213aa801eeb9d9da7b71dd}{Lo\+Ra\+Mac\+Mib\+Get\+Request\+Confirm} (\hyperlink{group__LORAMAC_ga9269d5ae88dd157a58e9d60f680d63f0}{Mib\+Request\+Confirm\+\_\+t} $\ast$mib\+Get)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+I\+B-\/\+Get. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga7a4ee0ced221591206b09630d4a70844}{Lo\+Ra\+Mac\+Mib\+Set\+Request\+Confirm} (\hyperlink{group__LORAMAC_ga9269d5ae88dd157a58e9d60f680d63f0}{Mib\+Request\+Confirm\+\_\+t} $\ast$mib\+Set)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+I\+B-\/\+Set. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_gad74920538f07f34e773ca5de9ec89370}{Lo\+Ra\+Mac\+Channel\+Add} (uint8\+\_\+t id, \hyperlink{group__LORAMAC_ga1360ca6f82c6d125ea43a9dad9b56184}{Channel\+Params\+\_\+t} params)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC channel add service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_gafad6c929a33557ac2fd4000bcacd9453}{Lo\+Ra\+Mac\+Channel\+Remove} (uint8\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC channel remove service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga89622bf6a1705558ba7b76dbb2d59c2f}{Lo\+Ra\+Mac\+Multicast\+Channel\+Link} (\hyperlink{group__LORAMAC_ga02d2523505cac70954c043074087ea65}{Multicast\+Params\+\_\+t} $\ast$channel\+Param)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC multicast channel link service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga1542a215938fcff1d665ae48b449335e}{Lo\+Ra\+Mac\+Multicast\+Channel\+Unlink} (\hyperlink{group__LORAMAC_ga02d2523505cac70954c043074087ea65}{Multicast\+Params\+\_\+t} $\ast$channel\+Param)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC multicast channel unlink service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga097113f30feecc17c780940ff74af33e}{Lo\+Ra\+Mac\+Mlme\+Request} (\hyperlink{group__LORAMAC_ga5a32f5920a7a3d04435c142be7f38b19}{Mlme\+Req\+\_\+t} $\ast$mlme\+Request)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+L\+M\+E-\/\+Request. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga79768f8a3c22aaff84d4dfcc77ad508c}{Lo\+Ra\+Mac\+Mcps\+Request} (\hyperlink{group__LORAMAC_ga038e0fe5eecc1fc4e8165eace8e2e683}{Mcps\+Req\+\_\+t} $\ast$mcps\+Request)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+C\+P\+S-\/\+Request. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMACTEST_ga3e8dc79232b2c86d12d8b4191324283d}{Lo\+Ra\+Mac\+Test\+Rx\+Windows\+On} (bool enable)
+\begin{DoxyCompactList}\small\item\em Enabled or disables the reception windows. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMACTEST_ga191314e00a8a27f426427473ba6821a7}{Lo\+Ra\+Mac\+Test\+Set\+Mic} (uint16\+\_\+t tx\+Packet\+Counter)
+\begin{DoxyCompactList}\small\item\em Enables the M\+IC field test. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMACTEST_gacee5e0492e548af9e1ec5a995e460865}{Lo\+Ra\+Mac\+Test\+Set\+Duty\+Cycle\+On} (bool enable)
+\begin{DoxyCompactList}\small\item\em Enabled or disables the duty cycle. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMACTEST_ga8cf3cc21ea237c5620536cea2750463e}{Lo\+Ra\+Mac\+Test\+Set\+Channel} (uint8\+\_\+t channel)
+\begin{DoxyCompactList}\small\item\em Sets the channel index. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__LORAMAC_gad9c979008eadcd47b4d0f90bdae38b44}{Lo\+Ra\+Mac\+Params\+\_\+t} \hyperlink{LoRaMac_8c_a4ae7d4019f8156167d8bcb97dff69a41}{Lo\+Ra\+Mac\+Params}
+\item 
+\hyperlink{group__LORAMAC_gad9c979008eadcd47b4d0f90bdae38b44}{Lo\+Ra\+Mac\+Params\+\_\+t} \hyperlink{LoRaMac_8c_ade912e866cc955f089bb441a0f7d50b6}{Lo\+Ra\+Mac\+Params\+Defaults}
+\item 
+uint32\+\_\+t \hyperlink{LoRaMac_8c_a53bc4ca09907ed24a1be62fa76c310ca}{Lo\+Ra\+Mac\+State} = \hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a3af5105c630ff1cfa443789cfa2f318c}{L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE}
+\item 
+\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} \hyperlink{LoRaMac_8c_aa17a8607485db100d315e74853dd217e}{Tx\+Time\+On\+Air} = 0
+\item 
+\hyperlink{group__LORAMAC_ga4044e22ced14e9517d7a21663c577c30}{Lo\+Ra\+Mac\+Flags\+\_\+t} \hyperlink{LoRaMac_8c_ae3a39c60e22c9458dd8536a1b2b773e3}{Lo\+Ra\+Mac\+Flags}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{LoRaMac_8c_a70461da0dc970b3de51718ab397a81db}\label{LoRaMac_8c_a70461da0dc970b3de51718ab397a81db}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}}
+\index{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}{BACKOFF\_DC\_10\_HOURS}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS~1000}
+
+Lo\+Ra\+Mac duty cycle for the back-\/off procedure during the next 10 hours. \mbox{\Hypertarget{LoRaMac_8c_a1d58cbd560840cdab3e4427797e88c3a}\label{LoRaMac_8c_a1d58cbd560840cdab3e4427797e88c3a}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}}
+\index{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}{BACKOFF\_DC\_1\_HOUR}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR~100}
+
+Lo\+Ra\+Mac duty cycle for the back-\/off procedure during the first hour. \mbox{\Hypertarget{LoRaMac_8c_ada6c3c87744e22f1c053caba7c40d26c}\label{LoRaMac_8c_ada6c3c87744e22f1c053caba7c40d26c}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}}
+\index{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}{BACKOFF\_DC\_24\_HOURS}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS~10000}
+
+Lo\+Ra\+Mac duty cycle for the back-\/off procedure during the next 24 hours. \mbox{\Hypertarget{LoRaMac_8c_ae2ccbfeefb0390b3cafca4da463d245c}\label{LoRaMac_8c_ae2ccbfeefb0390b3cafca4da463d245c}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH}}
+\index{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH}{LORA\_MAC\_COMMAND\_MAX\_FOPTS\_LENGTH}}
+{\footnotesize\ttfamily \#define L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+F\+O\+P\+T\+S\+\_\+\+L\+E\+N\+G\+TH~15}
+
+Maximum length of the f\+Opts field \mbox{\Hypertarget{LoRaMac_8c_a4ac517018d0390785daf8d90bf99df8f}\label{LoRaMac_8c_a4ac517018d0390785daf8d90bf99df8f}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH}}
+\index{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH}{LORA\_MAC\_COMMAND\_MAX\_LENGTH}}
+{\footnotesize\ttfamily \#define L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+C\+O\+M\+M\+A\+N\+D\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH~128}
+
+Maximum M\+AC commands buffer size \mbox{\Hypertarget{LoRaMac_8c_a54769799fcc79d1d3fd1f19f123cc57b}\label{LoRaMac_8c_a54769799fcc79d1d3fd1f19f123cc57b}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD@{L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD}}
+\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD@{L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD}{LORAMAC\_PHY\_MAXPAYLOAD}}
+{\footnotesize\ttfamily \#define L\+O\+R\+A\+M\+A\+C\+\_\+\+P\+H\+Y\+\_\+\+M\+A\+X\+P\+A\+Y\+L\+O\+AD~255}
+
+Maximum P\+HY layer payload size 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!e\+Lo\+Ra\+Mac\+State@{e\+Lo\+Ra\+Mac\+State}}
+\index{e\+Lo\+Ra\+Mac\+State@{e\+Lo\+Ra\+Mac\+State}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{e\+Lo\+Ra\+Mac\+State}{eLoRaMacState}}
+{\footnotesize\ttfamily enum \hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490}{e\+Lo\+Ra\+Mac\+State}}
+
+Lo\+Ra\+Mac internal states \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE@{L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE@{L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a3af5105c630ff1cfa443789cfa2f318c}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a3af5105c630ff1cfa443789cfa2f318c}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG@{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG@{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a5b4a3679d3966d49741f0aec6b15d731}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a5b4a3679d3966d49741f0aec6b15d731}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+RX@{L\+O\+R\+A\+M\+A\+C\+\_\+\+RX}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+RX@{L\+O\+R\+A\+M\+A\+C\+\_\+\+RX}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a51fd14464af45ead2dda2a90760e4bc4}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a51fd14464af45ead2dda2a90760e4bc4}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+RX&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+EQ@{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+EQ}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+EQ@{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+EQ}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a99ee636d0a66bf7f2a5644b5947dce2f}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a99ee636d0a66bf7f2a5644b5947dce2f}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+EQ&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+RY@{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+RY}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+RY@{L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+RY}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490ac3b5306588342cdeffe6367350d875c3}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490ac3b5306588342cdeffe6367350d875c3}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+RY&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+D\+E\+L\+A\+Y\+ED@{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+D\+E\+L\+A\+Y\+ED}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+D\+E\+L\+A\+Y\+ED@{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+D\+E\+L\+A\+Y\+ED}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490aea3d825c5789497c1dd7515b26a8e8f8}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490aea3d825c5789497c1dd7515b26a8e8f8}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+D\+E\+L\+A\+Y\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+C\+O\+N\+F\+IG@{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+C\+O\+N\+F\+IG}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+C\+O\+N\+F\+IG@{L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+C\+O\+N\+F\+IG}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490ad649702e2b40e41dbed3ff5b2e3c21c5}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490ad649702e2b40e41dbed3ff5b2e3c21c5}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+T\+X\+\_\+\+C\+O\+N\+F\+IG&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+X\+\_\+\+A\+B\+O\+RT@{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+X\+\_\+\+A\+B\+O\+RT}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+X\+\_\+\+A\+B\+O\+RT@{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+X\+\_\+\+A\+B\+O\+RT}}}\mbox{\Hypertarget{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a7c7d70244f468d92565a9e078d0790bf}\label{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a7c7d70244f468d92565a9e078d0790bf}} 
+L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+X\+\_\+\+A\+B\+O\+RT&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{LoRaMac_8c_a1c2e41a970de949b0b59a8177cb8ef29}\label{LoRaMac_8c_a1c2e41a970de949b0b59a8177cb8ef29}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Prepare\+Frame@{Prepare\+Frame}}
+\index{Prepare\+Frame@{Prepare\+Frame}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Prepare\+Frame()}{PrepareFrame()}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} Prepare\+Frame (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_gaff5f7004a7a48d53d858e26834b53efa}{Lo\+Ra\+Mac\+Header\+\_\+t} $\ast$}]{mac\+Hdr,  }\item[{\hyperlink{group__LORAMAC_ga12b0f3e7e6edd26cfdb9d10a1d873ab7}{Lo\+Ra\+Mac\+Frame\+Ctrl\+\_\+t} $\ast$}]{f\+Ctrl,  }\item[{uint8\+\_\+t}]{f\+Port,  }\item[{void $\ast$}]{f\+Buffer,  }\item[{uint16\+\_\+t}]{f\+Buffer\+Size }\end{DoxyParamCaption})}
+
+
+
+Lo\+Ra\+M\+AC layer frame buffer initialization. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & mac\+Hdr M\+AC header field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Ctrl M\+AC frame control field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Opts M\+AC commands buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Port M\+AC payload port \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Buffer M\+AC data buffer to be sent \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Buffer\+Size M\+AC data buffer size \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & Status of the operation. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{LoRaMac_8c_a1d5d30b5cbe0349bab89375480c377bf}\label{LoRaMac_8c_a1d5d30b5cbe0349bab89375480c377bf}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Send@{Send}}
+\index{Send@{Send}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Send()}{Send()}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} Send (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_gaff5f7004a7a48d53d858e26834b53efa}{Lo\+Ra\+Mac\+Header\+\_\+t} $\ast$}]{mac\+Hdr,  }\item[{uint8\+\_\+t}]{f\+Port,  }\item[{void $\ast$}]{f\+Buffer,  }\item[{uint16\+\_\+t}]{f\+Buffer\+Size }\end{DoxyParamCaption})}
+
+
+
+Lo\+Ra\+M\+AC layer generic send frame. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & mac\+Hdr M\+AC header field \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Port M\+AC payload port \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Buffer M\+AC data buffer to be sent \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & f\+Buffer\+Size M\+AC data buffer size \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & Status of the operation. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{LoRaMac_8c_a2a974677f0401e2575148082667331de}\label{LoRaMac_8c_a2a974677f0401e2575148082667331de}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Send\+Frame\+On\+Channel@{Send\+Frame\+On\+Channel}}
+\index{Send\+Frame\+On\+Channel@{Send\+Frame\+On\+Channel}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Send\+Frame\+On\+Channel()}{SendFrameOnChannel()}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} Send\+Frame\+On\+Channel (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{channel }\end{DoxyParamCaption})}
+
+
+
+Lo\+Ra\+M\+AC layer prepared frame buffer transmission with channel specification. 
+
+\begin{DoxyRemark}{Remarks}
+Prepare\+Frame must be called at least once before calling this function.
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & channel Channel to transmit on \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & Status of the operation. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{LoRaMac_8c_a6a476e328faedf4544aa63adf40f931e}\label{LoRaMac_8c_a6a476e328faedf4544aa63adf40f931e}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Set\+Tx\+Continuous\+Wave@{Set\+Tx\+Continuous\+Wave}}
+\index{Set\+Tx\+Continuous\+Wave@{Set\+Tx\+Continuous\+Wave}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Set\+Tx\+Continuous\+Wave()}{SetTxContinuousWave()}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} Set\+Tx\+Continuous\+Wave (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Sets the radio in continuous transmission mode. 
+
+\begin{DoxyRemark}{Remarks}
+Uses the radio parameters set on the previous transmission.
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timeout Time in seconds while the radio is kept in continuous wave mode \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & Status of the operation. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{LoRaMac_8c_a1974034d3a6ef2a0c38f4f853cfb62fb}\label{LoRaMac_8c_a1974034d3a6ef2a0c38f4f853cfb62fb}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Set\+Tx\+Continuous\+Wave1@{Set\+Tx\+Continuous\+Wave1}}
+\index{Set\+Tx\+Continuous\+Wave1@{Set\+Tx\+Continuous\+Wave1}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Set\+Tx\+Continuous\+Wave1()}{SetTxContinuousWave1()}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} Set\+Tx\+Continuous\+Wave1 (\begin{DoxyParamCaption}\item[{uint16\+\_\+t}]{timeout,  }\item[{uint32\+\_\+t}]{frequency,  }\item[{uint8\+\_\+t}]{power }\end{DoxyParamCaption})}
+
+
+
+Sets the radio in continuous transmission mode. 
+
+\begin{DoxyRemark}{Remarks}
+Uses the radio parameters set on the previous transmission.
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timeout Time in seconds while the radio is kept in continuous wave mode \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & frequency RF frequency to be set. \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & power RF output power to be set. \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em status} & Status of the operation. \\
+\hline
+\end{DoxyRetVals}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{LoRaMac_8c_ae3a39c60e22c9458dd8536a1b2b773e3}\label{LoRaMac_8c_ae3a39c60e22c9458dd8536a1b2b773e3}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Lo\+Ra\+Mac\+Flags@{Lo\+Ra\+Mac\+Flags}}
+\index{Lo\+Ra\+Mac\+Flags@{Lo\+Ra\+Mac\+Flags}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Flags}{LoRaMacFlags}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga4044e22ced14e9517d7a21663c577c30}{Lo\+Ra\+Mac\+Flags\+\_\+t} Lo\+Ra\+Mac\+Flags}
+
+Lo\+Ra\+Mac tx/rx operation state \mbox{\Hypertarget{LoRaMac_8c_a4ae7d4019f8156167d8bcb97dff69a41}\label{LoRaMac_8c_a4ae7d4019f8156167d8bcb97dff69a41}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Lo\+Ra\+Mac\+Params@{Lo\+Ra\+Mac\+Params}}
+\index{Lo\+Ra\+Mac\+Params@{Lo\+Ra\+Mac\+Params}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Params}{LoRaMacParams}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_gad9c979008eadcd47b4d0f90bdae38b44}{Lo\+Ra\+Mac\+Params\+\_\+t} Lo\+Ra\+Mac\+Params}
+
+Lo\+Ra\+Mac parameters \mbox{\Hypertarget{LoRaMac_8c_ade912e866cc955f089bb441a0f7d50b6}\label{LoRaMac_8c_ade912e866cc955f089bb441a0f7d50b6}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Lo\+Ra\+Mac\+Params\+Defaults@{Lo\+Ra\+Mac\+Params\+Defaults}}
+\index{Lo\+Ra\+Mac\+Params\+Defaults@{Lo\+Ra\+Mac\+Params\+Defaults}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Params\+Defaults}{LoRaMacParamsDefaults}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_gad9c979008eadcd47b4d0f90bdae38b44}{Lo\+Ra\+Mac\+Params\+\_\+t} Lo\+Ra\+Mac\+Params\+Defaults}
+
+Lo\+Ra\+Mac default parameters \mbox{\Hypertarget{LoRaMac_8c_a53bc4ca09907ed24a1be62fa76c310ca}\label{LoRaMac_8c_a53bc4ca09907ed24a1be62fa76c310ca}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Lo\+Ra\+Mac\+State@{Lo\+Ra\+Mac\+State}}
+\index{Lo\+Ra\+Mac\+State@{Lo\+Ra\+Mac\+State}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+State}{LoRaMacState}}
+{\footnotesize\ttfamily uint32\+\_\+t Lo\+Ra\+Mac\+State = \hyperlink{LoRaMac_8c_ada0bdc03d52b5bf536f021dcea7c4490a3af5105c630ff1cfa443789cfa2f318c}{L\+O\+R\+A\+M\+A\+C\+\_\+\+I\+D\+LE}}
+
+Lo\+Ra\+Mac internal state \mbox{\Hypertarget{LoRaMac_8c_aa17a8607485db100d315e74853dd217e}\label{LoRaMac_8c_aa17a8607485db100d315e74853dd217e}} 
+\index{Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}!Tx\+Time\+On\+Air@{Tx\+Time\+On\+Air}}
+\index{Tx\+Time\+On\+Air@{Tx\+Time\+On\+Air}!Lo\+Ra\+Mac.\+c@{Lo\+Ra\+Mac.\+c}}
+\subsubsection{\texorpdfstring{Tx\+Time\+On\+Air}{TxTimeOnAir}}
+{\footnotesize\ttfamily \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} Tx\+Time\+On\+Air = 0}
+
+Last transmission time on air 

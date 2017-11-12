@@ -1,0 +1,68 @@
+\hypertarget{structsCalcBackOffParams}{}\section{s\+Calc\+Back\+Off\+Params Struct Reference}
+\label{structsCalcBackOffParams}\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+
+
+{\ttfamily \#include $<$Region.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{structsCalcBackOffParams_aa738e3fae7d7ab3f38641f9b72707993}{Joined}
+\item 
+bool \hyperlink{structsCalcBackOffParams_a11dd44f1674947f4dffdf6b7d18f41a2}{Last\+Tx\+Is\+Join\+Request}
+\item 
+bool \hyperlink{structsCalcBackOffParams_a4bea532b6e9e4114703af8783638cd8f}{Duty\+Cycle\+Enabled}
+\item 
+uint8\+\_\+t \hyperlink{structsCalcBackOffParams_a99a6c0a03d4d1b28145baef240f769dd}{Channel}
+\item 
+\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} \hyperlink{structsCalcBackOffParams_a944eee5d4b307ea37de08f610004b484}{Elapsed\+Time}
+\item 
+\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} \hyperlink{structsCalcBackOffParams_a90a1f5a96d10105fc2229e5c76393fd0}{Tx\+Time\+On\+Air}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parameter structure for the function Region\+Calc\+Back\+Off. 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsCalcBackOffParams_a99a6c0a03d4d1b28145baef240f769dd}\label{structsCalcBackOffParams_a99a6c0a03d4d1b28145baef240f769dd}} 
+\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}!Channel@{Channel}}
+\index{Channel@{Channel}!s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+\subsubsection{\texorpdfstring{Channel}{Channel}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Calc\+Back\+Off\+Params\+::\+Channel}
+
+Current channel index. \mbox{\Hypertarget{structsCalcBackOffParams_a4bea532b6e9e4114703af8783638cd8f}\label{structsCalcBackOffParams_a4bea532b6e9e4114703af8783638cd8f}} 
+\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}!Duty\+Cycle\+Enabled@{Duty\+Cycle\+Enabled}}
+\index{Duty\+Cycle\+Enabled@{Duty\+Cycle\+Enabled}!s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+\subsubsection{\texorpdfstring{Duty\+Cycle\+Enabled}{DutyCycleEnabled}}
+{\footnotesize\ttfamily bool s\+Calc\+Back\+Off\+Params\+::\+Duty\+Cycle\+Enabled}
+
+Set to true, if the duty cycle is enabled, otherwise false. \mbox{\Hypertarget{structsCalcBackOffParams_a944eee5d4b307ea37de08f610004b484}\label{structsCalcBackOffParams_a944eee5d4b307ea37de08f610004b484}} 
+\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}!Elapsed\+Time@{Elapsed\+Time}}
+\index{Elapsed\+Time@{Elapsed\+Time}!s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+\subsubsection{\texorpdfstring{Elapsed\+Time}{ElapsedTime}}
+{\footnotesize\ttfamily \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} s\+Calc\+Back\+Off\+Params\+::\+Elapsed\+Time}
+
+Elapsed time since the start of the node. \mbox{\Hypertarget{structsCalcBackOffParams_aa738e3fae7d7ab3f38641f9b72707993}\label{structsCalcBackOffParams_aa738e3fae7d7ab3f38641f9b72707993}} 
+\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}!Joined@{Joined}}
+\index{Joined@{Joined}!s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+\subsubsection{\texorpdfstring{Joined}{Joined}}
+{\footnotesize\ttfamily bool s\+Calc\+Back\+Off\+Params\+::\+Joined}
+
+Set to true, if the node has already joined a network, otherwise false. \mbox{\Hypertarget{structsCalcBackOffParams_a11dd44f1674947f4dffdf6b7d18f41a2}\label{structsCalcBackOffParams_a11dd44f1674947f4dffdf6b7d18f41a2}} 
+\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}!Last\+Tx\+Is\+Join\+Request@{Last\+Tx\+Is\+Join\+Request}}
+\index{Last\+Tx\+Is\+Join\+Request@{Last\+Tx\+Is\+Join\+Request}!s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+\subsubsection{\texorpdfstring{Last\+Tx\+Is\+Join\+Request}{LastTxIsJoinRequest}}
+{\footnotesize\ttfamily bool s\+Calc\+Back\+Off\+Params\+::\+Last\+Tx\+Is\+Join\+Request}
+
+Joined Set to true, if the last uplink was a join request \mbox{\Hypertarget{structsCalcBackOffParams_a90a1f5a96d10105fc2229e5c76393fd0}\label{structsCalcBackOffParams_a90a1f5a96d10105fc2229e5c76393fd0}} 
+\index{s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}!Tx\+Time\+On\+Air@{Tx\+Time\+On\+Air}}
+\index{Tx\+Time\+On\+Air@{Tx\+Time\+On\+Air}!s\+Calc\+Back\+Off\+Params@{s\+Calc\+Back\+Off\+Params}}
+\subsubsection{\texorpdfstring{Tx\+Time\+On\+Air}{TxTimeOnAir}}
+{\footnotesize\ttfamily \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} s\+Calc\+Back\+Off\+Params\+::\+Tx\+Time\+On\+Air}
+
+Time-\/on-\/air of the last transmission. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/region/\hyperlink{Region_8h}{Region.\+h}\end{DoxyCompactItemize}

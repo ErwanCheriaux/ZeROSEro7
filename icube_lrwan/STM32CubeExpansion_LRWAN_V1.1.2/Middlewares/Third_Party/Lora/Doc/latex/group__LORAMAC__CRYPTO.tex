@@ -1,0 +1,175 @@
+\hypertarget{group__LORAMAC__CRYPTO}{}\section{Lo\+Ra M\+AC layer cryptography implementation}
+\label{group__LORAMAC__CRYPTO}\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga6ee265070494b83255e7fdc4dff985da}{Lo\+Ra\+Mac\+Compute\+Mic} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint32\+\_\+t $\ast$mic)
+\begin{DoxyCompactList}\small\item\em Computes the Lo\+Ra\+M\+AC frame M\+IC field. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga50339e60abea2186ca7e584b489718b1}{Lo\+Ra\+Mac\+Payload\+Encrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint8\+\_\+t $\ast$enc\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga41f9ba19f61b195420914ed58c8b94c7}{Lo\+Ra\+Mac\+Payload\+Decrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint8\+\_\+t $\ast$dec\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gac9216af326316c9e7f207d4e73aed199}{Lo\+Ra\+Mac\+Join\+Compute\+Mic} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t $\ast$mic)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gac2379cd7cbeb6febaa2a7be5d9f04b5c}{Lo\+Ra\+Mac\+Join\+Decrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint8\+\_\+t $\ast$dec\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gad6fc2ace27fa388ec860fc2e5ae1f544}{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys} (const uint8\+\_\+t $\ast$key, const uint8\+\_\+t $\ast$app\+Nonce, uint16\+\_\+t dev\+Nonce, uint8\+\_\+t $\ast$nwk\+S\+Key, uint8\+\_\+t $\ast$app\+S\+Key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This module covers the implementation of cryptographic functions of the Lo\+Ra\+M\+AC layer. 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__LORAMAC__CRYPTO_ga6ee265070494b83255e7fdc4dff985da}\label{group__LORAMAC__CRYPTO_ga6ee265070494b83255e7fdc4dff985da}} 
+\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}!Lo\+Ra\+Mac\+Compute\+Mic@{Lo\+Ra\+Mac\+Compute\+Mic}}
+\index{Lo\+Ra\+Mac\+Compute\+Mic@{Lo\+Ra\+Mac\+Compute\+Mic}!Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Compute\+Mic()}{LoRaMacComputeMic()}}
+{\footnotesize\ttfamily void Lo\+Ra\+Mac\+Compute\+Mic (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{size,  }\item[{const uint8\+\_\+t $\ast$}]{key,  }\item[{uint32\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{dir,  }\item[{uint32\+\_\+t}]{sequence\+Counter,  }\item[{uint32\+\_\+t $\ast$}]{mic }\end{DoxyParamCaption})}
+
+
+
+Computes the Lo\+Ra\+M\+AC frame M\+IC field. 
+
+Computes the Lo\+Ra\+M\+AC frame M\+IC field
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer -\/ Data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size -\/ Data buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & key -\/ A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & address -\/ Frame address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dir -\/ Frame direction \mbox{[}0\+: uplink, 1\+: downlink\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & sequence\+Counter -\/ Frame sequence counter \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & mic -\/ Computed M\+IC field\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer Data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Data buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & key A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & address Frame address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dir Frame direction \mbox{[}0\+: uplink, 1\+: downlink\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & sequence\+Counter Frame sequence counter \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & mic Computed M\+IC field \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORAMAC__CRYPTO_gac9216af326316c9e7f207d4e73aed199}\label{group__LORAMAC__CRYPTO_gac9216af326316c9e7f207d4e73aed199}} 
+\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}!Lo\+Ra\+Mac\+Join\+Compute\+Mic@{Lo\+Ra\+Mac\+Join\+Compute\+Mic}}
+\index{Lo\+Ra\+Mac\+Join\+Compute\+Mic@{Lo\+Ra\+Mac\+Join\+Compute\+Mic}!Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Join\+Compute\+Mic()}{LoRaMacJoinComputeMic()}}
+{\footnotesize\ttfamily void Lo\+Ra\+Mac\+Join\+Compute\+Mic (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{size,  }\item[{const uint8\+\_\+t $\ast$}]{key,  }\item[{uint32\+\_\+t $\ast$}]{mic }\end{DoxyParamCaption})}
+
+Computes the Lo\+Ra\+M\+AC Join Request frame M\+IC field
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer -\/ Data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size -\/ Data buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & key -\/ A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & mic -\/ Computed M\+IC field \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORAMAC__CRYPTO_gad6fc2ace27fa388ec860fc2e5ae1f544}\label{group__LORAMAC__CRYPTO_gad6fc2ace27fa388ec860fc2e5ae1f544}} 
+\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}!Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys@{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys}}
+\index{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys@{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys}!Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys()}{LoRaMacJoinComputeSKeys()}}
+{\footnotesize\ttfamily void Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{key,  }\item[{const uint8\+\_\+t $\ast$}]{app\+Nonce,  }\item[{uint16\+\_\+t}]{dev\+Nonce,  }\item[{uint8\+\_\+t $\ast$}]{nwk\+S\+Key,  }\item[{uint8\+\_\+t $\ast$}]{app\+S\+Key }\end{DoxyParamCaption})}
+
+Computes the Lo\+Ra\+M\+AC join frame decryption
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & key -\/ A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & app\+Nonce -\/ Application nonce \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dev\+Nonce -\/ Device nonce \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & nwk\+S\+Key -\/ Network session key \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & app\+S\+Key -\/ Application session key \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORAMAC__CRYPTO_gac2379cd7cbeb6febaa2a7be5d9f04b5c}\label{group__LORAMAC__CRYPTO_gac2379cd7cbeb6febaa2a7be5d9f04b5c}} 
+\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}!Lo\+Ra\+Mac\+Join\+Decrypt@{Lo\+Ra\+Mac\+Join\+Decrypt}}
+\index{Lo\+Ra\+Mac\+Join\+Decrypt@{Lo\+Ra\+Mac\+Join\+Decrypt}!Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Join\+Decrypt()}{LoRaMacJoinDecrypt()}}
+{\footnotesize\ttfamily void Lo\+Ra\+Mac\+Join\+Decrypt (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{size,  }\item[{const uint8\+\_\+t $\ast$}]{key,  }\item[{uint8\+\_\+t $\ast$}]{dec\+Buffer }\end{DoxyParamCaption})}
+
+Computes the Lo\+Ra\+M\+AC join frame decryption
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer -\/ Data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size -\/ Data buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & key -\/ A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & dec\+Buffer -\/ Decrypted buffer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORAMAC__CRYPTO_ga41f9ba19f61b195420914ed58c8b94c7}\label{group__LORAMAC__CRYPTO_ga41f9ba19f61b195420914ed58c8b94c7}} 
+\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}!Lo\+Ra\+Mac\+Payload\+Decrypt@{Lo\+Ra\+Mac\+Payload\+Decrypt}}
+\index{Lo\+Ra\+Mac\+Payload\+Decrypt@{Lo\+Ra\+Mac\+Payload\+Decrypt}!Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Payload\+Decrypt()}{LoRaMacPayloadDecrypt()}}
+{\footnotesize\ttfamily void Lo\+Ra\+Mac\+Payload\+Decrypt (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{size,  }\item[{const uint8\+\_\+t $\ast$}]{key,  }\item[{uint32\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{dir,  }\item[{uint32\+\_\+t}]{sequence\+Counter,  }\item[{uint8\+\_\+t $\ast$}]{dec\+Buffer }\end{DoxyParamCaption})}
+
+Computes the Lo\+Ra\+M\+AC payload decryption
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer -\/ Data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size -\/ Data buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & key -\/ A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & address -\/ Frame address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dir -\/ Frame direction \mbox{[}0\+: uplink, 1\+: downlink\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & sequence\+Counter -\/ Frame sequence counter \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & dec\+Buffer -\/ Decrypted buffer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORAMAC__CRYPTO_ga50339e60abea2186ca7e584b489718b1}\label{group__LORAMAC__CRYPTO_ga50339e60abea2186ca7e584b489718b1}} 
+\index{Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}!Lo\+Ra\+Mac\+Payload\+Encrypt@{Lo\+Ra\+Mac\+Payload\+Encrypt}}
+\index{Lo\+Ra\+Mac\+Payload\+Encrypt@{Lo\+Ra\+Mac\+Payload\+Encrypt}!Lo\+Ra M\+A\+C layer cryptography implementation@{Lo\+Ra M\+A\+C layer cryptography implementation}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Mac\+Payload\+Encrypt()}{LoRaMacPayloadEncrypt()}}
+{\footnotesize\ttfamily void Lo\+Ra\+Mac\+Payload\+Encrypt (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint16\+\_\+t}]{size,  }\item[{const uint8\+\_\+t $\ast$}]{key,  }\item[{uint32\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{dir,  }\item[{uint32\+\_\+t}]{sequence\+Counter,  }\item[{uint8\+\_\+t $\ast$}]{enc\+Buffer }\end{DoxyParamCaption})}
+
+Computes the Lo\+Ra\+M\+AC payload encryption
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer -\/ Data buffer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size -\/ Data buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & key -\/ A\+ES key to be used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & address -\/ Frame address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dir -\/ Frame direction \mbox{[}0\+: uplink, 1\+: downlink\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & sequence\+Counter -\/ Frame sequence counter \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & enc\+Buffer -\/ Encrypted buffer \\
+\hline
+\end{DoxyParams}
