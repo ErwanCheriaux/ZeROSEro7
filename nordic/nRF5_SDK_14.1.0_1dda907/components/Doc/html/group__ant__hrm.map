@@ -1,0 +1,4 @@
+<map id="Heart Rate Monitor profile" name="Heart Rate Monitor profile">
+<area shape="rect" id="node1" href="$group__ant__sdk__profiles__hrm__utils.html" title="This module implements utilities for the Heart Rate Monitor profile. " alt="" coords="187,5,320,47"/>
+<area shape="rect" id="node3" href="$group__ant__sdk__profiles__hrm__pages.html" title="This module implements functions for the HRM data pages. " alt="" coords="187,71,320,112"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="ble/peer_manager/peer_manager_internal.h" name="ble/peer_manager/peer_manager_internal.h">
+<area shape="rect" id="node2" href="$id__manager_8h.html" title="ble/peer_manager/id\l_manager.h" alt="" coords="5,95,144,136"/>
+<area shape="rect" id="node3" href="$peer__data__storage_8h.html" title="ble/peer_manager/peer\l_data_storage.h" alt="" coords="168,95,323,136"/>
+<area shape="rect" id="node4" href="$peer__database_8h.html" title="ble/peer_manager/peer\l_database.h" alt="" coords="347,95,501,136"/>
+<area shape="rect" id="node5" href="$peer__manager_8h.html" title="ble/peer_manager/peer\l_manager.h" alt="" coords="347,184,501,225"/>
+<area shape="rect" id="node6" href="$ble__dfu_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu.c" alt="" coords="271,273,409,315"/>
+<area shape="rect" id="node7" href="$ble__dfu__bonded_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu_bonded.c" alt="" coords="433,273,586,315"/>
+</map>

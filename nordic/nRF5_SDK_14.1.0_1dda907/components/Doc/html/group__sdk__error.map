@@ -1,0 +1,8 @@
+<map id="SDK Error codes" name="SDK Error codes">
+<area shape="rect" id="node1" href="$group__sdk__module__codes.html" title="Codes reserved as identification\l for module where the error\l occurred." alt="" coords="175,5,384,61"/>
+<area shape="rect" id="node2" href="$group__sdk__err__base.html" title="Base defined for SDK\l Modules" alt="" coords="205,86,354,127"/>
+<area shape="rect" id="node3" href="$group__sdk__iot__errors.html" title="Codes reserved as identification\l for IoT errors." alt="" coords="175,151,384,193"/>
+<area shape="rect" id="node4" href="$group__ble__ipsp__errors.html" title="Error and status codes specific to IPSP. " alt="" coords="233,217,325,244"/>
+<area shape="rect" id="node6" href="$group__sdk__common__errors.html" title="Codes reserved as identification\l for common errors." alt="" coords="175,269,384,310"/>
+<area shape="rect" id="node7" href="$group__drv__specific__errors.html" title="Error / status codes\l specific to drivers." alt="" coords="211,334,348,375"/>
+</map>
