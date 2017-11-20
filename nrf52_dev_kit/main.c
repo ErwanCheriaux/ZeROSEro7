@@ -1,30 +1,30 @@
 /**
  * Copyright (c) 2014 - 2017, Nordic Semiconductor ASA
- * 
+ *
  * All rights reserved.
- * 
+ *
  * Redistribution and use in source and binary forms, with or without modification,
  * are permitted provided that the following conditions are met:
- * 
+ *
  * 1. Redistributions of source code must retain the above copyright notice, this
  *    list of conditions and the following disclaimer.
- * 
+ *
  * 2. Redistributions in binary form, except as embedded into a Nordic
  *    Semiconductor ASA integrated circuit in a product or a software update for
  *    such product, must reproduce the above copyright notice, this list of
  *    conditions and the following disclaimer in the documentation and/or other
  *    materials provided with the distribution.
- * 
+ *
  * 3. Neither the name of Nordic Semiconductor ASA nor the names of its
  *    contributors may be used to endorse or promote products derived from this
  *    software without specific prior written permission.
- * 
+ *
  * 4. This software, with or without modification, must only be used with a
  *    Nordic Semiconductor ASA integrated circuit.
- * 
+ *
  * 5. Any software provided in binary form under this license must not be reverse
  *    engineered, decompiled, modified and/or disassembled.
- * 
+ *
  * THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS
  * OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES
  * OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE
@@ -35,47 +35,23 @@
  * HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT
  * LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT
  * OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
- * 
+ *
  */
 
 #include <stdbool.h>
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
-#include "fibo.h"
+#include "ble_broadcast.h"
 
-/**
- * @brief Function for application main entry.
- */
-
-#define NB_TEST 10
-
-static int fibo_result[NB_TEST];
 
 int main(void)
 {
-    /* Expected result. */
-    fibo_result[0] = 1;
-    fibo_result[1] = 1;
-    fibo_result[2] = 2;
-    fibo_result[3] = 3;
-    fibo_result[4] = 5;
-    fibo_result[5] = 8;
-    fibo_result[6] = 13;
-    fibo_result[7] = 21;
-    fibo_result[8] = 34;
-    fibo_result[9] = 55;
-
     /* Configure board. */
     bsp_board_leds_init();
 
-    for(int i = 0; i < NB_TEST; i++)
-        if(fibo_static(i) != fibo_result[i])
-            return 1;
-
-    for(int i = 0; i < NB_TEST; i++)
-        if(fibo_recursive(i) != fibo_result[i])
-            return 1;
+    ble_init() ;
+    ble_start_advertising() ;
 
     /* Toggle LEDs. */
     while(true) {
