@@ -50,7 +50,7 @@ CSRC = $(STARTUPSRC) \
        $(FATFSSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
-       $(CHIBIOS)/os/various/evtimer.c src/main.c src/led.c src/timer.c src/pwm.c
+       $(CHIBIOS)/os/various/evtimer.c src/main.c src/led.c src/timer.c src/pwm.c ../test/fibo/fibo.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
