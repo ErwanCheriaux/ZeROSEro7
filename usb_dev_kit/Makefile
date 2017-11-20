@@ -18,7 +18,7 @@ endif
 #
 
 # Define project name here
-PROJECT = se302
+PROJECT = usb_dev_kit
 
 # Imported source files and paths
 CHIBIOS = ../ChibiOS/ChibiOS
