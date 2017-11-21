@@ -3,7 +3,7 @@
 #include "ch.h"
 #include "hal.h"
 
-#include "fibo.h"
+#include "../test/fibo/fibo.h"
 
 #include "led.h"
 #include "pwm.h"

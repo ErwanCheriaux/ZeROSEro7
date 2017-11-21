@@ -1,11 +1,14 @@
 //main.c
 
 /*
- * Test of Fibonacci function
+ * Test all of the folling items:
+ *
+ * - Fibonacci function
+ *
  */
 
 #include <stdio.h>
-#include "fibo.h"
+#include "fibo/fibo.h"
 
 #define NB_TEST 10
 

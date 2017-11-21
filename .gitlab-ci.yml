@@ -25,8 +25,6 @@ lint_main:
     - make format
     - cd ../usb_dev_kit
     - make format
-#    - cd ../stealth_drop
-#    - make format
     - cd ../lora_discovery
     - make format
     - git status --porcelain
@@ -36,7 +34,6 @@ lint_test:
 #  image: alabate/clang-format
   script:
     - cd test
-    - cd fibo
     - make format
     - git status --porcelain
 
@@ -49,8 +46,6 @@ build_main:
     - make
     - cd ../usb_dev_kit
     - make
-#    - cd ../stealth_drop
-#    - make
     - cd ../lora_discovery
     - make
   artifacts:
@@ -58,25 +53,24 @@ build_main:
     - lora_discovery/main
     - nrf52_dev_kit/_build/nrf52832_xxaa.hex
     - usb_dev_kit/build/usb_dev_kit.elf
-    - stealth_drop/main
     expire_in: 1 week
 
 build_test:
   stage: build
   script:
-    - cd test/fibo
+    - cd test
     - make
   artifacts:
     paths:
-    - test/fibo/main
+    - test/main
     expire_in: 20 minutes
 
 # TEST STAGE
 
-test_fibo:
+test_test:
   stage: test
   script:
-    - cd test/fibo
+    - cd test
     - ./main
 
 # DEPLOY STAGE
