@@ -42,7 +42,7 @@
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
-#include "ble_broadcast.h"
+#include "ble_peripheral.h"
 
 
 int main(void)

@@ -61,7 +61,7 @@
 #include "nrf_log_default_backends.h"
 
 
-#define DEVICE_NAME                     "Hey it's me!" 
+#define DEVICE_NAME                     "Hey it's me!"
 #define APP_BLE_CONN_CFG_TAG            1                                 /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define NON_CONNECTABLE_ADV_INTERVAL    MSEC_TO_UNITS(100, UNIT_0_625_MS) /**< The advertising interval for non-connectable advertisement (100 ms). This value can vary between 100ms to 10.24s). */
@@ -160,8 +160,7 @@ static void advertising_init(void)
     // Build and set advertising data.
     memset(&advdata, 0, sizeof(advdata));
 
-    advdata.name_type             = BLE_ADVDATA_SHORT_NAME;
-    advdata.short_name_len        = 8;
+    advdata.name_type             = BLE_ADVDATA_FULL_NAME;
     advdata.flags                 = flags;
     advdata.p_manuf_specific_data = &manuf_specific_data;
 
