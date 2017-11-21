@@ -43,13 +43,14 @@
 #include "nrf_delay.h"
 #include "boards.h"
 #include "ble_peripheral.h"
-#include "SEGGER_RTT.h"
+#include "rtt.h"
 
 
 int main(void)
 {
-    SEGGER_RTT_Init() ;
-    SEGGER_RTT_WriteString(0, "Debug logging initialized") ;
+    rtt_init() ;
+    rtt_write_string("Debug logging initialized\n") ;
+    rtt_printf(0,"Print number : %u\n",5) ;
     /* Configure board. */
     bsp_board_leds_init();
 
@@ -61,7 +62,6 @@ int main(void)
         for(int i = 0; i < LEDS_NUMBER; i++) {
             bsp_board_led_invert(i);
             nrf_delay_ms(100);
-            SEGGER_RTT_WriteString(0, "LED Toggle") ;
         }
     }
 
