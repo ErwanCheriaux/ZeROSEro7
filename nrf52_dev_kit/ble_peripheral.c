@@ -267,6 +267,9 @@ void ble_start_advertising() {
     // Start execution.
     NRF_LOG_INFO("Beacon example started.");
 
+    bsp_board_led_invert(3);
+
+
     // Enter main loop.
     for (;; )
     {
@@ -275,6 +278,7 @@ void ble_start_advertising() {
             power_manage();
         }
     }
+
 }
 /**
  * @}

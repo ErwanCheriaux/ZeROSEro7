@@ -192,7 +192,7 @@ CFLAGS += -DSOFTDEVICE_PRESENT
 CFLAGS += -DSWI_DISABLE0
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror
+CFLAGS +=  -Wall -Werror -Wno-unused-function
 CFLAGS += -mfloat-abi=soft
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
@@ -264,6 +264,9 @@ startgdbserver:
 
 debug: $(ELF)
 	$(GDB) $<
+
+rtttelnet:
+	telnet localhost 19021
 
 format: *.c *.h
 	clang-format -i $^
