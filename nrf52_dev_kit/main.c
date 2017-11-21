@@ -14,12 +14,10 @@ void power_manage() {
 int main(void)
 {
     rtt_init() ;
-    rtt_write_string("Debug logging initialized\n") ;
+    rtt_write_string("\n\n======== DEBUG INITIALIZED ========\n") ;
 
     bsp_board_leds_init();
     bsp_board_led_on(1);
-
-    APP_ERROR_CHECK(16) ;
 
     ble_init() ;
     rtt_write_string("BLE initialized\n") ;

@@ -9,6 +9,8 @@ MEMORY
   RAM (rwx) :  ORIGIN = 0x20000000, LENGTH = 0x10000
 }
 
+start_of_RAM = 0x20000000;
+
 SECTIONS
 {
   . = ALIGN(4);
