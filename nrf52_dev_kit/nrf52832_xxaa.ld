@@ -9,7 +9,9 @@ MEMORY
   RAM (rwx) :  ORIGIN = 0x20000000, LENGTH = 0x10000
 }
 
-start_of_RAM = 0x20000000;
+SECTIONS
+{
+}
 
 SECTIONS
 {
@@ -23,17 +25,17 @@ SECTIONS
     KEEP(*(.log_dynamic_data))
     PROVIDE(__stop_log_dynamic_data = .);
   } > RAM
-  .cli_sorted_cmd_ptrs :
-  {
-    PROVIDE(__start_cli_sorted_cmd_ptrs = .);
-    KEEP(*(.cli_sorted_cmd_ptrs))
-    PROVIDE(__stop_cli_sorted_cmd_ptrs = .);
-  } > RAM
   .fs_data :
   {
     PROVIDE(__start_fs_data = .);
     KEEP(*(.fs_data))
     PROVIDE(__stop_fs_data = .);
+  } > RAM
+  .cli_sorted_cmd_ptrs :
+  {
+    PROVIDE(__start_cli_sorted_cmd_ptrs = .);
+    KEEP(*(.cli_sorted_cmd_ptrs))
+    PROVIDE(__stop_cli_sorted_cmd_ptrs = .);
   } > RAM
 
 } INSERT AFTER .data;
@@ -49,17 +51,17 @@ SECTIONS
     KEEP(*(SORT(.sdh_soc_observers*)))
     PROVIDE(__stop_sdh_soc_observers = .);
   } > FLASH
-  .sdh_ble_observers :
-  {
-    PROVIDE(__start_sdh_ble_observers = .);
-    KEEP(*(SORT(.sdh_ble_observers*)))
-    PROVIDE(__stop_sdh_ble_observers = .);
-  } > FLASH
   .pwr_mgmt_data :
   {
     PROVIDE(__start_pwr_mgmt_data = .);
     KEEP(*(SORT(.pwr_mgmt_data*)))
     PROVIDE(__stop_pwr_mgmt_data = .);
+  } > FLASH
+  .sdh_ble_observers :
+  {
+    PROVIDE(__start_sdh_ble_observers = .);
+    KEEP(*(SORT(.sdh_ble_observers*)))
+    PROVIDE(__stop_sdh_ble_observers = .);
   } > FLASH
     .log_const_data :
   {
@@ -95,4 +97,4 @@ SECTIONS
 
 } INSERT AFTER .text
 
-INCLUDE "nrf52_common.ld"
+INCLUDE "nrf5x_common.ld"

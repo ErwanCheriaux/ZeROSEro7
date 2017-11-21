@@ -22,9 +22,6 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context) {
 }
 
 
-
-extern void * start_of_RAM ; // Defined in linker script
-
 static void ble_stack_init(void)
 {
     ret_code_t err_code;
@@ -33,7 +30,7 @@ static void ble_stack_init(void)
     APP_ERROR_CHECK(err_code);
 
     // Configure the BLE stack using the default settings.
-    uint32_t ram_start = (uint32_t) start_of_RAM;
+    uint32_t ram_start = 0;
     err_code = nrf_sdh_ble_default_cfg_set(APP_BLE_CONN_CFG_TAG, &ram_start);
     APP_ERROR_CHECK(err_code);
     err_code = nrf_sdh_ble_enable(&ram_start);
