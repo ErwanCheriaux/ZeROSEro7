@@ -54,8 +54,9 @@ SRC_FILES += \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
-	$(PROJ_DIR)/main.c \
+	$(PROJ_DIR)/rtt.c \
 	$(PROJ_DIR)/ble_peripheral.c \
+	$(PROJ_DIR)/main.c \
 
 # Include folders common to all targets
 INC_FOLDERS += \
@@ -192,7 +193,7 @@ CFLAGS += -DSOFTDEVICE_PRESENT
 CFLAGS += -DSWI_DISABLE0
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror -Wno-unused-function
+CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable
 CFLAGS += -mfloat-abi=soft
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
