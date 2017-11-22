@@ -21,7 +21,6 @@ static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context) {
 
 }
 
-
 static void ble_stack_init(void)
 {
     ret_code_t err_code;
