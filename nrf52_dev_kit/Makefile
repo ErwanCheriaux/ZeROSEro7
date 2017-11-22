@@ -289,6 +289,13 @@ flash: $(HEX)
 	$(COMMAND_ROOT)/nrfjprog/nrfjprog -f nrf52 --program $< --sectorerase
 	$(COMMAND_ROOT)/nrfjprog/nrfjprog -f nrf52 --reset
 
+NRFJPROG = $(SDK_ROOT)/../nRF5x-Command-Line-Tools/nrfjprog/nrfjprog
+
+flash_softdevice:
+	@echo Flashing: s132_nrf52_5.0.0_softdevice.hex
+	$(NRFJPROG) -f nrf52 --program $(SDK_ROOT)/components/softdevice/s132/hex/s132_nrf52_5.0.0_softdevice.hex --sectorerase
+	$(NRFJPROG) -f nrf52 --reset
+
 startgdbserver:
 	JLinkGDBServer -device nrf52832_xxAA -if swd -speed auto -port 2331
 

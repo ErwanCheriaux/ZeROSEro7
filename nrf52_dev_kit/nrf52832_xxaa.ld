@@ -1,3 +1,10 @@
+/* Real Flash and RAM addresses, softdevice hex somewhere in each
+MEMORY
+{
+  FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x80000
+  RAM (rwx) :  ORIGIN = 0x20000000, LENGTH = 0x10000
+}*/
+
 /* Linker script to configure memory regions. */
 
 SEARCH_DIR(.)
@@ -5,8 +12,9 @@ GROUP(-lgcc -lc -lnosys)
 
 MEMORY
 {
-  FLASH (rx) : ORIGIN = 0x00000000, LENGTH = 0x80000
-  RAM (rwx) :  ORIGIN = 0x20000000, LENGTH = 0x10000
+  FLASH (rx) : ORIGIN = 0x23000, LENGTH = 0x5d000
+  RAM (rwx) :  ORIGIN = 0x200020e0, LENGTH = 0xdf20
+
 }
 
 SECTIONS
