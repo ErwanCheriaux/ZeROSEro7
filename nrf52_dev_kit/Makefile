@@ -291,6 +291,10 @@ flash: $(HEX)
 
 NRFJPROG = $(SDK_ROOT)/../nRF5x-Command-Line-Tools/nrfjprog/nrfjprog
 
+# Flash SoftDevice. Must be done once for the board.
+# Could be linked, but takes time to load
+# Allocated flash area : (0x0 - 0x22fff)
+# Allocated ram area : (0x20000000 - 0x200020df)
 flash_softdevice:
 	@echo Flashing: s132_nrf52_5.0.0_softdevice.hex
 	$(NRFJPROG) -f nrf52 --program $(SDK_ROOT)/components/softdevice/s132/hex/s132_nrf52_5.0.0_softdevice.hex --sectorerase
