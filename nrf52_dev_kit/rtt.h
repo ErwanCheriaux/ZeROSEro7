@@ -11,6 +11,7 @@ Put 0 as first argument for default channel 0 */
 #define rtt_printf SEGGER_RTT_printf
 #define rtt_write_buffer SEGGER_RTT_Write
 
+void rtt_write_buffer_hexa(uint8_t const * p_buff, int len) ;
 
 /* Called by APP_ERROR_CHECK(err_code) if err_code != NRF_SUCCESS.
 info is actually an error_info_t
