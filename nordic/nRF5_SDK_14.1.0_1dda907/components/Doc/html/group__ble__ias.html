@@ -110,7 +110,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gaa1d939e0499a5e34f6c9752347f6b974"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ias.html#gaa1d939e0499a5e34f6c9752347f6b974">ble_ias_init</a> (<a class="el" href="group__ble__ias.html#ga8a63bc7ea5b311d297838a4095271665">ble_ias_t</a> *p_ias, const <a class="el" href="structble__ias__init__t.html">ble_ias_init_t</a> *p_ias_init)</td></tr>
 <tr class="memdesc:gaa1d939e0499a5e34f6c9752347f6b974"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the Immediate Alert Service.  <a href="#gaa1d939e0499a5e34f6c9752347f6b974">More...</a><br /></td></tr>
 <tr class="separator:gaa1d939e0499a5e34f6c9752347f6b974"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad061b65806eb408b27a1eb338fab7044"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ias.html#gad061b65806eb408b27a1eb338fab7044">ble_ias_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:gad061b65806eb408b27a1eb338fab7044"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ias.html#gad061b65806eb408b27a1eb338fab7044">ble_ias_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:gad061b65806eb408b27a1eb338fab7044"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#gad061b65806eb408b27a1eb338fab7044">More...</a><br /></td></tr>
 <tr class="separator:gad061b65806eb408b27a1eb338fab7044"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga2b433148292e1fdf6ab22633e2d8dde1"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ias.html#ga2b433148292e1fdf6ab22633e2d8dde1">ble_ias_alert_level_get</a> (<a class="el" href="group__ble__ias.html#ga8a63bc7ea5b311d297838a4095271665">ble_ias_t</a> *p_ias, uint8_t *p_alert_level)</td></tr>
@@ -122,7 +122,7 @@ Functions</h2></td></tr>
 <p>This module implements the Immediate Alert Service with the Alert Level characteristic. During initialization it adds the Immediate Alert Service and Alert Level characteristic to the BLE stack database.</p>
 <p>The application must supply an event handler for receiving Immediate Alert Service events. Using this handler, the service will notify the application when the Alert Level characteristic value changes.</p>
 <p>The service also provides a function for letting the application poll the current value of the Alert Level characteristic.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__ias__s.html">ble_ias_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_IAS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__ias.html#gad061b65806eb408b27a1eb338fab7044">ble_ias_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__ias__s.html">ble_ias_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_IAS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__ias.html#gad061b65806eb408b27a1eb338fab7044">ble_ias_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
 <dd>
 Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profile qualification listings, this section of source code must not be modified. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -289,7 +289,7 @@ Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profil
         <tr>
           <td class="memname">void ble_ias_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

@@ -120,7 +120,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gafa24816b58d2a6733fad4d826378925e"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs__c.html#gafa24816b58d2a6733fad4d826378925e">ble_rscs_c_init</a> (<a class="el" href="group__ble__rscs__c.html#ga6c72f28be41f31a656ae442bb48929c0">ble_rscs_c_t</a> *p_ble_rscs_c, <a class="el" href="structble__rscs__c__init__t.html">ble_rscs_c_init_t</a> *p_ble_rscs_c_init)</td></tr>
 <tr class="memdesc:gafa24816b58d2a6733fad4d826378925e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the Running Speed and Cadence Service Client module.  <a href="#gafa24816b58d2a6733fad4d826378925e">More...</a><br /></td></tr>
 <tr class="separator:gafa24816b58d2a6733fad4d826378925e"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga1736eb0242653be49838b719fcf81451"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs__c.html#ga1736eb0242653be49838b719fcf81451">ble_rscs_c_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga1736eb0242653be49838b719fcf81451"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs__c.html#ga1736eb0242653be49838b719fcf81451">ble_rscs_c_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga1736eb0242653be49838b719fcf81451"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#ga1736eb0242653be49838b719fcf81451">More...</a><br /></td></tr>
 <tr class="separator:ga1736eb0242653be49838b719fcf81451"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gab4d9e435454dae949b331fad2ff8abc5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs__c.html#gab4d9e435454dae949b331fad2ff8abc5">ble_rscs_c_rsc_notif_enable</a> (<a class="el" href="group__ble__rscs__c.html#ga6c72f28be41f31a656ae442bb48929c0">ble_rscs_c_t</a> *p_ble_rscs_c)</td></tr>
@@ -145,7 +145,7 @@ Functions</h2></td></tr>
 </ol>
 <p>THIS SOFTWARE IS PROVIDED BY NORDIC SEMICONDUCTOR ASA "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY, NONINFRINGEMENT, AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL NORDIC SEMICONDUCTOR ASA OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.</p>
 <p>This module contains the APIs and types exposed by the Running Speed and Cadence Service Client module. These APIs and types can be used by the application to perform discovery of Running Speed and Cadence Service at the peer and interact with it.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__rscs__c__s.html">ble_rscs_c_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_RSCS_C_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__rscs__c.html#ga1736eb0242653be49838b719fcf81451">ble_rscs_c_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__rscs__c__s.html">ble_rscs_c_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_RSCS_C_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__rscs__c.html#ga1736eb0242653be49838b719fcf81451">ble_rscs_c_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga7e80007570f28cb05f48b3f687903519"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga7e80007570f28cb05f48b3f687903519">&#9670;&nbsp;</a></span>BLE_RSCS_C_DEF</h2>
@@ -373,7 +373,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void ble_rscs_c_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

@@ -158,7 +158,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga6e0cf5825568eb396b5cf52405f7a080"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ans__c.html#ga6e0cf5825568eb396b5cf52405f7a080">ble_ans_c_on_db_disc_evt</a> (<a class="el" href="group__ble__ans__c.html#ga897ce0f2fb819688d391bceb042251bf">ble_ans_c_t</a> *p_ans, <a class="el" href="structble__db__discovery__evt__t.html">ble_db_discovery_evt_t</a> const *p_evt)</td></tr>
 <tr class="memdesc:ga6e0cf5825568eb396b5cf52405f7a080"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling events from the database discovery module.  <a href="#ga6e0cf5825568eb396b5cf52405f7a080">More...</a><br /></td></tr>
 <tr class="separator:ga6e0cf5825568eb396b5cf52405f7a080"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga7c22c63f4a1531cd8883d111da0f9b87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ans__c.html#ga7c22c63f4a1531cd8883d111da0f9b87">ble_ans_c_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga7c22c63f4a1531cd8883d111da0f9b87"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ans__c.html#ga7c22c63f4a1531cd8883d111da0f9b87">ble_ans_c_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga7c22c63f4a1531cd8883d111da0f9b87"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#ga7c22c63f4a1531cd8883d111da0f9b87">More...</a><br /></td></tr>
 <tr class="separator:ga7c22c63f4a1531cd8883d111da0f9b87"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae2af4e60b379402c865b853e4dd2300f"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__ans__c.html#gae2af4e60b379402c865b853e4dd2300f">ble_ans_c_init</a> (<a class="el" href="group__ble__ans__c.html#ga897ce0f2fb819688d391bceb042251bf">ble_ans_c_t</a> *p_ans, <a class="el" href="structble__ans__c__init__t.html">ble_ans_c_init_t</a> const *p_ans_init)</td></tr>
@@ -198,7 +198,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Alert Notification module. </p>
 <p>This module implements the Alert Notification Client according to the Alert Notification Profile.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__ans__c__s.html">ble_ans_c_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_ANS_C_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__ans__c.html#ga7c22c63f4a1531cd8883d111da0f9b87">ble_ans_c_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__ans__c__s.html">ble_ans_c_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_ANS_C_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__ans__c.html#ga7c22c63f4a1531cd8883d111da0f9b87">ble_ans_c_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
 <dd>
 Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profile qualification listings, this section of source code must not be modified. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -662,7 +662,7 @@ Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profil
         <tr>
           <td class="memname">void ble_ans_c_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

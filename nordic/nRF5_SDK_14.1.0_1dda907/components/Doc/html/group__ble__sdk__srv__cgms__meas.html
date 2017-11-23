@@ -85,8 +85,8 @@ Functions</h2></td></tr>
 <tr class="memitem:ga621133af4ade3b8a11b92a30c97fba25"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__sdk__error.html#gaf6c20fb483036617204f12e99e0b997b">ret_code_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__cgms__meas.html#ga621133af4ade3b8a11b92a30c97fba25">cgms_meas_send</a> (<a class="el" href="group__nrf__ble__cgms__types.html#gac5e21370bfc8482e51ecac98e1251e0f">nrf_ble_cgms_t</a> *p_cgms, <a class="el" href="structble__cgms__rec__t.html">ble_cgms_rec_t</a> *p_rec, uint8_t *count)</td></tr>
 <tr class="memdesc:ga621133af4ade3b8a11b92a30c97fba25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for sending a CGM Measurement.  <a href="#ga621133af4ade3b8a11b92a30c97fba25">More...</a><br /></td></tr>
 <tr class="separator:ga621133af4ade3b8a11b92a30c97fba25"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga9dc0316216b7ad9c402787498f9bc9bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__cgms__meas.html#ga9dc0316216b7ad9c402787498f9bc9bd">cgms_meas_on_write</a> (<a class="el" href="group__nrf__ble__cgms__types.html#gac5e21370bfc8482e51ecac98e1251e0f">nrf_ble_cgms_t</a> *p_cgms, ble_gatts_evt_write_t const *p_evt_write)</td></tr>
-<tr class="memdesc:ga9dc0316216b7ad9c402787498f9bc9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the BLE_GATTS_EVT_WRITE event from the BLE stack.  <a href="#ga9dc0316216b7ad9c402787498f9bc9bd">More...</a><br /></td></tr>
+<tr class="memitem:ga9dc0316216b7ad9c402787498f9bc9bd"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__cgms__meas.html#ga9dc0316216b7ad9c402787498f9bc9bd">cgms_meas_on_write</a> (<a class="el" href="group__nrf__ble__cgms__types.html#gac5e21370bfc8482e51ecac98e1251e0f">nrf_ble_cgms_t</a> *p_cgms, <a class="el" href="structble__gatts__evt__write__t.html">ble_gatts_evt_write_t</a> const *p_evt_write)</td></tr>
+<tr class="memdesc:ga9dc0316216b7ad9c402787498f9bc9bd"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the <a class="el" href="group__BLE__GATTS__ENUMERATIONS.html#ggae537647902af1b05c1e32f12d6b401c7aa68b7764f5264ff092d2ad17851355ed">BLE_GATTS_EVT_WRITE</a> event from the BLE stack.  <a href="#ga9dc0316216b7ad9c402787498f9bc9bd">More...</a><br /></td></tr>
 <tr class="separator:ga9dc0316216b7ad9c402787498f9bc9bd"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
@@ -122,7 +122,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If functions from other modules return errors to this function, the nrf_error are propagated.</dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If functions from other modules return errors to this function, the <a class="el" href="group__nrf__error.html">SoftDevice Global Error Codes</a> are propagated.</dd></dl>
 <p>Function for adding a characteristic for the Continuous Glucose Monitoring Measurement.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -149,7 +149,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ble_gatts_evt_write_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__gatts__evt__write__t.html">ble_gatts_evt_write_t</a> const *&#160;</td>
           <td class="paramname"><em>p_evt_write</em>&#160;</td>
         </tr>
         <tr>
@@ -160,7 +160,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Function for handling the BLE_GATTS_EVT_WRITE event from the BLE stack. </p>
+<p>Function for handling the <a class="el" href="group__BLE__GATTS__ENUMERATIONS.html#ggae537647902af1b05c1e32f12d6b401c7aa68b7764f5264ff092d2ad17851355ed">BLE_GATTS_EVT_WRITE</a> event from the BLE stack. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in]</td><td class="paramname">p_cgms</td><td>Instance of the CGM Service. </td></tr>
@@ -168,7 +168,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<p>Function for handling the BLE_GATTS_EVT_WRITE event from the BLE stack.</p>
+<p>Function for handling the <a class="el" href="group__BLE__GATTS__ENUMERATIONS.html#ggae537647902af1b05c1e32f12d6b401c7aa68b7764f5264ff092d2ad17851355ed">BLE_GATTS_EVT_WRITE</a> event from the BLE stack.</p>
 <p>Handles WRITE events from the BLE stack.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -227,7 +227,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>If functions from other modules return errors to this function, the nrf_error are propagated. </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>If functions from other modules return errors to this function, the <a class="el" href="group__nrf__error.html">SoftDevice Global Error Codes</a> are propagated. </dd></dl>
 
 </div>
 </div>

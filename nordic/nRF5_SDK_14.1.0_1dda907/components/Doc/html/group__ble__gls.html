@@ -303,7 +303,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga74e8db9c9a885ed7cbc59190adb623cb"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__gls.html#ga74e8db9c9a885ed7cbc59190adb623cb">ble_gls_init</a> (<a class="el" href="group__ble__gls.html#ga56a7ab9708bdab78ece7dbc7cd636a4c">ble_gls_t</a> *p_gls, <a class="el" href="structble__gls__init__t.html">ble_gls_init_t</a> const *p_gls_init)</td></tr>
 <tr class="memdesc:ga74e8db9c9a885ed7cbc59190adb623cb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the Glucose Service.  <a href="#ga74e8db9c9a885ed7cbc59190adb623cb">More...</a><br /></td></tr>
 <tr class="separator:ga74e8db9c9a885ed7cbc59190adb623cb"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4ffc954839f3be94923b3e58ead9c574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__gls.html#ga4ffc954839f3be94923b3e58ead9c574">ble_gls_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga4ffc954839f3be94923b3e58ead9c574"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__gls.html#ga4ffc954839f3be94923b3e58ead9c574">ble_gls_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga4ffc954839f3be94923b3e58ead9c574"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#ga4ffc954839f3be94923b3e58ead9c574">More...</a><br /></td></tr>
 <tr class="separator:ga4ffc954839f3be94923b3e58ead9c574"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga35ba6d21214a91aea650ea50eb0a7fc2"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__gls.html#ga35ba6d21214a91aea650ea50eb0a7fc2">ble_gls_glucose_new_meas</a> (<a class="el" href="group__ble__gls.html#ga56a7ab9708bdab78ece7dbc7cd636a4c">ble_gls_t</a> *p_gls, <a class="el" href="structble__gls__rec__t.html">ble_gls_rec_t</a> *p_rec)</td></tr>
@@ -313,7 +313,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Glucose Service module. </p>
 <p>This module implements the Glucose Service.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__gls__s.html">ble_gls_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_GLS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__gls.html#ga4ffc954839f3be94923b3e58ead9c574">ble_gls_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__gls__s.html">ble_gls_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_GLS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__gls.html#ga4ffc954839f3be94923b3e58ead9c574">ble_gls_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
 <dd>
 Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profile qualification listings, this section of source code must not be modified. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -1707,7 +1707,7 @@ Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profil
         <tr>
           <td class="memname">void ble_gls_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

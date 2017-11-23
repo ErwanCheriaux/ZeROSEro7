@@ -71,12 +71,12 @@ $(function() {
 <div class="contents">
 <div class="textblock"><code>#include &quot;<a class="el" href="ble__dfu_8h_source.html">ble_dfu.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
-<code>#include &quot;ble_hci.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ble__hci_8h_source.html">ble_hci.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="sdk__macros_8h_source.html">sdk_macros.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ble__srv__common_8h_source.html">ble_srv_common.h</a>&quot;</code><br />
-<code>#include &quot;nrf_nvic.h&quot;</code><br />
-<code>#include &quot;nrf_sdm.h&quot;</code><br />
-<code>#include &quot;nrf_soc.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="nrf__nvic_8h_source.html">nrf_nvic.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="nrf__sdm_8h_source.html">nrf_sdm.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="nrf__soc_8h_source.html">nrf_soc.h</a>&quot;</code><br />
 <code>#include &quot;nrf_log.h&quot;</code><br />
 <code>#include &quot;nrf_dfu_svci.h&quot;</code><br />
 <code>#include &quot;nrf_svci_async_function.h&quot;</code><br />
@@ -96,7 +96,7 @@ Macros</h2></td></tr>
 Functions</h2></td></tr>
 <tr class="memitem:aff90fc5573cfa7998ca6cf175910ae6a"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a> (m_dfus_obs, BLE_DFU_BLE_OBSERVER_PRIO, <a class="el" href="group__ble__dfu.html#gafba513f1b11dc518065b69216a533633">ble_dfu_buttonless_on_ble_evt</a>, &amp;m_dfu)</td></tr>
 <tr class="separator:aff90fc5573cfa7998ca6cf175910ae6a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gafba513f1b11dc518065b69216a533633"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__dfu.html#gafba513f1b11dc518065b69216a533633">ble_dfu_buttonless_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:gafba513f1b11dc518065b69216a533633"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__dfu.html#gafba513f1b11dc518065b69216a533633">ble_dfu_buttonless_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:gafba513f1b11dc518065b69216a533633"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the application's BLE stack events.  <a href="group__ble__dfu.html#gafba513f1b11dc518065b69216a533633">More...</a><br /></td></tr>
 <tr class="separator:gafba513f1b11dc518065b69216a533633"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga8d1e802ec9cee79bd3a5d48fb8ac352c"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__dfu.html#ga8d1e802ec9cee79bd3a5d48fb8ac352c">ble_dfu_buttonless_resp_send</a> (<a class="el" href="group__ble__dfu.html#ga9a25cf6098f4ab162e64bba0c9c8d6a6">ble_dfu_buttonless_op_code_t</a> op_code, <a class="el" href="group__ble__dfu.html#gaee02589c1d3040ad269a6f37f6645937">ble_dfu_buttonless_rsp_code_t</a> rsp_code)</td></tr>

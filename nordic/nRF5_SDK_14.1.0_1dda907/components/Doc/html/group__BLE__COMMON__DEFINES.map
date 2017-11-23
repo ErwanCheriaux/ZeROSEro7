@@ -1,0 +1,6 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node1" href="$group__BLE__UUID__VS__COUNTS.html" title="Vendor Specific UUID\l counts" alt="" coords="327,5,479,47"/>
+<area shape="rect" id="node2" href="$group__ble__api.html" title="Module independent events, type definitions and API calls for the BLE SoftDevice. ..." alt="" coords="5,64,164,105"/>
+<area shape="rect" id="node4" href="$group__BLE__COMMON__CFG__DEFAULTS.html" title="Configuration defaults." alt="" coords="327,71,480,98"/>
+<area shape="rect" id="node5" href="$group__BLE__USER__MEM__TYPES.html" title="User Memory Types" alt="" coords="333,122,474,149"/>
+</map>

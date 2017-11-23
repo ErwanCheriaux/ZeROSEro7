@@ -77,10 +77,10 @@ Collaboration diagram for Peer Manager defined security errors:</div>
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="define-members"></a>
 Macros</h2></td></tr>
 <tr class="memitem:ga3475d3ceef0d21e6f940f5a6fb4c2832"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PM__SEC__ERRORS.html#ga3475d3ceef0d21e6f940f5a6fb4c2832">PM_CONN_SEC_ERROR_PIN_OR_KEY_MISSING</a>&#160;&#160;&#160;(<a class="el" href="group__peer__manager.html#ga1c89b6d900d78158b76b4f57bed47a25">PM_CONN_SEC_ERROR_BASE</a> + 0x06)</td></tr>
-<tr class="memdesc:ga3475d3ceef0d21e6f940f5a6fb4c2832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encryption failed because the peripheral has lost the LTK for this bond. See also BLE_HCI_STATUS_CODE_PIN_OR_KEY_MISSING and Table 3.7 ("Pairing Failed Reason Codes") in the Bluetooth Core Specification 4.2, section 3.H.3.5.5 ().  <a href="#ga3475d3ceef0d21e6f940f5a6fb4c2832">More...</a><br /></td></tr>
+<tr class="memdesc:ga3475d3ceef0d21e6f940f5a6fb4c2832"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encryption failed because the peripheral has lost the LTK for this bond. See also <a class="el" href="group__BLE__HCI__STATUS__CODES.html#ga5006ec78f9d9101a1d1d8b72ae98ad20">BLE_HCI_STATUS_CODE_PIN_OR_KEY_MISSING</a> and Table 3.7 ("Pairing Failed Reason Codes") in the Bluetooth Core Specification 4.2, section 3.H.3.5.5 ().  <a href="#ga3475d3ceef0d21e6f940f5a6fb4c2832">More...</a><br /></td></tr>
 <tr class="separator:ga3475d3ceef0d21e6f940f5a6fb4c2832"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga7e81205d3850287580bf418e578c331e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PM__SEC__ERRORS.html#ga7e81205d3850287580bf418e578c331e">PM_CONN_SEC_ERROR_MIC_FAILURE</a>&#160;&#160;&#160;(<a class="el" href="group__peer__manager.html#ga1c89b6d900d78158b76b4f57bed47a25">PM_CONN_SEC_ERROR_BASE</a> + 0x3D)</td></tr>
-<tr class="memdesc:ga7e81205d3850287580bf418e578c331e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encryption ended with disconnection because of mismatching keys or a stray packet during a procedure. See the SoftDevice GAP Message Sequence Charts on encryption (), the Bluetooth Core Specification 4.2, sections 6.B.5.1.3.1 and 3.H.3.5.5 (), and BLE_HCI_CONN_TERMINATED_DUE_TO_MIC_FAILURE.  <a href="#ga7e81205d3850287580bf418e578c331e">More...</a><br /></td></tr>
+<tr class="memdesc:ga7e81205d3850287580bf418e578c331e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Encryption ended with disconnection because of mismatching keys or a stray packet during a procedure. See the SoftDevice GAP Message Sequence Charts on encryption (), the Bluetooth Core Specification 4.2, sections 6.B.5.1.3.1 and 3.H.3.5.5 (), and <a class="el" href="group__BLE__HCI__STATUS__CODES.html#gafe4d349d8ff3edc71dad285d867c4d14">BLE_HCI_CONN_TERMINATED_DUE_TO_MIC_FAILURE</a>.  <a href="#ga7e81205d3850287580bf418e578c331e">More...</a><br /></td></tr>
 <tr class="separator:ga7e81205d3850287580bf418e578c331e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaebbb577cb7a0a911a6df2aab003b7c96"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__PM__SEC__ERRORS.html#gaebbb577cb7a0a911a6df2aab003b7c96">PM_CONN_SEC_ERROR_DISCONNECT</a>&#160;&#160;&#160;(<a class="el" href="group__peer__manager.html#ga1c89b6d900d78158b76b4f57bed47a25">PM_CONN_SEC_ERROR_BASE</a> + 0x100)</td></tr>
 <tr class="memdesc:gaebbb577cb7a0a911a6df2aab003b7c96"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pairing or encryption did not finish before the link disconnected for an unrelated reason.  <a href="#gaebbb577cb7a0a911a6df2aab003b7c96">More...</a><br /></td></tr>
@@ -90,7 +90,7 @@ Macros</h2></td></tr>
 <tr class="separator:gab1e81df83ba1aa736bbb1e56b7a42420"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<p>The first 256 numbers in this range correspond to the status codes in BLE_HCI_STATUS_CODES. </p>
+<p>The first 256 numbers in this range correspond to the status codes in <a class="el" href="group__BLE__HCI__STATUS__CODES.html">Bluetooth status codes</a>. </p>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gaebbb577cb7a0a911a6df2aab003b7c96"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gaebbb577cb7a0a911a6df2aab003b7c96">&#9670;&nbsp;</a></span>PM_CONN_SEC_ERROR_DISCONNECT</h2>
@@ -120,7 +120,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Encryption ended with disconnection because of mismatching keys or a stray packet during a procedure. See the SoftDevice GAP Message Sequence Charts on encryption (), the Bluetooth Core Specification 4.2, sections 6.B.5.1.3.1 and 3.H.3.5.5 (), and BLE_HCI_CONN_TERMINATED_DUE_TO_MIC_FAILURE. </p>
+<p>Encryption ended with disconnection because of mismatching keys or a stray packet during a procedure. See the SoftDevice GAP Message Sequence Charts on encryption (), the Bluetooth Core Specification 4.2, sections 6.B.5.1.3.1 and 3.H.3.5.5 (), and <a class="el" href="group__BLE__HCI__STATUS__CODES.html#gafe4d349d8ff3edc71dad285d867c4d14">BLE_HCI_CONN_TERMINATED_DUE_TO_MIC_FAILURE</a>. </p>
 
 </div>
 </div>
@@ -136,7 +136,7 @@ Macros</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Encryption failed because the peripheral has lost the LTK for this bond. See also BLE_HCI_STATUS_CODE_PIN_OR_KEY_MISSING and Table 3.7 ("Pairing Failed Reason Codes") in the Bluetooth Core Specification 4.2, section 3.H.3.5.5 (). </p>
+<p>Encryption failed because the peripheral has lost the LTK for this bond. See also <a class="el" href="group__BLE__HCI__STATUS__CODES.html#ga5006ec78f9d9101a1d1d8b72ae98ad20">BLE_HCI_STATUS_CODE_PIN_OR_KEY_MISSING</a> and Table 3.7 ("Pairing Failed Reason Codes") in the Bluetooth Core Specification 4.2, section 3.H.3.5.5 (). </p>
 
 </div>
 </div>

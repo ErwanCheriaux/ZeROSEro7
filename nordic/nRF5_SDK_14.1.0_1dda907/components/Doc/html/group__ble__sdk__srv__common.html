@@ -159,7 +159,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga611dfcf7209a57c2e45964e8bb4c5756"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__common.html#ga611dfcf7209a57c2e45964e8bb4c5756">ble_srv_ascii_to_utf8</a> (<a class="el" href="structble__srv__utf8__str__t.html">ble_srv_utf8_str_t</a> *p_utf8, char *p_ascii)</td></tr>
 <tr class="memdesc:ga611dfcf7209a57c2e45964e8bb4c5756"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for making a UTF-8 structure refer to an ASCII string.  <a href="#ga611dfcf7209a57c2e45964e8bb4c5756">More...</a><br /></td></tr>
 <tr class="separator:ga611dfcf7209a57c2e45964e8bb4c5756"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gaef711e380480c973f7ace40a05b03540"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__common.html#gaef711e380480c973f7ace40a05b03540">characteristic_add</a> (uint16_t service_handle, <a class="el" href="structble__add__char__params__t.html">ble_add_char_params_t</a> *p_char_props, ble_gatts_char_handles_t *p_char_handle)</td></tr>
+<tr class="memitem:gaef711e380480c973f7ace40a05b03540"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__common.html#gaef711e380480c973f7ace40a05b03540">characteristic_add</a> (uint16_t service_handle, <a class="el" href="structble__add__char__params__t.html">ble_add_char_params_t</a> *p_char_props, <a class="el" href="structble__gatts__char__handles__t.html">ble_gatts_char_handles_t</a> *p_char_handle)</td></tr>
 <tr class="memdesc:gaef711e380480c973f7ace40a05b03540"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for adding a characteristic to a given service.  <a href="#gaef711e380480c973f7ace40a05b03540">More...</a><br /></td></tr>
 <tr class="separator:gaef711e380480c973f7ace40a05b03540"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad3dc0663c7d4929a84db5009b123b431"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__sdk__srv__common.html#gad3dc0663c7d4929a84db5009b123b431">descriptor_add</a> (uint16_t char_handle, <a class="el" href="structble__add__descr__params__t.html">ble_add_descr_params_t</a> *p_descr_props, uint16_t *p_descr_handle)</td></tr>
@@ -422,7 +422,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="paramkey"></td>
           <td></td>
-          <td class="paramtype">ble_gatts_char_handles_t *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__gatts__char__handles__t.html">ble_gatts_char_handles_t</a> *&#160;</td>
           <td class="paramname"><em>p_char_handle</em>&#160;</td>
         </tr>
         <tr>
@@ -487,7 +487,7 @@ Functions</h2></td></tr>
 <p>Function for adding a characteristic's descriptor to a given characteristic. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">char_handle</td><td>Handle of the characteristic to which the descriptor is to be added, if BLE_GATT_HANDLE_INVALID is used, it will be placed sequentially. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">char_handle</td><td>Handle of the characteristic to which the descriptor is to be added, if <a class="el" href="group__BLE__GATT__DEFINES.html#ga755613d0f9d0979be50a3814c1436ab9">BLE_GATT_HANDLE_INVALID</a> is used, it will be placed sequentially. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">p_descr_props</td><td>Information needed to add the descriptor. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">p_descr_handle</td><td>Handle of the added descriptor.</td></tr>
   </table>

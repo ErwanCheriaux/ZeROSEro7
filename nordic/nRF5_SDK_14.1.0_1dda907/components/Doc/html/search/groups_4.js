@@ -1,6 +1,12 @@
 var searchData=
 [
   ['enumerations',['Enumerations',['../group__bas__c__enums.html',1,'']]],
+  ['events_2c_20type_20definitions_20and_20api_20calls',['Events, type definitions and API calls',['../group__ble__api.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__BLE__COMMON__ENUMERATIONS.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__BLE__GAP__ENUMERATIONS.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__BLE__GATTC__ENUMERATIONS.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__BLE__GATTS__ENUMERATIONS.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__BLE__L2CAP__ENUMERATIONS.html',1,'']]],
   ['error_20_2f_20status_20codes_20specific_20to_20drivers_2e',['Error / status codes specific to drivers.',['../group__drv__specific__errors.html',1,'']]],
   ['enumerations',['Enumerations',['../group__hrs__c__enums.html',1,'']]],
   ['enumerations',['Enumerations',['../group__nrf__ble__cgms__enums.html',1,'']]],
@@ -11,5 +17,9 @@ var searchData=
   ['ecdh_20shared_20secret_20sizes_2e',['ECDH shared secret sizes.',['../group__NRF__CRYPTO__ECDH__SHARED__SECRET__SIZES.html',1,'']]],
   ['ecdsa_20related_20functions',['ECDSA related functions',['../group__nrf__crypto__ecdsa.html',1,'']]],
   ['ecdsa_20signature_20sizes_2e',['ECDSA signature sizes.',['../group__NRF__CRYPTO__ECDSA__SIGNATURE__SIZES.html',1,'']]],
-  ['ecc_20key_20handling_20functions_2e',['ECC key handling functions.',['../group__nrf__crypto__keys.html',1,'']]]
+  ['ecc_20key_20handling_20functions_2e',['ECC key handling functions.',['../group__nrf__crypto__keys.html',1,'']]],
+  ['error_20codes_20base_20number_20definitions',['Error Codes Base number definitions',['../group__NRF__ERRORS__BASE.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__NRF__MBR__ENUMS.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__NRF__SDM__ENUMS.html',1,'']]],
+  ['enumerations',['Enumerations',['../group__NRF__SOC__ENUMS.html',1,'']]]
 ];

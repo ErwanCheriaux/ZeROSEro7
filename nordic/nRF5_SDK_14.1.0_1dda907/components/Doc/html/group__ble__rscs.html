@@ -127,7 +127,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gafd5591aad290232ba97ac0bc7aec8f7b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs.html#gafd5591aad290232ba97ac0bc7aec8f7b">ble_rscs_init</a> (<a class="el" href="group__ble__rscs.html#gac2d10efa222688b53fbe59ad5a9dab85">ble_rscs_t</a> *p_rscs, const <a class="el" href="structble__rscs__init__t.html">ble_rscs_init_t</a> *p_rscs_init)</td></tr>
 <tr class="memdesc:gafd5591aad290232ba97ac0bc7aec8f7b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the Running Speed and Cadence Service.  <a href="#gafd5591aad290232ba97ac0bc7aec8f7b">More...</a><br /></td></tr>
 <tr class="separator:gafd5591aad290232ba97ac0bc7aec8f7b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gabd74b0de1fa6fc53d348aebf278d5307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs.html#gabd74b0de1fa6fc53d348aebf278d5307">ble_rscs_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:gabd74b0de1fa6fc53d348aebf278d5307"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs.html#gabd74b0de1fa6fc53d348aebf278d5307">ble_rscs_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:gabd74b0de1fa6fc53d348aebf278d5307"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#gabd74b0de1fa6fc53d348aebf278d5307">More...</a><br /></td></tr>
 <tr class="separator:gabd74b0de1fa6fc53d348aebf278d5307"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga16080f0b2880066d0e1f88fbe960079b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__rscs.html#ga16080f0b2880066d0e1f88fbe960079b">ble_rscs_measurement_send</a> (<a class="el" href="group__ble__rscs.html#gac2d10efa222688b53fbe59ad5a9dab85">ble_rscs_t</a> *p_rscs, <a class="el" href="group__ble__rscs.html#ga405a751c55b6402ce563e2d2d88e0792">ble_rscs_meas_t</a> *p_measurement)</td></tr>
@@ -138,7 +138,7 @@ Functions</h2></td></tr>
 <p>Running Speed and Cadence Service module. </p>
 <p>This module implements the Running Speed and Cadence Service. If enabled, notification of the Running Speead and Candence Measurement is performed when the application calls <a class="el" href="group__ble__rscs.html#ga16080f0b2880066d0e1f88fbe960079b" title="Function for sending running speed and cadence measurement if notification has been enabled...">ble_rscs_measurement_send()</a>.</p>
 <p>If an event handler is supplied by the application, the Running Speed and Cadence Service will generate Running Speed and Cadence Service events to the application.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__rscs__s.html">ble_rscs_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_RSCS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__rscs.html#gabd74b0de1fa6fc53d348aebf278d5307">ble_rscs_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__rscs__s.html">ble_rscs_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_RSCS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__rscs.html#gabd74b0de1fa6fc53d348aebf278d5307">ble_rscs_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
 <dd>
 Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profile qualification listings, this section of source code must not be modified. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -400,7 +400,7 @@ Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profil
         <tr>
           <td class="memname">void ble_rscs_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

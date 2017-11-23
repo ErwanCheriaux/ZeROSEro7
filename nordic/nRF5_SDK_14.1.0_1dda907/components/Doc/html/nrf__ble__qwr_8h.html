@@ -75,7 +75,7 @@ $(function() {
 <div class="textblock"><code>#include &lt;stdint.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="nordic__common_8h_source.html">nordic_common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="sdk__common_8h_source.html">sdk_common.h</a>&quot;</code><br />
-<code>#include &quot;ble.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ble_8h_source.html">ble.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ble__srv__common_8h_source.html">ble_srv_common.h</a>&quot;</code><br />
 </div><div class="textblock"><div class="dynheader">
 This graph shows which files directly or indirectly include this file:</div>
@@ -111,7 +111,7 @@ Macros</h2></td></tr>
 <tr class="memitem:ga90fcadcf66a7c44e4074795c10eefe89"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga90fcadcf66a7c44e4074795c10eefe89">NRF_BLE_QWR_ATTR_LIST_SIZE</a>&#160;&#160;&#160;10</td></tr>
 <tr class="memdesc:ga90fcadcf66a7c44e4074795c10eefe89"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum number of attribute handles that can be registered. This number must be adjusted according to the number of attributes for which Queued Writes will be enabled.  <a href="group__nrf__ble__qwr.html#ga90fcadcf66a7c44e4074795c10eefe89">More...</a><br /></td></tr>
 <tr class="separator:ga90fcadcf66a7c44e4074795c10eefe89"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga914ca0a353990943c45252204e80651e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga914ca0a353990943c45252204e80651e">NRF_BLE_QWR_REJ_REQUEST_ERR_CODE</a>&#160;&#160;&#160;BLE_GATT_STATUS_ATTERR_APP_BEGIN + 0</td></tr>
+<tr class="memitem:ga914ca0a353990943c45252204e80651e"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga914ca0a353990943c45252204e80651e">NRF_BLE_QWR_REJ_REQUEST_ERR_CODE</a>&#160;&#160;&#160;<a class="el" href="group__BLE__GATT__STATUS__CODES.html#gab64b73774dc0536f965a6f9a31755748">BLE_GATT_STATUS_ATTERR_APP_BEGIN</a> + 0</td></tr>
 <tr class="memdesc:ga914ca0a353990943c45252204e80651e"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error code used by the module to reject prepare write requests on non-registered attributes.  <a href="group__nrf__ble__qwr.html#ga914ca0a353990943c45252204e80651e">More...</a><br /></td></tr>
 <tr class="separator:ga914ca0a353990943c45252204e80651e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -140,7 +140,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga3c8a71605a48a5f3e1e2507512f740df"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__sdk__error.html#gaf6c20fb483036617204f12e99e0b997b">ret_code_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga3c8a71605a48a5f3e1e2507512f740df">nrf_ble_qwr_attr_register</a> (<a class="el" href="structnrf__ble__qwr__t.html">nrf_ble_qwr_t</a> *p_qwr, uint16_t attr_handle)</td></tr>
 <tr class="memdesc:ga3c8a71605a48a5f3e1e2507512f740df"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for registering an attribute with the Queued Writes module.  <a href="group__nrf__ble__qwr.html#ga3c8a71605a48a5f3e1e2507512f740df">More...</a><br /></td></tr>
 <tr class="separator:ga3c8a71605a48a5f3e1e2507512f740df"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga28b83175befcb734874202a12122c394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga28b83175befcb734874202a12122c394">nrf_ble_qwr_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga28b83175befcb734874202a12122c394"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga28b83175befcb734874202a12122c394">nrf_ble_qwr_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga28b83175befcb734874202a12122c394"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling BLE stack events.  <a href="group__nrf__ble__qwr.html#ga28b83175befcb734874202a12122c394">More...</a><br /></td></tr>
 <tr class="separator:ga28b83175befcb734874202a12122c394"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga3484bea99a899c836eac37997683500b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__sdk__error.html#gaf6c20fb483036617204f12e99e0b997b">ret_code_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__qwr.html#ga3484bea99a899c836eac37997683500b">nrf_ble_qwr_value_get</a> (<a class="el" href="structnrf__ble__qwr__t.html">nrf_ble_qwr_t</a> *p_qwr, uint16_t attr_handle, uint8_t *p_mem, uint16_t *p_len)</td></tr>

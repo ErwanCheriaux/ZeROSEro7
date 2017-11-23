@@ -142,7 +142,8 @@ Functions</h2></td></tr>
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span>                                                      \</div><div class="line">    {                                                       \</div><div class="line">        const uint32_t LOCAL_ERR_CODE = (ERR_CODE);         \</div><div class="line">        if (LOCAL_ERR_CODE != NRF_SUCCESS)                  \</div><div class="line">        {                                                   \</div><div class="line">            APP_ERROR_HANDLER(LOCAL_ERR_CODE);              \</div><div class="line">        }                                                   \</div><div class="line">    } <span class="keywordflow">while</span> (0)</div></div><!-- fragment -->
+<b>Value:</b><div class="fragment"><div class="line"><span class="keywordflow">do</span>                                                      \</div><div class="line">    {                                                       \</div><div class="line">        const uint32_t LOCAL_ERR_CODE = (ERR_CODE);         \</div><div class="line">        if (LOCAL_ERR_CODE != <a class="code" href="group__nrf__error.html#ga7e6367efeaac363d8cf024940b4ec123">NRF_SUCCESS</a>)                  \</div><div class="line">        {                                                   \</div><div class="line">            APP_ERROR_HANDLER(LOCAL_ERR_CODE);              \</div><div class="line">        }                                                   \</div><div class="line">    } <span class="keywordflow">while</span> (0)</div><div class="ttc" id="group__nrf__error_html_ga7e6367efeaac363d8cf024940b4ec123"><div class="ttname"><a href="group__nrf__error.html#ga7e6367efeaac363d8cf024940b4ec123">NRF_SUCCESS</a></div><div class="ttdeci">#define NRF_SUCCESS</div><div class="ttdoc">Successful command. </div><div class="ttdef"><b>Definition:</b> nrf_error.h:62</div></div>
+</div><!-- fragment -->
 <p>Macro for calling error handler function if supplied error code any other than NRF_SUCCESS. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -255,13 +256,13 @@ Functions</h2></td></tr>
 
 <p>Callback function for errors, asserts, and faults. </p>
 <p>This function is called every time an error is raised in app_error, nrf_assert, or in the SoftDevice. Information about the error can be found in the <code>info</code> parameter.</p>
-<p>See also nrf_fault_handler_t for more details.</p>
+<p>See also <a class="el" href="group__NRF__SDM__TYPES.html#gab1e24001fc18966505cd6358dce4af28">nrf_fault_handler_t</a> for more details.</p>
 <dl class="section note"><dt>Note</dt><dd>The function is implemented as weak so that it can be redefined by a custom error handler when needed.</dd></dl>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Fault identifier. See NRF_FAULT_IDS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Fault identifier. See <a class="el" href="group__NRF__FAULT__IDS.html">Fault ID types</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pc</td><td>The program counter of the instruction that triggered the fault, or 0 if unavailable. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">info</td><td>Optional additional information regarding the fault. The value of the <code>id</code> parameter dictates how to interpret this parameter. Refer to the documentation for each fault identifier (NRF_FAULT_IDS and <a class="el" href="group__APP__ERROR__FAULT__IDS.html">Fault ID types</a>) for details about interpreting <code>info</code>.</td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">info</td><td>Optional additional information regarding the fault. The value of the <code>id</code> parameter dictates how to interpret this parameter. Refer to the documentation for each fault identifier (<a class="el" href="group__NRF__FAULT__IDS.html">Fault ID types</a> and <a class="el" href="group__APP__ERROR__FAULT__IDS.html">Fault ID types</a>) for details about interpreting <code>info</code>.</td></tr>
   </table>
   </dd>
 </dl>
@@ -388,7 +389,7 @@ Functions</h2></td></tr>
 <p>Function for saving the parameters and entering an eternal loop, for debug purposes. </p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
-    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Fault identifier. See NRF_FAULT_IDS. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">id</td><td>Fault identifier. See <a class="el" href="group__NRF__FAULT__IDS.html">Fault ID types</a>. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">pc</td><td>The program counter of the instruction that triggered the fault, or 0 if unavailable. </td></tr>
     <tr><td class="paramdir">[in]</td><td class="paramname">info</td><td>Optional additional information regarding the fault. Refer to each fault identifier for details. </td></tr>
   </table>

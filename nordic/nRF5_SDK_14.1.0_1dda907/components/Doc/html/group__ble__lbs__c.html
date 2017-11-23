@@ -128,7 +128,7 @@ Functions</h2></td></tr>
 <tr class="memitem:gaed30139f8ed8eb3e41c1debb04065f39"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lbs__c.html#gaed30139f8ed8eb3e41c1debb04065f39">ble_lbs_c_init</a> (<a class="el" href="group__ble__lbs__c.html#ga932dc48a96d842c26711be6bef48b9fb">ble_lbs_c_t</a> *p_ble_lbs_c, <a class="el" href="structble__lbs__c__init__t.html">ble_lbs_c_init_t</a> *p_ble_lbs_c_init)</td></tr>
 <tr class="memdesc:gaed30139f8ed8eb3e41c1debb04065f39"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the LED Button client module.  <a href="#gaed30139f8ed8eb3e41c1debb04065f39">More...</a><br /></td></tr>
 <tr class="separator:gaed30139f8ed8eb3e41c1debb04065f39"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gab67903ce6c53a3e090f97175ff364268"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lbs__c.html#gab67903ce6c53a3e090f97175ff364268">ble_lbs_c_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:gab67903ce6c53a3e090f97175ff364268"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lbs__c.html#gab67903ce6c53a3e090f97175ff364268">ble_lbs_c_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:gab67903ce6c53a3e090f97175ff364268"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling BLE events from the SoftDevice.  <a href="#gab67903ce6c53a3e090f97175ff364268">More...</a><br /></td></tr>
 <tr class="separator:gab67903ce6c53a3e090f97175ff364268"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gaa8f2737857fe8cc2c25e5b1a1f1df383"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lbs__c.html#gaa8f2737857fe8cc2c25e5b1a1f1df383">ble_lbs_c_button_notif_enable</a> (<a class="el" href="group__ble__lbs__c.html#ga932dc48a96d842c26711be6bef48b9fb">ble_lbs_c_t</a> *p_ble_lbs_c)</td></tr>
@@ -147,7 +147,7 @@ Functions</h2></td></tr>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>The LED Button Service client can be used to set a LED, and read a button state on a LED button service server. </p>
 <p>This module contains the APIs and types exposed by the LED Button Service Client module. These APIs and types can be used by the application to perform discovery of LED Button Service at the peer and interact with it.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__lbs__c__s.html">ble_lbs_c_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_LBS_C_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__lbs__c.html#gab67903ce6c53a3e090f97175ff364268">ble_lbs_c_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__lbs__c__s.html">ble_lbs_c_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_LBS_C_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__lbs__c.html#gab67903ce6c53a3e090f97175ff364268">ble_lbs_c_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga0a08c6fa375c216264231692b95ea334"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga0a08c6fa375c216264231692b95ea334">&#9670;&nbsp;</a></span>BLE_LBS_C_ARRAY_DEF</h2>
@@ -457,7 +457,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void ble_lbs_c_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

@@ -1,0 +1,7 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node2" href="$group__BLE__CONN__HANDLES.html" title="BLE Connection Handles" alt="" coords="344,5,513,32"/>
+<area shape="rect" id="node3" href="$group__BLE__UUID__VALUES.html" title="Assigned Values for\l BLE UUIDs" alt="" coords="359,57,498,98"/>
+<area shape="rect" id="node5" href="$group__BLE__APPEARANCES.html" title="Bluetooth Appearance\l values" alt="" coords="353,122,504,163"/>
+<area shape="rect" id="node6" href="$group__BLE__UUID__TYPES.html" title="Types of UUID" alt="" coords="373,188,484,215"/>
+<area shape="rect" id="node4" href="$group__ble__types.html" title="Common types and macro definitions for the BLE SoftDevice. " alt="" coords="5,90,181,131"/>
+</map>

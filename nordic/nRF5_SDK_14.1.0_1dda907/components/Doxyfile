@@ -795,7 +795,8 @@ INPUT                  = ant ble \
     libraries/mutex libraries/pwm libraries/serial libraries/simple_timer libraries/spi_mngr \
     libraries/scheduler libraries/sterror libraries/timer libraries/util libraries/timer \
     libraries/queue libraries/pwr_mgmt \
-    boards/pca10040.h device/nrf52.h device/nrd52832_peripherals.h
+    boards/pca10040.h device/nrf52.h device/nrd52832_peripherals.h \
+    softdevice/common softdevice/s132/headers
 
 
 # This tag can be used to specify the character encoding of the source files

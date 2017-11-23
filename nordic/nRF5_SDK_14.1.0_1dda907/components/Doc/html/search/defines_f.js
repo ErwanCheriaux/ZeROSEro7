@@ -2,11 +2,11 @@ var searchData=
 [
   ['sc_5fctrlpt_5fnack_5fcccd_5fimproperly_5fconfigured',['SC_CTRLPT_NACK_CCCD_IMPROPERLY_CONFIGURED',['../ble__sc__ctrlpt_8c.html#aec93d19c502e1ee5d686c03cfddf7a90',1,'ble_sc_ctrlpt.c']]],
   ['sc_5fctrlpt_5fnack_5fproc_5falready_5fin_5fprogress',['SC_CTRLPT_NACK_PROC_ALREADY_IN_PROGRESS',['../ble__sc__ctrlpt_8c.html#a1b96ab42cd0e16ba66bcf722c9119eea',1,'ble_sc_ctrlpt.c']]],
-  ['sd_5fppi_5fchannels_5fused',['SD_PPI_CHANNELS_USED',['../sdk__resources_8h.html#abd824051cc644f0506d7c84139b287ef',1,'sdk_resources.h']]],
-  ['sd_5fppi_5fgroups_5fused',['SD_PPI_GROUPS_USED',['../sdk__resources_8h.html#ac7cd2e0889db2774137b9cf91675fd27',1,'sdk_resources.h']]],
+  ['sd_5fppi_5fchannels_5fused',['SD_PPI_CHANNELS_USED',['../sdk__resources_8h.html#abd824051cc644f0506d7c84139b287ef',1,'SD_PPI_CHANNELS_USED():&#160;sdk_resources.h'],['../nrf__sd__def_8h.html#abd824051cc644f0506d7c84139b287ef',1,'SD_PPI_CHANNELS_USED():&#160;nrf_sd_def.h']]],
+  ['sd_5fppi_5fgroups_5fused',['SD_PPI_GROUPS_USED',['../sdk__resources_8h.html#ac7cd2e0889db2774137b9cf91675fd27',1,'SD_PPI_GROUPS_USED():&#160;sdk_resources.h'],['../nrf__sd__def_8h.html#ac7cd2e0889db2774137b9cf91675fd27',1,'SD_PPI_GROUPS_USED():&#160;nrf_sd_def.h']]],
   ['sd_5fppi_5frestricted',['SD_PPI_RESTRICTED',['../sdk__resources_8h.html#a48652bb377cd2fb246ee50afb3e10e69',1,'sdk_resources.h']]],
-  ['sd_5fswi_5fused',['SD_SWI_USED',['../sdk__resources_8h.html#af9780bec5a7cdb2fb3c5e8ce524b29a0',1,'sdk_resources.h']]],
-  ['sd_5ftimers_5fused',['SD_TIMERS_USED',['../sdk__resources_8h.html#a0e75e178bd56d83df010ec5dea87f50b',1,'sdk_resources.h']]],
+  ['sd_5fswi_5fused',['SD_SWI_USED',['../sdk__resources_8h.html#af9780bec5a7cdb2fb3c5e8ce524b29a0',1,'SD_SWI_USED():&#160;sdk_resources.h'],['../nrf__sd__def_8h.html#af9780bec5a7cdb2fb3c5e8ce524b29a0',1,'SD_SWI_USED():&#160;nrf_sd_def.h']]],
+  ['sd_5ftimers_5fused',['SD_TIMERS_USED',['../sdk__resources_8h.html#a0e75e178bd56d83df010ec5dea87f50b',1,'SD_TIMERS_USED():&#160;sdk_resources.h'],['../nrf__sd__def_8h.html#a0e75e178bd56d83df010ec5dea87f50b',1,'SD_TIMERS_USED():&#160;nrf_sd_def.h']]],
   ['sdu_5fsize',['SDU_SIZE',['../ble__ots__l2cap_8c.html#a624cfe6936931fe70cf64cfdd99e2692',1,'ble_ots_l2cap.c']]],
   ['ser_5fapp_5fcts_5fpin',['SER_APP_CTS_PIN',['../pca10040_8h.html#a132c6ef10e142f6111ea9337c04dac63',1,'pca10040.h']]],
   ['ser_5fapp_5frts_5fpin',['SER_APP_RTS_PIN',['../pca10040_8h.html#a73139700c0f7a775c5b0bc362d728c10',1,'pca10040.h']]],
@@ -88,5 +88,6 @@ var searchData=
   ['spis_5fsck_5fpin',['SPIS_SCK_PIN',['../pca10040_8h.html#a6d943e0a86726414beb6b190d2d74e3e',1,'pca10040.h']]],
   ['stringify',['STRINGIFY',['../nordic__common_8h.html#a48427dfe592fe681211be3b0bcab7bd8',1,'nordic_common.h']]],
   ['stringify_5f',['STRINGIFY_',['../nordic__common_8h.html#a8d2a3be253da3165e69a5c051473c70c',1,'nordic_common.h']]],
-  ['svc_5finterface_5fcall_5fas_5fnormal_5ffunction',['SVC_INTERFACE_CALL_AS_NORMAL_FUNCTION',['../nrf__crypto__svc_8c.html#aa48fec10cbec3d228da1f4617a159c5d',1,'nrf_crypto_svc.c']]]
+  ['svc_5finterface_5fcall_5fas_5fnormal_5ffunction',['SVC_INTERFACE_CALL_AS_NORMAL_FUNCTION',['../nrf__crypto__svc_8c.html#aa48fec10cbec3d228da1f4617a159c5d',1,'nrf_crypto_svc.c']]],
+  ['svcall',['SVCALL',['../nrf__svc_8h.html#ae9140e5f87d1a2c9f3d1dafdd67a6798',1,'nrf_svc.h']]]
 ];

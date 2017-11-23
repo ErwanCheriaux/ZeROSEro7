@@ -126,7 +126,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga1e01e765c2cf0043c3213da12924d161"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__sdk__error.html#gaf6c20fb483036617204f12e99e0b997b">ret_code_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__gatt.html#ga1e01e765c2cf0043c3213da12924d161">nrf_ble_gatt_data_length_get</a> (<a class="el" href="group__nrf__ble__gatt.html#ga3dcb986ef2e79c7d441c677b0c5e6070">nrf_ble_gatt_t</a> const *p_gatt, uint16_t conn_handle, uint8_t *p_data_length)</td></tr>
 <tr class="memdesc:ga1e01e765c2cf0043c3213da12924d161"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for retrieving the data length of a connection.  <a href="#ga1e01e765c2cf0043c3213da12924d161">More...</a><br /></td></tr>
 <tr class="separator:ga1e01e765c2cf0043c3213da12924d161"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga43a9debd1a0194d22d8069bd7ad3281f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__gatt.html#ga43a9debd1a0194d22d8069bd7ad3281f">nrf_ble_gatt_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga43a9debd1a0194d22d8069bd7ad3281f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__gatt.html#ga43a9debd1a0194d22d8069bd7ad3281f">nrf_ble_gatt_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga43a9debd1a0194d22d8069bd7ad3281f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling BLE stack events.  <a href="#ga43a9debd1a0194d22d8069bd7ad3281f">More...</a><br /></td></tr>
 <tr class="separator:ga43a9debd1a0194d22d8069bd7ad3281f"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga593608d6a4d4bf79ab42787bc0a62050"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__nrf__ble__gatt.html#ga593608d6a4d4bf79ab42787bc0a62050">nrf_ble_gatt_eff_mtu_get</a> (<a class="el" href="group__nrf__ble__gatt.html#ga3dcb986ef2e79c7d441c677b0c5e6070">nrf_ble_gatt_t</a> const *p_gatt, uint16_t conn_handle)</td></tr>
@@ -272,7 +272,7 @@ Functions</h2></td></tr>
   <table class="retval">
     <tr><td class="paramname">NRF_SUCCESS</td><td>If the operation was successful. </td></tr>
     <tr><td class="paramname">NRF_ERROR_NULL</td><td>If <code>p_gatt</code> is NULL. </td></tr>
-    <tr><td class="paramname">NRF_ERROR_INVALID_PARAM</td><td>If the size of <code>desired_mtu</code> is bigger than NRF_SDH_BLE_GATT_MAX_MTU_SIZE or smaller than BLE_GATT_ATT_MTU_DEFAULT. </td></tr>
+    <tr><td class="paramname">NRF_ERROR_INVALID_PARAM</td><td>If the size of <code>desired_mtu</code> is bigger than NRF_SDH_BLE_GATT_MAX_MTU_SIZE or smaller than <a class="el" href="group__BLE__GATT__DEFINES.html#ga56f8a5e50e3e703e466a122c4cab4efb">BLE_GATT_ATT_MTU_DEFAULT</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -317,7 +317,7 @@ Functions</h2></td></tr>
   <table class="retval">
     <tr><td class="paramname">NRF_SUCCESS</td><td>If the operation was successful. </td></tr>
     <tr><td class="paramname">NRF_ERROR_NULL</td><td>If <code>p_gatt</code> is NULL. </td></tr>
-    <tr><td class="paramname">NRF_ERROR_INVALID_PARAM</td><td>If the size of <code>desired_mtu</code> is bigger than NRF_SDH_BLE_GATT_MAX_MTU_SIZE or smaller than BLE_GATT_ATT_MTU_DEFAULT. </td></tr>
+    <tr><td class="paramname">NRF_ERROR_INVALID_PARAM</td><td>If the size of <code>desired_mtu</code> is bigger than NRF_SDH_BLE_GATT_MAX_MTU_SIZE or smaller than <a class="el" href="group__BLE__GATT__DEFINES.html#ga56f8a5e50e3e703e466a122c4cab4efb">BLE_GATT_ATT_MTU_DEFAULT</a>. </td></tr>
   </table>
   </dd>
 </dl>
@@ -357,11 +357,11 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function for retrieving the data length of a connection. </p>
-<p>If <code>conn_handle</code> is BLE_CONN_HANDLE_INVALID, the function retrieves the data length that will be requested for the next connection. If <code>conn_handle</code> is a handle to an existing connection, the function retrieves the effective data length that was negotiated for that connection.</p>
+<p>If <code>conn_handle</code> is <a class="el" href="group__BLE__CONN__HANDLES.html#gacf227b9b101dbcf08eccbbaba54e48f5">BLE_CONN_HANDLE_INVALID</a>, the function retrieves the data length that will be requested for the next connection. If <code>conn_handle</code> is a handle to an existing connection, the function retrieves the effective data length that was negotiated for that connection.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramdir">[in,out]</td><td class="paramname">p_gatt</td><td>Pointer to the GATT structure. </td></tr>
-    <tr><td class="paramdir">[in]</td><td class="paramname">conn_handle</td><td>The connection for which to retrieve the data length, or BLE_CONN_HANDLE_INVALID to retrieve the requested data length for the next connection. </td></tr>
+    <tr><td class="paramdir">[in]</td><td class="paramname">conn_handle</td><td>The connection for which to retrieve the data length, or <a class="el" href="group__BLE__CONN__HANDLES.html#gacf227b9b101dbcf08eccbbaba54e48f5">BLE_CONN_HANDLE_INVALID</a> to retrieve the requested data length for the next connection. </td></tr>
     <tr><td class="paramdir">[out]</td><td class="paramname">p_data_length</td><td>The connection data length.</td></tr>
   </table>
   </dd>
@@ -410,7 +410,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Function for setting the data length for a connection. </p>
-<p>If <code>conn_handle</code> is a handle to an existing connection, a data length update request is sent on that connection. If <code>conn_handle</code> is BLE_CONN_HANDLE_INVALID, a data length update request is sent on the next connection that is established after the ATT_MTU exchange has completed. If no ATT_MTU exchange procedure is carried out (for example, if a default ATT_MTU size is used), the data length is not changed. </p>
+<p>If <code>conn_handle</code> is a handle to an existing connection, a data length update request is sent on that connection. If <code>conn_handle</code> is <a class="el" href="group__BLE__CONN__HANDLES.html#gacf227b9b101dbcf08eccbbaba54e48f5">BLE_CONN_HANDLE_INVALID</a>, a data length update request is sent on the next connection that is established after the ATT_MTU exchange has completed. If no ATT_MTU exchange procedure is carried out (for example, if a default ATT_MTU size is used), the data length is not changed. </p>
 
 </div>
 </div>
@@ -511,7 +511,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void nrf_ble_gatt_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

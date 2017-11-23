@@ -128,10 +128,10 @@ Macros</h2></td></tr>
 <tr class="memitem:gae5b1c58a0939a9c56d1becf849e35b83"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#gae5b1c58a0939a9c56d1becf849e35b83">NRF_BLE_BMS_AUTH_CODE_MAX_LEN</a>&#160;&#160;&#160;<a class="el" href="group__ble__bms.html#gaceb0f1a60d4a8222c64ceaf47a7ed90b">NRF_BLE_BMS_CTRLPT_MAX_LEN</a> - 1</td></tr>
 <tr class="memdesc:gae5b1c58a0939a9c56d1becf849e35b83"><td class="mdescLeft">&#160;</td><td class="mdescRight">Maximum length of the Bond Management Control Point Authorization Code (in bytes).  <a href="#gae5b1c58a0939a9c56d1becf849e35b83">More...</a><br /></td></tr>
 <tr class="separator:gae5b1c58a0939a9c56d1becf849e35b83"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga4fe367467616154bb05ffd4e52429199"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#ga4fe367467616154bb05ffd4e52429199">NRF_BLE_BMS_OPCODE_NOT_SUPPORTED</a>&#160;&#160;&#160;(BLE_GATT_STATUS_ATTERR_APP_BEGIN + 0)</td></tr>
+<tr class="memitem:ga4fe367467616154bb05ffd4e52429199"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#ga4fe367467616154bb05ffd4e52429199">NRF_BLE_BMS_OPCODE_NOT_SUPPORTED</a>&#160;&#160;&#160;(<a class="el" href="group__BLE__GATT__STATUS__CODES.html#gab64b73774dc0536f965a6f9a31755748">BLE_GATT_STATUS_ATTERR_APP_BEGIN</a> + 0)</td></tr>
 <tr class="memdesc:ga4fe367467616154bb05ffd4e52429199"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error sent back when receiving a control point write with an unsupported opcode.  <a href="#ga4fe367467616154bb05ffd4e52429199">More...</a><br /></td></tr>
 <tr class="separator:ga4fe367467616154bb05ffd4e52429199"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gad713abc46af970108afc0e3d19845bb2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#gad713abc46af970108afc0e3d19845bb2">NRF_BLE_BMS_OPERATION_FAILED</a>&#160;&#160;&#160;(BLE_GATT_STATUS_ATTERR_APP_BEGIN + 1)</td></tr>
+<tr class="memitem:gad713abc46af970108afc0e3d19845bb2"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#gad713abc46af970108afc0e3d19845bb2">NRF_BLE_BMS_OPERATION_FAILED</a>&#160;&#160;&#160;(<a class="el" href="group__BLE__GATT__STATUS__CODES.html#gab64b73774dc0536f965a6f9a31755748">BLE_GATT_STATUS_ATTERR_APP_BEGIN</a> + 1)</td></tr>
 <tr class="memdesc:gad713abc46af970108afc0e3d19845bb2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Error sent back when a control point operation fails.  <a href="#gad713abc46af970108afc0e3d19845bb2">More...</a><br /></td></tr>
 <tr class="separator:gad713abc46af970108afc0e3d19845bb2"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
@@ -143,7 +143,7 @@ Typedefs</h2></td></tr>
 <tr class="memdesc:ga8f7ed0be95021fb7511570446dd0b75b"><td class="mdescLeft">&#160;</td><td class="mdescRight">BMS event handler type.  <a href="#ga8f7ed0be95021fb7511570446dd0b75b">More...</a><br /></td></tr>
 <tr class="separator:ga8f7ed0be95021fb7511570446dd0b75b"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gae4cd131d967189217ecb21883fe26ccc"><td class="memItemLeft" align="right" valign="top">typedef void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#gae4cd131d967189217ecb21883fe26ccc">ble_bms_evt_handler_t</a>) (<a class="el" href="group__ble__bms.html#ga15ac213160c9aaa8a61bd1b40cb314c7">nrf_ble_bms_t</a> *p_bms, <a class="el" href="structnrf__ble__bms__evt__t.html">nrf_ble_bms_evt_t</a> *p_evt)</td></tr>
-<tr class="memdesc:gae4cd131d967189217ecb21883fe26ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">BMS event handler type. The event handler returns a BLE GATT status code.  <a href="#gae4cd131d967189217ecb21883fe26ccc">More...</a><br /></td></tr>
+<tr class="memdesc:gae4cd131d967189217ecb21883fe26ccc"><td class="mdescLeft">&#160;</td><td class="mdescRight">BMS event handler type. The event handler returns a <a class="el" href="group__BLE__GATT__STATUS__CODES.html">BLE GATT status code</a>.  <a href="#gae4cd131d967189217ecb21883fe26ccc">More...</a><br /></td></tr>
 <tr class="separator:gae4cd131d967189217ecb21883fe26ccc"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="enum-members"></a>
@@ -187,7 +187,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga89121401f8872852f4ada9faace0d353"><td class="memItemLeft" align="right" valign="top"><a class="el" href="group__sdk__error.html#gaf6c20fb483036617204f12e99e0b997b">ret_code_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#ga89121401f8872852f4ada9faace0d353">nrf_ble_bms_set_conn_handle</a> (<a class="el" href="group__ble__bms.html#ga15ac213160c9aaa8a61bd1b40cb314c7">nrf_ble_bms_t</a> *p_bms, uint16_t conn_handle)</td></tr>
 <tr class="memdesc:ga89121401f8872852f4ada9faace0d353"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for assigning handles to the Bond Management Service instance.  <a href="#ga89121401f8872852f4ada9faace0d353">More...</a><br /></td></tr>
 <tr class="separator:ga89121401f8872852f4ada9faace0d353"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga6dd18eb380e5349c6a43c9ad728cae90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#ga6dd18eb380e5349c6a43c9ad728cae90">nrf_ble_bms_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga6dd18eb380e5349c6a43c9ad728cae90"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#ga6dd18eb380e5349c6a43c9ad728cae90">nrf_ble_bms_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga6dd18eb380e5349c6a43c9ad728cae90"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling Bond Management BLE stack events.  <a href="#ga6dd18eb380e5349c6a43c9ad728cae90">More...</a><br /></td></tr>
 <tr class="separator:ga6dd18eb380e5349c6a43c9ad728cae90"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gad83bd8fab67c9b21ca183981b830d0de"><td class="memItemLeft" align="right" valign="top">uint16_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bms.html#gad83bd8fab67c9b21ca183981b830d0de">nrf_ble_bms_on_qwr_evt</a> (<a class="el" href="group__ble__bms.html#ga15ac213160c9aaa8a61bd1b40cb314c7">nrf_ble_bms_t</a> *p_bms, <a class="el" href="structnrf__ble__qwr__t.html">nrf_ble_qwr_t</a> *p_qwr, <a class="el" href="structnrf__ble__qwr__evt__t.html">nrf_ble_qwr_evt_t</a> *p_evt)</td></tr>
@@ -201,7 +201,7 @@ Functions</h2></td></tr>
 <img src="msc_inline_mscgraph_2.png" alt="msc_inline_mscgraph_2" border="0" usemap="#msc_inline_mscgraph_2.map"/>
 <map name="msc_inline_mscgraph_2.map" id="msc_inline_mscgraph_2.map"></map>
 </div>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structnrf__ble__bms__s.html">nrf_ble_bms_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, NRF_BLE_BMS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__bms.html#ga6dd18eb380e5349c6a43c9ad728cae90">nrf_ble_bms_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structnrf__ble__bms__s.html">nrf_ble_bms_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, NRF_BLE_BMS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__bms.html#ga6dd18eb380e5349c6a43c9ad728cae90">nrf_ble_bms_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="gae5b1c58a0939a9c56d1becf849e35b83"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#gae5b1c58a0939a9c56d1becf849e35b83">&#9670;&nbsp;</a></span>NRF_BLE_BMS_AUTH_CODE_MAX_LEN</h2>
@@ -300,7 +300,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NRF_BLE_BMS_OPCODE_NOT_SUPPORTED&#160;&#160;&#160;(BLE_GATT_STATUS_ATTERR_APP_BEGIN + 0)</td>
+          <td class="memname">#define NRF_BLE_BMS_OPCODE_NOT_SUPPORTED&#160;&#160;&#160;(<a class="el" href="group__BLE__GATT__STATUS__CODES.html#gab64b73774dc0536f965a6f9a31755748">BLE_GATT_STATUS_ATTERR_APP_BEGIN</a> + 0)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -316,7 +316,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define NRF_BLE_BMS_OPERATION_FAILED&#160;&#160;&#160;(BLE_GATT_STATUS_ATTERR_APP_BEGIN + 1)</td>
+          <td class="memname">#define NRF_BLE_BMS_OPERATION_FAILED&#160;&#160;&#160;(<a class="el" href="group__BLE__GATT__STATUS__CODES.html#gab64b73774dc0536f965a6f9a31755748">BLE_GATT_STATUS_ATTERR_APP_BEGIN</a> + 1)</td>
         </tr>
       </table>
 </div><div class="memdoc">
@@ -338,7 +338,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>BMS event handler type. The event handler returns a BLE GATT status code. </p>
+<p>BMS event handler type. The event handler returns a <a class="el" href="group__BLE__GATT__STATUS__CODES.html">BLE GATT status code</a>. </p>
 
 </div>
 </div>
@@ -555,7 +555,7 @@ Functions</h2></td></tr>
         <tr>
           <td class="memname">void nrf_ble_bms_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

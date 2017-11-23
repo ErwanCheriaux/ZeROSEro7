@@ -72,8 +72,8 @@ $(function() {
 <div class="textblock"><code>#include &quot;<a class="el" href="ble__cscs_8h_source.html">ble_cscs.h</a>&quot;</code><br />
 <code>#include &lt;string.h&gt;</code><br />
 <code>#include &quot;<a class="el" href="nordic__common_8h_source.html">nordic_common.h</a>&quot;</code><br />
-<code>#include &quot;ble.h&quot;</code><br />
-<code>#include &quot;ble_err.h&quot;</code><br />
+<code>#include &quot;<a class="el" href="ble_8h_source.html">ble.h</a>&quot;</code><br />
+<code>#include &quot;<a class="el" href="ble__err_8h_source.html">ble_err.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="ble__srv__common_8h_source.html">ble_srv_common.h</a>&quot;</code><br />
 <code>#include &quot;<a class="el" href="app__util_8h_source.html">app_util.h</a>&quot;</code><br />
 </div><table class="memberdecls">
@@ -83,7 +83,7 @@ Macros</h2></td></tr>
 <tr class="separator:a1b05dbe077d74072fcaa03bf2940af64"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acff20cf1670f3dce77cce53e09e032d6"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ble__cscs_8c.html#acff20cf1670f3dce77cce53e09e032d6">HANDLE_LENGTH</a>&#160;&#160;&#160;2</td></tr>
 <tr class="separator:acff20cf1670f3dce77cce53e09e032d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a8d824f4739406b81878c64b4d07ce5c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ble__cscs_8c.html#a8d824f4739406b81878c64b4d07ce5c1">MAX_CSCM_LEN</a>&#160;&#160;&#160;(BLE_GATT_ATT_MTU_DEFAULT - <a class="el" href="ble__ln__cp_8c.html#a1b05dbe077d74072fcaa03bf2940af64">OPCODE_LENGTH</a> - <a class="el" href="ble__ln__cp_8c.html#acff20cf1670f3dce77cce53e09e032d6">HANDLE_LENGTH</a>)</td></tr>
+<tr class="memitem:a8d824f4739406b81878c64b4d07ce5c1"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ble__cscs_8c.html#a8d824f4739406b81878c64b4d07ce5c1">MAX_CSCM_LEN</a>&#160;&#160;&#160;(<a class="el" href="group__BLE__GATT__DEFINES.html#ga56f8a5e50e3e703e466a122c4cab4efb">BLE_GATT_ATT_MTU_DEFAULT</a> - <a class="el" href="ble__ln__cp_8c.html#a1b05dbe077d74072fcaa03bf2940af64">OPCODE_LENGTH</a> - <a class="el" href="ble__ln__cp_8c.html#acff20cf1670f3dce77cce53e09e032d6">HANDLE_LENGTH</a>)</td></tr>
 <tr class="separator:a8d824f4739406b81878c64b4d07ce5c1"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:aeefd435adf604a7d43c0de82d2b21306"><td class="memItemLeft" align="right" valign="top">#define&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ble__cscs_8c.html#aeefd435adf604a7d43c0de82d2b21306">CSC_MEAS_FLAG_MASK_WHEEL_REV_DATA_PRESENT</a>&#160;&#160;&#160;(0x01 &lt;&lt; 0)</td></tr>
 <tr class="separator:aeefd435adf604a7d43c0de82d2b21306"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -92,7 +92,7 @@ Macros</h2></td></tr>
 </table><table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
-<tr class="memitem:gaa9a20f8e6d62011efcf2554e3357744d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__cscs.html#gaa9a20f8e6d62011efcf2554e3357744d">ble_cscs_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:gaa9a20f8e6d62011efcf2554e3357744d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__cscs.html#gaa9a20f8e6d62011efcf2554e3357744d">ble_cscs_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:gaa9a20f8e6d62011efcf2554e3357744d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="group__ble__cscs.html#gaa9a20f8e6d62011efcf2554e3357744d">More...</a><br /></td></tr>
 <tr class="separator:gaa9a20f8e6d62011efcf2554e3357744d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:ga97ce866cdafc49e12c1bc8e8467a55b5"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__cscs.html#ga97ce866cdafc49e12c1bc8e8467a55b5">ble_cscs_init</a> (<a class="el" href="group__ble__cscs.html#ga8fb5ed5d9c117d85db4c59a4470bb627">ble_cscs_t</a> *p_cscs, <a class="el" href="structble__cscs__init__t.html">ble_cscs_init_t</a> const *p_cscs_init)</td></tr>
@@ -155,7 +155,7 @@ Functions</h2></td></tr>
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">#define MAX_CSCM_LEN&#160;&#160;&#160;(BLE_GATT_ATT_MTU_DEFAULT - <a class="el" href="ble__ln__cp_8c.html#a1b05dbe077d74072fcaa03bf2940af64">OPCODE_LENGTH</a> - <a class="el" href="ble__ln__cp_8c.html#acff20cf1670f3dce77cce53e09e032d6">HANDLE_LENGTH</a>)</td>
+          <td class="memname">#define MAX_CSCM_LEN&#160;&#160;&#160;(<a class="el" href="group__BLE__GATT__DEFINES.html#ga56f8a5e50e3e703e466a122c4cab4efb">BLE_GATT_ATT_MTU_DEFAULT</a> - <a class="el" href="ble__ln__cp_8c.html#a1b05dbe077d74072fcaa03bf2940af64">OPCODE_LENGTH</a> - <a class="el" href="ble__ln__cp_8c.html#acff20cf1670f3dce77cce53e09e032d6">HANDLE_LENGTH</a>)</td>
         </tr>
       </table>
 </div><div class="memdoc">

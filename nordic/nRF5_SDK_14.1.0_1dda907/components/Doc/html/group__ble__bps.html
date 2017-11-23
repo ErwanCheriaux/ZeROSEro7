@@ -133,7 +133,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga732ac08e903547b80220db52b54a43d7"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bps.html#ga732ac08e903547b80220db52b54a43d7">ble_bps_init</a> (<a class="el" href="group__ble__bps.html#ga242d78f65ee0028e8b2e87a954811158">ble_bps_t</a> *p_bps, <a class="el" href="structble__bps__init__t.html">ble_bps_init_t</a> const *p_bps_init)</td></tr>
 <tr class="memdesc:ga732ac08e903547b80220db52b54a43d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the Blood Pressure Service.  <a href="#ga732ac08e903547b80220db52b54a43d7">More...</a><br /></td></tr>
 <tr class="separator:ga732ac08e903547b80220db52b54a43d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:gae19cd4dc1d627e4dc41ba54d9f2dc505"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bps.html#gae19cd4dc1d627e4dc41ba54d9f2dc505">ble_bps_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:gae19cd4dc1d627e4dc41ba54d9f2dc505"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bps.html#gae19cd4dc1d627e4dc41ba54d9f2dc505">ble_bps_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:gae19cd4dc1d627e4dc41ba54d9f2dc505"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#gae19cd4dc1d627e4dc41ba54d9f2dc505">More...</a><br /></td></tr>
 <tr class="separator:gae19cd4dc1d627e4dc41ba54d9f2dc505"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gafa33eb35e243d0fca55b44ac136f1f68"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__bps.html#gafa33eb35e243d0fca55b44ac136f1f68">ble_bps_measurement_send</a> (<a class="el" href="group__ble__bps.html#ga242d78f65ee0028e8b2e87a954811158">ble_bps_t</a> *p_bps, <a class="el" href="group__ble__bps.html#ga806d743979c29aa0326b9b155ae920fd">ble_bps_meas_t</a> *p_bps_meas)</td></tr>
@@ -147,7 +147,7 @@ Functions</h2></td></tr>
 <p>Blood Pressure Service module. </p>
 <p>This module implements the Blood Pressure Service. </p><pre class="fragment">     If an event handler is supplied by the application, the Blood Pressure
      Service will generate Blood Pressure Service events to the application.
-</pre><dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__bps__s.html">ble_bps_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_BPS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__bps.html#gae19cd4dc1d627e4dc41ba54d9f2dc505">ble_bps_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
+</pre><dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__bps__s.html">ble_bps_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_BPS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__bps.html#gae19cd4dc1d627e4dc41ba54d9f2dc505">ble_bps_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
 <dd>
 Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profile qualification listings, this section of source code must not be modified. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -464,7 +464,7 @@ Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profil
         <tr>
           <td class="memname">void ble_bps_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

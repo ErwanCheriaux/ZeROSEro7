@@ -110,7 +110,7 @@ Functions</h2></td></tr>
 <tr class="memitem:ga7f1365b395cf05261b2f659dc3ed992b"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lls.html#ga7f1365b395cf05261b2f659dc3ed992b">ble_lls_init</a> (<a class="el" href="group__ble__lls.html#gae3a4320ff2f496c898601a41a9832a07">ble_lls_t</a> *p_lls, const <a class="el" href="structble__lls__init__t.html">ble_lls_init_t</a> *p_lls_init)</td></tr>
 <tr class="memdesc:ga7f1365b395cf05261b2f659dc3ed992b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for initializing the Link Loss Service.  <a href="#ga7f1365b395cf05261b2f659dc3ed992b">More...</a><br /></td></tr>
 <tr class="separator:ga7f1365b395cf05261b2f659dc3ed992b"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ga626e44abbb0c92d239f975574d703056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lls.html#ga626e44abbb0c92d239f975574d703056">ble_lls_on_ble_evt</a> (ble_evt_t const *p_ble_evt, void *p_context)</td></tr>
+<tr class="memitem:ga626e44abbb0c92d239f975574d703056"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lls.html#ga626e44abbb0c92d239f975574d703056">ble_lls_on_ble_evt</a> (<a class="el" href="structble__evt__t.html">ble_evt_t</a> const *p_ble_evt, void *p_context)</td></tr>
 <tr class="memdesc:ga626e44abbb0c92d239f975574d703056"><td class="mdescLeft">&#160;</td><td class="mdescRight">Function for handling the Application's BLE Stack events.  <a href="#ga626e44abbb0c92d239f975574d703056">More...</a><br /></td></tr>
 <tr class="separator:ga626e44abbb0c92d239f975574d703056"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:gac11e8cb48c16a1d07dd0c1d6c649fdad"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="group__ble__lls.html#gac11e8cb48c16a1d07dd0c1d6c649fdad">ble_lls_alert_level_get</a> (<a class="el" href="group__ble__lls.html#gae3a4320ff2f496c898601a41a9832a07">ble_lls_t</a> *p_lls, uint8_t *p_alert_level)</td></tr>
@@ -122,7 +122,7 @@ Functions</h2></td></tr>
 <p>This module implements the Link Loss Service with the Alert Level characteristic. During initialization it adds the Link Loss Service and Alert Level characteristic to the BLE stack database.</p>
 <p>The application must supply an event handler for receiving Link Loss Service events. Using this handler, the service will notify the application when the link has been lost, and which Alert Level has been set.</p>
 <p>The service also provides a function for letting the application poll the current value of the Alert Level characteristic.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__lls__s.html">ble_lls_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_LLS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__lls.html#ga626e44abbb0c92d239f975574d703056">ble_lls_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__lls__s.html">ble_lls_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, BLE_LLS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__ble__lls.html#ga626e44abbb0c92d239f975574d703056">ble_lls_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --></dd>
 <dd>
 Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profile qualification listings, this section of source code must not be modified. </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
@@ -290,7 +290,7 @@ Attention! To maintain compliance with Nordic Semiconductor ASA Bluetooth profil
         <tr>
           <td class="memname">void ble_lls_on_ble_evt </td>
           <td>(</td>
-          <td class="paramtype">ble_evt_t const *&#160;</td>
+          <td class="paramtype"><a class="el" href="structble__evt__t.html">ble_evt_t</a> const *&#160;</td>
           <td class="paramname"><em>p_ble_evt</em>, </td>
         </tr>
         <tr>

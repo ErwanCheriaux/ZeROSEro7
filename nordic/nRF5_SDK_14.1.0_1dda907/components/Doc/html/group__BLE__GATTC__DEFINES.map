@@ -1,0 +1,6 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node2" href="$group__BLE__ERRORS__GATTC.html" title="SVC return values specific\l to GATTC" alt="" coords="329,5,508,47"/>
+<area shape="rect" id="node4" href="$group__BLE__GATTC__DEFAULTS.html" title="GATT Client defaults" alt="" coords="346,71,491,98"/>
+<area shape="rect" id="node5" href="$group__BLE__GATTC__ATTR__INFO__FORMAT.html" title="Attribute Information\l Formats" alt="" coords="349,123,489,164"/>
+<area shape="rect" id="node3" href="$group__BLE__GATTC.html" title="Definitions and prototypes for the GATT Client interface. " alt="" coords="5,64,167,105"/>
+</map>

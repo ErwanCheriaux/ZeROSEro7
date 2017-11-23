@@ -1,0 +1,12 @@
+<map id="softdevice/s132/headers/nrf_error_soc.h" name="softdevice/s132/headers/nrf_error_soc.h">
+<area shape="rect" id="node2" href="$nrf__nvic_8h.html" title="softdevice/s132/headers\l/nrf_nvic.h" alt="" coords="27,95,191,136"/>
+<area shape="rect" id="node4" href="$nrf__soc_8h.html" title="softdevice/s132/headers\l/nrf_soc.h" alt="" coords="257,95,421,136"/>
+<area shape="rect" id="node3" href="$ble__dfu_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu.c" alt="" coords="5,273,143,315"/>
+<area shape="rect" id="node5" href="$ble__radio__notification_8h.html" title="ble/ble_radio_notification\l/ble_radio_notification.h" alt="" coords="301,184,466,225"/>
+<area shape="rect" id="node7" href="$app__scheduler__serconn_8c.html" title="libraries/scheduler\l/app_scheduler_serconn.c" alt="" coords="491,184,665,225"/>
+<area shape="rect" id="node8" href="$nrf__sdh__soc_8h.html" title="softdevice/common/nrf\l_sdh_soc.h" alt="" coords="690,184,845,225"/>
+<area shape="rect" id="node11" href="$nrf__sdm_8h.html" title="softdevice/s132/headers\l/nrf_sdm.h" alt="" coords="112,184,276,225"/>
+<area shape="rect" id="node6" href="$ble__radio__notification_8c.html" title="ble/ble_radio_notification\l/ble_radio_notification.c" alt="" coords="301,273,466,315"/>
+<area shape="rect" id="node9" href="$ble__dfu__bonded_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu_bonded.c" alt="" coords="599,273,752,315"/>
+<area shape="rect" id="node10" href="$ble__dfu__unbonded_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu_unbonded.c" alt="" coords="776,273,943,315"/>
+</map>

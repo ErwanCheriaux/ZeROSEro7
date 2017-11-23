@@ -24,9 +24,14 @@ var searchData=
   ['advertising_20module',['Advertising Module',['../group__ble__advertising.html',1,'']]],
   ['apple_20notification_20service_20client',['Apple Notification Service client',['../group__ble__ancs__c.html',1,'']]],
   ['alert_20notification_20service_20client',['Alert Notification Service Client',['../group__ble__ans__c.html',1,'']]],
+  ['authenticated_20payload_20timeout_20defines_2e',['Authenticated payload timeout defines.',['../group__BLE__GAP__AUTH__PAYLOAD__TIMEOUT.html',1,'']]],
+  ['attribute_20information_20formats',['Attribute Information Formats',['../group__BLE__GATTC__ATTR__INFO__FORMAT.html',1,'']]],
+  ['attribute_20table_20size',['Attribute Table size',['../group__BLE__GATTS__ATTR__TAB__SIZE.html',1,'']]],
   ['advertising_20and_20scan_20response_20data_20encoder',['Advertising and Scan Response Data Encoder',['../group__ble__sdk__lib__advdata.html',1,'']]],
+  ['assigned_20values_20for_20ble_20uuids',['Assigned Values for BLE UUIDs',['../group__BLE__UUID__VALUES.html',1,'']]],
   ['atomic_20fifo',['Atomic FIFO',['../group__nrf__atfifo.html',1,'']]],
   ['atomic_20operations_20api',['Atomic operations API',['../group__nrf__atomic.html',1,'']]],
   ['atomic_20operations_20internals',['Atomic operations internals',['../group__nrf__atomic__internal.html',1,'']]],
+  ['ant_20support_20in_20softdevice_20handler',['ANT support in SoftDevice Handler',['../group__nrf__sdh__ant.html',1,'']]],
   ['all_20versions_20of_20peer_20ids_2e',['All versions of Peer IDs.',['../group__PM__PEER__ID__VERSIONS.html',1,'']]]
 ];

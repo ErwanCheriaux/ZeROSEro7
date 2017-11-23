@@ -318,7 +318,7 @@ Byte length of various commands (used for validating, encoding, and decoding dat
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <p>Continuous Glucose Monitoring Service (CGMS) module. </p>
 <p>This module implements a sensor for the Continuous Glucose Monitoring Service. The sensor is a GATT Server that sends CGM measurements to a connected CGMS Collector. The CGMS Sensor stores records that can be accessed with the Record Access Control Point (RACP). The collector can access the features and status of the sensor. Session Run Time and Session Start Time can be used to convey timing information between the sensor and the collector. The Specific Operations Control Point is used to stop and start monitoring sessions, among other things.</p>
-<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__cgms__s.html">nrf_ble_cgms_t</a> instance;</div><div class="line"><a class="code" href="ble__dfu_8c.html#aff90fc5573cfa7998ca6cf175910ae6a">NRF_SDH_BLE_OBSERVER</a>(anything, NRF_BLE_CGMS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__nrf__ble__cgms__functions.html#ga06943e49f6e40e4598bed6947daf737d">nrf_ble_cgms_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
+<dl class="section note"><dt>Note</dt><dd>The application must register this module as BLE event observer using the NRF_SDH_BLE_OBSERVER macro. Example: <div class="fragment"><div class="line"><a class="code" href="structble__cgms__s.html">nrf_ble_cgms_t</a> instance;</div><div class="line"><a class="code" href="group__nrf__sdh__ble.html#gad162c1f4d4c248e4d4567dfa70e0e10e">NRF_SDH_BLE_OBSERVER</a>(anything, NRF_BLE_CGMS_BLE_OBSERVER_PRIO,</div><div class="line">                     <a class="code" href="group__nrf__ble__cgms__functions.html#ga06943e49f6e40e4598bed6947daf737d">nrf_ble_cgms_on_ble_evt</a>, &amp;instance);</div></div><!-- fragment --> </dd></dl>
 <h2 class="groupheader">Macro Definition Documentation</h2>
 <a id="ga575f1d11e1c3ead048b8b2285f65a15c"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#ga575f1d11e1c3ead048b8b2285f65a15c">&#9670;&nbsp;</a></span>NRF_BLE_CGMS_CALIBS_NB_MAX</h2>
@@ -741,7 +741,8 @@ Byte length of various commands (used for validating, encoding, and decoding dat
         </tr>
       </table>
 </div><div class="memdoc">
-<b>Value:</b><div class="fragment"><div class="line">(BLE_GATT_ATT_MTU_DEFAULT - \</div><div class="line">                                             NRF_BLE_CGMS_MEAS_OP_LEN - \</div><div class="line">                                             NRF_BLE_CGMS_MEAS_HANDLE_LEN)</div></div><!-- fragment -->
+<b>Value:</b><div class="fragment"><div class="line">(<a class="code" href="group__BLE__GATT__DEFINES.html#ga56f8a5e50e3e703e466a122c4cab4efb">BLE_GATT_ATT_MTU_DEFAULT</a> - \</div><div class="line">                                             NRF_BLE_CGMS_MEAS_OP_LEN - \</div><div class="line">                                             NRF_BLE_CGMS_MEAS_HANDLE_LEN)</div><div class="ttc" id="group__BLE__GATT__DEFINES_html_ga56f8a5e50e3e703e466a122c4cab4efb"><div class="ttname"><a href="group__BLE__GATT__DEFINES.html#ga56f8a5e50e3e703e466a122c4cab4efb">BLE_GATT_ATT_MTU_DEFAULT</a></div><div class="ttdeci">#define BLE_GATT_ATT_MTU_DEFAULT</div><div class="ttdoc">Default ATT MTU, in bytes. </div><div class="ttdef"><b>Definition:</b> ble_gatt.h:59</div></div>
+</div><!-- fragment -->
 <p>Maximum size of a transmitted Glucose Measurement. </p>
 
 </div>
