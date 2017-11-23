@@ -2,7 +2,7 @@
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
-#include "ble_peripheral.h"
+#include "ble_central.h"
 #include "rtt.h"
 #include "app_error.h"
 
@@ -23,8 +23,8 @@ int main(void)
     rtt_write_string("BLE initialized\n") ;
     bsp_board_led_on(2);
 
-    ble_start_advertising() ;
-    rtt_write_string("Now advertizing BLE\n") ;
+    ble_start_observing() ;
+    rtt_write_string("Now observing BLE\n") ;
     bsp_board_led_on(3);
 
     while(true) {

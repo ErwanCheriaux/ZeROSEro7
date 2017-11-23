@@ -15,7 +15,7 @@ HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 
 USER_SRC = \
 	$(PROJ_DIR)/rtt.c \
-	$(PROJ_DIR)/ble_peripheral.c \
+	$(PROJ_DIR)/ble_central.c \
 	$(PROJ_DIR)/main.c \
 
 USER_INC = $(PROJ_DIR)
