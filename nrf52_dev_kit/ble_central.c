@@ -36,39 +36,31 @@ typedef struct
 
 // GAP Handler
 
-/**
- * @brief Parses advertisement data, providing length and location of the field in case
- *        matching data is found.
- *
- * @param[in]  type       Type of data to be looked for in advertisement data.
- * @param[in]  p_advdata  Advertisement report length and pointer to report.
- * @param[out] p_typedata If data type requested is found in the data report, type data length and
- *                        pointer to data will be populated here.
- *
- * @retval NRF_SUCCESS if the data type is found in the report.
- * @retval NRF_ERROR_NOT_FOUND if the data type could not be found.
- */
-static uint32_t adv_report_parse(uint8_t type, data_t * p_advdata, data_t * p_typedata)
+static uint32_t parse_advdata(data_t const * const adv_data)
 {
-    uint32_t  index = 0;
+    uint32_t  field_index = 0;
     uint8_t * p_data;
 
-    p_data = p_advdata->p_data;
+    p_data = adv_data->p_data;
 
-    while (index < p_advdata->data_len)
+    while (field_index < adv_data->data_len)
     {
-        uint8_t field_length = p_data[index];
-        uint8_t field_type   = p_data[index + 1];
+        uint8_t field_length = p_data[field_index];
+        uint8_t field_type   = p_data[field_index + 1];
+        rtt_write_string("\nData field :") ;
+        rtt_printf(0, "Type = %#02X\n", field_type) ;
 
-        if (field_type == type)
-        {
-            p_typedata->p_data   = &p_data[index + 2];
-            p_typedata->data_len = field_length - 1;
-            return NRF_SUCCESS;
-        }
-        index += field_length + 1;
+        data_t field_data ;
+
+        field_data.p_data   = &p_data[field_index + 2];
+        field_data.data_len = field_length - 1;
+        rtt_write_string("Data :") ;
+        rtt_write_buffer(0,field_data.p_data,field_data.data_len) ;
+        rtt_write_string("\n") ;
+
+        field_index += field_length + 1;
     }
-    return NRF_ERROR_NOT_FOUND;
+    return NRF_SUCCESS;
 }
 
 // Called when an advertisement is detected
@@ -77,37 +69,16 @@ static void on_adv_report(const ble_evt_t * const p_ble_evt)
     rtt_write_string("advertisement detected\n") ;
     ret_code_t err_code;
     data_t     adv_data;
-    data_t     dev_name;
-    bool       do_connect = false;
 
     // For readibility.
     ble_gap_evt_t  const * p_gap_evt  = &p_ble_evt->evt.gap_evt;
-    ble_gap_addr_t const * peer_addr  = &p_gap_evt->params.adv_report.peer_addr;
 
     // Initialize advertisement report for parsing
     adv_data.p_data   = (uint8_t *)p_gap_evt->params.adv_report.data;
     adv_data.data_len = p_gap_evt->params.adv_report.dlen;
-    rtt_write_string("advdata : ") ;
-    rtt_write_buffer(0,adv_data.p_data,adv_data.data_len) ;
-    rtt_write_string("\n") ;
+    rtt_write_string(" => Parsing advdata :\n") ;
 
-    // Search for advertising names.
-    err_code = adv_report_parse(BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME, &adv_data, &dev_name);
-
-    if (err_code != NRF_SUCCESS)
-    {
-        // Look for the short local name if it was not found as complete.
-        err_code = adv_report_parse(BLE_GAP_AD_TYPE_SHORT_LOCAL_NAME, &adv_data, &dev_name);
-        if (err_code != NRF_SUCCESS)
-        {
-            // If we can't parse the data, then exit
-            return;
-        }
-    }
-
-    rtt_write_string("Found a named advertising device : ") ;
-    rtt_write_buffer(0,dev_name.p_data, dev_name.data_len);
-    rtt_write_string("\n") ;
+    parse_advdata(&adv_data) ;
 }
 
 
