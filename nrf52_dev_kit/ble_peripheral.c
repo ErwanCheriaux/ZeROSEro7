@@ -30,7 +30,6 @@
 
 
 // BLE Params
-#define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 #define APP_BLE_CONN_CFG_TAG 1 /**< A tag identifying the SoftDevice BLE configuration. */
 
 // Advertising Params
@@ -41,40 +40,11 @@
 
 
 
-/**< GATT module instance. */
 BLE_ADVERTISING_DEF(advertising_instance);
 
 
 
 // Advertising
-static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
-{
-    ret_code_t err_code;
-
-    switch (ble_adv_evt)
-    {
-        case BLE_ADV_EVT_DIRECTED:
-            rtt_write_string("Directed advertising\n");
-            break;
-
-        case BLE_ADV_EVT_FAST:
-            rtt_write_string("Fast advertising\n");
-            /*err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
-            APP_ERROR_CHECK(err_code);*/
-            break;
-
-        case BLE_ADV_EVT_SLOW:
-            rtt_write_string("Slow advertising\n");
-            break;
-
-        case BLE_ADV_EVT_IDLE:
-            break;
-
-        default:
-            break;
-    }
-}
-
 ble_advertising_init_t advertising_conf ;
 static void advertising_init() {
     ret_code_t err_code;
@@ -89,18 +59,13 @@ static void advertising_init() {
     advertising_conf.config.ble_adv_fast_interval = APP_ADV_FAST_INTERVAL;
     advertising_conf.config.ble_adv_fast_timeout  = APP_ADV_FAST_TIMEOUT;
 
-    advertising_conf.evt_handler = on_adv_evt;
-
 	err_code = ble_advertising_init(&advertising_instance, &advertising_conf) ;
     APP_ERROR_CHECK(err_code);
 }
 
 
-// BLE Basic
-static void ble_evt_handler(ble_evt_t const * p_ble_evt, void * p_context) {
-    rtt_write_string("BLE Event\n") ;
-}
 
+// BLE Basic
 static void ble_stack_init()
 {
     ret_code_t err_code;
@@ -114,11 +79,11 @@ static void ble_stack_init()
     APP_ERROR_CHECK(err_code);
     err_code = nrf_sdh_ble_enable(&ram_start);
     APP_ERROR_CHECK(err_code);
-
-    // Register a handler for BLE events.
-    NRF_SDH_BLE_OBSERVER(m_ble_observer, APP_BLE_OBSERVER_PRIO, ble_evt_handler, NULL);
 }
 
+
+
+// Exports
 void ble_init(void) {
     ble_stack_init();
     advertising_init();
