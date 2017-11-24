@@ -55,7 +55,11 @@ static uint32_t parse_advdata(data_t const * const adv_data)
         field_data.p_data   = &p_data[field_index + 2];
         field_data.data_len = field_length - 1;
         rtt_write_string("Data :") ;
-        rtt_write_buffer_hexa(field_data.p_data,field_data.data_len) ;
+        if(field_type == BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME || field_type == BLE_GAP_AD_TYPE_SHORT_LOCAL_NAME) {
+            rtt_write_buffer(0,field_data.p_data,field_data.data_len) ;
+        } else {
+            rtt_write_buffer_hexa(field_data.p_data,field_data.data_len) ;
+        }
         rtt_write_string("\n") ;
 
         field_index += field_length + 1;

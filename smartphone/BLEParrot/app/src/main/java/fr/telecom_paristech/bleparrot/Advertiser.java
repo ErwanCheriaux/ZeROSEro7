@@ -28,7 +28,7 @@ public class Advertiser extends Service {
 
         settings = buildSettings() ;
         advertiseData = buildData() ;
-        callback = new AdvertiserCallbackFeedback(this.getBaseContext()) ;
+        callback = new AdvertiserCallbackFeedback(this) ;
 
         advertiserInstance.startAdvertising (settings,
                 advertiseData,
@@ -61,23 +61,28 @@ public class Advertiser extends Service {
 
     private class AdvertiserCallbackFeedback extends AdvertiseCallback {
 
-        private Context context ; // Context of the application to make Toasts
+        private Advertiser parentAdvertiser ; // Context of the application to make Toasts
 
-        AdvertiserCallbackFeedback(Context context) {
-            this.context = context ;
+        AdvertiserCallbackFeedback(Advertiser parentAdvertiser) {
+            this.parentAdvertiser = parentAdvertiser ;
         }
 
         @Override
         public void onStartSuccess(AdvertiseSettings settingsInEffect) {
             super.onStartSuccess(settingsInEffect);
-            Toast.makeText(context, "Now advertising through BLE", Toast.LENGTH_LONG) ;
+            Toast.makeText(parentAdvertiser.getApplicationContext(), "Now advertising through BLE", Toast.LENGTH_LONG) ;
         }
 
         @Override
         public void onStartFailure(int errorCode) {
             super.onStartFailure(errorCode);
-            Toast.makeText(context, "Failed to start BLE advertising", Toast.LENGTH_LONG) ;
+            Toast.makeText(parentAdvertiser.getApplicationContext(), "Failed to start BLE advertising", Toast.LENGTH_LONG) ;
         }
+    }
+
+    @Override
+    public void onDestroy() {
+        advertiserInstance.stopAdvertising(callback);
     }
 
     @Override
