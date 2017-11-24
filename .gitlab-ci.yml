@@ -29,6 +29,13 @@ lint_main:
     - make format
     - git status --porcelain
 
+lint_apps:
+  stage: lint
+  script:
+    - cd smartphone
+    - cd BLEParrot
+    - ./gradlew lint
+
 lint_test:
   stage: lint
 #  image: alabate/clang-format
@@ -56,6 +63,17 @@ build_main:
     - stealth_drop/main
     expire_in: 1 week
 
+build_apps:
+  stage: build
+  script:
+    - cd smartphone
+    - cd BLEParrot
+    - ./gradlew build
+  artifacts:
+    paths:
+    - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    expire_in: 1 week
+
 build_test:
   stage: build
   script:
@@ -67,6 +85,14 @@ build_test:
     expire_in: 20 minutes
 
 # TEST STAGE
+
+# Runs all JUnit tests
+test_apps:
+  stage: test
+  script:
+    - cd smartphone
+    - cd BLEParrot
+    - ./gradlew test
 
 test_fibo:
   stage: test
