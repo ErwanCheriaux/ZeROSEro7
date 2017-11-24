@@ -31,6 +31,7 @@ lint_main:
 
 lint_apps:
   stage: lint
+  image : runmymind/docker-android-sdk
   script:
     - cd smartphone
     - cd BLEParrot
@@ -65,6 +66,7 @@ build_main:
 
 build_apps:
   stage: build
+  image : runmymind/docker-android-sdk
   script:
     - cd smartphone
     - cd BLEParrot
@@ -89,6 +91,7 @@ build_test:
 # Runs all JUnit tests
 test_apps:
   stage: test
+  image : runmymind/docker-android-sdk
   script:
     - cd smartphone
     - cd BLEParrot
