@@ -1,4 +1,3 @@
-image: rfc1149/rose-dev
 services:
 #  - postgres
 
@@ -19,22 +18,21 @@ stages:
 
 lint_main:
   stage: lint
-#  image: alabate/clang-format
+  image: rfc1149/rose-dev
   script:
     - cd nrf52_dev_kit
     - make format
-#    - cd ../stealth_drop
-#    - make format
+    - cd ../usb_dev_kit
+    - make format
     - cd ../lora_discovery
     - make format
     - git status --porcelain
 
 lint_test:
   stage: lint
-#  image: alabate/clang-format
+  image: rfc1149/rose-dev
   script:
     - cd test
-    - cd fibo
     - make format
     - git status --porcelain
 
@@ -42,36 +40,39 @@ lint_test:
 
 build_main:
   stage: build
+  image: tuetuopay/arm-none-eabi
   script:
     - cd nrf52_dev_kit
     - make
-#    - cd ../stealth_drop
-#    - make
+    - cd ../usb_dev_kit
+    - make
     - cd ../lora_discovery
     - make
   artifacts:
     paths:
     - lora_discovery/main
     - nrf52_dev_kit/_build/nrf52832_xxaa.hex
-    - stealth_drop/main
+    - usb_dev_kit/build/usb_dev_kit.elf
     expire_in: 1 week
 
 build_test:
   stage: build
+  image: rfc1149/rose-dev
   script:
-    - cd test/fibo
+    - cd test
     - make
   artifacts:
     paths:
-    - test/fibo/main
+    - test/main
     expire_in: 20 minutes
 
 # TEST STAGE
 
-test_fibo:
+test_test:
   stage: test
+  image: rfc1149/rose-dev
   script:
-    - cd test/fibo
+    - cd test
     - ./main
 
 # DEPLOY STAGE
