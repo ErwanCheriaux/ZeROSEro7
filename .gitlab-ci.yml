@@ -57,7 +57,7 @@ build_main:
 
 build_test:
   stage: build
-  image: tuetuopay/arm-none-eabi
+  image: rfc1149/rose-dev
   script:
     - cd test
     - make
