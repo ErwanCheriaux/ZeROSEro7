@@ -1,0 +1,5 @@
+<map id="libraries/atomic/nrf_atomic.h" name="libraries/atomic/nrf_atomic.h">
+<area shape="rect" id="node2" href="$nrf__atomic__sanity__check_8h.html" title="libraries/atomic/nrf\l_atomic_sanity_check.h" alt="" coords="5,95,168,136"/>
+<area shape="rect" id="node3" href="$nrf__mtx_8h.html" title="libraries/mutex/nrf\l_mtx.h" alt="" coords="193,95,319,136"/>
+<area shape="rect" id="node4" href="$nrf__serial_8h.html" title="libraries/serial/nrf\l_serial.h" alt="" coords="195,184,317,225"/>
+</map>

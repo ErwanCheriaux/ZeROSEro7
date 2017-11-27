@@ -1,0 +1,14 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node1" href="$group__BLE__GATTS__ATTR__LENS__MAX.html" title="Maximum attribute lengths" alt="" coords="331,5,507,32"/>
+<area shape="rect" id="node2" href="$group__BLE__ERRORS__GATTS.html" title="SVC return values specific\l to GATTS" alt="" coords="329,57,508,98"/>
+<area shape="rect" id="node3" href="$group__BLE__GATTS.html" title="Definitions and prototypes for the GATTS interface. " alt="" coords="5,283,167,325"/>
+<area shape="rect" id="node4" href="$group__BLE__GATTS__VLOCS.html" title="GATT Value Locations" alt="" coords="341,123,496,149"/>
+<area shape="rect" id="node5" href="$group__BLE__GATTS__ATTR__TYPES.html" title="GATT Server Attribute\l Types" alt="" coords="343,174,495,215"/>
+<area shape="rect" id="node6" href="$group__BLE__GATTS__ATTR__TAB__SIZE.html" title="Attribute Table size" alt="" coords="351,240,486,267"/>
+<area shape="rect" id="node7" href="$group__BLE__GATTS__DEFAULTS.html" title="GATT Server defaults" alt="" coords="344,291,493,317"/>
+<area shape="rect" id="node8" href="$group__BLE__GATTS__SYS__ATTR__FLAGS.html" title="System Attribute Flags" alt="" coords="341,341,497,368"/>
+<area shape="rect" id="node9" href="$group__BLE__GATTS__SRVC__TYPES.html" title="GATT Server Service\l Types" alt="" coords="345,393,492,434"/>
+<area shape="rect" id="node10" href="$group__BLE__GATTS__OPS.html" title="GATT Server Operations" alt="" coords="335,459,502,485"/>
+<area shape="rect" id="node11" href="$group__BLE__GATTS__AUTHORIZE__TYPES.html" title="GATT Server Authorization\l Types" alt="" coords="329,510,508,551"/>
+<area shape="rect" id="node12" href="$group__BLE__GATTS__SERVICE__CHANGED.html" title="Service Changed Inclusion\l Values" alt="" coords="329,575,508,617"/>
+</map>

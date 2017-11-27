@@ -1,0 +1,9 @@
+<map id="Bicycle Power profile pages" name="Bicycle Power profile pages">
+<area shape="rect" id="node1" href="$group__ant__sdk__profiles__bpwr__page16.html" title="Bicycle Power profile\l page 16" alt="" coords="405,5,550,47"/>
+<area shape="rect" id="node2" href="$group__ant__sdk__profiles__bpwr__page17.html" title="Bicycle Power profile\l page 17" alt="" coords="405,71,550,112"/>
+<area shape="rect" id="node3" href="$group__ant__sdk__profiles__bpwr__page18.html" title="Bicycle Power profile\l page 18" alt="" coords="405,136,550,177"/>
+<area shape="rect" id="node4" href="$group__ant__sdk__profiles__bicycle__p__page__torque.html" title="Bicycle Power profile\l pages 17, 18 (commons)" alt="" coords="392,201,563,243"/>
+<area shape="rect" id="node6" href="$group__ant__sdk__profiles__bpwr__page1.html" title="Bicycle Power profile\l page 1" alt="" coords="405,267,550,308"/>
+<area shape="rect" id="node8" href="$group__ant__sdk__profiles__bpwr__common__data__page.html" title="Stride Based Speed\l and Distance Monitor\l profile common data" alt="" coords="402,333,553,389"/>
+<area shape="rect" id="node7" href="$group__ant__bpwr.html" title="This module implements the Bicycle Power profile. " alt="" coords="5,177,151,203"/>
+</map>

@@ -1,0 +1,34 @@
+<map id="libraries/util/nrf_assert.h" name="libraries/util/nrf_assert.h">
+<area shape="rect" id="node2" href="$ant__bpwr__utils_8h.html" title="ant/ant_profiles/ant\l_bpwr/utils/ant_bpwr\l_utils.h" alt="" coords="5,95,148,151"/>
+<area shape="rect" id="node3" href="$ant__hrm__utils_8h.html" title="ant/ant_profiles/ant\l_hrm/utils/ant_hrm_utils.h" alt="" coords="172,102,344,143"/>
+<area shape="rect" id="node5" href="$ant__sdm__utils_8h.html" title="ant/ant_profiles/ant\l_sdm/utils/ant_sdm_utils.h" alt="" coords="369,102,547,143"/>
+<area shape="rect" id="node7" href="$nrf__atfifo_8h.html" title="libraries/atomic_fifo\l/nrf_atfifo.h" alt="" coords="572,102,707,143"/>
+<area shape="rect" id="node9" href="$nrf__mtx_8h.html" title="libraries/mutex/nrf\l_mtx.h" alt="" coords="808,303,935,344"/>
+<area shape="rect" id="node11" href="$app__scheduler__serconn_8c.html" title="libraries/scheduler\l/app_scheduler_serconn.c" alt="" coords="859,206,1033,247"/>
+<area shape="rect" id="node12" href="$app__util__platform_8h.html" title="libraries/util/app\l_util_platform.h" alt="" coords="1005,102,1119,143"/>
+<area shape="rect" id="node31" href="$nrf__queue_8h.html" title="libraries/queue/nrf\l_queue.h" alt="" coords="658,206,783,247"/>
+<area shape="rect" id="node33" href="$nrf__assert_8c.html" title="libraries/util/nrf\l_assert.c" alt="" coords="1143,102,1250,143"/>
+<area shape="rect" id="node4" href="$ant__hrm__simulator_8h.html" title="ant/ant_profiles/ant\l_hrm/simulator/ant_hrm\l_simulator.h" alt="" coords="125,199,284,255"/>
+<area shape="rect" id="node6" href="$ant__sdm__simulator_8h.html" title="ant/ant_profiles/ant\l_sdm/simulator/ant_sdm\l_simulator.h" alt="" coords="309,199,474,255"/>
+<area shape="rect" id="node8" href="$nrf__atfifo_8c.html" title="libraries/atomic_fifo\l/nrf_atfifo.c" alt="" coords="499,206,633,247"/>
+<area shape="rect" id="node10" href="$nrf__serial_8h.html" title="libraries/serial/nrf\l_serial.h" alt="" coords="760,392,881,433"/>
+<area shape="rect" id="node13" href="$nrf__ble__escs_8h.html" title="ble/ble_services/ble\l_escs/nrf_ble_escs.h" alt="" coords="1349,206,1495,247"/>
+<area shape="rect" id="node15" href="$peer__manager__types_8h.html" title="ble/peer_manager/peer\l_manager_types.h" alt="" coords="1863,206,2018,247"/>
+<area shape="rect" id="node28" href="$nrf__atomic_8h.html" title="libraries/atomic/nrf\l_atomic.h" alt="" coords="1057,206,1187,247"/>
+<area shape="rect" id="node30" href="$app__util__platform_8c.html" title="libraries/util/app\l_util_platform.c" alt="" coords="1211,206,1324,247"/>
+<area shape="rect" id="node14" href="$nrf__ble__escs_8c.html" title="ble/ble_services/ble\l_escs/nrf_ble_escs.c" alt="" coords="1287,303,1434,344"/>
+<area shape="rect" id="node16" href="$gatt__cache__manager_8h.html" title="ble/peer_manager/gatt\l_cache_manager.h" alt="" coords="2279,303,2429,344"/>
+<area shape="rect" id="node17" href="$gatts__cache__manager_8h.html" title="ble/peer_manager/gatts\l_cache_manager.h" alt="" coords="2091,481,2249,523"/>
+<area shape="rect" id="node20" href="$id__manager_8h.html" title="ble/peer_manager/id\l_manager.h" alt="" coords="1687,392,1826,433"/>
+<area shape="rect" id="node21" href="$peer__manager__internal_8h.html" title="ble/peer_manager/peer\l_manager_internal.h" alt="" coords="1749,303,1903,344"/>
+<area shape="rect" id="node22" href="$peer__data__storage_8h.html" title="ble/peer_manager/peer\l_data_storage.h" alt="" coords="1850,392,2005,433"/>
+<area shape="rect" id="node23" href="$peer__database_8h.html" title="ble/peer_manager/peer\l_database.h" alt="" coords="1509,392,1663,433"/>
+<area shape="rect" id="node24" href="$peer__manager_8h.html" title="ble/peer_manager/peer\l_manager.h" alt="" coords="1574,481,1729,523"/>
+<area shape="rect" id="node25" href="$peer__id_8h.html" title="ble/peer_manager/peer_id.h" alt="" coords="1884,489,2067,515"/>
+<area shape="rect" id="node26" href="$security__dispatcher_8h.html" title="ble/peer_manager/security\l_dispatcher.h" alt="" coords="2080,303,2255,344"/>
+<area shape="rect" id="node27" href="$security__manager_8h.html" title="ble/peer_manager/security\l_manager.h" alt="" coords="2080,392,2255,433"/>
+<area shape="rect" id="node18" href="$ble__dfu_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu.c" alt="" coords="1821,571,1959,612"/>
+<area shape="rect" id="node19" href="$ble__dfu__bonded_8c.html" title="ble/ble_services/ble\l_dfu/ble_dfu_bonded.c" alt="" coords="1983,571,2136,612"/>
+<area shape="rect" id="node29" href="$nrf__atomic__sanity__check_8h.html" title="libraries/atomic/nrf\l_atomic_sanity_check.h" alt="" coords="1041,303,1203,344"/>
+<area shape="rect" id="node32" href="$nrf__spi__mngr_8h.html" title="libraries/spi_mngr\l/nrf_spi_mngr.h" alt="" coords="608,303,732,344"/>
+</map>

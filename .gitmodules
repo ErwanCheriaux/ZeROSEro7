@@ -1,0 +1,6 @@
+[submodule "--force"]
+	path = --force
+	url = git@gitlab.enst.fr:ROSE/2018/ZeROSEro7.wiki.git
+[submodule "wiki"]
+	path = wiki
+	url = git@gitlab.enst.fr:ROSE/2018/ZeROSEro7.wiki.git

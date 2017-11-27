@@ -1,0 +1,10 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node1" href="$group__BLE__GATT__HVX__TYPES.html" title="GATT Handle Value operations" alt="" coords="329,5,532,32"/>
+<area shape="rect" id="node2" href="$group__BLE__GATT__EXEC__WRITE__FLAGS.html" title="GATT Execute Write\l flags" alt="" coords="359,57,503,98"/>
+<area shape="rect" id="node3" href="$group__BLE__GATT__STATUS__CODES.html" title="GATT Status Codes" alt="" coords="360,123,501,149"/>
+<area shape="rect" id="node4" href="$group__BLE__GATT__CPF__FORMATS.html" title="Characteristic Presentation\l Formats" alt="" coords="341,174,521,215"/>
+<area shape="rect" id="node6" href="$group__BLE__GATT__TIMEOUT__SOURCES.html" title="GATT Timeout sources" alt="" coords="351,240,510,267"/>
+<area shape="rect" id="node8" href="$group__BLE__GATT__WRITE__OPS.html" title="GATT Write operations" alt="" coords="353,291,509,317"/>
+<area shape="rect" id="node9" href="$group__BLE__GATT__CPF__NAMESPACES.html" title="GATT Bluetooth Namespaces" alt="" coords="332,341,529,368"/>
+<area shape="rect" id="node7" href="$group__BLE__GATT.html" title="Common definitions and prototypes for the GATT interfaces. " alt="" coords="5,174,167,215"/>
+</map>

@@ -1,0 +1,10 @@
+<map id="ble/ble_services/ble_ancs_c/nrf_ble_ancs_c.h" name="ble/ble_services/ble_ancs_c/nrf_ble_ancs_c.h">
+<area shape="rect" id="node2" href="$ancs__app__attr__get_8h.html" title="ble/ble_services/ble\l_ancs_c/ancs_app_attr_get.h" alt="" coords="8,95,201,136"/>
+<area shape="rect" id="node3" href="$ancs__app__attr__get_8c.html" title="ble/ble_services/ble\l_ancs_c/ancs_app_attr_get.c" alt="" coords="5,184,199,225"/>
+<area shape="rect" id="node4" href="$ancs__tx__buffer_8h.html" title="ble/ble_services/ble\l_ancs_c/ancs_tx_buffer.h" alt="" coords="295,95,467,136"/>
+<area shape="rect" id="node5" href="$ancs__tx__buffer_8c.html" title="ble/ble_services/ble\l_ancs_c/ancs_tx_buffer.c" alt="" coords="445,184,617,225"/>
+<area shape="rect" id="node7" href="$ancs__attr__parser_8c.html" title="ble/ble_services/ble\l_ancs_c/ancs_attr_parser.c" alt="" coords="641,184,824,225"/>
+<area shape="rect" id="node8" href="$ancs__attr__parser_8h.html" title="ble/ble_services/ble\l_ancs_c/ancs_attr_parser.h" alt="" coords="616,95,799,136"/>
+<area shape="rect" id="node9" href="$ots__tx__buffer_8h.html" title="ble/ble_services/experimental\l_nrf_ble_ots_c/ots_tx_buffer.h" alt="" coords="823,95,1021,136"/>
+<area shape="rect" id="node6" href="$ots__tx__buffer_8c.html" title="ble/ble_services/experimental\l_nrf_ble_ots_c/ots_tx_buffer.c" alt="" coords="223,184,421,225"/>
+</map>

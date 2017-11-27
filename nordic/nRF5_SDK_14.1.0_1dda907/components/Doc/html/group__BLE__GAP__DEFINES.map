@@ -1,0 +1,31 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node1" href="$group__BLE__GAP__IO__CAPS.html" title="GAP IO Capabilities" alt="" coords="349,5,489,32"/>
+<area shape="rect" id="node2" href="$group__BLE__GAP__SEC__STATUS__SOURCES.html" title="GAP Security status\l sources" alt="" coords="348,57,491,98"/>
+<area shape="rect" id="node3" href="$group__BLE__GAP__PHYS.html" title="GAP PHYs" alt="" coords="375,123,464,149"/>
+<area shape="rect" id="node4" href="$group__BLE__GAP__EVENT__LENGTH.html" title="GAP event length defines." alt="" coords="332,173,507,200"/>
+<area shape="rect" id="node5" href="$group__BLE__GAP__SCAN__TIMEOUT.html" title="GAP Scan timeout max\l and min" alt="" coords="339,225,499,266"/>
+<area shape="rect" id="node6" href="$group__BLE__GAP__AUTH__KEY__TYPES.html" title="GAP Authentication\l Key Types" alt="" coords="351,290,488,331"/>
+<area shape="rect" id="node7" href="$group__BLE__GAP__PRIVACY__MODES.html" title="Privacy modes" alt="" coords="365,356,474,383"/>
+<area shape="rect" id="node9" href="$group__BLE__GAP__CONN__SEC__MODE__SET__MACROS.html" title="GAP attribute security\l requirement setters" alt="" coords="344,407,495,449"/>
+<area shape="rect" id="node10" href="$group__BLE__GAP__ADV__FLAGS.html" title="GAP Advertisement Flags" alt="" coords="332,473,507,500"/>
+<area shape="rect" id="node11" href="$group__BLE__GAP__ADDR__TYPES.html" title="GAP Address types" alt="" coords="350,524,489,551"/>
+<area shape="rect" id="node12" href="$group__BLE__GAP__DEVNAME.html" title="GAP device name defines." alt="" coords="330,575,509,601"/>
+<area shape="rect" id="node14" href="$group__BLE__GAP__CP__LIMITS.html" title="GAP Connection Parameters\l Limits" alt="" coords="324,626,515,667"/>
+<area shape="rect" id="node15" href="$group__BLE__GAP__KP__NOT__TYPES.html" title="GAP Keypress Notification\l Types" alt="" coords="330,691,509,733"/>
+<area shape="rect" id="node16" href="$group__GAP__SEC__MODES.html" title="GAP Security Modes" alt="" coords="347,757,492,784"/>
+<area shape="rect" id="node17" href="$group__BLE__GAP__SCAN__INTERVALS.html" title="GAP Scan interval max\l and min" alt="" coords="340,809,499,850"/>
+<area shape="rect" id="node18" href="$group__BLE__GAP__ADV__INTERVALS.html" title="GAP Advertising interval\l max and min" alt="" coords="337,874,502,915"/>
+<area shape="rect" id="node19" href="$group__BLE__GAP__ADV__FILTER__POLICIES.html" title="GAP Advertising filter\l policies" alt="" coords="345,939,493,981"/>
+<area shape="rect" id="node20" href="$group__BLE__GAP__TIMEOUT__SOURCES.html" title="GAP Timeout sources" alt="" coords="344,1005,495,1032"/>
+<area shape="rect" id="node21" href="$group__BLE__GAP__DISC__MODES.html" title="GAP Discovery modes" alt="" coords="341,1056,497,1083"/>
+<area shape="rect" id="node22" href="$group__BLE__GAP__SCAN__WINDOW.html" title="GAP Scan window max\l and min" alt="" coords="339,1107,500,1149"/>
+<area shape="rect" id="node23" href="$group__BLE__GAP__ADV__TYPES.html" title="GAP Advertising types" alt="" coords="342,1173,497,1200"/>
+<area shape="rect" id="node24" href="$group__BLE__GAP__SEC__STATUS.html" title="GAP Security status" alt="" coords="348,1224,491,1251"/>
+<area shape="rect" id="node25" href="$group__BLE__GAP__AUTH__PAYLOAD__TIMEOUT.html" title="Authenticated payload\l timeout defines." alt="" coords="344,1275,495,1317"/>
+<area shape="rect" id="node26" href="$group__BLE__GAP__ROLES.html" title="GAP Roles" alt="" coords="375,1341,463,1368"/>
+<area shape="rect" id="node27" href="$group__BLE__GAP__ADV__TIMEOUT__VALUES.html" title="GAP Advertising timeout\l values" alt="" coords="336,1393,503,1434"/>
+<area shape="rect" id="node28" href="$group__BLE__GAP__ROLE__COUNT.html" title="GAP concurrent connection\l count defines." alt="" coords="328,1458,511,1499"/>
+<area shape="rect" id="node29" href="$group__BLE__GAP__AD__TYPE__DEFINITIONS.html" title="GAP Advertising and\l Scan Response Data\l format" alt="" coords="344,1524,495,1580"/>
+<area shape="rect" id="node30" href="$group__BLE__ERRORS__GAP.html" title="SVC return values specific\l to GAP" alt="" coords="330,1605,509,1646"/>
+<area shape="rect" id="node13" href="$group__BLE__GAP.html" title="Definitions and prototypes for the GAP interface. " alt="" coords="5,779,161,821"/>
+</map>

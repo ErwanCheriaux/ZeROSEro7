@@ -1,0 +1,9 @@
+<map id="Commonly shared types" name="Commonly shared types">
+<area shape="rect" id="node1" href="$group__NRF__CRYPTO__ECDSA__SIGNATURE__SIZES.html" title="Sizes of different ECDSA signatures. " alt="" coords="404,5,569,32"/>
+<area shape="rect" id="node2" href="$group__NRF__CRYPTO__ECC__PRIVATE__KEY__SIZES.html" title="Sizes of different elliptical curve cryptography private keys. " alt="" coords="407,56,566,83"/>
+<area shape="rect" id="node3" href="$group__NRF__CRYPTO__CURVES.html" title="Cryptographic curves that are available to the application. " alt="" coords="413,107,560,133"/>
+<area shape="rect" id="node4" href="$group__NRF__CRYPTO__ECC__PUBLIC__KEY__SIZES.html" title="Sizes of different elliptical curve cryptographic public keys. " alt="" coords="410,157,563,184"/>
+<area shape="rect" id="node7" href="$group__NRF__CRYPTO__HASH__SIZES.html" title="Sizes of different cryptographic hashes. " alt="" coords="419,209,554,250"/>
+<area shape="rect" id="node8" href="$group__NRF__CRYPTO__ECDH__SHARED__SECRET__SIZES.html" title="Sizes of ECDH shared secret values. " alt="" coords="415,274,559,315"/>
+<area shape="rect" id="node6" href="$group__nrf__crypto.html" title="Cryptography library (nrf_crypto). " alt="" coords="5,132,144,159"/>
+</map>
