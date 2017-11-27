@@ -25,7 +25,7 @@ void rtt_write_buffer_hexa(uint8_t const *p_buff, int len)
     uint8_t const *p_current = p_buff;
     rtt_write_string("0x");
     while(p_current < p_buff + len) {
-        SEGGER_RTT_printf(0, "%#01X", *p_current);
+        SEGGER_RTT_printf(0, "%#02X", *p_current);
         p_current++;
     }
 }
