@@ -1,0 +1,7 @@
+<map id="Defines" name="Defines">
+<area shape="rect" id="node2" href="$group__NRF__FAULT__IDS.html" title="Fault ID types" alt="" coords="369,5,474,32"/>
+<area shape="rect" id="node3" href="$group__NRF__CLOCK__LF__SRC.html" title="Possible LFCLK oscillator\l sources" alt="" coords="335,57,508,98"/>
+<area shape="rect" id="node5" href="$group__NRF__FAULT__ID__RANGES.html" title="Fault ID ranges" alt="" coords="365,123,477,149"/>
+<area shape="rect" id="node6" href="$group__NRF__CLOCK__LF__ACCURACY.html" title="Clock accuracy" alt="" coords="365,173,478,200"/>
+<area shape="rect" id="node4" href="$group__nrf__sdm__api.html" title="APIs for SoftDevice management. " alt="" coords="5,93,172,120"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Backends" name="Backends">
+<area shape="rect" id="node1" href="$group__nrf__crypto__backend__microecc.html" title="Software backend for the cryptography library based on micro&#45;ecc. " alt="" coords="320,5,516,32"/>
+<area shape="rect" id="node2" href="$group__nrf__crypto.html" title="Cryptography library (nrf_crypto). " alt="" coords="5,35,144,61"/>
+<area shape="rect" id="node3" href="$group__nrf__crypto__backend__cryptocell.html" title="Hardware&#45;accelerated backend for the cryptography library based on CryptoCell (CC310). " alt="" coords="343,57,493,98"/>
+</map>

@@ -1,0 +1,3 @@
+<map id="FIFO instance macros" name="FIFO instance macros">
+<area shape="rect" id="node1" href="$group__nrf__atfifo.html" title="FIFO implementation that allows for making atomic transactions without locking interrupts. " alt="" coords="5,5,103,32"/>
+</map>

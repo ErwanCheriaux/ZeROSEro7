@@ -1,0 +1,9 @@
+<map id="BLE SoftDevice Common" name="BLE SoftDevice Common">
+<area shape="rect" id="node2" href="$group__ble__api.html" title="Module independent events, type definitions and API calls for the BLE SoftDevice. ..." alt="" coords="235,5,394,47"/>
+<area shape="rect" id="node3" href="$group__ble__types.html" title="Common types and macro definitions for the BLE SoftDevice. " alt="" coords="227,71,403,112"/>
+<area shape="rect" id="node4" href="$group__BLE__ERROR__SUBRANGES.html" title="Assignment of subranges for module specific error codes. " alt="" coords="243,136,386,177"/>
+<area shape="rect" id="node5" href="$group__ble__err.html" title="General error code definitions for the BLE API. " alt="" coords="247,202,383,229"/>
+<area shape="rect" id="node6" href="$group__ble__ranges.html" title="Definition of SVC, event and option number subranges for each API module. " alt="" coords="230,253,399,309"/>
+<area shape="rect" id="node7" href="$group__nrf__error.html" title="Global Error definitions. " alt="" coords="235,333,395,375"/>
+<area shape="rect" id="node8" href="$group__BLE__HCI__STATUS__CODES.html" title="Bluetooth status codes" alt="" coords="237,399,393,426"/>
+</map>
