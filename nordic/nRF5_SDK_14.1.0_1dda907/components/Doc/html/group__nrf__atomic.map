@@ -1,0 +1,4 @@
+<map id="Atomic operations API" name="Atomic operations API">
+<area shape="rect" id="node1" href="$group__nrf__atfifo.html" title="FIFO implementation that allows for making atomic transactions without locking interrupts. " alt="" coords="5,5,103,32"/>
+<area shape="rect" id="node2" href="$group__nrf__atomic__internal.html" title="Atomic operations internals" alt="" coords="352,5,532,32"/>
+</map>

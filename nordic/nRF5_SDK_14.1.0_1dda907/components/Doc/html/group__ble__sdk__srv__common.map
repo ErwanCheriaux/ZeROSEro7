@@ -1,0 +1,5 @@
+<map id="Common service definitions" name="Common service definitions">
+<area shape="rect" id="node1" href="$group__UUID__SERVICES.html" title="Service UUID definitions" alt="" coords="239,5,406,32"/>
+<area shape="rect" id="node2" href="$group__ALERT__LEVEL__VALUES.html" title="Definitions for the\l Alert Level characteristic\l values" alt="" coords="237,56,408,112"/>
+<area shape="rect" id="node3" href="$group__UUID__CHARACTERISTICS.html" title="Characteristic UUID\l definitions" alt="" coords="252,137,393,178"/>
+</map>

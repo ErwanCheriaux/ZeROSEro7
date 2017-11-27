@@ -1,0 +1,6 @@
+<map id="ANT simulators" name="ANT simulators">
+<area shape="rect" id="node1" href="$group__ant__sdk__sdm__simulator.html" title="ANT SDM simulator module. " alt="" coords="172,5,312,32"/>
+<area shape="rect" id="node2" href="$group__ant__sdk__hrm__simulator.html" title="ANT HRM simulator module. " alt="" coords="171,56,313,83"/>
+<area shape="rect" id="node3" href="$group__ant__sdk__bsc__simulator.html" title="ANT BSC simulator module. " alt="" coords="173,107,311,133"/>
+<area shape="rect" id="node5" href="$group__ant__sdk__bpwr__simulator.html" title="ANT BPWR simulator module. " alt="" coords="167,157,317,184"/>
+</map>

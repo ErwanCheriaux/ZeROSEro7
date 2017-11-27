@@ -1,0 +1,5 @@
+<map id="SoftDevice Handler" name="SoftDevice Handler">
+<area shape="rect" id="node1" href="$group__nrf__sdh__ant.html" title="This file contains the declarations of types and functions required for ANT stack support..." alt="" coords="189,5,368,47"/>
+<area shape="rect" id="node2" href="$group__nrf__sdh__ble.html" title="This file contains the declarations of types and functions required for BLE stack support..." alt="" coords="190,71,367,112"/>
+<area shape="rect" id="node4" href="$group__nrf__sdh__soc.html" title="This file contains the declarations of types and functions required for SoftDevice Handler SoC suppor..." alt="" coords="189,136,368,177"/>
+</map>

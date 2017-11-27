@@ -1,0 +1,7 @@
+<map id="SoftDevice Manager API" name="SoftDevice Manager API">
+<area shape="rect" id="node1" href="$group__NRF__SDM__DEFINES.html" title="Defines" alt="" coords="257,5,324,32"/>
+<area shape="rect" id="node2" href="$group__NRF__SDM__ENUMS.html" title="Enumerations" alt="" coords="239,56,342,83"/>
+<area shape="rect" id="node4" href="$group__NRF__SDM__FUNCTIONS.html" title="Functions" alt="" coords="251,107,330,133"/>
+<area shape="rect" id="node5" href="$group__NRF__SDM__TYPES.html" title="Types" alt="" coords="261,157,320,184"/>
+<area shape="rect" id="node6" href="$group__nrf__sdm__error.html" title="Error definitions for the SDM API. " alt="" coords="220,209,361,250"/>
+</map>

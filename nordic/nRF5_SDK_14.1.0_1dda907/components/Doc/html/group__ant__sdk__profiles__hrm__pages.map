@@ -1,0 +1,8 @@
+<map id="Heart Rate Monitor profile pages" name="Heart Rate Monitor profile pages">
+<area shape="rect" id="node1" href="$group__ant__hrm.html" title="This module implements the Heart Rate Monitor profile. " alt="" coords="5,99,139,141"/>
+<area shape="rect" id="node2" href="$group__ant__sdk__profiles__hrm__page0.html" title="HRM profile page 0" alt="" coords="368,5,503,32"/>
+<area shape="rect" id="node3" href="$group__ant__sdk__profiles__hrm__page1.html" title="HRM profile page 1" alt="" coords="368,56,503,83"/>
+<area shape="rect" id="node4" href="$group__ant__sdk__profiles__hrm__page2.html" title="HRM profile page 2" alt="" coords="368,107,503,133"/>
+<area shape="rect" id="node5" href="$group__ant__sdk__profiles__hrm__page3.html" title="HRM profile page 3" alt="" coords="368,157,503,184"/>
+<area shape="rect" id="node6" href="$group__ant__sdk__profiles__hrm__page4.html" title="HRM profile page 4" alt="" coords="368,208,503,235"/>
+</map>
