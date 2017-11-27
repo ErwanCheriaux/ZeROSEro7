@@ -50,7 +50,7 @@ LDFLAGS = $(INCFILE) $(INCDIR) -T $(LDSCRIPT) -specs=nosys.specs -specs=nano.spe
 
 ELF = main
 
-USER_SRC = startup_stm32l072xx.s ../test/fibo/main.c ../test/fibo/fibo.c debug.c hw_gpio.c hw_rtc.c hw_spi.c \
+USER_SRC = startup_stm32l072xx.s ../test/main.c ../test/fibo/fibo.c debug.c hw_gpio.c hw_rtc.c hw_spi.c \
 	stm32l0xx_hal_msp.c stm32l0xx_hw.c stm32l0xx_it.c vcom.c
  # REVIEW How to only compile .o that are used like ChibiOS does ?
 BL072Z_SRC = $(BSP)/B-L072Z-LRWAN1/b-l072z-lrwan1.c \
