@@ -43,14 +43,14 @@ static uint32_t parse_advdata(data_t const *const adv_data)
     while(field_index < adv_data->data_len) {
         uint8_t field_length = p_data[field_index];
         uint8_t field_type   = p_data[field_index + 1];
-        rtt_write_string("Data field :");
+        rtt_write_string("Data field: ");
         rtt_printf(0, "Type = 0x%#02X\n", field_type);
 
         data_t field_data;
 
         field_data.p_data   = &p_data[field_index + 2];
         field_data.data_len = field_length - 1;
-        rtt_write_string("Data :");
+        rtt_write_string("Data: ");
         if(field_type == BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME || field_type == BLE_GAP_AD_TYPE_SHORT_LOCAL_NAME) {
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
         } else {
@@ -72,17 +72,17 @@ static void on_adv_report(const ble_evt_t *const p_ble_evt)
     ble_gap_evt_t const *gap_evt = &p_ble_evt->evt.gap_evt;
 
     ble_gap_addr_t const *direct_addr = &gap_evt->params.adv_report.direct_addr;
-    rtt_printf(0, "Address : Type = 0x%#02X , GAP = ", direct_addr->addr_type);
+    rtt_printf(0, "Address: Type = 0x%#02X, GAP = ", direct_addr->addr_type);
     rtt_write_buffer_hexa(direct_addr->addr, BLE_GAP_ADDR_LEN);
     rtt_write_string("\n");
 
     uint8_t const adv_type = gap_evt->params.adv_report.type;
-    rtt_printf(0, "Advertisement Type : %#02X\n", adv_type);
+    rtt_printf(0, "Advertisement Type: %#02X\n", adv_type);
 
     data_t adv_data;
     adv_data.p_data   = (uint8_t *)gap_evt->params.adv_report.data;
     adv_data.data_len = gap_evt->params.adv_report.dlen;
-    rtt_write_string("Parsing advdata :\n");
+    rtt_write_string("Contents :\n");
 
     parse_advdata(&adv_data);
 }
