@@ -10,11 +10,11 @@
 /**
   * @brief  GPIO Bit SET and Bit RESET enumeration
   */
-typedef enum
+/*typedef enum
 {
   GPIO_PIN_RESET = 0,
   GPIO_PIN_SET
-} GPIO_PinState;
+} GPIO_PinState;*/
 // TODO not sure about these definitions used only Once in sx1276.c:1248
 #define SET 1
 #define RESET 0
