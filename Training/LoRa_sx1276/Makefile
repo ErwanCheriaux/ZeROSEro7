@@ -21,6 +21,8 @@ USER_SRC = \
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
 
+# ***** Nordic SDK Specific *****
+
 # Source files common to all targets
 SRC_FILES += $(USER_SRC) \
   $(SDK_ROOT)/components/libraries/experimental_log/src/nrf_log_backend_rtt.c \
@@ -138,6 +140,37 @@ LDFLAGS += --specs=nano.specs
 # that may need symbols provided by these libraries.
 LIB_FILES += -lc -lnosys -lm
 
+# ***** LoRa Semtec Specific *****
+
+CUBEEXPANSION = ../../SDK/LoRa_icube/CubeExpansion
+DRIVERS = $(CUBEEXPANSION)/Drivers
+BSP = $(DRIVERS)/BSP
+CMSIS = $(DRIVERS)/CMSIS
+MIDDLEWARES = $(CUBEEXPANSION)/Middlewares/Third_Party/Lora
+
+SRC_FILES += \
+	$(BSP)/Components/sx1276/sx1276.c \
+	$(MIDDLEWARES)/Utilities/delay.c \
+	$(MIDDLEWARES)/Utilities/low_power.c \
+	$(MIDDLEWARES)/Utilities/timeServer.c \
+	$(MIDDLEWARES)/Utilities/utilities.c
+
+INC_FOLDERS += \
+	$(MIDDLEWARES)/Crypto \
+	$(MIDDLEWARES)/Mac \
+	$(MIDDLEWARES)/Phy \
+	$(MIDDLEWARES)/Utilities \
+	$(BSP)/Components/Common \
+	$(BSP)/Components/sx1276 \
+	$(MIDDLEWARES)/Core \
+	$(CMSIS)/Include \
+
+CFLAGS += \
+	-D USE_BAND_868 \
+	-D USE_MODEM_LORA \
+	-D _DEBUG \
+
+# ***** Targets ******
 
 .PHONY: default help
 
