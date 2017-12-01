@@ -20,7 +20,7 @@ lint_main:
   stage: lint
   image: rfc1149/rose-dev
   script:
-    - cd nrf52_dev_kit
+    - cd training/BLE_nrf52
     - make format
     - cd ../usb_dev_kit
     - make format
@@ -52,7 +52,7 @@ build_main:
   stage: build
   image: tuetuopay/arm-none-eabi
   script:
-    - cd nrf52_dev_kit
+    - cd training/BLE_nrf52
     - make
     - cd ../usb_dev_kit
     - make
@@ -63,7 +63,7 @@ build_main:
   artifacts:
     paths:
     - lora_discovery/main
-    - nrf52_dev_kit/_build/nrf52832_xxaa.hex
+    - training/BLE_nrf52/_build/nrf52832_xxaa.out
     - usb_dev_kit/build/usb_dev_kit.elf
     - lora_dev_kit/build/lora_dev_kit.elf
     expire_in: 1 week

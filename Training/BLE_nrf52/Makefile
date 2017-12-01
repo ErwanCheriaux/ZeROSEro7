@@ -2,8 +2,9 @@ PROJECT_NAME     := spy_talk
 TARGETS          := nrf52832_xxaa
 OUTPUT_DIRECTORY := _build
 
-SDK_ROOT     := ../nordic/nRF5_SDK
-COMMAND_ROOT := ../nordic/nRF5x-Command-Line-Tools
+NORDIC_DIR	 := ../../SDK/BLE_nordic
+SDK_ROOT     := $(NORDIC_DIR)/nRF5_SDK
+COMMAND_ROOT := $(NORDIC_DIR)/nRF5x-Command-Line-Tools
 PROJ_DIR     := .
 
 GNU_PREFIX    := arm-none-eabi-
@@ -221,7 +222,7 @@ CFLAGS += -DSOFTDEVICE_PRESENT
 CFLAGS += -DSWI_DISABLE0
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable -Wno-expansion-to-defined 
+CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable -Wno-expansion-to-defined
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
