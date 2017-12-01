@@ -1,0 +1,715 @@
+\hypertarget{group__LORA}{}\section{Lo\+Ra implementation}
+\label{group__LORA}\index{Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structRadioEvents__t}{Radio\+Events\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Radio driver callback functions. \end{DoxyCompactList}\item 
+struct \hyperlink{structRadio__s}{Radio\+\_\+s}
+\begin{DoxyCompactList}\small\item\em Radio driver definition. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} \{ \hyperlink{group__LORA_gga992ef7a5b7f52975ba7bd8dd97740057af43891b8bf8129d6ee0bfe83217822a5}{M\+O\+D\+E\+M\+\_\+\+F\+SK} = 0, 
+\hyperlink{group__LORA_gga992ef7a5b7f52975ba7bd8dd97740057abeb331e097974ea65b07d74df9e85a8e}{M\+O\+D\+E\+M\+\_\+\+L\+O\+RA}
+ \}
+\item 
+enum \hyperlink{group__LORA_ga2f3fa4ad0237c4ace94aa99086aac9f5}{Radio\+State\+\_\+t} \{ \hyperlink{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a89c1ff89fc074c1c80f96d186c99f899}{R\+F\+\_\+\+I\+D\+LE} = 0, 
+\hyperlink{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a5a6a549e66aa54871013a612aa2aba45}{R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG}, 
+\hyperlink{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5add0cb5bc08318df9a5e688f4802ed99d}{R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG}, 
+\hyperlink{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a6798b346c6d95e2970d33ccd04c5d39c}{R\+F\+\_\+\+C\+AD}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{group__LORA_gafe2bdc503d6c09946dee1b800e2fb3a2}{Radio\+Events\+\_\+t\+::\+Tx\+Done} )(void)
+\begin{DoxyCompactList}\small\item\em Tx Done callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1f435b15ceae4ce1e44af3d3c5845ffd}{Radio\+Events\+\_\+t\+::\+Tx\+Timeout} )(void)
+\begin{DoxyCompactList}\small\item\em Tx Timeout callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga92665b4b0a07eb2df1b435dcef314b48}{Radio\+Events\+\_\+t\+::\+Rx\+Done} )(uint8\+\_\+t $\ast$payload, uint16\+\_\+t size, int16\+\_\+t rssi, int8\+\_\+t snr)
+\begin{DoxyCompactList}\small\item\em Rx Done callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1566693134c9ae4bad8a0f90ed72fff2}{Radio\+Events\+\_\+t\+::\+Rx\+Timeout} )(void)
+\begin{DoxyCompactList}\small\item\em Rx Timeout callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga17b9f56c75cbc08de07f5b2a9d234002}{Radio\+Events\+\_\+t\+::\+Rx\+Error} )(void)
+\begin{DoxyCompactList}\small\item\em Rx Error callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1c7fd427d45e18c386c0dc10b496d74b}{Radio\+Events\+\_\+t\+::\+Fhss\+Change\+Channel} )(uint8\+\_\+t current\+Channel)
+\begin{DoxyCompactList}\small\item\em F\+H\+SS Change Channel callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_gacf79a39fe3d615bed87b1414e73df6b2}{Radio\+Events\+\_\+t\+::\+Cad\+Done} )(bool channel\+Activity\+Detected)
+\begin{DoxyCompactList}\small\item\em C\+AD Done callback prototype. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga5a84db3f810c3c6470a330034981fc7b}{Radio\+\_\+s\+::\+Io\+Init} )(void)
+\begin{DoxyCompactList}\small\item\em Initializes the io. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga45d0a08fcddbc5d8364ce980c26028ac}{Radio\+\_\+s\+::\+Io\+De\+Init} )(void)
+\begin{DoxyCompactList}\small\item\em Deinitializes the io. \end{DoxyCompactList}\item 
+uint32\+\_\+t($\ast$ \hyperlink{group__LORA_gafb896d98cceb49c55af00f5d5aa964cd}{Radio\+\_\+s\+::\+Init} )(\hyperlink{structRadioEvents__t}{Radio\+Events\+\_\+t} $\ast$events)
+\begin{DoxyCompactList}\small\item\em Initializes the radio. \end{DoxyCompactList}\item 
+\hyperlink{group__LORA_ga2f3fa4ad0237c4ace94aa99086aac9f5}{Radio\+State\+\_\+t}($\ast$ \hyperlink{group__LORA_ga24c01d8388f399e8ccaea190048eea9d}{Radio\+\_\+s\+::\+Get\+Status} )(void)
+\item 
+void($\ast$ \hyperlink{group__LORA_ga92515d5b16f5093727b90256a8929b82}{Radio\+\_\+s\+::\+Set\+Modem} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem)
+\begin{DoxyCompactList}\small\item\em Configures the radio with the given modem. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_gaf41c78922a5831b2e0ceb458286846fd}{Radio\+\_\+s\+::\+Set\+Channel} )(uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets the channel frequency. \end{DoxyCompactList}\item 
+bool($\ast$ \hyperlink{group__LORA_ga9e6632b46872513fe063489eb22f9663}{Radio\+\_\+s\+::\+Is\+Channel\+Free} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint32\+\_\+t freq, int16\+\_\+t rssi\+Thresh, uint32\+\_\+t max\+Carrier\+Sense\+Time)
+\begin{DoxyCompactList}\small\item\em Checks if the channel is free for the given time. \end{DoxyCompactList}\item 
+uint32\+\_\+t($\ast$ \hyperlink{group__LORA_gaf39c7ced02721092f0f780f6632a81fd}{Radio\+\_\+s\+::\+Random} )(void)
+\begin{DoxyCompactList}\small\item\em Generates a 32 bits random value based on the R\+S\+SI readings. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_gadd564d2a79027afbc6f0f8f3011fe93b}{Radio\+\_\+s\+::\+Set\+Rx\+Config} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint32\+\_\+t bandwidth, uint32\+\_\+t datarate, uint8\+\_\+t coderate, uint32\+\_\+t bandwidth\+Afc, uint16\+\_\+t preamble\+Len, uint16\+\_\+t symb\+Timeout, bool fix\+Len, uint8\+\_\+t payload\+Len, bool crc\+On, bool freq\+Hop\+On, uint8\+\_\+t hop\+Period, bool iq\+Inverted, bool rx\+Continuous)
+\begin{DoxyCompactList}\small\item\em Sets the reception parameters. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_gad4177124b5db6b2b1f07ba16e631bbdb}{Radio\+\_\+s\+::\+Set\+Tx\+Config} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, int8\+\_\+t power, uint32\+\_\+t fdev, uint32\+\_\+t bandwidth, uint32\+\_\+t datarate, uint8\+\_\+t coderate, uint16\+\_\+t preamble\+Len, bool fix\+Len, bool crc\+On, bool freq\+Hop\+On, uint8\+\_\+t hop\+Period, bool iq\+Inverted, uint32\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Sets the transmission parameters. \end{DoxyCompactList}\item 
+bool($\ast$ \hyperlink{group__LORA_gad26df1cecc02c5d50f07ff062962f501}{Radio\+\_\+s\+::\+Check\+Rf\+Frequency} )(uint32\+\_\+t frequency)
+\begin{DoxyCompactList}\small\item\em Checks if the given RF frequency is supported by the hardware. \end{DoxyCompactList}\item 
+uint32\+\_\+t($\ast$ \hyperlink{group__LORA_ga36552db411e04e05c7962912854d48ae}{Radio\+\_\+s\+::\+Time\+On\+Air} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint8\+\_\+t pkt\+Len)
+\begin{DoxyCompactList}\small\item\em Computes the packet time on air in ms for the given payload. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga80f05bcd6ec2aea2eec2fc16850c6829}{Radio\+\_\+s\+::\+Send} )(uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Sends the buffer of size. Prepares the packet to be sent and sets the radio in transmission. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga1ce3ea830b03dffac6f6fec459dc77d3}{Radio\+\_\+s\+::\+Sleep} )(void)
+\begin{DoxyCompactList}\small\item\em Sets the radio in sleep mode. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga2972c07018c9c2de5c76c6c0563bea7b}{Radio\+\_\+s\+::\+Standby} )(void)
+\begin{DoxyCompactList}\small\item\em Sets the radio in standby mode. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga102f21c524b5c8eb87a2d65f8ac6cbe4}{Radio\+\_\+s\+::\+Rx} )(uint32\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Sets the radio in reception mode for the given time. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga8f9e97d8a3010e96e108dc62c1e5b107}{Radio\+\_\+s\+::\+Start\+Cad} )(void)
+\begin{DoxyCompactList}\small\item\em Start a Channel Activity Detection. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga6b20fa3f6908c0165b26d8e02b944e3b}{Radio\+\_\+s\+::\+Set\+Tx\+Continuous\+Wave} )(uint32\+\_\+t freq, int8\+\_\+t power, uint16\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Sets the radio in continuous wave transmission mode. \end{DoxyCompactList}\item 
+int16\+\_\+t($\ast$ \hyperlink{group__LORA_gade038967fa33e964e02fe10e66d6d510}{Radio\+\_\+s\+::\+Rssi} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem)
+\begin{DoxyCompactList}\small\item\em Reads the current R\+S\+SI value. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga5f0ca54e8bc3c82d3c9b196230c325d5}{Radio\+\_\+s\+::\+Write} )(uint8\+\_\+t addr, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Writes the radio register at the specified address. \end{DoxyCompactList}\item 
+uint8\+\_\+t($\ast$ \hyperlink{group__LORA_ga8396bca959a0b717fabd37ac91c11534}{Radio\+\_\+s\+::\+Read} )(uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Reads the radio register at the specified address. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_gab282c0d0a6bd7dd9f21cf79984988a8a}{Radio\+\_\+s\+::\+Write\+Buffer} )(uint8\+\_\+t addr, uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Writes multiple radio registers starting at address. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga7ef5175264a4cf10bb6d9fa40c115dab}{Radio\+\_\+s\+::\+Read\+Buffer} )(uint8\+\_\+t addr, uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Reads multiple radio registers starting at address. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga182fc8f265a2d02d64f3ee1c6dd5906f}{Radio\+\_\+s\+::\+Set\+Max\+Payload\+Length} )(\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint8\+\_\+t max)
+\begin{DoxyCompactList}\small\item\em Sets the maximum payload length. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{group__LORA_ga33681fa99af4bf37517e1ba1107e1877}{Radio\+\_\+s\+::\+Set\+Public\+Network} )(bool enable)
+\begin{DoxyCompactList}\small\item\em Sets the network to public or private. Updates the sync byte. \end{DoxyCompactList}\item 
+uint32\+\_\+t($\ast$ \hyperlink{group__LORA_ga7396df7c609fbda8b6ed87755b3899be}{Radio\+\_\+s\+::\+Get\+Radio\+Wake\+Up\+Time} )(void)
+\begin{DoxyCompactList}\small\item\em Service to get the radio wake-\/up time. \end{DoxyCompactList}\item 
+const struct \hyperlink{structRadio__s}{Radio\+\_\+s} \hyperlink{group__LORA_gacf9fe61a72c16fa29a0dc449d23e3820}{Radio}
+\begin{DoxyCompactList}\small\item\em Radio driver. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This module specifies the A\+PI implementation of the Lo\+Ra\+M\+AC layer. This is a placeholder for a detailed description of the Lo\+Ra\+Mac layer and the supported features. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}\label{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Radio\+Modems\+\_\+t@{Radio\+Modems\+\_\+t}}
+\index{Radio\+Modems\+\_\+t@{Radio\+Modems\+\_\+t}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Radio\+Modems\+\_\+t}{RadioModems\_t}}
+{\footnotesize\ttfamily enum \hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+D\+E\+M\+\_\+\+F\+SK@{M\+O\+D\+E\+M\+\_\+\+F\+SK}!Lo\+Ra implementation@{Lo\+Ra implementation}}\index{Lo\+Ra implementation@{Lo\+Ra implementation}!M\+O\+D\+E\+M\+\_\+\+F\+SK@{M\+O\+D\+E\+M\+\_\+\+F\+SK}}}\mbox{\Hypertarget{group__LORA_gga992ef7a5b7f52975ba7bd8dd97740057af43891b8bf8129d6ee0bfe83217822a5}\label{group__LORA_gga992ef7a5b7f52975ba7bd8dd97740057af43891b8bf8129d6ee0bfe83217822a5}} 
+M\+O\+D\+E\+M\+\_\+\+F\+SK&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\+O\+D\+E\+M\+\_\+\+L\+O\+RA@{M\+O\+D\+E\+M\+\_\+\+L\+O\+RA}!Lo\+Ra implementation@{Lo\+Ra implementation}}\index{Lo\+Ra implementation@{Lo\+Ra implementation}!M\+O\+D\+E\+M\+\_\+\+L\+O\+RA@{M\+O\+D\+E\+M\+\_\+\+L\+O\+RA}}}\mbox{\Hypertarget{group__LORA_gga992ef7a5b7f52975ba7bd8dd97740057abeb331e097974ea65b07d74df9e85a8e}\label{group__LORA_gga992ef7a5b7f52975ba7bd8dd97740057abeb331e097974ea65b07d74df9e85a8e}} 
+M\+O\+D\+E\+M\+\_\+\+L\+O\+RA&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__LORA_ga2f3fa4ad0237c4ace94aa99086aac9f5}\label{group__LORA_ga2f3fa4ad0237c4ace94aa99086aac9f5}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Radio\+State\+\_\+t@{Radio\+State\+\_\+t}}
+\index{Radio\+State\+\_\+t@{Radio\+State\+\_\+t}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Radio\+State\+\_\+t}{RadioState\_t}}
+{\footnotesize\ttfamily enum \hyperlink{group__LORA_ga2f3fa4ad0237c4ace94aa99086aac9f5}{Radio\+State\+\_\+t}}
+
+Radio driver internal state machine states definition \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+F\+\_\+\+I\+D\+LE@{R\+F\+\_\+\+I\+D\+LE}!Lo\+Ra implementation@{Lo\+Ra implementation}}\index{Lo\+Ra implementation@{Lo\+Ra implementation}!R\+F\+\_\+\+I\+D\+LE@{R\+F\+\_\+\+I\+D\+LE}}}\mbox{\Hypertarget{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a89c1ff89fc074c1c80f96d186c99f899}\label{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a89c1ff89fc074c1c80f96d186c99f899}} 
+R\+F\+\_\+\+I\+D\+LE&The radio is idle. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG@{R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG}!Lo\+Ra implementation@{Lo\+Ra implementation}}\index{Lo\+Ra implementation@{Lo\+Ra implementation}!R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG@{R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG}}}\mbox{\Hypertarget{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a5a6a549e66aa54871013a612aa2aba45}\label{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a5a6a549e66aa54871013a612aa2aba45}} 
+R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG&The radio is in reception state. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG@{R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG}!Lo\+Ra implementation@{Lo\+Ra implementation}}\index{Lo\+Ra implementation@{Lo\+Ra implementation}!R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG@{R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG}}}\mbox{\Hypertarget{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5add0cb5bc08318df9a5e688f4802ed99d}\label{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5add0cb5bc08318df9a5e688f4802ed99d}} 
+R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG&The radio is in transmission state. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{R\+F\+\_\+\+C\+AD@{R\+F\+\_\+\+C\+AD}!Lo\+Ra implementation@{Lo\+Ra implementation}}\index{Lo\+Ra implementation@{Lo\+Ra implementation}!R\+F\+\_\+\+C\+AD@{R\+F\+\_\+\+C\+AD}}}\mbox{\Hypertarget{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a6798b346c6d95e2970d33ccd04c5d39c}\label{group__LORA_gga2f3fa4ad0237c4ace94aa99086aac9f5a6798b346c6d95e2970d33ccd04c5d39c}} 
+R\+F\+\_\+\+C\+AD&The radio is doing channel activity detection. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{group__LORA_gacf79a39fe3d615bed87b1414e73df6b2}\label{group__LORA_gacf79a39fe3d615bed87b1414e73df6b2}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Cad\+Done@{Cad\+Done}}
+\index{Cad\+Done@{Cad\+Done}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Cad\+Done}{CadDone}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Cad\+Done) (bool channel\+Activity\+Detected)}
+
+
+
+C\+AD Done callback prototype. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & channel\+Detected Channel Activity detected during the C\+AD \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gad26df1cecc02c5d50f07ff062962f501}\label{group__LORA_gad26df1cecc02c5d50f07ff062962f501}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Check\+Rf\+Frequency@{Check\+Rf\+Frequency}}
+\index{Check\+Rf\+Frequency@{Check\+Rf\+Frequency}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Check\+Rf\+Frequency}{CheckRfFrequency}}
+{\footnotesize\ttfamily bool( $\ast$ Radio\+\_\+s\+::\+Check\+Rf\+Frequency) (uint32\+\_\+t frequency)}
+
+
+
+Checks if the given RF frequency is supported by the hardware. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & frequency RF frequency to be checked \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em is\+Supported} & \mbox{[}true\+: supported, false\+: unsupported\mbox{]} \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_ga1c7fd427d45e18c386c0dc10b496d74b}\label{group__LORA_ga1c7fd427d45e18c386c0dc10b496d74b}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Fhss\+Change\+Channel@{Fhss\+Change\+Channel}}
+\index{Fhss\+Change\+Channel@{Fhss\+Change\+Channel}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Fhss\+Change\+Channel}{FhssChangeChannel}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Fhss\+Change\+Channel) (uint8\+\_\+t current\+Channel)}
+
+
+
+F\+H\+SS Change Channel callback prototype. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & current\+Channel Index number of the current channel \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga7396df7c609fbda8b6ed87755b3899be}\label{group__LORA_ga7396df7c609fbda8b6ed87755b3899be}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Get\+Radio\+Wake\+Up\+Time@{Get\+Radio\+Wake\+Up\+Time}}
+\index{Get\+Radio\+Wake\+Up\+Time@{Get\+Radio\+Wake\+Up\+Time}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Get\+Radio\+Wake\+Up\+Time}{GetRadioWakeUpTime}}
+{\footnotesize\ttfamily uint32\+\_\+t( $\ast$ Radio\+\_\+s\+::\+Get\+Radio\+Wake\+Up\+Time) (void)}
+
+
+
+Service to get the radio wake-\/up time. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Value} & of the radio wake-\/up time. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_ga24c01d8388f399e8ccaea190048eea9d}\label{group__LORA_ga24c01d8388f399e8ccaea190048eea9d}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Get\+Status@{Get\+Status}}
+\index{Get\+Status@{Get\+Status}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Get\+Status}{GetStatus}}
+{\footnotesize\ttfamily \hyperlink{group__LORA_ga2f3fa4ad0237c4ace94aa99086aac9f5}{Radio\+State\+\_\+t}( $\ast$ Radio\+\_\+s\+::\+Get\+Status) (void)}
+
+Return current radio status
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & Radio status.\mbox{[}R\+F\+\_\+\+I\+D\+LE, R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG, R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gafb896d98cceb49c55af00f5d5aa964cd}\label{group__LORA_gafb896d98cceb49c55af00f5d5aa964cd}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Init@{Init}}
+\index{Init@{Init}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Init}{Init}}
+{\footnotesize\ttfamily uint32\+\_\+t( $\ast$ Radio\+\_\+s\+::\+Init) (\hyperlink{structRadioEvents__t}{Radio\+Events\+\_\+t} $\ast$events)}
+
+
+
+Initializes the radio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & events Structure containing the driver callback functions \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & returns radio\+Wake\+Up\+Time \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga45d0a08fcddbc5d8364ce980c26028ac}\label{group__LORA_ga45d0a08fcddbc5d8364ce980c26028ac}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Io\+De\+Init@{Io\+De\+Init}}
+\index{Io\+De\+Init@{Io\+De\+Init}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Io\+De\+Init}{IoDeInit}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Io\+De\+Init) (void)}
+
+
+
+Deinitializes the io. 
+
+\mbox{\Hypertarget{group__LORA_ga5a84db3f810c3c6470a330034981fc7b}\label{group__LORA_ga5a84db3f810c3c6470a330034981fc7b}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Io\+Init@{Io\+Init}}
+\index{Io\+Init@{Io\+Init}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Io\+Init}{IoInit}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Io\+Init) (void)}
+
+
+
+Initializes the io. 
+
+\mbox{\Hypertarget{group__LORA_ga9e6632b46872513fe063489eb22f9663}\label{group__LORA_ga9e6632b46872513fe063489eb22f9663}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Is\+Channel\+Free@{Is\+Channel\+Free}}
+\index{Is\+Channel\+Free@{Is\+Channel\+Free}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Is\+Channel\+Free}{IsChannelFree}}
+{\footnotesize\ttfamily bool( $\ast$ Radio\+\_\+s\+::\+Is\+Channel\+Free) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint32\+\_\+t freq, int16\+\_\+t rssi\+Thresh, uint32\+\_\+t max\+Carrier\+Sense\+Time)}
+
+
+
+Checks if the channel is free for the given time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & freq Channel RF frequency \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rssi\+Thresh R\+S\+SI threshold \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & max\+Carrier\+Sense\+Time Max time while the R\+S\+SI is measured\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em is\+Free} & \mbox{[}true\+: Channel is free, false\+: Channel is not free\mbox{]} \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_gacf9fe61a72c16fa29a0dc449d23e3820}\label{group__LORA_gacf9fe61a72c16fa29a0dc449d23e3820}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Radio@{Radio}}
+\index{Radio@{Radio}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Radio}{Radio}}
+{\footnotesize\ttfamily const struct \hyperlink{structRadio__s}{Radio\+\_\+s} Radio}
+
+
+
+Radio driver. 
+
+\begin{DoxyRemark}{Remarks}
+This variable is defined and initialized in the specific radio board implementation 
+\end{DoxyRemark}
+\mbox{\Hypertarget{group__LORA_gaf39c7ced02721092f0f780f6632a81fd}\label{group__LORA_gaf39c7ced02721092f0f780f6632a81fd}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Random@{Random}}
+\index{Random@{Random}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Random}{Random}}
+{\footnotesize\ttfamily uint32\+\_\+t( $\ast$ Radio\+\_\+s\+::\+Random) (void)}
+
+
+
+Generates a 32 bits random value based on the R\+S\+SI readings. 
+
+\begin{DoxyRemark}{Remarks}
+This function sets the radio in Lo\+Ra modem mode and disables all interrupts. After calling this function either Radio.\+Set\+Rx\+Config or Radio.\+Set\+Tx\+Config functions must be called.
+\end{DoxyRemark}
+
+\begin{DoxyRetVals}{Return values}
+{\em random\+Value} & 32 bits random value \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_ga8396bca959a0b717fabd37ac91c11534}\label{group__LORA_ga8396bca959a0b717fabd37ac91c11534}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Read@{Read}}
+\index{Read@{Read}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Read}{Read}}
+{\footnotesize\ttfamily uint8\+\_\+t( $\ast$ Radio\+\_\+s\+::\+Read) (uint8\+\_\+t addr)}
+
+
+
+Reads the radio register at the specified address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr Register address \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em data} & Register value \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_ga7ef5175264a4cf10bb6d9fa40c115dab}\label{group__LORA_ga7ef5175264a4cf10bb6d9fa40c115dab}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Read\+Buffer@{Read\+Buffer}}
+\index{Read\+Buffer@{Read\+Buffer}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Read\+Buffer}{ReadBuffer}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Read\+Buffer) (uint8\+\_\+t addr, uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)}
+
+
+
+Reads multiple radio registers starting at address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr First Radio register address \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & buffer Buffer where to copy the registers data \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Number of registers to be read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gade038967fa33e964e02fe10e66d6d510}\label{group__LORA_gade038967fa33e964e02fe10e66d6d510}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Rssi@{Rssi}}
+\index{Rssi@{Rssi}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Rssi}{Rssi}}
+{\footnotesize\ttfamily int16\+\_\+t( $\ast$ Radio\+\_\+s\+::\+Rssi) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem)}
+
+
+
+Reads the current R\+S\+SI value. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em rssi\+Value} & Current R\+S\+SI value in \mbox{[}d\+Bm\mbox{]} \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_ga102f21c524b5c8eb87a2d65f8ac6cbe4}\label{group__LORA_ga102f21c524b5c8eb87a2d65f8ac6cbe4}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Rx@{Rx}}
+\index{Rx@{Rx}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Rx}{Rx}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Rx) (uint32\+\_\+t timeout)}
+
+
+
+Sets the radio in reception mode for the given time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timeout Reception timeout \mbox{[}ms\mbox{]} \mbox{[}0\+: continuous, others timeout\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga92665b4b0a07eb2df1b435dcef314b48}\label{group__LORA_ga92665b4b0a07eb2df1b435dcef314b48}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Rx\+Done@{Rx\+Done}}
+\index{Rx\+Done@{Rx\+Done}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Rx\+Done}{RxDone}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Rx\+Done) (uint8\+\_\+t $\ast$payload, uint16\+\_\+t size, int16\+\_\+t rssi, int8\+\_\+t snr)}
+
+
+
+Rx Done callback prototype. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & payload Received buffer pointer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Received buffer size \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rssi R\+S\+SI value computed while receiving the frame \mbox{[}d\+Bm\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & snr Raw S\+NR value given by the radio hardware F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: S\+NR value in dB \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga17b9f56c75cbc08de07f5b2a9d234002}\label{group__LORA_ga17b9f56c75cbc08de07f5b2a9d234002}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Rx\+Error@{Rx\+Error}}
+\index{Rx\+Error@{Rx\+Error}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Rx\+Error}{RxError}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Rx\+Error) (void)}
+
+
+
+Rx Error callback prototype. 
+
+\mbox{\Hypertarget{group__LORA_ga1566693134c9ae4bad8a0f90ed72fff2}\label{group__LORA_ga1566693134c9ae4bad8a0f90ed72fff2}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Rx\+Timeout@{Rx\+Timeout}}
+\index{Rx\+Timeout@{Rx\+Timeout}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Rx\+Timeout}{RxTimeout}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Rx\+Timeout) (void)}
+
+
+
+Rx Timeout callback prototype. 
+
+\mbox{\Hypertarget{group__LORA_ga80f05bcd6ec2aea2eec2fc16850c6829}\label{group__LORA_ga80f05bcd6ec2aea2eec2fc16850c6829}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Send@{Send}}
+\index{Send@{Send}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Send}{Send}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Send) (uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)}
+
+
+
+Sends the buffer of size. Prepares the packet to be sent and sets the radio in transmission. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer Buffer pointer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Buffer size \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gaf41c78922a5831b2e0ceb458286846fd}\label{group__LORA_gaf41c78922a5831b2e0ceb458286846fd}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Channel@{Set\+Channel}}
+\index{Set\+Channel@{Set\+Channel}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Channel}{SetChannel}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Channel) (uint32\+\_\+t freq)}
+
+
+
+Sets the channel frequency. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & freq Channel RF frequency \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga182fc8f265a2d02d64f3ee1c6dd5906f}\label{group__LORA_ga182fc8f265a2d02d64f3ee1c6dd5906f}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Max\+Payload\+Length@{Set\+Max\+Payload\+Length}}
+\index{Set\+Max\+Payload\+Length@{Set\+Max\+Payload\+Length}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Max\+Payload\+Length}{SetMaxPayloadLength}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Max\+Payload\+Length) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint8\+\_\+t max)}
+
+
+
+Sets the maximum payload length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & max Maximum payload length in bytes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga92515d5b16f5093727b90256a8929b82}\label{group__LORA_ga92515d5b16f5093727b90256a8929b82}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Modem@{Set\+Modem}}
+\index{Set\+Modem@{Set\+Modem}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Modem}{SetModem}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Modem) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem)}
+
+
+
+Configures the radio with the given modem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga33681fa99af4bf37517e1ba1107e1877}\label{group__LORA_ga33681fa99af4bf37517e1ba1107e1877}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Public\+Network@{Set\+Public\+Network}}
+\index{Set\+Public\+Network@{Set\+Public\+Network}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Public\+Network}{SetPublicNetwork}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Public\+Network) (bool enable)}
+
+
+
+Sets the network to public or private. Updates the sync byte. 
+
+\begin{DoxyRemark}{Remarks}
+Applies to Lo\+Ra modem only
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & enable if true, it enables a public network \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gadd564d2a79027afbc6f0f8f3011fe93b}\label{group__LORA_gadd564d2a79027afbc6f0f8f3011fe93b}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Rx\+Config@{Set\+Rx\+Config}}
+\index{Set\+Rx\+Config@{Set\+Rx\+Config}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Rx\+Config}{SetRxConfig}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Rx\+Config) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint32\+\_\+t bandwidth, uint32\+\_\+t datarate, uint8\+\_\+t coderate, uint32\+\_\+t bandwidth\+Afc, uint16\+\_\+t preamble\+Len, uint16\+\_\+t symb\+Timeout, bool fix\+Len, uint8\+\_\+t payload\+Len, bool crc\+On, bool freq\+Hop\+On, uint8\+\_\+t hop\+Period, bool iq\+Inverted, bool rx\+Continuous)}
+
+
+
+Sets the reception parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bandwidth Sets the bandwidth F\+SK \+: $>$= 2600 and $<$= 250000 Hz Lo\+Ra\+: \mbox{[}0\+: 125 k\+Hz, 1\+: 250 k\+Hz, 2\+: 500 k\+Hz, 3\+: Reserved\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & datarate Sets the Datarate F\+SK \+: 600..300000 bits/s Lo\+Ra\+: \mbox{[}6\+: 64, 7\+: 128, 8\+: 256, 9\+: 512, 10\+: 1024, 11\+: 2048, 12\+: 4096 chips\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & coderate Sets the coding rate (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}1\+: 4/5, 2\+: 4/6, 3\+: 4/7, 4\+: 4/8\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bandwidth\+Afc Sets the A\+FC Bandwidth (F\+SK only) F\+SK \+: $>$= 2600 and $<$= 250000 Hz Lo\+Ra\+: N/A ( set to 0 ) \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & preamble\+Len Sets the Preamble length F\+SK \+: Number of bytes Lo\+Ra\+: Length in symbols (the hardware adds 4 more symbols) \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & symb\+Timeout Sets the Rx\+Single timeout value F\+SK \+: timeout in number of bytes Lo\+Ra\+: timeout in symbols \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & fix\+Len Fixed length packets \mbox{[}0\+: variable, 1\+: fixed\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & payload\+Len Sets payload length when fixed length is used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & crc\+On Enables/\+Disables the C\+RC \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & freq\+Hop\+On Enables disables the intra-\/packet frequency hopping F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & hop\+Period Number of symbols between each hop F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: Number of symbols \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & iq\+Inverted Inverts IQ signals (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: not inverted, 1\+: inverted\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rx\+Continuous Sets the reception in continuous mode \mbox{[}false\+: single mode, true\+: continuous mode\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gad4177124b5db6b2b1f07ba16e631bbdb}\label{group__LORA_gad4177124b5db6b2b1f07ba16e631bbdb}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Tx\+Config@{Set\+Tx\+Config}}
+\index{Set\+Tx\+Config@{Set\+Tx\+Config}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Tx\+Config}{SetTxConfig}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Tx\+Config) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, int8\+\_\+t power, uint32\+\_\+t fdev, uint32\+\_\+t bandwidth, uint32\+\_\+t datarate, uint8\+\_\+t coderate, uint16\+\_\+t preamble\+Len, bool fix\+Len, bool crc\+On, bool freq\+Hop\+On, uint8\+\_\+t hop\+Period, bool iq\+Inverted, uint32\+\_\+t timeout)}
+
+
+
+Sets the transmission parameters. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & power Sets the output power \mbox{[}d\+Bm\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & fdev Sets the frequency deviation (F\+SK only) F\+SK \+: \mbox{[}Hz\mbox{]} Lo\+Ra\+: 0 \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bandwidth Sets the bandwidth (Lo\+Ra only) F\+SK \+: 0 Lo\+Ra\+: \mbox{[}0\+: 125 k\+Hz, 1\+: 250 k\+Hz, 2\+: 500 k\+Hz, 3\+: Reserved\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & datarate Sets the Datarate F\+SK \+: 600..300000 bits/s Lo\+Ra\+: \mbox{[}6\+: 64, 7\+: 128, 8\+: 256, 9\+: 512, 10\+: 1024, 11\+: 2048, 12\+: 4096 chips\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & coderate Sets the coding rate (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}1\+: 4/5, 2\+: 4/6, 3\+: 4/7, 4\+: 4/8\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & preamble\+Len Sets the preamble length F\+SK \+: Number of bytes Lo\+Ra\+: Length in symbols (the hardware adds 4 more symbols) \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & fix\+Len Fixed length packets \mbox{[}0\+: variable, 1\+: fixed\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & crc\+On Enables disables the C\+RC \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & freq\+Hop\+On Enables disables the intra-\/packet frequency hopping F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & hop\+Period Number of symbols between each hop F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: Number of symbols \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & iq\+Inverted Inverts IQ signals (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: not inverted, 1\+: inverted\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & timeout Transmission timeout \mbox{[}ms\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga6b20fa3f6908c0165b26d8e02b944e3b}\label{group__LORA_ga6b20fa3f6908c0165b26d8e02b944e3b}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Set\+Tx\+Continuous\+Wave@{Set\+Tx\+Continuous\+Wave}}
+\index{Set\+Tx\+Continuous\+Wave@{Set\+Tx\+Continuous\+Wave}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Set\+Tx\+Continuous\+Wave}{SetTxContinuousWave}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Set\+Tx\+Continuous\+Wave) (uint32\+\_\+t freq, int8\+\_\+t power, uint16\+\_\+t time)}
+
+
+
+Sets the radio in continuous wave transmission mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & freq Channel RF frequency \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & power Sets the output power \mbox{[}d\+Bm\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & time Transmission mode timeout \mbox{[}s\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_ga1ce3ea830b03dffac6f6fec459dc77d3}\label{group__LORA_ga1ce3ea830b03dffac6f6fec459dc77d3}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Sleep@{Sleep}}
+\index{Sleep@{Sleep}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Sleep}{Sleep}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Sleep) (void)}
+
+
+
+Sets the radio in sleep mode. 
+
+\mbox{\Hypertarget{group__LORA_ga2972c07018c9c2de5c76c6c0563bea7b}\label{group__LORA_ga2972c07018c9c2de5c76c6c0563bea7b}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Standby@{Standby}}
+\index{Standby@{Standby}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Standby}{Standby}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Standby) (void)}
+
+
+
+Sets the radio in standby mode. 
+
+\mbox{\Hypertarget{group__LORA_ga8f9e97d8a3010e96e108dc62c1e5b107}\label{group__LORA_ga8f9e97d8a3010e96e108dc62c1e5b107}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Start\+Cad@{Start\+Cad}}
+\index{Start\+Cad@{Start\+Cad}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Start\+Cad}{StartCad}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Start\+Cad) (void)}
+
+
+
+Start a Channel Activity Detection. 
+
+\mbox{\Hypertarget{group__LORA_ga36552db411e04e05c7962912854d48ae}\label{group__LORA_ga36552db411e04e05c7962912854d48ae}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Time\+On\+Air@{Time\+On\+Air}}
+\index{Time\+On\+Air@{Time\+On\+Air}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Time\+On\+Air}{TimeOnAir}}
+{\footnotesize\ttfamily uint32\+\_\+t( $\ast$ Radio\+\_\+s\+::\+Time\+On\+Air) (\hyperlink{group__LORA_ga992ef7a5b7f52975ba7bd8dd97740057}{Radio\+Modems\+\_\+t} modem, uint8\+\_\+t pkt\+Len)}
+
+
+
+Computes the packet time on air in ms for the given payload. 
+
+Can only be called once Set\+Rx\+Config or Set\+Tx\+Config have been called
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & pkt\+Len Packet payload length\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em air\+Time} & Computed air\+Time (ms) for the given packet payload length \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__LORA_gafe2bdc503d6c09946dee1b800e2fb3a2}\label{group__LORA_gafe2bdc503d6c09946dee1b800e2fb3a2}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Tx\+Done@{Tx\+Done}}
+\index{Tx\+Done@{Tx\+Done}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Tx\+Done}{TxDone}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Tx\+Done) (void)}
+
+
+
+Tx Done callback prototype. 
+
+\mbox{\Hypertarget{group__LORA_ga1f435b15ceae4ce1e44af3d3c5845ffd}\label{group__LORA_ga1f435b15ceae4ce1e44af3d3c5845ffd}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Tx\+Timeout@{Tx\+Timeout}}
+\index{Tx\+Timeout@{Tx\+Timeout}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Tx\+Timeout}{TxTimeout}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+Events\+\_\+t\+::\+Tx\+Timeout) (void)}
+
+
+
+Tx Timeout callback prototype. 
+
+\mbox{\Hypertarget{group__LORA_ga5f0ca54e8bc3c82d3c9b196230c325d5}\label{group__LORA_ga5f0ca54e8bc3c82d3c9b196230c325d5}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Write@{Write}}
+\index{Write@{Write}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Write}{Write}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Write) (uint8\+\_\+t addr, uint8\+\_\+t data)}
+
+
+
+Writes the radio register at the specified address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr Register address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data New register value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__LORA_gab282c0d0a6bd7dd9f21cf79984988a8a}\label{group__LORA_gab282c0d0a6bd7dd9f21cf79984988a8a}} 
+\index{Lo\+Ra implementation@{Lo\+Ra implementation}!Write\+Buffer@{Write\+Buffer}}
+\index{Write\+Buffer@{Write\+Buffer}!Lo\+Ra implementation@{Lo\+Ra implementation}}
+\subsubsection{\texorpdfstring{Write\+Buffer}{WriteBuffer}}
+{\footnotesize\ttfamily void( $\ast$ Radio\+\_\+s\+::\+Write\+Buffer) (uint8\+\_\+t addr, uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)}
+
+
+
+Writes multiple radio registers starting at address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr First Radio register address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer Buffer containing the new register\textquotesingle{}s values \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Number of registers to be written \\
+\hline
+\end{DoxyParams}

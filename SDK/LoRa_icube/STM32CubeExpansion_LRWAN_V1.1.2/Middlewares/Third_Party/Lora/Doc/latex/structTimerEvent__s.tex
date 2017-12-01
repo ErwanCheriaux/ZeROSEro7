@@ -1,0 +1,91 @@
+\hypertarget{structTimerEvent__s}{}\section{Timer\+Event\+\_\+s Struct Reference}
+\label{structTimerEvent__s}\index{Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}}
+
+
+Timer object description.  
+
+
+
+
+{\ttfamily \#include $<$time\+Server.\+h$>$}
+
+
+
+Collaboration diagram for Timer\+Event\+\_\+s\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=200pt]{structTimerEvent__s__coll__graph}
+\end{center}
+\end{figure}
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \hyperlink{structTimerEvent__s_a9f933d63b25c3416b42345b695872c59}{Timestamp}
+\item 
+uint32\+\_\+t \hyperlink{structTimerEvent__s_a1a2ffdc3bb2cebe3ab97250f6618f5ce}{Reload\+Value}
+\begin{DoxyCompactList}\small\item\em Expiring timer value in ticks from Timer\+Context. \end{DoxyCompactList}\item 
+bool \hyperlink{structTimerEvent__s_a6dfdcda52c7bc3e408cb590ccbfdbe60}{Is\+Running}
+\begin{DoxyCompactList}\small\item\em Reload Value when Timer is restarted. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structTimerEvent__s_af9ed72eb732fd7bfc80dc84d289395eb}{Callback} )(void)
+\begin{DoxyCompactList}\small\item\em Is the timer currently running. \end{DoxyCompactList}\item 
+struct \hyperlink{structTimerEvent__s}{Timer\+Event\+\_\+s} $\ast$ \hyperlink{structTimerEvent__s_a7b5d3c09b4a4b03eff360fd818389d0b}{Next}
+\begin{DoxyCompactList}\small\item\em Timer I\+RQ callback function. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Timer object description. 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structTimerEvent__s_af9ed72eb732fd7bfc80dc84d289395eb}\label{structTimerEvent__s_af9ed72eb732fd7bfc80dc84d289395eb}} 
+\index{Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}!Callback@{Callback}}
+\index{Callback@{Callback}!Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}}
+\subsubsection{\texorpdfstring{Callback}{Callback}}
+{\footnotesize\ttfamily void( $\ast$ Timer\+Event\+\_\+s\+::\+Callback) (void)}
+
+
+
+Is the timer currently running. 
+
+\mbox{\Hypertarget{structTimerEvent__s_a6dfdcda52c7bc3e408cb590ccbfdbe60}\label{structTimerEvent__s_a6dfdcda52c7bc3e408cb590ccbfdbe60}} 
+\index{Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}!Is\+Running@{Is\+Running}}
+\index{Is\+Running@{Is\+Running}!Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}}
+\subsubsection{\texorpdfstring{Is\+Running}{IsRunning}}
+{\footnotesize\ttfamily bool Timer\+Event\+\_\+s\+::\+Is\+Running}
+
+
+
+Reload Value when Timer is restarted. 
+
+\mbox{\Hypertarget{structTimerEvent__s_a7b5d3c09b4a4b03eff360fd818389d0b}\label{structTimerEvent__s_a7b5d3c09b4a4b03eff360fd818389d0b}} 
+\index{Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}!Next@{Next}}
+\index{Next@{Next}!Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}}
+\subsubsection{\texorpdfstring{Next}{Next}}
+{\footnotesize\ttfamily struct \hyperlink{structTimerEvent__s}{Timer\+Event\+\_\+s}$\ast$ Timer\+Event\+\_\+s\+::\+Next}
+
+
+
+Timer I\+RQ callback function. 
+
+\mbox{\Hypertarget{structTimerEvent__s_a1a2ffdc3bb2cebe3ab97250f6618f5ce}\label{structTimerEvent__s_a1a2ffdc3bb2cebe3ab97250f6618f5ce}} 
+\index{Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}!Reload\+Value@{Reload\+Value}}
+\index{Reload\+Value@{Reload\+Value}!Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}}
+\subsubsection{\texorpdfstring{Reload\+Value}{ReloadValue}}
+{\footnotesize\ttfamily uint32\+\_\+t Timer\+Event\+\_\+s\+::\+Reload\+Value}
+
+
+
+Expiring timer value in ticks from Timer\+Context. 
+
+\mbox{\Hypertarget{structTimerEvent__s_a9f933d63b25c3416b42345b695872c59}\label{structTimerEvent__s_a9f933d63b25c3416b42345b695872c59}} 
+\index{Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}!Timestamp@{Timestamp}}
+\index{Timestamp@{Timestamp}!Timer\+Event\+\_\+s@{Timer\+Event\+\_\+s}}
+\subsubsection{\texorpdfstring{Timestamp}{Timestamp}}
+{\footnotesize\ttfamily uint32\+\_\+t Timer\+Event\+\_\+s\+::\+Timestamp}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Utilities/\hyperlink{timeServer_8h}{time\+Server.\+h}\end{DoxyCompactItemize}

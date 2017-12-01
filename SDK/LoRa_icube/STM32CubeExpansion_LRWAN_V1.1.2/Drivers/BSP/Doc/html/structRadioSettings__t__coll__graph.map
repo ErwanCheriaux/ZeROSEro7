@@ -1,0 +1,6 @@
+<map id="RadioSettings_t" name="RadioSettings_t">
+<area shape="rect" id="node2" href="$structRadioFskPacketHandler__t.html" title="RadioFskPacketHandler_t" alt="" coords="10,5,185,32"/>
+<area shape="rect" id="node3" href="$structRadioLoRaPacketHandler__t.html" title="RadioLoRaPacketHandler_t" alt="" coords="5,56,189,83"/>
+<area shape="rect" id="node4" href="$structRadioLoRaSettings__t.html" title="RadioLoRaSettings_t" alt="" coords="24,107,171,133"/>
+<area shape="rect" id="node5" href="$structRadioFskSettings__t.html" title="RadioFskSettings_t" alt="" coords="29,157,166,184"/>
+</map>
