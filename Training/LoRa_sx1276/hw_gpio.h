@@ -1,6 +1,8 @@
 #ifndef HW_GPIO_H
 #define HW_GPIO_H
 
+#include "sdk_config.h"
+
 /*
 *   GPIO (light) Module to control resetting the SX1276 in the driver
 *   Simplified clone from stm32l4xx_hal_gpio.h from HAL_DRIVER (since nrf52 also has a cortex m4)
@@ -15,9 +17,10 @@
   GPIO_PIN_RESET = 0,
   GPIO_PIN_SET
 } GPIO_PinState;*/
-// TODO not sure about these definitions used only Once in sx1276.c:1248
-#define SET 1
-#define RESET 0
+
+// TODO not sure about these definitions used only Once in sx1276.c:1248. Used to put into sleep mode and other opModes.
+#define SET     1
+#define RESET   0
 
 
 
@@ -45,9 +48,17 @@ typedef struct
                             This parameter can be a value of @ref GPIOEx_Alternate_function_selection */
 } GPIO_InitTypeDef;
 
-#define  GPIO_MODE_OUTPUT_PP                    ((uint32_t)0x00000001)   /*!< Output Push Pull Mode                 */
-#define  GPIO_NOPULL        ((uint32_t)0x00000000)   /*!< No Pull-up or Pull-down activation  */
-#define  GPIO_SPEED_HIGH       ((uint32_t)0x00000002)   /*!< range 25 MHz to 50 MHz, please refer to the product datasheet */
+#define  GPIO_MODE_OUTPUT_PP    ((uint32_t)0x00000001)   /*!< Output Push Pull Mode                 */
+#define  GPIO_NOPULL            ((uint32_t)0x00000000)   /*!< No Pull-up or Pull-down activation  */
+#define  GPIO_SPEED_HIGH        ((uint32_t)0x00000002)   /*!< range 25 MHz to 50 MHz, please refer to the product datasheet */
+
+
+// Can be any value. Only passed to our HW_GPIO_INIT and WRITE functions
+#define RADIO_NSS_PORT  SPI_SS_PIN
+#define RADIO_NSS_PIN   SPI_SS_PIN
+
+#define RADIO_RESET_PORT    0xBEEF // Unused
+#define RADIO_RESET_PIN     0xBEEF // Unused
 
 
 
@@ -63,8 +74,7 @@ typedef struct
  */
  // TODO WARNING Supper Careful !! mimic the reset in sx1276.c:1226.
  // The second call gives a Pull type as Mode to say "GPIO_MODE_INPUT" which represent mask 0x00000000
-
-void HW_GPIO_Init(GPIO_InitTypeDef* GPIOx, uint16_t GPIO_Pin, GPIO_InitTypeDef* initStruct);
+void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initStruct);
 
 /*!
  * @brief Writes the given value to the GPIO output
@@ -75,6 +85,6 @@ void HW_GPIO_Init(GPIO_InitTypeDef* GPIOx, uint16_t GPIO_Pin, GPIO_InitTypeDef* 
  * @param [IN] value New GPIO output value
  * @retval none
  */
-void HW_GPIO_Write(GPIO_InitTypeDef* GPIOx, uint16_t GPIO_Pin, uint32_t value);
+void HW_GPIO_Write(uint16_t GPIO_Port, uint16_t GPIO_Pin, uint32_t value);
 
 #endif

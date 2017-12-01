@@ -150,14 +150,14 @@ MIDDLEWARES = $(CUBEEXPANSION)/Middlewares/Third_Party/Lora
 
 SRC_FILES += \
 	$(BSP)/Components/sx1276/sx1276.c \
-	$(MIDDLEWARES)/Core/lora.c \
 	$(MIDDLEWARES)/Utilities/utilities.c \
+#	$(MIDDLEWARES)/Core/lora.c \	for LoRaMAC
 
 INC_FOLDERS += \
 	$(MIDDLEWARES)/Phy \
 	$(BSP)/Components/sx1276 \
-	$(MIDDLEWARES)/Core \
 	$(MIDDLEWARES)/Utilities \
+#	$(MIDDLEWARES)/Core \
 #	$(CMSIS)/Include \
 #	$(MIDDLEWARES)/Crypto \
 #	$(MIDDLEWARES)/Mac \

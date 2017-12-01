@@ -5,10 +5,6 @@
 *   Used by SX1276 driver. Defines board relative values.
 */
 
-#define RADIO_NSS_PORT  UNIMPLEMENTED // TODO
-
-
-
 // Found in  CMSIS :
 // "cmsis_gcc.h" // CMSIS compiler cortex m4 specifics assembly because the nRF52 also has one.
 

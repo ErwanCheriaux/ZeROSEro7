@@ -2,7 +2,6 @@
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
-#include "ble_central.h"
 #include "rtt.h"
 #include "app_error.h"
 
