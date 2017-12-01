@@ -36,6 +36,8 @@ include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
 
+TEST_FIBO = ../Training/Test/fibo
+
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
 CSRC = $(STARTUPSRC) \
@@ -50,7 +52,7 @@ CSRC = $(STARTUPSRC) \
        $(FATFSSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
-       $(CHIBIOS)/os/various/evtimer.c src/main.c src/led.c src/timer.c src/pwm.c ../test/fibo/fibo.c
+       $(CHIBIOS)/os/various/evtimer.c src/main.c src/led.c src/timer.c src/pwm.c $(TEST_FIBO)/fibo.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -59,7 +61,8 @@ INCDIR = $(CHIBIOS)/os/license \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
-         $(CHIBIOS)/os/various
+         $(CHIBIOS)/os/various \
+		 $(TEST_FIBO)
 
 #
 # Project, sources and paths
