@@ -42,7 +42,7 @@ lint_test:
   stage: lint
   image: rfc1149/rose-dev
   script:
-    - cd test
+    - cd Training/Test
     - make format
     - git status --porcelain
 
@@ -84,11 +84,11 @@ build_test:
   stage: build
   image: rfc1149/rose-dev
   script:
-    - cd test
+    - cd Training/Test
     - make
   artifacts:
     paths:
-    - test/main
+    - Training/Test/main
     expire_in: 20 minutes
 
 # TEST STAGE
@@ -106,7 +106,7 @@ test_test:
   stage: test
   image: rfc1149/rose-dev
   script:
-    - cd test
+    - cd Training/Test
     - ./main
 
 # DEPLOY STAGE
