@@ -22,7 +22,7 @@ lint_main:
   script:
     - cd Training/BLE_nrf52
     - make format
-    - cd ../usb_dev_kit
+    - cd ../../usb_dev_kit
     - make format
     - cd ../lora_dev_kit
     - make format
@@ -54,7 +54,7 @@ build_main:
   script:
     - cd Training/BLE_nrf52
     - make
-    - cd ../usb_dev_kit
+    - cd ../../usb_dev_kit
     - make
     - cd ../lora_dev_kit
     - make
