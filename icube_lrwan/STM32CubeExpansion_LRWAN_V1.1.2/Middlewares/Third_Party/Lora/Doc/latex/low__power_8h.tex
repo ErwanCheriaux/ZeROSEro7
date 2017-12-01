@@ -1,0 +1,124 @@
+\hypertarget{low__power_8h}{}\section{Utilities/low\+\_\+power.h File Reference}
+\label{low__power_8h}\index{Utilities/low\+\_\+power.\+h@{Utilities/low\+\_\+power.\+h}}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=187pt]{low__power_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{low__power_8h_aa9c24b775aec54514287a4cca5412c19}{Low\+Power\+\_\+\+Disable} (e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em A\+PI to set flag allowing power mode. \end{DoxyCompactList}\item 
+void \hyperlink{low__power_8h_a00151c790be3d5f1e0972bcedd486613}{Low\+Power\+\_\+\+Enable} (e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em A\+PI to reset flag allowing power mode. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{low__power_8h_aac405da3981cab1ec1d32d0bbefc919d}{Low\+Power\+\_\+\+Get\+State} (void)
+\begin{DoxyCompactList}\small\item\em A\+PI to get flag allowing power mode. \end{DoxyCompactList}\item 
+void \hyperlink{low__power_8h_a4ae1419e4b9762d45d16339bcdcbac1d}{Low\+Power\+\_\+\+Handler} (void)
+\begin{DoxyCompactList}\small\item\em Manages the entry into A\+RM cortex deep-\/sleep mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{low__power_8h_aa9c24b775aec54514287a4cca5412c19}\label{low__power_8h_aa9c24b775aec54514287a4cca5412c19}} 
+\index{low\+\_\+power.\+h@{low\+\_\+power.\+h}!Low\+Power\+\_\+\+Disable@{Low\+Power\+\_\+\+Disable}}
+\index{Low\+Power\+\_\+\+Disable@{Low\+Power\+\_\+\+Disable}!low\+\_\+power.\+h@{low\+\_\+power.\+h}}
+\subsubsection{\texorpdfstring{Low\+Power\+\_\+\+Disable()}{LowPower\_Disable()}}
+{\footnotesize\ttfamily void Low\+Power\+\_\+\+Disable (\begin{DoxyParamCaption}\item[{e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+
+
+A\+PI to set flag allowing power mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & enum e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & enum e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{low__power_8h_a00151c790be3d5f1e0972bcedd486613}\label{low__power_8h_a00151c790be3d5f1e0972bcedd486613}} 
+\index{low\+\_\+power.\+h@{low\+\_\+power.\+h}!Low\+Power\+\_\+\+Enable@{Low\+Power\+\_\+\+Enable}}
+\index{Low\+Power\+\_\+\+Enable@{Low\+Power\+\_\+\+Enable}!low\+\_\+power.\+h@{low\+\_\+power.\+h}}
+\subsubsection{\texorpdfstring{Low\+Power\+\_\+\+Enable()}{LowPower\_Enable()}}
+{\footnotesize\ttfamily void Low\+Power\+\_\+\+Enable (\begin{DoxyParamCaption}\item[{e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t}]{state }\end{DoxyParamCaption})}
+
+
+
+A\+PI to reset flag allowing power mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & enum e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & enum e\+\_\+\+L\+O\+W\+\_\+\+P\+O\+W\+E\+R\+\_\+\+State\+\_\+\+Id\+\_\+t \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{low__power_8h_aac405da3981cab1ec1d32d0bbefc919d}\label{low__power_8h_aac405da3981cab1ec1d32d0bbefc919d}} 
+\index{low\+\_\+power.\+h@{low\+\_\+power.\+h}!Low\+Power\+\_\+\+Get\+State@{Low\+Power\+\_\+\+Get\+State}}
+\index{Low\+Power\+\_\+\+Get\+State@{Low\+Power\+\_\+\+Get\+State}!low\+\_\+power.\+h@{low\+\_\+power.\+h}}
+\subsubsection{\texorpdfstring{Low\+Power\+\_\+\+Get\+State()}{LowPower\_GetState()}}
+{\footnotesize\ttfamily uint32\+\_\+t Low\+Power\+\_\+\+Get\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A\+PI to get flag allowing power mode. 
+
+\begin{DoxyNote}{Note}
+When flag is 0, low power mode is allowed 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & non \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em flag} & state\\
+\hline
+\end{DoxyRetVals}
+\begin{DoxyNote}{Note}
+When flag is 0, low power mode is allowed 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & state \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em flag} & state \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{low__power_8h_a4ae1419e4b9762d45d16339bcdcbac1d}\label{low__power_8h_a4ae1419e4b9762d45d16339bcdcbac1d}} 
+\index{low\+\_\+power.\+h@{low\+\_\+power.\+h}!Low\+Power\+\_\+\+Handler@{Low\+Power\+\_\+\+Handler}}
+\index{Low\+Power\+\_\+\+Handler@{Low\+Power\+\_\+\+Handler}!low\+\_\+power.\+h@{low\+\_\+power.\+h}}
+\subsubsection{\texorpdfstring{Low\+Power\+\_\+\+Handler()}{LowPower\_Handler()}}
+{\footnotesize\ttfamily void Low\+Power\+\_\+\+Handler (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Manages the entry into A\+RM cortex deep-\/sleep mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & Manages the entry into A\+RM cortex deep-\/sleep mode.\\
+\hline
+\end{DoxyRetVals}
+
+\begin{DoxyParams}{Parameters}
+{\em None} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em None} & \\
+\hline
+\end{DoxyRetVals}

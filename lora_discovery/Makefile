@@ -1,8 +1,17 @@
-# To understand where does all this come from, see CubeExpansion/Projects/.../PingPong/SW4STM32/B-L072Z
+# Cloned from CubeExpansion/Projects/.../PingPong/SW4STM32/B-L072Z
 
 TRGT = arm-none-eabi-
-CC = $(TRGT)gcc
-ARCH = -mcpu=cortex-m0plus -mthumb -DTHUMB
+CC   = $(TRGT)gcc
+GDB  = $(TRGT)gdb
+LD   = $(TRGT)gcc
+CP   = $(TRGT)objcopy
+AS   = $(TRGT)gcc -x assembler-with-cpp
+AR   = $(TRGT)ar
+OD   = $(TRGT)objdump
+SZ   = $(TRGT)size
+HEX  = $(CP) -O ihex
+BIN  = $(CP) -O binary
+ARCH = -mcpu=cortex-m0plus -mthumb -DTHUMB -mlittle-endian
 
 CUBEEXPANSION = ../icube_lrwan/CubeExpansion
 DRIVERS = $(CUBEEXPANSION)/Drivers
@@ -41,9 +50,9 @@ LDFLAGS = $(INCFILE) $(INCDIR) -T $(LDSCRIPT) -specs=nosys.specs -specs=nano.spe
 
 ELF = main
 
-USER_SRC = startup_stm32l072xx.s main.c debug.c hw_gpio.c hw_rtc.c hw_spi.c \
+USER_SRC = startup_stm32l072xx.s ../test/main.c ../test/fibo/fibo.c debug.c hw_gpio.c hw_rtc.c hw_spi.c \
 	stm32l0xx_hal_msp.c stm32l0xx_hw.c stm32l0xx_it.c vcom.c
- # REVIEW How to only compile .o that are used ??? like ChibiOS
+ # REVIEW How to only compile .o that are used like ChibiOS does ?
 BL072Z_SRC = $(BSP)/B-L072Z-LRWAN1/b-l072z-lrwan1.c \
 	$(CMSIS)/Device/ST/STM32L0xx/Source/Templates/system_stm32l0xx.c \
 	$(HAL_DRIVER)/Src/stm32l0xx_hal.c \
@@ -74,6 +83,18 @@ BL072Z_SRC = $(BSP)/B-L072Z-LRWAN1/b-l072z-lrwan1.c \
 CSRC = $(USER_SRC) $(BL072Z_SRC)
 
 $(ELF) : $(CSRC)
+	$(CC) $(CFLAGS) $(LDFLAGS) $^ -o $@
 
 format: *.c *.h
 	clang-format -i $^
+
+.PHONY: clean startgdbserver debug
+
+startgdbserver :
+	st-util
+
+debug : $(ELF)
+	$(GDB) $(ELF)
+
+clean :
+	rm -rf $(ELF)

@@ -1,0 +1,37 @@
+\hypertarget{structsLoRaMacCallback}{}\section{s\+Lo\+Ra\+Mac\+Callback Struct Reference}
+\label{structsLoRaMacCallback}\index{s\+Lo\+Ra\+Mac\+Callback@{s\+Lo\+Ra\+Mac\+Callback}}
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Mac.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t($\ast$ \hyperlink{structsLoRaMacCallback_a538201ffef6cc64ae29f510851a656f2}{Get\+Battery\+Level} )(void)
+\begin{DoxyCompactList}\small\item\em Measures the battery level. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra\+M\+AC callback structure 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsLoRaMacCallback_a538201ffef6cc64ae29f510851a656f2}\label{structsLoRaMacCallback_a538201ffef6cc64ae29f510851a656f2}} 
+\index{s\+Lo\+Ra\+Mac\+Callback@{s\+Lo\+Ra\+Mac\+Callback}!Get\+Battery\+Level@{Get\+Battery\+Level}}
+\index{Get\+Battery\+Level@{Get\+Battery\+Level}!s\+Lo\+Ra\+Mac\+Callback@{s\+Lo\+Ra\+Mac\+Callback}}
+\subsubsection{\texorpdfstring{Get\+Battery\+Level}{GetBatteryLevel}}
+{\footnotesize\ttfamily uint8\+\_\+t( $\ast$ s\+Lo\+Ra\+Mac\+Callback\+::\+Get\+Battery\+Level) (void)}
+
+
+
+Measures the battery level. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Battery} & level \mbox{[}0\+: node is connected to an external power source, 1..254\+: battery level, where 1 is the minimum and 254 is the maximum value, 255\+: the node was not able to measure the battery level\mbox{]} \\
+\hline
+\end{DoxyRetVals}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/\hyperlink{LoRaMac_8h}{Lo\+Ra\+Mac.\+h}\end{DoxyCompactItemize}

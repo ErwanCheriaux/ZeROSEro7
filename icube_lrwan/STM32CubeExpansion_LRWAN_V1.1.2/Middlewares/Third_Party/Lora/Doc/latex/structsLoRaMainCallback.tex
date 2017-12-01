@@ -1,0 +1,110 @@
+\hypertarget{structsLoRaMainCallback}{}\section{s\+Lo\+Ra\+Main\+Callback Struct Reference}
+\label{structsLoRaMainCallback}\index{s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}}
+
+
+{\ttfamily \#include $<$lora.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t($\ast$ \hyperlink{structsLoRaMainCallback_a10356b5b7ec7c4f7f7f353ce60303228}{Board\+Get\+Battery\+Level} )(void)
+\begin{DoxyCompactList}\small\item\em Get the current battery level. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structsLoRaMainCallback_a38908382e21d45d19fc62819392d9e4e}{Board\+Get\+Unique\+Id} )(uint8\+\_\+t $\ast$id)
+\begin{DoxyCompactList}\small\item\em Gets the board 64 bits unique ID. \end{DoxyCompactList}\item 
+uint32\+\_\+t($\ast$ \hyperlink{structsLoRaMainCallback_a3af93bea58be398fec39de2b8d20cadf}{Board\+Get\+Random\+Seed} )(void)
+\item 
+void($\ast$ \hyperlink{structsLoRaMainCallback_a17716374e3807a581cd87b9cb6af087b}{Lora\+Tx\+Data} )(\hyperlink{structlora__AppData__t}{lora\+\_\+\+App\+Data\+\_\+t} $\ast$App\+Data, Functional\+State $\ast$Is\+Tx\+Confirmed)
+\begin{DoxyCompactList}\small\item\em Prepares Tx Data to be sent on Lora network. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structsLoRaMainCallback_a9a0d4a78b97ba11f22fcfea6fb3c3667}{Lora\+Rx\+Data} )(\hyperlink{structlora__AppData__t}{lora\+\_\+\+App\+Data\+\_\+t} $\ast$App\+Data)
+\begin{DoxyCompactList}\small\item\em Process Rx Data received from Lora network. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsLoRaMainCallback_a10356b5b7ec7c4f7f7f353ce60303228}\label{structsLoRaMainCallback_a10356b5b7ec7c4f7f7f353ce60303228}} 
+\index{s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}!Board\+Get\+Battery\+Level@{Board\+Get\+Battery\+Level}}
+\index{Board\+Get\+Battery\+Level@{Board\+Get\+Battery\+Level}!s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}}
+\subsubsection{\texorpdfstring{Board\+Get\+Battery\+Level}{BoardGetBatteryLevel}}
+{\footnotesize\ttfamily uint8\+\_\+t( $\ast$ s\+Lo\+Ra\+Main\+Callback\+::\+Board\+Get\+Battery\+Level) (void)}
+
+
+
+Get the current battery level. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em value} & battery level ( 0\+: very low, 254\+: fully charged ) \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{structsLoRaMainCallback_a3af93bea58be398fec39de2b8d20cadf}\label{structsLoRaMainCallback_a3af93bea58be398fec39de2b8d20cadf}} 
+\index{s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}!Board\+Get\+Random\+Seed@{Board\+Get\+Random\+Seed}}
+\index{Board\+Get\+Random\+Seed@{Board\+Get\+Random\+Seed}!s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}}
+\subsubsection{\texorpdfstring{Board\+Get\+Random\+Seed}{BoardGetRandomSeed}}
+{\footnotesize\ttfamily uint32\+\_\+t( $\ast$ s\+Lo\+Ra\+Main\+Callback\+::\+Board\+Get\+Random\+Seed) (void)}
+
+Returns a pseudo random seed generated using the M\+CU Unique ID
+
+
+\begin{DoxyRetVals}{Return values}
+{\em seed} & Generated pseudo random seed \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{structsLoRaMainCallback_a38908382e21d45d19fc62819392d9e4e}\label{structsLoRaMainCallback_a38908382e21d45d19fc62819392d9e4e}} 
+\index{s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}!Board\+Get\+Unique\+Id@{Board\+Get\+Unique\+Id}}
+\index{Board\+Get\+Unique\+Id@{Board\+Get\+Unique\+Id}!s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}}
+\subsubsection{\texorpdfstring{Board\+Get\+Unique\+Id}{BoardGetUniqueId}}
+{\footnotesize\ttfamily void( $\ast$ s\+Lo\+Ra\+Main\+Callback\+::\+Board\+Get\+Unique\+Id) (uint8\+\_\+t $\ast$id)}
+
+
+
+Gets the board 64 bits unique ID. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & id Pointer to an array that will contain the Unique ID \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structsLoRaMainCallback_a9a0d4a78b97ba11f22fcfea6fb3c3667}\label{structsLoRaMainCallback_a9a0d4a78b97ba11f22fcfea6fb3c3667}} 
+\index{s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}!Lora\+Rx\+Data@{Lora\+Rx\+Data}}
+\index{Lora\+Rx\+Data@{Lora\+Rx\+Data}!s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}}
+\subsubsection{\texorpdfstring{Lora\+Rx\+Data}{LoraRxData}}
+{\footnotesize\ttfamily void( $\ast$ s\+Lo\+Ra\+Main\+Callback\+::\+Lora\+Rx\+Data) (\hyperlink{structlora__AppData__t}{lora\+\_\+\+App\+Data\+\_\+t} $\ast$App\+Data)}
+
+
+
+Process Rx Data received from Lora network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & App\+Data is a buffer to process\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & port is a Application port on wicth Appdata will be sent\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & length is the number of recieved bytes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structsLoRaMainCallback_a17716374e3807a581cd87b9cb6af087b}\label{structsLoRaMainCallback_a17716374e3807a581cd87b9cb6af087b}} 
+\index{s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}!Lora\+Tx\+Data@{Lora\+Tx\+Data}}
+\index{Lora\+Tx\+Data@{Lora\+Tx\+Data}!s\+Lo\+Ra\+Main\+Callback@{s\+Lo\+Ra\+Main\+Callback}}
+\subsubsection{\texorpdfstring{Lora\+Tx\+Data}{LoraTxData}}
+{\footnotesize\ttfamily void( $\ast$ s\+Lo\+Ra\+Main\+Callback\+::\+Lora\+Tx\+Data) (\hyperlink{structlora__AppData__t}{lora\+\_\+\+App\+Data\+\_\+t} $\ast$App\+Data, Functional\+State $\ast$Is\+Tx\+Confirmed)}
+
+
+
+Prepares Tx Data to be sent on Lora network. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & App\+Data is a buffer to fill\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & port is a Application port on wicth Appdata will be sent\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & length of the App\+Data\+Buffer to send\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & requests a confirmed Frame from the Network \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Core/\hyperlink{lora_8h}{lora.\+h}\end{DoxyCompactItemize}

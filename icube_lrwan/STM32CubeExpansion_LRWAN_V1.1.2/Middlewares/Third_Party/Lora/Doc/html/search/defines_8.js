@@ -1,0 +1,26 @@
+var searchData=
+[
+  ['kr920_5fadr_5fnext',['KR920_ADR_NEXT',['../Region_8c.html#a6fcb2fc848647dfe89888f048ee63482',1,'Region.c']]],
+  ['kr920_5falternate_5fdr',['KR920_ALTERNATE_DR',['../Region_8c.html#a95b3a7d29d8071bb9f2b847fe03f8b3c',1,'Region.c']]],
+  ['kr920_5fapply_5fcf_5flist',['KR920_APPLY_CF_LIST',['../Region_8c.html#a3af8cb30155da9f7ae16a6b2fe3e0362',1,'Region.c']]],
+  ['kr920_5fapply_5fdr_5foffset',['KR920_APPLY_DR_OFFSET',['../Region_8c.html#ad93d53d003ef073afbd6c96dd9a3006f',1,'Region.c']]],
+  ['kr920_5fcalc_5fbackoff',['KR920_CALC_BACKOFF',['../Region_8c.html#aa662ee1835dfde496d4be30e6c8ff5ae',1,'Region.c']]],
+  ['kr920_5fchan_5fmask_5fset',['KR920_CHAN_MASK_SET',['../Region_8c.html#ad1ffb1cb808ec7ce907259b34e1c9dd3',1,'Region.c']]],
+  ['kr920_5fchannel_5fadd',['KR920_CHANNEL_ADD',['../Region_8c.html#ab7434e6fcc2c85b90683c16943f3000e',1,'Region.c']]],
+  ['kr920_5fchannel_5fremove',['KR920_CHANNEL_REMOVE',['../Region_8c.html#a836ba77166ae74458646a33459f80cd9',1,'Region.c']]],
+  ['kr920_5fcompute_5frx_5fwindow_5fparameters',['KR920_COMPUTE_RX_WINDOW_PARAMETERS',['../Region_8c.html#a2d4a782283310e29013f3dc0482ce5f2',1,'Region.c']]],
+  ['kr920_5fdl_5fchannel_5freq',['KR920_DL_CHANNEL_REQ',['../Region_8c.html#a053b7e61a2eca94300e2e10a3ab772ee',1,'Region.c']]],
+  ['kr920_5fget_5fphy_5fparam',['KR920_GET_PHY_PARAM',['../Region_8c.html#a4544673fcff90d970b221e710013fe28',1,'Region.c']]],
+  ['kr920_5finit_5fdefaults',['KR920_INIT_DEFAULTS',['../Region_8c.html#a62f53ef325d4eb50f2a9bdeb023a1be6',1,'Region.c']]],
+  ['kr920_5fis_5factive',['KR920_IS_ACTIVE',['../Region_8c.html#a20afbfd9d9cada0d5a0a0c61ba0ab3a4',1,'Region.c']]],
+  ['kr920_5flink_5fadr_5freq',['KR920_LINK_ADR_REQ',['../Region_8c.html#a1fe1179e0100d48e6be94eef952273d7',1,'Region.c']]],
+  ['kr920_5fnew_5fchannel_5freq',['KR920_NEW_CHANNEL_REQ',['../Region_8c.html#a32839b5a09ae3d434672da7db727cb35',1,'Region.c']]],
+  ['kr920_5fnext_5fchannel',['KR920_NEXT_CHANNEL',['../Region_8c.html#ab48cb9a119c38d8457aaaaac502609ef',1,'Region.c']]],
+  ['kr920_5frx_5fconfig',['KR920_RX_CONFIG',['../Region_8c.html#a2a9975025919784fe97d42f08ba64f7c',1,'Region.c']]],
+  ['kr920_5frx_5fparam_5fsetup_5freq',['KR920_RX_PARAM_SETUP_REQ',['../Region_8c.html#a62b78a69a9d58a1d73fd19c41444bfa9',1,'Region.c']]],
+  ['kr920_5fset_5fband_5ftx_5fdone',['KR920_SET_BAND_TX_DONE',['../Region_8c.html#a54d8766cece3796a3ad5ce10132b2215',1,'Region.c']]],
+  ['kr920_5fset_5fcontinuous_5fwave',['KR920_SET_CONTINUOUS_WAVE',['../Region_8c.html#a3747c721ae612f314d6dce7b25e52568',1,'Region.c']]],
+  ['kr920_5ftx_5fconfig',['KR920_TX_CONFIG',['../Region_8c.html#aaedd30f354a3e16810e4b0c948006475',1,'Region.c']]],
+  ['kr920_5ftx_5fparam_5fsetup_5freq',['KR920_TX_PARAM_SETUP_REQ',['../Region_8c.html#aa1a13ce3344e2b0d1e6be559a4883117',1,'Region.c']]],
+  ['kr920_5fverify',['KR920_VERIFY',['../Region_8c.html#aa03ac633451ba83602a2131d9dc6da07',1,'Region.c']]]
+];

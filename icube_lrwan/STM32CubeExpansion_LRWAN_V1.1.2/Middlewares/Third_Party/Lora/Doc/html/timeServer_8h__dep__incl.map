@@ -1,0 +1,19 @@
+<map id="Utilities/timeServer.h" name="Utilities/timeServer.h">
+<area shape="rect" id="node2" href="$delay_8c.html" title="Utilities/delay.c" alt="" coords="599,80,711,107"/>
+<area shape="rect" id="node3" href="$timeServer_8c.html" title="Utilities/timeServer.c" alt="" coords="735,80,879,107"/>
+<area shape="rect" id="node4" href="$lora_8c.html" title="Core/lora.c" alt="" coords="904,80,991,107"/>
+<area shape="rect" id="node5" href="$LoRaMac_8c.html" title="Mac/LoRaMac.c" alt="" coords="1015,80,1133,107"/>
+<area shape="rect" id="node6" href="$timer_8h.html" title="Mac/timer.h" alt="" coords="1158,80,1249,107"/>
+<area shape="rect" id="node7" href="$Region_8c.html" title="Mac/region/Region.c" alt="" coords="5,162,148,189"/>
+<area shape="rect" id="node8" href="$RegionAS923_8c.html" title="Mac/region/RegionAS923.c" alt="" coords="173,162,354,189"/>
+<area shape="rect" id="node9" href="$RegionAU915_8c.html" title="Mac/region/RegionAU915.c" alt="" coords="379,162,561,189"/>
+<area shape="rect" id="node10" href="$RegionCN470_8c.html" title="Mac/region/RegionCN470.c" alt="" coords="585,162,768,189"/>
+<area shape="rect" id="node11" href="$RegionCN779_8c.html" title="Mac/region/RegionCN779.c" alt="" coords="792,162,975,189"/>
+<area shape="rect" id="node12" href="$RegionCommon_8c.html" title="Mac/region/RegionCommon.c" alt="" coords="999,162,1194,189"/>
+<area shape="rect" id="node13" href="$RegionEU433_8c.html" title="Mac/region/RegionEU433.c" alt="" coords="1219,162,1401,189"/>
+<area shape="rect" id="node14" href="$RegionEU868_8c.html" title="Mac/region/RegionEU868.c" alt="" coords="1425,162,1608,189"/>
+<area shape="rect" id="node15" href="$RegionIN865_8c.html" title="Mac/region/RegionIN865.c" alt="" coords="1632,162,1809,189"/>
+<area shape="rect" id="node16" href="$RegionKR920_8c.html" title="Mac/region/RegionKR920.c" alt="" coords="1833,162,2016,189"/>
+<area shape="rect" id="node17" href="$RegionUS915-Hybrid_8c.html" title="Mac/region/RegionUS915\l&#45;Hybrid.c" alt="" coords="2041,155,2211,196"/>
+<area shape="rect" id="node18" href="$RegionUS915_8c.html" title="Mac/region/RegionUS915.c" alt="" coords="2236,162,2419,189"/>
+</map>
