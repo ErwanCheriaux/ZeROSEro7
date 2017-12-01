@@ -57,11 +57,24 @@ static UARTConfig uartcfg = {
     rxerr,
     115200,
     0,
-    USART_CR2_LINEN,
+    USART_CR2_STOP_1,
     0
 };
 
 void uart_init(void)
 {
     uartStart(&UARTD6, &uartcfg);
+    palSetPadMode(GPIOC, 6, PAL_MODE_ALTERNATE(8));
+    palSetPadMode(GPIOC, 7, PAL_MODE_ALTERNATE(8));
+}
+
+void uart_send(int size, void * buff)
+{
+    rtt_printf(0, "uartcfg: 0x%16X\n", uartcfg.cr2);
+    uartStartSend(&UARTD6, size, buff);
+}
+
+void uart_receive(int size, void * buff)
+{
+    uartStartReceive(&UARTD6, size, buff);
 }
