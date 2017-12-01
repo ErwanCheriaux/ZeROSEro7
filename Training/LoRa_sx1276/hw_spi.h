@@ -9,4 +9,6 @@
  */
 uint16_t HW_SPI_InOut(uint16_t outData);
 
+// OPTIONAL void HW_SPI_Init( void );
+
 #endif
