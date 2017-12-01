@@ -12,6 +12,10 @@ define restart
   mon reset
 end
 
+define l
+  layout n
+end
+
 target ext :2331
 mon endian little
 restart

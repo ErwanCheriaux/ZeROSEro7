@@ -1,6 +1,7 @@
 //uart.c
 
 #include "uart.h"
+#include "rtt.h"
 
 /*
  * This callback is invoked on a receive error, the errors mask is passed
@@ -10,6 +11,7 @@ static void rxerr(UARTDriver *uartp, uartflags_t e)
 {
     (void)uartp;
     (void)e;
+    rtt_printf(0, "[ERROR]: uart_error\n");
 }
 
 /*
@@ -19,7 +21,7 @@ static void rxerr(UARTDriver *uartp, uartflags_t e)
 static void rxchar(UARTDriver *uartp, uint16_t c)
 {
     (void)uartp;
-    (void)c;
+    rtt_printf(0, "uart_rx: %c\n", c);
 }
 
 /*
