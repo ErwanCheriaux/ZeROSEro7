@@ -150,20 +150,14 @@ MIDDLEWARES = $(CUBEEXPANSION)/Middlewares/Third_Party/Lora
 
 SRC_FILES += \
 	$(BSP)/Components/sx1276/sx1276.c \
-	$(MIDDLEWARES)/Utilities/delay.c \
-	$(MIDDLEWARES)/Utilities/low_power.c \
-	$(MIDDLEWARES)/Utilities/timeServer.c \
-	$(MIDDLEWARES)/Utilities/utilities.c
 
 INC_FOLDERS += \
-	$(MIDDLEWARES)/Crypto \
-	$(MIDDLEWARES)/Mac \
 	$(MIDDLEWARES)/Phy \
-	$(MIDDLEWARES)/Utilities \
-	$(BSP)/Components/Common \
 	$(BSP)/Components/sx1276 \
 	$(MIDDLEWARES)/Core \
-	$(CMSIS)/Include \
+#	$(CMSIS)/Include \
+#	$(MIDDLEWARES)/Crypto \
+#	$(MIDDLEWARES)/Mac \
 
 CFLAGS += \
 	-D USE_BAND_868 \

@@ -1,11 +1,11 @@
+#ifndef _HW_H__
+#define _HW_H__
+
 /*
-*
-*   Config file for LoRa driver
-* included by the driver itself.
-*
+*   File included by sx1276 driver
 */
 
-#ifndef __HW_H__
-#define __HW_H__
+#include <stdbool.h>
+#include <stdint.h>
 
-#endif // __HW_H__
+#endif
