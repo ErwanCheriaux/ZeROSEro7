@@ -9,15 +9,15 @@
 void uart_init(void);
 
 /* Send data using uart
-** size: number of data frames to send
 ** buff: send buffer
+** size: number of data frames to send
 */
-void uart_send(int size, void * buff);
+void uart_send(void * buff, int size);
 
 /* Receive data using uart
-** size: number of data frames to receive
 ** buff: receive buffer
+** size: number of data frames to receive
 */
-void uart_receive(int size, void * buff);
+void uart_receive(void * buff, int size);
 
 #endif
