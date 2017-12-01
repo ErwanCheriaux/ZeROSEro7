@@ -16,8 +16,10 @@ HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 
 USER_SRC = \
 	$(PROJ_DIR)/main.c \
+	$(PROJ_DIR)/../BLE_nrf52/rtt.c \
 
-USER_INC = $(PROJ_DIR)
+USER_INC = $(PROJ_DIR) \
+  $(PROJ_DIR)/../BLE_nrf52 \
 
 # Source files common to all targets
 SRC_FILES += $(USER_SRC) \
