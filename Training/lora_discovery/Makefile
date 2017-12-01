@@ -13,7 +13,7 @@ HEX  = $(CP) -O ihex
 BIN  = $(CP) -O binary
 ARCH = -mcpu=cortex-m0plus -mthumb -DTHUMB -mlittle-endian
 
-CUBEEXPANSION = ../icube_lrwan/CubeExpansion
+CUBEEXPANSION = ../../SDK/LoRa_icube/CubeExpansion
 DRIVERS = $(CUBEEXPANSION)/Drivers
 BSP = $(DRIVERS)/BSP
 CMSIS = $(DRIVERS)/CMSIS
