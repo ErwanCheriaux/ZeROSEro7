@@ -51,11 +51,11 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
-			 src/main.c \
-			 src/led.c \
-			 src/timer.c \
-			 src/pwm.c \
-			 ../Test/fibo/fibo.c
+	   		src/main.c \
+			src/led.c \
+			src/timer.c \
+			src/pwm.c \
+			src/uart.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -106,6 +106,17 @@ CWARN = -Wall -Wextra -Werror -Wundef -Wstrict-prototypes -Wno-implicit-fallthro
 
 RULESPATH = $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC
 include $(RULESPATH)/rules.mk
+
+# Add Wiconnect
+IINCDIR += -I../../SDK/WiFi_WiConnect \
+	-I../../SDK/mbed-os -I/usr/include/c++/7 -I/usr/include/x86_64-linux-gnu/c++/7 -I/usr/include/c++/7/parallel \
+	-I../../SDK/mbed-os/targets/TARGET_STM/TARGET_STM32F4 -I../../SDK/mbed-os/targets/TARGET_STM/TARGET_STM32F4/TARGET_STM32F407xG \
+	-I../../SDK/mbed-os/targets/TARGET_STM/TARGET_STM32F4/TARGET_STM32F407xG/device -I../../SDK/mbed-os/targets/TARGET_STM \
+	-I../../SDK/mbed-os/targets/TARGET_STM/TARGET_STM32F4/TARGET_STM32F407xG/TARGET_ARCH_MAX -I../../SDK/mbed-os/platform \
+	-I../../SDK/mbed-os/hal
+
+test:
+	@echo $(IINCDIR)
 
 help:
 	@echo		startgdbserver - open a gdb connection with the device

@@ -1,1 +1,0 @@
-WiFi SDK folder
