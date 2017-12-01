@@ -26,6 +26,8 @@ lint_main:
     - make format
     - cd ../Training/lora_discovery
     - make format
+    - cd ../LoRa_sx1276
+    - make format
     - git status --porcelain
 
 lint_apps:
@@ -56,9 +58,12 @@ build_main:
     - make
     - cd ../Training/lora_discovery
     - make
+    - cd ../LoRa_sx1276
+    - make
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
+    - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
     - usb_dev_kit/build/usb_dev_kit.elf
     expire_in: 1 week
 

@@ -282,7 +282,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
-.PHONY: flash startgdbserver debug
+.PHONY: flash startgdbserver debug rtttelnet
 
 # Flash the program
 flash: $(HEX)
