@@ -104,7 +104,7 @@ CFLAGS += -DNRF52_PAN_74
 CFLAGS += -DSWI_DISABLE0
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable -Wno-expansion-to-defined
+CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable -Wno-unused-value -Wno-expansion-to-defined
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
@@ -150,11 +150,14 @@ MIDDLEWARES = $(CUBEEXPANSION)/Middlewares/Third_Party/Lora
 
 SRC_FILES += \
 	$(BSP)/Components/sx1276/sx1276.c \
+	$(MIDDLEWARES)/Core/lora.c \
+	$(MIDDLEWARES)/Utilities/utilities.c \
 
 INC_FOLDERS += \
 	$(MIDDLEWARES)/Phy \
 	$(BSP)/Components/sx1276 \
 	$(MIDDLEWARES)/Core \
+	$(MIDDLEWARES)/Utilities \
 #	$(CMSIS)/Include \
 #	$(MIDDLEWARES)/Crypto \
 #	$(MIDDLEWARES)/Mac \
