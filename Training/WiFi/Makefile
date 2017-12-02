@@ -18,7 +18,7 @@ endif
 #
 
 # Define project name here
-PROJECT = usb_dev_kit
+PROJECT = wifi_dev_kit
 
 # Imported source files and paths
 CHIBIOS = ../../SDK/ChibiOS

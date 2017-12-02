@@ -13,6 +13,6 @@ void wifi_init(void);
 /* Send data using uart
 ** buff: message to send buffer
 */
-void wifi_send(void * buff);
+void wifi_send(void* buff);
 
 #endif

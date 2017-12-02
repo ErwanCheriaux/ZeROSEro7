@@ -25,7 +25,7 @@ int main(void)
 
     wifi_send("ver\r\n");
     wifi_send("wlan_scan\r\n");
-    
+
     chThdSleep(TIME_INFINITE);
     return 0;
 }

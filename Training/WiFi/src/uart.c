@@ -7,8 +7,7 @@ static SerialConfig serialcfg = {
     115200,
     0,
     USART_CR2_STOP_1,
-    0
-};
+    0};
 
 void uart_init(void)
 {
@@ -17,12 +16,12 @@ void uart_init(void)
     palSetPadMode(GPIOC, 7, PAL_MODE_ALTERNATE(8));
 }
 
-void uart_send(void * buff)
+void uart_send(void* buff)
 {
     sdWrite(&SD6, buff, strlen(buff));
 }
 
-void uart_receive(void * buff, int size)
+void uart_receive(void* buff, int size)
 {
     sdRead(&SD6, buff, size);
 }
