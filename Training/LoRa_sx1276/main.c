@@ -13,10 +13,11 @@ int main(void)
     bsp_board_led_on(1);
 
     HW_RTC_Init();
-    rtt_write_string("RTC Initialized") ;
+    rtt_write_string("RTC Initialized\n") ;
     bsp_board_led_on(2);
 
-    rtt_printf(0, "Tick in ms : %u", HW_RTC_Tick2ms(65536)) ;
+    rtt_printf(0, "15 tick in ms : %u\n", HW_RTC_Tick2ms(15)) ;
+    rtt_printf(0, "15 ms in ticks : %u\n", HW_RTC_ms2Tick(15)) ;
 
     while(true) {
     }
