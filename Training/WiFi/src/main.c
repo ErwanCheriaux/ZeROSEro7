@@ -20,12 +20,11 @@ int main(void)
     wifi_init();
     rtt_init();
 
+    rtt_printf(0, "\n======== INITIALIZATION SUCCED ========\n\n");
     led_on();
-    rtt_printf(0, "\n======== DEBUG INITIALIZED ========\n\n");
 
     wifi_send("ver\r\n");
-    chThdSleep(MS2ST(1000));
-    wifi_send("help\r\n");
+    wifi_send("wlan_scan\r\n");
     
     chThdSleep(TIME_INFINITE);
     return 0;
