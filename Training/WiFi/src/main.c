@@ -23,16 +23,16 @@ int main(void)
     led_on();
     rtt_printf(0, "\n======== DEBUG INITIALIZED ========\n\n");
 
-    uint8_t message[] = "help\r\n";
-    //uint8_t buffer[] = "000000000000000";
+    uint8_t message[] = "ver\r\n";
+    uint8_t buffer[] = "000000000000000";
     while(1)
     {
         rtt_printf(0, "Start uart sending\n");
         uart_send(message, 6);
-        //rtt_printf(0, "Start uart reception\n");
-        //uart_receive(buffer, 16);
-        //buffer[15] = '\0';
-        //rtt_printf(0, "End uart reception: %s\n", buffer);
+        rtt_printf(0, "Start uart reception\n");
+        uart_receive(buffer, 16);
+        buffer[15] = '\0';
+        rtt_printf(0, "End uart reception: %s\n", buffer);
         chThdSleep(500);
     }
 
