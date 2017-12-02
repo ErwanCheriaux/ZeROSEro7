@@ -16,6 +16,8 @@ int main(void)
     rtt_write_string("RTC Initialized") ;
     bsp_board_led_on(2);
 
+    rtt_printf(0, "Tick in ms : %u", HW_RTC_Tick2ms(65536)) ;
+
     while(true) {
     }
 
