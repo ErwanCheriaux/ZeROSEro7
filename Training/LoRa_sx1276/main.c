@@ -27,10 +27,12 @@ int main(void)
     HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
     rtt_write_string("Started RTC\n") ;
 
+    HW_RTC_DelayMs(10000) ;
+    HW_RTC_StopAlarm() ;
+    rtt_write_string("Stopped RTC\n") ;
+
 
     while(true) {
-        HW_RTC_DelayMs(1000) ;
-        rtt_write_string("1 second has passed\n") ;
     }
 
     return 0;

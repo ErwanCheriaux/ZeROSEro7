@@ -21,6 +21,11 @@ TimerTime_t HW_RTC_Tick2ms( uint32_t tick )
     return tick * MS_CONSTANT / APP_TIMER_TICKS(MS_CONSTANT) ;
 }
 
+// Given by app_timer
+uint32_t HW_RTC_GetMinimumTimeout(void) {
+    return 5 ;  // Ticks
+}
+
 uint32_t HW_RTC_GetTimerValue(void) {
     return app_timer_cnt_get() ;
 }
@@ -37,6 +42,10 @@ void HW_RTC_DelayMs(uint32_t delay) {
     {
         __NOP( );
     }
+}
+
+void HW_RTC_StopAlarm(void) {
+    APP_ERROR_CHECK(app_timer_stop(RTC_SX12)) ;
 }
 
 void HW_RTC_SetAlarm(uint32_t timeout) {

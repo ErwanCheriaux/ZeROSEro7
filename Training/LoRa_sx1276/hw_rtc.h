@@ -24,9 +24,9 @@ void HW_RTC_Init(void);
 void HW_RTC_StopAlarm(void);
 
 /*!
- * @brief Return the minimum timeout the RTC is able to handle
+ * @brief Return the minimum timeout the RTC is able to handle in ticks
  * @param none
- * @retval minimum value for a timeout
+ * @retval minimum value for a timeout in ticks
  */
 uint32_t HW_RTC_GetMinimumTimeout(void);
 
