@@ -1,7 +1,7 @@
 //uart.c
 
 #include "uart.h"
-#include "rtt.h"
+#include <string.h>
 
 static SerialConfig serialcfg = {
     115200,
@@ -17,9 +17,9 @@ void uart_init(void)
     palSetPadMode(GPIOC, 7, PAL_MODE_ALTERNATE(8));
 }
 
-void uart_send(void * buff, int size)
+void uart_send(void * buff)
 {
-    sdWrite(&SD6, buff, size);
+    sdWrite(&SD6, buff, strlen(buff));
 }
 
 void uart_receive(void * buff, int size)

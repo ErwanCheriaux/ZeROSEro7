@@ -6,7 +6,7 @@
 #include "led.h"
 #include "pwm.h"
 #include "timer.h"
-#include "uart.h"
+#include "wifi.h"
 #include "rtt.h"
 
 int main(void)
@@ -17,25 +17,16 @@ int main(void)
     led_init();
     pwm_init();
     timer_init();
-    uart_init();
+    wifi_init();
     rtt_init();
 
     led_on();
     rtt_printf(0, "\n======== DEBUG INITIALIZED ========\n\n");
 
-    uint8_t message[] = "ver\r\n";
-    uint8_t buffer[] = "000000000000000";
-    while(1)
-    {
-        rtt_printf(0, "Start uart sending\n");
-        uart_send(message, 6);
-        rtt_printf(0, "Start uart reception\n");
-        uart_receive(buffer, 16);
-        buffer[15] = '\0';
-        rtt_printf(0, "End uart reception: %s\n", buffer);
-        chThdSleep(500);
-    }
-
+    wifi_send("ver\r\n");
+    chThdSleep(MS2ST(1000));
+    wifi_send("help\r\n");
+    
     chThdSleep(TIME_INFINITE);
     return 0;
 }
