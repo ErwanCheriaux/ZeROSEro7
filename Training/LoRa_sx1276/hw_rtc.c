@@ -8,6 +8,9 @@
 
 APP_TIMER_DEF(RTC_SX12);
 
+// Simple context lasting only a few days. Copy icube if a greater one is needed.
+uint32_t context ;
+
 uint32_t HW_RTC_ms2Tick( TimerTime_t timeMilliSec )
 {
     return APP_TIMER_TICKS(timeMilliSec) ;
@@ -30,6 +33,19 @@ uint32_t HW_RTC_GetTimerValue(void) {
     return app_timer_cnt_get() ;
 }
 
+uint32_t HW_RTC_SetTimerContext(void) {
+    context = HW_RTC_GetTimerValue() ;
+    return context ;
+}
+
+uint32_t HW_RTC_GetTimerContext(void) {
+    return context ;
+}
+
+uint32_t HW_RTC_GetTimerElapsedTime(void) {
+    return HW_RTC_GetTimerValue() - HW_RTC_GetTimerContext() ;
+}
+
 void HW_RTC_DelayMs(uint32_t delay) {
     TimerTime_t delayValue = 0;
     TimerTime_t timeout = 0;
@@ -49,6 +65,7 @@ void HW_RTC_StopAlarm(void) {
 }
 
 void HW_RTC_SetAlarm(uint32_t timeout) {
+    // TODO If going to sleep mode during the alarm, substract wake-up time if noticeable
     APP_ERROR_CHECK(app_timer_start(RTC_SX12, timeout, NULL)) ;
 }
 

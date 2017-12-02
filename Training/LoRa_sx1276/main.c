@@ -21,18 +21,17 @@ int main(void)
     rtt_write_string("RTC Initialized\n") ;
     bsp_board_led_on(0);
 
+
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500)) ;
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000)) ;
 
     HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
     rtt_write_string("Started RTC\n") ;
 
-    HW_RTC_DelayMs(10000) ;
-    HW_RTC_StopAlarm() ;
-    rtt_write_string("Stopped RTC\n") ;
-
 
     while(true) {
+        rtt_printf(0,"It is %u o'clock\n", HW_RTC_GetTimerValue()) ;
+        HW_RTC_DelayMs(3000) ;
     }
 
     return 0;

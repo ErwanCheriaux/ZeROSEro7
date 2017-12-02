@@ -76,21 +76,6 @@ void HW_RTC_IrqHandler(void * p_context);
 void HW_RTC_DelayMs(uint32_t delay);
 
 /*!
- * @brief calculates the wake up time between wake up and mcu start
- * @note resolution in RTC_ALARM_TIME_BASE
- * @param none
- * @retval none
- */
-void HW_RTC_setMcuWakeUpTime(void);
-
-/*!
- * @brief returns the wake up time in us
- * @param none
- * @retval wake up time in ticks
- */
-int16_t HW_RTC_getMcuWakeUpTime(void);
-
-/*!
  * @brief converts time in ms to time in ticks
  * @param [IN] time in milliseconds
  * @retval returns time in timer ticks
