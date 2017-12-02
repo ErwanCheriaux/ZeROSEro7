@@ -13,6 +13,8 @@ int main(void)
     bsp_board_led_on(1);
 
     HW_RTC_Init();
+    rtt_write_string("RTC Initialized") ;
+    bsp_board_led_on(2);
 
     while(true) {
     }

@@ -1,18 +1,17 @@
-#include "nrf.h"
-#include "nrf_drv_timer.h"  // Not app_timer, which is for RTC
+// Minimum RTC tick is 0.9765625ms according to Ping-Pong Demo (see hw_rtc.c, tick to ms)
+// Hence using app_timer which is capable of sufficient precision (max 32768 Hz)
+#include "app_timer.h"
 
 #include "hw.h"
 #include "utilities.h"
 
-static const nrf_drv_timer_t TIMER_SX12 = NRF_DRV_TIMER_INSTANCE(0) ;
+APP_TIMER_DEF(RTC_SX12);
 
-// Parameters from sdk_config.h
-static const nrf_drv_timer_config_t timer_default_cfg = NRF_DRV_TIMER_DEFAULT_CONFIG ;
-
-void HW_RTC_Init(void) {
-
+void HW_RTC_IrqHandler(void * p_context) {
+    APP_ERROR_CHECK(0xDEADBEEF) ; // TODO Unimplemented
 }
 
-uint32_t HW_RTC_ms2Tick(TimerTime_t timeMilliSec) {
-    return nrf_drv_timer_ms_to_ticks(&TIMER_SX12, timeMilliSec) ;
+void HW_RTC_Init(void) {
+    APP_ERROR_CHECK(app_timer_init()) ;
+    APP_ERROR_CHECK(app_timer_create(&RTC_SX12, APP_TIMER_MODE_REPEATED , HW_RTC_IrqHandler)) ;
 }

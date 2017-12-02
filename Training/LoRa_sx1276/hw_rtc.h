@@ -65,7 +65,7 @@ uint32_t HW_RTC_GetTimerContext(void);
  * @param none
  * @retval none
  */
-void HW_RTC_IrqHandler(void);
+void HW_RTC_IrqHandler(void * p_context);
 
 /*!
  * @brief a delay of delay ms by polling RTC
