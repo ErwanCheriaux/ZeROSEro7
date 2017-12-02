@@ -1,10 +1,8 @@
 #include <stdbool.h>
 #include <stdint.h>
-#include "nrf_delay.h"
 #include "boards.h"
 #include "rtt.h"
-#include "app_error.h"
-
+#include "hw.h"
 
 int main(void)
 {
@@ -13,6 +11,8 @@ int main(void)
 
     bsp_board_leds_init();
     bsp_board_led_on(1);
+
+    HW_RTC_Init();
 
     while(true) {
     }

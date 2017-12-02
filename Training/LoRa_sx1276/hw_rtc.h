@@ -3,9 +3,9 @@
 
 /*
 *   Timer driver for SX1276 driver
+*   Only requires 1 timer
 */
 
-// TODO Check out the template C file associated. Could save time.
 #include "utilities.h"
 
 /*!
@@ -13,7 +13,7 @@
  * @note The timer is based on the RTC
  * @param none
  * @retval none
- */
+ */ // OPTIONAL, not used by LoRa SDK
 void HW_RTC_Init(void);
 
 /*!
@@ -95,7 +95,7 @@ int16_t HW_RTC_getMcuWakeUpTime(void);
  * @param [IN] time in milliseconds
  * @retval returns time in timer ticks
  */
-uint32_t HW_RTC_ms2Tick(TimerTime_t timeMicroSec);
+uint32_t HW_RTC_ms2Tick(TimerTime_t timeMilliSec);
 
 /*!
  * @brief converts time in ticks to time in ms

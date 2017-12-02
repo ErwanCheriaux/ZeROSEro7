@@ -17,6 +17,7 @@ HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 USER_SRC = \
 	$(PROJ_DIR)/main.c \
 	$(PROJ_DIR)/../BLE_nrf52/rtt.c \
+	$(PROJ_DIR)/hw_rtc.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
@@ -55,6 +56,8 @@ SRC_FILES += $(USER_SRC) \
   $(SDK_ROOT)/external/segger_rtt/SEGGER_RTT_printf.c \
   $(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf52.S \
   $(SDK_ROOT)/components/toolchain/system_nrf52.c \
+  $(SDK_ROOT)/components/drivers_nrf/common/nrf_drv_common.c \
+  $(SDK_ROOT)/components/drivers_nrf/timer/nrf_drv_timer.c \
 
 # Include folders common to all targets
 INC_FOLDERS += $(USER_INC) \
@@ -85,6 +88,8 @@ INC_FOLDERS += $(USER_INC) \
   $(SDK_ROOT)/components/toolchain \
   $(SDK_ROOT)/components/drivers_nrf/common \
   $(SDK_ROOT)/external/fprintf \
+  $(SDK_ROOT)/components/drivers_nrf/hal \
+  $(SDK_ROOT)/components/drivers_nrf/timer \
 
 # Libraries common to all targets
 LIB_FILES += \
