@@ -1,6 +1,7 @@
 // Using app_timer which is capable of sufficient precision (max 32768 Hz)
 #include "app_timer.h"
 #include "sdk_config.h"
+#include "boards.h"
 
 #include "hw.h"
 #include "utilities.h"
@@ -20,9 +21,17 @@ TimerTime_t HW_RTC_Tick2ms( uint32_t tick )
     return tick * MS_CONSTANT / APP_TIMER_TICKS(MS_CONSTANT) ;
 }
 
+uint32_t HW_RTC_GetTimerValue(void) {
+    return app_timer_cnt_get() ;
+}
+
+void HW_RTC_SetAlarm(uint32_t timeout) {
+    APP_ERROR_CHECK(app_timer_start(RTC_SX12, timeout, NULL)) ;
+}
 
 void HW_RTC_IrqHandler(void * p_context) {
-    APP_ERROR_CHECK(0xDEADBEEF) ; // TODO Unimplemented
+    bsp_board_led_on(2) ;
+//    HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
 }
 
 void HW_RTC_Init(void) {
