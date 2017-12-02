@@ -21,6 +21,9 @@ int main(void)
     rtt_write_string("RTC Initialized\n") ;
     bsp_board_led_on(0);
 
+    HW_SPI_Init() ;
+    rtt_write_string("SPI Initialized\n") ;
+
 
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500)) ;
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000)) ;

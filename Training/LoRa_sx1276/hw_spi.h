@@ -9,6 +9,11 @@
  */
 uint16_t HW_SPI_InOut(uint16_t outData);
 
-// OPTIONAL void HW_SPI_Init( void );
+/*!
+ * @brief Initializes the SPI object and MCU peripheral
+ *
+ * @param [IN] none
+ */
+void HW_SPI_Init( void );
 
 #endif

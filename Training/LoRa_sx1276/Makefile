@@ -19,6 +19,7 @@ USER_SRC = \
 	$(PROJ_DIR)/../BLE_nrf52/rtt.c \
 	$(PROJ_DIR)/../BLE_nrf52/ble_central.c \
 	$(PROJ_DIR)/hw_rtc.c \
+	$(PROJ_DIR)/hw_spi.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
