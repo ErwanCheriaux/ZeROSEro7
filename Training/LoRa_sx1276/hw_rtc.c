@@ -30,8 +30,8 @@ void HW_RTC_SetAlarm(uint32_t timeout) {
 }
 
 void HW_RTC_IrqHandler(void * p_context) {
-    bsp_board_led_on(2) ;
-//    HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
+    bsp_board_led_invert(2) ;
+    HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
 }
 
 void HW_RTC_Init(void) {

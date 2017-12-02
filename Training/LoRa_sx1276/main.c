@@ -3,6 +3,7 @@
 #include "boards.h"
 #include "rtt.h"
 #include "hw.h"
+#include "ble_central.h"
 
 int main(void)
 {
@@ -11,6 +12,10 @@ int main(void)
 
     bsp_board_leds_init();
     bsp_board_led_on(0);
+
+    // Like if we are using BLE, has the side effect of starting LFCLK, needed by RTC
+    ble_init();
+    rtt_write_string("BLE initialized\n");
 
     HW_RTC_Init();
     rtt_write_string("RTC Initialized\n") ;
@@ -24,7 +29,6 @@ int main(void)
 
 
     while(true) {
-        rtt_printf(0, "Timer value : %u\n", HW_RTC_GetTimerValue()) ;
     }
 
     return 0;
