@@ -5,3 +5,5 @@
 [UART config](https://docs.zentri.com/zentrios/w/3.2/cmd/variables/uart)
 
 [Cmd protocol](https://docs.zentri.com/zentrios/w/latest/serial-interface#command-protocol)
+
+[All cmd](https://docs.zentri.com/zentrios/w/latest/cmd/commands)
