@@ -9,7 +9,7 @@
 APP_TIMER_DEF(RTC_SX12);
 
 // Simple context lasting only a few days. Copy icube if a greater one is needed.
-uint32_t context ;
+static volatile uint32_t context ;
 
 uint32_t HW_RTC_ms2Tick( TimerTime_t timeMilliSec )
 {

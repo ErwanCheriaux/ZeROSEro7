@@ -90,6 +90,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
+    $(SDK_ROOT)/components/drivers_nrf/spi_master/nrf_drv_spi.c \
 
 # Include folders common to all targets
 INC_FOLDERS += $(USER_INC) \
@@ -167,7 +168,6 @@ INC_FOLDERS += $(USER_INC) \
 	$(SDK_ROOT)/components/libraries/uart \
 	$(SDK_ROOT)/components/libraries/hci \
 	$(SDK_ROOT)/components/libraries/usbd/class/hid/kbd \
-	$(SDK_ROOT)/components/drivers_nrf/spi_slave \
 	$(SDK_ROOT)/components/drivers_nrf/lpcomp \
 	$(SDK_ROOT)/components/libraries/timer \
 	$(SDK_ROOT)/components/drivers_nrf/rng \

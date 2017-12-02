@@ -1,38 +1,33 @@
 #include "nrf_drv_spi.h"
+#include "app_error.h"
 
-#define SPI_INSTANCE  0 /**< SPI instance index. */
-static const nrf_drv_spi_t spi = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE);  /**< SPI instance. */
-static volatile bool spi_xfer_done;  /**< Flag used to indicate that SPI instance completed the transfer. */
+#define SPI_SX12_INSTANCE  0
+static const nrf_drv_spi_t spi_sx12 = NRF_DRV_SPI_INSTANCE(SPI_SX12_INSTANCE);
+static volatile bool transfer_complete;  /**< Flag used to indicate that SPI instance completed the transfer. */
 
-#define TEST_STRING "Nordic"
-static uint8_t       m_tx_buf[] = TEST_STRING;           /**< TX buffer. */
-static uint8_t       m_rx_buf[sizeof(TEST_STRING) + 1];    /**< RX buffer. */
-static const uint8_t m_length = sizeof(m_tx_buf);        /**< Transfer length. */
+// SX1276 only uses 16 bit transfers
+#define BUFFER_LENGTH 2
+static uint16_t rx_buffer;
 
+// No need of complicated buffer management, length is fixed to 16 bits by SX12 driver
 uint16_t HW_SPI_InOut(uint16_t outData) {
-    memset(m_rx_buf, 0, m_length);
-    spi_xfer_done = false;
-
-    APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi, m_tx_buf, m_length, m_rx_buf, m_length));
+    rx_buffer = 0 ;
+    APP_ERROR_CHECK(nrf_drv_spi_transfer(&spi_sx12, (uint8_t *) &outData, BUFFER_LENGTH, (uint8_t *) &rx_buffer, BUFFER_LENGTH));
+    return rx_buffer ;
 }
 
 void spi_event_handler(nrf_drv_spi_evt_t const * p_event,
                        void *                    p_context)
 {
-    spi_xfer_done = true;
-    NRF_LOG_INFO("Transfer completed.");
-    if (m_rx_buf[0] != 0)
-    {
-        NRF_LOG_INFO(" Received:");
-        NRF_LOG_HEXDUMP_INFO(m_rx_buf, strlen((const char *)m_rx_buf));
-    }
+    transfer_complete = true;
+    // TODO Print results as debugging purpose if needed
 }
 
 void HW_SPI_Init( void ) {
-    static const nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
+    static nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
     spi_config.ss_pin   = SPI_SS_PIN;
     spi_config.miso_pin = SPI_MISO_PIN;
     spi_config.mosi_pin = SPI_MOSI_PIN;
     spi_config.sck_pin  = SPI_SCK_PIN;
-    APP_ERROR_CHECK(nrf_drv_spi_init(&spi, &spi_config, spi_event_handler, NULL));
+    APP_ERROR_CHECK(nrf_drv_spi_init(&spi_sx12, &spi_config, spi_event_handler, NULL));
 }
