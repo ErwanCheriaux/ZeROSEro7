@@ -25,12 +25,26 @@ uint32_t HW_RTC_GetTimerValue(void) {
     return app_timer_cnt_get() ;
 }
 
+void HW_RTC_DelayMs(uint32_t delay) {
+    TimerTime_t delayValue = 0;
+    TimerTime_t timeout = 0;
+
+    delayValue = HW_RTC_ms2Tick( delay );
+
+    /* Wait delay ms */
+    timeout = HW_RTC_GetTimerValue( );
+    while( ( ( HW_RTC_GetTimerValue( ) - timeout ) ) < delayValue )
+    {
+        __NOP( );
+    }
+}
+
 void HW_RTC_SetAlarm(uint32_t timeout) {
     APP_ERROR_CHECK(app_timer_start(RTC_SX12, timeout, NULL)) ;
 }
 
 void HW_RTC_IrqHandler(void * p_context) {
-    bsp_board_led_invert(2) ;
+    bsp_board_led_invert(1) ;
     HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
 }
 
