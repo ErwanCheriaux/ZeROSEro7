@@ -2404,3 +2404,108 @@ Job Name: C:\Users\PAULGWF\Documents\SwARM\hardware\SwARM_Schematics\PCB\PCB.pcb
 ;------------------------------- --------------------------------
 ; STARTING AN IMPLICIT FORWARD ANNOTATION
 ;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       08:56 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       10:16 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       11:40 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       11:45 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       11:47 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       11:55 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       11:58 AM Monday, December 04, 2017
+     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------

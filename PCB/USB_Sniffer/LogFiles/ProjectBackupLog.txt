@@ -13,3 +13,4 @@
 [2017-12-01 19.31.29] Migrated iCDB content backup file [cdbback\2017-11-20 18.42.10-2168.zip] removed.
 [2017-12-01 19.31.29] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
 [2017-12-01 19.31.33] Successfully created [AutoSave] backup [2017-12-01 19.31.29 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-04 08.45.57] Successfully created [AutoSave] backup [2017-12-04 08.45.54 - auto.zip] requested by [WINDOWS01:admin].

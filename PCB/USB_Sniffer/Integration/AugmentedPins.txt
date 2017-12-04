@@ -5,14 +5,8 @@
  Part 83-0025                          |
        QZ3                             |    2| <unconnected pin>
        QZ3                             |    4| <unconnected pin>
- Part 83-0024                          |
-       QZ4                             |    2| <unconnected pin>
-       QZ4                             |    4| <unconnected pin>
- Part 81-0026                          |
-       QZ2                             |    2| <unconnected pin>
-       QZ2                             |    4| <unconnected pin>
-       QZ1                             |    2| <unconnected pin>
-       QZ1                             |    4| <unconnected pin>
+ Part 80-0050                          |
+       U4                              |    2| <unconnected pin>
  Part 70-0081                          |
        J4                              |    7| <unconnected pin>
        J3                              |    7| <unconnected pin>
