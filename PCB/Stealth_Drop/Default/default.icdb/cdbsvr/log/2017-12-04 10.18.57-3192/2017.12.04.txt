@@ -97,3 +97,39 @@
 [2017.12.04 11:25:06] [0066m.09s.402ms] [1] SC[4258]: UnRegistered sub-client [Packager_10003171] with ID [1] for session ID [4258] host [windows01] user [admin] process ID [2904]
 [2017.12.04 11:25:06] [0066m.09s.527ms] [1] CMT: Removed client [4258]
 [2017.12.04 11:25:06] [0066m.09s.527ms] [1] CMT: There are [1] clients now: 4256
+[2017.12.04 11:25:45] [0066m.48s.145ms] [1] SC[4256]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4256] host [windows01] user [admin] process ID [2528]
+[2017.12.04 11:25:45] [0066m.48s.286ms] [1] CMT: Removed client [4256]
+[2017.12.04 11:25:45] [0066m.48s.286ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.04 11:25:45] [0066m.48s.504ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.04 11:25:47] [0066m.49s.817ms] [0] CMT: Starting server auto-close
+[2017.12.04 11:25:47] [0066m.49s.895ms] [0] S: Closing server
+[2017.12.04 11:25:47] [0066m.49s.911ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.12.04 11:25:47] [0066m.49s.958ms] [0] iCDB Server PI: Closing plugins
+[2017.12.04 11:25:47] [0066m.49s.958ms] [0] iCDB Server PI: Plugins closed
+[2017.12.04 11:25:47] [0066m.49s.958ms] [0] iCDB Server PI: Unloading database
+[2017.12.04 11:25:47] [0066m.49s.958ms] [0] iCDB Server PI: Saving storage
+[2017.12.04 11:25:47] [0066m.49s.958ms] [0] iCDB Server PI: Closing database
+[2017.12.04 11:25:47] [0066m.49s.973ms] [1] iCDB Server PI: Stats: Database defragmentation: max[3] avg[1] holes[16%] data[84%]
+[2017.12.04 11:25:47] [0066m.49s.973ms] [1] iCDB Server PI: Stats: Database file size [349688 (341.5 kB)]
+[2017.12.04 11:25:47] [0066m.49s.973ms] [1] iCDB Server PI: WARNING: Database needs defragmentation!
+[2017.12.04 11:25:47] [0066m.50s.004ms] [0] iCDB Server PI: Database closed
+[2017.12.04 11:25:47] [0066m.50s.004ms] [0] iCDB Server PI: Defragmenting database
+[2017.12.04 11:25:47] [0066m.50s.004ms] [0] iCDB Server PI: Creating database [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb] backup to file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\cdbback\2017-12-04 11.25.47-3192-d.zip]
+[2017.12.04 11:25:47] [0066m.50s.161ms] [0] iCDB Server PI: Database backup: DONE
+[2017.12.04 11:25:47] [0066m.50s.176ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.04 11:25:47] [0066m.50s.176ms] [0] Database GUARD OK: [349688]
+[2017.12.04 11:25:47] [0066m.50s.176ms] [0] SingleFile: [793f-1e4e-ed6d-f984] SFI version check [1009] [1009]
+[2017.12.04 11:25:47] [0066m.50s.192ms] [0] SingleFile: [793f-1e4e-ed6d-f984] Database SFI header has been read in [11ms 318us]
+[2017.12.04 11:25:47] [0066m.50s.223ms] [1] iCDB Server PI: Stats: Database file sizes: before[349688 (341.5 kB)], after[263488 (257.3 kB)], gain[86200 (84.2 kB)]
+[2017.12.04 11:25:47] [0066m.50s.223ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\icdb.dat] closed with size [263488 (257.3 kB)]
+[2017.12.04 11:25:47] [0066m.50s.223ms] [0] iCDB Server PI: Database defragmentation completed successfully
+[2017.12.04 11:25:47] [0066m.50s.223ms] [1] BackupTransaction: Removing database backup [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\cdbback\2017-12-04 11.25.47-3192-d.zip]
+[2017.12.04 11:25:47] [0066m.50s.286ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [2724121] ticks
+[2017.12.04 11:25:47] [0066m.50s.286ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [272412] microseconds
+[2017.12.04 11:25:47] [0066m.50s.286ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [239]
+[2017.12.04 11:25:47] [0066m.50s.286ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [877] commands per second
+[2017.12.04 11:25:47] [0066m.50s.379ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.04 11:25:47] [0066m.50s.489ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.04 11:25:47] [0066m.50s.661ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.04 11:25:47] [0066m.50s.661ms] [0] MWT: STOP
+[2017.12.04 11:25:47] [0066m.50s.676ms] [0] S: STOP
