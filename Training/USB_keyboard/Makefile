@@ -54,11 +54,13 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
-	   $(SRC)/main.c \
-	   $(SRC)/led.c \
-	   $(SRC)/timer.c \
-	   $(SRC)/pwm.c \
-	   $(TEST_FIBO)/fibo.c
+       $(SRC)/main.c \
+       $(SRC)/led.c \
+       $(SRC)/timer.c \
+       $(SRC)/pwm.c \
+       $(TEST_FIBO)/fibo.c \
+       $(SRC)/SEGGER_RTT.c \
+       $(SRC)/SEGGER_RTT_printf.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -115,20 +117,24 @@ help:
 	@echo		startgdbserver - open a gdb connection with the device
 	@echo		startgdbserver - close a gdb connection with the device
 	@echo		debug          - after startgdbserver, load and debug a prog on the device
+	@echo		telnet         - open rtt communication
 	@echo		format         - format code
 	@echo		clean          - remove build
 
 startgdbserver:
-	    @pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
+	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
 stopgdbserver:
-	    @pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
+	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
 debug: $(ELF)
-	    $(GDB) $<
+	$(GDB) $<
 
 format: src/*.c src/*.h
 	clang-format -i $^
+
+telnet:
+	telnet localhost 19021
 
 .PHONY: help startgdbserver stopgdbserver debug format
 
