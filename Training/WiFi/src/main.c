@@ -23,8 +23,8 @@ int main(void)
     rtt_printf(0, "\n======== INITIALIZATION SUCCED ========\n\n");
     led_on();
 
-    wifi_send("ver\r\n");
-    wifi_send("wlan_scan\r\n");
+    wifi_command("ver\r\n");
+    wifi_command("scan\r\n");
 
     chThdSleep(TIME_INFINITE);
     return 0;
