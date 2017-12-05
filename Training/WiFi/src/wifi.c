@@ -29,12 +29,13 @@ static int get_header(void* buff)
     rtt_printf(0, ">%s", buff);
     uart_send(buff);
     // get header
-#ifdef DEBUG
-    rtt_printf(0, "Header: %s\n", header_buffer);
-#endif
     uart_receive(header_buffer, header_len);
+    header_buffer[header_len - 2] = '\0';  // two last charaters are "\r\n"
+#ifdef DEBUG
+    rtt_printf(0, "Header: %s\n", header_buffer + header_len - 9);
+#endif
     // check error code
-    int err_code = header_buffer[header_len - 9] - '0';
+    int err_code = header_buffer[header_len - 7] - '0';
     if(err_code != 0) {
         rtt_printf(0, "[ERROR] An error occured. Error code:%d (", err_code);
         switch(err_code) {
@@ -53,12 +54,12 @@ static int get_header(void* buff)
     }
     // extract data length from header
     int data_len = 0;
-    for(int i = header_len - 8; i <= header_len - 3; i++)
+    for(int i = header_len - 7; i <= header_len - 3; i++)
         data_len = data_len * 10 + header_buffer[i] - '0';
 #ifdef DEBUG
     rtt_printf(0, "Data len: %d\n", data_len);
 #endif
-    data_len += 2;  // data finish by "\n>" but are not counted in the header
+    data_len += 2;  // data finish by "> " but are not counted in the header
     return data_len;
 }
 
@@ -78,7 +79,8 @@ int wifi_command(void* buff)
         uart_receive(data_buffer, data_buff_len);
         data_len -= data_buff_len;
         if(data_len == 0)
-            data_buffer[data_buff_len - 3] = '\0';  // two last charaters are "\n>"
+            data_buffer[data_buff_len - 4] = '\0'; // last characters are "\r\n> "
+        rtt_printf(0, ""); // fix strange telnet error
         // print data
         rtt_printf(0, "%s", data_buffer);
     }
@@ -93,37 +95,37 @@ int find_devices(void)
     // handle get_header error
     if(data_len < 0)
         return data_len;
+    // get data
     uint8_t data_buffer[MAX_DATA_BUFFER_LEN];
     int stored_data_buff_len = 0;
     while(data_len > 0) {
         // set data buffer length
-        int data_buff_len = data_len;
-        if(data_len > MAX_DATA_BUFFER_LEN)
-            data_buff_len = MAX_DATA_BUFFER_LEN;
-        data_buff_len -= stored_data_buff_len; // buffer is already partially full
-        uart_receive(data_buffer + stored_data_buff_len, data_buff_len);
-        data_len -= data_buff_len;
-        if(data_len == 0)
-            data_buffer[data_buff_len - 3] = '\0';  // two last charaters are "\n>"
+        int data_buff_len = data_len + stored_data_buff_len;
+        if(data_len >= MAX_DATA_BUFFER_LEN)
+            data_buff_len = MAX_DATA_BUFFER_LEN - 1;
+        data_buffer[data_buff_len] = '\0';
+        uart_receive(data_buffer + stored_data_buff_len, data_buff_len - stored_data_buff_len);
+        data_len -= data_buff_len - stored_data_buff_len;
+        if(data_len == 0) // only for the end of reception
+            data_buffer[data_buff_len - 4] = '\0'; // last characters are "\r\n> "
         uint8_t * new_lf_pos = data_buffer;
-        rtt_printf(0, "new_lf_pos: %d\n", new_lf_pos);/*
         while(1) {
             // get first occurence of a network new line
-            uint8_t * lf_pos = strstr(new_lf_pos,  "\n#");
+            uint8_t * lf_pos = (uint8_t *)strstr((char *)new_lf_pos,  "\n#");
             if(lf_pos == NULL)
                 break;
             // get next occurence of a network new line
-            new_lf_pos = strstr(lf_pos + 2,  "\n#");
-            if(new_lf_pos == NULL) {
+            new_lf_pos = (uint8_t *)strstr((char *)lf_pos + 2,  "\n#");
+            if(new_lf_pos == NULL && data_len != 0) {
                 stored_data_buff_len = data_buff_len - (lf_pos - data_buffer);
-                strcpy(lf_pos, data_buffer);
+                strcpy((char *)data_buffer, (char *)lf_pos);
                 break;
             }
             // check if there is no offset in the line
-            if(*(lf_pos + 30) == ' ') {
-                uint8_t * ssid = lf_pos + 31;
+            if(*(lf_pos + 31) == ' ') {
+                uint8_t * ssid = lf_pos + 32;
                 // end ssid string
-                *new_lf_pos = '\0';
+                *(new_lf_pos - 1) = '\0';
                 //uint8_t * ssid_hash = sha3(ssid);
                 rtt_printf(0, "SSID: %s\n", ssid);
                 // TODO: check ssid
@@ -131,7 +133,13 @@ int find_devices(void)
 
                 lf_pos = new_lf_pos;
             }
-        }*/
+#ifdef DEBUG
+            else
+                rtt_printf(0, "[ERROR] Offset error: '%c'(%d) != ' '\n", *(lf_pos + 31), *(lf_pos + 31));
+            if(data_len == 0) // only for the end of reception
+                    break;
+#endif
+        }
     }
 
     return 0;

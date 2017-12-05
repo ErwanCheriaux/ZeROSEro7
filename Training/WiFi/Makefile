@@ -58,7 +58,8 @@ CSRC = $(STARTUPSRC) \
 			src/uart.c \
 			src/SEGGER_RTT.c \
 			src/SEGGER_RTT_printf.c \
-			src/wifi.c
+			src/wifi.c \
+			src/sha3.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
