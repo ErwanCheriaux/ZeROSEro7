@@ -54,10 +54,11 @@ typedef struct
 
 
 // Can be any value. Only passed to our HW_GPIO_INIT and WRITE functions
+// No need to handle, SPI driver controls it already.
 #define RADIO_NSS_PORT  SPI_SS_PIN
 #define RADIO_NSS_PIN   SPI_SS_PIN
 
-#define RADIO_RESET_PORT    0xBEEF // Unused
+#define RADIO_RESET_PORT    0xBEEF // Unused for now
 #define RADIO_RESET_PIN     0xBEEF // Unused
 
 
@@ -72,8 +73,8 @@ typedef struct
  * @param [IN] initStruct  GPIO_InitTypeDef intit structure
  * @retval none
  */
- // TODO WARNING Supper Careful !! mimic the reset in sx1276.c:1226.
- // The second call gives a Pull type as Mode to say "GPIO_MODE_INPUT" which represent mask 0x00000000
+ // TODO mimic the reset in sx1276.c:1226.
+ // Warning ! The second call gives a Pull type as Mode to say "GPIO_MODE_INPUT" which represent mask 0x00000000
 void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initStruct);
 
 /*!

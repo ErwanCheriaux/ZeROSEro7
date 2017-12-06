@@ -20,6 +20,7 @@ USER_SRC = \
 	$(PROJ_DIR)/../BLE_nrf52/ble_central.c \
 	$(PROJ_DIR)/hw_rtc.c \
 	$(PROJ_DIR)/hw_spi.c \
+	$(PROJ_DIR)/hw_gpio.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
