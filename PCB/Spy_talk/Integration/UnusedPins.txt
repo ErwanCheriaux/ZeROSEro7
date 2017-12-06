@@ -1,13 +1,13 @@
 
-Schematic unused pins from : Packager  6-Dec-2017  00:29
+Schematic unused pins from : Packager  6-Dec-2017  22:12
 
 ------------------------------------------------------------------------
             Part/Reference             |          Unused pins
                                        |  (G) - Gate, (P) - Partial Gate
 ------------------------------------------------------------------------
  Part 00-0050                          |
+ Part 00-0057                          |
  Part 00-0098                          |
- Part 01-0289                          |
  Part 10-0010                          |
  Part 10-0011                          |
  Part 10-0037                          |
