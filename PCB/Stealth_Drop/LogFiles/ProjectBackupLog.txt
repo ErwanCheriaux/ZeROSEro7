@@ -16,3 +16,13 @@
 [2017-12-04 14.48.57] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
 [2017-12-04 14.48.57] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
 [2017-12-04 14.48.58] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-06 01.28.06] WARNING: Removing broken (incomplete) backup file [C:\Users\admin\Documents\Stealth_Drop\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zi]
+[2017-12-06 01.28.06] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-06 01.28.06] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017-12-06 01.28.07] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-06 01.28.07] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-06 01.29.30] WARNING: Removing broken (incomplete) backup file [C:\Users\admin\Documents\Stealth_Drop\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zi]
+[2017-12-06 01.29.30] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-06 01.29.30] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017-12-06 01.29.30] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-06 01.29.32] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
