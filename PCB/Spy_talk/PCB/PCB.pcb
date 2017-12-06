@@ -1,6 +1,6 @@
 SECTION Integration
 KEY 1400Translation "1"
-KEY ProjectFile "..\Project_template.prj"
+KEY ProjectFile "..\Spy_talk.prj"
 ENDSECTION
 SECTION DesignData
 KEY Platform "NT"
