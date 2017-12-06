@@ -34,7 +34,9 @@ int main(void)
 
     while(true) {
         rtt_printf(0,"It is %u o'clock\n", HW_RTC_GetTimerValue()) ;
-        HW_SPI_InOut(0xBEEF);
+        uint16_t addr = 5 ;
+        HW_SPI_InOut( addr | 0x80 );
+        HW_SPI_InOut( 0xBEEF );
         HW_RTC_DelayMs(100) ;
     }
 

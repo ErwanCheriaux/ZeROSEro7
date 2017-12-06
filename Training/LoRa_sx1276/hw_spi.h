@@ -6,7 +6,7 @@
  *
  * @param [IN] outData Byte to be sent
  * @retval inData      Received byte.
- */
+ */ // Only uses 8 LSB
 uint16_t HW_SPI_InOut(uint16_t outData);
 
 /*!
