@@ -474,10 +474,10 @@
                                      PIN_OSPEED_VERYLOW(GPIOB_I2C1_SDA)     |\
                                      PIN_OSPEED_VERYLOW(GPIOB_SPI2_SCK)     |\
                                      PIN_OSPEED_VERYLOW(GPIOB_PIN11)        |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_ID)    |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_VBUS)  |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_DM)    |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_DP))
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_ID)    |\
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_VBUS)  |\
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_DM)    |\
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_DP))
 #define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(GPIOB_USB_FS_BUSON) |\
                                      PIN_PUPDR_FLOATING(GPIOB_USB_FS_FAULT) |\
                                      PIN_PUPDR_FLOATING(GPIOB_BOOT1)        |\
