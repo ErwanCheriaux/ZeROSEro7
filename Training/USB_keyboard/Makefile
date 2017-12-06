@@ -58,6 +58,7 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/led.c \
        $(SRC)/timer.c \
        $(SRC)/pwm.c \
+       $(SRC)/usb.c \
        $(TEST_FIBO)/fibo.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/SEGGER_RTT_printf.c

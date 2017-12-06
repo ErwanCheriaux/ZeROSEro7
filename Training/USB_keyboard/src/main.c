@@ -8,6 +8,7 @@
 #include "led.h"
 #include "pwm.h"
 #include "rtt.h"
+#include "usb.h"
 #include "timer.h"
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
@@ -20,6 +21,7 @@ int main(void)
     led_init();
     pwm_init();
     rtt_init();
+    usb_init();
     timer_init();
 
     timer_on();
