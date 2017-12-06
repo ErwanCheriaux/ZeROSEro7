@@ -37,6 +37,8 @@ lint_apps:
     - cd smartphone
     - cd BLEParrot
     - ./gradlew lint
+    - cd ../WifiParrot
+    - ./gradlew lint
 
 lint_test:
   stage: lint
@@ -74,9 +76,12 @@ build_apps:
     - cd smartphone
     - cd BLEParrot
     - ./gradlew build
+    - cd ../WifiParrot
+    - ./gradlew build
   artifacts:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
 
 build_test:
@@ -99,6 +104,8 @@ test_apps:
   script:
     - cd smartphone
     - cd BLEParrot
+    - ./gradlew test
+    - cd WifiParrot
     - ./gradlew test
 
 test_test:
