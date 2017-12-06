@@ -33,10 +33,10 @@ int main(void)
     HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
     rtt_write_string("Started RTC\n") ;
 
-    static uint8_t addr = 0x1F ;    // non-0 SX12 register
-    static uint8_t rx_buffer[10] ;
+    static uint8_t addr = 0x30 ;    // non-0 SX12 register
+    static uint8_t rx_buffer[1] ;
     while(true) {
-        SX1276ReadBuffer(addr,rx_buffer,10) ;
+        SX1276ReadBuffer(addr,rx_buffer,1) ;
         rtt_printf(0,"Received : 0x%#04X\n", rx_buffer[0]) ;
         HW_RTC_DelayMs(100) ;
     }
