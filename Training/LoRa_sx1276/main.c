@@ -4,6 +4,8 @@
 #include "rtt.h"
 #include "hw.h"
 #include "ble_central.h"
+#include "radio.h"
+#include "sx1276.h"
 
 int main(void)
 {
@@ -31,12 +33,11 @@ int main(void)
     HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
     rtt_write_string("Started RTC\n") ;
 
-
+    static uint8_t addr = 0x1F ;    // non-0 SX12 register
+    static uint8_t rx_buffer[10] ;
     while(true) {
-        rtt_printf(0,"It is %u o'clock\n", HW_RTC_GetTimerValue()) ;
-        uint16_t addr = 5 ;
-        HW_SPI_InOut( addr | 0x80 );
-        HW_SPI_InOut( 0xBEEF );
+        SX1276ReadBuffer(addr,rx_buffer,10) ;
+        rtt_printf(0,"Received : 0x%#04X\n", rx_buffer[0]) ;
         HW_RTC_DelayMs(100) ;
     }
 
