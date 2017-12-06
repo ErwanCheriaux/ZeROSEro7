@@ -24,7 +24,7 @@ void led_off(void)
 
 void led_toggle(void)
 {
-    rtt_printf(11, "LED toggle\n");
+    rtt_printf(0, "LED toggle\n");
     if(toggle)
         led_off();
     else
