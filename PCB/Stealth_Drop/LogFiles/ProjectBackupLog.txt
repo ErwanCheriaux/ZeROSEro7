@@ -36,3 +36,9 @@
 [2017-12-06 01.33.05] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
 [2017-12-06 01.33.06] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
 [2017-12-06 01.33.06] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 02.23.15] WARNING: Removing broken (incomplete) backup file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zi]
+[2017-12-07 02.23.15] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-07 02.23.15] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017-12-07 02.23.16] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-07 02.23.16] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 02.23.24] Successfully created [Project Repair] backup [2017-12-07 02.23.22 - repair.zip] requested by [DESKTOP-D6MOGOB:alexis].

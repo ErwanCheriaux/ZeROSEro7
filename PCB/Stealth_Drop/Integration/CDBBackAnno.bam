@@ -1,36 +1,62 @@
 
-/* Sym: 04E3C5D8  Path 1: Schematic1  Page 1: Schematic1(1) */
+/* Sym: 03F0A6D8  Path 1: Schematic1  Page 1: Schematic1(1) */
 CHANGE 'Schematic1(1)' 	INSTANCE
-  SELECT EXT XCMP901                  /* Reference Desig is USART2_RX */
-    PARAM 'Part Name' = 'TEST_POINT' 
-    PARAM 'Description' = 'Test point 0.9mm, SMD' 
-    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-  SELECT EXT XCMP900                  /* Reference Desig is USART2_TX */
-    PARAM 'Part Name' = 'TEST_POINT' 
-    PARAM 'Description' = 'Test point 0.9mm, SMD' 
-    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-  SELECT COMP XCMP898                 /* Reference Desig is R6 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '3K ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 3.0k ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_3.0k_0603' 
-    PARAM 'Code Fournisseur' = 'Fa : 9330976' 
-    PARAM 'Cout HT' = '0.045' 
   SELECT COMP XCMP854                 /* Reference Desig is U4 */
     PARAM 'Part Name' = 'STM32F215RG' 
     PARAM 'Description' = 'ARM Cortex-M4 32b MCU, FPU, 150DMIPS, up to 1MB Flash/128-4KB RAM, USB OTG HS/FS, 17 TIMs, 3 ADCs, ST STM32F215RGT7, case LQFP64' 
     PARAM 'Part Label' = 'STM32F215RGT7' 
     PARAM 'Code Fournisseur' = 'Mouser : 511-STM32F205RGT7' 
     PARAM 'Cout HT' = '10.14' 
-  SELECT COMP XCMP939                 /* Reference Desig is C15 */
-    PARAM 'Part Name' = 'CAPCERAM0402' 
-    PARAM 'Value' = '12pF' 
+  SELECT COMP XCMP959                 /* Reference Desig is U3 */
+    PARAM 'Part Name' = '2450AT18A100E' 
+    PARAM 'Description' = 'Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E' 
+    PARAM 'Part Label' = '2450AT18A100E' 
+    PARAM 'Code Fournisseur' = 'Fa : 1885496' 
+    PARAM 'Cout HT' = '0.7' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'U3'         /* Reference Desig was (null) */
+  SELECT COMP XCMP958                 /* Reference Desig is U2 */
+    PARAM 'Part Name' = 'AMW006' 
+    PARAM 'Description' = 'Ultra-low power Wi-Fi networking module for battery powered applications , ACKME Networks AMW006 Numbat, 3.3V' 
+    PARAM 'Part Label' = 'AMW006' 
+    PARAM 'Code Fournisseur' = 'Fa : 2454198' 
+    PARAM 'Cout HT' = '16.5' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'U2'         /* Reference Desig was (null) */
+  SELECT EXT XCMP934                  /* Reference Desig is USART2_CTS */
+    PARAM 'Part Name' = 'TEST_POINT' 
+    PARAM 'Description' = 'Test point 0.9mm, SMD' 
+    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+  SELECT EXT XCMP963                  /* Reference Desig is PT2 */
+    PARAM 'Part Name' = 'TEST_POINT' 
+    PARAM 'Description' = 'Test point 0.9mm, SMD' 
+    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'PT2'         /* Reference Desig was (null) */
+  SELECT EXT XCMP962                  /* Reference Desig is PT1 */
+    PARAM 'Part Name' = 'TEST_POINT' 
+    PARAM 'Description' = 'Test point 0.9mm, SMD' 
+    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'PT1'         /* Reference Desig was (null) */
+  SELECT COMP XCMP961                 /* Reference Desig is R1 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '200 ' 
     PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Capacitor Ceramic 12pF / C0G / 25V / ±5% / case 0402' 
-    PARAM 'Part Label' = 'CAP C0402 12pF C0G 25V' 
-    PARAM 'Code Fournisseur' = 'Fa : 2070375' 
-    PARAM 'Cout HT' = '0.027' 
+    PARAM 'Description' = 'Resistor 200 ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_200_0603' 
+    PARAM 'Code Fournisseur' = 'Fa : 2333571' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R1'         /* Reference Desig was (null) */
+  SELECT COMP XCMP960                 /* Reference Desig is U5 */
+    PARAM 'Part Name' = '2450AT18A100E' 
+    PARAM 'Description' = 'Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E' 
+    PARAM 'Part Label' = '2450AT18A100E' 
+    PARAM 'Code Fournisseur' = 'Fa : 1885496' 
+    PARAM 'Cout HT' = '0.7' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'U5'         /* Reference Desig was (null) */
   SELECT COMP XCMP855                 /* Reference Desig is C1 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
@@ -39,15 +65,67 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-  SELECT COMP XCMP864                 /* Reference Desig is D1 */
-    PARAM 'Part Name' = 'LED_RGB' 
-    PARAM 'Description' = 'Tricolor RGB  LED, SMD case ChipLed, Avago HSMF-C114, 20mA, 70/180/85mCd, Vf=2.4/3.9/2.9V' 
-    PARAM 'Part Label' = 'HSMF-C114' 
-    PARAM 'Code Fournisseur' = 'Fa : 1058362 ' 
-    PARAM 'Cout HT' = '1.75' 
+  SELECT COMP XCMP856                 /* Reference Desig is C2 */
+    PARAM 'Part Name' = 'CAPCERAM0603' 
+    PARAM 'Value' = '100nF' 
+    PARAM 'Tolerance' = '10%' 
+    PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0603' 
+    PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
+    PARAM 'Code Fournisseur' = 'Fa : 1414027' 
+    PARAM 'Cout HT' = '0.014' 
+  SELECT COMP XCMP997                 /* Reference Desig is R2 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '10K ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 10k ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_10k_0603' 
+    PARAM 'Code Fournisseur' = 'Fa : 9331700' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R2'         /* Reference Desig was (null) */
+  SELECT EXT XCMP996                  /* Reference Desig is J3 */
+    PARAM 'Part Name' = 'BARETTE' 
+    PARAM 'Description' = 'Jumper 2 points 2.54mm avec cavalier associe' 
+    PARAM 'Part Label' = 'JUMPER 2PTS' 
+    PARAM 'Cout HT' = '0.2' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'J3'         /* Reference Desig was (null) */
+  SELECT COMP XCMP995                 /* Reference Desig is QZ1 */
+    PARAM 'Part Name' = 'QUARTZ' 
+    PARAM 'Tolerance' = '15' 
+    PARAM 'Description' = 'Quartz 16.000 MHz, +/- 15ppm, 8pF, SMD, NX2520SA-16MHZ-STD-CSW-5' 
+    PARAM 'Part Label' = '16.000 MHz' 
+    PARAM 'Code Fournisseur' = 'DG : 644-1093-1-ND' 
+    PARAM 'Cout HT' = '1.3' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'QZ1'         /* Reference Desig was (null) */
+  SELECT COMP XCMP994                 /* Reference Desig is C15 */
+    PARAM 'Part Name' = 'CAPCERAM0402' 
+    PARAM 'Value' = '12pF' 
+    PARAM 'Tolerance' = '2%' 
+    PARAM 'Description' = 'Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402, Johanson 500R07S120GV4T' 
+    PARAM 'Part Label' = 'CAP C0402 12pF C0G 50V 2%' 
+    PARAM 'Code Fournisseur' = 'Fa : 1885335' 
+    PARAM 'Cout HT' = '0.0116' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C15'         /* Reference Desig was (null) */
+  SELECT COMP XCMP993                 /* Reference Desig is C14 */
+    PARAM 'Part Name' = 'CAPCERAM0402' 
+    PARAM 'Value' = '12pF' 
+    PARAM 'Tolerance' = '2%' 
+    PARAM 'Description' = 'Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402, Johanson 500R07S120GV4T' 
+    PARAM 'Part Label' = 'CAP C0402 12pF C0G 50V 2%' 
+    PARAM 'Code Fournisseur' = 'Fa : 1885335' 
+    PARAM 'Cout HT' = '0.0116' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C14'         /* Reference Desig was (null) */
+  SELECT EXT XCMP935                  /* Reference Desig is USART2_RTS */
+    PARAM 'Part Name' = 'TEST_POINT' 
+    PARAM 'Description' = 'Test point 0.9mm, SMD' 
+    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
   SELECT COMP XCMP863                 /* Reference Desig is C11 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
-    PARAM 'Value' = '2,2uF' 
+    PARAM 'Value' = '2.2uF' 
     PARAM 'Tolerance' = '20%' 
     PARAM 'Description' = 'Capacitor Ceramic X5R / 2.2uF / 6.3V / ±20% / case 0603' 
     PARAM 'Part Label' = 'CAP C0603 2.2uF X5R 6.3V' 
@@ -64,7 +142,7 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Cout HT' = '0.563' 
   SELECT COMP XCMP859                 /* Reference Desig is C10 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
-    PARAM 'Value' = '2,2uF' 
+    PARAM 'Value' = '2.2uF' 
     PARAM 'Tolerance' = '20%' 
     PARAM 'Description' = 'Capacitor Ceramic X5R / 2.2uF / 6.3V / ±20% / case 0603' 
     PARAM 'Part Label' = 'CAP C0603 2.2uF X5R 6.3V' 
@@ -86,96 +164,7 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-  SELECT COMP XCMP856                 /* Reference Desig is C2 */
-    PARAM 'Part Name' = 'CAPCERAM0603' 
-    PARAM 'Value' = '100nF' 
-    PARAM 'Tolerance' = '10%' 
-    PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0603' 
-    PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
-    PARAM 'Code Fournisseur' = 'Fa : 1414027' 
-    PARAM 'Cout HT' = '0.014' 
-  SELECT COMP XCMP941                 /* Reference Desig is QZ1 */
-    PARAM 'Part Name' = 'QUARTZ' 
-    PARAM 'Tolerance' = '15' 
-    PARAM 'Description' = 'Quartz 16.000 MHz, +/- 15ppm, 8pF, SMD, NX2520SA-16MHZ-STD-CSW-5' 
-    PARAM 'Part Label' = '16.000 MHz' 
-    PARAM 'Code Fournisseur' = 'DG : 644-1093-1-ND' 
-    PARAM 'Cout HT' = '1.3' 
-  SELECT COMP XCMP940                 /* Reference Desig is C16 */
-    PARAM 'Part Name' = 'CAPCERAM0402' 
-    PARAM 'Value' = '12pF' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Capacitor Ceramic 12pF / C0G / 25V / ±5% / case 0402' 
-    PARAM 'Part Label' = 'CAP C0402 12pF C0G 25V' 
-    PARAM 'Code Fournisseur' = 'Fa : 2070375' 
-    PARAM 'Cout HT' = '0.027' 
-  SELECT EXT XCMP935                  /* Reference Desig is USART2_RTS */
-    PARAM 'Part Name' = 'TEST_POINT' 
-    PARAM 'Description' = 'Test point 0.9mm, SMD' 
-    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-  SELECT EXT XCMP934                  /* Reference Desig is USART2_CTS */
-    PARAM 'Part Name' = 'TEST_POINT' 
-    PARAM 'Description' = 'Test point 0.9mm, SMD' 
-    PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-  SELECT EXT XCMP893                  /* Reference Desig is J2 */
-    PARAM 'Part Name' = 'MINI_SWD_CONNECTOR' 
-    PARAM 'Description' = 'Dual row 1.27 CMS 2x5 points connector, Samtec FTSH-105-01-L-DV ' 
-    PARAM 'Part Label' = 'FTSH-105-01-L-DV' 
-    PARAM 'Code Fournisseur' = 'Fa : 1667759' 
-    PARAM 'Cout HT' = '1.96' 
-  SELECT EXT XCMP889                  /* Reference Desig is J3 */
-    PARAM 'Part Name' = 'MICROSD' 
-    PARAM 'Description' = 'Connecteur MicroSD, à charnière, JAE ST1W008S4ER1500' 
-    PARAM 'Part Label' = 'JAE_ST1W008S4ER1500' 
-    PARAM 'Code Fournisseur' = 'Mouser : 656-ST1W008S4ER1500' 
-    PARAM 'Cout HT' = '1.71' 
-  SELECT COMP XCMP888                 /* Reference Desig is R10 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '10K ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 10k ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_10k_0603' 
-    PARAM 'Code Fournisseur' = 'Fa : 9331700' 
-    PARAM 'Cout HT' = '0.045' 
-  SELECT EXT XCMP869                  /* Reference Desig is J1 */
-    PARAM 'Part Name' = 'BARETTE' 
-    PARAM 'Description' = 'Jumper 2 points 2.54mm avec cavalier associe' 
-    PARAM 'Part Label' = 'JUMPER 2PTS' 
-    PARAM 'Cout HT' = '0.2' 
-  SELECT COMP XCMP867                 /* Reference Desig is R5 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '300 ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 300 ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_300_0603' 
-    PARAM 'Code Fournisseur' = 'RS : 396-7372' 
-    PARAM 'Cout HT' = '0.045' 
-  SELECT COMP XCMP866                 /* Reference Desig is R4 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '300 ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 300 ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_300_0603' 
-    PARAM 'Code Fournisseur' = 'RS : 396-7372' 
-    PARAM 'Cout HT' = '0.045' 
-  SELECT COMP XCMP865                 /* Reference Desig is R3 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '300 ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 300 ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_300_0603' 
-    PARAM 'Code Fournisseur' = 'RS : 396-7372' 
-    PARAM 'Cout HT' = '0.045' 
-
-/* Sym: 04E29128  Path 1: Schematic1  Page 2: Schematic1(2) */
-CHANGE 'Schematic1(2)' 	INSTANCE
-  SELECT COMP XCMP880                 /* Reference Desig is U1 */
-    PARAM 'Part Name' = 'AMW006' 
-    PARAM 'Description' = 'Ultra-low power Wi-Fi networking module for battery powered applications , ACKME Networks AMW006 Numbat, 3.3V' 
-    PARAM 'Part Label' = 'AMW006' 
-    PARAM 'Code Fournisseur' = 'Fa : 2454198' 
-    PARAM 'Cout HT' = '16.5' 
-  SELECT COMP XCMP879                 /* Reference Desig is C9 */
+  SELECT COMP XCMP957                 /* Reference Desig is C13 */
     PARAM 'Part Name' = 'CAPCERAM1210' 
     PARAM 'Value' = '10uF' 
     PARAM 'Tolerance' = '80%' 
@@ -184,7 +173,9 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Dielectric' = 'X5R' 
     PARAM 'Code Fournisseur' = 'Fa : 1759458' 
     PARAM 'Cout HT' = '1.319' 
-  SELECT COMP XCMP878                 /* Reference Desig is C8 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C13'         /* Reference Desig was (null) */
+  SELECT COMP XCMP956                 /* Reference Desig is C9 */
     PARAM 'Part Name' = 'CAPCERAM1210' 
     PARAM 'Value' = '10uF' 
     PARAM 'Tolerance' = '80%' 
@@ -193,7 +184,9 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Dielectric' = 'X5R' 
     PARAM 'Code Fournisseur' = 'Fa : 1759458' 
     PARAM 'Cout HT' = '1.319' 
-  SELECT COMP XCMP877                 /* Reference Desig is C7 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C9'         /* Reference Desig was (null) */
+  SELECT COMP XCMP955                 /* Reference Desig is C7 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
     PARAM 'Tolerance' = '10%' 
@@ -201,7 +194,9 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-  SELECT COMP XCMP876                 /* Reference Desig is C6 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C7'         /* Reference Desig was (null) */
+  SELECT COMP XCMP954                 /* Reference Desig is C6 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
     PARAM 'Tolerance' = '10%' 
@@ -209,82 +204,46 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-  SELECT COMP XCMP875                 /* Reference Desig is C5 */
-    PARAM 'Part Name' = 'CAPCERAM0603' 
-    PARAM 'Value' = '100nF' 
-    PARAM 'Tolerance' = '10%' 
-    PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0603' 
-    PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
-    PARAM 'Code Fournisseur' = 'Fa : 1414027' 
-    PARAM 'Cout HT' = '0.014' 
-  SELECT COMP XCMP895                 /* Reference Desig is U3 */
-    PARAM 'Part Name' = '2450AT18A100E' 
-    PARAM 'Description' = 'Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E' 
-    PARAM 'Part Label' = '2450AT18A100E' 
-    PARAM 'Code Fournisseur' = 'Fa : 1885496' 
-    PARAM 'Cout HT' = '0.7' 
-  SELECT COMP XCMP894                 /* Reference Desig is U2 */
-    PARAM 'Part Name' = '2450AT18A100E' 
-    PARAM 'Description' = 'Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E' 
-    PARAM 'Part Label' = '2450AT18A100E' 
-    PARAM 'Code Fournisseur' = 'Fa : 1885496' 
-    PARAM 'Cout HT' = '0.7' 
-  SELECT COMP XCMP899                 /* Reference Desig is R7 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '200 ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 200 ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_200_0603' 
-    PARAM 'Code Fournisseur' = 'Fa : 2333571' 
-    PARAM 'Cout HT' = '0.045' 
-  SELECT EXT XCMP904                  /* Reference Desig is UART1_TX */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C6'         /* Reference Desig was (null) */
+  SELECT EXT XCMP901                  /* Reference Desig is USART2_RX */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-  SELECT EXT XCMP905                  /* Reference Desig is UART1_RX */
+  SELECT EXT XCMP900                  /* Reference Desig is USART2_TX */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-  SELECT COMP XCMP826                 /* Reference Desig is D4 */
+  SELECT COMP XCMP953                 /* Reference Desig is C5 */
+    PARAM 'Part Name' = 'CAPCERAM0603' 
+    PARAM 'Value' = '100nF' 
+    PARAM 'Tolerance' = '10%' 
+    PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0603' 
+    PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
+    PARAM 'Code Fournisseur' = 'Fa : 1414027' 
+    PARAM 'Cout HT' = '0.014' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C5'         /* Reference Desig was (null) */
+  SELECT COMP XCMP952                 /* Reference Desig is D1 */
     PARAM 'Part Name' = 'LED_BLUE_0805' 
     PARAM 'Description' = 'Blue LED SMD case 0805 Agilent HSMB-C190 20mA Vf=3.8-4.6V' 
     PARAM 'Part Label' = 'BLUE' 
     PARAM 'Code Fournisseur' = 'Farnell : 322-5112' 
     PARAM 'Cout HT' = '0.52' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'D1'         /* Reference Desig was (null) */
 
-/* Sym: 04E3D610  Path 1: Schematic1  Page 3: Schematic1(3) */
-CHANGE 'Schematic1(3)' 	INSTANCE
-  SELECT COMP XCMP921                 /* Reference Desig is U5 */
-    PARAM 'Part Name' = 'MIC5504-3.3' 
-    PARAM 'Description' = 'Simple LDO 300mA, 3.3V, Micrel MIC5504-3.3YM5-TR, case SOT23' 
-    PARAM 'Part Label' = 'MIC5504-3.3YM5-TR' 
-    PARAM 'Code Fournisseur' = 'Mouser : 998-MIC5504-3.3YM5TR ' 
-    PARAM 'Cout HT' = '0.109' 
-  SELECT EXT XCMP920                  /* Reference Desig is J4 */
-    PARAM 'Part Name' = 'MICRO-USB-B' 
-    PARAM 'Description' = 'Female micro-USB B bottom SMD mount connector, Molex 47346-0001' 
-    PARAM 'Part Label' = 'MOL-47346-0001' 
-    PARAM 'Code Fournisseur' = 'Fa : 1568026' 
-    PARAM 'Cout HT' = '0.8' 
-  SELECT COMP XCMP927                 /* Reference Desig is U6 */
-    PARAM 'Part Name' = 'MCP73831' 
-    PARAM 'Description' = 'Miniature Single-Cell, Fully Integrated Li-Ion, Li-Polymer Charge Management Controller, 4.2V, Microchip MCP73831T-2ACI/OT, case SOT-23-5' 
-    PARAM 'Part Label' = 'MCP73831T-2ACI/OT' 
-    PARAM 'Code Fournisseur' = 'Fa : 1332158 ' 
-    PARAM 'Cout HT' = '1.05' 
-  SELECT COMP XCMP926                 /* Reference Desig is D2 */
-    PARAM 'Part Name' = 'LED_RED_0805' 
-    PARAM 'Description' = 'Red LED SMD case 0805 Agilent HSMH-C670' 
-    PARAM 'Part Label' = 'RED' 
-    PARAM 'Code Fournisseur' = 'Fa : 5790840' 
-    PARAM 'Cout HT' = '0.2755' 
-  SELECT COMP XCMP925                 /* Reference Desig is Q1 */
+/* Sym: 03F124D8  Path 1: Schematic1  Page 2: Schematic1(2) */
+CHANGE 'Schematic1(2)' 	INSTANCE
+  SELECT COMP XCMP971                 /* Reference Desig is Q1 */
     PARAM 'Part Name' = 'PMOS' 
     PARAM 'Description' = 'P-Channel MOSFET, IRF IRF5210S, 40A, Rds=0.06ohms, Vds=100V, boitier D2-Pack' 
     PARAM 'Part Label' = 'IRF5210S' 
     PARAM 'Code Fournisseur' = 'Fa : 3572341' 
     PARAM 'Cout HT' = '5.28' 
-  SELECT COMP XCMP924                 /* Reference Desig is R1 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'Q1'         /* Reference Desig was (null) */
+  SELECT COMP XCMP970                 /* Reference Desig is R3 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '100K ' 
     PARAM 'Tolerance' = '5%' 
@@ -292,7 +251,9 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Part Label' = 'RES_100k_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 9331719' 
     PARAM 'Cout HT' = '0.045' 
-  SELECT COMP XCMP923                 /* Reference Desig is C13 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R3'         /* Reference Desig was (null) */
+  SELECT COMP XCMP969                 /* Reference Desig is C8 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
     PARAM 'Tolerance' = '10%' 
@@ -300,20 +261,17 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-  SELECT EXT XCMP922                  /* Reference Desig is J5 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C8'         /* Reference Desig was (null) */
+  SELECT EXT XCMP968                  /* Reference Desig is J2 */
     PARAM 'Part Name' = 'JST_2PT_B2B-PH-SM4-TB' 
     PARAM 'Description' = 'Embase mâle CMS JST 2 broches, 2mm, avec détrompeur, à sortie verticale, B2B-PH-SM4-TB' 
     PARAM 'Part Label' = 'B2B-PH-SM4-TB' 
     PARAM 'Code Fournisseur' = 'Fa : 9492534' 
     PARAM 'Cout HT' = '0.32' 
-  SELECT COMP XCMP931                 /* Reference Desig is R8 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '2K ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 2.0k ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_2.0k_0603' 
-    PARAM 'Cout HT' = '0.045' 
-  SELECT COMP XCMP930                 /* Reference Desig is C14 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'J2'         /* Reference Desig was (null) */
+  SELECT COMP XCMP976                 /* Reference Desig is C16 */
     PARAM 'Part Name' = 'CAPCERAM0805' 
     PARAM 'Value' = '1uF' 
     PARAM 'Tolerance' = '80%' 
@@ -323,7 +281,9 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Voltage' = '16V' 
     PARAM 'Code Fournisseur' = 'Fa : 5212881' 
     PARAM 'Cout HT' = '0.07' 
-  SELECT COMP XCMP929                 /* Reference Desig is R2 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C16'         /* Reference Desig was (null) */
+  SELECT COMP XCMP975                 /* Reference Desig is R4 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '1K ' 
     PARAM 'Tolerance' = '5%' 
@@ -331,10 +291,119 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Part Label' = 'RES_1.0k_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 9331697' 
     PARAM 'Cout HT' = '0.045' 
-  SELECT COMP XCMP928                 /* Reference Desig is D3 */
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R4'         /* Reference Desig was (null) */
+  SELECT COMP XCMP974                 /* Reference Desig is D3 */
     PARAM 'Part Name' = 'SCHOTTKY' 
     PARAM 'Description' = 'Diode Shottky 3A 0.5V OnSemi MBRS340 case SMC' 
     PARAM 'Part Label' = 'MBRS340' 
     PARAM 'Code Fournisseur' = 'Fa : 9557377' 
     PARAM 'Vf' = '0.5' 
     PARAM 'Cout HT' = '0.45' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'D3'         /* Reference Desig was (null) */
+  SELECT COMP XCMP973                 /* Reference Desig is U6 */
+    PARAM 'Part Name' = 'MCP73831' 
+    PARAM 'Description' = 'Miniature Single-Cell, Fully Integrated Li-Ion, Li-Polymer Charge Management Controller, 4.2V, Microchip MCP73831T-2ACI/OT, case SOT-23-5' 
+    PARAM 'Part Label' = 'MCP73831T-2ACI/OT' 
+    PARAM 'Code Fournisseur' = 'Fa : 1332158 ' 
+    PARAM 'Cout HT' = '1.05' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'U6'         /* Reference Desig was (null) */
+  SELECT COMP XCMP972                 /* Reference Desig is D2 */
+    PARAM 'Part Name' = 'LED_RED_0805' 
+    PARAM 'Description' = 'Red LED SMD case 0805 Agilent HSMH-C670' 
+    PARAM 'Part Label' = 'RED' 
+    PARAM 'Code Fournisseur' = 'Fa : 5790840' 
+    PARAM 'Cout HT' = '0.2755' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'D2'         /* Reference Desig was (null) */
+  SELECT COMP XCMP984                 /* Reference Desig is R9 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '3K ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 3.0k ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_3.0k_0603' 
+    PARAM 'Code Fournisseur' = 'Fa : 9330976' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R9'         /* Reference Desig was (null) */
+  SELECT EXT XCMP983                  /* Reference Desig is J5 */
+    PARAM 'Part Name' = 'MICROSD' 
+    PARAM 'Description' = 'Connecteur MicroSD, à charnière, JAE ST1W008S4ER1500' 
+    PARAM 'Part Label' = 'JAE_ST1W008S4ER1500' 
+    PARAM 'Code Fournisseur' = 'Mouser : 656-ST1W008S4ER1500' 
+    PARAM 'Cout HT' = '1.71' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'J5'         /* Reference Desig was (null) */
+  SELECT COMP XCMP982                 /* Reference Desig is R8 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '300 ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 300 ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_300_0603' 
+    PARAM 'Code Fournisseur' = 'RS : 396-7372' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R8'         /* Reference Desig was (null) */
+  SELECT COMP XCMP981                 /* Reference Desig is R7 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '300 ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 300 ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_300_0603' 
+    PARAM 'Code Fournisseur' = 'RS : 396-7372' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R7'         /* Reference Desig was (null) */
+  SELECT COMP XCMP980                 /* Reference Desig is R6 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '300 ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 300 ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_300_0603' 
+    PARAM 'Code Fournisseur' = 'RS : 396-7372' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R6'         /* Reference Desig was (null) */
+  SELECT COMP XCMP979                 /* Reference Desig is D4 */
+    PARAM 'Part Name' = 'LED_RGB' 
+    PARAM 'Description' = 'Tricolor RGB  LED, SMD case ChipLed, Avago HSMF-C114, 20mA, 70/180/85mCd, Vf=2.4/3.9/2.9V' 
+    PARAM 'Part Label' = 'HSMF-C114' 
+    PARAM 'Code Fournisseur' = 'Fa : 1058362 ' 
+    PARAM 'Cout HT' = '1.75' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'D4'         /* Reference Desig was (null) */
+  SELECT EXT XCMP978                  /* Reference Desig is J4 */
+    PARAM 'Part Name' = 'MINI_SWD_CONNECTOR' 
+    PARAM 'Description' = 'Dual row 1.27 CMS 2x5 points connector, Samtec FTSH-105-01-L-DV ' 
+    PARAM 'Part Label' = 'FTSH-105-01-L-DV' 
+    PARAM 'Code Fournisseur' = 'Fa : 1667759' 
+    PARAM 'Cout HT' = '1.96' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'J4'         /* Reference Desig was (null) */
+  SELECT COMP XCMP977                 /* Reference Desig is R5 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '2K ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 2.0k ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_2.0k_0603' 
+    PARAM 'Cout HT' = '0.045' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'R5'         /* Reference Desig was (null) */
+  SELECT COMP XCMP967                 /* Reference Desig is U1 */
+    PARAM 'Part Name' = 'MIC5504-3.3' 
+    PARAM 'Description' = 'Simple LDO 300mA, 3.3V, Micrel MIC5504-3.3YM5-TR, case SOT23' 
+    PARAM 'Part Label' = 'MIC5504-3.3YM5-TR' 
+    PARAM 'Code Fournisseur' = 'Mouser : 998-MIC5504-3.3YM5TR ' 
+    PARAM 'Cout HT' = '0.109' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'U1'         /* Reference Desig was (null) */
+  SELECT EXT XCMP966                  /* Reference Desig is J1 */
+    PARAM 'Part Name' = 'MICRO-USB-B' 
+    PARAM 'Description' = 'Female micro-USB B bottom SMD mount connector, Molex 47346-0001' 
+    PARAM 'Part Label' = 'MOL-47346-0001' 
+    PARAM 'Code Fournisseur' = 'Fa : 1568026' 
+    PARAM 'Cout HT' = '0.8' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'J1'         /* Reference Desig was (null) */
