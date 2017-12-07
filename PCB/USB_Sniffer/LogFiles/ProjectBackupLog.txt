@@ -14,3 +14,17 @@
 [2017-12-01 19.31.29] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
 [2017-12-01 19.31.33] Successfully created [AutoSave] backup [2017-12-01 19.31.29 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-04 08.45.57] Successfully created [AutoSave] backup [2017-12-04 08.45.54 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-06 15.32.22] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-06 15.32.22] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017-12-06 15.32.22] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-06 15.32.22] Successfully created [AutoSave] backup [2017-12-06 15.32.22 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-06 16.57.10] WARNING: Removing broken (incomplete) backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zi]
+[2017-12-06 16.57.10] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-06 16.57.10] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 01.03.17] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-07 01.03.17] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 01.16.18] Successfully created [AutoSave] backup [2017-12-07 01.16.18 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-07 01.16.19] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-12-01 19.31.29 - auto.zip].
+[2017-12-07 01.16.19] [AutoSave] backup file [USB_Sniffer\Default\ProjectBackup\backups\2017-12-01 19.31.29 - auto.zip] removed.
+[2017-12-07 01.58.09] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-07 01.58.09] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.

@@ -1,0 +1,120 @@
+[2017.12.06 16:57:10] [0000m.00s.093ms] [0] WELCOME
+[2017.12.06 16:57:10] [0000m.00s.093ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.06 16:57:10] [0000m.00s.093ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.06 16:57:10] [0000m.00s.093ms] [1] Base flow version [VX.2.2]
+[2017.12.06 16:57:10] [0000m.00s.093ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.06 16:57:10] [0000m.00s.093ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.06 16:57:10] [0000m.00s.093ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] Machine [WINDOWS01]  IP [10.0.2.15,127.0.0.1]  User [admin]  PID [2996]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] Operating system [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] Current working dir [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] PATH [C:\MentorGraphics\EEVX.2.2\SDD_HOME\xe\win32\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin;C:\Program Files\PuTTY\;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common3D\win32\lib]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] SDD_HOME [C:\MentorGraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] SDD_PLATFORM [win32]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\MentorGraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [1] S: Config file name [ServerWG.cfg]
+[2017.12.06 16:57:10] [0000m.00s.125ms] [2] S: Loading config files
+[2017.12.06 16:57:10] [0000m.00s.140ms] [1] Config file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.12.06 16:57:10] [0000m.00s.140ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.12.06 16:57:10] [0000m.00s.140ms] [3] S: Config loaded
+[2017.12.06 16:57:10] [0000m.00s.171ms] [0] S: Project path [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb] on file system [NTFS]
+[2017.12.06 16:57:10] [0000m.00s.171ms] [0] S: Project global path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb] on file system [NTFS]
+[2017.12.06 16:57:10] [0000m.00s.171ms] [0] S: Project file (.prj) path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\USB_Sniffer.prj] on file system [UNKNOWN]
+[2017.12.06 16:57:10] [0000m.00s.171ms] [0] S: Project file (.prj) local path [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\USB_Sniffer.prj] on file system [NTFS]
+[2017.12.06 16:57:10] [0000m.00s.171ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.12.06 16:57:10] [0000m.00s.171ms] [0] S: Multi-user mode (config)
+[2017.12.06 16:57:10] [0000m.00s.171ms] [0] S: Event polling mode autodetection
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Started up automatically by iCDB Client: WINDOWS01:admin:1076
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Auto close mode
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Database ID [a2b7-7d99-c10c-7442-b1ff-72a0-2ff7-2a50-867d-3d2c-dc7d-1df8]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: BEGIN dumping
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: Local -> global path prefix list
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: [C:\Users] -> [\\WINDOWS01\Users]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: [E:\] -> [\\vboxsrv\VMshared\]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: Global -> local path prefix list
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: [\\vboxsrv\VMshared\] -> [E:\]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: [\\WINDOWS01\Users] -> [C:\Users]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] PathTranslator: END dumping
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: START
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Server startup lock file created
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Listening for client connections on port [10001]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Server network ID [windows01:10.0.2.15,windows01:10001]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Server GUID [176c-1720-7e11-60fa-6531-82ab-5318-2a50-828d-3d2c-dc7d-1df8]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Project GUID [a2b7-7d99-c10c-7442-b1ff-72a0-2ff7-2a50-867d-3d2c-dc7d-1df8]
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Wrote data to server address file
+[2017.12.06 16:57:10] [0000m.00s.187ms] [0] S: Server startup lock file removed
+[2017.12.06 16:57:10] [0000m.00s.187ms] [1] ProjectBackupManager: Setting project file (.prj) path: [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\USB_Sniffer.prj]
+[2017.12.06 16:57:10] [0000m.00s.796ms] [0] PrjBackupMgr: WARNING: Removing broken (incomplete) backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zi]
+[2017.12.06 16:57:10] [0000m.00s.828ms] [0] PrjBackupMgr: Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017.12.06 16:57:10] [0000m.00s.828ms] [0] PrjBackupMgr: WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017.12.06 16:57:12] [0000m.02s.546ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.12.06 16:57:12] [0000m.02s.562ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.12.06 16:57:12] [0000m.02s.562ms] [0] S: Local disc access time: 770 us
+[2017.12.06 16:57:12] [0000m.02s.562ms] [0] S: File server access time: 86 us
+[2017.12.06 16:57:12] [0000m.02s.593ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb\icdb.dat] size [206656 (201.8 kB)]
+[2017.12.06 16:57:12] [0000m.02s.593ms] [1] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.12.06 16:57:12] [0000m.02s.593ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.06 16:57:12] [0000m.02s.593ms] [0] Database GUARD OK: [206656]
+[2017.12.06 16:57:12] [0000m.02s.609ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.06 16:57:12] [0000m.02s.609ms] [0] Database GUARD OK: [206656]
+[2017.12.06 16:57:12] [0000m.02s.609ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.06 16:57:12] [0000m.02s.609ms] [0] Database GUARD OK: [206656]
+[2017.12.06 16:57:12] [0000m.02s.609ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.06 16:57:12] [0000m.02s.609ms] [0] Database GUARD OK: [206656]
+[2017.12.06 16:57:12] [0000m.02s.625ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.06 16:57:12] [0000m.02s.625ms] [0] Database GUARD OK: [206656]
+[2017.12.06 16:57:12] [0000m.02s.625ms] [0] SingleFile: [da15-3d66-cd71-cb9b] SFI version check [1009] [1009]
+[2017.12.06 16:57:12] [0000m.02s.625ms] [0] SingleFile: [da15-3d66-cd71-cb9b] Database SFI header has been read in [8ms 719us]
+[2017.12.06 16:57:12] [0000m.02s.640ms] [0] iCDB Server PI: Server & plugin session [4381]
+[2017.12.06 16:57:12] [0000m.02s.640ms] [0] iCDB Server PI: Opening database [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb]
+[2017.12.06 16:57:12] [0000m.02s.640ms] [0] iCDB Server PI: Database [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb] opened
+[2017.12.06 16:57:12] [0000m.02s.781ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.12.06 16:57:12] [0000m.02s.781ms] [0] iCDB Database: Checking constraint definitions version
+[2017.12.06 16:57:13] [0000m.03s.437ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=d077-c76f-3e54-155f-ea37-50a3-b375-0a50-084d-3d2c-dc7d-1df8] up to date
+[2017.12.06 16:57:13] [0000m.03s.484ms] [0] iCDB Server PI: Initializing plugins
+[2017.12.06 16:57:13] [0000m.03s.500ms] [0] iCDB Server PI: Plugins initialized
+[2017.12.06 16:57:13] [0000m.03s.500ms] [0] S: iCDB database loaded
+[2017.12.06 16:57:13] [0000m.03s.515ms] [0] S: Starting threads
+[2017.12.06 16:57:13] [0000m.03s.515ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.12.06 16:57:13] [0000m.03s.515ms] [1] CMT: There are no clients - waiting [10 seconds]
+[2017.12.06 16:57:13] [0000m.03s.531ms] [0] IT: Session [4382] for host [windows01] user [admin] with process ID [1076] created
+[2017.12.06 16:57:13] [0000m.03s.546ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.12.06 16:57:13] [0000m.03s.562ms] [0] IT: iCDB Server Monitor session [1] for host [windows01] user [admin] with process ID [884] created
+[2017.12.06 16:57:13] [0000m.03s.562ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.12.06 16:57:13] [0000m.03s.578ms] [1] SC[4382]: Registered sub-client [Expedition PCB_49031] with ID [1] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:13] [0000m.03s.625ms] [1] CMT: There are [1] clients now: 4382
+[2017.12.06 16:57:14] [0000m.04s.484ms] [1] SC[4382]: Registered sub-client [EEVM] with ID [2] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:14] [0000m.04s.671ms] [1] SC[4382]: UnRegistered sub-client [EEVM] with ID [2] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:16] [0000m.06s.109ms] [1] SC[4382]: Registered sub-client [JobPrefsDBPI_55375] with ID [3] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:16] [0000m.06s.140ms] [1] SC[4382]: UnRegistered sub-client [JobPrefsDBPI_55375] with ID [3] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:23] [0000m.13s.343ms] [1] SC[4382]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:23] [0000m.13s.375ms] [1] SC[4382]: Registered sub-client [StartServerClient430] with ID [5] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:23] [0000m.13s.390ms] [1] SC[4382]: UnRegistered sub-client [StartServerClient430] with ID [5] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 16:57:55] [0000m.45s.031ms] [0] DFAMT: File server access time: 50 us
+[2017.12.06 17:06:28] [0009m.18s.533ms] [1] SC[4382]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 17:06:30] [0009m.20s.189ms] [1] SC[4382]: UnRegistered sub-client [Expedition PCB_49031] with ID [1] for session ID [4382] host [windows01] user [admin] process ID [1076]
+[2017.12.06 17:06:30] [0009m.20s.361ms] [1] CMT: Removed client [4382]
+[2017.12.06 17:06:30] [0009m.20s.361ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.06 17:06:30] [0009m.20s.392ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.06 17:06:32] [0009m.22s.017ms] [0] CMT: Starting server auto-close
+[2017.12.06 17:06:32] [0009m.22s.033ms] [0] S: Closing server
+[2017.12.06 17:06:32] [0009m.22s.158ms] [0] iCDB Server PI: Closing plugins
+[2017.12.06 17:06:32] [0009m.22s.173ms] [0] iCDB Server PI: Plugins closed
+[2017.12.06 17:06:32] [0009m.22s.173ms] [0] iCDB Server PI: Unloading database
+[2017.12.06 17:06:32] [0009m.22s.173ms] [0] iCDB Server PI: Saving storage
+[2017.12.06 17:06:32] [0009m.22s.173ms] [0] iCDB Server PI: Closing database
+[2017.12.06 17:06:32] [0009m.22s.173ms] [1] iCDB Server PI: Stats: Database defragmentation: max[2] avg[1] holes[0%] data[97%]
+[2017.12.06 17:06:32] [0009m.22s.173ms] [1] iCDB Server PI: Stats: Database file size [209600 (204.7 kB)]
+[2017.12.06 17:06:32] [0009m.22s.236ms] [0] iCDB Server PI: Database closed
+[2017.12.06 17:06:32] [0009m.22s.236ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [483611] ticks
+[2017.12.06 17:06:32] [0009m.22s.236ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [48361] microseconds
+[2017.12.06 17:06:32] [0009m.22s.236ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [10]
+[2017.12.06 17:06:32] [0009m.22s.236ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [206] commands per second
+[2017.12.06 17:06:32] [0009m.22s.236ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb\icdb.dat] closed with size [209600 (204.7 kB)]
+[2017.12.06 17:06:32] [0009m.22s.283ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.06 17:06:32] [0009m.22s.470ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.06 17:06:32] [0009m.22s.470ms] [0] MWT: STOP
+[2017.12.06 17:06:32] [0009m.22s.470ms] [0] S: STOP

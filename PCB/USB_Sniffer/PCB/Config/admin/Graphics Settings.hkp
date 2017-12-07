@@ -2,10 +2,10 @@
 ! change it at your own peril
 
 !
-! Created 12/04/17 12:02:45
+! Created 12/07/17 03:00:08
 !
 
-.Global_Constants 50 2
+.Global_Constants 42 2
     ..File_Type Graphics_Settings
     ..Version Version_7
     ..Num_Views 1
@@ -15,11 +15,11 @@
 	0x00000003	! showCmd
 	(-1, -1)	! ptMinPosition
 	(-1, -1)	! ptMaxPosition
-	(212, 107) (1218,619)	! ..rcNormalPosition
-    ..Active_Place_Layer_Top             True
-    ..Active_Place_Layer_Bottom          False
+	(360, 256) (1366,768)	! ..rcNormalPosition
+    ..Active_Place_Layer_Top             False
+    ..Active_Place_Layer_Bottom          True
     ..Active_Place_Layer_Internal        False
-    ..Active_Route_Layer 1
+    ..Active_Route_Layer 0
     ..Trace_Layer_Color ( 
 	0x00ff6633 0x009933ff	! [1-2] RGB( 51,102,255)  RGB(255, 51,153)
 	0x0066ff99 0x000000ff	! [3-4] RGB(153,255,102)  RGB(255,  0,  0)
@@ -1298,41 +1298,33 @@
 	"SPI1_MOSI"	! [13]
 	"SPI1_NSS"	! [14]
 	"SPI1_SCK"	! [15]
-	"SPI2_MISO"	! [16]
-	"SPI2_MOSI"	! [17]
-	"SPI2_NSS_TEST"	! [18]
-	"SPI2_SCK_TEST"	! [19]
-	"SWCLK_NRF"	! [20]
-	"SWCLK_STM"	! [21]
-	"SWDIO_NRF"	! [22]
-	"SWDIO_STM"	! [23]
-	"USB_DEVICE_TO_KEYBOARD_DM"	! [24]
-	"USB_DEVICE_TO_KEYBOARD_DP"	! [25]
-	"USB_DEVICE_TO_KEYBOARD_VBUS"	! [26]
-	"USB_PC_TO_DEVICE_DM"	! [27]
-	"USB_PC_TO_DEVICE_DP"	! [28]
-	"USB_PC_TO_DEVICE_VBUS"	! [29]
-	"XSIG011272"	! [30]
-	"XSIG011359"	! [31]
-	"XSIG011360"	! [32]
-	"XSIG011371"	! [33]
-	"XSIG011372"	! [34]
-	"XSIG011373"	! [35]
-	"XSIG011389"	! [36]
-	"XSIG011391"	! [37]
-	"XSIG011393"	! [38]
-	"XSIG020088"	! [39]
-	"XSIG020089"	! [40]
-	"XSIG020124"	! [41]
-	"XSIG020125"	! [42]
-	"XSIG020126"	! [43]
-	"XSIG020127"	! [44]
-	"XSIG020128"	! [45]
-	"XSIG020154"	! [46]
-	"XSIG020155"	! [47]
-	"XSIG020156"	! [48]
-	"XSIG020157"	! [49]
-	"XSIG020164"	! [50]
+	"SWCLK_NRF"	! [16]
+	"SWCLK_STM"	! [17]
+	"SWDIO_NRF"	! [18]
+	"SWDIO_STM"	! [19]
+	"USB_DEVICE_TO_KEYBOARD_DM"	! [20]
+	"USB_DEVICE_TO_KEYBOARD_DP"	! [21]
+	"USB_DEVICE_TO_KEYBOARD_VBUS"	! [22]
+	"USB_PC_TO_DEVICE_DM"	! [23]
+	"USB_PC_TO_DEVICE_DP"	! [24]
+	"USB_PC_TO_DEVICE_VBUS"	! [25]
+	"XSIG011272"	! [26]
+	"XSIG011359"	! [27]
+	"XSIG011360"	! [28]
+	"XSIG011371"	! [29]
+	"XSIG011372"	! [30]
+	"XSIG011373"	! [31]
+	"XSIG011389"	! [32]
+	"XSIG011391"	! [33]
+	"XSIG011393"	! [34]
+	"XSIG020088"	! [35]
+	"XSIG020089"	! [36]
+	"XSIG020128"	! [37]
+	"XSIG020154"	! [38]
+	"XSIG020155"	! [39]
+	"XSIG020156"	! [40]
+	"XSIG020157"	! [41]
+	"XSIG020164"	! [42]
     )
     ..Netclass_Names ( 
 	"(Default)"	! [1]
@@ -1365,38 +1357,34 @@
 	0x00ffffff 0x00ffffff	! [37-38] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [39-40] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [41-42] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [43-44] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [45-46] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [47-48] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [49-50] RGB(255,255,255)  RGB(255,255,255)
     )
     ..Net_Ptrnidx ( 
 	0 0 0 0 0 0 0 0 0 0 	! [1 - 10]
 	0 0 0 0 0 0 0 0 0 0 	! [11 - 20]
 	0 0 0 0 0 0 0 0 0 0 	! [21 - 30]
 	0 0 0 0 0 0 0 0 0 0 	! [31 - 40]
-	0 0 0 0 0 0 0 0 0 0 	! [41 - 50]
+	0 0 ! [41 - 42]
 	)
     ..Net_Alpha ( 
 	100 100 100 100 100 100 100 100 100 100 	! [1 - 10]
 	100 100 100 100 100 100 100 100 100 100 	! [11 - 20]
 	100 100 100 100 100 100 100 100 100 100 	! [21 - 30]
 	100 100 100 100 100 100 100 100 100 100 	! [31 - 40]
-	100 100 100 100 100 100 100 100 100 100 	! [41 - 50]
+	100 100 ! [41 - 42]
 	)
     ..Net_Nopaque ( 
 	F F F F F F F F F F 	! [1 - 10]
 	F F F F F F F F F F 	! [11 - 20]
 	F F F F F F F F F F 	! [21 - 30]
 	F F F F F F F F F F 	! [31 - 40]
-	F F F F F F F F F F 	! [41 - 50]
+	F F ! [41 - 42]
 	)
     ..Net_Outline ( 
 	T T F T T F F F F F 	! [1 - 10]
 	F F F F F F F F F F 	! [11 - 20]
 	F F F F F F F F F F 	! [21 - 30]
 	F F F F F F F F F F 	! [31 - 40]
-	F F F F F F F F F F 	! [41 - 50]
+	F F ! [41 - 42]
 	)
     ..Netclass_Color (
 	0x00ffffff	! top     RGB(255,255,255)
@@ -1436,11 +1424,11 @@
 	True  ![1]
     )
     ..Net_On ( 
-	F F F F F F F F F F 	! [1 - 10]
+	F F F T T F F F F F 	! [1 - 10]
 	F F F F F F F F F F 	! [11 - 20]
 	F F F F F F F F F F 	! [21 - 30]
 	F F F F F F F F F F 	! [31 - 40]
-	F F F F F F F F F F 	! [41 - 50]
+	F F ! [41 - 42]
 	)
     ..Netclass_On                        False	! top
                                          False	! bottom
@@ -1590,7 +1578,7 @@
 	"Global.Option.ColorByNetClass.Enabled" "1"
 	"Global.Option.ColorByNetClass.NetClasses.Enabled" "0"
 	"Global.Option.ColorByNetClass.Netlines" "1"
-	"Global.Option.ColorByNetClass.Nets.Enabled" "0"
+	"Global.Option.ColorByNetClass.Nets.Enabled" "1"
 	"Global.Option.ColorByNetClass.Pads" "1"
 	"Global.Option.ColorByNetClass.PatternConstrainedNets" "0"
 	"Global.Option.ColorByNetClass.Planes" "1"
@@ -1624,7 +1612,7 @@
 	"[VirtualGlobal].iDC.Batch.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Board Objects.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.Color By Group.CollapsedSectionState" "1"
-	"[VirtualGlobal].iDC.Color By Net or Class.CollapsedSectionState" "1"
+	"[VirtualGlobal].iDC.Color By Net or Class.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.Copper Balancing.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.DFF Display Options.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.DFF Drill.CollapsedSectionState" "1"
@@ -1658,7 +1646,7 @@
 	"[VirtualGlobal].iDC.Substrate Objects.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.User Draft Layers.CollapsedSectionState" "1"
 	"[VirtualGlobal].iDC.Valor-NPI.CollapsedSectionState" "1"
-	"[VirtualGlobal].iDC.Vias.CollapsedSectionState" "1"
+	"[VirtualGlobal].iDC.Vias.CollapsedSectionState" "0"
 	"[VirtualGlobal].iDC.Wirebond Objects.CollapsedSectionState" "1"
     )
     ..Global_String_Options ( 
@@ -1766,9 +1754,9 @@
 	"[VirtualGlobal].iDC.SilkscreenItems" "3"
 	"[VirtualGlobal].iDC.SketchPlans.Collapsed" "3"
 	"[VirtualGlobal].iDC.Spacers" "3"
-	"[VirtualGlobal].iDC.SplitViewHeight.0" "118"
-	"[VirtualGlobal].iDC.SplitViewHeight.1" "54"
-	"[VirtualGlobal].iDC.SplitViewHeight.2" "304"
+	"[VirtualGlobal].iDC.SplitViewHeight.0" "54"
+	"[VirtualGlobal].iDC.SplitViewHeight.1" "302"
+	"[VirtualGlobal].iDC.SplitViewHeight.2" "94"
 	"[VirtualGlobal].iDC.Substrate Objects.CollapsedSectionOrder" "3"
 	"[VirtualGlobal].iDC.TestPointItems" "3"
 	"[VirtualGlobal].iDC.TextItems.Collapsed" "3"
@@ -1783,8 +1771,8 @@
 
 .view "PCB"
     ..extrema
-	(94711424,-1539353)		! (xmin, ymin)
-	(244912784,61540806)		! (xmax, ymax)
+	(13552633,15175140)		! (xmin, ymin)
+	(55972123,33052370)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
@@ -13330,56 +13318,48 @@
 	"Internal.Part.SpecialPlaceOutlineTop.254" "d:1" "e:1" "s:1" "se:1" "c:16776960" "a:100" "p:2" "t:0" "o:1"
 	"Internal.Part.SpecialPlaceOutlineTop.255" "d:1" "e:1" "s:1" "se:1" "c:16776960" "a:100" "p:2" "t:0" "o:1"
 	"Internal.Part.SpecialPlaceOutlineTop.256" "d:1" "e:1" "s:1" "se:1" "c:16776960" "a:100" "p:2" "t:0" "o:1"
-	"[Net].UnConnected_Net" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
-	"[Net].(Net0)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
-	"[Net].(Spacer_Net)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].GND" "d:1" "e:0" "s:1" "se:1" "c:26265" "a:100" "p:0" "t:0" "o:1"
-	"[Net].VCC" "d:1" "e:0" "s:1" "se:1" "c:39168" "a:100" "p:0" "t:0" "o:1"
-	"[Net].BOOT0" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].BOOT1" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].LED_B" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RGB_B" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RGB_G" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RGB_R" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI1_MISO" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI1_MOSI" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI1_NSS" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI1_SCK" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI2_MISO" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI2_MOSI" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI2_NSS_TEST" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI2_SCK_TEST" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SWCLK_NRF" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SWCLK_STM" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SWDIO_NRF" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SWDIO_STM" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_DEVICE_TO_KEYBOARD_DM" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_DEVICE_TO_KEYBOARD_DP" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_DEVICE_TO_KEYBOARD_VBUS" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_PC_TO_DEVICE_DM" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_PC_TO_DEVICE_DP" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_PC_TO_DEVICE_VBUS" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011272" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011359" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011360" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011371" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011372" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011373" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011389" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011391" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011393" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020088" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020089" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020124" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020125" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020126" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020127" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020128" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020154" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020155" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020156" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020157" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020164" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].UnConnected_Net" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
+	"[Net].(Net0)" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
+	"[Net].(Spacer_Net)" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].GND" "d:1" "e:1" "s:1" "se:1" "c:26265" "a:100" "p:0" "t:0" "o:1"
+	"[Net].VCC" "d:1" "e:1" "s:1" "se:1" "c:39168" "a:100" "p:0" "t:0" "o:1"
+	"[Net].BOOT0" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].BOOT1" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].LED_B" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RGB_B" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RGB_G" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RGB_R" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI1_MISO" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI1_MOSI" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI1_NSS" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI1_SCK" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SWCLK_NRF" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SWCLK_STM" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SWDIO_NRF" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SWDIO_STM" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_DEVICE_TO_KEYBOARD_DM" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_DEVICE_TO_KEYBOARD_DP" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_DEVICE_TO_KEYBOARD_VBUS" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_PC_TO_DEVICE_DM" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_PC_TO_DEVICE_DP" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_PC_TO_DEVICE_VBUS" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011272" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011359" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011360" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011371" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011372" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011373" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011389" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011391" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011393" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020088" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020089" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020128" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020154" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020155" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020156" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020157" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020164" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[NetClass].(Default)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[NetClass].(SpacerNetClass)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[ConstraintClass].(All)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
@@ -13517,7 +13497,7 @@
 	"Option.PlaceObjects.Selectable" "1"
 	"Option.PlaceObstructsHeight" "3"
 	"Option.Planes.Data.Enabled" "0"
-	"Option.Planes.Data.Fill" "2"
+	"Option.Planes.Data.Fill" "3"
 	"Option.Planes.Enabled" "1"
 	"Option.Planes.Selectable" "1"
 	"Option.Planes.Shape.Enabled" "1"
