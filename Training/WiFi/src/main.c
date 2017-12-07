@@ -8,7 +8,7 @@
 #include "timer.h"
 #include "wifi.h"
 #include "rtt.h"
-#include "sha3.h"
+#include "sha256.h"
 
 int main(void)
 {
@@ -25,18 +25,16 @@ int main(void)
     led_on();
 
     wifi_command("ver\r\n");
-    wifi_command("scan\r\n");
-    find_devices();
+    //wifi_command("scan\r\n");
+    //find_devices();
 
-    sha3_context c;
-    uint8_t *hash;
-    sha3_Init256(&c);
-    sha3_Update(&c, "ZeROSEro7", 9);
-    hash = sha3_Finalize(&c);
+    unsigned char hash[SHA256_LEN];
+    unsigned char text[] = "ZeROSEro7";
+    sha256(text, hash);
     
     rtt_printf(0, "SHA3 (ZeROSEro7): ", hash);
-    for(int i = 0; hash[i] != '\0'; i++)
-        rtt_printf(0, "%x", hash[i]);
+    for(int i = 0; i < SHA256_LEN; i++)
+        rtt_printf(0, "%02x", hash[i]);
 
     chThdSleep(TIME_INFINITE);
     return 0;
