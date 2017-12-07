@@ -26,13 +26,13 @@ int main(void)
 
     wifi_command("ver\r\n");
     //wifi_command("scan\r\n");
-    //find_devices();
+    find_devices();
 
     unsigned char hash[SHA256_LEN];
-    unsigned char text[] = "ZeROSEro7";
+    unsigned char text[] = "Bbox-5DEB1C00";
     sha256(text, hash);
     
-    rtt_printf(0, "SHA3 (ZeROSEro7): ", hash);
+    rtt_printf(0, "SHA3 (Bbox-5DEB1C00): ");
     for(int i = 0; i < SHA256_LEN; i++)
         rtt_printf(0, "%02x", hash[i]);
 

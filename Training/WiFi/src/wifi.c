@@ -4,13 +4,15 @@
 #include <string.h>
 #include "uart.h"
 #include "rtt.h"
+#include "sha256.h"
 
 #define DEBUG 1
 
 // init white list
-const uint8_t white_list[2][65] = {
-    "c26d99fa3977e96955f8678cfb6c611414bcb4b6d9395166dacd9acf6c2d873e",
-    "debd23d6f2a553f2a003d3423d5737e35f6bb897ddad48fac30a3b0b5d210568"
+const unsigned char white_list[WHITE_LIST_SIZE][65] = {
+    {0x48,0x4f,0x95,0xf3,0x56,0x35,0xe2,0x82,0xca,0x6b,0xca,0x99,0x6b,0x6c,0xd8,0x34,0xdf,0xe8,0x1e,0xfe,0x04,0xe6,0x2e,0x7c,0x1f,0x85,0xa5,0xbb,0x1c,0xf1,0x37,0x88}, // ZeROSEro7
+    {Oxde,0xbd,0x23,0xd6,0xf2,0xa5,0x53,0xf2,0xa0,0x03,0xd3,0x42,0x3d,0x57,0x37,0xe3,0x5f,0x6b,0xb8,0x97,0xdd,0xad,0x48,0xfa,0xc3,0x0a,0x3b,0x0b,0x5d,0x21,0x05,0x68}, // zerosero7
+    {0x2d,0xc0,0xf1,0x77,0x81,0xf0,0xf8,0xd9,0x62,0x09,0xd1,0x3f,0xf9,0x32,0xc9,0xfd,0x3b,0x1e,0x3b,0xaf,0x90,0x75,0xec,0x6b,0x52,0x50,0x17,0x88,0xc8,0x26,0xa3,0xaa} // My ASUS
 };
 
 void wifi_init(void)
@@ -126,9 +128,24 @@ int find_devices(void)
                 uint8_t * ssid = lf_pos + 32;
                 // end ssid string
                 *(new_lf_pos - 1) = '\0';
-                //uint8_t * ssid_hash = sha3(ssid);
-                rtt_printf(0, "SSID: %s\n", ssid);
-                // TODO: check ssid
+                // calculate ssid hash
+                unsigned char hash[SHA256_LEN];
+                sha256(ssid, hash);
+                int equal = 1;
+                for(int i = 0; i < WHITE_LIST_SIZE; i++){
+                    equal = 1;
+                    for(int j = 0; j < SHA256_LEN; j++){
+                        if(hash[j] != white_list[i][j]){
+                            equal = 0;
+                            break;
+                        }
+                    }
+                    if(equal == 1)
+                        break;
+                }
+                if(equal)
+                    rtt_printf(0, "\nFOUND !: %s\n", ssid);
+                rtt_printf(0, "\nSSID: %s - ", ssid, hash);
                 // TODO: ssid must be handled
 
                 lf_pos = new_lf_pos;
