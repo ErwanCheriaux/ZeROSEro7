@@ -7,16 +7,16 @@
 #include "lora_ant_switch.h"
 
 #define RF_FREQUENCY                868000000 // Hz
-#define RX_TIMEOUT_VALUE            3000
+#define RX_TIMEOUT_VALUE            5         // ms
 #define LORA_BANDWIDTH              0         // [0: 125 kHz,
-                                                              //  1: 250 kHz,
-                                                              //  2: 500 kHz,
-                                                              //  3: Reserved]
+                                              //  1: 250 kHz,
+                                              //  2: 500 kHz,
+                                              //  3: Reserved]
 #define LORA_SPREADING_FACTOR       7         // [SF7..SF12]
 #define LORA_CODINGRATE             1         // [1: 4/5,
-                                                              //  2: 4/6,
-                                                              //  3: 4/7,
-                                                              //  4: 4/8]
+                                              //  2: 4/6,
+                                              //  3: 4/7,
+                                              //  4: 4/8]
 #define LORA_PREAMBLE_LENGTH        8         // Same for Tx and Rx
 #define LORA_SYMBOL_TIMEOUT         5         // Symbols
 #define LORA_FIX_LENGTH_PAYLOAD_ON  false
@@ -80,11 +80,13 @@ void lora_init() {
     Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
                                      LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
                                      LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
-                                     0, true, 0, 0, LORA_IQ_INVERSION_ON, true
+                                     0, true, 0, 0, LORA_IQ_INVERSION_ON, false
                      );
-    Radio.Rx( RX_TIMEOUT_VALUE );   // TODO remove
 }
 
+void lora_observe() {
+    Radio.Rx(RX_TIMEOUT_VALUE);
+}
 
 bool SX1276CheckRfFrequency(uint32_t frequency) {
     if(frequency == RF_FREQUENCY) {

@@ -6,6 +6,7 @@
 extern const struct Radio_s Radio ;
 
 void lora_init() ;
+void lora_observe() ;
 
 /*!
  * \brief Checks if the given RF frequency is supported by the hardware

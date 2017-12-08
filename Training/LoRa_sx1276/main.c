@@ -5,7 +5,11 @@
 #include "hw.h"
 #include "ble_central.h"
 #include "lora.h"
+#include "sx1276Regs-LoRa.h"
 
+static uint8_t addr ;    // non-0 SX12 register
+static uint8_t rx_buffer[4] ;
+static uint8_t tx_buffer[4] = {1,2,3,4} ;
 
 int main(void)
 {
@@ -30,17 +34,20 @@ int main(void)
 
     lora_init() ;
     rtt_write_string("LoRa initialized\n") ;
+    addr = REG_LR_MODEMCONFIG1 ;
+    Radio.ReadBuffer(addr,rx_buffer,2) ;    // should print 0x90,0x40,0x40,0x00 at RESET
+    rtt_printf(0,"LoRa config regs : 0x%#02X, 0x%#02X\n", rx_buffer[0], rx_buffer[1]) ;
 
+    lora_observe() ;
+    rtt_write_string("LoRa receiving\n") ;
 
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500)) ;
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000)) ;
 
-    static uint8_t addr = 0x30 ;    // non-0 SX12 register
-    static uint8_t rx_buffer[4] ;
-    static uint8_t tx_buffer[4] = {1,2,3,4} ;
+    addr = REG_LR_FIFORXBYTEADDR ;
     while(true) {
-        Radio.ReadBuffer(addr,rx_buffer,4) ;    // should print 0x90,0x40,0x40,0x00 at RESET
-        rtt_printf(0,"Read : 0x%#04X, 0x%#04X, 0x%#04X, 0x%#04X\n", rx_buffer[0], rx_buffer[1], rx_buffer[2], rx_buffer[3]) ;
+        Radio.ReadBuffer(addr,rx_buffer,1) ;
+        rtt_printf(0,"Fifo rx addr : 0x%#02X\n", rx_buffer[0]) ;
         HW_RTC_DelayMs(3000) ;
     }
 
