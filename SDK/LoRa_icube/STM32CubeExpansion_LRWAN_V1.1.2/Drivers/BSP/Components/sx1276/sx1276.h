@@ -531,4 +531,9 @@ void SX1276SetPublicNetwork( bool enable );
  */
 uint32_t SX1276GetRadioWakeUpTime( void );
 
+#ifdef NRF52
+// Exported for debug prupose
+void SX1276Reset( void );
+#endif
+
 #endif /* __SX1276_H__ */

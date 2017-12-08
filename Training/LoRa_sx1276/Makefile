@@ -278,6 +278,7 @@ MIDDLEWARES = $(CUBEEXPANSION)/Middlewares/Third_Party/Lora
 SRC_FILES += \
 	$(BSP)/Components/sx1276/sx1276.c \
 	$(MIDDLEWARES)/Utilities/utilities.c \
+	$(MIDDLEWARES)/Utilities/delay.c \
 	$(MIDDLEWARES)/Utilities/timeServer.c \
 #	$(MIDDLEWARES)/Core/lora.c \	for LoRaMAC
 

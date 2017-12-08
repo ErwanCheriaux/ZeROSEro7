@@ -58,8 +58,8 @@ typedef struct
 #define RADIO_NSS_PORT  SPI_SS_PIN
 #define RADIO_NSS_PIN   SPI_SS_PIN
 
-#define RADIO_RESET_PORT    0xBEEF // Unused for now
-#define RADIO_RESET_PIN     0xBEEF // Unused
+#define RADIO_RESET_PORT    0xBEEF // Unused
+#define RADIO_RESET_PIN     31
 
 
 

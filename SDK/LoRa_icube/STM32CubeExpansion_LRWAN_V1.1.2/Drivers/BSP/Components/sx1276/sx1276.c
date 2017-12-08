@@ -1357,7 +1357,7 @@ void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 {
     uint8_t tx_buffer[size+1] ; // TODO could be static with fixed length
     tx_buffer[0] = addr | 0x80 ;
-    memcpy1(tx_buffer, buffer, size) ;
+    memcpy1(tx_buffer+1, buffer, size) ;
 
     HW_SPI_transfer(tx_buffer, tx_buffer, size+1) ;
 }
