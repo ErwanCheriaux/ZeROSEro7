@@ -22,6 +22,7 @@ USER_SRC = \
 	$(PROJ_DIR)/hw_spi.c \
 	$(PROJ_DIR)/hw_gpio.c \
 	$(PROJ_DIR)/lora.c \
+	$(PROJ_DIR)/lora_ant_switch.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \

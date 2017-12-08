@@ -98,12 +98,4 @@ void SX1276IoInit() ;
  */
 void SX1276IoDeInit() ;
 
-/*!
- * \brief Checks if the given RF frequency is supported by the hardware
- *
- * \param [IN] frequency RF frequency to be checked
- * \retval isSupported [true: supported, false: unsupported]
- */
-bool SX1276CheckRfFrequency(uint32_t frequency);
-
 #endif
