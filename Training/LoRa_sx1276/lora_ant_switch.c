@@ -1,11 +1,14 @@
 #include "nrf_drv_gpiote.h"
 
 #include "lora_ant_switch.h"
+#include "lora.h"
 
 void SX1276AntSwInit( void ) {
     if(!nrf_drv_gpiote_is_init())
         APP_ERROR_CHECK(nrf_drv_gpiote_init()) ;
 }
+
+// TODO Inspired by sx1276_lrwan_ns1.c or the most similar board to our sx1276 montage
 
 static void SX1276SetXO( uint8_t state );
 static uint32_t SX1276GetWakeTime( void );

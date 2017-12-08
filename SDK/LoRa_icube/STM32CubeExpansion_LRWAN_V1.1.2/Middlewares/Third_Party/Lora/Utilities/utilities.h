@@ -78,7 +78,7 @@ Maintainer: Miguel Luis and Gregory Cristian
 
 typedef uint32_t TimerTime_t;
 
-#ifndef MIN // Line changed because Nordic and iCube define this
+#ifndef NRF52 // Line changed because Nordic and iCube define this (in the same way)
 /*!
  * \brief Returns the minimum value between a and b
  *
@@ -87,9 +87,7 @@ typedef uint32_t TimerTime_t;
  * \retval minValue Minimum value
  */
 #define MIN( a, b ) ( ( ( a ) < ( b ) ) ? ( a ) : ( b ) )
-#endif
 
-#ifndef MAX
 /*!
  * \brief Returns the maximum value between a and b
  *
@@ -98,7 +96,7 @@ typedef uint32_t TimerTime_t;
  * \retval maxValue Maximum value
  */
 #define MAX( a, b ) ( ( ( a ) > ( b ) ) ? ( a ) : ( b ) )
-#endif
+#endif  // NRF52
 
 /*!
  * \brief Returns 2 raised to the power of n
