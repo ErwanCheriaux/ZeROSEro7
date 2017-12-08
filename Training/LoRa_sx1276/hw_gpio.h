@@ -61,6 +61,12 @@ typedef struct
 #define RADIO_RESET_PORT    0xBEEF // Unused
 #define RADIO_RESET_PIN     31
 
+#define SX1276_DIO0_PIN 0xDEADBEEF  // Unused, Indicates FIFO levels in packet mode
+#define SX1276_DIO1_PIN 0xDEADBEEF
+#define SX1276_DIO2_PIN 0xDEADBEEF
+#define SX1276_DIO3_PIN 0xDEADBEEF
+#define SX1276_DIO4_PIN 0xDEADBEEF
+#define SX1276_DIO5_PIN 0xDEADBEEF
 
 
 /*!

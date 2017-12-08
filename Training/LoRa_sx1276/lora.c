@@ -6,7 +6,21 @@
 
 #include "lora_ant_switch.h"
 
-#define RF_FREQUENCY 868000000 // Hz
+#define RF_FREQUENCY                868000000 // Hz
+#define RX_TIMEOUT_VALUE            3000
+#define LORA_BANDWIDTH              0         // [0: 125 kHz,
+                                                              //  1: 250 kHz,
+                                                              //  2: 500 kHz,
+                                                              //  3: Reserved]
+#define LORA_SPREADING_FACTOR       7         // [SF7..SF12]
+#define LORA_CODINGRATE             1         // [1: 4/5,
+                                                              //  2: 4/6,
+                                                              //  3: 4/7,
+                                                              //  4: 4/8]
+#define LORA_PREAMBLE_LENGTH        8         // Same for Tx and Rx
+#define LORA_SYMBOL_TIMEOUT         5         // Symbols
+#define LORA_FIX_LENGTH_PAYLOAD_ON  false
+#define LORA_IQ_INVERSION_ON        false
 
 static bool SX1276CheckRfFrequency(uint32_t frequency) ;
 
@@ -62,15 +76,19 @@ void lora_init() {
 
     Radio.Init(&RadioEvents) ;
     Radio.SetChannel( RF_FREQUENCY ) ;
+
+    Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
+                                     LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
+                                     LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
+                                     0, true, 0, 0, LORA_IQ_INVERSION_ON, true
+                     );
+    Radio.Rx( RX_TIMEOUT_VALUE );   // TODO remove
 }
 
-/*!
- * \brief Checks if the given RF frequency is supported by the hardware
- *
- * \param [IN] frequency RF frequency to be checked
- * \retval isSupported [true: supported, false: unsupported]
- */
-static bool SX1276CheckRfFrequency(uint32_t frequency) {
-    APP_ERROR_CHECK(0xDEADBEEF) ; // Unsupported
+
+bool SX1276CheckRfFrequency(uint32_t frequency) {
+    if(frequency == RF_FREQUENCY) {
+        return true ;
+    }
     return false ;
 }

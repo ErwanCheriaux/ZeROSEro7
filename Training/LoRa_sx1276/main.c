@@ -22,6 +22,8 @@ int main(void)
     HW_RTC_Init();
     rtt_write_string("RTC Initialized\n") ;
     bsp_board_led_on(0);
+    HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
+    rtt_write_string("Started RTC\n") ;
 
     HW_SPI_Init() ;
     rtt_write_string("SPI Initialized\n") ;
@@ -32,10 +34,6 @@ int main(void)
 
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500)) ;
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000)) ;
-
-    HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
-    rtt_write_string("Started RTC\n") ;
-
 
     static uint8_t addr = 0x30 ;    // non-0 SX12 register
     static uint8_t rx_buffer[4] ;
