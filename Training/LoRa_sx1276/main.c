@@ -6,6 +6,7 @@
 #include "ble_central.h"
 #include "lora.h"
 #include "sx1276Regs-LoRa.h"
+#include "delay.h"
 
 static uint8_t addr ;    // non-0 SX12 register
 static uint8_t rx_buffer[4] ;
@@ -26,8 +27,6 @@ int main(void)
     HW_RTC_Init();
     rtt_write_string("RTC Initialized\n") ;
     bsp_board_led_on(0);
-    HW_RTC_SetAlarm(HW_RTC_ms2Tick(1000)) ;
-    rtt_write_string("Started RTC\n") ;
 
     HW_SPI_Init() ;
     rtt_write_string("SPI Initialized\n") ;
@@ -44,11 +43,20 @@ int main(void)
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500)) ;
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000)) ;
 
-    addr = REG_LR_FIFORXBYTEADDR ;
     while(true) {
+        addr = REG_LR_FIFORXBYTEADDR ;
         Radio.ReadBuffer(addr,rx_buffer,1) ;
         rtt_printf(0,"Fifo rx addr : 0x%#02X\n", rx_buffer[0]) ;
-        HW_RTC_DelayMs(3000) ;
+
+        addr = REG_LR_OPMODE ;
+        Radio.ReadBuffer(addr,rx_buffer,1) ;
+        rtt_printf(0,"Op mode : 0x%#02X\n", rx_buffer[0]) ; // TODO says LF mode registers ...
+
+        addr = REG_LR_PACONFIG ;
+        Radio.ReadBuffer(addr,rx_buffer,1) ;
+        rtt_printf(0,"Amplification config : 0x%#02X\n", rx_buffer[0]) ;
+
+        DelayMs(3000) ;
     }
 
     return 0;
