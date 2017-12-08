@@ -2,7 +2,7 @@
                                     Packager
                                     --------
 
-                       09:02 AM Friday, December 08, 2017
+                       05:46 PM Friday, December 08, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj
 
 
@@ -78,19 +78,11 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
 
 
-    WARNING: Block Schematic1, Page 2, Symbol XCMP998:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
      Common Data Base has been read
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 30
+     Number of Part Numbers: 38
           Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
           Part Numb: 00-0074 -> Vend Part: 00-0074 
@@ -102,7 +94,10 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
           Part Numb: 10-0018 -> Vend Part: 10-0018 
           Part Numb: 10-0037 -> Vend Part: 10-0037 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
+          Part Numb: 10-0058 -> Vend Part: 10-0058 
+          Part Numb: 10-0067 -> Vend Part: 10-0067 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0001 -> Vend Part: 20-0001 
           Part Numb: 20-0004 -> Vend Part: 20-0004 
@@ -111,7 +106,10 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
           Part Numb: 30-0006 -> Vend Part: 30-0006 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
+          Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
+          Part Numb: 50-0006 -> Vend Part: 50-0006 
+          Part Numb: 50-0029 -> Vend Part: 50-0029 
           Part Numb: 70-0002 -> Vend Part: 70-0002 
           Part Numb: 70-0058 -> Vend Part: 70-0058 
           Part Numb: 70-0065 -> Vend Part: 70-0065 
@@ -120,7 +118,9 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0056 -> Vend Part: 80-0056 
           Part Numb: 80-0063 -> Vend Part: 80-0063 
+          Part Numb: 81-0002 -> Vend Part: 81-0002 
           Part Numb: 81-0021 -> Vend Part: 81-0021 
+          Part Numb: 83-0025 -> Vend Part: 83-0025 
 
      Number of Part Names: 0
 
@@ -129,86 +129,6 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
      Checking for value differences between non-null symbol properties and PartsDB properties,
       but only for those properties checked off in the Property Definition Editor
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP957:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 10-0018
-      Symbol Property: Cout HT = 1,319
-     PartsDB Property: Cout HT = 1.319
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP956:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 10-0018
-      Symbol Property: Cout HT = 1,319
-     PartsDB Property: Cout HT = 1.319
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP958:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 80-0056
-      Symbol Property: Cout HT = 16,5
-     PartsDB Property: Cout HT = 16.5
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP854:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0317
-      Symbol Property: Cout HT = 10,14
-     PartsDB Property: Cout HT = 10.14
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP995:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 81-0021
-      Symbol Property: Cout HT = 1,3
-     PartsDB Property: Cout HT = 1.3
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP971:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 30-0006
-      Symbol Property: Cout HT = 5,28
-     PartsDB Property: Cout HT = 5.28
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP973:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0229
-      Symbol Property: Cout HT = 1,05
-     PartsDB Property: Cout HT = 1.05
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP978:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0081
-      Symbol Property: Cout HT = 1,96
-     PartsDB Property: Cout HT = 1.96
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP979:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 20-0038
-      Symbol Property: Cout HT = 1,75
-     PartsDB Property: Cout HT = 1.75
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP983:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0058
-      Symbol Property: Cout HT = 1,71
-     PartsDB Property: Cout HT = 1.71
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
 
      Checking the validity of the packaging of prepackaged schematic
       symbols.  Only the first error in symbols having the same
@@ -222,16 +142,17 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 49 Symbols:
-              49  ************************************************
+     Clustering 62 Symbols:
+              62  ***********
+              50  **************************************************
      Clustering is Complete
 
      Packager Assignments successfully completed
 
 
 
-     45 nets were found containing 186 pins
-     49 components were found
+     58 nets were found containing 237 pins
+     62 components were found
 
      Parsed netlist - Augmenting..
 
@@ -241,14 +162,11 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
      Checking Pins....
 
-     Testing of Packaging has been completed with 11 warnings.
-      Erroneous results may occur if not fixed.
+     Packaging has been successfully tested with no errors or warnings.
 
      Updating the Common DataBase
 
      A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
-     There have been 1 reference designator changes.
-     The BAM file will list all of the from-to changes.
 
 The Common DataBase has been successfully updated.
 
@@ -258,5 +176,3 @@ The Common DataBase has been successfully updated.
      An unused pin and gate report has been written to Integration\UnusedPins.txt
      An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
      An augmented pin report has been written to Integration\AugmentedPins.txt.
-
-     There have been 11 warnings.

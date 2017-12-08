@@ -1,5 +1,5 @@
 
-Schematic unused pins from : Packager  8-Dec-2017  09:02
+Schematic unused pins from : Packager  8-Dec-2017  17:46
 
 ------------------------------------------------------------------------
             Part/Reference             |          Unused pins
@@ -16,7 +16,10 @@ Schematic unused pins from : Packager  8-Dec-2017  09:02
  Part 10-0018                          |
  Part 10-0037                          |
  Part 10-0057                          |
+ Part 10-0058                          |
+ Part 10-0067                          |
  Part 10-0096                          |
+ Part 10-0106                          |
  Part 10-0112                          |
  Part 20-0001                          |
  Part 20-0004                          |
@@ -25,10 +28,16 @@ Schematic unused pins from : Packager  8-Dec-2017  09:02
  Part 30-0006                          |
  Part 40-0229                          |
  Part 40-0287                          |
+ Part 40-0308                          |
+  U7                                   | (P)  4 5 6 11 12 14 15 16 17
+                                       |  18 19 20 21 22 23 28 29 37 38
+                                       |  39 40 41 42 43
  Part 40-0317                          |
-  U4                                   | (P)  20 21 22 23 41 11 24 25
+  U4                                   | (P)  14 15 16 17 41 11 24 25
                                        |  37 38 2 3 4 7 28 56 50 55 27
                                        |  57 58 59 61 62 29 30 34
+ Part 50-0006                          |
+ Part 50-0029                          |
  Part 70-0002                          |
  Part 70-0058                          |
  Part 70-0065                          |
@@ -40,4 +49,6 @@ Schematic unused pins from : Packager  8-Dec-2017  09:02
   U2                                   | (P)  34 9 4 6 7 8 13 14 15 16
                                        |  21 22 23 24 28 30 31 33
  Part 80-0063                          |
+ Part 81-0002                          |
  Part 81-0021                          |
+ Part 83-0025                          |
