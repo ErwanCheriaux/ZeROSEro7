@@ -17,8 +17,8 @@ void HW_SPI_Init( void ) {
     APP_ERROR_CHECK(nrf_drv_spi_init(&spi_sx12, &spi_config, NULL, NULL));  // No Handler so that transfer is blocking
 }
 
-// TODO For now nordic pauses every two symbols, but the SX12 doesn't support this.
-// I could not do bursts since LoRa isn't very fast anyway.
+// Nordic driver pauses every two symbols by forcing clock to 0
+// but the SX12 is okay with this.
 void HW_SPI_transfer(uint8_t * rx_buffer,uint8_t * tx_buffer,uint16_t size)  {
     nrf_drv_spi_transfer(&spi_sx12, tx_buffer, size, rx_buffer, size);
 }

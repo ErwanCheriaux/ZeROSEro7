@@ -1351,7 +1351,7 @@ void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
     HW_GPIO_Write( RADIO_NSS_PORT, RADIO_NSS_PIN, 1 );
 }
 
-#else   // Send all data in one buffer
+#else   // Send all data in one buffer (much faster with the nRF driver)
 
 void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 {

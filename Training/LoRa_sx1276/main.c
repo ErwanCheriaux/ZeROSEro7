@@ -34,10 +34,10 @@ int main(void)
     rtt_write_string("Started RTC\n") ;
 
     static uint8_t addr = 0x30 ;    // non-0 SX12 register
-    static uint8_t rx_buffer[1] ;
+    static uint8_t rx_buffer[4] ;
     while(true) {
-        SX1276ReadBuffer(addr,rx_buffer,1) ;
-        rtt_printf(0,"Received : 0x%#04X\n", rx_buffer[0]) ;
+        SX1276ReadBuffer(addr,rx_buffer,4) ;    // should print 0x90,0x40,0x40,0x00 at RESET
+        rtt_printf(0,"Received : 0x%#04X, 0x%#04X, 0x%#04X, 0x%#04X\n", rx_buffer[0], rx_buffer[1], rx_buffer[2], rx_buffer[3]) ;
         HW_RTC_DelayMs(100) ;
     }
 
