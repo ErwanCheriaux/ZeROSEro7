@@ -7,7 +7,7 @@
 #include "lora_ant_switch.h"
 
 #define RF_FREQUENCY                868000000 // Hz
-#define RX_TIMEOUT_VALUE            5         // ms
+#define RX_TIMEOUT_VALUE            10000     // ms
 #define LORA_BANDWIDTH              0         // [0: 125 kHz,
                                               //  1: 250 kHz,
                                               //  2: 500 kHz,
@@ -20,7 +20,11 @@
 #define LORA_PREAMBLE_LENGTH        8         // Same for Tx and Rx
 #define LORA_SYMBOL_TIMEOUT         5         // Symbols
 #define LORA_FIX_LENGTH_PAYLOAD_ON  false
+#define LORA_FIX_LENGTH_PAYLOAD     0
 #define LORA_IQ_INVERSION_ON        false
+#define LORA_FREQUENCY_HOPPING_ON   0
+#define LORA_HOPPING_LENGTH         0         // Symbols
+#define LORA_CRC_ON                 true
 
 static bool SX1276CheckRfFrequency(uint32_t frequency) ;
 
@@ -59,7 +63,7 @@ static void handler_print() {
 }
 
 static void OnRxDone( uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr ) {
-    rtt_write_string("Unhandled Radio event\n") ;
+    rtt_write_string("Received a LoRa payload :)\n") ;
 }
 
 static RadioEvents_t RadioEvents;
@@ -80,7 +84,8 @@ void lora_init() {
     Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
                                      LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
                                      LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
-                                     0, true, 0, 0, LORA_IQ_INVERSION_ON, false
+                                     LORA_FIX_LENGTH_PAYLOAD, LORA_CRC_ON, LORA_FREQUENCY_HOPPING_ON,
+                                     LORA_HOPPING_LENGTH, LORA_IQ_INVERSION_ON, false
                      );
 }
 
