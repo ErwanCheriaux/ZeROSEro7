@@ -11,6 +11,7 @@
 static uint8_t addr ;    // non-0 SX12 register
 static uint8_t rx_buffer[4] ;
 static uint8_t tx_buffer[4] = {1,2,3,4} ;
+static uint8_t lora_send_buffer[4] = {'a','b','c','d'} ;
 
 int main(void)
 {
@@ -62,6 +63,10 @@ int main(void)
 
         lora_observe() ;
         rtt_write_string("LoRa receiving\n") ;
+        DelayMs(10050) ;
+
+        lora_send(lora_send_buffer, 4) ;
+        rtt_write_string("LoRa sending\n") ;
         DelayMs(10050) ;
     }
 

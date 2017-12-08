@@ -23,8 +23,11 @@
 #define LORA_FIX_LENGTH_PAYLOAD     0
 #define LORA_IQ_INVERSION_ON        false
 #define LORA_FREQUENCY_HOPPING_ON   0
-#define LORA_HOPPING_LENGTH         0         // Symbols
+#define LORA_HOPPING_PERIOD         0         // Symbols
 #define LORA_CRC_ON                 true
+
+#define LORA_TX_TIMEOUT             10000     // ms
+#define LORA_TX_POWER               14        // dBm
 
 static bool SX1276CheckRfFrequency(uint32_t frequency) ;
 
@@ -85,12 +88,23 @@ void lora_init() {
                                      LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
                                      LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
                                      LORA_FIX_LENGTH_PAYLOAD, LORA_CRC_ON, LORA_FREQUENCY_HOPPING_ON,
-                                     LORA_HOPPING_LENGTH, LORA_IQ_INVERSION_ON, false
+                                     LORA_HOPPING_PERIOD, LORA_IQ_INVERSION_ON, false
                      );
+
+     Radio.SetTxConfig( MODEM_LORA, LORA_TX_POWER, 0,
+                                      LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
+                                      LORA_CODINGRATE, LORA_PREAMBLE_LENGTH,
+                                      LORA_FIX_LENGTH_PAYLOAD_ON, LORA_CRC_ON, LORA_FREQUENCY_HOPPING_ON,
+                                      LORA_HOPPING_PERIOD, LORA_IQ_INVERSION_ON, LORA_TX_TIMEOUT
+                      );
 }
 
 void lora_observe() {
     Radio.Rx(RX_TIMEOUT_VALUE);
+}
+
+void lora_send(uint8_t * buffer, unsigned int size) {
+    Radio.Send(buffer, size);
 }
 
 bool SX1276CheckRfFrequency(uint32_t frequency) {
