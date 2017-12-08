@@ -2,7 +2,7 @@
                                Forward Annotation
                                ------------------
 
-                      02:59 AM Thursday, December 07, 2017
+                       05:43 PM Friday, December 08, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
 
@@ -23,7 +23,7 @@ Version:  01.01.00
 
      Target PDB Name: Work\Layout_Temp\PartsDB.pdb
 
-     Number of Part Numbers: 26
+     Number of Part Numbers: 45
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
@@ -33,14 +33,15 @@ Version:  01.01.00
           Part Numb: 10-0037 -> Vend Part: 10-0037 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
+          Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
-          Part Numb: 10-0075 -> Vend Part: 10-0075 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
-          Part Numb: 20-0009 -> Vend Part: 20-0009 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
-          Part Numb: 30-0025 -> Vend Part: 30-0025 
+          Part Numb: 20-0041 -> Vend Part: 20-0041 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
+          Part Numb: 40-0297 -> Vend Part: 40-0297 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
@@ -48,7 +49,25 @@ Version:  01.01.00
           Part Numb: 70-0081 -> Vend Part: 70-0081 
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0063 -> Vend Part: 80-0063 
+          Part Numb: 81-0001 -> Vend Part: 81-0001 
+          Part Numb: 81-0004 -> Vend Part: 81-0004 
+          Part Numb: 81-0005 -> Vend Part: 81-0005 
+          Part Numb: 81-0006 -> Vend Part: 81-0006 
+          Part Numb: 81-0007 -> Vend Part: 81-0007 
+          Part Numb: 81-0008 -> Vend Part: 81-0008 
+          Part Numb: 81-0009 -> Vend Part: 81-0009 
+          Part Numb: 81-0010 -> Vend Part: 81-0010 
+          Part Numb: 81-0011 -> Vend Part: 81-0011 
+          Part Numb: 81-0012 -> Vend Part: 81-0012 
+          Part Numb: 81-0013 -> Vend Part: 81-0013 
+          Part Numb: 81-0014 -> Vend Part: 81-0014 
+          Part Numb: 81-0020 -> Vend Part: 81-0020 
           Part Numb: 81-0021 -> Vend Part: 81-0021 
+          Part Numb: 83-0001 -> Vend Part: 83-0001 
+          Part Numb: 83-0002 -> Vend Part: 83-0002 
+          Part Numb: 83-0006 -> Vend Part: 83-0006 
+          Part Numb: 83-0007 -> Vend Part: 83-0007 
+          Part Numb: 83-0009 -> Vend Part: 83-0009 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
 
      Number of Part Names: 0
@@ -57,54 +76,6 @@ Version:  01.01.00
 
 
      Checking for value differences between symbol properties and PartsDB properties
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP717:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0042
-      Symbol Property: Cout HT = 1.05
-     PartsDB Property: Cout HT = 1,05
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP741:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0317
-      Symbol Property: Cout HT = 10.14
-     PartsDB Property: Cout HT = 10,14
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP746:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0308
-      Symbol Property: Cout HT = 4.64
-     PartsDB Property: Cout HT = 4,64
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP797:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0081
-      Symbol Property: Cout HT = 1.96
-     PartsDB Property: Cout HT = 1,96
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP798:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0081
-      Symbol Property: Cout HT = 1.96
-     PartsDB Property: Cout HT = 1,96
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP749:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 10-0075
-      Symbol Property: Cout HT = 1.12
-     PartsDB Property: Cout HT = 1,12
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP895:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 81-0021
-      Symbol Property: Cout HT = 1.3
-     PartsDB Property: Cout HT = 1,3
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP838:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 20-0038
-      Symbol Property: Cout HT = 1.75
-     PartsDB Property: Cout HT = 1,75
 
      Checking the validity of the packaging of prepackaged schematic
       symbols.  Only the first error in symbols having the same
@@ -125,16 +96,17 @@ Version:  01.01.00
 
 
      The Common DataBase has been read and will be packaged.
-     Clustering 46 Symbols:
-              46  *********************************************
+     Clustering 64 Symbols:
+              64  *************
+              50  **************************************************
      Clustering is Complete
 
      Packager Assignments successfully completed
 
 
 
-     39 nets were found containing 155 pins
-     46 components were found
+     39 nets were found containing 154 pins
+     64 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
      A formatted Schematic Netlist has been created.
@@ -142,13 +114,13 @@ Version:  01.01.00
      The Logic DataBase has been compiled from the Schematic Design.
       Use Netload to bring the Component Design into sync.
 
-     This Logic Data was Compiled with 9 warnings.
+     This Logic Data was Compiled with 1 warnings.
       Erroneous results may occur if not fixed.
 
                                      NetLoad
                                      -------
 
-                      02:59 AM Thursday, December 07, 2017
+                       05:43 PM Friday, December 08, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
 
@@ -160,6 +132,28 @@ Version:  02.11.12
 
 	Schematic reference designator changes will be forward annotated.
 
+
+     The following 19 components have not been placed:
+
+        OSC1
+        OSC2
+        OSC3
+        OSC4
+        OSC5
+        QZ1
+        QZ2
+        QZ5
+        QZ6
+        QZ7
+        QZ8
+        QZ9
+        QZ10
+        QZ11
+        QZ12
+        QZ13
+        QZ14
+        QZ15
+        QZ16
 
      Netload completed successfully with 0 warning(s).
      
