@@ -88,4 +88,22 @@ void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initS
  */
 void HW_GPIO_Write(uint16_t GPIO_Port, uint16_t GPIO_Pin, uint32_t value);
 
+/*!
+ * \brief Initializes the io
+ */
+void SX1276IoInit() ;
+
+/*!
+ * \brief Deinitializes the io
+ */
+void SX1276IoDeInit() ;
+
+/*!
+ * \brief Checks if the given RF frequency is supported by the hardware
+ *
+ * \param [IN] frequency RF frequency to be checked
+ * \retval isSupported [true: supported, false: unsupported]
+ */
+bool SX1276CheckRfFrequency(uint32_t frequency);
+
 #endif
