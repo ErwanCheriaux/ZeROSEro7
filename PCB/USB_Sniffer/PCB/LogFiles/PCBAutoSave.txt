@@ -2,13 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                       05:43 PM Friday, December 08, 2017
+                       03:06 PM Sunday, December 10, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
 
                                Autosave log closed
                                -------------------
 
-                       05:45 PM Friday, December 08, 2017
+                       03:10 PM Sunday, December 10, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
