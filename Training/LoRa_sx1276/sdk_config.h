@@ -1476,7 +1476,6 @@
 
 // <o> SPI_MISO_PIN  - Pin number
 
-
 #ifndef SPI_MISO_PIN
 #define SPI_MISO_PIN 28
 #endif
@@ -1494,7 +1493,6 @@
 #endif
 
 // <o> SPI_IRQ_PRIORITY  - Interrupt priority
-
 
 // <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
 // <0=> 0 (highest)

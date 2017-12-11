@@ -13,7 +13,7 @@
  * @note The timer is based on the RTC
  * @param none
  * @retval none
- */ // OPTIONAL, not used by LoRa SDK
+ */  // OPTIONAL, not used by LoRa SDK
 void HW_RTC_Init(void);
 
 /*!
@@ -65,7 +65,7 @@ uint32_t HW_RTC_GetTimerContext(void);
  * @param none
  * @retval none
  */
-void HW_RTC_IrqHandler(void * p_context);
+void HW_RTC_IrqHandler(void* p_context);
 
 /*!
  * @brief a delay of delay ms by polling RTC
@@ -88,6 +88,5 @@ uint32_t HW_RTC_ms2Tick(TimerTime_t timeMilliSec);
  * @retval returns time in timer milliseconds
  */
 TimerTime_t HW_RTC_Tick2ms(uint32_t tick);
-
 
 #endif

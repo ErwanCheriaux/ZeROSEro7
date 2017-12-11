@@ -7,39 +7,42 @@
 static nrf_drv_gpiote_out_config_t reset_out_config = {
     NRF_GPIOTE_POLARITY_TOGGLE,
     NRF_GPIOTE_INITIAL_VALUE_LOW,
-    false
-} ;
+    false};
 
-void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initStruct) {
+void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initStruct)
+{
     switch(GPIO_Pin) {
-        case RADIO_RESET_PIN :
+        case RADIO_RESET_PIN:
             if(initStruct->Mode == GPIO_MODE_OUTPUT_PP) {
-                nrf_drv_gpiote_out_init(RADIO_RESET_PIN,&reset_out_config) ;
+                nrf_drv_gpiote_out_init(RADIO_RESET_PIN, &reset_out_config);
             } else {
                 // Disconnect (configure as input)
-                nrf_drv_gpiote_out_uninit(RADIO_RESET_PIN) ;
+                nrf_drv_gpiote_out_uninit(RADIO_RESET_PIN);
             }
-            break ;
+            break;
 
-        case RADIO_NSS_PIN :    // Handled by SPI driver
-            return ;
+        case RADIO_NSS_PIN:  // Handled by SPI driver
+            return;
     }
 }
 
-void HW_GPIO_Write(uint16_t GPIO_Port, uint16_t GPIO_Pin, uint32_t value) {
+void HW_GPIO_Write(uint16_t GPIO_Port, uint16_t GPIO_Pin, uint32_t value)
+{
     switch(GPIO_Pin) {
-        case RADIO_RESET_PIN :  // Handled in init config
-            break ;
-        case RADIO_NSS_PIN :    // Handled by SPI driver
-            return ;
+        case RADIO_RESET_PIN:  // Handled in init config
+            break;
+        case RADIO_NSS_PIN:  // Handled by SPI driver
+            return;
     }
 }
 
-void SX1276IoInit() {
+void SX1276IoInit()
+{
     if(!nrf_drv_gpiote_is_init())
-        APP_ERROR_CHECK(nrf_drv_gpiote_init()) ;
+        APP_ERROR_CHECK(nrf_drv_gpiote_init());
 }
 
-void SX1276IoDeInit() {
-    APP_ERROR_CHECK(0xDEADBEEF) ; // Unsupported
+void SX1276IoDeInit()
+{
+    APP_ERROR_CHECK(0xDEADBEEF);  // Unsupported
 }

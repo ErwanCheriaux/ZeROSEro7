@@ -5,7 +5,7 @@
 *   Used by SX1276 driver. Defines board relative compiler Macros.
 */
 
-#define __ASM            __asm
+#define __ASM __asm
 
 #ifndef __STATIC_INLINE
 #define __STATIC_INLINE static __inline
@@ -13,6 +13,5 @@
 
 // The one from Nordic devkit (which is the same as for icube)
 #include "cmsis_gcc.h"
-
 
 #endif
