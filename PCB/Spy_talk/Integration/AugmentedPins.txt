@@ -12,6 +12,6 @@
  Part 70-0081                          |
        J1                              |    7| <unconnected pin>
  Part 40-0308                          |
-       U2                              |   44| <unconnected pin>
+       U1                              |   44| <unconnected pin>
  Part 40-0287                          |
        U3                              |    4| <unconnected pin>

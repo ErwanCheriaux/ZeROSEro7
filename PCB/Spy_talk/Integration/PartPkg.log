@@ -2,13 +2,13 @@
                                     Packager
                                     --------
 
-                      10:12 PM Wednesday, December 06, 2017
+                       04:46 PM Monday, December 11, 2017
             Job Name: C:\Users\admin\Documents\Spy_talk\Spy_talk.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: "C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package "-uC:\Users\admin\Documents\Spy_talk\Default\default.icdb" -k -CleanBuild "-jC:\Users\admin\Documents\Spy_talk\Spy_talk.prj" "
+        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\Spy_talk\Spy_talk.prj -CleanBuild -NoFill"
 
      The Common Database is at "C:\Users\admin\Documents\Spy_talk\Default\default.icdb".
 
@@ -37,10 +37,8 @@
      Properties that have been checked off in the Property Definition Editor
       found at Library Manager/Common Properties will be checked for value
       differences between the PartsDB and the non-null properties on symbols.
-     Those properties checked off will be transferred from the PartsDB to all
-      symbols, both packaged and unpackaged.  However, the property values
-      transferred will be limited to the precision specified in the Notation
-      Settings dialog.
+     Those properties checked off (other than Part Number)
+      will not be transferred from the PartsDB to symbols.
      The following properties were checked off in the Property Definition Editor:
        "Parametric"
        "Value2"
@@ -78,37 +76,15 @@
 
 
 
-    WARNING: Block Schematic1, Page 2, Symbol XCMP839:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP840:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP841:
-     Reference designator removal.
-     The Reference Designator "SW" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
      Common Data Base has been read
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 31
+     Number of Part Numbers: 34
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0057 -> Vend Part: 00-0057 
+          Part Numb: 00-0061 -> Vend Part: 00-0061 
+          Part Numb: 00-0085 -> Vend Part: 00-0085 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
           Part Numb: 10-0010 -> Vend Part: 10-0010 
           Part Numb: 10-0011 -> Vend Part: 10-0011 
@@ -116,19 +92,20 @@
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
-          Part Numb: 10-0075 -> Vend Part: 10-0075 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
-          Part Numb: 20-0001 -> Vend Part: 20-0001 
+          Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
-          Part Numb: 30-0003 -> Vend Part: 30-0003 
+          Part Numb: 20-0022 -> Vend Part: 20-0022 
+          Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 30-0010 -> Vend Part: 30-0010 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
           Part Numb: 40-0302 -> Vend Part: 40-0302 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0316 -> Vend Part: 40-0316 
-          Part Numb: 50-0006 -> Vend Part: 50-0006 
           Part Numb: 50-0029 -> Vend Part: 50-0029 
+          Part Numb: 50-0033 -> Vend Part: 50-0033 
           Part Numb: 70-0065 -> Vend Part: 70-0065 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
           Part Numb: 70-0086 -> Vend Part: 70-0086 
@@ -147,70 +124,6 @@
      Checking for value differences between non-null symbol properties and PartsDB properties,
       but only for those properties checked off in the Property Definition Editor
 
-    WARNING: Block Schematic1, Page 1, Symbol XCMP721:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0316
-      Symbol Property: Cout HT = 6,85
-     PartsDB Property: Cout HT = 6.85
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP799:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0308
-      Symbol Property: Cout HT = 4,64
-     PartsDB Property: Cout HT = 4.64
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP790:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 10-0075
-      Symbol Property: Cout HT = 1,12
-     PartsDB Property: Cout HT = 1.12
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP802:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 10-0075
-      Symbol Property: Cout HT = 1,12
-     PartsDB Property: Cout HT = 1.12
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP823:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 81-0002
-      Symbol Property: Cout HT = 1,88
-     PartsDB Property: Cout HT = 1.88
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP782:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0229
-      Symbol Property: Cout HT = 1,05
-     PartsDB Property: Cout HT = 1.05
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP794:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0081
-      Symbol Property: Cout HT = 1,96
-     PartsDB Property: Cout HT = 1.96
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP841:
-      Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 80-0035
-      Symbol Property: Cout HT = 1,08
-     PartsDB Property: Cout HT = 1.08
-     The symbol property value matches the PartsDB value with the Notation
-      Setting being ignored as requested for this property.
-
      Checking the validity of the packaging of prepackaged schematic
       symbols.  Only the first error in symbols having the same
       Reference Designator will be reported.
@@ -223,8 +136,8 @@
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 51 Symbols:
-              51  
+     Clustering 63 Symbols:
+              63  ************
               50  **************************************************
      Clustering is Complete
 
@@ -232,8 +145,8 @@
 
 
 
-     40 nets were found containing 160 pins
-     51 components were found
+     48 nets were found containing 190 pins
+     63 components were found
 
      Parsed netlist - Augmenting..
 
@@ -243,14 +156,11 @@
 
      Checking Pins....
 
-     Testing of Packaging has been completed with 11 warnings.
-      Erroneous results may occur if not fixed.
+     Packaging has been successfully tested with no errors or warnings.
 
      Updating the Common DataBase
 
      A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
-     There have been 3 reference designator changes.
-     The BAM file will list all of the from-to changes.
 
 The Common DataBase has been successfully updated.
 
@@ -260,5 +170,3 @@ The Common DataBase has been successfully updated.
      An unused pin and gate report has been written to Integration\UnusedPins.txt
      An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
      An augmented pin report has been written to Integration\AugmentedPins.txt.
-
-     There have been 11 warnings.

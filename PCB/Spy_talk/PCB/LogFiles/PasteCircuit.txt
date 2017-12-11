@@ -2,15 +2,15 @@
                                 Circuit Paste log
                                 -----------------
 
-                       01:56 PM Sunday, November 12, 2017
-                   Job Name: C:\t\Project_template\PCB\PCB.pcb
+                       09:38 PM Sunday, December 10, 2017
+             Job Name: C:\Users\admin\Documents\Spy_talk\PCB\PCB.pcb
 
-         Clipboard: C:\Users\alexi\AppData\Local\Temp\mgc_icc_clipboard_tmp\Layout\
+         Clipboard: C:\Users\admin\AppData\Local\Temp\mgc_icc_clipboard_tmp\Layout\
     
 
     UNMAPPED NETS:
-           GND
-    1 unmapped net(s) found
+           GND, VCC
+    2 unmapped net(s) found
 
 
 Checking Ref Des Map
@@ -28,6 +28,12 @@ Checking Netlist Map completed
 
 Updating Local Libraries
 ------------------------
+
+    WARNING: 1 cells exist in Local Library. Clipboard data is ignored:
+       C0603
+
+    WARNING: 1 Part Numbers exist in the Local Library. Clipboard data is ignored:
+       10-0057
 
 Library update is not required
 
@@ -49,15 +55,15 @@ Placing Components
 ------------------
 
 Component placement complete
-    0 Components were placed
+    3 Components were placed:
+       C3, C4, C5
 
 
 Loading net items
 -----------------
 
 Loading of Net items complete
-    1 objects were created
-        1 plane shapes
+    0 objects were created
 
 
 Loading Fiducials

@@ -2,13 +2,29 @@
                                 Autosave Log File
                                 -----------------
 
-                       02:28 PM Sunday, November 12, 2017
-                    Job Name: F:\PROJECT_TEMPLATE\PCB\PCB.pcb
+                       04:46 PM Monday, December 11, 2017
+             Job Name: C:\Users\admin\Documents\Spy_talk\PCB\PCB.pcb
 
+Autosave pending at 16:57:57 Mon  Attempting...
+Autosave completed successfully.  16:57:57 Mon
+Autosave pending at 17:35:46 Mon  Attempting...
+Autosave completed successfully.  17:35:49 Mon
+Autosave pending at 17:40:49 Mon  Attempting...
+Autosave completed successfully.  17:40:50 Mon
+Autosave pending at 17:46:16 Mon  Attempting...
+Autosave completed successfully.  17:46:17 Mon
+Autosave pending at 17:51:17 Mon  Attempting...
+Autosave completed successfully.  17:51:17 Mon
+Autosave pending at 17:56:46 Mon  Attempting...
+Autosave completed successfully.  17:56:46 Mon
+Autosave pending at 18:11:51 Mon  Attempting...
+Autosave completed successfully.  18:11:54 Mon
+Autosave pending at 18:17:18 Mon  Attempting...
+Autosave completed successfully.  18:17:19 Mon
 
                                Autosave log closed
                                -------------------
 
-                       02:29 PM Sunday, November 12, 2017
-                    Job Name: F:\PROJECT_TEMPLATE\PCB\PCB.pcb
+                       06:27 PM Monday, December 11, 2017
+             Job Name: C:\Users\admin\Documents\Spy_talk\PCB\PCB.pcb
 
