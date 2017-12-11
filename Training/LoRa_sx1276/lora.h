@@ -8,6 +8,7 @@ extern const struct Radio_s Radio ;
 void lora_init() ;
 void lora_observe() ;
 void lora_send(uint8_t * buffer, unsigned int size) ;
+void lora_clear_irq() ;
 
 /*!
  * \brief Checks if the given RF frequency is supported by the hardware

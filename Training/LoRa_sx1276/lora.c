@@ -6,8 +6,8 @@
 
 #include "lora_ant_switch.h"
 
-#define RF_FREQUENCY                868000000 // Hz
-#define RX_TIMEOUT_VALUE            10000     // ms
+#define RF_FREQUENCY                868100000 // Hz
+#define RX_TIMEOUT_VALUE            1000      // ms
 #define LORA_BANDWIDTH              0         // [0: 125 kHz,
                                               //  1: 250 kHz,
                                               //  2: 500 kHz,
@@ -25,11 +25,12 @@
 #define LORA_FREQUENCY_HOPPING_ON   0
 #define LORA_HOPPING_PERIOD         0         // Symbols
 #define LORA_CRC_ON                 true
+#define LORA_RX_CONTINUOUS_ON       true      // Repeat after symbol timeout
 
-#define LORA_TX_TIMEOUT             10000     // ms
+#define LORA_TX_TIMEOUT             1000      // ms
 #define LORA_TX_POWER               14        // dBm
 
-static bool SX1276CheckRfFrequency(uint32_t frequency) ;
+bool SX1276CheckRfFrequency(uint32_t frequency) ;
 
 const struct Radio_s Radio =
 {
@@ -61,8 +62,20 @@ const struct Radio_s Radio =
     SX1276GetRadioWakeUpTime
 };
 
-static void handler_print() {
-    rtt_write_string("Unhandled Radio event\n") ;
+static void onTxDone() {
+    rtt_write_string("Tx done :)\n") ;
+}
+
+static void onTxTimeout() {
+    rtt_write_string("Tx timeout\n") ;
+}
+
+static void onRxTimeout() {
+    rtt_write_string("Rx timeout\n") ;
+}
+
+static void onRxError() {
+    rtt_write_string("Rx error\n") ;
 }
 
 static void OnRxDone( uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr ) {
@@ -75,20 +88,22 @@ void lora_init() {
     SX1276AntSwInit() ;
     SX1276BoardInit(&lora_ant_switch_callbacks) ;
 
-    RadioEvents.TxDone = handler_print;
+    RadioEvents.TxDone = onTxDone;
     RadioEvents.RxDone = OnRxDone;
-    RadioEvents.TxTimeout = handler_print;
-    RadioEvents.RxTimeout = handler_print;
-    RadioEvents.RxError = handler_print;
+    RadioEvents.TxTimeout = onTxTimeout;
+    RadioEvents.RxTimeout = onRxTimeout;
+    RadioEvents.RxError = onRxError;
 
     Radio.Init(&RadioEvents) ;
     Radio.SetChannel( RF_FREQUENCY ) ;
 
-    Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH, LORA_SPREADING_FACTOR,
-                                     LORA_CODINGRATE, 0, LORA_PREAMBLE_LENGTH,
-                                     LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
-                                     LORA_FIX_LENGTH_PAYLOAD, LORA_CRC_ON, LORA_FREQUENCY_HOPPING_ON,
-                                     LORA_HOPPING_PERIOD, LORA_IQ_INVERSION_ON, false
+    Radio.SetRxConfig( MODEM_LORA, LORA_BANDWIDTH,
+                                    LORA_SPREADING_FACTOR, LORA_CODINGRATE,
+                                    0, LORA_PREAMBLE_LENGTH,
+                                    LORA_SYMBOL_TIMEOUT, LORA_FIX_LENGTH_PAYLOAD_ON,
+                                    LORA_FIX_LENGTH_PAYLOAD,
+                                    LORA_CRC_ON, LORA_FREQUENCY_HOPPING_ON, LORA_HOPPING_PERIOD,
+                                    LORA_IQ_INVERSION_ON, LORA_RX_CONTINUOUS_ON
                      );
 
      Radio.SetTxConfig( MODEM_LORA, LORA_TX_POWER, 0,
@@ -105,6 +120,10 @@ void lora_observe() {
 
 void lora_send(uint8_t * buffer, unsigned int size) {
     Radio.Send(buffer, size);
+}
+
+void lora_clear_irq() {
+    Radio.Write(REG_LR_IRQFLAGS, 0xff) ;
 }
 
 bool SX1276CheckRfFrequency(uint32_t frequency) {
