@@ -6,7 +6,7 @@
 
 #include "lora_ant_switch.h"
 
-#define RF_FREQUENCY                868100000 // Hz
+#define RF_FREQUENCY                868000000 // Hz
 #define RX_TIMEOUT_VALUE            1000      // ms
 #define LORA_BANDWIDTH              0         // [0: 125 kHz,
                                               //  1: 250 kHz,
