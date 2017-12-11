@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                       07:32 PM Friday, December 01, 2017
-     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+                       03:43 PM Monday, December 11, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -23,36 +23,43 @@ Version:  01.01.00
 
      Target PDB Name: Work\Layout_Temp\PartsDB.pdb
 
-     Number of Part Numbers: 30
-          Part Numb: 00-0050 -> Vend Part: 00-0050 
+     Number of Part Numbers: 37
+          Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
-          Part Numb: 00-0090 -> Vend Part: 00-0090 
+          Part Numb: 00-0074 -> Vend Part: 00-0074 
+          Part Numb: 00-0081 -> Vend Part: 00-0081 
+          Part Numb: 00-0085 -> Vend Part: 00-0085 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
-          Part Numb: 00-0109 -> Vend Part: 00-0109 
-          Part Numb: 10-0001 -> Vend Part: 10-0001 
-          Part Numb: 10-0037 -> Vend Part: 10-0037 
+          Part Numb: 00-0122 -> Vend Part: 00-0122 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
+          Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
-          Part Numb: 10-0075 -> Vend Part: 10-0075 
+          Part Numb: 10-0068 -> Vend Part: 10-0068 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
-          Part Numb: 10-0097 -> Vend Part: 10-0097 
+          Part Numb: 10-0103 -> Vend Part: 10-0103 
+          Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
+          Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
+          Part Numb: 20-0022 -> Vend Part: 20-0022 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 30-0010 -> Vend Part: 30-0010 
+          Part Numb: 40-0229 -> Vend Part: 40-0229 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
-          Part Numb: 50-0036 -> Vend Part: 50-0036 
+          Part Numb: 50-0029 -> Vend Part: 50-0029 
+          Part Numb: 50-0033 -> Vend Part: 50-0033 
           Part Numb: 70-0002 -> Vend Part: 70-0002 
-          Part Numb: 70-0007 -> Vend Part: 70-0007 
-          Part Numb: 70-0029 -> Vend Part: 70-0029 
-          Part Numb: 70-0042 -> Vend Part: 70-0042 
+          Part Numb: 70-0058 -> Vend Part: 70-0058 
+          Part Numb: 70-0065 -> Vend Part: 70-0065 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
-          Part Numb: 80-0063 -> Vend Part: 80-0063 
-          Part Numb: 81-0018 -> Vend Part: 81-0018 
-          Part Numb: 81-0026 -> Vend Part: 81-0026 
-          Part Numb: 83-0024 -> Vend Part: 83-0024 
+          Part Numb: 70-0086 -> Vend Part: 70-0086 
+          Part Numb: 80-0050 -> Vend Part: 80-0050 
+          Part Numb: 80-0071 -> Vend Part: 80-0071 
+          Part Numb: 81-0002 -> Vend Part: 81-0002 
+          Part Numb: 81-0021 -> Vend Part: 81-0021 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
 
      Number of Part Names: 0
@@ -61,60 +68,6 @@ Version:  01.01.00
 
 
      Checking for value differences between symbol properties and PartsDB properties
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP717:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0042
-      Symbol Property: Cout HT = 1.05
-     PartsDB Property: Cout HT = 1,05
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP741:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0317
-      Symbol Property: Cout HT = 10.14
-     PartsDB Property: Cout HT = 10,14
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP746:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 40-0308
-      Symbol Property: Cout HT = 4.64
-     PartsDB Property: Cout HT = 4,64
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP797:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0081
-      Symbol Property: Cout HT = 1.96
-     PartsDB Property: Cout HT = 1,96
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP798:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 70-0081
-      Symbol Property: Cout HT = 1.96
-     PartsDB Property: Cout HT = 1,96
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP749:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 10-0075
-      Symbol Property: Cout HT = 1.12
-     PartsDB Property: Cout HT = 1,12
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP755:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 50-0036
-      Symbol Property: Cout HT = 1.09
-     PartsDB Property: Cout HT = 1,09
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP853:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 81-0018
-      Symbol Property: Cout HT = 1.78
-     PartsDB Property: Cout HT = 1,78
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP838:
-	Symbol / PartsDB property mismatch:
-      Resolved PartNumber = 20-0038
-      Symbol Property: Cout HT = 1.75
-     PartsDB Property: Cout HT = 1,75
 
      Checking the validity of the packaging of prepackaged schematic
       symbols.  Only the first error in symbols having the same
@@ -135,8 +88,8 @@ Version:  01.01.00
 
 
      The Common DataBase has been read and will be packaged.
-     Clustering 52 Symbols:
-              52  *
+     Clustering 61 Symbols:
+              61  **********
               50  **************************************************
      Clustering is Complete
 
@@ -144,8 +97,8 @@ Version:  01.01.00
 
 
 
-     56 nets were found containing 171 pins
-     52 components were found
+     56 nets were found containing 237 pins
+     61 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
      A formatted Schematic Netlist has been created.
@@ -153,14 +106,14 @@ Version:  01.01.00
      The Logic DataBase has been compiled from the Schematic Design.
       Use Netload to bring the Component Design into sync.
 
-     This Logic Data was Compiled with 10 warnings.
+     This Logic Data was Compiled with 1 warnings.
       Erroneous results may occur if not fixed.
 
                                      NetLoad
                                      -------
 
-                       07:32 PM Friday, December 01, 2017
-     Job Name: C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\PCB\PCB.pcb
+                       03:43 PM Monday, December 11, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -172,68 +125,7 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-     WARNING:  The "FTSH-105-01-L-DV" cell used by "J1" in the Layout is not
-      valid for a "70-0042" Part Number.
-      Since this cell is unplaced, it will be removed and reinserted as a
-      valid unplaced cell.
-     INFO: Cell "FTSH-105-01-L-DV" is being replaced by cell "LUMBERG-2410-07".
-
-     The following 52 components have not been placed:
-
-        C1
-        C2
-        C3
-        C4
-        C5
-        C6
-        C7
-        C8
-        C9
-        C10
-        C11
-        C12
-        C13
-        C14
-        C15
-        C16
-        C17
-        C18
-        C21
-        D1
-        D4
-        J1
-        J2
-        J3
-        J4
-        J5
-        J11
-        L3
-        PT1
-        PT2
-        PT3
-        PT4
-        PT5
-        PT6
-        PT7
-        PT8
-        PT9
-        QZ1
-        QZ2
-        QZ3
-        QZ4
-        QZ5
-        R1
-        R2
-        R3
-        R4
-        R5
-        R6
-        R7
-        U1
-        U2
-        U3
-
-     Netload completed successfully with 1 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 
@@ -265,13 +157,8 @@ Version:  02.11.12
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
 
-Some nets were completely deleted from the Layout Design....
-	Deleted net SWCLK, which has no pins, from the Layout Design.
-	Deleted net SWDAT, which has no pins, from the Layout Design.
-	Deleted net RSTn, which has no pins, from the Layout Design.
-
 Forward-Annotation on the Layout Design has been successfully completed.
 
 There were 0 reassignments of nets.
 There were 0 traces broken back.
-There were 3 nets removed from the Layout Design.
+There were 0 nets removed from the Layout Design.
