@@ -339,4 +339,9 @@
  */
 #define STM32_WDG_USE_IWDG                  FALSE
 
+/*
+ * header for community drivers.
+ */
+#include "mcuconf_community.h"
+
 #endif /* MCUCONF_H */

@@ -2,6 +2,7 @@
 
 #include "ch.h"
 #include "hal.h"
+#include "usbh/debug.h" /* for usbDbgPuts/usbDbgPrintf */
 
 #include "fibo.h"
 
@@ -25,6 +26,20 @@ int main(void)
     timer_init();
 
     timer_on();
+
+    /*USBH OTG*/
+
+    //turn on USB power
+    palClearPad(GPIOA, GPIOA_USB_HS_BUSON);
+    chThdSleepMilliseconds(100);
+
+    usbhStart(&USBHD2);
+
+    while(1) {
+        usbhMainLoop(&USBHD2);
+        chThdSleepMilliseconds(100);
+    }
+
     chThdSleep(TIME_INFINITE);
     return 0;
 }

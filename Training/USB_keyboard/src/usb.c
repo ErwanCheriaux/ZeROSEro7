@@ -18,7 +18,6 @@
 
 /* Virtual serial port over USB.*/
 SerialUSBDriver SDU1;
-SerialUSBDriver SDU2;
 
 /*
  * Endpoints to be used for USBD1.
@@ -327,14 +326,8 @@ const USBConfig usbcfg = {
 /*
  * Serial over USB driver configuration.
  */
-const SerialUSBConfig serusbcfg1 = {
+const SerialUSBConfig serusbcfg = {
     &USBD1,
-    USBD1_DATA_REQUEST_EP,
-    USBD1_DATA_AVAILABLE_EP,
-    USBD1_INTERRUPT_REQUEST_EP};
-
-const SerialUSBConfig serusbcfg2 = {
-    &USBD2,
     USBD1_DATA_REQUEST_EP,
     USBD1_DATA_AVAILABLE_EP,
     USBD1_INTERRUPT_REQUEST_EP};
@@ -367,18 +360,15 @@ void usb_init(void)
    * Initializes a serial-over-USB CDC driver.
    */
     sduObjectInit(&SDU1);
-    sduStart(&SDU1, &serusbcfg1);
-
-    sduObjectInit(&SDU2);
-    sduStart(&SDU1, &serusbcfg2);
+    sduStart(&SDU1, &serusbcfg);
 
     /*
    * Activates the USB driver and then the USB bus pull-up on D+.
    * Note, a delay is inserted in order to not have to disconnect the cable
    * after a reset.
    */
-    usbDisconnectBus(serusbcfg1.usbp);
+    usbDisconnectBus(serusbcfg.usbp);
     chThdSleepMilliseconds(1500);
-    usbStart(serusbcfg1.usbp, &usbcfg);
-    usbConnectBus(serusbcfg1.usbp);
+    usbStart(serusbcfg.usbp, &usbcfg);
+    usbConnectBus(serusbcfg.usbp);
 }
