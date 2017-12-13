@@ -8,10 +8,10 @@
 #include "sx1276Regs-LoRa.h"
 #include "delay.h"
 
-static uint8_t addr;  // non-0 SX12 register
-static uint8_t rx_buffer[4];
-static uint8_t tx_buffer[4]        = {1, 2, 3, 4};
-static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};
+static uint8_t addr;                                        // SPI address
+static uint8_t rx_buffer[4];                                // SPI MISO
+static uint8_t tx_buffer[4]        = {1, 2, 3, 4};          // SPI MOSI
+static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};  // LORA FIFO TX
 
 static uint8_t fifo_rx_start, fifo_rx_end;
 
@@ -37,41 +37,19 @@ int main(void)
     lora_init();
     rtt_write_string("LoRa initialized\n");
     addr = REG_LR_MODEMCONFIG1;
-    Radio.ReadBuffer(addr, rx_buffer, 2);  // should print 0x90,0x40,0x40,0x00 at RESET
+    Radio.ReadBuffer(addr, rx_buffer, 2);
     rtt_printf(0, "LoRa config regs : 0x%#02X, 0x%#02X\n", rx_buffer[0], rx_buffer[1]);
 
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500));
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000));
 
-    *rx_buffer = Radio.Read(REG_LR_FIFORXBYTEADDR);
-    rtt_printf(0, "Fifo rx addr : 0x%#02X\n", rx_buffer[0]);
-
-    *rx_buffer = Radio.Read(REG_LR_OPMODE);
-    rtt_printf(0, "Op mode : 0x%#02X\n", rx_buffer[0]);
-
-    *rx_buffer = Radio.Read(REG_LR_PACONFIG);
-    rtt_printf(0, "Amplification config : 0x%#02X\n", rx_buffer[0]);
-
-    *rx_buffer = Radio.Read(REG_LR_RSSIVALUE);
-    rtt_printf(0, "RSSI : 0x%#02X\n", rx_buffer[0]);
-
-    //Radio.Write(REG_LR_IRQFLAGSMASK, 0xff) ; // Mask all IRQ
-
-    //DelayMs(3000) ;
-
-    static bool send;
     while(true) {
-        while(Radio.GetStatus() != RF_IDLE) {
-            // Do not ask for two operations at the same time
-        }
-        if(!send) {
-            lora_observe();
-            rtt_write_string("\nLoRa receiving\n");
-        } else {
-            lora_send(lora_send_buffer, 4);
-            rtt_write_string("\nLoRa sending\n");
-        }
-        send = !send;
+
+        lora_send(lora_send_buffer, 4);
+        rtt_write_string("\nLoRa sending\n");
+
+        while(true) {}
+        /*send = !send;
         DelayMs(1);
         *rx_buffer = Radio.Read(REG_LR_OPMODE);
         rtt_printf(0, "Op mode : 0x%#02X\n", rx_buffer[0]);
@@ -95,7 +73,7 @@ int main(void)
         *rx_buffer = Radio.Read(REG_LR_MODEMSTAT);
         rtt_printf(0, "Modem status : 0x%#02X\n", rx_buffer[0]);
         *rx_buffer = Radio.Read(REG_LR_HOPCHANNEL);
-        rtt_printf(0, "Hopping status : 0x%#02X\n", rx_buffer[0]);
+        rtt_printf(0, "Hopping status : 0x%#02X\n", rx_buffer[0]);*/
     }
 
     return 0;

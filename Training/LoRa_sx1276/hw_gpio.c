@@ -35,14 +35,3 @@ void HW_GPIO_Write(uint16_t GPIO_Port, uint16_t GPIO_Pin, uint32_t value)
             return;
     }
 }
-
-void SX1276IoInit()
-{
-    if(!nrf_drv_gpiote_is_init())
-        APP_ERROR_CHECK(nrf_drv_gpiote_init());
-}
-
-void SX1276IoDeInit()
-{
-    APP_ERROR_CHECK(0xDEADBEEF);  // Unsupported
-}

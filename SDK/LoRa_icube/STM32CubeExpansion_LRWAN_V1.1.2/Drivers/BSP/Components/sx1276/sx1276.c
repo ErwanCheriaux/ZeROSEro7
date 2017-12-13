@@ -1424,10 +1424,10 @@ uint32_t SX1276GetRadioWakeUpTime( void )
     return ( uint32_t )LoRaBoardCallbacks->SX1276BoardGetWakeTime( ) + RADIO_WAKEUP_TIME;// BOARD_WAKEUP_TIME;
 }
 
-void SX1276OnTimeoutIrq( void )
-{
 // State is set by handling DIO pins IRQ. If not connected, update manually
 #ifndef DIO_PINS_CONNECTED  // TODO Connect DIO pins, correctly assign IRQ in lora_ant_switch.c
+void SX1276OnTimeoutIrq( void )
+{
     switch(SX1276.Settings.State) {
         case RF_TX_RUNNING :
             if(SX1276Read(REG_LR_IRQFLAGS) & RFLR_IRQFLAGS_TXDONE) {
@@ -1448,7 +1448,12 @@ void SX1276OnTimeoutIrq( void )
         default :
             break ;
     }
+}
+
 #else
+
+void SX1276OnTimeoutIrq( void )
+{
     switch( SX1276.Settings.State )
     {
     case RF_RX_RUNNING:
@@ -1520,8 +1525,8 @@ void SX1276OnTimeoutIrq( void )
     default:
         break;
     }
-#endif
 }
+#endif
 
 void SX1276OnDio0Irq( void )
 {

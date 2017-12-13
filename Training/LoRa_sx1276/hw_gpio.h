@@ -58,13 +58,6 @@ typedef struct
 #define RADIO_RESET_PORT 0xBEEF  // Unused
 #define RADIO_RESET_PIN 31
 
-#define SX1276_DIO0_PIN 0xDEADBEEF  // Unused, Indicates FIFO levels in packet mode
-#define SX1276_DIO1_PIN 0xDEADBEEF
-#define SX1276_DIO2_PIN 0xDEADBEEF
-#define SX1276_DIO3_PIN 0xDEADBEEF
-#define SX1276_DIO4_PIN 0xDEADBEEF
-#define SX1276_DIO5_PIN 0xDEADBEEF
-
 /*!
  * @brief Initializes the given GPIO object
  *
@@ -75,8 +68,8 @@ typedef struct
  * @param [IN] initStruct  GPIO_InitTypeDef intit structure
  * @retval none
  */
-// TODO mimic the reset in sx1276.c:1226.
-// Warning ! The second call gives a Pull type as Mode to say "GPIO_MODE_INPUT" which represent mask 0x00000000
+// mimics the reset in sx1276.c:1226.
+// Warning, the second call gives a Pull type as Mode to say "GPIO_MODE_INPUT" which represent mask 0x00000000
 void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initStruct);
 
 /*!
@@ -89,15 +82,5 @@ void HW_GPIO_Init(uint16_t GPIO_Port, uint16_t GPIO_Pin, GPIO_InitTypeDef* initS
  * @retval none
  */
 void HW_GPIO_Write(uint16_t GPIO_Port, uint16_t GPIO_Pin, uint32_t value);
-
-/*!
- * \brief Initializes the io
- */
-void SX1276IoInit();
-
-/*!
- * \brief Deinitializes the io
- */
-void SX1276IoDeInit();
 
 #endif

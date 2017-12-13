@@ -22,7 +22,7 @@ USER_SRC = \
 	$(PROJ_DIR)/hw_spi.c \
 	$(PROJ_DIR)/hw_gpio.c \
 	$(PROJ_DIR)/lora.c \
-	$(PROJ_DIR)/lora_ant_switch.c \
+	$(PROJ_DIR)/lora_board.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
@@ -297,6 +297,8 @@ CFLAGS += \
 	-D USE_BAND_868 \
 	-D USE_MODEM_LORA \
 	-D _DEBUG \
+	-D DEBUG \
+	-D DIO_PINS_CONNECTED \
 
 # ***** Targets ******
 
