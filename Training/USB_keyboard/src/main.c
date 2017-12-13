@@ -26,9 +26,15 @@ int main(void)
     timer_on();
 
     /*USBH OTG*/
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_USB_HS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
 
     //turn on USB power
-    palClearPad(GPIOA, GPIOA_USB_HS_BUSON);
+    palSetPad(GPIOA, GPIOA_USB_HS_BUSON);
     chThdSleepMilliseconds(100);
 
     usbhStart(&USBHD2);
@@ -36,6 +42,7 @@ int main(void)
     while(1) {
         usbhMainLoop(&USBHD2);
         chThdSleepMilliseconds(100);
+//      usbhDevicePrintInfo(&USBHD2);
     }
 
     chThdSleep(TIME_INFINITE);
