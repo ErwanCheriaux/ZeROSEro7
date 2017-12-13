@@ -11,7 +11,7 @@
 // init white list
 const unsigned char white_list[WHITE_LIST_SIZE][65] = {
     {0x48,0x4f,0x95,0xf3,0x56,0x35,0xe2,0x82,0xca,0x6b,0xca,0x99,0x6b,0x6c,0xd8,0x34,0xdf,0xe8,0x1e,0xfe,0x04,0xe6,0x2e,0x7c,0x1f,0x85,0xa5,0xbb,0x1c,0xf1,0x37,0x88}, // ZeROSEro7
-    {Oxde,0xbd,0x23,0xd6,0xf2,0xa5,0x53,0xf2,0xa0,0x03,0xd3,0x42,0x3d,0x57,0x37,0xe3,0x5f,0x6b,0xb8,0x97,0xdd,0xad,0x48,0xfa,0xc3,0x0a,0x3b,0x0b,0x5d,0x21,0x05,0x68}, // zerosero7
+    {0xde,0xbd,0x23,0xd6,0xf2,0xa5,0x53,0xf2,0xa0,0x03,0xd3,0x42,0x3d,0x57,0x37,0xe3,0x5f,0x6b,0xb8,0x97,0xdd,0xad,0x48,0xfa,0xc3,0x0a,0x3b,0x0b,0x5d,0x21,0x05,0x68}, // zerosero7
     {0x2d,0xc0,0xf1,0x77,0x81,0xf0,0xf8,0xd9,0x62,0x09,0xd1,0x3f,0xf9,0x32,0xc9,0xfd,0x3b,0x1e,0x3b,0xaf,0x90,0x75,0xec,0x6b,0x52,0x50,0x17,0x88,0xc8,0x26,0xa3,0xaa} // My ASUS
 };
 
@@ -22,20 +22,25 @@ void wifi_init(void)
 
 /* Get header response from command
 ** buff:   message to send buffer
+** format: message format, set to 'L' or 'R' (output)
 ** result: data length or error (if < 0)
 */
-static int get_header(void* buff)
+static int get_header(void* buff, char* format)
 {
     int     header_len = 9 + strlen(buff);
     uint8_t header_buffer[header_len];
     rtt_printf(0, ">%s", buff);
     uart_send(buff);
     // get header
-    uart_receive(header_buffer, header_len);
+    int received_data = uart_receive(header_buffer, header_len);
     header_buffer[header_len - 2] = '\0';  // two last charaters are "\r\n"
 #ifdef DEBUG
+    rtt_printf(0, "Received_header_size: %d/%d\n", received_data, header_len);
     rtt_printf(0, "Header: %s\n", header_buffer + header_len - 9);
 #endif
+    // set format
+    if(format != NULL)
+        *format = header_buffer[header_len - 9];
     // check error code
     int err_code = header_buffer[header_len - 7] - '0';
     if(err_code != 0) {
@@ -61,31 +66,41 @@ static int get_header(void* buff)
 #ifdef DEBUG
     rtt_printf(0, "Data len: %d\n", data_len);
 #endif
-    data_len += 2;  // data finish by "> " but are not counted in the header
+    if(*format == 'R')
+        data_len += 2;  // data finish by "> " but are not counted in the header
     return data_len;
 }
 
 int wifi_command(void* buff)
 {
-    int data_len = get_header(buff);
+    char format;
+    int data_len = get_header(buff, &format);
     // handle get_header error
     if(data_len < 0)
         return data_len;
     // get data
     uint8_t data_buffer[MAX_DATA_BUFFER_LEN];
     while(data_len > 0) {
+        data_buffer[0] = '\0';
         // set data buffer length
         int data_buff_len = data_len;
         if(data_len > MAX_DATA_BUFFER_LEN)
             data_buff_len = MAX_DATA_BUFFER_LEN;
-        uart_receive(data_buffer, data_buff_len);
+        int received_data = uart_receive(data_buffer, data_buff_len);
+#ifdef DEBUG
+        rtt_printf(0, "received_data: %d/%d\n", received_data, data_buff_len); // fix strange telnet error
+#endif
         data_len -= data_buff_len;
-        if(data_len == 0)
-            data_buffer[data_buff_len - 4] = '\0'; // last characters are "\r\n> "
+        if(data_len == 0){
+            data_buffer[data_buff_len - 2] = '\0'; // last characters are "\r\n"
+            if(format == 'R')
+                data_buffer[data_buff_len - 4] = '\0'; // last characters are "\r\n> "
+        }
         rtt_printf(0, ""); // fix strange telnet error
         // print data
         rtt_printf(0, "%s", data_buffer);
     }
+
     rtt_printf(0, "\n\n");
     return 0;
 }
@@ -93,7 +108,7 @@ int wifi_command(void* buff)
 int find_devices(void)
 {
     // scan command
-    int data_len = get_header("scan\r\n");
+    int data_len = get_header("scan\r\n", NULL);
     // handle get_header error
     if(data_len < 0)
         return data_len;

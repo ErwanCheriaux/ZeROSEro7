@@ -25,16 +25,8 @@ int main(void)
     led_on();
 
     wifi_command("ver\r\n");
-    //wifi_command("scan\r\n");
-    find_devices();
-
-    unsigned char hash[SHA256_LEN];
-    unsigned char text[] = "Bbox-5DEB1C00";
-    sha256(text, hash);
-    
-    rtt_printf(0, "SHA3 (Bbox-5DEB1C00): ");
-    for(int i = 0; i < SHA256_LEN; i++)
-        rtt_printf(0, "%02x", hash[i]);
+    wifi_command("tcp_server -i wlan start 666\r\n");
+    wifi_command("ver\r\n");
 
     chThdSleep(TIME_INFINITE);
     return 0;

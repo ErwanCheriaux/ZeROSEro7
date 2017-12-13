@@ -21,7 +21,7 @@ void uart_send(void* buff)
     sdWrite(&SD6, buff, strlen(buff));
 }
 
-void uart_receive(void* buff, int size)
+int uart_receive(void* buff, int size)
 {
-    sdRead(&SD6, buff, size);
+    return sdReadTimeout(&SD6, buff, size, MS2ST(10));
 }
