@@ -68,7 +68,8 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/usb.c \
        $(TEST_FIBO)/fibo.c \
        $(SRC)/SEGGER_RTT.c \
-       $(SRC)/SEGGER_RTT_printf.c
+       $(SRC)/SEGGER_RTT_printf.c \
+       $(SRC)/usbh_custom_class_example.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
