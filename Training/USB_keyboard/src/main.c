@@ -7,7 +7,6 @@
 #include "fibo.h"
 
 #include "led.h"
-#include "pwm.h"
 #include "rtt.h"
 #include "usb.h"
 #include "timer.h"
@@ -20,7 +19,6 @@ int main(void)
     chSysInit();
 
     led_init();
-    pwm_init();
     rtt_init();
     usb_init();
     timer_init();
