@@ -13,7 +13,6 @@ APP_TIMER_DEF(RTC_SX12);
 // Simple context lasting only a few days. Copy icube if a greater one is needed.
 static volatile uint32_t context;
 static bool              timer_running = false;  // Indicates if Alarm is On (multiple starts not supported!)
-static bool              timer_started = false;  // Indicates if timer has been started once
 
 uint32_t HW_RTC_ms2Tick(TimerTime_t timeMilliSec)
 {
@@ -63,19 +62,20 @@ void HW_RTC_DelayMs(uint32_t delay)
 
     delayValue = HW_RTC_ms2Tick(delay);
 
-    if(!timer_started) {  // RTC must be running to poll it
-        APP_ERROR_CHECK(app_timer_start(RTC_SX12, HW_RTC_GetMinimumTimeout(), NULL));
-    }
-
     /* Wait delay ms */
     timeout = HW_RTC_GetTimerValue();
     while(((HW_RTC_GetTimerValue() - timeout)) < delayValue) {
-        __NOP();
+        if(!timer_running) {  // RTC must be running to poll it
+            APP_ERROR_CHECK(0xDEADBEEF); // Unsupported
+        }
     }
+
 }
 
 void HW_RTC_StopAlarm(void)
 {
+    rtt_printf(0, "Alarm stopped\n");
+    timer_running = false;
     APP_ERROR_CHECK(app_timer_stop(RTC_SX12));
 }
 
@@ -83,13 +83,11 @@ void HW_RTC_SetAlarm(uint32_t timeout)
 {
     rtt_printf(0, "Alarm requested in : %ums\n", HW_RTC_Tick2ms(timeout));
     if(timer_running) {
-        APP_ERROR_CHECK(0xDEADBEEF);  // Unsupported. Cannot only start one timer at a time.
+        APP_ERROR_CHECK(0xDEADBEEF);  // Unsupported. Can only start one timer at a time.
     }
     // TODO If going to sleep mode during the alarm, substract wake-up time if noticeable
     APP_ERROR_CHECK(app_timer_start(RTC_SX12, timeout, NULL));
     timer_running = true;
-    ;
-    timer_started = true;
 }
 
 void HW_RTC_IrqHandler(void* p_context)
