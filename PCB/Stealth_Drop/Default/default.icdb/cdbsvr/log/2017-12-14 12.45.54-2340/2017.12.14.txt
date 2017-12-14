@@ -290,3 +290,37 @@
 [2017.12.14 20:48:52] [0482m.58s.097ms] [1] SC[4575]: UnRegistered sub-client [Expedition PCB_12869343] with ID [1] for session ID [4575] host [windows01] user [admin] process ID [3808]
 [2017.12.14 20:48:52] [0482m.58s.300ms] [1] CMT: Removed client [4575]
 [2017.12.14 20:48:52] [0482m.58s.300ms] [1] CMT: There are [1] clients now: 4567
+[2017.12.14 20:51:27] [0485m.33s.509ms] [1] SC[4567]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4567] host [windows01] user [admin] process ID [2452]
+[2017.12.14 20:51:28] [0485m.34s.275ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.14 20:51:28] [0485m.34s.275ms] [1] CMT: Removed client [4567]
+[2017.12.14 20:51:28] [0485m.34s.337ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.14 20:51:30] [0485m.35s.978ms] [0] CMT: Starting server auto-close
+[2017.12.14 20:51:30] [0485m.36s.056ms] [0] S: Closing server
+[2017.12.14 20:51:30] [0485m.36s.119ms] [0] iCDB Server PI: Closing plugins
+[2017.12.14 20:51:30] [0485m.36s.134ms] [0] iCDB Server PI: Plugins closed
+[2017.12.14 20:51:30] [0485m.36s.134ms] [0] iCDB Server PI: Unloading database
+[2017.12.14 20:51:30] [0485m.36s.134ms] [0] iCDB Server PI: Saving storage
+[2017.12.14 20:51:30] [0485m.36s.134ms] [0] iCDB Server PI: Closing database
+[2017.12.14 20:51:30] [0485m.36s.134ms] [1] iCDB Server PI: Stats: Database defragmentation: max[2] avg[1] holes[41%] data[83%]
+[2017.12.14 20:51:30] [0485m.36s.134ms] [1] iCDB Server PI: Stats: Database file size [398312 (389.0 kB)]
+[2017.12.14 20:51:30] [0485m.36s.150ms] [1] iCDB Server PI: WARNING: Database needs defragmentation!
+[2017.12.14 20:51:30] [0485m.36s.197ms] [0] iCDB Server PI: Database closed
+[2017.12.14 20:51:30] [0485m.36s.197ms] [0] iCDB Server PI: Defragmenting database
+[2017.12.14 20:51:30] [0485m.36s.212ms] [0] iCDB Server PI: Creating database [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb] backup to file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\cdbback\2017-12-14 20.51.30-2340-d.zip]
+[2017.12.14 20:51:30] [0485m.36s.462ms] [0] iCDB Server PI: Database backup: DONE
+[2017.12.14 20:51:30] [0485m.36s.478ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.14 20:51:30] [0485m.36s.478ms] [0] Database GUARD OK: [398312]
+[2017.12.14 20:51:30] [0485m.36s.478ms] [0] SingleFile: [83f5-d811-38f1-6203] SFI version check [1009] [1009]
+[2017.12.14 20:51:30] [0485m.36s.478ms] [0] SingleFile: [83f5-d811-38f1-6203] Database SFI header has been read in [11ms 792us]
+[2017.12.14 20:51:30] [0485m.36s.525ms] [1] iCDB Server PI: Stats: Database file sizes: before[398312 (389.0 kB)], after[232768 (227.3 kB)], gain[165544 (161.7 kB)]
+[2017.12.14 20:51:30] [0485m.36s.525ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\icdb.dat] closed with size [232768 (227.3 kB)]
+[2017.12.14 20:51:30] [0485m.36s.525ms] [0] iCDB Server PI: Database defragmentation completed successfully
+[2017.12.14 20:51:30] [0485m.36s.525ms] [1] BackupTransaction: Removing database backup [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\cdbback\2017-12-14 20.51.30-2340-d.zip]
+[2017.12.14 20:51:30] [0485m.36s.525ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [7390529] ticks
+[2017.12.14 20:51:30] [0485m.36s.525ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [739052] microseconds
+[2017.12.14 20:51:30] [0485m.36s.525ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [1153]
+[2017.12.14 20:51:30] [0485m.36s.525ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [1560] commands per second
+[2017.12.14 20:51:30] [0485m.36s.603ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.14 20:51:30] [0485m.36s.822ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.14 20:51:30] [0485m.36s.837ms] [0] MWT: STOP
+[2017.12.14 20:51:30] [0485m.36s.837ms] [0] S: STOP
