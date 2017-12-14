@@ -2,7 +2,7 @@
                                     Packager
                                     --------
 
-                       03:43 PM Monday, December 11, 2017
+                      08:26 PM Thursday, December 14, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj
 
 
@@ -116,8 +116,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0071 -> Vend Part: 80-0071 
           Part Numb: 81-0002 -> Vend Part: 81-0002 
-          Part Numb: 81-0021 -> Vend Part: 81-0021 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
+          Part Numb: 83-0028 -> Vend Part: 83-0028 
 
      Number of Part Names: 0
 
@@ -148,7 +148,7 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
 
 
-     56 nets were found containing 237 pins
+     54 nets were found containing 232 pins
      61 components were found
 
      Parsed netlist - Augmenting..

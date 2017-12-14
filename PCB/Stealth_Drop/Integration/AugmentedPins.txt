@@ -2,6 +2,9 @@
 ------------------------------------------------------------------------
             Part/Reference             | Pin | Augmented Net Name
 ------------------------------------------------------------------------
+ Part 83-0028                          |
+       QZ1                             |    2| <unconnected pin>
+       QZ1                             |    4| <unconnected pin>
  Part 83-0025                          |
        QZ3                             |    2| <unconnected pin>
        QZ3                             |    4| <unconnected pin>

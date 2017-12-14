@@ -2,7 +2,7 @@
                                Forward Annotation
                                ------------------
 
-                       03:43 PM Monday, December 11, 2017
+                      08:26 PM Thursday, December 14, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
@@ -59,8 +59,8 @@ Version:  01.01.00
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0071 -> Vend Part: 80-0071 
           Part Numb: 81-0002 -> Vend Part: 81-0002 
-          Part Numb: 81-0021 -> Vend Part: 81-0021 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
+          Part Numb: 83-0028 -> Vend Part: 83-0028 
 
      Number of Part Names: 0
 
@@ -97,7 +97,7 @@ Version:  01.01.00
 
 
 
-     56 nets were found containing 237 pins
+     54 nets were found containing 232 pins
      61 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
@@ -112,7 +112,7 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                       03:43 PM Monday, December 11, 2017
+                      08:26 PM Thursday, December 14, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
@@ -125,7 +125,13 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-     Netload completed successfully with 0 warning(s).
+     WARNING:  The "TANTAL_D" cell used by "C19" in the Layout is not
+      valid for a "10-0106" Part Number.
+     INFO: Cell "TANTAL_D" is being replaced by cell "C0402".
+
+	WARNING:  "C28" is being removed from the Layout since it is no longer in the schematic.
+
+     Netload completed successfully with 2 warning(s).
      
      Back Annotating...
 
