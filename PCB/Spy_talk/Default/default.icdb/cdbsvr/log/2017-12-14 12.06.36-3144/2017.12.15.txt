@@ -1,0 +1,57 @@
+[2017.12.15 00:03:16] [0716m.40s.487ms] [0] IT: Session [4284] for host [windows01] user [admin] with process ID [1848] created
+[2017.12.15 00:03:16] [0716m.40s.518ms] [1] CMT: There are [2] clients now: 4283, 4284
+[2017.12.15 00:03:17] [0716m.40s.909ms] [1] SC[4284]: Registered sub-client [ICDBC] with ID [1] for session ID [4284] host [windows01] user [admin] process ID [1848]
+[2017.12.15 00:03:17] [0716m.41s.003ms] [1] SC[4284]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4284] host [windows01] user [admin] process ID [1848]
+[2017.12.15 00:03:20] [0716m.44s.128ms] [1] SC[4284]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4284] host [windows01] user [admin] process ID [1848]
+[2017.12.15 00:03:20] [0716m.44s.159ms] [1] SC[4284]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4284] host [windows01] user [admin] process ID [1848]
+[2017.12.15 00:03:20] [0716m.44s.253ms] [1] CMT: Removed client [4284]
+[2017.12.15 00:03:20] [0716m.44s.253ms] [1] CMT: There are [1] clients now: 4283
+[2017.12.15 00:03:22] [0716m.46s.628ms] [0] IT: Session [4285] for host [windows01] user [admin] with process ID [1312] created
+[2017.12.15 00:03:22] [0716m.46s.628ms] [1] SC[4285]: Registered sub-client [Packager_12571453] with ID [1] for session ID [4285] host [windows01] user [admin] process ID [1312]
+[2017.12.15 00:03:22] [0716m.46s.675ms] [1] CMT: There are [2] clients now: 4283, 4285
+[2017.12.15 00:03:24] [0716m.48s.315ms] [1] SC[4285]: UnRegistered sub-client [Packager_12571453] with ID [1] for session ID [4285] host [windows01] user [admin] process ID [1312]
+[2017.12.15 00:03:24] [0716m.48s.518ms] [1] CMT: Removed client [4285]
+[2017.12.15 00:03:24] [0716m.48s.518ms] [1] CMT: There are [1] clients now: 4283
+[2017.12.15 00:03:43] [0717m.07s.675ms] [1] SC[4283]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4283] host [windows01] user [admin] process ID [1688]
+[2017.12.15 00:03:44] [0717m.07s.893ms] [1] CMT: Removed client [4283]
+[2017.12.15 00:03:44] [0717m.07s.893ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.15 00:03:44] [0717m.08s.003ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.15 00:03:46] [0717m.09s.862ms] [0] CMT: Starting server auto-close
+[2017.12.15 00:03:46] [0717m.09s.940ms] [0] S: Closing server
+[2017.12.15 00:03:46] [0717m.09s.972ms] [0] S: Canceling shutdown because of pending command: GetAuthorizationData # ServerGUID[a872-381a-f328-807e-d3b5-23a2-4b52-3a50-478d-3d2c-dc7d-1df8] # ClientVersion[88Zh1V4+7Fzqu6g9/cuD/w] # ProjectPath[\\WINDOWS01\Users\admin\Documents\Spy_talk\Default\default.icdb]
+[2017.12.15 00:03:46] [0717m.09s.987ms] [0] S: Cancelling server close, because of active client connections
+[2017.12.15 00:03:46] [0717m.09s.987ms] [0] iCDB Server PI: Server & plugin session ID was refreshed [4286]
+[2017.12.15 00:03:46] [0717m.09s.987ms] [0] S: Starting again initialization thread
+[2017.12.15 00:03:46] [0717m.10s.034ms] [0] IT: Session [4287] for host [windows01] user [admin] with process ID [1688] created
+[2017.12.15 00:03:46] [0717m.10s.034ms] [1] SC[4287]: Registered sub-client [DCDV] with ID [1] for session ID [4287] host [windows01] user [admin] process ID [1688]
+[2017.12.15 00:03:46] [0717m.10s.081ms] [1] SC[4287]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4287] host [windows01] user [admin] process ID [1688]
+[2017.12.15 00:03:46] [0717m.10s.097ms] [1] CMT: Removed client [4287]
+[2017.12.15 00:03:46] [0717m.10s.097ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.15 00:03:46] [0717m.10s.550ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.15 00:03:46] [0717m.10s.597ms] [0] IT: Session [4288] for host [windows01] user [admin] with process ID [1688] created
+[2017.12.15 00:03:46] [0717m.10s.597ms] [1] SC[4288]: Registered sub-client [DCDV] with ID [1] for session ID [4288] host [windows01] user [admin] process ID [1688]
+[2017.12.15 00:03:46] [0717m.10s.643ms] [1] SC[4288]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4288] host [windows01] user [admin] process ID [1688]
+[2017.12.15 00:03:46] [0717m.10s.753ms] [1] CMT: Removed client [4288]
+[2017.12.15 00:03:46] [0717m.10s.753ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.15 00:03:47] [0717m.11s.143ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.15 00:03:48] [0717m.11s.847ms] [0] CMT: Starting server auto-close
+[2017.12.15 00:03:48] [0717m.11s.956ms] [0] S: Closing server
+[2017.12.15 00:03:48] [0717m.11s.972ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.12.15 00:03:48] [0717m.12s.112ms] [0] iCDB Server PI: Closing plugins
+[2017.12.15 00:03:48] [0717m.12s.159ms] [0] iCDB Server PI: Plugins closed
+[2017.12.15 00:03:48] [0717m.12s.159ms] [0] iCDB Server PI: Unloading database
+[2017.12.15 00:03:48] [0717m.12s.159ms] [0] iCDB Server PI: Saving storage
+[2017.12.15 00:03:48] [0717m.12s.159ms] [0] iCDB Server PI: Closing database
+[2017.12.15 00:03:48] [0717m.12s.175ms] [1] iCDB Server PI: Stats: Database defragmentation: max[4] avg[1] holes[13%] data[91%]
+[2017.12.15 00:03:48] [0717m.12s.175ms] [1] iCDB Server PI: Stats: Database file size [309112 (301.9 kB)]
+[2017.12.15 00:03:48] [0717m.12s.331ms] [0] iCDB Server PI: Database closed
+[2017.12.15 00:03:48] [0717m.12s.331ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [10163443] ticks
+[2017.12.15 00:03:48] [0717m.12s.331ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1016344] microseconds
+[2017.12.15 00:03:48] [0717m.12s.331ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [418]
+[2017.12.15 00:03:48] [0717m.12s.331ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [411] commands per second
+[2017.12.15 00:03:48] [0717m.12s.331ms] [0] Single file [C:\Users\admin\Documents\Spy_talk\Default\default.icdb\icdb.dat] closed with size [309112 (301.9 kB)]
+[2017.12.15 00:03:48] [0717m.12s.362ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.15 00:03:49] [0717m.13s.675ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.15 00:03:50] [0717m.13s.925ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.15 00:03:50] [0717m.14s.065ms] [0] MWT: STOP
+[2017.12.15 00:03:50] [0717m.14s.081ms] [0] S: STOP
