@@ -7,14 +7,14 @@
 
 #include "lora_board.h"
 
-#define RF_FREQUENCY 868000000   // Hz
-#define RX_TIMEOUT_VALUE 2000    // ms
+#define RF_FREQUENCY 868300000   // Hz
+#define RX_TIMEOUT_VALUE 8000    // ms
 #define LORA_BANDWIDTH 0         /* [0: 125 kHz, \
                                      1: 250 kHz, \
                                      2: 500 kHz, \
                                      3: Reserved] */
-#define LORA_SPREADING_FACTOR 7  // [SF7..SF12]
-#define LORA_CODINGRATE 1        /* [1: 4/5, \
+#define LORA_SPREADING_FACTOR 12 // [SF7..SF12]
+#define LORA_CODINGRATE 4        /* [1: 4/5, \
                                      2: 4/6, \
                                      3: 4/7, \
                                      4: 4/8] */
@@ -28,7 +28,7 @@
 #define LORA_CRC_ON true
 #define LORA_RX_CONTINUOUS_ON true  // Repeat after symbol timeout
 
-#define LORA_TX_TIMEOUT 3000  // ms
+#define LORA_TX_TIMEOUT 30000 // ms
 #define LORA_TX_POWER 14      // dBm. max 14 without PA BOOST
 
 bool SX1276CheckRfFrequency(uint32_t frequency);
@@ -88,7 +88,7 @@ static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
     rtt_write_string(" -> Rx done\nData : ");
     rtt_write_buffer(0, payload, size);
     rtt_printf(0, "\nRssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
-    DelayMs(3000);
+    DelayMs(RX_TIMEOUT_VALUE-1000);
     Radio.Standby();
 }
 

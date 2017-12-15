@@ -57,7 +57,6 @@ uint32_t HW_RTC_GetTimerElapsedTime(void)
 
 void HW_RTC_DelayMs(uint32_t delay)
 {
-    rtt_printf(0, "Delay requested of : %ums\n", delay);
     TimerTime_t delayValue = 0;
     TimerTime_t timeout    = 0;
 
@@ -79,7 +78,6 @@ void HW_RTC_DelayMs(uint32_t delay)
 
 void HW_RTC_StopAlarm(void)
 {
-    rtt_printf(0, "Alarm stopped\n");
     timer_running     = false;
     timer_not_started = true;
     APP_ERROR_CHECK(app_timer_stop(RTC_SX12));
@@ -87,7 +85,6 @@ void HW_RTC_StopAlarm(void)
 
 void HW_RTC_SetAlarm(uint32_t timeout)
 {
-    rtt_printf(0, "Alarm requested in : %ums\n", HW_RTC_Tick2ms(timeout));
     if(timer_running) {
         APP_ERROR_CHECK(0xDEADBEEF);  // Unsupported. Can only start one timer at a time.
     }
@@ -100,7 +97,6 @@ void HW_RTC_SetAlarm(uint32_t timeout)
 void HW_RTC_IrqHandler(void* p_context)
 {
     bsp_board_led_invert(1);
-    rtt_printf(0, "Alarm ended\n");
     timer_running = false;
     TimerIrqHandler();
 }
