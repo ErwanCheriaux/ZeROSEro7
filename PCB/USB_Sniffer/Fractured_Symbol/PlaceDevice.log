@@ -1,0 +1,37 @@
+FSP Log file Fri Dec 01 18:06:40 CET 2017
+---------------------------------------
+
+cfgFileName = C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Fractured_Symbol\PlaceDevice.cfg
+readOnly = false
+noView = false
+createMaster = false
+refPrefix = 
+mMap = 
+fsMap = 
+catalog = 
+m_catalog = null
+batch = false
+fileType = A
+fileName = C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Fractured_Symbol\20-0066.apd
+outDir = C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Fractured_Symbol
+partNo = 20-0066
+o_partNo = 20-0066
+m_partNo = null
+masterName = 
+compName = 
+uid = 20-0066
+bl = false
+mode = DV
+project = C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\USB_Sniffer.prj
+partition = 
+central_library = F:\Central_Libs\ENST.lmc
+install_dir = 
+fixed_pinlist = true
+part_file = F:\Central_Libs\PartsDBLibs\Diodes.pdb
+reload = true
+geometry = 
+units = inches
+CLASSPATH = C:/MentorGraphics/EEVX.2.2/SDD_HOME/wg/win32/lib/pct_mgls.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/lib/xview.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/lib/MouseBehavior.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/lib/jeda.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/lib/udi.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/lib/fsp.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/lib/table_core.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/Jre1.4.0_01/lib/endorsed/xerces.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/common/win32/Jre1.4.0_01/lib/endorsed/sax.jar;C:/MentorGraphics/EEVX.2.2/SDD_HOME/wg/win32/pkgs/fsp/etc/
+
+End of FSP Log file Fri Dec 01 18:09:17 CET 2017
+---------------------------------------
