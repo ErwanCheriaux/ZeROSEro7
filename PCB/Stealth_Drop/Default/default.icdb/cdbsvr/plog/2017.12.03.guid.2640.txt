@@ -1,0 +1,31 @@
+[2017.12.03 20:34:16] [0000m.14s.140ms] [0] WELCOME
+[2017.12.03 20:34:16] [0000m.14s.140ms] [1] iCDB Database ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.03 20:34:16] [0000m.14s.140ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.03 20:34:16] [0000m.14s.140ms] [1] Base flow version [VX.2.2]
+[2017.12.03 20:34:16] [0000m.14s.140ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.03 20:34:16] [0000m.14s.140ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.03 20:34:16] [0000m.14s.140ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] Machine [WINDOWS01]  IP [10.0.2.15,127.0.0.1,137.194.121.119]  User [admin]  PID [2640]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] Operating system [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] Current working dir [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] PATH [C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin;C:\Program Files\PuTTY\]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] SDD_HOME [C:\MentorGraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] SDD_PLATFORM [win32]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\MentorGraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] WARNING: Database [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb\icdb.dat] was manually copied
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] File change time:        [2017-12-03 20.16.35]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] File modification time:  [2017-12-03 20.16.16]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Last change time:        [2017-12-03 20.16.16]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Last database open information:
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Time:             [2017-12-03 20.16.17]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Location:         [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb\icdb.dat]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Machine:          [WINDOWS01]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] User:             [admin]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] PID:              [324]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Application:      [iCDB Server]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Operating system: [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] WARNING: Regenerating database GUID
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Previous database GUID [0296-38d3-cffc-ea1f-1bc4-42a6-bc44-2a50-e173-c3f1-0324-f3eb]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [3] Current database GUID  [9656-18be-29f4-eb48-8b15-42ad-b154-2a50-67c3-c3f1-0324-f3eb]
+[2017.12.03 20:34:16] [0000m.14s.156ms] [0] .
