@@ -1,5 +1,5 @@
 
-/* Sym: 052C8AC0  Path 1: Schematic1  Page 1: Schematic1(1) */
+/* Sym: 052D0B08  Path 1: Schematic1  Page 1: Schematic1(1) */
 CHANGE 'Schematic1(1)' 	INSTANCE
   SELECT COMP XCMP866                 /* Reference Desig is L1 */
     PARAM 'Part Name' = 'SELF' 
@@ -14,7 +14,7 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Tolerance' = '10%' 
     PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402' 
     PARAM 'Part Label' = 'CAP C0402 100nF X7R 16V' 
-    PARAM 'Code Fournisseur' = 'Fa : 1362420' 
+    PARAM 'Code Fournisseur' = 'Fa : 1288252' 
     PARAM 'Cout HT' = '0.01' 
   SELECT COMP XCMP800                 /* Reference Desig is C6 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
@@ -22,7 +22,7 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Tolerance' = '10%' 
     PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402' 
     PARAM 'Part Label' = 'CAP C0402 100nF X7R 16V' 
-    PARAM 'Code Fournisseur' = 'Fa : 1362420' 
+    PARAM 'Code Fournisseur' = 'Fa : 1288252' 
     PARAM 'Cout HT' = '0.01' 
   SELECT COMP XCMP799                 /* Reference Desig is U1 */
     PARAM 'Part Name' = 'NRF52832' 
@@ -30,14 +30,19 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'nRF52832-QFAA' 
     PARAM 'Code Fournisseur' = 'Mouser : 949-NRF52832-QFAA-T' 
     PARAM 'Cout HT' = '4.64' 
+  SELECT COMP XCMP819                 /* Reference Desig is L2 */
+    PARAM 'Part Name' = 'SELF' 
+    PARAM 'Value' = '15nH' 
+    PARAM 'Description' = 'Inductor 15nH 300mA, 4GHz, TDK MLK1005S15NJ, case 0402' 
+    PARAM 'Part Label' = 'SELF 15nH 0402' 
+    PARAM 'Code Fournisseur' = 'Fa : 1669622' 
+    PARAM 'Cout HT' = '0.013' 
   SELECT EXT XCMP908                  /* Reference Desig is J1 */
     PARAM 'Part Name' = 'MINI_SWD_CONNECTOR' 
     PARAM 'Description' = 'Dual row 1.27 CMS 2x5 points connector, Samtec FTSH-105-01-L-DV ' 
     PARAM 'Part Label' = 'FTSH-105-01-L-DV' 
     PARAM 'Code Fournisseur' = 'Fa : 1667759' 
     PARAM 'Cout HT' = '1.96' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'J1'         /* Reference Desig was (null) */
   SELECT COMP XCMP817                 /* Reference Desig is U4 */
     PARAM 'Part Name' = '2450AT18A100E' 
     PARAM 'Description' = 'Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E' 
@@ -60,15 +65,7 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Tolerance' = '10%' 
     PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402' 
     PARAM 'Part Label' = 'CAP C0402 100nF X7R 16V' 
-    PARAM 'Code Fournisseur' = 'Fa : 1362420' 
-    PARAM 'Cout HT' = '0.01' 
-  SELECT COMP XCMP807                 /* Reference Desig is C8 */
-    PARAM 'Part Name' = 'CAPCERAM0402' 
-    PARAM 'Value' = '100nF' 
-    PARAM 'Tolerance' = '10%' 
-    PARAM 'Description' = 'Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402' 
-    PARAM 'Part Label' = 'CAP C0402 100nF X7R 16V' 
-    PARAM 'Code Fournisseur' = 'Fa : 1362420' 
+    PARAM 'Code Fournisseur' = 'Fa : 1288252' 
     PARAM 'Cout HT' = '0.01' 
   SELECT COMP XCMP806                 /* Reference Desig is C12 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
@@ -123,33 +120,34 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 12pF C0G 50V 2%' 
     PARAM 'Code Fournisseur' = 'Fa : 1885335' 
     PARAM 'Cout HT' = '0.0116' 
-  SELECT COMP XCMP819                 /* Reference Desig is L2 */
-    PARAM 'Part Name' = 'SELF' 
-    PARAM 'Value' = '15nH' 
-    PARAM 'Description' = 'Inductor 15nH 300mA case 0402' 
-    PARAM 'Part Label' = 'SELF 15nH 0402' 
-    PARAM 'Code Fournisseur' = 'Fa : 1711739' 
-    PARAM 'Cout HT' = '0.013' 
+  SELECT COMP XCMP976                 /* Reference Desig is C8 */
+    PARAM 'Part Name' = 'CAPCERAM0402' 
+    PARAM 'Value' = '100pF' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Capacitor Ceramic 100pF / NPO / 50V / ±5% / case 0402 ' 
+    PARAM 'Part Label' = 'CAP C0402 100pF NPO 50V' 
+    PARAM 'Code Fournisseur' = 'Fa : 2496792' 
+    PARAM 23 = DELETE                    /* Component Fix flag */
+    PARAM 15 = 'C8'         /* Reference Desig was (null) */
   SELECT COMP XCMP861                 /* Reference Desig is C11 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '10uF' 
     PARAM 'Tolerance' = '20%' 
-    PARAM 'Description' = 'Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, Murata GRM155R60J106ME44D, case 0402' 
+    PARAM 'Description' = 'Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402' 
     PARAM 'Part Label' = 'CAP C0402 10uF X5R 6V3 20%' 
-    PARAM 'Code Fournisseur' = 'Fa : 2218854' 
+    PARAM 'Code Fournisseur' = 'Fa : 2346872' 
     PARAM 'Cout HT' = '0.0819' 
   SELECT EXT XCMP847                  /* Reference Desig is PT1 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT COMP XCMP913                 /* Reference Desig is D4 */
     PARAM 'Part Name' = 'LED_RGB' 
     PARAM 'Description' = 'Tricolor RGB  LED, SMD case ChipLed, Avago HSMF-C114, 20mA, 70/180/85mCd, Vf=2.4/3.9/2.9V' 
     PARAM 'Part Label' = 'HSMF-C114' 
     PARAM 'Code Fournisseur' = 'Fa : 1058362 ' 
     PARAM 'Cout HT' = '1.75' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'D4'         /* Reference Desig was (null) */
   SELECT COMP XCMP912                 /* Reference Desig is R3 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '200 ' 
@@ -158,60 +156,63 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'RES_200_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 2333571' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R3'         /* Reference Desig was (null) */
   SELECT COMP XCMP911                 /* Reference Desig is D3 */
     PARAM 'Part Name' = 'LED_BLUE_0805' 
     PARAM 'Description' = 'Blue LED SMD case 0805 Agilent HSMB-C190 20mA Vf=3.8-4.6V' 
     PARAM 'Part Label' = 'BLUE' 
     PARAM 'Code Fournisseur' = 'Farnell : 322-5112' 
     PARAM 'Cout HT' = '0.52' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'D3'         /* Reference Desig was (null) */
   SELECT COMP XCMP910                 /* Reference Desig is SW1 */
     PARAM 'Part Name' = 'SWITCH' 
     PARAM 'Description' = 'Button Switch latéral / 2 pins / SMD / Omron B3U-3000P' 
     PARAM 'Part Label' = 'B3U-3000P' 
     PARAM 'Code Fournisseur' = 'Fa : 1333655' 
     PARAM 'Cout HT' = '1.08' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'SW1'         /* Reference Desig was (null) */
   SELECT EXT XCMP856                  /* Reference Desig is PT10 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP855                  /* Reference Desig is PT9 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP854                  /* Reference Desig is PT8 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP853                  /* Reference Desig is PT7 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP852                  /* Reference Desig is PT6 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP851                  /* Reference Desig is PT5 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP850                  /* Reference Desig is PT4 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP849                  /* Reference Desig is PT3 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT EXT XCMP848                  /* Reference Desig is PT2 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
+    PARAM 'Place' = 'no' 
   SELECT COMP XCMP917                 /* Reference Desig is R8 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '3K ' 
@@ -220,8 +221,6 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'RES_3.0k_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 9330976' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R8'         /* Reference Desig was (null) */
   SELECT COMP XCMP916                 /* Reference Desig is R7 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '300 ' 
@@ -230,8 +229,6 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'RES_300_0603' 
     PARAM 'Code Fournisseur' = 'RS : 396-7372' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R7'         /* Reference Desig was (null) */
   SELECT COMP XCMP915                 /* Reference Desig is R6 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '300 ' 
@@ -240,8 +237,6 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'RES_300_0603' 
     PARAM 'Code Fournisseur' = 'RS : 396-7372' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R6'         /* Reference Desig was (null) */
   SELECT COMP XCMP914                 /* Reference Desig is R5 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '300 ' 
@@ -250,10 +245,8 @@ CHANGE 'Schematic1(1)' 	INSTANCE
     PARAM 'Part Label' = 'RES_300_0603' 
     PARAM 'Code Fournisseur' = 'RS : 396-7372' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R5'         /* Reference Desig was (null) */
 
-/* Sym: 04FD7610  Path 1: Schematic1  Page 2: Schematic1(2) */
+/* Sym: 0515AF48  Path 1: Schematic1  Page 2: Schematic1(2) */
 CHANGE 'Schematic1(2)' 	INSTANCE
   SELECT COMP XCMP945                 /* Reference Desig is C5 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
@@ -263,8 +256,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C5'         /* Reference Desig was (null) */
   SELECT COMP XCMP944                 /* Reference Desig is C4 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
@@ -273,8 +264,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C4'         /* Reference Desig was (null) */
   SELECT COMP XCMP943                 /* Reference Desig is C3 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
@@ -283,8 +272,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C3'         /* Reference Desig was (null) */
   SELECT COMP XCMP942                 /* Reference Desig is C2 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
@@ -293,8 +280,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C2'         /* Reference Desig was (null) */
   SELECT COMP XCMP941                 /* Reference Desig is C1 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '100nF' 
@@ -303,16 +288,12 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 100nF X7R 16V' 
     PARAM 'Code Fournisseur' = 'Fa : 1414027' 
     PARAM 'Cout HT' = '0.014' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C1'         /* Reference Desig was (null) */
   SELECT COMP XCMP940                 /* Reference Desig is U2 */
     PARAM 'Part Name' = 'SX1276' 
     PARAM 'Description' = '137 MHz to 1020 MHz Low Power LoRa Transceiver, Semtech SX1276IMLTR, case EQFN28' 
     PARAM 'Part Label' = 'SX1276IMLTR' 
     PARAM 'Code Fournisseur' = 'Mouser : 947-SX1276IMLTRT' 
     PARAM 'Cout HT' = '6.85' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'U2'         /* Reference Desig was (null) */
   SELECT COMP XCMP948                 /* Reference Desig is QZ3 */
     PARAM 'Part Name' = 'QUARTZ' 
     PARAM 'Tolerance' = '20' 
@@ -320,8 +301,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = '32.000 MHz' 
     PARAM 'Code Fournisseur' = 'Mouser : 81-XRCPB32M000F2P0R0' 
     PARAM 'Cout HT' = '0.434' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'QZ3'         /* Reference Desig was (null) */
   SELECT COMP XCMP947                 /* Reference Desig is C20 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '12pF' 
@@ -330,8 +309,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 12pF C0G 50V 2%' 
     PARAM 'Code Fournisseur' = 'Fa : 1885335' 
     PARAM 'Cout HT' = '0.0116' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C20'         /* Reference Desig was (null) */
   SELECT COMP XCMP946                 /* Reference Desig is C14 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '12pF' 
@@ -340,16 +317,12 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 12pF C0G 50V 2%' 
     PARAM 'Code Fournisseur' = 'Fa : 1885335' 
     PARAM 'Cout HT' = '0.0116' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C14'         /* Reference Desig was (null) */
   SELECT COMP XCMP949                 /* Reference Desig is U6 */
     PARAM 'Part Name' = 'PE4259' 
     PARAM 'Description' = 'UltraCMOS RF switch 10MHz - 3GHz, 1.8 - 3.3V, Peregrine Semiconductor PE4259, case SC70' 
     PARAM 'Part Label' = 'PE4259-63' 
     PARAM 'Code Fournisseur' = 'Peregrine Semiconductor' 
     PARAM 'Cout HT' = '0.65' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'U6'         /* Reference Desig was (null) */
   SELECT COMP XCMP956                 /* Reference Desig is R9 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '0 ' 
@@ -358,8 +331,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'RES_0_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 2008343' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R9'         /* Reference Desig was (null) */
   SELECT COMP XCMP955                 /* Reference Desig is C27 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '47pF' 
@@ -368,8 +339,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 47pF COG 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1907292' 
     PARAM 'Cout HT' = '0.017' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C27'         /* Reference Desig was (null) */
   SELECT COMP XCMP954                 /* Reference Desig is C26 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '47pF' 
@@ -378,8 +347,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 47pF COG 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1907292' 
     PARAM 'Cout HT' = '0.017' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C26'         /* Reference Desig was (null) */
   SELECT COMP XCMP953                 /* Reference Desig is C25 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '3.3pF' 
@@ -388,16 +355,12 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 3.3pF NP0 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 2434610' 
     PARAM 'Cout HT' = '0.0082' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C25'         /* Reference Desig was (null) */
   SELECT EXT XCMP951                  /* Reference Desig is J4 */
     PARAM 'Part Name' = 'UFL_RECEPTACLE' 
     PARAM 'Description' = 'U.FL SMD receptacle, Hirose U.FL-R-SMT(01)' 
     PARAM 'Part Label' = 'U.FL-R-SMT01' 
     PARAM 'Code Fournisseur' = 'Fa : 3908021' 
     PARAM 'Cout HT' = '0.964' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'J4'         /* Reference Desig was (null) */
   SELECT COMP XCMP950                 /* Reference Desig is C24 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '1nF' 
@@ -406,8 +369,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 1nF X7R 50V' 
     PARAM 'Code Fournisseur' = 'RS : 264-4551' 
     PARAM 'Cout HT' = '0.04' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C24'         /* Reference Desig was (null) */
   SELECT COMP XCMP967                 /* Reference Desig is C28 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '47pF' 
@@ -416,8 +377,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 47pF COG 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1907292' 
     PARAM 'Cout HT' = '0.017' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C28'         /* Reference Desig was (null) */
   SELECT COMP XCMP966                 /* Reference Desig is L6 */
     PARAM 'Part Name' = 'SELF' 
     PARAM 'Value' = '33nH' 
@@ -425,8 +384,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'SELF 33nH 0402' 
     PARAM 'Code Fournisseur' = 'Fa : 1711742' 
     PARAM 'Cout HT' = '0.013' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'L6'         /* Reference Desig was (null) */
   SELECT COMP XCMP965                 /* Reference Desig is R14 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '1K ' 
@@ -435,8 +392,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'RES_1.0k_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 9331697' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R14'         /* Reference Desig was (null) */
   SELECT COMP XCMP964                 /* Reference Desig is L4 */
     PARAM 'Part Name' = 'SELF' 
     PARAM 'Value' = '10nH' 
@@ -444,8 +399,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'SELF 10nH 0402' 
     PARAM 'Code Fournisseur' = 'Fa : 1865772' 
     PARAM 'Cout HT' = '0.013' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'L4'         /* Reference Desig was (null) */
   SELECT COMP XCMP963                 /* Reference Desig is L5 */
     PARAM 'Part Name' = 'SELF' 
     PARAM 'Value' = '5.6nH' 
@@ -453,8 +406,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'SELF 5.6nH 0402' 
     PARAM 'Code Fournisseur' = 'Fa : 1515368' 
     PARAM 'Cout HT' = '0.111' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'L5'         /* Reference Desig was (null) */
   SELECT COMP XCMP962                 /* Reference Desig is C34 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '1.5pF' 
@@ -463,8 +414,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 1.5pF NP0 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1828869' 
     PARAM 'Cout HT' = '0.0131' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C34'         /* Reference Desig was (null) */
   SELECT COMP XCMP961                 /* Reference Desig is C33 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '1.5pF' 
@@ -473,16 +422,12 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 1.5pF NP0 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1828869' 
     PARAM 'Cout HT' = '0.0131' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C33'         /* Reference Desig was (null) */
   SELECT COMP XCMP960                 /* Reference Desig is C35 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '4.7pF' 
     PARAM 'Tolerance' = '10%' 
     PARAM 'Description' = 'Capacitor Ceramic X7R / 4.7pF / 16V / ±10% / case 0603' 
     PARAM 'Part Label' = 'CAP C0603 4.7pF X7R 16V' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C35'         /* Reference Desig was (null) */
   SELECT COMP XCMP959                 /* Reference Desig is C32 */
     PARAM 'Part Name' = 'CAPCERAM0402' 
     PARAM 'Value' = '1.5pF' 
@@ -491,8 +436,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0402 1.5pF NP0 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1828869' 
     PARAM 'Cout HT' = '0.0131' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C32'         /* Reference Desig was (null) */
   SELECT COMP XCMP958                 /* Reference Desig is C31 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '33pF' 
@@ -501,8 +444,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 33pF NPO 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 722029' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C31'         /* Reference Desig was (null) */
   SELECT COMP XCMP957                 /* Reference Desig is L3 */
     PARAM 'Part Name' = 'SELF' 
     PARAM 'Value' = '10nH' 
@@ -510,14 +451,11 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'SELF 10nH 0402' 
     PARAM 'Code Fournisseur' = 'Fa : 1865772' 
     PARAM 'Cout HT' = '0.013' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'L3'         /* Reference Desig was (null) */
   SELECT EXT XCMP975                  /* Reference Desig is PT11 */
     PARAM 'Part Name' = 'TEST_POINT' 
     PARAM 'Description' = 'Test point 0.9mm, SMD' 
     PARAM 'Part Label' = 'TEST_POINT_0.9mm' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'PT11'         /* Reference Desig was (null) */
+    PARAM 'Place' = 'no' 
   SELECT COMP XCMP974                 /* Reference Desig is R13 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '0 ' 
@@ -526,8 +464,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'RES_0_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 2008343' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R13'         /* Reference Desig was (null) */
   SELECT COMP XCMP973                 /* Reference Desig is R12 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '0 ' 
@@ -536,8 +472,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'RES_0_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 2008343' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R12'         /* Reference Desig was (null) */
   SELECT COMP XCMP972                 /* Reference Desig is R11 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '0 ' 
@@ -546,8 +480,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'RES_0_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 2008343' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R11'         /* Reference Desig was (null) */
   SELECT COMP XCMP971                 /* Reference Desig is R10 */
     PARAM 'Part Name' = 'RES_0603_E24' 
     PARAM 'Value' = '0 ' 
@@ -556,8 +488,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'RES_0_0603' 
     PARAM 'Code Fournisseur' = 'Fa : 2008343' 
     PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R10'         /* Reference Desig was (null) */
   SELECT COMP XCMP970                 /* Reference Desig is C30 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '47pF' 
@@ -566,8 +496,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 47pF COG 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1907292' 
     PARAM 'Cout HT' = '0.017' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C30'         /* Reference Desig was (null) */
   SELECT COMP XCMP969                 /* Reference Desig is C22 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '10nF' 
@@ -576,8 +504,6 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 10nF X7R 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 2456107' 
     PARAM 'Cout HT' = '0.04' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C22'         /* Reference Desig was (null) */
   SELECT COMP XCMP968                 /* Reference Desig is C29 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '47pF' 
@@ -586,10 +512,8 @@ CHANGE 'Schematic1(2)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 47pF COG 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 1907292' 
     PARAM 'Cout HT' = '0.017' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C29'         /* Reference Desig was (null) */
 
-/* Sym: 052C8E18  Path 1: Schematic1  Page 3: Schematic1(3) */
+/* Sym: 052D0E60  Path 1: Schematic1  Page 3: Schematic1(3) */
 CHANGE 'Schematic1(3)' 	INSTANCE
   SELECT COMP XCMP926                 /* Reference Desig is U3 */
     PARAM 'Part Name' = 'MIC5504-3.3' 
@@ -597,16 +521,12 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Part Label' = 'MIC5504-3.3YM5-TR' 
     PARAM 'Code Fournisseur' = 'Mouser : 998-MIC5504-3.3YM5TR ' 
     PARAM 'Cout HT' = '0.109' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'U3'         /* Reference Desig was (null) */
   SELECT COMP XCMP930                 /* Reference Desig is D1 */
     PARAM 'Part Name' = 'LED_RED_0805' 
     PARAM 'Description' = 'Red LED SMD case 0805 Agilent HSMH-C670' 
     PARAM 'Part Label' = 'RED' 
     PARAM 'Code Fournisseur' = 'Fa : 5790840' 
     PARAM 'Cout HT' = '0.2755' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'D1'         /* Reference Desig was (null) */
   SELECT COMP XCMP929                 /* Reference Desig is C13 */
     PARAM 'Part Name' = 'CAPCERAM0805' 
     PARAM 'Value' = '1uF' 
@@ -617,8 +537,6 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Voltage' = '16V' 
     PARAM 'Code Fournisseur' = 'Fa : 5212881' 
     PARAM 'Cout HT' = '0.07' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C13'         /* Reference Desig was (null) */
   SELECT COMP XCMP928                 /* Reference Desig is C10 */
     PARAM 'Part Name' = 'CAPCERAM0805' 
     PARAM 'Value' = '1uF' 
@@ -629,89 +547,12 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Voltage' = '16V' 
     PARAM 'Code Fournisseur' = 'Fa : 5212881' 
     PARAM 'Cout HT' = '0.07' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C10'         /* Reference Desig was (null) */
   SELECT COMP XCMP927                 /* Reference Desig is U5 */
     PARAM 'Part Name' = 'MCP73831' 
     PARAM 'Description' = 'Miniature Single-Cell, Fully Integrated Li-Ion, Li-Polymer Charge Management Controller, 4.2V, Microchip MCP73831T-2ACI/OT, case SOT-23-5' 
     PARAM 'Part Label' = 'MCP73831T-2ACI/OT' 
     PARAM 'Code Fournisseur' = 'Fa : 1332158 ' 
     PARAM 'Cout HT' = '1.05' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'U5'         /* Reference Desig was (null) */
-  SELECT COMP XCMP931                 /* Reference Desig is R1 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '100 ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 100 ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_100_0603' 
-    PARAM 'Code Fournisseur' = 'RS : 322-9210' 
-    PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R1'         /* Reference Desig was (null) */
-  SELECT COMP XCMP939                 /* Reference Desig is Q1 */
-    PARAM 'Part Name' = 'PMOS' 
-    PARAM 'Description' = 'Basic P-Channel MOSFET, Rds=0.098ohms, 3A, IRLML5203PBF, case SOT23' 
-    PARAM 'Part Label' = 'IRLML5203' 
-    PARAM 'Code Fournisseur' = 'Fa : 9103511' 
-    PARAM 'Cout HT' = '0.46' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'Q1'         /* Reference Desig was (null) */
-  SELECT COMP XCMP938                 /* Reference Desig is C23 */
-    PARAM 'Part Name' = 'CAPCERAM0402' 
-    PARAM 'Value' = '10uF' 
-    PARAM 'Tolerance' = '20%' 
-    PARAM 'Description' = 'Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, Murata GRM155R60J106ME44D, case 0402' 
-    PARAM 'Part Label' = 'CAP C0402 10uF X5R 6V3 20%' 
-    PARAM 'Code Fournisseur' = 'Fa : 2218854' 
-    PARAM 'Cout HT' = '0.0819' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C23'         /* Reference Desig was (null) */
-  SELECT COMP XCMP937                 /* Reference Desig is D2 */
-    PARAM 'Part Name' = 'SCHOTTKY' 
-    PARAM 'Description' = 'Diode Shottky 120mA 0.5V Philips 1PS76SB40  case SOD323' 
-    PARAM 'Part Label' = '1PS76SB40' 
-    PARAM 'Code Fournisseur' = 'Fa : 1349646' 
-    PARAM 'Vf' = '0.5' 
-    PARAM 'Cout HT' = '0.153' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'D2'         /* Reference Desig was (null) */
-  SELECT COMP XCMP936                 /* Reference Desig is R4 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '200 ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 200 ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_200_0603' 
-    PARAM 'Code Fournisseur' = 'Fa : 2333571' 
-    PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R4'         /* Reference Desig was (null) */
-  SELECT EXT XCMP935                  /* Reference Desig is J3 */
-    PARAM 'Part Name' = 'JST_2PT_B2B-PH-SM4-TB' 
-    PARAM 'Description' = 'Embase mâle CMS JST 2 broches, 2mm, avec détrompeur, à sortie verticale, B2B-PH-SM4-TB' 
-    PARAM 'Part Label' = 'B2B-PH-SM4-TB' 
-    PARAM 'Code Fournisseur' = 'Fa : 9492534' 
-    PARAM 'Cout HT' = '0.32' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'J3'         /* Reference Desig was (null) */
-  SELECT EXT XCMP934                  /* Reference Desig is J2 */
-    PARAM 'Part Name' = 'MICRO-USB-B' 
-    PARAM 'Description' = 'Female micro-USB B bottom SMD mount connector, Molex 47346-0001' 
-    PARAM 'Part Label' = 'MOL-47346-0001' 
-    PARAM 'Code Fournisseur' = 'Fa : 1568026' 
-    PARAM 'Cout HT' = '0.8' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'J2'         /* Reference Desig was (null) */
-  SELECT COMP XCMP933                 /* Reference Desig is R2 */
-    PARAM 'Part Name' = 'RES_0603_E24' 
-    PARAM 'Value' = '10K ' 
-    PARAM 'Tolerance' = '5%' 
-    PARAM 'Description' = 'Resistor 10k ohms / 5% / case 0603' 
-    PARAM 'Part Label' = 'RES_10k_0603' 
-    PARAM 'Code Fournisseur' = 'Fa : 9331700' 
-    PARAM 'Cout HT' = '0.045' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'R2'         /* Reference Desig was (null) */
   SELECT COMP XCMP932                 /* Reference Desig is C21 */
     PARAM 'Part Name' = 'CAPCERAM0603' 
     PARAM 'Value' = '10nF' 
@@ -720,5 +561,60 @@ CHANGE 'Schematic1(3)' 	INSTANCE
     PARAM 'Part Label' = 'CAP C0603 10nF X7R 50V' 
     PARAM 'Code Fournisseur' = 'Fa : 2456107' 
     PARAM 'Cout HT' = '0.04' 
-    PARAM 23 = DELETE                    /* Component Fix flag */
-    PARAM 15 = 'C21'         /* Reference Desig was (null) */
+  SELECT COMP XCMP931                 /* Reference Desig is R1 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '100 ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 100 ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_100_0603' 
+    PARAM 'Code Fournisseur' = 'RS : 322-9210' 
+    PARAM 'Cout HT' = '0.045' 
+  SELECT COMP XCMP939                 /* Reference Desig is Q1 */
+    PARAM 'Part Name' = 'PMOS' 
+    PARAM 'Description' = 'Basic P-Channel MOSFET, Rds=0.098ohms, 3A, IRLML5203PBF, case SOT23' 
+    PARAM 'Part Label' = 'IRLML5203' 
+    PARAM 'Code Fournisseur' = 'Fa : 9103511' 
+    PARAM 'Cout HT' = '0.46' 
+  SELECT COMP XCMP938                 /* Reference Desig is C23 */
+    PARAM 'Part Name' = 'CAPCERAM0402' 
+    PARAM 'Value' = '10uF' 
+    PARAM 'Tolerance' = '20%' 
+    PARAM 'Description' = 'Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402' 
+    PARAM 'Part Label' = 'CAP C0402 10uF X5R 6V3 20%' 
+    PARAM 'Code Fournisseur' = 'Fa : 2346872' 
+    PARAM 'Cout HT' = '0.0819' 
+  SELECT COMP XCMP937                 /* Reference Desig is D2 */
+    PARAM 'Part Name' = 'SCHOTTKY' 
+    PARAM 'Description' = 'Diode Shottky 120mA 0.5V Philips 1PS76SB40  case SOD323' 
+    PARAM 'Part Label' = '1PS76SB40' 
+    PARAM 'Code Fournisseur' = 'Fa : 1349646' 
+    PARAM 'Vf' = '0.5' 
+    PARAM 'Cout HT' = '0.153' 
+  SELECT COMP XCMP936                 /* Reference Desig is R4 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '200 ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 200 ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_200_0603' 
+    PARAM 'Code Fournisseur' = 'Fa : 2333571' 
+    PARAM 'Cout HT' = '0.045' 
+  SELECT EXT XCMP935                  /* Reference Desig is J3 */
+    PARAM 'Part Name' = 'JST_2PT_B2B-PH-SM4-TB' 
+    PARAM 'Description' = 'Embase mâle CMS JST 2 broches, 2mm, avec détrompeur, à sortie verticale, B2B-PH-SM4-TB' 
+    PARAM 'Part Label' = 'B2B-PH-SM4-TB' 
+    PARAM 'Code Fournisseur' = 'Fa : 9492534' 
+    PARAM 'Cout HT' = '0.32' 
+  SELECT EXT XCMP934                  /* Reference Desig is J2 */
+    PARAM 'Part Name' = 'MICRO-USB-B' 
+    PARAM 'Description' = 'Female micro-USB B bottom SMD mount connector, Molex 47346-0001' 
+    PARAM 'Part Label' = 'MOL-47346-0001' 
+    PARAM 'Code Fournisseur' = 'Fa : 1568026' 
+    PARAM 'Cout HT' = '0.8' 
+  SELECT COMP XCMP933                 /* Reference Desig is R2 */
+    PARAM 'Part Name' = 'RES_0603_E24' 
+    PARAM 'Value' = '10K ' 
+    PARAM 'Tolerance' = '5%' 
+    PARAM 'Description' = 'Resistor 10k ohms / 5% / case 0603' 
+    PARAM 'Part Label' = 'RES_10k_0603' 
+    PARAM 'Code Fournisseur' = 'Fa : 9331700' 
+    PARAM 'Cout HT' = '0.045' 
