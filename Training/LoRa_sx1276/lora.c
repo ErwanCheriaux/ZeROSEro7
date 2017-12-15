@@ -29,7 +29,7 @@
 #define LORA_RX_CONTINUOUS_ON true  // Repeat after symbol timeout
 
 #define LORA_TX_TIMEOUT 3000  // ms
-#define LORA_TX_POWER 14      // dBm
+#define LORA_TX_POWER 14      // dBm. max 14 without PA BOOST
 
 bool SX1276CheckRfFrequency(uint32_t frequency);
 
