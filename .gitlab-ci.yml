@@ -1,4 +1,3 @@
-image: rfc1149/rose-dev
 services:
 #  - postgres
 
@@ -19,22 +18,31 @@ stages:
 
 lint_main:
   stage: lint
-#  image: alabate/clang-format
+  image: rfc1149/rose-dev
   script:
-    - cd nrf52_dev_kit
+    - cd Training/BLE_nrf52
     - make format
-#    - cd ../stealth_drop
-#    - make format
-    - cd ../lora_discovery
+    - cd ../../usb_dev_kit
+    - make format
+    - cd ../Training/lora_discovery
+    - make format
+    - cd ../LoRa_sx1276
     - make format
     - git status --porcelain
 
+# lint_apps:
+#   stage: lint
+#   image : runmymind/docker-android-sdk
+#   script:
+#     - cd smartphone
+#     - cd BLEParrot
+#     - ./gradlew lint
+
 lint_test:
   stage: lint
-#  image: alabate/clang-format
+  image: rfc1149/rose-dev
   script:
-    - cd test
-    - cd fibo
+    - cd Training/Test
     - make format
     - git status --porcelain
 
@@ -42,36 +50,62 @@ lint_test:
 
 build_main:
   stage: build
+  image: tuetuopay/arm-none-eabi
   script:
-    - cd nrf52_dev_kit
+    - cd Training/BLE_nrf52
     - make
-#    - cd ../stealth_drop
-#    - make
-    - cd ../lora_discovery
+    - cd ../../usb_dev_kit
+    - make
+    - cd ../Training/lora_discovery
+    - make
+    - cd ../LoRa_sx1276
     - make
   artifacts:
     paths:
-    - lora_discovery/main
-    - nrf52_dev_kit/_build/nrf52832_xxaa.hex
-    - stealth_drop/main
+    - Training/BLE_nrf52/_build/nrf52832_xxaa.out
+    - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
+    - usb_dev_kit/build/usb_dev_kit.elf
     expire_in: 1 week
+
+# build_apps:
+#   stage: build
+#   image : runmymind/docker-android-sdk
+#   script:
+#     - cd smartphone
+#     - cd BLEParrot
+#     - ./gradlew build
+#   artifacts:
+#     paths:
+#     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+#     expire_in: 1 week
 
 build_test:
   stage: build
+  image: rfc1149/rose-dev
   script:
-    - cd test/fibo
+    - cd Training/Test
     - make
   artifacts:
     paths:
-    - test/fibo/main
+    - Training/Test/main
     expire_in: 20 minutes
 
 # TEST STAGE
 
-test_fibo:
+# Runs all JUnit tests
+# test_apps:
+#   stage: test
+#   image : runmymind/docker-android-sdk
+#   script:
+#     - cd smartphone
+#     - cd BLEParrot
+#     - ./gradlew test
+
+test_test:
   stage: test
+  image: rfc1149/rose-dev
   script:
-    - cd test/fibo
+    - cd Training/Test
     - ./main
 
 # DEPLOY STAGE

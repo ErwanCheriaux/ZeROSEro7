@@ -1,0 +1,11 @@
+<map id="Continuous Glucose Monitoring Service" name="Continuous Glucose Monitoring Service">
+<area shape="rect" id="node1" href="$group__ble__sdk__srv__cgms__meas.html" title="Continuous Glucose Monitoring Service Measurement module. " alt="" coords="203,5,343,61"/>
+<area shape="rect" id="node2" href="$group__ble__sdk__srv__cgms__socp.html" title="Continuous Glucose Monitoring Service SOCP module. " alt="" coords="205,86,341,127"/>
+<area shape="rect" id="node3" href="$group__nrf__ble__cgms__functions.html" title="Functions" alt="" coords="233,152,312,179"/>
+<area shape="rect" id="node5" href="$group__nrf__ble__cgms__enums.html" title="Enumerations" alt="" coords="221,203,324,229"/>
+<area shape="rect" id="node6" href="$group__ble__sdk__srv__cgms__sst.html" title="Continuous Glucose Monitoring Service SST module. " alt="" coords="205,253,340,280"/>
+<area shape="rect" id="node7" href="$group__ble__sdk__srv__cgms__racp.html" title="Continuous Glucose Monitoring Service RACP module. " alt="" coords="193,305,352,346"/>
+<area shape="rect" id="node8" href="$group__nrf__ble__cgms__types.html" title="Types" alt="" coords="243,371,302,397"/>
+<area shape="rect" id="node9" href="$group__ble__sdk__srv__cgms__db.html" title="Continuous Glucose Monitoring Service database module. " alt="" coords="203,421,343,477"/>
+<area shape="rect" id="node10" href="$group__nrf__ble__cgms__structs.html" title="Structures" alt="" coords="231,501,314,528"/>
+</map>

@@ -1,0 +1,315 @@
+\hypertarget{Region_8h}{}\section{Mac/region/\+Region.h File Reference}
+\label{Region_8h}\index{Mac/region/\+Region.\+h@{Mac/region/\+Region.\+h}}
+
+
+Region implementation.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Region_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionuPhyParam}{u\+Phy\+Param}
+\item 
+struct \hyperlink{structsGetPhyParams}{s\+Get\+Phy\+Params}
+\item 
+struct \hyperlink{structsSetBandTxDoneParams}{s\+Set\+Band\+Tx\+Done\+Params}
+\item 
+union \hyperlink{unionuVerifyParams}{u\+Verify\+Params}
+\item 
+struct \hyperlink{structuVerifyParams_1_1sDatarateParams}{u\+Verify\+Params\+::s\+Datarate\+Params}
+\item 
+struct \hyperlink{structsApplyCFListParams}{s\+Apply\+C\+F\+List\+Params}
+\item 
+struct \hyperlink{structsChanMaskSetParams}{s\+Chan\+Mask\+Set\+Params}
+\item 
+struct \hyperlink{structsAdrNextParams}{s\+Adr\+Next\+Params}
+\item 
+struct \hyperlink{structsRxConfigParams}{s\+Rx\+Config\+Params}
+\item 
+struct \hyperlink{structsTxConfigParams}{s\+Tx\+Config\+Params}
+\item 
+struct \hyperlink{structsLinkAdrReqParams}{s\+Link\+Adr\+Req\+Params}
+\item 
+struct \hyperlink{structsRxParamSetupReqParams}{s\+Rx\+Param\+Setup\+Req\+Params}
+\item 
+struct \hyperlink{structsNewChannelReqParams}{s\+New\+Channel\+Req\+Params}
+\item 
+struct \hyperlink{structsTxParamSetupReqParams}{s\+Tx\+Param\+Setup\+Req\+Params}
+\item 
+struct \hyperlink{structsDlChannelReqParams}{s\+Dl\+Channel\+Req\+Params}
+\item 
+struct \hyperlink{structsAlternateDrParams}{s\+Alternate\+Dr\+Params}
+\item 
+struct \hyperlink{structsCalcBackOffParams}{s\+Calc\+Back\+Off\+Params}
+\item 
+struct \hyperlink{structsNextChanParams}{s\+Next\+Chan\+Params}
+\item 
+struct \hyperlink{structsChannelAddParams}{s\+Channel\+Add\+Params}
+\item 
+struct \hyperlink{structsChannelRemoveParams}{s\+Channel\+Remove\+Params}
+\item 
+struct \hyperlink{structsContinuousWaveParams}{s\+Continuous\+Wave\+Params}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__REGION_ga12fa17e5c1016e01a9d82c25027deb1b}{LC}(channel\+Index)~( uint16\+\_\+t )( 1 $<$$<$ ( channel\+Index -\/ 1 ) )
+\item 
+\#define \hyperlink{group__REGION_ga6c4ef966b4f3d5eb7597b087f2b97095}{D\+R\+\_\+0}~0
+\item 
+\#define \hyperlink{group__REGION_ga87e71569dc5f2114e685560de072af26}{D\+R\+\_\+1}~1
+\item 
+\#define \hyperlink{group__REGION_gad402daa928a8b3dea829315fab69de17}{D\+R\+\_\+2}~2
+\item 
+\#define \hyperlink{group__REGION_ga3627849e6360cd275bc74dc519653820}{D\+R\+\_\+3}~3
+\item 
+\#define \hyperlink{group__REGION_ga6ceba6158a7dab238e9d0b846fb47a0c}{D\+R\+\_\+4}~4
+\item 
+\#define \hyperlink{group__REGION_ga872e12c82020c02a7f70a1c6ed1375df}{D\+R\+\_\+5}~5
+\item 
+\#define \hyperlink{group__REGION_ga8e2b4c15b7dbb8bda5ed635ca1d262be}{D\+R\+\_\+6}~6
+\item 
+\#define \hyperlink{group__REGION_ga3a06805baf4f00911a3a5d3dbadebf61}{D\+R\+\_\+7}~7
+\item 
+\#define \hyperlink{group__REGION_ga44cc96ba80ae464cd9330b784d329c16}{D\+R\+\_\+8}~8
+\item 
+\#define \hyperlink{group__REGION_ga67346d631ba28781d6dffb2a7b6fd22f}{D\+R\+\_\+9}~9
+\item 
+\#define \hyperlink{group__REGION_ga8cc471faabc38682537f6a60a30844e4}{D\+R\+\_\+10}~10
+\item 
+\#define \hyperlink{group__REGION_ga77672781eaa7dc6f6892195739a5ef27}{D\+R\+\_\+11}~11
+\item 
+\#define \hyperlink{group__REGION_gafcf0cda11eda5db3d4c4e9a5bd79c0d5}{D\+R\+\_\+12}~12
+\item 
+\#define \hyperlink{group__REGION_ga226f47470cc69a6fe831f7c92709bc1f}{D\+R\+\_\+13}~13
+\item 
+\#define \hyperlink{group__REGION_ga5319f091a90ef4a360cb732be49927c6}{D\+R\+\_\+14}~14
+\item 
+\#define \hyperlink{group__REGION_gac6e078f51b71f05093daf27834997396}{D\+R\+\_\+15}~15
+\item 
+\#define \hyperlink{group__REGION_gab33618449f2a573142c463ab071ef8ed}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0}~0
+\item 
+\#define \hyperlink{group__REGION_gaac7fe73d03d0e880cc4c7a3d30e23cb6}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1}~1
+\item 
+\#define \hyperlink{group__REGION_gaf308ada92d6393ca5ae171ffc462c74c}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2}~2
+\item 
+\#define \hyperlink{group__REGION_ga9d5bc42aaace47b7053ecf685153bdaa}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3}~3
+\item 
+\#define \hyperlink{group__REGION_ga36456baf8ace3e7d7ae730ddb54b95bc}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4}~4
+\item 
+\#define \hyperlink{group__REGION_ga0149d52581db80901b5bc1adf0aedd1d}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5}~5
+\item 
+\#define \hyperlink{group__REGION_ga29743296a1bb29534ecc4894967c0714}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6}~6
+\item 
+\#define \hyperlink{group__REGION_ga3c7bd9a98f0c1e7e9aaa90857c4bd700}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7}~7
+\item 
+\#define \hyperlink{group__REGION_ga99ec65aa5375a9dbbaf2faac8d7f6968}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8}~8
+\item 
+\#define \hyperlink{group__REGION_gacf5b8e09a82ae407ae0ab2d81f1e0c3d}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9}~9
+\item 
+\#define \hyperlink{group__REGION_gac9747c69350f34d485c3134e5a57655b}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10}~10
+\item 
+\#define \hyperlink{group__REGION_ga739bc82fae779702381bcaa5e85d7d06}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11}~11
+\item 
+\#define \hyperlink{group__REGION_gaeeb1b0e98ed14b98b55ce8b7fbd8d3f1}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12}~12
+\item 
+\#define \hyperlink{group__REGION_gaabaceca100173cd1f450f53d2e14f0a2}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13}~13
+\item 
+\#define \hyperlink{group__REGION_ga6932af7382128090be2a6533e260dd9c}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14}~14
+\item 
+\#define \hyperlink{group__REGION_gabe4f87ed0aa6efe21ec76d9a32a334ef}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15}~15
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}{e\+Phy\+Attribute} \hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t}
+\item 
+typedef enum \hyperlink{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}{e\+Init\+Type} \hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t}
+\item 
+typedef enum \hyperlink{group__REGION_ga7a62e669f567fc160ad58210664bca9c}{e\+Channels\+Mask} \hyperlink{group__REGION_ga933f695eea70935418e2175940b92311}{Channels\+Mask\+\_\+t}
+\item 
+typedef union \hyperlink{unionuPhyParam}{u\+Phy\+Param} \hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t}
+\item 
+typedef struct \hyperlink{structsGetPhyParams}{s\+Get\+Phy\+Params} \hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsSetBandTxDoneParams}{s\+Set\+Band\+Tx\+Done\+Params} \hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t}
+\item 
+typedef union \hyperlink{unionuVerifyParams}{u\+Verify\+Params} \hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsApplyCFListParams}{s\+Apply\+C\+F\+List\+Params} \hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChanMaskSetParams}{s\+Chan\+Mask\+Set\+Params} \hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsAdrNextParams}{s\+Adr\+Next\+Params} \hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsRxConfigParams}{s\+Rx\+Config\+Params} \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsTxConfigParams}{s\+Tx\+Config\+Params} \hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLinkAdrReqParams}{s\+Link\+Adr\+Req\+Params} \hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsRxParamSetupReqParams}{s\+Rx\+Param\+Setup\+Req\+Params} \hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsNewChannelReqParams}{s\+New\+Channel\+Req\+Params} \hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsTxParamSetupReqParams}{s\+Tx\+Param\+Setup\+Req\+Params} \hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsDlChannelReqParams}{s\+Dl\+Channel\+Req\+Params} \hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsAlternateDrParams}{s\+Alternate\+Dr\+Params} \hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsCalcBackOffParams}{s\+Calc\+Back\+Off\+Params} \hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsNextChanParams}{s\+Next\+Chan\+Params} \hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChannelAddParams}{s\+Channel\+Add\+Params} \hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChannelRemoveParams}{s\+Channel\+Remove\+Params} \hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsContinuousWaveParams}{s\+Continuous\+Wave\+Params} \hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}{e\+Phy\+Attribute} \{ \newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da91cb5d84f937c32cd635dd7efe7a9d3a}{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daace3e56c88b40def8ed6a9106871e7de}{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dabc80857ed9621c5c6fd60d98846b0b84}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac83a2348a7177fae43a5c3b0a6f0a141}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da62c19af9dc2c54540562e1158c015f57}{P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da70c3923333165960549162e3dcf10467}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8cc3b895173b07ee71127e366c8d0d55}{P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da0dceb30b79f1bae301afd5406a86d6f3}{P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da18ae0d314f20c212f9e40207099ab1bb}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dad671e2651e42de26927910282c6b2781}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8a3b9e5ad2604232fd1f8781658452f3}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac66308571e624ecc28c79ee0deab8cf0}{P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dacf2bd6f434ce2844651513ad2b9b9da5}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da3680d45f45e3e0a96ce9f1e1b5ed7371}{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da9c7e3df5f55fab406960a9e5bf635155}{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daf564c82ebd72dcd6c4fc1e702b2ec64c}{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da04e6c3d25ce44a74c0a29f28aa92eb48}{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da01c12b14686172b4a3c4d095deef4248}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8485b24e94d037ba487ab6ecfaf162e8}{P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dae648c84cc946657e970c7e08dd69cb6f}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da1835125d2139942145a0ed0caff058f3}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da672678e5f03f8ad1afa8817405e72ef0}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daa6fd00cadf73ba804e35d85aadd15882}{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da7253f56eb1b6f4fe64d7a51b2e573766}{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52d463ed953da20f07f8d045c58caee8}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52c9055b2e5bbfc05c86e83798856aba}{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dab35cca5e0dae3d87e02c8c80e4d4685e}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8e29179691bf6520256a7af0cabae6ad}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da5bdce0ffd449781819a0d87732ebd2b7}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da37b73a543ea79ce58bf18035329ba773}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da46941b2ce68829fcee9540dc64e53d6d}{P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da49312d43f8804334f738701ab59878a1}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac002e7e492cf30dbf9c544b062f5cc8a}{P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR}
+ \}
+\item 
+enum \hyperlink{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}{e\+Init\+Type} \{ \hyperlink{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2a5065ce7a587a2aeff0da16507222c4d7}{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT}, 
+\hyperlink{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2aed3218cb3c4ebbb74a1b48e4f8ac8599}{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE}
+ \}
+\item 
+enum \hyperlink{group__REGION_ga7a62e669f567fc160ad58210664bca9c}{e\+Channels\+Mask} \{ \hyperlink{group__REGION_gga7a62e669f567fc160ad58210664bca9ca1e68275c0b16a0c4935eada4315dd089}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}, 
+\hyperlink{group__REGION_gga7a62e669f567fc160ad58210664bca9ca9bbb18c8600ad8781ba04a2cb121ea60}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__REGION_ga3e5cf2322f71f8f9973718024b6fb782}{Region\+Is\+Active} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region)
+\begin{DoxyCompactList}\small\item\em The function verifies if a region is active or not. If a region is not active, it cannot be used. \end{DoxyCompactList}\item 
+\hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t} \hyperlink{group__REGION_gafbd084611ba512035a6cbe7f3aa5857b}{Region\+Get\+Phy\+Param} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t} $\ast$get\+Phy)
+\begin{DoxyCompactList}\small\item\em The function gets a value of a specific phy attribute. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_gabdd176dcf0b7e7900377b4c1e183613d}{Region\+Set\+Band\+Tx\+Done} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t} $\ast$tx\+Done)
+\begin{DoxyCompactList}\small\item\em Updates the last TX done parameters of the current channel. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_ga54b1b27a8431cd146b4dc33a894ee6db}{Region\+Init\+Defaults} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t} type)
+\begin{DoxyCompactList}\small\item\em Initializes the channels masks and the channels. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga7c1ff626bc1131889fa8de3197a1093a}{Region\+Verify} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t} $\ast$verify, \hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t} phy\+Attribute)
+\begin{DoxyCompactList}\small\item\em Verifies a parameter. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_gae3fdd82182ebb0704adb2a017d30e1f2}{Region\+Apply\+C\+F\+List} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t} $\ast$apply\+C\+F\+List)
+\begin{DoxyCompactList}\small\item\em The function parses the input buffer and sets up the channels of the CF list. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga795ed3c13f4c8d03e39298fd64e5b2df}{Region\+Chan\+Mask\+Set} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t} $\ast$chan\+Mask\+Set)
+\begin{DoxyCompactList}\small\item\em Sets a channels mask. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga08cac64beeadd0555460ca5e756a0792}{Region\+Adr\+Next} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t} $\ast$adr\+Next, int8\+\_\+t $\ast$dr\+Out, int8\+\_\+t $\ast$tx\+Pow\+Out, uint32\+\_\+t $\ast$adr\+Ack\+Counter)
+\begin{DoxyCompactList}\small\item\em Calculates the next datarate to set, when A\+DR is on or off. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_gaf89984d30239d6597190409068031465}{Region\+Rx\+Config} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$rx\+Config, int8\+\_\+t $\ast$datarate)
+\begin{DoxyCompactList}\small\item\em Configuration of the RX windows. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_gabd3eb4e7db9b7987fabb9568f733a2b9}{Region\+Compute\+Rx\+Window\+Parameters} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, int8\+\_\+t datarate, uint8\+\_\+t min\+Rx\+Symbols, uint32\+\_\+t rx\+Error, \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$rx\+Config\+Params)
+\item 
+bool \hyperlink{group__REGION_ga9a4b01301e0f6f6880dc6a651c062ad0}{Region\+Tx\+Config} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t} $\ast$tx\+Config, int8\+\_\+t $\ast$tx\+Power, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$tx\+Time\+On\+Air)
+\begin{DoxyCompactList}\small\item\em TX configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_gae82a94e6d4141122e1a20b5ba1936c8e}{Region\+Link\+Adr\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t} $\ast$link\+Adr\+Req, int8\+\_\+t $\ast$dr\+Out, int8\+\_\+t $\ast$tx\+Pow\+Out, uint8\+\_\+t $\ast$nb\+Rep\+Out, uint8\+\_\+t $\ast$nb\+Bytes\+Parsed)
+\begin{DoxyCompactList}\small\item\em The function processes a Link A\+DR Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_ga485a820155fded42235a0d14d5918a7d}{Region\+Rx\+Param\+Setup\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$rx\+Param\+Setup\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a RX Parameter Setup Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_gadca654538335b4395c8d54642b83e2d4}{Region\+New\+Channel\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t} $\ast$new\+Channel\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a New Channel Request. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGION_ga50dbaca7bf982330c183614302d525c4}{Region\+Tx\+Param\+Setup\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$tx\+Param\+Setup\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a TX Param\+Setup Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_ga54f7c22677b2d0628e9914f53501d4b8}{Region\+Dl\+Channel\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t} $\ast$dl\+Channel\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a Dl\+Channel Request. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGION_ga4177d2eac64338ef073b43efa508e12a}{Region\+Alternate\+Dr} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t} $\ast$alternate\+Dr)
+\begin{DoxyCompactList}\small\item\em Alternates the datarate of the channel for the join request. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_ga07cfd135a3e8f85e15a5424c07f71d67}{Region\+Calc\+Back\+Off} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t} $\ast$calc\+Back\+Off)
+\begin{DoxyCompactList}\small\item\em Calculates the back-\/off time. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga2139de3f2832789797c8853764655398}{Region\+Next\+Channel} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t} $\ast$next\+Chan\+Params, uint8\+\_\+t $\ast$channel, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$time, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$aggregated\+Time\+Off)
+\begin{DoxyCompactList}\small\item\em Searches and set the next random available channel. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__REGION_gaaa5767f33e988a641abf509ad278ae14}{Region\+Channel\+Add} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t} $\ast$channel\+Add)
+\begin{DoxyCompactList}\small\item\em Adds a channel. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga50b3505e13d8373fef6e2be6d48e150c}{Region\+Channels\+Remove} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t} $\ast$channel\+Remove)
+\begin{DoxyCompactList}\small\item\em Removes a channel. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_ga22327f217ed10d84c89b6785143be5b8}{Region\+Set\+Continuous\+Wave} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t} $\ast$continuous\+Wave)
+\begin{DoxyCompactList}\small\item\em Sets the radio into continuous wave mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_gab62221e1ca566a89f4b450b30bfb95a7}{Region\+Apply\+Dr\+Offset} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, uint8\+\_\+t downlink\+Dwell\+Time, int8\+\_\+t dr, int8\+\_\+t dr\+Offset)
+\begin{DoxyCompactList}\small\item\em Computes new datarate according to the given offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Region implementation. 
+
+\begin{DoxyCopyright}{Copyright}
+Revised B\+SD License, see section L\+I\+C\+E\+N\+SE.
+\end{DoxyCopyright}
+
+\begin{DoxyCode}
+  \_\_\_\_\_\_                              \_
+ / \_\_\_\_\_)             \_              | |
+( (\_\_\_\_  \_\_\_\_\_ \_\_\_\_ \_| |\_ \_\_\_\_\_  \_\_\_\_| |\_\_
+ \(\backslash\)\_\_\_\_ \(\backslash\)| \_\_\_ |    (\_   \_) \_\_\_ |/ \_\_\_)  \_ \(\backslash\)
+ \_\_\_\_\_) ) \_\_\_\_| | | || |\_| \_\_\_\_( (\_\_\_| | | |
+(\_\_\_\_\_\_/|\_\_\_\_\_)\_|\_|\_| \(\backslash\)\_\_)\_\_\_\_\_)\(\backslash\)\_\_\_\_)\_| |\_|
+(C)2013 Semtech
+
+ \_\_\_ \_\_\_\_\_ \_   \_\_\_ \_  \_\_\_\_\_ \_\_\_  \_\_\_  \_\_\_ \_\_\_
+/ \_\_|\_   \_/\_\(\backslash\) / \_\_| |/ / \_\_/ \_ \(\backslash\)| \_ \(\backslash\)/ \_\_| \_\_|
+\(\backslash\)\_\_ \(\backslash\) | |/ \_ \(\backslash\) (\_\_| \textcolor{stringliteral}{' <| \_| (\_) |   / (\_\_| \_|}
+\textcolor{stringliteral}{|\_\_\_/ |\_/\_/ \(\backslash\)\_\(\backslash\)\_\_\_|\_|\(\backslash\)\_\(\backslash\)\_| \(\backslash\)\_\_\_/|\_|\_\(\backslash\)\(\backslash\)\_\_\_|\_\_\_|}
+\textcolor{stringliteral}{embedded.connectivity.solutions===============}
+\end{DoxyCode}
+
+
+\begin{DoxyAuthor}{Author}
+Miguel Luis ( Semtech )
+
+Gregory Cristian ( Semtech )
+
+Daniel Jaeckle ( S\+T\+A\+C\+K\+F\+O\+R\+CE ) 
+\end{DoxyAuthor}

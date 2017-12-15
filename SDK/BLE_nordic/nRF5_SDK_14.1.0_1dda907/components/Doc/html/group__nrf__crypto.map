@@ -1,0 +1,11 @@
+<map id="Cryptography library" name="Cryptography library">
+<area shape="rect" id="node1" href="$group__nrf__crypto__initialization.html" title="Provides nrf_crypto initialization related functions. " alt="" coords="247,5,341,32"/>
+<area shape="rect" id="node2" href="$group__nrf__crypto__ecdh.html" title="Provides ECDH related functionality through nrf_crypto. " alt="" coords="213,56,375,83"/>
+<area shape="rect" id="node3" href="$group__nrf__crypto__hash.html" title="Provides cryptographic hash related functionality through nrf_crypto. " alt="" coords="227,107,361,149"/>
+<area shape="rect" id="node4" href="$group__nrf__crypto__mem.html" title="Module to manage dynamically allocated memory used by nrf_crypto APIs. " alt="" coords="192,173,396,214"/>
+<area shape="rect" id="node5" href="$group__nrf__crypto__ecdsa.html" title="Provides ECDSA related functionality through nrf_crypto. " alt="" coords="209,239,379,265"/>
+<area shape="rect" id="node6" href="$group__nrf__crypto__keys.html" title="Provides functions to allocate, free, generate and convert ECC key types. " alt="" coords="199,289,389,316"/>
+<area shape="rect" id="node7" href="$group__nrf__crypto__types.html" title="Provides definitions of commonly shared cryptographic types like hashes and curves used in the nrf_cr..." alt="" coords="212,340,376,367"/>
+<area shape="rect" id="node9" href="$group__nrf__crypto__rng.html" title="Provides functions to initialize rng subsystem and generate random data. " alt="" coords="203,391,385,433"/>
+<area shape="rect" id="node10" href="$group__nrf__crypto__backends.html" title="Backends for the cryptography library. " alt="" coords="254,457,334,484"/>
+</map>

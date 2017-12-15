@@ -1,0 +1,76 @@
+\hypertarget{structsLinkAdrReqParams}{}\section{s\+Link\+Adr\+Req\+Params Struct Reference}
+\label{structsLinkAdrReqParams}\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+
+
+{\ttfamily \#include $<$Region.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structsLinkAdrReqParams_ad4d35a1161753bb4006dfd00efd04270}{Payload}
+\item 
+uint8\+\_\+t \hyperlink{structsLinkAdrReqParams_ae12d8663597aa0cf1134ac00f77238c4}{Payload\+Size}
+\item 
+uint8\+\_\+t \hyperlink{structsLinkAdrReqParams_a4e183e8eb34bdc875c1d746a37985ac1}{Uplink\+Dwell\+Time}
+\item 
+bool \hyperlink{structsLinkAdrReqParams_abb00ae40cef849998af4c833c3811136}{Adr\+Enabled}
+\item 
+int8\+\_\+t \hyperlink{structsLinkAdrReqParams_a41048b1ea55a4acf361fbea7535c9ffe}{Current\+Datarate}
+\item 
+int8\+\_\+t \hyperlink{structsLinkAdrReqParams_ac23ec953d7e409b28938bfdc01a2d2a8}{Current\+Tx\+Power}
+\item 
+uint8\+\_\+t \hyperlink{structsLinkAdrReqParams_acdca5949f614789437af421720461a47}{Current\+Nb\+Rep}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Parameter structure for the function Region\+Link\+Adr\+Req. 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsLinkAdrReqParams_abb00ae40cef849998af4c833c3811136}\label{structsLinkAdrReqParams_abb00ae40cef849998af4c833c3811136}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Adr\+Enabled@{Adr\+Enabled}}
+\index{Adr\+Enabled@{Adr\+Enabled}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Adr\+Enabled}{AdrEnabled}}
+{\footnotesize\ttfamily bool s\+Link\+Adr\+Req\+Params\+::\+Adr\+Enabled}
+
+Set to true, if A\+DR is enabled. \mbox{\Hypertarget{structsLinkAdrReqParams_a41048b1ea55a4acf361fbea7535c9ffe}\label{structsLinkAdrReqParams_a41048b1ea55a4acf361fbea7535c9ffe}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Current\+Datarate@{Current\+Datarate}}
+\index{Current\+Datarate@{Current\+Datarate}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Current\+Datarate}{CurrentDatarate}}
+{\footnotesize\ttfamily int8\+\_\+t s\+Link\+Adr\+Req\+Params\+::\+Current\+Datarate}
+
+The current datarate. \mbox{\Hypertarget{structsLinkAdrReqParams_acdca5949f614789437af421720461a47}\label{structsLinkAdrReqParams_acdca5949f614789437af421720461a47}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Current\+Nb\+Rep@{Current\+Nb\+Rep}}
+\index{Current\+Nb\+Rep@{Current\+Nb\+Rep}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Current\+Nb\+Rep}{CurrentNbRep}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Link\+Adr\+Req\+Params\+::\+Current\+Nb\+Rep}
+
+The current number of repetitions. \mbox{\Hypertarget{structsLinkAdrReqParams_ac23ec953d7e409b28938bfdc01a2d2a8}\label{structsLinkAdrReqParams_ac23ec953d7e409b28938bfdc01a2d2a8}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Current\+Tx\+Power@{Current\+Tx\+Power}}
+\index{Current\+Tx\+Power@{Current\+Tx\+Power}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Current\+Tx\+Power}{CurrentTxPower}}
+{\footnotesize\ttfamily int8\+\_\+t s\+Link\+Adr\+Req\+Params\+::\+Current\+Tx\+Power}
+
+The current TX power. \mbox{\Hypertarget{structsLinkAdrReqParams_ad4d35a1161753bb4006dfd00efd04270}\label{structsLinkAdrReqParams_ad4d35a1161753bb4006dfd00efd04270}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Payload@{Payload}}
+\index{Payload@{Payload}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Payload}{Payload}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ s\+Link\+Adr\+Req\+Params\+::\+Payload}
+
+Pointer to the payload which contains the M\+AC commands. \mbox{\Hypertarget{structsLinkAdrReqParams_ae12d8663597aa0cf1134ac00f77238c4}\label{structsLinkAdrReqParams_ae12d8663597aa0cf1134ac00f77238c4}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Payload\+Size@{Payload\+Size}}
+\index{Payload\+Size@{Payload\+Size}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Payload\+Size}{PayloadSize}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Link\+Adr\+Req\+Params\+::\+Payload\+Size}
+
+Size of the payload. \mbox{\Hypertarget{structsLinkAdrReqParams_a4e183e8eb34bdc875c1d746a37985ac1}\label{structsLinkAdrReqParams_a4e183e8eb34bdc875c1d746a37985ac1}} 
+\index{s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}!Uplink\+Dwell\+Time@{Uplink\+Dwell\+Time}}
+\index{Uplink\+Dwell\+Time@{Uplink\+Dwell\+Time}!s\+Link\+Adr\+Req\+Params@{s\+Link\+Adr\+Req\+Params}}
+\subsubsection{\texorpdfstring{Uplink\+Dwell\+Time}{UplinkDwellTime}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Link\+Adr\+Req\+Params\+::\+Uplink\+Dwell\+Time}
+
+Uplink dwell time. 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/region/\hyperlink{Region_8h}{Region.\+h}\end{DoxyCompactItemize}

@@ -1,0 +1,81 @@
+\hypertarget{RegionCommon_8c}{}\section{Mac/region/\+Region\+Common.c File Reference}
+\label{RegionCommon_8c}\index{Mac/region/\+Region\+Common.\+c@{Mac/region/\+Region\+Common.\+c}}
+{\ttfamily \#include $<$stdbool.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$stdint.\+h$>$}\newline
+{\ttfamily \#include $<$math.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}timer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}utilities.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Region\+Common.\+h\char`\"{}}\newline
+Include dependency graph for Region\+Common.\+c\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{RegionCommon_8c__incl}
+\end{center}
+\end{figure}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{RegionCommon_8c_a1d58cbd560840cdab3e4427797e88c3a}{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}~100
+\item 
+\#define \hyperlink{RegionCommon_8c_a70461da0dc970b3de51718ab397a81db}{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}~1000
+\item 
+\#define \hyperlink{RegionCommon_8c_ada6c3c87744e22f1c053caba7c40d26c}{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}~10000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\+\_\+t \hyperlink{group__REGIONCOMMON_ga672466fcf1aedaaf075cdabf49bc0c28}{Region\+Common\+Get\+Join\+Dc} (\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} elapsed\+Time)
+\begin{DoxyCompactList}\small\item\em Calculates the join duty cycle. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCOMMON_ga94ce5c6e759081853eb06d1dcffdab25}{Region\+Common\+Chan\+Verify\+Dr} (uint8\+\_\+t nb\+Channels, uint16\+\_\+t $\ast$channels\+Mask, int8\+\_\+t dr, int8\+\_\+t min\+Dr, int8\+\_\+t max\+Dr, \hyperlink{group__LORAMAC_ga1360ca6f82c6d125ea43a9dad9b56184}{Channel\+Params\+\_\+t} $\ast$channels)
+\begin{DoxyCompactList}\small\item\em Verifies, if a datarate is available on an active channel. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCOMMON_gafdd1c80d953e18d755a631b72a9c3bd3}{Region\+Common\+Value\+In\+Range} (int8\+\_\+t value, int8\+\_\+t min, int8\+\_\+t max)
+\begin{DoxyCompactList}\small\item\em Verifies, if a value is in a given range. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGIONCOMMON_ga695c0ab2a06edcae5b33772f639fb676}{Region\+Common\+Chan\+Disable} (uint16\+\_\+t $\ast$channels\+Mask, uint8\+\_\+t id, uint8\+\_\+t max\+Channels)
+\begin{DoxyCompactList}\small\item\em Disables a channel in a given channels mask. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCOMMON_gac23f0831812f610f57f42f6cf87368c9}{Region\+Common\+Count\+Channels} (uint16\+\_\+t $\ast$channels\+Mask, uint8\+\_\+t start\+Idx, uint8\+\_\+t stop\+Idx)
+\begin{DoxyCompactList}\small\item\em Counts the number of active channels in a given channels mask. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCOMMON_ga95f5199d490113269fae7f2e0569e9a0}{Region\+Common\+Chan\+Mask\+Copy} (uint16\+\_\+t $\ast$channels\+Mask\+Dest, uint16\+\_\+t $\ast$channels\+Mask\+Src, uint8\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Copy a channels mask. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCOMMON_ga491dea5590228a0cd33affd71743779c}{Region\+Common\+Set\+Band\+Tx\+Done} (bool joined, \hyperlink{group__LORAMAC_ga8f49721ee96ceb52c80a896ab11a2ed8}{Band\+\_\+t} $\ast$band, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} last\+Tx\+Done)
+\begin{DoxyCompactList}\small\item\em Sets the last tx done property. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} \hyperlink{group__REGIONCOMMON_ga2e26fe6b49ca26edf7052eadd7f18b3a}{Region\+Common\+Update\+Band\+Time\+Off} (bool joined, bool duty\+Cycle, \hyperlink{group__LORAMAC_ga8f49721ee96ceb52c80a896ab11a2ed8}{Band\+\_\+t} $\ast$bands, uint8\+\_\+t nb\+Bands)
+\begin{DoxyCompactList}\small\item\em Updates the time-\/offs of the bands. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCOMMON_ga8403c78482dbb901014dba48b75d78e8}{Region\+Common\+Parse\+Link\+Adr\+Req} (uint8\+\_\+t $\ast$payload, \hyperlink{group__REGIONCOMMON_ga6e1aaa6b8d179e2daffac8d1e23d7f24}{Region\+Common\+Link\+Adr\+Params\+\_\+t} $\ast$link\+Adr\+Params)
+\begin{DoxyCompactList}\small\item\em Parses the parameter of an Link\+Adr\+Request. This is a generic function and valid for all regions. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGIONCOMMON_ga2c87f98f09793dc7fa63a9801feeed73}{Region\+Common\+Link\+Adr\+Req\+Verify\+Params} (\hyperlink{group__REGIONCOMMON_gad186afbaf1b52893ddc3fa5eba88de0a}{Region\+Common\+Link\+Adr\+Req\+Verify\+Params\+\_\+t} $\ast$verify\+Params, int8\+\_\+t $\ast$dr, int8\+\_\+t $\ast$tx\+Pow, uint8\+\_\+t $\ast$nb\+Rep)
+\begin{DoxyCompactList}\small\item\em Verifies and updates the datarate, the TX power and the number of repetitions of a Link\+Adr\+Request. This depends on the configuration of A\+DR also. \end{DoxyCompactList}\item 
+double \hyperlink{group__REGIONCOMMON_ga79ed8b6555b68276d3c9ff2626b20fc8}{Region\+Common\+Compute\+Symbol\+Time\+Lo\+Ra} (uint8\+\_\+t phy\+Dr, uint32\+\_\+t bandwidth)
+\begin{DoxyCompactList}\small\item\em Computes the symbol time for Lo\+Ra modulation. \end{DoxyCompactList}\item 
+double \hyperlink{group__REGIONCOMMON_gacc2af896b03aa8ed8d8e5950d96d365f}{Region\+Common\+Compute\+Symbol\+Time\+Fsk} (uint8\+\_\+t phy\+Dr)
+\begin{DoxyCompactList}\small\item\em Computes the symbol time for F\+SK modulation. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCOMMON_gaba7114d0ca01f04933710feb13646138}{Region\+Common\+Compute\+Rx\+Window\+Parameters} (double t\+Symbol, uint8\+\_\+t min\+Rx\+Symbols, uint32\+\_\+t rx\+Error, uint32\+\_\+t wake\+Up\+Time, uint32\+\_\+t $\ast$window\+Timeout, int32\+\_\+t $\ast$window\+Offset)
+\begin{DoxyCompactList}\small\item\em Computes the RX window timeout and the RX window offset. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGIONCOMMON_gaa92800c8e9ce21366d383d14878cc391}{Region\+Common\+Compute\+Tx\+Power} (int8\+\_\+t tx\+Power\+Index, float max\+Eirp, float antenna\+Gain)
+\begin{DoxyCompactList}\small\item\em Computes the tx\+Power, based on the max E\+I\+RP and the antenna gain. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGIONCOMMON_gae2b1dfba27c79f605048f2d9869dc57d}{Region\+Common\+Calc\+Back\+Off} (\hyperlink{group__REGIONCOMMON_ga26c2fc7c3e1d929d59b5653a5cd1fc0c}{Region\+Common\+Calc\+Back\+Off\+Params\+\_\+t} $\ast$calc\+Back\+Off\+Params)
+\begin{DoxyCompactList}\small\item\em Calculates the duty cycle for the current band. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{RegionCommon_8c_a70461da0dc970b3de51718ab397a81db}\label{RegionCommon_8c_a70461da0dc970b3de51718ab397a81db}} 
+\index{Region\+Common.\+c@{Region\+Common.\+c}!B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}}
+\index{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}!Region\+Common.\+c@{Region\+Common.\+c}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS}{BACKOFF\_DC\_10\_HOURS}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+10\+\_\+\+H\+O\+U\+RS~1000}
+
+\mbox{\Hypertarget{RegionCommon_8c_a1d58cbd560840cdab3e4427797e88c3a}\label{RegionCommon_8c_a1d58cbd560840cdab3e4427797e88c3a}} 
+\index{Region\+Common.\+c@{Region\+Common.\+c}!B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}}
+\index{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}!Region\+Common.\+c@{Region\+Common.\+c}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR}{BACKOFF\_DC\_1\_HOUR}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+1\+\_\+\+H\+O\+UR~100}
+
+\mbox{\Hypertarget{RegionCommon_8c_ada6c3c87744e22f1c053caba7c40d26c}\label{RegionCommon_8c_ada6c3c87744e22f1c053caba7c40d26c}} 
+\index{Region\+Common.\+c@{Region\+Common.\+c}!B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}}
+\index{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS@{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}!Region\+Common.\+c@{Region\+Common.\+c}}
+\subsubsection{\texorpdfstring{B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS}{BACKOFF\_DC\_24\_HOURS}}
+{\footnotesize\ttfamily \#define B\+A\+C\+K\+O\+F\+F\+\_\+\+D\+C\+\_\+24\+\_\+\+H\+O\+U\+RS~10000}
+

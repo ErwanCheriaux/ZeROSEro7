@@ -1,0 +1,4 @@
+<map id="Atomic FIFO" name="Atomic FIFO">
+<area shape="rect" id="node2" href="$group__nrf__atfifo__instmacros.html" title="FIFO instance macros" alt="" coords="151,5,303,32"/>
+<area shape="rect" id="node3" href="$group__nrf__atomic.html" title="This module implements C11 stdatomic.h simplified API. At this point only Cortex&#45;M3/M4 cores are supp..." alt="" coords="151,56,304,83"/>
+</map>

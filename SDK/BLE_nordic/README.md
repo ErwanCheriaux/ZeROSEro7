@@ -1,0 +1,1 @@
+ Nordic SDK folder

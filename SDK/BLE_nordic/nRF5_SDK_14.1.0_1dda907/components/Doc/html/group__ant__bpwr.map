@@ -1,0 +1,4 @@
+<map id="Bicycle Power profile" name="Bicycle Power profile">
+<area shape="rect" id="node1" href="$group__ant__sdk__profiles__bpwr__utils.html" title="This module implements utilities for the Bicycle Power profile. " alt="" coords="199,5,344,47"/>
+<area shape="rect" id="node2" href="$group__ant__sdk__profiles__bpwr__pages.html" title="This module implements functions for the BPWR data pages. " alt="" coords="199,71,344,112"/>
+</map>

@@ -1,0 +1,5 @@
+<map id="Peer Manager" name="Peer Manager">
+<area shape="rect" id="node2" href="$group__PM__PEER__ID__VERSIONS.html" title="The data ID for each iteration of the data formats in flash. " alt="" coords="156,5,321,32"/>
+<area shape="rect" id="node3" href="$group__BLE__GAP__PRIVACY__MODES.html" title="Privacy modes" alt="" coords="184,56,293,83"/>
+<area shape="rect" id="node4" href="$group__PM__SEC__ERRORS.html" title="Peer Manager defined\l security errors" alt="" coords="164,107,313,149"/>
+</map>

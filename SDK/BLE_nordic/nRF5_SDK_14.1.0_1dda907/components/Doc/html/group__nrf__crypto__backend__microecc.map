@@ -1,0 +1,9 @@
+<map id="Software backend (micro&#45;ecc)" name="Software backend (micro&#45;ecc)">
+<area shape="rect" id="node1" href="$group__nrf__crypto__sw__rng.html" title="Macros for type sizes for RNG in nrf_crypto backend. " alt="" coords="385,5,573,47"/>
+<area shape="rect" id="node2" href="$group__nrf__crypto__backend__micro__ecc__lib__ecdsa.html" title="Provides types required for micro_ecc backend ECDSA. " alt="" coords="388,71,571,112"/>
+<area shape="rect" id="node3" href="$group__nrf__crypto__backend__micro__ecc__lib__init.html" title="Provides types required for CC310 backend initialization. " alt="" coords="377,136,581,177"/>
+<area shape="rect" id="node4" href="$group__nrf__crypto__backend__micro__ecc__lib__ecc__keys.html" title="Provides types required for CC310 backend ECC keys. " alt="" coords="397,201,562,243"/>
+<area shape="rect" id="node6" href="$group__nrf__crypto__sw__hash.html" title="Macros for type sizes in nrf_crypt SW backend. " alt="" coords="398,267,561,308"/>
+<area shape="rect" id="node7" href="$group__nrf__crypto__backend__micro__ecc__lib__shared.html" title="Provides shared functions required for micro_ecc backend. " alt="" coords="392,332,567,373"/>
+<area shape="rect" id="node8" href="$group__nrf__crypto__backends.html" title="Backends for the cryptography library. " alt="" coords="5,177,85,203"/>
+</map>
