@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                      08:26 PM Thursday, December 14, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
+                       11:12 AM Friday, December 15, 2017
+                      Job Name: E:\STEALTH_DROP\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -88,8 +88,8 @@ Version:  01.01.00
 
 
      The Common DataBase has been read and will be packaged.
-     Clustering 61 Symbols:
-              61  **********
+     Clustering 62 Symbols:
+              62  ***********
               50  **************************************************
      Clustering is Complete
 
@@ -97,8 +97,8 @@ Version:  01.01.00
 
 
 
-     54 nets were found containing 232 pins
-     61 components were found
+     55 nets were found containing 235 pins
+     62 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
      A formatted Schematic Netlist has been created.
@@ -112,8 +112,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                      08:26 PM Thursday, December 14, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
+                       11:12 AM Friday, December 15, 2017
+                      Job Name: E:\STEALTH_DROP\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -125,13 +125,11 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-     WARNING:  The "TANTAL_D" cell used by "C19" in the Layout is not
-      valid for a "10-0106" Part Number.
-     INFO: Cell "TANTAL_D" is being replaced by cell "C0402".
+     The following 1 components have not been placed:
 
-	WARNING:  "C28" is being removed from the Layout since it is no longer in the schematic.
+        C28
 
-     Netload completed successfully with 2 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 

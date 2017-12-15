@@ -2,13 +2,13 @@
                                     Packager
                                     --------
 
-                      08:26 PM Thursday, December 14, 2017
+                       11:22 AM Friday, December 15, 2017
 Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj -CleanBuild -NoFill"
+        Commandline is: "C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe -Replace "-jC:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj""
 
      The Common Database is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb".
 
@@ -23,8 +23,9 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
      The Disable Repackage status indicates that 
       Repackaging should be allowed.
 
-     A new Target PDB will be created from the Central Library to satisfy the parts
-      requirements of the iCDB.
+     The PDBs listed in the project file will be searched to satisfy the parts
+      requirements of the iCDB and to replace any duplicates found in the
+      Target PDB.
 
      The AllowAlphaRefDes status indicates that reference
       designators containing all alpha characters should be deleted
@@ -48,6 +49,7 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
        "Option"
        "ESR"
        "Imax"
+       "Place"
        "Cout HT"
        "Vf"
        "Code Fournisseur"
@@ -139,8 +141,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 61 Symbols:
-              61  **********
+     Clustering 62 Symbols:
+              62  ***********
               50  **************************************************
      Clustering is Complete
 
@@ -148,8 +150,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
 
 
-     54 nets were found containing 232 pins
-     61 components were found
+     55 nets were found containing 235 pins
+     62 components were found
 
      Parsed netlist - Augmenting..
 

@@ -2863,3 +2863,18 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.p
 ;------------------------------- --------------------------------
 ; STARTING AN IMPLICIT FORWARD ANNOTATION
 ;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                       11:12 AM Friday, December 15, 2017
+                      Job Name: E:\STEALTH_DROP\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
