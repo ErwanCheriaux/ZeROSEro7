@@ -8,10 +8,54 @@
 #include "sx1276Regs-LoRa.h"
 #include "delay.h"
 
+#ifndef LORA_PARROT
+
 static uint8_t addr;                                        // SPI address
 static uint8_t rx_buffer[4];                                // SPI MISO
 static uint8_t tx_buffer[4]        = {1, 2, 3, 4};          // SPI MOSI
 static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};  // LORA FIFO TX
+
+#define LORA_RX_TIMEOUT 8000    // ms
+
+static void lora_tx_done_handler()
+{
+    rtt_write_string(" -> Tx done\n");
+}
+
+static void lora_tx_timeout_handler()
+{
+    rtt_write_string(" -> Tx timeout\n");
+}
+
+static void lora_rx_timeout_handler()
+{
+    rtt_write_string(" -> Rx timeout\n");
+    Radio.Standby();
+}
+
+static void lora_rx_error_handler()
+{
+    rtt_write_string(" -> Rx error\n");
+}
+
+static void lora_rx_done_handler(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
+{
+    rtt_write_string(" -> Rx done\nData : ");
+    rtt_write_buffer(0, payload, size);
+    rtt_printf(0, "\nRssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
+    DelayMs(LORA_RX_TIMEOUT-1000);
+    Radio.Standby();
+}
+
+static RadioEvents_t RadioEvents ={
+    lora_tx_done_handler,
+    lora_tx_timeout_handler,
+    lora_rx_done_handler,
+    lora_rx_timeout_handler,
+    lora_rx_error_handler,
+    NULL,   // Frequency Hopping handler
+    NULL    // CAD done handler
+};
 
 int main(void)
 {
@@ -32,7 +76,7 @@ int main(void)
     HW_SPI_Init();
     rtt_write_string("SPI Initialized\n");
 
-    lora_init();
+    lora_init(&RadioEvents);
     rtt_write_string("LoRa initialized\n");
     addr = REG_LR_MODEMCONFIG1;
     Radio.ReadBuffer(addr, rx_buffer, 2);
@@ -47,10 +91,10 @@ int main(void)
 
         if(send) {
             rtt_write_string("\nLoRa sending\n");
-            lora_send(lora_send_buffer, 4);
+            Radio.Send(lora_send_buffer,4);
         } else {
             rtt_write_string("\nReceiving\n");
-            lora_observe();
+            Radio.Rx(LORA_RX_TIMEOUT);
         }
         send = !send;
 
@@ -60,3 +104,8 @@ int main(void)
 
     return 0;
 }
+
+#else
+
+
+#endif // LORA_PARROT

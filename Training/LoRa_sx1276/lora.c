@@ -8,7 +8,6 @@
 #include "lora_board.h"
 
 #define RF_FREQUENCY 868300000   // Hz
-#define RX_TIMEOUT_VALUE 8000    // ms
 #define LORA_BANDWIDTH 0         /* [0: 125 kHz, \
                                      1: 250 kHz, \
                                      2: 500 kHz, \
@@ -62,50 +61,15 @@ const struct Radio_s Radio =
         SX1276SetPublicNetwork,
         SX1276GetRadioWakeUpTime};
 
-static void onTxDone()
-{
-    rtt_write_string(" -> Tx done\n");
-}
 
-static void onTxTimeout()
-{
-    rtt_write_string(" -> Tx timeout\n");
-}
 
-static void onRxTimeout()
-{
-    rtt_write_string(" -> Rx timeout\n");
-    Radio.Standby();
-}
-
-static void onRxError()
-{
-    rtt_write_string(" -> Rx error\n");
-}
-
-static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
-{
-    rtt_write_string(" -> Rx done\nData : ");
-    rtt_write_buffer(0, payload, size);
-    rtt_printf(0, "\nRssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
-    DelayMs(RX_TIMEOUT_VALUE-1000);
-    Radio.Standby();
-}
-
-static RadioEvents_t RadioEvents;
-void                 lora_init()
+void lora_init(RadioEvents_t * RadioEvents)
 {
     Radio.IoInit();
     SX1276AntSwInit();
     SX1276BoardInit(&lora_board_callbacks);
 
-    RadioEvents.TxDone    = onTxDone;
-    RadioEvents.RxDone    = OnRxDone;
-    RadioEvents.TxTimeout = onTxTimeout;
-    RadioEvents.RxTimeout = onRxTimeout;
-    RadioEvents.RxError   = onRxError;
-
-    Radio.Init(&RadioEvents);
+    Radio.Init(RadioEvents);
     Radio.SetChannel(RF_FREQUENCY);
 
     Radio.SetRxConfig(MODEM_LORA, LORA_BANDWIDTH,
@@ -121,21 +85,6 @@ void                 lora_init()
                       LORA_CODINGRATE, LORA_PREAMBLE_LENGTH,
                       LORA_FIX_LENGTH_PAYLOAD_ON, LORA_CRC_ON, LORA_FREQUENCY_HOPPING_ON,
                       LORA_HOPPING_PERIOD, LORA_IQ_INVERSION_ON, LORA_TX_TIMEOUT);
-}
-
-void lora_observe()
-{
-    Radio.Rx(RX_TIMEOUT_VALUE);
-}
-
-void lora_send(uint8_t *buffer, unsigned int size)
-{
-    Radio.Send(buffer, size);
-}
-
-void lora_clear_irq()
-{
-    Radio.Write(REG_LR_IRQFLAGS, 0xff);
 }
 
 bool SX1276CheckRfFrequency(uint32_t frequency)
