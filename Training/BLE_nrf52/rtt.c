@@ -1,10 +1,4 @@
-#include "nrf_sdh.h"
-#include "nrf_sdh_ble.h"
 #include "app_error.h"
-#include "nordic_common.h"
-#include "nrf.h"
-#include "ble_hci.h"
-#include "ble_gap.h"
 #include "nrf_strerror.h"
 
 #include "rtt.h"

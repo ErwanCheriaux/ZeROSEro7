@@ -1,4 +1,4 @@
-PROJECT_NAME     := spy_talk
+PROJECT_NAME     := lora_spi
 TARGETS          := nrf52832_xxaa
 OUTPUT_DIRECTORY := _build
 
@@ -8,18 +8,26 @@ COMMAND_ROOT := $(NORDIC_DIR)/nRF5x-Command-Line-Tools
 PROJ_DIR     := .
 
 GNU_PREFIX    := arm-none-eabi-
-LINKER_SCRIPT := $(TARGETS).ld
+LINKER_SCRIPT := spi_gcc_nrf52.ld
 
 GDB := $(GNU_PREFIX)gdb
 ELF := $(OUTPUT_DIRECTORY)/$(TARGETS).out
 HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 
 USER_SRC = \
-	$(PROJ_DIR)/rtt.c \
-	$(PROJ_DIR)/ble_central.c \
 	$(PROJ_DIR)/main.c \
+	$(PROJ_DIR)/../BLE_nrf52/rtt.c \
+	$(PROJ_DIR)/../BLE_nrf52/ble_central.c \
+	$(PROJ_DIR)/hw_rtc.c \
+	$(PROJ_DIR)/hw_spi.c \
+	$(PROJ_DIR)/hw_gpio.c \
+	$(PROJ_DIR)/lora.c \
+	$(PROJ_DIR)/lora_board.c \
 
-USER_INC = $(PROJ_DIR)
+USER_INC = $(PROJ_DIR) \
+  $(PROJ_DIR)/../BLE_nrf52 \
+
+# ***** Nordic SDK Specific *****
 
 # Source files common to all targets
 SRC_FILES += $(USER_SRC) \
@@ -163,7 +171,6 @@ INC_FOLDERS += $(USER_INC) \
 	$(SDK_ROOT)/components/libraries/uart \
 	$(SDK_ROOT)/components/libraries/hci \
 	$(SDK_ROOT)/components/libraries/usbd/class/hid/kbd \
-	$(SDK_ROOT)/components/drivers_nrf/spi_slave \
 	$(SDK_ROOT)/components/drivers_nrf/lpcomp \
 	$(SDK_ROOT)/components/libraries/timer \
 	$(SDK_ROOT)/components/drivers_nrf/rng \
@@ -223,7 +230,7 @@ CFLAGS += -DSOFTDEVICE_PRESENT
 CFLAGS += -DSWI_DISABLE0
 CFLAGS += -mcpu=cortex-m4
 CFLAGS += -mthumb -mabi=aapcs
-CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable -Wno-expansion-to-defined
+CFLAGS +=  -Wall -Werror -Wno-unused-function -Wno-unused-variable -Wno-unused-value -Wno-expansion-to-defined
 CFLAGS += -mfloat-abi=hard -mfpu=fpv4-sp-d16
 # keep every function in a separate section, this allows linker to discard unused ones
 CFLAGS += -ffunction-sections -fdata-sections -fno-strict-aliasing
@@ -262,6 +269,38 @@ LDFLAGS += --specs=nano.specs
 # that may need symbols provided by these libraries.
 LIB_FILES += -lc -lnosys -lm
 
+# ***** LoRa Semtec Specific *****
+
+CUBEEXPANSION = ../../SDK/LoRa_icube/CubeExpansion
+DRIVERS = $(CUBEEXPANSION)/Drivers
+BSP = $(DRIVERS)/BSP
+CMSIS = $(DRIVERS)/CMSIS
+MIDDLEWARES = $(CUBEEXPANSION)/Middlewares/Third_Party/Lora
+
+SRC_FILES += \
+	$(BSP)/Components/sx1276/sx1276.c \
+	$(MIDDLEWARES)/Utilities/utilities.c \
+	$(MIDDLEWARES)/Utilities/delay.c \
+	$(MIDDLEWARES)/Utilities/timeServer.c \
+#	$(MIDDLEWARES)/Core/lora.c \	for LoRaMAC
+
+INC_FOLDERS += \
+	$(MIDDLEWARES)/Phy \
+	$(BSP)/Components/sx1276 \
+	$(MIDDLEWARES)/Utilities \
+#	$(MIDDLEWARES)/Core \
+#	$(CMSIS)/Include \
+#	$(MIDDLEWARES)/Crypto \
+#	$(MIDDLEWARES)/Mac \
+
+CFLAGS += \
+	-D USE_BAND_868 \
+	-D USE_MODEM_LORA \
+	-D _DEBUG \
+	-D DEBUG \
+	-D DIO_PINS_CONNECTED \
+
+# ***** Targets ******
 
 .PHONY: default help
 
@@ -292,15 +331,6 @@ flash: $(HEX)
 	$(COMMAND_ROOT)/nrfjprog/nrfjprog -f nrf52 --reset
 
 NRFJPROG = $(SDK_ROOT)/../nRF5x-Command-Line-Tools/nrfjprog/nrfjprog
-
-# Flash SoftDevice. Must be done once for the board.
-# Could be linked, but takes time to load
-# Allocated flash area : (0x0 - 0x22fff)
-# Allocated ram area : (0x20000000 - 0x200020df)
-flash_softdevice:
-	@echo Flashing: s132_nrf52_5.0.0_softdevice.hex
-	$(NRFJPROG) -f nrf52 --program $(SDK_ROOT)/components/softdevice/s132/hex/s132_nrf52_5.0.0_softdevice.hex --sectorerase
-	$(NRFJPROG) -f nrf52 --reset
 
 startgdbserver:
 	JLinkGDBServer -device nrf52832_xxAA -if swd -speed auto -port 2331

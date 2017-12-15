@@ -103,13 +103,6 @@ static ble_gap_scan_params_t const scan_conf =
         .adv_dir_report = 1,  // Enables printing private addresses not peered
 };
 
-static void scan_init()
-{
-    ret_code_t err_code;
-    err_code = sd_ble_gap_scan_start(&scan_conf);
-    APP_ERROR_CHECK(err_code);
-}
-
 // BLE Handler
 
 static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
@@ -154,7 +147,6 @@ static void ble_stack_init()
 void ble_init(void)
 {
     ble_stack_init();
-    scan_init();
 }
 
 void ble_start_observing()
