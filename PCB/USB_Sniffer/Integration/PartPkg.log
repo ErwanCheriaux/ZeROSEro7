@@ -2,7 +2,7 @@
                                     Packager
                                     --------
 
-                      12:03 PM Thursday, December 14, 2017
+                       11:36 AM Friday, December 15, 2017
          Job Name: C:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj
 
 
@@ -50,6 +50,7 @@
        "Option"
        "ESR"
        "Imax"
+       "Place"
        "Cout HT"
        "Vf"
        "Code Fournisseur"
@@ -94,6 +95,14 @@
      not intended as a request to be packaged in the same pack with 
      symbols of like designators.
 
+    WARNING: Block Schematic1, Page 1, Symbol XCMP952:
+     Reference designator removal.
+     The Reference Designator "U" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
+
      Common Data Base has been read
 
      Target PDB Name: Integration\LocalPartsDB.pdb
@@ -116,16 +125,16 @@
           Part Numb: 20-0038 -> Vend Part: 20-0038 
           Part Numb: 20-0041 -> Vend Part: 20-0041 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
-          Part Numb: 40-0297 -> Vend Part: 40-0297 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
+          Part Numb: 40-0332 -> Vend Part: 40-0332 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
           Part Numb: 70-0042 -> Vend Part: 70-0042 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0063 -> Vend Part: 80-0063 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
-          Part Numb: 83-0028 -> Vend Part:  
+          Part Numb: 83-0028 -> Vend Part: 83-0028 
 
      Number of Part Names: 0
 
@@ -135,26 +144,95 @@
      Checking for value differences between non-null symbol properties and PartsDB properties,
       but only for those properties checked off in the Property Definition Editor
 
+    WARNING: Block Schematic1, Page 2, Symbol XCMP918:
+      Symbol property changed to ignored notation PartsDB value:
+                       Resolved PartNumber = 10-0060
+                       Symbol Property: Code Fournisseur = Fa : 1845729
+     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 2507061
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP814:
+      Symbol property changed to ignored notation PartsDB value:
+                       Resolved PartNumber = 10-0058
+                       Symbol Property: Code Fournisseur = Fa : 1362420
+     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP813:
+      Symbol property changed to ignored notation PartsDB value:
+                       Resolved PartNumber = 10-0058
+                       Symbol Property: Code Fournisseur = Fa : 1362420
+     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP748:
+      Symbol property changed to ignored notation PartsDB value:
+                       Resolved PartNumber = 10-0058
+                       Symbol Property: Code Fournisseur = Fa : 1362420
+     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP747:
+      Symbol property changed to ignored notation PartsDB value:
+                       Resolved PartNumber = 10-0058
+                       Symbol Property: Code Fournisseur = Fa : 1362420
+     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP906:
+      Symbol property changed to limited precision PartsDB value:
+                        Resolved PartNumber = 10-0106
+                        Symbol Property: Description = Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, Murata GRM155R60J106ME44D, case 0402
+     Limited Precision PartsDB Property: Description = Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP906:
+      Symbol property changed to ignored notation PartsDB value:
+                       Resolved PartNumber = 10-0106
+                       Symbol Property: Code Fournisseur = Fa : 2218854
+     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 2346872
+
      Checking the validity of the packaging of prepackaged schematic
       symbols.  Only the first error in symbols having the same
       Reference Designator will be reported.
 
-     ERROR:  There is no Part Number: 83-0028 in the Parts
-      DataBase for symbols with Part Name: QUARTZ and Part Label: 16.000 MHz.
-      [Please add the Part Number to the PDB either directly
-       or by having the project file point to a PDB that contains it.]
-       The relevant symbols are:
-        Block Schematic1, Page 1, Symbol XCMP947 
+     The packaging of all prepackaged schematic symbols is consistent
+      with the Parts DataBase data for the cross mapping of
+      symbol pin names to Part Number pin numbers.
+      Symbols that were not prepackaged will now be packaged correctly.
+      
+     No errors in Existing Schematic Packaging.
 
-     1 packaging error has been found.
-      For those errors that only involve the application of wrong
-      pin numbers, either repackage the schematic by hand or
-      simply remove at least one pin number per symbol to enable
-      automatic packaging when you run this procedure again.
+     The Common DataBase has been read and will be packaged.
+     Clustering 45 Symbols:
+              45  ********************************************
+     Clustering is Complete
+
+     Packager Assignments successfully completed
 
 
 
-     Testing of Packaging is being terminated with 1 errors and 2 warnings.
-      Design has NOT been packaged.
+     40 nets were found containing 155 pins
+     45 components were found
 
-     There have been 1 errors and 2 warnings.
+     Parsed netlist - Augmenting..
+
+     Augmented - Adding phantom pins....
+
+     Numbering Nets....
+
+     Checking Pins....
+
+     Testing of Packaging has been completed with 10 warnings.
+      Erroneous results may occur if not fixed.
+
+     Updating the Common DataBase
+
+     A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
+     There have been 3 reference designator changes.
+     The BAM file will list all of the from-to changes.
+
+The Common DataBase has been successfully updated.
+
+     Packager finished successfully.
+     !THE iCDB IS UP-TO-DATE!
+     
+     An unused pin and gate report has been written to Integration\UnusedPins.txt
+     An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
+     An augmented pin report has been written to Integration\AugmentedPins.txt.
+
+     There have been 10 warnings.
