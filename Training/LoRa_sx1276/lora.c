@@ -3,6 +3,7 @@
 #include "hw.h"
 #include "radio.h"
 #include "sx1276.h"
+#include "delay.h"
 
 #include "lora_board.h"
 
@@ -74,6 +75,7 @@ static void onTxTimeout()
 static void onRxTimeout()
 {
     rtt_write_string(" -> Rx timeout\n");
+    Radio.Standby();
 }
 
 static void onRxError()
@@ -83,9 +85,11 @@ static void onRxError()
 
 static void OnRxDone(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
 {
-    rtt_write_string(" -> Rx done\n");
-    rtt_write_buffer(0, payload, size) ;
-    rtt_printf(0,"RssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
+    rtt_write_string(" -> Rx done\nData : ");
+    rtt_write_buffer(0, payload, size);
+    rtt_printf(0, "\nRssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
+    DelayMs(3000);
+    Radio.Standby();
 }
 
 static RadioEvents_t RadioEvents;

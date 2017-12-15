@@ -43,20 +43,19 @@ int main(void)
     rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500));
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000));
 
-    static bool send ;
+    static bool send = true;
 
     while(true) {
-
         if(send) {
             rtt_write_string("\nLoRa sending\n");
             lora_send(lora_send_buffer, 4);
-            DelayMs(3010) ;
         } else {
             rtt_write_string("\nReceiving\n");
-            lora_observe() ;
-            DelayMs(2010) ;
+            lora_observe();
         }
         send = !send;
+        while(Radio.GetStatus() != RF_IDLE)
+            ;
 
         fifo_rx_end = Radio.Read(REG_LR_FIFORXBYTEADDR);
         rtt_printf(0, "Fifo rx addr : 0x%#02X\n", fifo_rx_end);

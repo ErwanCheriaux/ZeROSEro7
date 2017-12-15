@@ -40,12 +40,12 @@ static const nrf_drv_gpiote_in_config_t dio_in_config = {
 
 void SX1276IoIrqInit(DioIrqHandler **irqHandlers)
 {
-    nrf_drv_gpiote_in_init(SX1276_DIO0_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t) irqHandlers[0]);
-    nrf_drv_gpiote_in_init(SX1276_DIO1_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t) irqHandlers[1]);
-    nrf_drv_gpiote_in_init(SX1276_DIO2_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t) irqHandlers[2]);
-    nrf_drv_gpiote_in_init(SX1276_DIO3_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t) irqHandlers[3]);
-    nrf_drv_gpiote_in_init(SX1276_DIO4_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t) irqHandlers[4]);
-    nrf_drv_gpiote_in_init(SX1276_DIO5_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t) irqHandlers[5]);
+    nrf_drv_gpiote_in_init(SX1276_DIO0_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t)irqHandlers[0]);
+    nrf_drv_gpiote_in_init(SX1276_DIO1_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t)irqHandlers[1]);
+    nrf_drv_gpiote_in_init(SX1276_DIO2_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t)irqHandlers[2]);
+    nrf_drv_gpiote_in_init(SX1276_DIO3_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t)irqHandlers[3]);
+    nrf_drv_gpiote_in_init(SX1276_DIO4_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t)irqHandlers[4]);
+    nrf_drv_gpiote_in_init(SX1276_DIO5_PIN, &dio_in_config, (nrf_drv_gpiote_evt_handler_t)irqHandlers[5]);
 
     nrf_drv_gpiote_in_event_enable(SX1276_DIO0_PIN, true);
     nrf_drv_gpiote_in_event_enable(SX1276_DIO1_PIN, true);
@@ -61,7 +61,7 @@ void SX1276SetAntSwLowPower(bool status)
 
 // No power amplification connected
 static uint8_t paConfig;
-void           SX1276SetRfTxPower(int8_t power)
+void SX1276SetRfTxPower(int8_t power)
 {
     paConfig = SX1276Read(REG_PACONFIG);
     if((paConfig & RF_PACONFIG_PASELECT_PABOOST) == RF_PACONFIG_PASELECT_PABOOST) {
