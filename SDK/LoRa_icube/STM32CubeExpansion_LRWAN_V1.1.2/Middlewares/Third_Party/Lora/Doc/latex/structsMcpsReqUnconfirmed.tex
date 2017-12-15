@@ -1,0 +1,54 @@
+\hypertarget{structsMcpsReqUnconfirmed}{}\section{s\+Mcps\+Req\+Unconfirmed Struct Reference}
+\label{structsMcpsReqUnconfirmed}\index{s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}}
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Mac.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsReqUnconfirmed_a3c0190f7a5cc179b8cd664ff6a57169e}{f\+Port}
+\item 
+void $\ast$ \hyperlink{structsMcpsReqUnconfirmed_a38fff2f3a5d07612c80146613fe86ceb}{f\+Buffer}
+\item 
+uint16\+\_\+t \hyperlink{structsMcpsReqUnconfirmed_a0e3cfa4780e696a8e262d1f8f9f5fec4}{f\+Buffer\+Size}
+\item 
+int8\+\_\+t \hyperlink{structsMcpsReqUnconfirmed_a4df8871b15c859e010df754c419c5cb5}{Datarate}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra\+M\+AC M\+C\+P\+S-\/\+Request for an unconfirmed frame 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsMcpsReqUnconfirmed_a4df8871b15c859e010df754c419c5cb5}\label{structsMcpsReqUnconfirmed_a4df8871b15c859e010df754c419c5cb5}} 
+\index{s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}!Datarate@{Datarate}}
+\index{Datarate@{Datarate}!s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}}
+\subsubsection{\texorpdfstring{Datarate}{Datarate}}
+{\footnotesize\ttfamily int8\+\_\+t s\+Mcps\+Req\+Unconfirmed\+::\+Datarate}
+
+Uplink datarate, if A\+DR is off \mbox{\Hypertarget{structsMcpsReqUnconfirmed_a38fff2f3a5d07612c80146613fe86ceb}\label{structsMcpsReqUnconfirmed_a38fff2f3a5d07612c80146613fe86ceb}} 
+\index{s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}!f\+Buffer@{f\+Buffer}}
+\index{f\+Buffer@{f\+Buffer}!s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}}
+\subsubsection{\texorpdfstring{f\+Buffer}{fBuffer}}
+{\footnotesize\ttfamily void$\ast$ s\+Mcps\+Req\+Unconfirmed\+::f\+Buffer}
+
+Pointer to the buffer of the frame payload \mbox{\Hypertarget{structsMcpsReqUnconfirmed_a0e3cfa4780e696a8e262d1f8f9f5fec4}\label{structsMcpsReqUnconfirmed_a0e3cfa4780e696a8e262d1f8f9f5fec4}} 
+\index{s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}!f\+Buffer\+Size@{f\+Buffer\+Size}}
+\index{f\+Buffer\+Size@{f\+Buffer\+Size}!s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}}
+\subsubsection{\texorpdfstring{f\+Buffer\+Size}{fBufferSize}}
+{\footnotesize\ttfamily uint16\+\_\+t s\+Mcps\+Req\+Unconfirmed\+::f\+Buffer\+Size}
+
+Size of the frame payload \mbox{\Hypertarget{structsMcpsReqUnconfirmed_a3c0190f7a5cc179b8cd664ff6a57169e}\label{structsMcpsReqUnconfirmed_a3c0190f7a5cc179b8cd664ff6a57169e}} 
+\index{s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}!f\+Port@{f\+Port}}
+\index{f\+Port@{f\+Port}!s\+Mcps\+Req\+Unconfirmed@{s\+Mcps\+Req\+Unconfirmed}}
+\subsubsection{\texorpdfstring{f\+Port}{fPort}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Req\+Unconfirmed\+::f\+Port}
+
+Frame port field. Must be set if the payload is not empty. Use the application specific frame port values\+: \mbox{[}1...223\mbox{]}
+
+Lo\+Ra\+W\+AN Specification V1.\+0.\+2, chapter 4.\+3.\+2 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/\hyperlink{LoRaMac_8h}{Lo\+Ra\+Mac.\+h}\end{DoxyCompactItemize}

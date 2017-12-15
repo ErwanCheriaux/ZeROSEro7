@@ -1,0 +1,1880 @@
+\hypertarget{group__REGION}{}\section{Region implementation}
+\label{group__REGION}\index{Region implementation@{Region implementation}}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionuPhyParam}{u\+Phy\+Param}
+\item 
+struct \hyperlink{structsGetPhyParams}{s\+Get\+Phy\+Params}
+\item 
+struct \hyperlink{structsSetBandTxDoneParams}{s\+Set\+Band\+Tx\+Done\+Params}
+\item 
+union \hyperlink{unionuVerifyParams}{u\+Verify\+Params}
+\item 
+struct \hyperlink{structsApplyCFListParams}{s\+Apply\+C\+F\+List\+Params}
+\item 
+struct \hyperlink{structsChanMaskSetParams}{s\+Chan\+Mask\+Set\+Params}
+\item 
+struct \hyperlink{structsAdrNextParams}{s\+Adr\+Next\+Params}
+\item 
+struct \hyperlink{structsRxConfigParams}{s\+Rx\+Config\+Params}
+\item 
+struct \hyperlink{structsTxConfigParams}{s\+Tx\+Config\+Params}
+\item 
+struct \hyperlink{structsLinkAdrReqParams}{s\+Link\+Adr\+Req\+Params}
+\item 
+struct \hyperlink{structsRxParamSetupReqParams}{s\+Rx\+Param\+Setup\+Req\+Params}
+\item 
+struct \hyperlink{structsNewChannelReqParams}{s\+New\+Channel\+Req\+Params}
+\item 
+struct \hyperlink{structsTxParamSetupReqParams}{s\+Tx\+Param\+Setup\+Req\+Params}
+\item 
+struct \hyperlink{structsDlChannelReqParams}{s\+Dl\+Channel\+Req\+Params}
+\item 
+struct \hyperlink{structsAlternateDrParams}{s\+Alternate\+Dr\+Params}
+\item 
+struct \hyperlink{structsCalcBackOffParams}{s\+Calc\+Back\+Off\+Params}
+\item 
+struct \hyperlink{structsNextChanParams}{s\+Next\+Chan\+Params}
+\item 
+struct \hyperlink{structsChannelAddParams}{s\+Channel\+Add\+Params}
+\item 
+struct \hyperlink{structsChannelRemoveParams}{s\+Channel\+Remove\+Params}
+\item 
+struct \hyperlink{structsContinuousWaveParams}{s\+Continuous\+Wave\+Params}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__REGION_ga12fa17e5c1016e01a9d82c25027deb1b}{LC}(channel\+Index)~( uint16\+\_\+t )( 1 $<$$<$ ( channel\+Index -\/ 1 ) )
+\item 
+\#define \hyperlink{group__REGION_ga6c4ef966b4f3d5eb7597b087f2b97095}{D\+R\+\_\+0}~0
+\item 
+\#define \hyperlink{group__REGION_ga87e71569dc5f2114e685560de072af26}{D\+R\+\_\+1}~1
+\item 
+\#define \hyperlink{group__REGION_gad402daa928a8b3dea829315fab69de17}{D\+R\+\_\+2}~2
+\item 
+\#define \hyperlink{group__REGION_ga3627849e6360cd275bc74dc519653820}{D\+R\+\_\+3}~3
+\item 
+\#define \hyperlink{group__REGION_ga6ceba6158a7dab238e9d0b846fb47a0c}{D\+R\+\_\+4}~4
+\item 
+\#define \hyperlink{group__REGION_ga872e12c82020c02a7f70a1c6ed1375df}{D\+R\+\_\+5}~5
+\item 
+\#define \hyperlink{group__REGION_ga8e2b4c15b7dbb8bda5ed635ca1d262be}{D\+R\+\_\+6}~6
+\item 
+\#define \hyperlink{group__REGION_ga3a06805baf4f00911a3a5d3dbadebf61}{D\+R\+\_\+7}~7
+\item 
+\#define \hyperlink{group__REGION_ga44cc96ba80ae464cd9330b784d329c16}{D\+R\+\_\+8}~8
+\item 
+\#define \hyperlink{group__REGION_ga67346d631ba28781d6dffb2a7b6fd22f}{D\+R\+\_\+9}~9
+\item 
+\#define \hyperlink{group__REGION_ga8cc471faabc38682537f6a60a30844e4}{D\+R\+\_\+10}~10
+\item 
+\#define \hyperlink{group__REGION_ga77672781eaa7dc6f6892195739a5ef27}{D\+R\+\_\+11}~11
+\item 
+\#define \hyperlink{group__REGION_gafcf0cda11eda5db3d4c4e9a5bd79c0d5}{D\+R\+\_\+12}~12
+\item 
+\#define \hyperlink{group__REGION_ga226f47470cc69a6fe831f7c92709bc1f}{D\+R\+\_\+13}~13
+\item 
+\#define \hyperlink{group__REGION_ga5319f091a90ef4a360cb732be49927c6}{D\+R\+\_\+14}~14
+\item 
+\#define \hyperlink{group__REGION_gac6e078f51b71f05093daf27834997396}{D\+R\+\_\+15}~15
+\item 
+\#define \hyperlink{group__REGION_gab33618449f2a573142c463ab071ef8ed}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0}~0
+\item 
+\#define \hyperlink{group__REGION_gaac7fe73d03d0e880cc4c7a3d30e23cb6}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1}~1
+\item 
+\#define \hyperlink{group__REGION_gaf308ada92d6393ca5ae171ffc462c74c}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2}~2
+\item 
+\#define \hyperlink{group__REGION_ga9d5bc42aaace47b7053ecf685153bdaa}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3}~3
+\item 
+\#define \hyperlink{group__REGION_ga36456baf8ace3e7d7ae730ddb54b95bc}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4}~4
+\item 
+\#define \hyperlink{group__REGION_ga0149d52581db80901b5bc1adf0aedd1d}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5}~5
+\item 
+\#define \hyperlink{group__REGION_ga29743296a1bb29534ecc4894967c0714}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6}~6
+\item 
+\#define \hyperlink{group__REGION_ga3c7bd9a98f0c1e7e9aaa90857c4bd700}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7}~7
+\item 
+\#define \hyperlink{group__REGION_ga99ec65aa5375a9dbbaf2faac8d7f6968}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8}~8
+\item 
+\#define \hyperlink{group__REGION_gacf5b8e09a82ae407ae0ab2d81f1e0c3d}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9}~9
+\item 
+\#define \hyperlink{group__REGION_gac9747c69350f34d485c3134e5a57655b}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10}~10
+\item 
+\#define \hyperlink{group__REGION_ga739bc82fae779702381bcaa5e85d7d06}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11}~11
+\item 
+\#define \hyperlink{group__REGION_gaeeb1b0e98ed14b98b55ce8b7fbd8d3f1}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12}~12
+\item 
+\#define \hyperlink{group__REGION_gaabaceca100173cd1f450f53d2e14f0a2}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13}~13
+\item 
+\#define \hyperlink{group__REGION_ga6932af7382128090be2a6533e260dd9c}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14}~14
+\item 
+\#define \hyperlink{group__REGION_gabe4f87ed0aa6efe21ec76d9a32a334ef}{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15}~15
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}{e\+Phy\+Attribute} \hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t}
+\item 
+typedef enum \hyperlink{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}{e\+Init\+Type} \hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t}
+\item 
+typedef enum \hyperlink{group__REGION_ga7a62e669f567fc160ad58210664bca9c}{e\+Channels\+Mask} \hyperlink{group__REGION_ga933f695eea70935418e2175940b92311}{Channels\+Mask\+\_\+t}
+\item 
+typedef union \hyperlink{unionuPhyParam}{u\+Phy\+Param} \hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t}
+\item 
+typedef struct \hyperlink{structsGetPhyParams}{s\+Get\+Phy\+Params} \hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsSetBandTxDoneParams}{s\+Set\+Band\+Tx\+Done\+Params} \hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t}
+\item 
+typedef union \hyperlink{unionuVerifyParams}{u\+Verify\+Params} \hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsApplyCFListParams}{s\+Apply\+C\+F\+List\+Params} \hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChanMaskSetParams}{s\+Chan\+Mask\+Set\+Params} \hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsAdrNextParams}{s\+Adr\+Next\+Params} \hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsRxConfigParams}{s\+Rx\+Config\+Params} \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsTxConfigParams}{s\+Tx\+Config\+Params} \hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLinkAdrReqParams}{s\+Link\+Adr\+Req\+Params} \hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsRxParamSetupReqParams}{s\+Rx\+Param\+Setup\+Req\+Params} \hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsNewChannelReqParams}{s\+New\+Channel\+Req\+Params} \hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsTxParamSetupReqParams}{s\+Tx\+Param\+Setup\+Req\+Params} \hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsDlChannelReqParams}{s\+Dl\+Channel\+Req\+Params} \hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsAlternateDrParams}{s\+Alternate\+Dr\+Params} \hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsCalcBackOffParams}{s\+Calc\+Back\+Off\+Params} \hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsNextChanParams}{s\+Next\+Chan\+Params} \hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChannelAddParams}{s\+Channel\+Add\+Params} \hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChannelRemoveParams}{s\+Channel\+Remove\+Params} \hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsContinuousWaveParams}{s\+Continuous\+Wave\+Params} \hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}{e\+Phy\+Attribute} \{ \newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da91cb5d84f937c32cd635dd7efe7a9d3a}{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daace3e56c88b40def8ed6a9106871e7de}{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dabc80857ed9621c5c6fd60d98846b0b84}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac83a2348a7177fae43a5c3b0a6f0a141}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da62c19af9dc2c54540562e1158c015f57}{P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da70c3923333165960549162e3dcf10467}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8cc3b895173b07ee71127e366c8d0d55}{P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da0dceb30b79f1bae301afd5406a86d6f3}{P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da18ae0d314f20c212f9e40207099ab1bb}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dad671e2651e42de26927910282c6b2781}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8a3b9e5ad2604232fd1f8781658452f3}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac66308571e624ecc28c79ee0deab8cf0}{P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dacf2bd6f434ce2844651513ad2b9b9da5}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da3680d45f45e3e0a96ce9f1e1b5ed7371}{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da9c7e3df5f55fab406960a9e5bf635155}{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daf564c82ebd72dcd6c4fc1e702b2ec64c}{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da04e6c3d25ce44a74c0a29f28aa92eb48}{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da01c12b14686172b4a3c4d095deef4248}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8485b24e94d037ba487ab6ecfaf162e8}{P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dae648c84cc946657e970c7e08dd69cb6f}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da1835125d2139942145a0ed0caff058f3}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da672678e5f03f8ad1afa8817405e72ef0}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daa6fd00cadf73ba804e35d85aadd15882}{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da7253f56eb1b6f4fe64d7a51b2e573766}{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52d463ed953da20f07f8d045c58caee8}{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52c9055b2e5bbfc05c86e83798856aba}{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dab35cca5e0dae3d87e02c8c80e4d4685e}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8e29179691bf6520256a7af0cabae6ad}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da5bdce0ffd449781819a0d87732ebd2b7}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da37b73a543ea79ce58bf18035329ba773}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da46941b2ce68829fcee9540dc64e53d6d}{P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}, 
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da49312d43f8804334f738701ab59878a1}{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}, 
+\newline
+\hyperlink{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac002e7e492cf30dbf9c544b062f5cc8a}{P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR}
+ \}
+\item 
+enum \hyperlink{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}{e\+Init\+Type} \{ \hyperlink{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2a5065ce7a587a2aeff0da16507222c4d7}{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT}, 
+\hyperlink{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2aed3218cb3c4ebbb74a1b48e4f8ac8599}{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE}
+ \}
+\item 
+enum \hyperlink{group__REGION_ga7a62e669f567fc160ad58210664bca9c}{e\+Channels\+Mask} \{ \hyperlink{group__REGION_gga7a62e669f567fc160ad58210664bca9ca1e68275c0b16a0c4935eada4315dd089}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}, 
+\hyperlink{group__REGION_gga7a62e669f567fc160ad58210664bca9ca9bbb18c8600ad8781ba04a2cb121ea60}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+bool \hyperlink{group__REGION_ga3e5cf2322f71f8f9973718024b6fb782}{Region\+Is\+Active} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region)
+\begin{DoxyCompactList}\small\item\em The function verifies if a region is active or not. If a region is not active, it cannot be used. \end{DoxyCompactList}\item 
+\hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t} \hyperlink{group__REGION_gafbd084611ba512035a6cbe7f3aa5857b}{Region\+Get\+Phy\+Param} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t} $\ast$get\+Phy)
+\begin{DoxyCompactList}\small\item\em The function gets a value of a specific phy attribute. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_gabdd176dcf0b7e7900377b4c1e183613d}{Region\+Set\+Band\+Tx\+Done} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t} $\ast$tx\+Done)
+\begin{DoxyCompactList}\small\item\em Updates the last TX done parameters of the current channel. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_ga54b1b27a8431cd146b4dc33a894ee6db}{Region\+Init\+Defaults} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t} type)
+\begin{DoxyCompactList}\small\item\em Initializes the channels masks and the channels. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga7c1ff626bc1131889fa8de3197a1093a}{Region\+Verify} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t} $\ast$verify, \hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t} phy\+Attribute)
+\begin{DoxyCompactList}\small\item\em Verifies a parameter. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_gae3fdd82182ebb0704adb2a017d30e1f2}{Region\+Apply\+C\+F\+List} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t} $\ast$apply\+C\+F\+List)
+\begin{DoxyCompactList}\small\item\em The function parses the input buffer and sets up the channels of the CF list. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga795ed3c13f4c8d03e39298fd64e5b2df}{Region\+Chan\+Mask\+Set} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t} $\ast$chan\+Mask\+Set)
+\begin{DoxyCompactList}\small\item\em Sets a channels mask. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga08cac64beeadd0555460ca5e756a0792}{Region\+Adr\+Next} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t} $\ast$adr\+Next, int8\+\_\+t $\ast$dr\+Out, int8\+\_\+t $\ast$tx\+Pow\+Out, uint32\+\_\+t $\ast$adr\+Ack\+Counter)
+\begin{DoxyCompactList}\small\item\em Calculates the next datarate to set, when A\+DR is on or off. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_gaf89984d30239d6597190409068031465}{Region\+Rx\+Config} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$rx\+Config, int8\+\_\+t $\ast$datarate)
+\begin{DoxyCompactList}\small\item\em Configuration of the RX windows. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_gabd3eb4e7db9b7987fabb9568f733a2b9}{Region\+Compute\+Rx\+Window\+Parameters} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, int8\+\_\+t datarate, uint8\+\_\+t min\+Rx\+Symbols, uint32\+\_\+t rx\+Error, \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$rx\+Config\+Params)
+\item 
+bool \hyperlink{group__REGION_ga9a4b01301e0f6f6880dc6a651c062ad0}{Region\+Tx\+Config} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t} $\ast$tx\+Config, int8\+\_\+t $\ast$tx\+Power, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$tx\+Time\+On\+Air)
+\begin{DoxyCompactList}\small\item\em TX configuration. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_gae82a94e6d4141122e1a20b5ba1936c8e}{Region\+Link\+Adr\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t} $\ast$link\+Adr\+Req, int8\+\_\+t $\ast$dr\+Out, int8\+\_\+t $\ast$tx\+Pow\+Out, uint8\+\_\+t $\ast$nb\+Rep\+Out, uint8\+\_\+t $\ast$nb\+Bytes\+Parsed)
+\begin{DoxyCompactList}\small\item\em The function processes a Link A\+DR Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_ga485a820155fded42235a0d14d5918a7d}{Region\+Rx\+Param\+Setup\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$rx\+Param\+Setup\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a RX Parameter Setup Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_gadca654538335b4395c8d54642b83e2d4}{Region\+New\+Channel\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t} $\ast$new\+Channel\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a New Channel Request. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGION_ga50dbaca7bf982330c183614302d525c4}{Region\+Tx\+Param\+Setup\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$tx\+Param\+Setup\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a TX Param\+Setup Request. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_ga54f7c22677b2d0628e9914f53501d4b8}{Region\+Dl\+Channel\+Req} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t} $\ast$dl\+Channel\+Req)
+\begin{DoxyCompactList}\small\item\em The function processes a Dl\+Channel Request. \end{DoxyCompactList}\item 
+int8\+\_\+t \hyperlink{group__REGION_ga4177d2eac64338ef073b43efa508e12a}{Region\+Alternate\+Dr} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t} $\ast$alternate\+Dr)
+\begin{DoxyCompactList}\small\item\em Alternates the datarate of the channel for the join request. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_ga07cfd135a3e8f85e15a5424c07f71d67}{Region\+Calc\+Back\+Off} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t} $\ast$calc\+Back\+Off)
+\begin{DoxyCompactList}\small\item\em Calculates the back-\/off time. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga2139de3f2832789797c8853764655398}{Region\+Next\+Channel} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t} $\ast$next\+Chan\+Params, uint8\+\_\+t $\ast$channel, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$time, \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$aggregated\+Time\+Off)
+\begin{DoxyCompactList}\small\item\em Searches and set the next random available channel. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__REGION_gaaa5767f33e988a641abf509ad278ae14}{Region\+Channel\+Add} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t} $\ast$channel\+Add)
+\begin{DoxyCompactList}\small\item\em Adds a channel. \end{DoxyCompactList}\item 
+bool \hyperlink{group__REGION_ga50b3505e13d8373fef6e2be6d48e150c}{Region\+Channels\+Remove} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t} $\ast$channel\+Remove)
+\begin{DoxyCompactList}\small\item\em Removes a channel. \end{DoxyCompactList}\item 
+void \hyperlink{group__REGION_ga22327f217ed10d84c89b6785143be5b8}{Region\+Set\+Continuous\+Wave} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, \hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t} $\ast$continuous\+Wave)
+\begin{DoxyCompactList}\small\item\em Sets the radio into continuous wave mode. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{group__REGION_gab62221e1ca566a89f4b450b30bfb95a7}{Region\+Apply\+Dr\+Offset} (\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region, uint8\+\_\+t downlink\+Dwell\+Time, int8\+\_\+t dr, int8\+\_\+t dr\+Offset)
+\begin{DoxyCompactList}\small\item\em Computes new datarate according to the given offset. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+This is the common A\+PI to access the specific regional implementations.
+
+Preprocessor options\+:
+\begin{DoxyItemize}
+\item Lo\+Ra\+W\+AN regions can be activated by defining the related preprocessor definition. It is possible to define more than one region. The following regions are supported\+:
+\begin{DoxyItemize}
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+A\+S923
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+A\+U915
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+C\+N470
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+C\+N779
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+E\+U433
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+E\+U868
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+K\+R920
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+I\+N865
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+U\+S915
+\item \#define R\+E\+G\+I\+O\+N\+\_\+\+U\+S915\+\_\+\+H\+Y\+B\+R\+ID 
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{group__REGION_ga6c4ef966b4f3d5eb7597b087f2b97095}\label{group__REGION_ga6c4ef966b4f3d5eb7597b087f2b97095}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+0@{D\+R\+\_\+0}}
+\index{D\+R\+\_\+0@{D\+R\+\_\+0}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+0}{DR\_0}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+0~0}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+K\+R920 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga87e71569dc5f2114e685560de072af26}\label{group__REGION_ga87e71569dc5f2114e685560de072af26}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+1@{D\+R\+\_\+1}}
+\index{D\+R\+\_\+1@{D\+R\+\_\+1}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+1}{DR\_1}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+1~1}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+K\+R920 &\PBS\centering S\+F11 -\/ B\+W125 \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga8cc471faabc38682537f6a60a30844e4}\label{group__REGION_ga8cc471faabc38682537f6a60a30844e4}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+10@{D\+R\+\_\+10}}
+\index{D\+R\+\_\+10@{D\+R\+\_\+10}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+10}{DR\_10}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+10~10}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F10 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F10 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F10 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga77672781eaa7dc6f6892195739a5ef27}\label{group__REGION_ga77672781eaa7dc6f6892195739a5ef27}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+11@{D\+R\+\_\+11}}
+\index{D\+R\+\_\+11@{D\+R\+\_\+11}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+11}{DR\_11}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+11~11}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F9 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F9 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F9 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_gafcf0cda11eda5db3d4c4e9a5bd79c0d5}\label{group__REGION_gafcf0cda11eda5db3d4c4e9a5bd79c0d5}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+12@{D\+R\+\_\+12}}
+\index{D\+R\+\_\+12@{D\+R\+\_\+12}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+12}{DR\_12}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+12~12}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F8 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F8 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F8 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga226f47470cc69a6fe831f7c92709bc1f}\label{group__REGION_ga226f47470cc69a6fe831f7c92709bc1f}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+13@{D\+R\+\_\+13}}
+\index{D\+R\+\_\+13@{D\+R\+\_\+13}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+13}{DR\_13}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+13~13}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F7 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F7 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F7 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga5319f091a90ef4a360cb732be49927c6}\label{group__REGION_ga5319f091a90ef4a360cb732be49927c6}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+14@{D\+R\+\_\+14}}
+\index{D\+R\+\_\+14@{D\+R\+\_\+14}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+14}{DR\_14}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+14~14}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering R\+FU \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_gac6e078f51b71f05093daf27834997396}\label{group__REGION_gac6e078f51b71f05093daf27834997396}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+15@{D\+R\+\_\+15}}
+\index{D\+R\+\_\+15@{D\+R\+\_\+15}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+15}{DR\_15}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+15~15}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering R\+FU \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_gad402daa928a8b3dea829315fab69de17}\label{group__REGION_gad402daa928a8b3dea829315fab69de17}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+2@{D\+R\+\_\+2}}
+\index{D\+R\+\_\+2@{D\+R\+\_\+2}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+2}{DR\_2}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+2~2}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+K\+R920 &\PBS\centering S\+F10 -\/ B\+W125 \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga3627849e6360cd275bc74dc519653820}\label{group__REGION_ga3627849e6360cd275bc74dc519653820}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+3@{D\+R\+\_\+3}}
+\index{D\+R\+\_\+3@{D\+R\+\_\+3}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+3}{DR\_3}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+3~3}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+K\+R920 &\PBS\centering S\+F9 -\/ B\+W125 \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga6ceba6158a7dab238e9d0b846fb47a0c}\label{group__REGION_ga6ceba6158a7dab238e9d0b846fb47a0c}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+4@{D\+R\+\_\+4}}
+\index{D\+R\+\_\+4@{D\+R\+\_\+4}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+4}{DR\_4}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+4~4}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F8 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+K\+R920 &\PBS\centering S\+F8 -\/ B\+W125 \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F8 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F8 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga872e12c82020c02a7f70a1c6ed1375df}\label{group__REGION_ga872e12c82020c02a7f70a1c6ed1375df}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+5@{D\+R\+\_\+5}}
+\index{D\+R\+\_\+5@{D\+R\+\_\+5}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+5}{DR\_5}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+5~5}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+A\+U915 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+K\+R920 &\PBS\centering S\+F7 -\/ B\+W125 \\\cline{1-2}
+U\+S915 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering R\+FU \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga8e2b4c15b7dbb8bda5ed635ca1d262be}\label{group__REGION_ga8e2b4c15b7dbb8bda5ed635ca1d262be}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+6@{D\+R\+\_\+6}}
+\index{D\+R\+\_\+6@{D\+R\+\_\+6}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+6}{DR\_6}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+6~6}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering S\+F7 -\/ B\+W250 \\\cline{1-2}
+A\+U915 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering S\+F7 -\/ B\+W250 \\\cline{1-2}
+E\+U433 &\PBS\centering S\+F7 -\/ B\+W250 \\\cline{1-2}
+E\+U868 &\PBS\centering S\+F7 -\/ B\+W250 \\\cline{1-2}
+I\+N865 &\PBS\centering S\+F7 -\/ B\+W250 \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering R\+FU \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga3a06805baf4f00911a3a5d3dbadebf61}\label{group__REGION_ga3a06805baf4f00911a3a5d3dbadebf61}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+7@{D\+R\+\_\+7}}
+\index{D\+R\+\_\+7@{D\+R\+\_\+7}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+7}{DR\_7}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+7~7}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering F\+SK \\\cline{1-2}
+A\+U915 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N470 &\PBS\centering S\+F12 -\/ B\+W125 \\\cline{1-2}
+C\+N779 &\PBS\centering F\+SK \\\cline{1-2}
+E\+U433 &\PBS\centering F\+SK \\\cline{1-2}
+E\+U868 &\PBS\centering F\+SK \\\cline{1-2}
+I\+N865 &\PBS\centering F\+SK \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering R\+FU \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga44cc96ba80ae464cd9330b784d329c16}\label{group__REGION_ga44cc96ba80ae464cd9330b784d329c16}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+8@{D\+R\+\_\+8}}
+\index{D\+R\+\_\+8@{D\+R\+\_\+8}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+8}{DR\_8}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+8~8}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F12 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F12 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F12 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga67346d631ba28781d6dffb2a7b6fd22f}\label{group__REGION_ga67346d631ba28781d6dffb2a7b6fd22f}} 
+\index{Region implementation@{Region implementation}!D\+R\+\_\+9@{D\+R\+\_\+9}}
+\index{D\+R\+\_\+9@{D\+R\+\_\+9}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{D\+R\+\_\+9}{DR\_9}}
+{\footnotesize\ttfamily \#define D\+R\+\_\+9~9}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ SF  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering R\+FU \\\cline{1-2}
+A\+U915 &\PBS\centering S\+F11 -\/ B\+W500 \\\cline{1-2}
+C\+N470 &\PBS\centering R\+FU \\\cline{1-2}
+C\+N779 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U433 &\PBS\centering R\+FU \\\cline{1-2}
+E\+U868 &\PBS\centering R\+FU \\\cline{1-2}
+I\+N865 &\PBS\centering R\+FU \\\cline{1-2}
+K\+R920 &\PBS\centering R\+FU \\\cline{1-2}
+U\+S915 &\PBS\centering S\+F11 -\/ B\+W500 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering S\+F11 -\/ B\+W500 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga12fa17e5c1016e01a9d82c25027deb1b}\label{group__REGION_ga12fa17e5c1016e01a9d82c25027deb1b}} 
+\index{Region implementation@{Region implementation}!LC@{LC}}
+\index{LC@{LC}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{LC}{LC}}
+{\footnotesize\ttfamily \#define LC(\begin{DoxyParamCaption}\item[{}]{channel\+Index }\end{DoxyParamCaption})~( uint16\+\_\+t )( 1 $<$$<$ ( channel\+Index -\/ 1 ) )}
+
+Macro to compute bit of a channel index. \mbox{\Hypertarget{group__REGION_gab33618449f2a573142c463ab071ef8ed}\label{group__REGION_gab33618449f2a573142c463ab071ef8ed}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0}{TX\_POWER\_0}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+0~0}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+C\+N779 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+E\+U433 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_gaac7fe73d03d0e880cc4c7a3d30e23cb6}\label{group__REGION_gaac7fe73d03d0e880cc4c7a3d30e23cb6}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1}{TX\_POWER\_1}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+1~1}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+C\+N779 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+E\+U433 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 2 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 2 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 2 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_gac9747c69350f34d485c3134e5a57655b}\label{group__REGION_gac9747c69350f34d485c3134e5a57655b}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10}{TX\_POWER\_10}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+10~10}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering -\/ \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 20 \\\cline{1-2}
+C\+N470 &\PBS\centering -\/ \\\cline{1-2}
+C\+N779 &\PBS\centering -\/ \\\cline{1-2}
+E\+U433 &\PBS\centering -\/ \\\cline{1-2}
+E\+U868 &\PBS\centering -\/ \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 20 \\\cline{1-2}
+K\+R920 &\PBS\centering -\/ \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 10 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 10 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga739bc82fae779702381bcaa5e85d7d06}\label{group__REGION_ga739bc82fae779702381bcaa5e85d7d06}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11}{TX\_POWER\_11}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+11~11}
+
+R\+FU \mbox{\Hypertarget{group__REGION_gaeeb1b0e98ed14b98b55ce8b7fbd8d3f1}\label{group__REGION_gaeeb1b0e98ed14b98b55ce8b7fbd8d3f1}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12}{TX\_POWER\_12}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+12~12}
+
+R\+FU \mbox{\Hypertarget{group__REGION_gaabaceca100173cd1f450f53d2e14f0a2}\label{group__REGION_gaabaceca100173cd1f450f53d2e14f0a2}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13}{TX\_POWER\_13}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+13~13}
+
+R\+FU \mbox{\Hypertarget{group__REGION_ga6932af7382128090be2a6533e260dd9c}\label{group__REGION_ga6932af7382128090be2a6533e260dd9c}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14}{TX\_POWER\_14}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+14~14}
+
+R\+FU \mbox{\Hypertarget{group__REGION_gabe4f87ed0aa6efe21ec76d9a32a334ef}\label{group__REGION_gabe4f87ed0aa6efe21ec76d9a32a334ef}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15}{TX\_POWER\_15}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+15~15}
+
+R\+FU \mbox{\Hypertarget{group__REGION_gaf308ada92d6393ca5ae171ffc462c74c}\label{group__REGION_gaf308ada92d6393ca5ae171ffc462c74c}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2}{TX\_POWER\_2}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+2~2}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+C\+N779 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+E\+U433 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 4 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 4 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 4 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga9d5bc42aaace47b7053ecf685153bdaa}\label{group__REGION_ga9d5bc42aaace47b7053ecf685153bdaa}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3}{TX\_POWER\_3}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+3~3}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+C\+N779 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+E\+U433 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 6 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 6 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 6 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga36456baf8ace3e7d7ae730ddb54b95bc}\label{group__REGION_ga36456baf8ace3e7d7ae730ddb54b95bc}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4}{TX\_POWER\_4}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+4~4}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+C\+N779 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+E\+U433 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 8 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 8 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 8 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga0149d52581db80901b5bc1adf0aedd1d}\label{group__REGION_ga0149d52581db80901b5bc1adf0aedd1d}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5}{TX\_POWER\_5}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+5~5}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+C\+N779 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+E\+U433 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 10 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 10 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 10 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga29743296a1bb29534ecc4894967c0714}\label{group__REGION_ga29743296a1bb29534ecc4894967c0714}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6}{TX\_POWER\_6}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+6~6}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 12 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 12 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 12 \\\cline{1-2}
+C\+N779 &\PBS\centering -\/ \\\cline{1-2}
+E\+U433 &\PBS\centering -\/ \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 12 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 12 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 12 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 12 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 12 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga3c7bd9a98f0c1e7e9aaa90857c4bd700}\label{group__REGION_ga3c7bd9a98f0c1e7e9aaa90857c4bd700}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7}{TX\_POWER\_7}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+7~7}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering Max E\+I\+RP -\/ 14 \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 14 \\\cline{1-2}
+C\+N470 &\PBS\centering Max E\+I\+RP -\/ 14 \\\cline{1-2}
+C\+N779 &\PBS\centering -\/ \\\cline{1-2}
+E\+U433 &\PBS\centering -\/ \\\cline{1-2}
+E\+U868 &\PBS\centering Max E\+I\+RP -\/ 14 \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 14 \\\cline{1-2}
+K\+R920 &\PBS\centering Max E\+I\+RP -\/ 14 \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 14 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 14 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_ga99ec65aa5375a9dbbaf2faac8d7f6968}\label{group__REGION_ga99ec65aa5375a9dbbaf2faac8d7f6968}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8}{TX\_POWER\_8}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+8~8}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering -\/ \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 16 \\\cline{1-2}
+C\+N470 &\PBS\centering -\/ \\\cline{1-2}
+C\+N779 &\PBS\centering -\/ \\\cline{1-2}
+E\+U433 &\PBS\centering -\/ \\\cline{1-2}
+E\+U868 &\PBS\centering -\/ \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 16 \\\cline{1-2}
+K\+R920 &\PBS\centering -\/ \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 16 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/16 \\\cline{1-2}
+\end{longtabu}
+\mbox{\Hypertarget{group__REGION_gacf5b8e09a82ae407ae0ab2d81f1e0c3d}\label{group__REGION_gacf5b8e09a82ae407ae0ab2d81f1e0c3d}} 
+\index{Region implementation@{Region implementation}!T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9}}
+\index{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9@{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9}{TX\_POWER\_9}}
+{\footnotesize\ttfamily \#define T\+X\+\_\+\+P\+O\+W\+E\+R\+\_\+9~9}
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Region }&\PBS\centering \textbf{ d\+BM  }\\\cline{1-2}
+\endhead
+A\+S923 &\PBS\centering -\/ \\\cline{1-2}
+A\+U915 &\PBS\centering Max E\+I\+RP -\/ 18 \\\cline{1-2}
+C\+N470 &\PBS\centering -\/ \\\cline{1-2}
+C\+N779 &\PBS\centering -\/ \\\cline{1-2}
+E\+U433 &\PBS\centering -\/ \\\cline{1-2}
+E\+U868 &\PBS\centering -\/ \\\cline{1-2}
+I\+N865 &\PBS\centering Max E\+I\+RP -\/ 18 \\\cline{1-2}
+K\+R920 &\PBS\centering -\/ \\\cline{1-2}
+U\+S915 &\PBS\centering Max E\+RP -\/ 16 \\\cline{1-2}
+U\+S915\+\_\+\+H\+Y\+B\+R\+ID &\PBS\centering Max E\+RP -\/ 16 \\\cline{1-2}
+\end{longtabu}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}\label{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}} 
+\index{Region implementation@{Region implementation}!Adr\+Next\+Params\+\_\+t@{Adr\+Next\+Params\+\_\+t}}
+\index{Adr\+Next\+Params\+\_\+t@{Adr\+Next\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Adr\+Next\+Params\+\_\+t}{AdrNextParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsAdrNextParams}{s\+Adr\+Next\+Params} \hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Adr\+Next. \mbox{\Hypertarget{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}\label{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}} 
+\index{Region implementation@{Region implementation}!Alternate\+Dr\+Params\+\_\+t@{Alternate\+Dr\+Params\+\_\+t}}
+\index{Alternate\+Dr\+Params\+\_\+t@{Alternate\+Dr\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Alternate\+Dr\+Params\+\_\+t}{AlternateDrParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsAlternateDrParams}{s\+Alternate\+Dr\+Params} \hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Alternate\+Dr. \mbox{\Hypertarget{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}\label{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}} 
+\index{Region implementation@{Region implementation}!Apply\+C\+F\+List\+Params\+\_\+t@{Apply\+C\+F\+List\+Params\+\_\+t}}
+\index{Apply\+C\+F\+List\+Params\+\_\+t@{Apply\+C\+F\+List\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Apply\+C\+F\+List\+Params\+\_\+t}{ApplyCFListParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsApplyCFListParams}{s\+Apply\+C\+F\+List\+Params} \hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Apply\+C\+F\+List. \mbox{\Hypertarget{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}\label{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}} 
+\index{Region implementation@{Region implementation}!Calc\+Back\+Off\+Params\+\_\+t@{Calc\+Back\+Off\+Params\+\_\+t}}
+\index{Calc\+Back\+Off\+Params\+\_\+t@{Calc\+Back\+Off\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Calc\+Back\+Off\+Params\+\_\+t}{CalcBackOffParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsCalcBackOffParams}{s\+Calc\+Back\+Off\+Params} \hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Calc\+Back\+Off. \mbox{\Hypertarget{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}\label{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}} 
+\index{Region implementation@{Region implementation}!Chan\+Mask\+Set\+Params\+\_\+t@{Chan\+Mask\+Set\+Params\+\_\+t}}
+\index{Chan\+Mask\+Set\+Params\+\_\+t@{Chan\+Mask\+Set\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Chan\+Mask\+Set\+Params\+\_\+t}{ChanMaskSetParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsChanMaskSetParams}{s\+Chan\+Mask\+Set\+Params} \hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Chan\+Mask\+Set. \mbox{\Hypertarget{group__REGION_gab1c5f3aa06614283202906cef4417860}\label{group__REGION_gab1c5f3aa06614283202906cef4417860}} 
+\index{Region implementation@{Region implementation}!Channel\+Add\+Params\+\_\+t@{Channel\+Add\+Params\+\_\+t}}
+\index{Channel\+Add\+Params\+\_\+t@{Channel\+Add\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Channel\+Add\+Params\+\_\+t}{ChannelAddParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsChannelAddParams}{s\+Channel\+Add\+Params} \hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Channels\+Add. \mbox{\Hypertarget{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}\label{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}} 
+\index{Region implementation@{Region implementation}!Channel\+Remove\+Params\+\_\+t@{Channel\+Remove\+Params\+\_\+t}}
+\index{Channel\+Remove\+Params\+\_\+t@{Channel\+Remove\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Channel\+Remove\+Params\+\_\+t}{ChannelRemoveParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsChannelRemoveParams}{s\+Channel\+Remove\+Params} \hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Channels\+Remove. \mbox{\Hypertarget{group__REGION_ga933f695eea70935418e2175940b92311}\label{group__REGION_ga933f695eea70935418e2175940b92311}} 
+\index{Region implementation@{Region implementation}!Channels\+Mask\+\_\+t@{Channels\+Mask\+\_\+t}}
+\index{Channels\+Mask\+\_\+t@{Channels\+Mask\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Channels\+Mask\+\_\+t}{ChannelsMask\_t}}
+{\footnotesize\ttfamily typedef enum \hyperlink{group__REGION_ga7a62e669f567fc160ad58210664bca9c}{e\+Channels\+Mask} \hyperlink{group__REGION_ga933f695eea70935418e2175940b92311}{Channels\+Mask\+\_\+t}}
+
+\mbox{\Hypertarget{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}\label{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}} 
+\index{Region implementation@{Region implementation}!Continuous\+Wave\+Params\+\_\+t@{Continuous\+Wave\+Params\+\_\+t}}
+\index{Continuous\+Wave\+Params\+\_\+t@{Continuous\+Wave\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Continuous\+Wave\+Params\+\_\+t}{ContinuousWaveParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsContinuousWaveParams}{s\+Continuous\+Wave\+Params} \hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Continuous\+Wave. \mbox{\Hypertarget{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}\label{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}} 
+\index{Region implementation@{Region implementation}!Dl\+Channel\+Req\+Params\+\_\+t@{Dl\+Channel\+Req\+Params\+\_\+t}}
+\index{Dl\+Channel\+Req\+Params\+\_\+t@{Dl\+Channel\+Req\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Dl\+Channel\+Req\+Params\+\_\+t}{DlChannelReqParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsDlChannelReqParams}{s\+Dl\+Channel\+Req\+Params} \hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Dl\+Channel\+Req. \mbox{\Hypertarget{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}\label{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}} 
+\index{Region implementation@{Region implementation}!Get\+Phy\+Params\+\_\+t@{Get\+Phy\+Params\+\_\+t}}
+\index{Get\+Phy\+Params\+\_\+t@{Get\+Phy\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Get\+Phy\+Params\+\_\+t}{GetPhyParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsGetPhyParams}{s\+Get\+Phy\+Params} \hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Get\+Phy\+Param. \mbox{\Hypertarget{group__REGION_gaddc73ae10673ec925724e7870363bda9}\label{group__REGION_gaddc73ae10673ec925724e7870363bda9}} 
+\index{Region implementation@{Region implementation}!Init\+Type\+\_\+t@{Init\+Type\+\_\+t}}
+\index{Init\+Type\+\_\+t@{Init\+Type\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Init\+Type\+\_\+t}{InitType\_t}}
+{\footnotesize\ttfamily typedef enum \hyperlink{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}{e\+Init\+Type} \hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t}}
+
+Enumeration of initialization types. \mbox{\Hypertarget{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}\label{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}} 
+\index{Region implementation@{Region implementation}!Link\+Adr\+Req\+Params\+\_\+t@{Link\+Adr\+Req\+Params\+\_\+t}}
+\index{Link\+Adr\+Req\+Params\+\_\+t@{Link\+Adr\+Req\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Link\+Adr\+Req\+Params\+\_\+t}{LinkAdrReqParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsLinkAdrReqParams}{s\+Link\+Adr\+Req\+Params} \hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Link\+Adr\+Req. \mbox{\Hypertarget{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}\label{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}} 
+\index{Region implementation@{Region implementation}!New\+Channel\+Req\+Params\+\_\+t@{New\+Channel\+Req\+Params\+\_\+t}}
+\index{New\+Channel\+Req\+Params\+\_\+t@{New\+Channel\+Req\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{New\+Channel\+Req\+Params\+\_\+t}{NewChannelReqParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsNewChannelReqParams}{s\+New\+Channel\+Req\+Params} \hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+New\+Channel\+Req. \mbox{\Hypertarget{group__REGION_ga115f5e83afae352c0a3dcdc193374040}\label{group__REGION_ga115f5e83afae352c0a3dcdc193374040}} 
+\index{Region implementation@{Region implementation}!Next\+Chan\+Params\+\_\+t@{Next\+Chan\+Params\+\_\+t}}
+\index{Next\+Chan\+Params\+\_\+t@{Next\+Chan\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Next\+Chan\+Params\+\_\+t}{NextChanParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsNextChanParams}{s\+Next\+Chan\+Params} \hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Next\+Channel. \mbox{\Hypertarget{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}\label{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}} 
+\index{Region implementation@{Region implementation}!Phy\+Attribute\+\_\+t@{Phy\+Attribute\+\_\+t}}
+\index{Phy\+Attribute\+\_\+t@{Phy\+Attribute\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Phy\+Attribute\+\_\+t}{PhyAttribute\_t}}
+{\footnotesize\ttfamily typedef enum \hyperlink{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}{e\+Phy\+Attribute} \hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t}}
+
+Enumeration of phy attributes. \mbox{\Hypertarget{group__REGION_gaed159b26e5c4677236b6e8677019db30}\label{group__REGION_gaed159b26e5c4677236b6e8677019db30}} 
+\index{Region implementation@{Region implementation}!Phy\+Param\+\_\+t@{Phy\+Param\+\_\+t}}
+\index{Phy\+Param\+\_\+t@{Phy\+Param\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Phy\+Param\+\_\+t}{PhyParam\_t}}
+{\footnotesize\ttfamily typedef union \hyperlink{unionuPhyParam}{u\+Phy\+Param} \hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t}}
+
+Union for the structure u\+Get\+Phy\+Params \mbox{\Hypertarget{group__REGION_ga375c038078dfcfc7ef14280021db719e}\label{group__REGION_ga375c038078dfcfc7ef14280021db719e}} 
+\index{Region implementation@{Region implementation}!Rx\+Config\+Params\+\_\+t@{Rx\+Config\+Params\+\_\+t}}
+\index{Rx\+Config\+Params\+\_\+t@{Rx\+Config\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Rx\+Config\+Params\+\_\+t}{RxConfigParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsRxConfigParams}{s\+Rx\+Config\+Params} \hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Rx\+Config. \mbox{\Hypertarget{group__REGION_ga7165f282c670c728c36d534df2285157}\label{group__REGION_ga7165f282c670c728c36d534df2285157}} 
+\index{Region implementation@{Region implementation}!Rx\+Param\+Setup\+Req\+Params\+\_\+t@{Rx\+Param\+Setup\+Req\+Params\+\_\+t}}
+\index{Rx\+Param\+Setup\+Req\+Params\+\_\+t@{Rx\+Param\+Setup\+Req\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Rx\+Param\+Setup\+Req\+Params\+\_\+t}{RxParamSetupReqParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsRxParamSetupReqParams}{s\+Rx\+Param\+Setup\+Req\+Params} \hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Rx\+Param\+Setup\+Req. \mbox{\Hypertarget{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}\label{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}} 
+\index{Region implementation@{Region implementation}!Set\+Band\+Tx\+Done\+Params\+\_\+t@{Set\+Band\+Tx\+Done\+Params\+\_\+t}}
+\index{Set\+Band\+Tx\+Done\+Params\+\_\+t@{Set\+Band\+Tx\+Done\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Set\+Band\+Tx\+Done\+Params\+\_\+t}{SetBandTxDoneParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsSetBandTxDoneParams}{s\+Set\+Band\+Tx\+Done\+Params} \hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Set\+Band\+Tx\+Done. \mbox{\Hypertarget{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}\label{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}} 
+\index{Region implementation@{Region implementation}!Tx\+Config\+Params\+\_\+t@{Tx\+Config\+Params\+\_\+t}}
+\index{Tx\+Config\+Params\+\_\+t@{Tx\+Config\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Tx\+Config\+Params\+\_\+t}{TxConfigParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsTxConfigParams}{s\+Tx\+Config\+Params} \hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Tx\+Config. \mbox{\Hypertarget{group__REGION_ga26836ef2996e70410e42ef471073f855}\label{group__REGION_ga26836ef2996e70410e42ef471073f855}} 
+\index{Region implementation@{Region implementation}!Tx\+Param\+Setup\+Req\+Params\+\_\+t@{Tx\+Param\+Setup\+Req\+Params\+\_\+t}}
+\index{Tx\+Param\+Setup\+Req\+Params\+\_\+t@{Tx\+Param\+Setup\+Req\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Tx\+Param\+Setup\+Req\+Params\+\_\+t}{TxParamSetupReqParams\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsTxParamSetupReqParams}{s\+Tx\+Param\+Setup\+Req\+Params} \hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Tx\+Param\+Setup\+Req. \mbox{\Hypertarget{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}\label{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}} 
+\index{Region implementation@{Region implementation}!Verify\+Params\+\_\+t@{Verify\+Params\+\_\+t}}
+\index{Verify\+Params\+\_\+t@{Verify\+Params\+\_\+t}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Verify\+Params\+\_\+t}{VerifyParams\_t}}
+{\footnotesize\ttfamily typedef union \hyperlink{unionuVerifyParams}{u\+Verify\+Params} \hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t}}
+
+Parameter structure for the function Region\+Verify. 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{group__REGION_ga7a62e669f567fc160ad58210664bca9c}\label{group__REGION_ga7a62e669f567fc160ad58210664bca9c}} 
+\index{Region implementation@{Region implementation}!e\+Channels\+Mask@{e\+Channels\+Mask}}
+\index{e\+Channels\+Mask@{e\+Channels\+Mask}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{e\+Channels\+Mask}{eChannelsMask}}
+{\footnotesize\ttfamily enum \hyperlink{group__REGION_ga7a62e669f567fc160ad58210664bca9c}{e\+Channels\+Mask}}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK@{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK@{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}}}\mbox{\Hypertarget{group__REGION_gga7a62e669f567fc160ad58210664bca9ca1e68275c0b16a0c4935eada4315dd089}\label{group__REGION_gga7a62e669f567fc160ad58210664bca9ca1e68275c0b16a0c4935eada4315dd089}} 
+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK&The channels mask. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK@{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK@{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}}}\mbox{\Hypertarget{group__REGION_gga7a62e669f567fc160ad58210664bca9ca9bbb18c8600ad8781ba04a2cb121ea60}\label{group__REGION_gga7a62e669f567fc160ad58210664bca9ca9bbb18c8600ad8781ba04a2cb121ea60}} 
+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK&The channels default mask. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}\label{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}} 
+\index{Region implementation@{Region implementation}!e\+Init\+Type@{e\+Init\+Type}}
+\index{e\+Init\+Type@{e\+Init\+Type}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{e\+Init\+Type}{eInitType}}
+{\footnotesize\ttfamily enum \hyperlink{group__REGION_ga11ecad794560a3d3961bdf1c9a27d3b2}{e\+Init\+Type}}
+
+Enumeration of initialization types. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT@{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT@{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT}}}\mbox{\Hypertarget{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2a5065ce7a587a2aeff0da16507222c4d7}\label{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2a5065ce7a587a2aeff0da16507222c4d7}} 
+I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+I\+N\+IT&Performs an initialization and overwrites all existing data. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE@{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE@{I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE}}}\mbox{\Hypertarget{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2aed3218cb3c4ebbb74a1b48e4f8ac8599}\label{group__REGION_gga11ecad794560a3d3961bdf1c9a27d3b2aed3218cb3c4ebbb74a1b48e4f8ac8599}} 
+I\+N\+I\+T\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+E\+S\+T\+O\+RE&Restores default channels only. \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}\label{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}} 
+\index{Region implementation@{Region implementation}!e\+Phy\+Attribute@{e\+Phy\+Attribute}}
+\index{e\+Phy\+Attribute@{e\+Phy\+Attribute}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{e\+Phy\+Attribute}{ePhyAttribute}}
+{\footnotesize\ttfamily enum \hyperlink{group__REGION_ga51cbe8f5433d914fe9cf81b451de2c2d}{e\+Phy\+Attribute}}
+
+Enumeration of phy attributes. \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da91cb5d84f937c32cd635dd7efe7a9d3a}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da91cb5d84f937c32cd635dd7efe7a9d3a}} 
+P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+DR&Minimum RX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daace3e56c88b40def8ed6a9106871e7de}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daace3e56c88b40def8ed6a9106871e7de}} 
+P\+H\+Y\+\_\+\+M\+I\+N\+\_\+\+T\+X\+\_\+\+DR&Minimum TX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dabc80857ed9621c5c6fd60d98846b0b84}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dabc80857ed9621c5c6fd60d98846b0b84}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+DR&Maximum RX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac83a2348a7177fae43a5c3b0a6f0a141}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac83a2348a7177fae43a5c3b0a6f0a141}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+T\+X\+\_\+\+DR&Maximum TX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da62c19af9dc2c54540562e1158c015f57}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da62c19af9dc2c54540562e1158c015f57}} 
+P\+H\+Y\+\_\+\+T\+X\+\_\+\+DR&TX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da70c3923333165960549162e3dcf10467}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da70c3923333165960549162e3dcf10467}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+DR&Default TX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8cc3b895173b07ee71127e366c8d0d55}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8cc3b895173b07ee71127e366c8d0d55}} 
+P\+H\+Y\+\_\+\+R\+X\+\_\+\+DR&RX datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER@{P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER@{P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da0dceb30b79f1bae301afd5406a86d6f3}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da0dceb30b79f1bae301afd5406a86d6f3}} 
+P\+H\+Y\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER&TX power. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da18ae0d314f20c212f9e40207099ab1bb}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da18ae0d314f20c212f9e40207099ab1bb}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER&Default TX power. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dad671e2651e42de26927910282c6b2781}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dad671e2651e42de26927910282c6b2781}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+AD&Maximum payload possible. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8a3b9e5ad2604232fd1f8781658452f3}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8a3b9e5ad2604232fd1f8781658452f3}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+R\+E\+P\+E\+A\+T\+ER&Maximum payload possible when repeater support is enabled. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE@{P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE@{P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac66308571e624ecc28c79ee0deab8cf0}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac66308571e624ecc28c79ee0deab8cf0}} 
+P\+H\+Y\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+LE&Duty cycle. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dacf2bd6f434ce2844651513ad2b9b9da5}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dacf2bd6f434ce2844651513ad2b9b9da5}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+OW&Maximum receive window duration. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1@{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1@{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da3680d45f45e3e0a96ce9f1e1b5ed7371}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da3680d45f45e3e0a96ce9f1e1b5ed7371}} 
+P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y1&Receive delay for window 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2@{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2@{P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da9c7e3df5f55fab406960a9e5bf635155}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da9c7e3df5f55fab406960a9e5bf635155}} 
+P\+H\+Y\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y2&Receive delay for window 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1@{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1@{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daf564c82ebd72dcd6c4fc1e702b2ec64c}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daf564c82ebd72dcd6c4fc1e702b2ec64c}} 
+P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y1&Join accept delay for window 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2@{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2@{P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da04e6c3d25ce44a74c0a29f28aa92eb48}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da04e6c3d25ce44a74c0a29f28aa92eb48}} 
+P\+H\+Y\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y2&Join accept delay for window 2. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da01c12b14686172b4a3c4d095deef4248}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da01c12b14686172b4a3c4d095deef4248}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+F\+C\+N\+T\+\_\+\+G\+AP&Maximum frame counter gap. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT@{P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT@{P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8485b24e94d037ba487ab6ecfaf162e8}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8485b24e94d037ba487ab6ecfaf162e8}} 
+P\+H\+Y\+\_\+\+A\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT&Acknowledgement time out. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dae648c84cc946657e970c7e08dd69cb6f}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dae648c84cc946657e970c7e08dd69cb6f}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+R1\+\_\+\+O\+F\+F\+S\+ET&Default datarate offset for window 1. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da1835125d2139942145a0ed0caff058f3}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da1835125d2139942145a0ed0caff058f3}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY&Default receive window 2 frequency. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da672678e5f03f8ad1afa8817405e72ef0}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da672678e5f03f8ad1afa8817405e72ef0}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+R\+X2\+\_\+\+DR&Default receive window 2 datarate. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daa6fd00cadf73ba804e35d85aadd15882}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2daa6fd00cadf73ba804e35d85aadd15882}} 
+P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK&Channels mask. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK@{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da7253f56eb1b6f4fe64d7a51b2e573766}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da7253f56eb1b6f4fe64d7a51b2e573766}} 
+P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK&Channels default mask. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS@{P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52d463ed953da20f07f8d045c58caee8}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52d463ed953da20f07f8d045c58caee8}} 
+P\+H\+Y\+\_\+\+M\+A\+X\+\_\+\+N\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS&Maximum number of supported channels \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS@{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS@{P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52c9055b2e5bbfc05c86e83798856aba}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da52c9055b2e5bbfc05c86e83798856aba}} 
+P\+H\+Y\+\_\+\+C\+H\+A\+N\+N\+E\+LS&Channels. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dab35cca5e0dae3d87e02c8c80e4d4685e}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dab35cca5e0dae3d87e02c8c80e4d4685e}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME&Default value of the uplink dwell time. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8e29179691bf6520256a7af0cabae6ad}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da8e29179691bf6520256a7af0cabae6ad}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+D\+W\+E\+L\+L\+\_\+\+T\+I\+ME&Default value of the downlink dwell time. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da5bdce0ffd449781819a0d87732ebd2b7}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da5bdce0ffd449781819a0d87732ebd2b7}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+M\+A\+X\+\_\+\+E\+I\+RP&Default value of the Max\+E\+I\+RP. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da37b73a543ea79ce58bf18035329ba773}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da37b73a543ea79ce58bf18035329ba773}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN&Default value of the antenna gain. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS@{P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS@{P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da46941b2ce68829fcee9540dc64e53d6d}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da46941b2ce68829fcee9540dc64e53d6d}} 
+P\+H\+Y\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS&Value for the number of join trials. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS@{P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da49312d43f8804334f738701ab59878a1}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2da49312d43f8804334f738701ab59878a1}} 
+P\+H\+Y\+\_\+\+D\+E\+F\+\_\+\+N\+B\+\_\+\+J\+O\+I\+N\+\_\+\+T\+R\+I\+A\+LS&Default value for the number of join trials. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR}!Region implementation@{Region implementation}}\index{Region implementation@{Region implementation}!P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR@{P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR}}}\mbox{\Hypertarget{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac002e7e492cf30dbf9c544b062f5cc8a}\label{group__REGION_gga51cbe8f5433d914fe9cf81b451de2c2dac002e7e492cf30dbf9c544b062f5cc8a}} 
+P\+H\+Y\+\_\+\+N\+E\+X\+T\+\_\+\+L\+O\+W\+E\+R\+\_\+\+T\+X\+\_\+\+DR&Next lower datarate. \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{group__REGION_ga08cac64beeadd0555460ca5e756a0792}\label{group__REGION_ga08cac64beeadd0555460ca5e756a0792}} 
+\index{Region implementation@{Region implementation}!Region\+Adr\+Next@{Region\+Adr\+Next}}
+\index{Region\+Adr\+Next@{Region\+Adr\+Next}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Adr\+Next()}{RegionAdrNext()}}
+{\footnotesize\ttfamily bool Region\+Adr\+Next (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga567c2742622326b350b4e91bbf61b4ce}{Adr\+Next\+Params\+\_\+t} $\ast$}]{adr\+Next,  }\item[{int8\+\_\+t $\ast$}]{dr\+Out,  }\item[{int8\+\_\+t $\ast$}]{tx\+Pow\+Out,  }\item[{uint32\+\_\+t $\ast$}]{adr\+Ack\+Counter }\end{DoxyParamCaption})}
+
+
+
+Calculates the next datarate to set, when A\+DR is on or off. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & adr\+Next Pointer to the function parameters.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & dr\+Out The calculated datarate for the next TX.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & tx\+Pow\+Out The TX power for the next TX.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & adr\+Ack\+Counter The calculated A\+DR acknowledgement counter.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & true, if an A\+DR request should be performed. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga4177d2eac64338ef073b43efa508e12a}\label{group__REGION_ga4177d2eac64338ef073b43efa508e12a}} 
+\index{Region implementation@{Region implementation}!Region\+Alternate\+Dr@{Region\+Alternate\+Dr}}
+\index{Region\+Alternate\+Dr@{Region\+Alternate\+Dr}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Alternate\+Dr()}{RegionAlternateDr()}}
+{\footnotesize\ttfamily int8\+\_\+t Region\+Alternate\+Dr (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga001ea4338d1c83f4c785b49d7ad2d696}{Alternate\+Dr\+Params\+\_\+t} $\ast$}]{alternate\+Dr }\end{DoxyParamCaption})}
+
+
+
+Alternates the datarate of the channel for the join request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & alternate\+Dr Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Datarate} & to apply. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gae3fdd82182ebb0704adb2a017d30e1f2}\label{group__REGION_gae3fdd82182ebb0704adb2a017d30e1f2}} 
+\index{Region implementation@{Region implementation}!Region\+Apply\+C\+F\+List@{Region\+Apply\+C\+F\+List}}
+\index{Region\+Apply\+C\+F\+List@{Region\+Apply\+C\+F\+List}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Apply\+C\+F\+List()}{RegionApplyCFList()}}
+{\footnotesize\ttfamily void Region\+Apply\+C\+F\+List (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga71588e9ad07e34b78fa91d51881fd3c6}{Apply\+C\+F\+List\+Params\+\_\+t} $\ast$}]{apply\+C\+F\+List }\end{DoxyParamCaption})}
+
+
+
+The function parses the input buffer and sets up the channels of the CF list. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & apply\+C\+F\+List Pointer to the function parameters. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__REGION_gab62221e1ca566a89f4b450b30bfb95a7}\label{group__REGION_gab62221e1ca566a89f4b450b30bfb95a7}} 
+\index{Region implementation@{Region implementation}!Region\+Apply\+Dr\+Offset@{Region\+Apply\+Dr\+Offset}}
+\index{Region\+Apply\+Dr\+Offset@{Region\+Apply\+Dr\+Offset}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Apply\+Dr\+Offset()}{RegionApplyDrOffset()}}
+{\footnotesize\ttfamily uint8\+\_\+t Region\+Apply\+Dr\+Offset (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{uint8\+\_\+t}]{downlink\+Dwell\+Time,  }\item[{int8\+\_\+t}]{dr,  }\item[{int8\+\_\+t}]{dr\+Offset }\end{DoxyParamCaption})}
+
+
+
+Computes new datarate according to the given offset. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & downlink\+Dwell\+Time Downlink dwell time configuration. 0\+: No limit, 1\+: 400ms\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dr Current datarate\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dr\+Offset Offset to be applied\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em new\+Dr} & Computed datarate. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga07cfd135a3e8f85e15a5424c07f71d67}\label{group__REGION_ga07cfd135a3e8f85e15a5424c07f71d67}} 
+\index{Region implementation@{Region implementation}!Region\+Calc\+Back\+Off@{Region\+Calc\+Back\+Off}}
+\index{Region\+Calc\+Back\+Off@{Region\+Calc\+Back\+Off}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Calc\+Back\+Off()}{RegionCalcBackOff()}}
+{\footnotesize\ttfamily void Region\+Calc\+Back\+Off (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga7c5c9a8da174e6679eded8257dc92fd9}{Calc\+Back\+Off\+Params\+\_\+t} $\ast$}]{calc\+Back\+Off }\end{DoxyParamCaption})}
+
+
+
+Calculates the back-\/off time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & calc\+Back\+Off Pointer to the function parameters. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__REGION_ga795ed3c13f4c8d03e39298fd64e5b2df}\label{group__REGION_ga795ed3c13f4c8d03e39298fd64e5b2df}} 
+\index{Region implementation@{Region implementation}!Region\+Chan\+Mask\+Set@{Region\+Chan\+Mask\+Set}}
+\index{Region\+Chan\+Mask\+Set@{Region\+Chan\+Mask\+Set}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Chan\+Mask\+Set()}{RegionChanMaskSet()}}
+{\footnotesize\ttfamily bool Region\+Chan\+Mask\+Set (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga6d24f7da136006410827dfb29f6b9b9e}{Chan\+Mask\+Set\+Params\+\_\+t} $\ast$}]{chan\+Mask\+Set }\end{DoxyParamCaption})}
+
+
+
+Sets a channels mask. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & chan\+Mask\+Set Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & true, if the channels mask could be set. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gaaa5767f33e988a641abf509ad278ae14}\label{group__REGION_gaaa5767f33e988a641abf509ad278ae14}} 
+\index{Region implementation@{Region implementation}!Region\+Channel\+Add@{Region\+Channel\+Add}}
+\index{Region\+Channel\+Add@{Region\+Channel\+Add}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Channel\+Add()}{RegionChannelAdd()}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} Region\+Channel\+Add (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gab1c5f3aa06614283202906cef4417860}{Channel\+Add\+Params\+\_\+t} $\ast$}]{channel\+Add }\end{DoxyParamCaption})}
+
+
+
+Adds a channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & channel\+Add Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Status} & of the operation. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga50b3505e13d8373fef6e2be6d48e150c}\label{group__REGION_ga50b3505e13d8373fef6e2be6d48e150c}} 
+\index{Region implementation@{Region implementation}!Region\+Channels\+Remove@{Region\+Channels\+Remove}}
+\index{Region\+Channels\+Remove@{Region\+Channels\+Remove}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Channels\+Remove()}{RegionChannelsRemove()}}
+{\footnotesize\ttfamily bool Region\+Channels\+Remove (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gaa37468560d2fc81a977b57a48e5d72c0}{Channel\+Remove\+Params\+\_\+t} $\ast$}]{channel\+Remove }\end{DoxyParamCaption})}
+
+
+
+Removes a channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & channel\+Remove Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & true, if the channel was removed successfully. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gabd3eb4e7db9b7987fabb9568f733a2b9}\label{group__REGION_gabd3eb4e7db9b7987fabb9568f733a2b9}} 
+\index{Region implementation@{Region implementation}!Region\+Compute\+Rx\+Window\+Parameters@{Region\+Compute\+Rx\+Window\+Parameters}}
+\index{Region\+Compute\+Rx\+Window\+Parameters@{Region\+Compute\+Rx\+Window\+Parameters}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Compute\+Rx\+Window\+Parameters()}{RegionComputeRxWindowParameters()}}
+{\footnotesize\ttfamily void Region\+Compute\+Rx\+Window\+Parameters (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{int8\+\_\+t}]{datarate,  }\item[{uint8\+\_\+t}]{min\+Rx\+Symbols,  }\item[{uint32\+\_\+t}]{rx\+Error,  }\item[{\hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$}]{rx\+Config\+Params }\end{DoxyParamCaption})}
+
+Computes the Rx window timeout and offset.
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & datarate Rx window datarate index to be used\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & min\+Rx\+Symbols Minimum required number of symbols to detect an Rx frame.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rx\+Error System maximum timing error of the receiver. In milliseconds The receiver will turn on in a \mbox{[}-\/rx\+Error \+: +rx\+Error\mbox{]} ms interval around Rx\+Offset\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}rx\+Config\+Params} & Returns updated Window\+Timeout and Window\+Offset fields. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__REGION_ga54f7c22677b2d0628e9914f53501d4b8}\label{group__REGION_ga54f7c22677b2d0628e9914f53501d4b8}} 
+\index{Region implementation@{Region implementation}!Region\+Dl\+Channel\+Req@{Region\+Dl\+Channel\+Req}}
+\index{Region\+Dl\+Channel\+Req@{Region\+Dl\+Channel\+Req}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Dl\+Channel\+Req()}{RegionDlChannelReq()}}
+{\footnotesize\ttfamily uint8\+\_\+t Region\+Dl\+Channel\+Req (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gae0d608ff1f8ea0a430e4f9a4c38ec7f3}{Dl\+Channel\+Req\+Params\+\_\+t} $\ast$}]{dl\+Channel\+Req }\end{DoxyParamCaption})}
+
+
+
+The function processes a Dl\+Channel Request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & dl\+Channel\+Req Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the status of the operation, according to the Lo\+Ra\+M\+AC specification. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gafbd084611ba512035a6cbe7f3aa5857b}\label{group__REGION_gafbd084611ba512035a6cbe7f3aa5857b}} 
+\index{Region implementation@{Region implementation}!Region\+Get\+Phy\+Param@{Region\+Get\+Phy\+Param}}
+\index{Region\+Get\+Phy\+Param@{Region\+Get\+Phy\+Param}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Get\+Phy\+Param()}{RegionGetPhyParam()}}
+{\footnotesize\ttfamily \hyperlink{group__REGION_gaed159b26e5c4677236b6e8677019db30}{Phy\+Param\+\_\+t} Region\+Get\+Phy\+Param (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gab471483fff904f4f89bbc03f7fc380ab}{Get\+Phy\+Params\+\_\+t} $\ast$}]{get\+Phy }\end{DoxyParamCaption})}
+
+
+
+The function gets a value of a specific phy attribute. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & get\+Phy Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & a structure containing the P\+HY parameter. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga54b1b27a8431cd146b4dc33a894ee6db}\label{group__REGION_ga54b1b27a8431cd146b4dc33a894ee6db}} 
+\index{Region implementation@{Region implementation}!Region\+Init\+Defaults@{Region\+Init\+Defaults}}
+\index{Region\+Init\+Defaults@{Region\+Init\+Defaults}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Init\+Defaults()}{RegionInitDefaults()}}
+{\footnotesize\ttfamily void Region\+Init\+Defaults (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gaddc73ae10673ec925724e7870363bda9}{Init\+Type\+\_\+t}}]{type }\end{DoxyParamCaption})}
+
+
+
+Initializes the channels masks and the channels. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & type Sets the initialization type. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__REGION_ga3e5cf2322f71f8f9973718024b6fb782}\label{group__REGION_ga3e5cf2322f71f8f9973718024b6fb782}} 
+\index{Region implementation@{Region implementation}!Region\+Is\+Active@{Region\+Is\+Active}}
+\index{Region\+Is\+Active@{Region\+Is\+Active}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Is\+Active()}{RegionIsActive()}}
+{\footnotesize\ttfamily bool Region\+Is\+Active (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region }\end{DoxyParamCaption})}
+
+
+
+The function verifies if a region is active or not. If a region is not active, it cannot be used. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Return} & true, if the region is supported. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gae82a94e6d4141122e1a20b5ba1936c8e}\label{group__REGION_gae82a94e6d4141122e1a20b5ba1936c8e}} 
+\index{Region implementation@{Region implementation}!Region\+Link\+Adr\+Req@{Region\+Link\+Adr\+Req}}
+\index{Region\+Link\+Adr\+Req@{Region\+Link\+Adr\+Req}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Link\+Adr\+Req()}{RegionLinkAdrReq()}}
+{\footnotesize\ttfamily uint8\+\_\+t Region\+Link\+Adr\+Req (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gad4af503e8d4de1846129e26a799a1e8e}{Link\+Adr\+Req\+Params\+\_\+t} $\ast$}]{link\+Adr\+Req,  }\item[{int8\+\_\+t $\ast$}]{dr\+Out,  }\item[{int8\+\_\+t $\ast$}]{tx\+Pow\+Out,  }\item[{uint8\+\_\+t $\ast$}]{nb\+Rep\+Out,  }\item[{uint8\+\_\+t $\ast$}]{nb\+Bytes\+Parsed }\end{DoxyParamCaption})}
+
+
+
+The function processes a Link A\+DR Request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & link\+Adr\+Req Pointer to the function parameters.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & dr\+Out The datarate which was applied.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & tx\+Pow\+Out The TX power which was applied.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & nb\+Rep\+Out The number of repetitions to apply.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & nb\+Bytes\+Parsed The number bytes which were parsed.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the status of the operation, according to the Lo\+Ra\+M\+AC specification. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gadca654538335b4395c8d54642b83e2d4}\label{group__REGION_gadca654538335b4395c8d54642b83e2d4}} 
+\index{Region implementation@{Region implementation}!Region\+New\+Channel\+Req@{Region\+New\+Channel\+Req}}
+\index{Region\+New\+Channel\+Req@{Region\+New\+Channel\+Req}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+New\+Channel\+Req()}{RegionNewChannelReq()}}
+{\footnotesize\ttfamily uint8\+\_\+t Region\+New\+Channel\+Req (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gae2abcdb6dbb843c9faf5fd3009eca9d6}{New\+Channel\+Req\+Params\+\_\+t} $\ast$}]{new\+Channel\+Req }\end{DoxyParamCaption})}
+
+
+
+The function processes a New Channel Request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & new\+Channel\+Req Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the status of the operation, according to the Lo\+Ra\+M\+AC specification. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga2139de3f2832789797c8853764655398}\label{group__REGION_ga2139de3f2832789797c8853764655398}} 
+\index{Region implementation@{Region implementation}!Region\+Next\+Channel@{Region\+Next\+Channel}}
+\index{Region\+Next\+Channel@{Region\+Next\+Channel}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Next\+Channel()}{RegionNextChannel()}}
+{\footnotesize\ttfamily bool Region\+Next\+Channel (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga115f5e83afae352c0a3dcdc193374040}{Next\+Chan\+Params\+\_\+t} $\ast$}]{next\+Chan\+Params,  }\item[{uint8\+\_\+t $\ast$}]{channel,  }\item[{\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$}]{time,  }\item[{\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$}]{aggregated\+Time\+Off }\end{DoxyParamCaption})}
+
+
+
+Searches and set the next random available channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & channel Next channel to use for TX.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & time Time to wait for the next transmission according to the duty cycle.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & aggregated\+Time\+Off Updates the aggregated time off.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Function} & status \mbox{[}1\+: OK, 0\+: Unable to find a channel on the current datarate\mbox{]}. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gaf89984d30239d6597190409068031465}\label{group__REGION_gaf89984d30239d6597190409068031465}} 
+\index{Region implementation@{Region implementation}!Region\+Rx\+Config@{Region\+Rx\+Config}}
+\index{Region\+Rx\+Config@{Region\+Rx\+Config}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Rx\+Config()}{RegionRxConfig()}}
+{\footnotesize\ttfamily bool Region\+Rx\+Config (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga375c038078dfcfc7ef14280021db719e}{Rx\+Config\+Params\+\_\+t} $\ast$}]{rx\+Config,  }\item[{int8\+\_\+t $\ast$}]{datarate }\end{DoxyParamCaption})}
+
+
+
+Configuration of the RX windows. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rx\+Config Pointer to the function parameters.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & datarate The datarate index which was set.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & true, if the configuration was applied successfully. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga485a820155fded42235a0d14d5918a7d}\label{group__REGION_ga485a820155fded42235a0d14d5918a7d}} 
+\index{Region implementation@{Region implementation}!Region\+Rx\+Param\+Setup\+Req@{Region\+Rx\+Param\+Setup\+Req}}
+\index{Region\+Rx\+Param\+Setup\+Req@{Region\+Rx\+Param\+Setup\+Req}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Rx\+Param\+Setup\+Req()}{RegionRxParamSetupReq()}}
+{\footnotesize\ttfamily uint8\+\_\+t Region\+Rx\+Param\+Setup\+Req (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga7165f282c670c728c36d534df2285157}{Rx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$}]{rx\+Param\+Setup\+Req }\end{DoxyParamCaption})}
+
+
+
+The function processes a RX Parameter Setup Request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rx\+Param\+Setup\+Req Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the status of the operation, according to the Lo\+Ra\+M\+AC specification. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_gabdd176dcf0b7e7900377b4c1e183613d}\label{group__REGION_gabdd176dcf0b7e7900377b4c1e183613d}} 
+\index{Region implementation@{Region implementation}!Region\+Set\+Band\+Tx\+Done@{Region\+Set\+Band\+Tx\+Done}}
+\index{Region\+Set\+Band\+Tx\+Done@{Region\+Set\+Band\+Tx\+Done}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Set\+Band\+Tx\+Done()}{RegionSetBandTxDone()}}
+{\footnotesize\ttfamily void Region\+Set\+Band\+Tx\+Done (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gad0524aa0673c0814a71e7a4f9cade3fc}{Set\+Band\+Tx\+Done\+Params\+\_\+t} $\ast$}]{tx\+Done }\end{DoxyParamCaption})}
+
+
+
+Updates the last TX done parameters of the current channel. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & tx\+Done Pointer to the function parameters. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__REGION_ga22327f217ed10d84c89b6785143be5b8}\label{group__REGION_ga22327f217ed10d84c89b6785143be5b8}} 
+\index{Region implementation@{Region implementation}!Region\+Set\+Continuous\+Wave@{Region\+Set\+Continuous\+Wave}}
+\index{Region\+Set\+Continuous\+Wave@{Region\+Set\+Continuous\+Wave}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Set\+Continuous\+Wave()}{RegionSetContinuousWave()}}
+{\footnotesize\ttfamily void Region\+Set\+Continuous\+Wave (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gaf39bb5ba06921139c6d17f88a8d518cd}{Continuous\+Wave\+Params\+\_\+t} $\ast$}]{continuous\+Wave }\end{DoxyParamCaption})}
+
+
+
+Sets the radio into continuous wave mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & continuous\+Wave Pointer to the function parameters. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{group__REGION_ga9a4b01301e0f6f6880dc6a651c062ad0}\label{group__REGION_ga9a4b01301e0f6f6880dc6a651c062ad0}} 
+\index{Region implementation@{Region implementation}!Region\+Tx\+Config@{Region\+Tx\+Config}}
+\index{Region\+Tx\+Config@{Region\+Tx\+Config}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Tx\+Config()}{RegionTxConfig()}}
+{\footnotesize\ttfamily bool Region\+Tx\+Config (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_gabed730d4d04b0b60d4b6d1966d3f21d3}{Tx\+Config\+Params\+\_\+t} $\ast$}]{tx\+Config,  }\item[{int8\+\_\+t $\ast$}]{tx\+Power,  }\item[{\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} $\ast$}]{tx\+Time\+On\+Air }\end{DoxyParamCaption})}
+
+
+
+TX configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & tx\+Config Pointer to the function parameters.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & tx\+Power The tx power index which was set.\\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & tx\+Time\+On\+Air The time-\/on-\/air of the frame.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & true, if the configuration was applied successfully. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga50dbaca7bf982330c183614302d525c4}\label{group__REGION_ga50dbaca7bf982330c183614302d525c4}} 
+\index{Region implementation@{Region implementation}!Region\+Tx\+Param\+Setup\+Req@{Region\+Tx\+Param\+Setup\+Req}}
+\index{Region\+Tx\+Param\+Setup\+Req@{Region\+Tx\+Param\+Setup\+Req}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Tx\+Param\+Setup\+Req()}{RegionTxParamSetupReq()}}
+{\footnotesize\ttfamily int8\+\_\+t Region\+Tx\+Param\+Setup\+Req (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga26836ef2996e70410e42ef471073f855}{Tx\+Param\+Setup\+Req\+Params\+\_\+t} $\ast$}]{tx\+Param\+Setup\+Req }\end{DoxyParamCaption})}
+
+
+
+The function processes a TX Param\+Setup Request. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & tx\+Param\+Setup\+Req Pointer to the function parameters.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & the status of the operation, according to the Lo\+Ra\+M\+AC specification. Returns -\/1, if the functionality is not implemented. In this case, the end node shall ignore the command. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{group__REGION_ga7c1ff626bc1131889fa8de3197a1093a}\label{group__REGION_ga7c1ff626bc1131889fa8de3197a1093a}} 
+\index{Region implementation@{Region implementation}!Region\+Verify@{Region\+Verify}}
+\index{Region\+Verify@{Region\+Verify}!Region implementation@{Region implementation}}
+\subsubsection{\texorpdfstring{Region\+Verify()}{RegionVerify()}}
+{\footnotesize\ttfamily bool Region\+Verify (\begin{DoxyParamCaption}\item[{\hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}}]{region,  }\item[{\hyperlink{group__REGION_ga966d97bc2f25df1c09e92e60ef652276}{Verify\+Params\+\_\+t} $\ast$}]{verify,  }\item[{\hyperlink{group__REGION_ga9445b07fdf77581ecfaf389970e635f8}{Phy\+Attribute\+\_\+t}}]{phy\+Attribute }\end{DoxyParamCaption})}
+
+
+
+Verifies a parameter. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & region Lo\+Ra\+W\+AN region.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & verify Pointer to the function parameters.\\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & type Sets the initialization type.\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em Returns} & true, if the parameter is valid. \\
+\hline
+\end{DoxyRetVals}

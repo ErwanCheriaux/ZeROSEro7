@@ -1,0 +1,134 @@
+\hypertarget{structsMcpsIndication}{}\section{s\+Mcps\+Indication Struct Reference}
+\label{structsMcpsIndication}\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Mac.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__LORAMAC_ga670d0c87a52aeb13391f303a4cf94f00}{Mcps\+\_\+t} \hyperlink{structsMcpsIndication_a34ed414944a8a43156b9c8c7268c3895}{Mcps\+Indication}
+\item 
+\hyperlink{group__LORAMAC_gac6ffc346a4c767f7a743c87a686c51b4}{Lo\+Ra\+Mac\+Event\+Info\+Status\+\_\+t} \hyperlink{structsMcpsIndication_a8a63a10eb4bd7084254fa3b5a3387f3c}{Status}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_a8de16d5b205f8dceb556f52fbe09773e}{Multicast}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_ac7124ef78e2ea10129a5ae8686c25b03}{Port}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_a8a3558e639f91fe754ae8ad48eccfe75}{Rx\+Datarate}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_a0e1bffc7331a4bec0cf8dbc6fd5ddf84}{Frame\+Pending}
+\item 
+uint8\+\_\+t $\ast$ \hyperlink{structsMcpsIndication_a21a2c04aa780df05b1cf2d772d717536}{Buffer}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_a8a7bb5663ddffd2563dd81a572f2cd2b}{Buffer\+Size}
+\item 
+bool \hyperlink{structsMcpsIndication_a898027b196e3e06aebac0e4426b9fb17}{Rx\+Data}
+\item 
+int16\+\_\+t \hyperlink{structsMcpsIndication_ab4d689cea2a22d139ec49950b93be280}{Rssi}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_a408da739421acbaba81eab1836a432ed}{Snr}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsIndication_a4195cf722b69ed87681f2db540d4c456}{Rx\+Slot}
+\item 
+bool \hyperlink{structsMcpsIndication_af317a7cf2f1d961a46bde24a2b347964}{Ack\+Received}
+\item 
+uint32\+\_\+t \hyperlink{structsMcpsIndication_ae0fcbde0ad8f567c0f4e809accdeb688}{Down\+Link\+Counter}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra\+M\+AC M\+C\+P\+S-\/\+Indication primitive 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsMcpsIndication_af317a7cf2f1d961a46bde24a2b347964}\label{structsMcpsIndication_af317a7cf2f1d961a46bde24a2b347964}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Ack\+Received@{Ack\+Received}}
+\index{Ack\+Received@{Ack\+Received}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Ack\+Received}{AckReceived}}
+{\footnotesize\ttfamily bool s\+Mcps\+Indication\+::\+Ack\+Received}
+
+Set if an acknowledgement was received \mbox{\Hypertarget{structsMcpsIndication_a21a2c04aa780df05b1cf2d772d717536}\label{structsMcpsIndication_a21a2c04aa780df05b1cf2d772d717536}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Buffer@{Buffer}}
+\index{Buffer@{Buffer}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Buffer}{Buffer}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ s\+Mcps\+Indication\+::\+Buffer}
+
+Pointer to the received data stream \mbox{\Hypertarget{structsMcpsIndication_a8a7bb5663ddffd2563dd81a572f2cd2b}\label{structsMcpsIndication_a8a7bb5663ddffd2563dd81a572f2cd2b}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Buffer\+Size@{Buffer\+Size}}
+\index{Buffer\+Size@{Buffer\+Size}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Buffer\+Size}{BufferSize}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Buffer\+Size}
+
+Size of the received data stream \mbox{\Hypertarget{structsMcpsIndication_ae0fcbde0ad8f567c0f4e809accdeb688}\label{structsMcpsIndication_ae0fcbde0ad8f567c0f4e809accdeb688}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Down\+Link\+Counter@{Down\+Link\+Counter}}
+\index{Down\+Link\+Counter@{Down\+Link\+Counter}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Down\+Link\+Counter}{DownLinkCounter}}
+{\footnotesize\ttfamily uint32\+\_\+t s\+Mcps\+Indication\+::\+Down\+Link\+Counter}
+
+The downlink counter value for the received frame \mbox{\Hypertarget{structsMcpsIndication_a0e1bffc7331a4bec0cf8dbc6fd5ddf84}\label{structsMcpsIndication_a0e1bffc7331a4bec0cf8dbc6fd5ddf84}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Frame\+Pending@{Frame\+Pending}}
+\index{Frame\+Pending@{Frame\+Pending}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Frame\+Pending}{FramePending}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Frame\+Pending}
+
+Frame pending status \mbox{\Hypertarget{structsMcpsIndication_a34ed414944a8a43156b9c8c7268c3895}\label{structsMcpsIndication_a34ed414944a8a43156b9c8c7268c3895}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Mcps\+Indication@{Mcps\+Indication}}
+\index{Mcps\+Indication@{Mcps\+Indication}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Mcps\+Indication}{McpsIndication}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga670d0c87a52aeb13391f303a4cf94f00}{Mcps\+\_\+t} s\+Mcps\+Indication\+::\+Mcps\+Indication}
+
+M\+C\+P\+S-\/\+Indication type \mbox{\Hypertarget{structsMcpsIndication_a8de16d5b205f8dceb556f52fbe09773e}\label{structsMcpsIndication_a8de16d5b205f8dceb556f52fbe09773e}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Multicast@{Multicast}}
+\index{Multicast@{Multicast}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Multicast}{Multicast}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Multicast}
+
+Multicast \mbox{\Hypertarget{structsMcpsIndication_ac7124ef78e2ea10129a5ae8686c25b03}\label{structsMcpsIndication_ac7124ef78e2ea10129a5ae8686c25b03}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Port@{Port}}
+\index{Port@{Port}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Port}{Port}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Port}
+
+Application port \mbox{\Hypertarget{structsMcpsIndication_ab4d689cea2a22d139ec49950b93be280}\label{structsMcpsIndication_ab4d689cea2a22d139ec49950b93be280}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Rssi@{Rssi}}
+\index{Rssi@{Rssi}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Rssi}{Rssi}}
+{\footnotesize\ttfamily int16\+\_\+t s\+Mcps\+Indication\+::\+Rssi}
+
+Rssi of the received packet \mbox{\Hypertarget{structsMcpsIndication_a898027b196e3e06aebac0e4426b9fb17}\label{structsMcpsIndication_a898027b196e3e06aebac0e4426b9fb17}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Rx\+Data@{Rx\+Data}}
+\index{Rx\+Data@{Rx\+Data}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Rx\+Data}{RxData}}
+{\footnotesize\ttfamily bool s\+Mcps\+Indication\+::\+Rx\+Data}
+
+Indicates, if data is available \mbox{\Hypertarget{structsMcpsIndication_a8a3558e639f91fe754ae8ad48eccfe75}\label{structsMcpsIndication_a8a3558e639f91fe754ae8ad48eccfe75}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Rx\+Datarate@{Rx\+Datarate}}
+\index{Rx\+Datarate@{Rx\+Datarate}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Rx\+Datarate}{RxDatarate}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Rx\+Datarate}
+
+Downlink datarate \mbox{\Hypertarget{structsMcpsIndication_a4195cf722b69ed87681f2db540d4c456}\label{structsMcpsIndication_a4195cf722b69ed87681f2db540d4c456}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Rx\+Slot@{Rx\+Slot}}
+\index{Rx\+Slot@{Rx\+Slot}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Rx\+Slot}{RxSlot}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Rx\+Slot}
+
+Receive window
+
+\mbox{[}0\+: Rx window 1, 1\+: Rx window 2\mbox{]} \mbox{\Hypertarget{structsMcpsIndication_a408da739421acbaba81eab1836a432ed}\label{structsMcpsIndication_a408da739421acbaba81eab1836a432ed}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Snr@{Snr}}
+\index{Snr@{Snr}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Snr}{Snr}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Indication\+::\+Snr}
+
+Snr of the received packet \mbox{\Hypertarget{structsMcpsIndication_a8a63a10eb4bd7084254fa3b5a3387f3c}\label{structsMcpsIndication_a8a63a10eb4bd7084254fa3b5a3387f3c}} 
+\index{s\+Mcps\+Indication@{s\+Mcps\+Indication}!Status@{Status}}
+\index{Status@{Status}!s\+Mcps\+Indication@{s\+Mcps\+Indication}}
+\subsubsection{\texorpdfstring{Status}{Status}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_gac6ffc346a4c767f7a743c87a686c51b4}{Lo\+Ra\+Mac\+Event\+Info\+Status\+\_\+t} s\+Mcps\+Indication\+::\+Status}
+
+Status of the operation 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/\hyperlink{LoRaMac_8h}{Lo\+Ra\+Mac.\+h}\end{DoxyCompactItemize}

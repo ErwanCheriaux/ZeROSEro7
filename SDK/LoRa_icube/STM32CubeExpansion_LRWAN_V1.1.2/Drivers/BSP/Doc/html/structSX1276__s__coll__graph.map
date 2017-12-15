@@ -1,0 +1,7 @@
+<map id="SX1276_s" name="SX1276_s">
+<area shape="rect" id="node2" href="$structRadioSettings__t.html" title="RadioSettings_t" alt="" coords="359,81,473,108"/>
+<area shape="rect" id="node3" href="$structRadioFskPacketHandler__t.html" title="RadioFskPacketHandler_t" alt="" coords="10,5,185,32"/>
+<area shape="rect" id="node4" href="$structRadioLoRaPacketHandler__t.html" title="RadioLoRaPacketHandler_t" alt="" coords="5,56,189,83"/>
+<area shape="rect" id="node5" href="$structRadioLoRaSettings__t.html" title="RadioLoRaSettings_t" alt="" coords="24,107,171,133"/>
+<area shape="rect" id="node6" href="$structRadioFskSettings__t.html" title="RadioFskSettings_t" alt="" coords="29,157,166,184"/>
+</map>

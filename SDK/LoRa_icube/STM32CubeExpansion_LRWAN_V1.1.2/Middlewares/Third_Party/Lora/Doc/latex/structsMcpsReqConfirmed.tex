@@ -1,0 +1,83 @@
+\hypertarget{structsMcpsReqConfirmed}{}\section{s\+Mcps\+Req\+Confirmed Struct Reference}
+\label{structsMcpsReqConfirmed}\index{s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}}
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Mac.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsReqConfirmed_a36b8d158ec49602e067d7884d39f94e7}{f\+Port}
+\item 
+void $\ast$ \hyperlink{structsMcpsReqConfirmed_a052ecff6388f3ee4d02be3fc3bf40570}{f\+Buffer}
+\item 
+uint16\+\_\+t \hyperlink{structsMcpsReqConfirmed_a47f46ba0eb6fe45951fadbb43687a9fd}{f\+Buffer\+Size}
+\item 
+int8\+\_\+t \hyperlink{structsMcpsReqConfirmed_afbd019ef536a8fe3c418bb362378c9cf}{Datarate}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsReqConfirmed_a4bf78c5cc4e56c815c592fcea5b07f82}{Nb\+Trials}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra\+M\+AC M\+C\+P\+S-\/\+Request for a confirmed frame 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsMcpsReqConfirmed_afbd019ef536a8fe3c418bb362378c9cf}\label{structsMcpsReqConfirmed_afbd019ef536a8fe3c418bb362378c9cf}} 
+\index{s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}!Datarate@{Datarate}}
+\index{Datarate@{Datarate}!s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}}
+\subsubsection{\texorpdfstring{Datarate}{Datarate}}
+{\footnotesize\ttfamily int8\+\_\+t s\+Mcps\+Req\+Confirmed\+::\+Datarate}
+
+Uplink datarate, if A\+DR is off \mbox{\Hypertarget{structsMcpsReqConfirmed_a052ecff6388f3ee4d02be3fc3bf40570}\label{structsMcpsReqConfirmed_a052ecff6388f3ee4d02be3fc3bf40570}} 
+\index{s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}!f\+Buffer@{f\+Buffer}}
+\index{f\+Buffer@{f\+Buffer}!s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}}
+\subsubsection{\texorpdfstring{f\+Buffer}{fBuffer}}
+{\footnotesize\ttfamily void$\ast$ s\+Mcps\+Req\+Confirmed\+::f\+Buffer}
+
+Pointer to the buffer of the frame payload \mbox{\Hypertarget{structsMcpsReqConfirmed_a47f46ba0eb6fe45951fadbb43687a9fd}\label{structsMcpsReqConfirmed_a47f46ba0eb6fe45951fadbb43687a9fd}} 
+\index{s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}!f\+Buffer\+Size@{f\+Buffer\+Size}}
+\index{f\+Buffer\+Size@{f\+Buffer\+Size}!s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}}
+\subsubsection{\texorpdfstring{f\+Buffer\+Size}{fBufferSize}}
+{\footnotesize\ttfamily uint16\+\_\+t s\+Mcps\+Req\+Confirmed\+::f\+Buffer\+Size}
+
+Size of the frame payload \mbox{\Hypertarget{structsMcpsReqConfirmed_a36b8d158ec49602e067d7884d39f94e7}\label{structsMcpsReqConfirmed_a36b8d158ec49602e067d7884d39f94e7}} 
+\index{s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}!f\+Port@{f\+Port}}
+\index{f\+Port@{f\+Port}!s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}}
+\subsubsection{\texorpdfstring{f\+Port}{fPort}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Req\+Confirmed\+::f\+Port}
+
+Frame port field. Must be set if the payload is not empty. Use the application specific frame port values\+: \mbox{[}1...223\mbox{]}
+
+Lo\+Ra\+W\+AN Specification V1.\+0.\+2, chapter 4.\+3.\+2 \mbox{\Hypertarget{structsMcpsReqConfirmed_a4bf78c5cc4e56c815c592fcea5b07f82}\label{structsMcpsReqConfirmed_a4bf78c5cc4e56c815c592fcea5b07f82}} 
+\index{s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}!Nb\+Trials@{Nb\+Trials}}
+\index{Nb\+Trials@{Nb\+Trials}!s\+Mcps\+Req\+Confirmed@{s\+Mcps\+Req\+Confirmed}}
+\subsubsection{\texorpdfstring{Nb\+Trials}{NbTrials}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Req\+Confirmed\+::\+Nb\+Trials}
+
+Number of trials to transmit the frame, if the Lo\+Ra\+M\+AC layer did not receive an acknowledgment. The M\+AC performs a datarate adaptation, according to the Lo\+Ra\+W\+AN Specification V1.\+0.\+2, chapter 18.\+4, according to the following table\+:
+
+\tabulinesep=1mm
+\begin{longtabu} spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Transmission nb }&\textbf{ Data Rate  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\rowcolor{\tableheadbgcolor}\textbf{ Transmission nb }&\textbf{ Data Rate  }\\\cline{1-2}
+\endhead
+1 (first) &DR \\\cline{1-2}
+2 &DR \\\cline{1-2}
+3 &max(D\+R-\/1,0) \\\cline{1-2}
+4 &max(D\+R-\/1,0) \\\cline{1-2}
+5 &max(D\+R-\/2,0) \\\cline{1-2}
+6 &max(D\+R-\/2,0) \\\cline{1-2}
+7 &max(D\+R-\/3,0) \\\cline{1-2}
+8 &max(D\+R-\/3,0) \\\cline{1-2}
+\end{longtabu}
+Note, that if Nb\+Trials is set to 1 or 2, the M\+AC will not decrease the datarate, in case the Lo\+Ra\+M\+AC layer did not receive an acknowledgment 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/\hyperlink{LoRaMac_8h}{Lo\+Ra\+Mac.\+h}\end{DoxyCompactItemize}

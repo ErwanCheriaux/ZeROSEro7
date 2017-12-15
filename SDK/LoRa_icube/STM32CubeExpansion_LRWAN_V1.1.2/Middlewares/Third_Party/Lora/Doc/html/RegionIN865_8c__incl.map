@@ -1,0 +1,10 @@
+<map id="Mac/region/RegionIN865.c" name="Mac/region/RegionIN865.c">
+<area shape="rect" id="node6" href="$radio_8h.html" title="radio.h" alt="" coords="371,80,432,107"/>
+<area shape="rect" id="node7" href="$timer_8h.html" title="timer.h" alt="" coords="457,80,519,107"/>
+<area shape="rect" id="node9" href="$utilities_8h.html" title="utilities.h" alt="" coords="477,229,552,256"/>
+<area shape="rect" id="node11" href="$LoRaMac_8h.html" title="LoRa MAC layer implementation. " alt="" coords="595,80,685,107"/>
+<area shape="rect" id="node12" href="$Region_8h.html" title="Region implementation. " alt="" coords="709,80,784,107"/>
+<area shape="rect" id="node13" href="$RegionCommon_8h.html" title="Region independent implementations which are common to all regions. " alt="" coords="809,80,935,107"/>
+<area shape="rect" id="node14" href="$RegionIN865_8h.html" title="Region definition for IN865. " alt="" coords="960,80,1069,107"/>
+<area shape="rect" id="node8" href="$timeServer_8h.html" title="timeServer.h" alt="" coords="424,155,520,181"/>
+</map>

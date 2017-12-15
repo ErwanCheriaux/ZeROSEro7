@@ -1,0 +1,13 @@
+<map id="Mac/region/RegionCommon.h" name="Mac/region/RegionCommon.h">
+<area shape="rect" id="node2" href="$RegionAS923_8c.html" title="Mac/region/RegionAS923.c" alt="" coords="5,87,187,114"/>
+<area shape="rect" id="node3" href="$RegionAU915_8c.html" title="Mac/region/RegionAU915.c" alt="" coords="211,87,394,114"/>
+<area shape="rect" id="node4" href="$RegionCN470_8c.html" title="Mac/region/RegionCN470.c" alt="" coords="418,87,601,114"/>
+<area shape="rect" id="node5" href="$RegionCN779_8c.html" title="Mac/region/RegionCN779.c" alt="" coords="625,87,807,114"/>
+<area shape="rect" id="node6" href="$RegionCommon_8c.html" title="Mac/region/RegionCommon.c" alt="" coords="832,87,1027,114"/>
+<area shape="rect" id="node7" href="$RegionEU433_8c.html" title="Mac/region/RegionEU433.c" alt="" coords="1051,87,1234,114"/>
+<area shape="rect" id="node8" href="$RegionEU868_8c.html" title="Mac/region/RegionEU868.c" alt="" coords="1258,87,1441,114"/>
+<area shape="rect" id="node9" href="$RegionIN865_8c.html" title="Mac/region/RegionIN865.c" alt="" coords="1465,87,1642,114"/>
+<area shape="rect" id="node10" href="$RegionKR920_8c.html" title="Mac/region/RegionKR920.c" alt="" coords="1666,87,1849,114"/>
+<area shape="rect" id="node11" href="$RegionUS915-Hybrid_8c.html" title="Mac/region/RegionUS915\l&#45;Hybrid.c" alt="" coords="1873,80,2044,121"/>
+<area shape="rect" id="node12" href="$RegionUS915_8c.html" title="Mac/region/RegionUS915.c" alt="" coords="2069,87,2251,114"/>
+</map>

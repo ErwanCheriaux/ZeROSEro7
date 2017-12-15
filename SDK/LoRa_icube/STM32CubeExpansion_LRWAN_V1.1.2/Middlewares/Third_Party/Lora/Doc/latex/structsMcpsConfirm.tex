@@ -1,0 +1,92 @@
+\hypertarget{structsMcpsConfirm}{}\section{s\+Mcps\+Confirm Struct Reference}
+\label{structsMcpsConfirm}\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+
+
+{\ttfamily \#include $<$Lo\+Ra\+Mac.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__LORAMAC_ga670d0c87a52aeb13391f303a4cf94f00}{Mcps\+\_\+t} \hyperlink{structsMcpsConfirm_af7f36d1afe5416d9395ffcce12f62145}{Mcps\+Request}
+\item 
+\hyperlink{group__LORAMAC_gac6ffc346a4c767f7a743c87a686c51b4}{Lo\+Ra\+Mac\+Event\+Info\+Status\+\_\+t} \hyperlink{structsMcpsConfirm_a4e10bb1a3159c6c0fafb1d59dee1fc2a}{Status}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsConfirm_a673d186fe97ac6903d84ea06d1af76e4}{Datarate}
+\item 
+int8\+\_\+t \hyperlink{structsMcpsConfirm_ac81b90f3a15873d1485c670630150637}{Tx\+Power}
+\item 
+bool \hyperlink{structsMcpsConfirm_ad6244d42c26dee6fe360c70f51742c8a}{Ack\+Received}
+\item 
+uint8\+\_\+t \hyperlink{structsMcpsConfirm_a6939fdebdf1c09cde31514f87c72a0ce}{Nb\+Retries}
+\item 
+\hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} \hyperlink{structsMcpsConfirm_add2498113d2f3fd0826f535883142de7}{Tx\+Time\+On\+Air}
+\item 
+uint32\+\_\+t \hyperlink{structsMcpsConfirm_abb52e1ad49ee429c734e8cc8da2128b5}{Up\+Link\+Counter}
+\item 
+uint32\+\_\+t \hyperlink{structsMcpsConfirm_a7baa3086fabcc4735bf6ee92b533455d}{Up\+Link\+Frequency}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra\+M\+AC M\+C\+P\+S-\/\+Confirm 
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsMcpsConfirm_ad6244d42c26dee6fe360c70f51742c8a}\label{structsMcpsConfirm_ad6244d42c26dee6fe360c70f51742c8a}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Ack\+Received@{Ack\+Received}}
+\index{Ack\+Received@{Ack\+Received}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Ack\+Received}{AckReceived}}
+{\footnotesize\ttfamily bool s\+Mcps\+Confirm\+::\+Ack\+Received}
+
+Set if an acknowledgement was received \mbox{\Hypertarget{structsMcpsConfirm_a673d186fe97ac6903d84ea06d1af76e4}\label{structsMcpsConfirm_a673d186fe97ac6903d84ea06d1af76e4}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Datarate@{Datarate}}
+\index{Datarate@{Datarate}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Datarate}{Datarate}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Confirm\+::\+Datarate}
+
+Uplink datarate \mbox{\Hypertarget{structsMcpsConfirm_af7f36d1afe5416d9395ffcce12f62145}\label{structsMcpsConfirm_af7f36d1afe5416d9395ffcce12f62145}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Mcps\+Request@{Mcps\+Request}}
+\index{Mcps\+Request@{Mcps\+Request}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Mcps\+Request}{McpsRequest}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_ga670d0c87a52aeb13391f303a4cf94f00}{Mcps\+\_\+t} s\+Mcps\+Confirm\+::\+Mcps\+Request}
+
+Holds the previously performed M\+C\+P\+S-\/\+Request \mbox{\Hypertarget{structsMcpsConfirm_a6939fdebdf1c09cde31514f87c72a0ce}\label{structsMcpsConfirm_a6939fdebdf1c09cde31514f87c72a0ce}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Nb\+Retries@{Nb\+Retries}}
+\index{Nb\+Retries@{Nb\+Retries}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Nb\+Retries}{NbRetries}}
+{\footnotesize\ttfamily uint8\+\_\+t s\+Mcps\+Confirm\+::\+Nb\+Retries}
+
+Provides the number of retransmissions \mbox{\Hypertarget{structsMcpsConfirm_a4e10bb1a3159c6c0fafb1d59dee1fc2a}\label{structsMcpsConfirm_a4e10bb1a3159c6c0fafb1d59dee1fc2a}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Status@{Status}}
+\index{Status@{Status}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Status}{Status}}
+{\footnotesize\ttfamily \hyperlink{group__LORAMAC_gac6ffc346a4c767f7a743c87a686c51b4}{Lo\+Ra\+Mac\+Event\+Info\+Status\+\_\+t} s\+Mcps\+Confirm\+::\+Status}
+
+Status of the operation \mbox{\Hypertarget{structsMcpsConfirm_ac81b90f3a15873d1485c670630150637}\label{structsMcpsConfirm_ac81b90f3a15873d1485c670630150637}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Tx\+Power@{Tx\+Power}}
+\index{Tx\+Power@{Tx\+Power}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Tx\+Power}{TxPower}}
+{\footnotesize\ttfamily int8\+\_\+t s\+Mcps\+Confirm\+::\+Tx\+Power}
+
+Transmission power \mbox{\Hypertarget{structsMcpsConfirm_add2498113d2f3fd0826f535883142de7}\label{structsMcpsConfirm_add2498113d2f3fd0826f535883142de7}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Tx\+Time\+On\+Air@{Tx\+Time\+On\+Air}}
+\index{Tx\+Time\+On\+Air@{Tx\+Time\+On\+Air}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Tx\+Time\+On\+Air}{TxTimeOnAir}}
+{\footnotesize\ttfamily \hyperlink{utilities_8h_a4215ca43d3e953099ea758ce428599d0}{Timer\+Time\+\_\+t} s\+Mcps\+Confirm\+::\+Tx\+Time\+On\+Air}
+
+The transmission time on air of the frame \mbox{\Hypertarget{structsMcpsConfirm_abb52e1ad49ee429c734e8cc8da2128b5}\label{structsMcpsConfirm_abb52e1ad49ee429c734e8cc8da2128b5}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Up\+Link\+Counter@{Up\+Link\+Counter}}
+\index{Up\+Link\+Counter@{Up\+Link\+Counter}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Up\+Link\+Counter}{UpLinkCounter}}
+{\footnotesize\ttfamily uint32\+\_\+t s\+Mcps\+Confirm\+::\+Up\+Link\+Counter}
+
+The uplink counter value related to the frame \mbox{\Hypertarget{structsMcpsConfirm_a7baa3086fabcc4735bf6ee92b533455d}\label{structsMcpsConfirm_a7baa3086fabcc4735bf6ee92b533455d}} 
+\index{s\+Mcps\+Confirm@{s\+Mcps\+Confirm}!Up\+Link\+Frequency@{Up\+Link\+Frequency}}
+\index{Up\+Link\+Frequency@{Up\+Link\+Frequency}!s\+Mcps\+Confirm@{s\+Mcps\+Confirm}}
+\subsubsection{\texorpdfstring{Up\+Link\+Frequency}{UpLinkFrequency}}
+{\footnotesize\ttfamily uint32\+\_\+t s\+Mcps\+Confirm\+::\+Up\+Link\+Frequency}
+
+The uplink frequency related to the frame 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Mac/\hyperlink{LoRaMac_8h}{Lo\+Ra\+Mac.\+h}\end{DoxyCompactItemize}

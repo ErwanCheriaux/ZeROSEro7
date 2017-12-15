@@ -1,0 +1,63 @@
+\hypertarget{LoRaMacCrypto_8h}{}\section{Mac/\+Lo\+Ra\+Mac\+Crypto.h File Reference}
+\label{LoRaMacCrypto_8h}\index{Mac/\+Lo\+Ra\+Mac\+Crypto.\+h@{Mac/\+Lo\+Ra\+Mac\+Crypto.\+h}}
+
+
+Lo\+Ra M\+AC layer cryptography implementation.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=306pt]{LoRaMacCrypto_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga6ee265070494b83255e7fdc4dff985da}{Lo\+Ra\+Mac\+Compute\+Mic} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint32\+\_\+t $\ast$mic)
+\begin{DoxyCompactList}\small\item\em Computes the Lo\+Ra\+M\+AC frame M\+IC field. \end{DoxyCompactList}\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga50339e60abea2186ca7e584b489718b1}{Lo\+Ra\+Mac\+Payload\+Encrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint8\+\_\+t $\ast$enc\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_ga41f9ba19f61b195420914ed58c8b94c7}{Lo\+Ra\+Mac\+Payload\+Decrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t address, uint8\+\_\+t dir, uint32\+\_\+t sequence\+Counter, uint8\+\_\+t $\ast$dec\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gac9216af326316c9e7f207d4e73aed199}{Lo\+Ra\+Mac\+Join\+Compute\+Mic} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint32\+\_\+t $\ast$mic)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gac2379cd7cbeb6febaa2a7be5d9f04b5c}{Lo\+Ra\+Mac\+Join\+Decrypt} (const uint8\+\_\+t $\ast$buffer, uint16\+\_\+t size, const uint8\+\_\+t $\ast$key, uint8\+\_\+t $\ast$dec\+Buffer)
+\item 
+void \hyperlink{group__LORAMAC__CRYPTO_gad6fc2ace27fa388ec860fc2e5ae1f544}{Lo\+Ra\+Mac\+Join\+Compute\+S\+Keys} (const uint8\+\_\+t $\ast$key, const uint8\+\_\+t $\ast$app\+Nonce, uint16\+\_\+t dev\+Nonce, uint8\+\_\+t $\ast$nwk\+S\+Key, uint8\+\_\+t $\ast$app\+S\+Key)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra M\+AC layer cryptography implementation. 
+
+\begin{DoxyCopyright}{Copyright}
+Revised B\+SD License, see section L\+I\+C\+E\+N\+SE.
+\end{DoxyCopyright}
+
+\begin{DoxyCode}
+  \_\_\_\_\_\_                              \_
+ / \_\_\_\_\_)             \_              | |
+( (\_\_\_\_  \_\_\_\_\_ \_\_\_\_ \_| |\_ \_\_\_\_\_  \_\_\_\_| |\_\_
+ \(\backslash\)\_\_\_\_ \(\backslash\)| \_\_\_ |    (\_   \_) \_\_\_ |/ \_\_\_)  \_ \(\backslash\)
+ \_\_\_\_\_) ) \_\_\_\_| | | || |\_| \_\_\_\_( (\_\_\_| | | |
+(\_\_\_\_\_\_/|\_\_\_\_\_)\_|\_|\_| \(\backslash\)\_\_)\_\_\_\_\_)\(\backslash\)\_\_\_\_)\_| |\_|
+(C)2013 Semtech
+
+ \_\_\_ \_\_\_\_\_ \_   \_\_\_ \_  \_\_\_\_\_ \_\_\_  \_\_\_  \_\_\_ \_\_\_
+/ \_\_|\_   \_/\_\(\backslash\) / \_\_| |/ / \_\_/ \_ \(\backslash\)| \_ \(\backslash\)/ \_\_| \_\_|
+\(\backslash\)\_\_ \(\backslash\) | |/ \_ \(\backslash\) (\_\_| \textcolor{stringliteral}{' <| \_| (\_) |   / (\_\_| \_|}
+\textcolor{stringliteral}{|\_\_\_/ |\_/\_/ \(\backslash\)\_\(\backslash\)\_\_\_|\_|\(\backslash\)\_\(\backslash\)\_| \(\backslash\)\_\_\_/|\_|\_\(\backslash\)\(\backslash\)\_\_\_|\_\_\_|}
+\textcolor{stringliteral}{embedded.connectivity.solutions===============}
+\end{DoxyCode}
+
+
+\begin{DoxyAuthor}{Author}
+Miguel Luis ( Semtech )
+
+Gregory Cristian ( Semtech )
+
+Daniel Jaeckle ( S\+T\+A\+C\+K\+F\+O\+R\+CE ) 
+\end{DoxyAuthor}
