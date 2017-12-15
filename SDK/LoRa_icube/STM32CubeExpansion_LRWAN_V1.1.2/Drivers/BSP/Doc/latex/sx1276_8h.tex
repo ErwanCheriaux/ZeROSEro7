@@ -1,0 +1,743 @@
+\hypertarget{sx1276_8h}{}\section{Components/sx1276/sx1276.h File Reference}
+\label{sx1276_8h}\index{Components/sx1276/sx1276.\+h@{Components/sx1276/sx1276.\+h}}
+{\ttfamily \#include \char`\"{}sx1276\+Regs-\/\+Fsk.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}sx1276\+Regs-\/\+Lo\+Ra.\+h\char`\"{}}\newline
+Include dependency graph for sx1276.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=304pt]{sx1276_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=229pt]{sx1276_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structRadioFskSettings__t}{Radio\+Fsk\+Settings\+\_\+t}
+\item 
+struct \hyperlink{structRadioFskPacketHandler__t}{Radio\+Fsk\+Packet\+Handler\+\_\+t}
+\item 
+struct \hyperlink{structRadioLoRaSettings__t}{Radio\+Lo\+Ra\+Settings\+\_\+t}
+\item 
+struct \hyperlink{structRadioLoRaPacketHandler__t}{Radio\+Lo\+Ra\+Packet\+Handler\+\_\+t}
+\item 
+struct \hyperlink{structRadioSettings__t}{Radio\+Settings\+\_\+t}
+\item 
+struct \hyperlink{structSX1276__s}{S\+X1276\+\_\+s}
+\item 
+struct \hyperlink{structsBoardCallback}{s\+Board\+Callback}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{sx1276_8h_a42ef173c36527c948a507929f25f8e49}{R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME}~2
+\item 
+\#define \hyperlink{sx1276_8h_a51ad727a195c907dda006b5a40467136}{R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH}~525000000
+\item 
+\#define \hyperlink{sx1276_8h_a3a91534e6b1d9c4f1a179a495c38d7fe}{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}~0x12
+\item 
+\#define \hyperlink{sx1276_8h_ac2b07e04414b57bcebcb1eea5ba5ea70}{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}~0x34
+\item 
+\#define \hyperlink{sx1276_8h_a3d24a8ac8f673b60ac35b6d92fe72747}{X\+T\+A\+L\+\_\+\+F\+R\+EQ}~32000000
+\item 
+\#define \hyperlink{sx1276_8h_ad7977f4d7c0acbc564d01fb225f94630}{F\+R\+E\+Q\+\_\+\+S\+T\+EP}~61.\+03515625
+\item 
+\#define \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8}~15625 /$\ast$ \hyperlink{sx1276_8h_ad7977f4d7c0acbc564d01fb225f94630}{F\+R\+E\+Q\+\_\+\+S\+T\+EP}$<$$<$8 $\ast$/
+\item 
+\#define \hyperlink{sx1276_8h_abef7202d2ca987f0fe762a046d5cec52}{R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE}
+\begin{DoxyCompactList}\small\item\em Radio hardware registers initialization definition. \end{DoxyCompactList}\item 
+\#define \hyperlink{sx1276_8h_a398fcca28fef483bd7b9ea7345a805a0}{S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ}(channel,  freq)
+\item 
+\#define \hyperlink{sx1276_8h_ab5f9f10543ab6e2b52e98b9ade9f1ada}{S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL}(channel,  freq)
+\item 
+\#define \hyperlink{sx1276_8h_a739a2a1a0047c98ac1b18ecd25dac092}{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}~256
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef struct \hyperlink{structSX1276__s}{S\+X1276\+\_\+s} \hyperlink{sx1276_8h_acf7f83d7d25c85897b88fcdc94345e56}{S\+X1276\+\_\+t}
+\item 
+typedef void() \hyperlink{sx1276_8h_af462584f307238535daaea42f6ce791c}{Dio\+Irq\+Handler}(void)
+\item 
+typedef struct \hyperlink{structsBoardCallback}{s\+Board\+Callback} \hyperlink{sx1276_8h_ad4ece8886feb1126f7cf786676572610}{Lo\+Ra\+Board\+Callback\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{sx1276_8h_afad8cc2a5afd223af9eba509bfaa15f4}{S\+X1276\+Board\+Init} (\hyperlink{sx1276_8h_ad4ece8886feb1126f7cf786676572610}{Lo\+Ra\+Board\+Callback\+\_\+t} $\ast$callbacks)
+\item 
+uint32\+\_\+t \hyperlink{sx1276_8h_a19a9ddff3f878b85e42c7571485fe3c8}{S\+X1276\+Init} (Radio\+Events\+\_\+t $\ast$events)
+\begin{DoxyCompactList}\small\item\em Initializes the radio. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_aaaac2e0d7b5bd63fabf38a235d27a452}{S\+X1276\+Set\+Op\+Mode} (uint8\+\_\+t op\+Mode)
+\begin{DoxyCompactList}\small\item\em Sets the S\+X1276 operating mode. \end{DoxyCompactList}\item 
+Radio\+State\+\_\+t \hyperlink{sx1276_8h_ad70a0b1db3593630b1124653b6374944}{S\+X1276\+Get\+Status} (void)
+\item 
+void \hyperlink{sx1276_8h_a8325968bbefefab02537762dd274aa8b}{S\+X1276\+Set\+Modem} (Radio\+Modems\+\_\+t modem)
+\begin{DoxyCompactList}\small\item\em Configures the radio with the given modem. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a00768e908043081bc32cb83913192f7f}{S\+X1276\+Set\+Channel} (uint32\+\_\+t freq)
+\begin{DoxyCompactList}\small\item\em Sets the channel configuration. \end{DoxyCompactList}\item 
+bool \hyperlink{sx1276_8h_a29f26f7258f8fcd5c27800295639d7c7}{S\+X1276\+Is\+Channel\+Free} (Radio\+Modems\+\_\+t modem, uint32\+\_\+t freq, int16\+\_\+t rssi\+Thresh, uint32\+\_\+t max\+Carrier\+Sense\+Time)
+\begin{DoxyCompactList}\small\item\em Checks if the channel is free for the given time. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{sx1276_8h_a9ba39c96b8e339b06dd24543920fd2f7}{S\+X1276\+Random} (void)
+\begin{DoxyCompactList}\small\item\em Generates a 32 bits random value based on the R\+S\+SI readings. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a6a66ceb9e18a33aaff10d384fa493cf8}{S\+X1276\+Set\+Rx\+Config} (Radio\+Modems\+\_\+t modem, uint32\+\_\+t bandwidth, uint32\+\_\+t datarate, uint8\+\_\+t coderate, uint32\+\_\+t bandwidth\+Afc, uint16\+\_\+t preamble\+Len, uint16\+\_\+t symb\+Timeout, bool fix\+Len, uint8\+\_\+t payload\+Len, bool crc\+On, bool freq\+Hop\+On, uint8\+\_\+t hop\+Period, bool iq\+Inverted, bool rx\+Continuous)
+\begin{DoxyCompactList}\small\item\em Sets the reception parameters. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a805df2c0c4aa1630eeeb17177a600269}{S\+X1276\+Set\+Tx\+Config} (Radio\+Modems\+\_\+t modem, int8\+\_\+t power, uint32\+\_\+t fdev, uint32\+\_\+t bandwidth, uint32\+\_\+t datarate, uint8\+\_\+t coderate, uint16\+\_\+t preamble\+Len, bool fix\+Len, bool crc\+On, bool freq\+Hop\+On, uint8\+\_\+t hop\+Period, bool iq\+Inverted, uint32\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Sets the transmission parameters. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{sx1276_8h_a2d0bda0e5f9a4cce63284461e356b5e2}{S\+X1276\+Get\+Time\+On\+Air} (Radio\+Modems\+\_\+t modem, uint8\+\_\+t pkt\+Len)
+\begin{DoxyCompactList}\small\item\em Computes the packet time on air in ms for the given payload. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a901a3dcdbf26005e0f3f2def3e3d83b3}{S\+X1276\+Send} (uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Sends the buffer of size. Prepares the packet to be sent and sets the radio in transmission. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a32a7b8c477b2f400f96a3255e1ab7620}{S\+X1276\+Set\+Sleep} (void)
+\begin{DoxyCompactList}\small\item\em Sets the radio in sleep mode. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_aaef7a98104b400b235ef76de0cfb17df}{S\+X1276\+Set\+Stby} (void)
+\begin{DoxyCompactList}\small\item\em Sets the radio in standby mode. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a8c2df9351fbde83379717dc6f76e5c11}{S\+X1276\+Set\+Rx} (uint32\+\_\+t timeout)
+\begin{DoxyCompactList}\small\item\em Sets the radio in reception mode for the given time. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a9958c574c62b2235c4f3d4d6571854db}{S\+X1276\+Start\+Cad} (void)
+\begin{DoxyCompactList}\small\item\em Start a Channel Activity Detection. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_ac77895b054eb64df0ee2fa97061efae8}{S\+X1276\+Set\+Tx\+Continuous\+Wave} (uint32\+\_\+t freq, int8\+\_\+t power, uint16\+\_\+t time)
+\begin{DoxyCompactList}\small\item\em Sets the radio in continuous wave transmission mode. \end{DoxyCompactList}\item 
+int16\+\_\+t \hyperlink{sx1276_8h_a5741300714435f1dd69084a30031f6e3}{S\+X1276\+Read\+Rssi} (Radio\+Modems\+\_\+t modem)
+\begin{DoxyCompactList}\small\item\em Reads the current R\+S\+SI value. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a77f5d37bad59c99a14637f1eee273edc}{S\+X1276\+Write} (uint8\+\_\+t addr, uint8\+\_\+t data)
+\begin{DoxyCompactList}\small\item\em Writes the radio register at the specified address. \end{DoxyCompactList}\item 
+uint8\+\_\+t \hyperlink{sx1276_8h_a80f15707dfe79d5cd46a9e3d78214522}{S\+X1276\+Read} (uint8\+\_\+t addr)
+\begin{DoxyCompactList}\small\item\em Reads the radio register at the specified address. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a9fbc81d0d84656f61feca7ce78dda70b}{S\+X1276\+Write\+Buffer} (uint8\+\_\+t addr, uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Writes multiple radio registers starting at address. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a26a0fc71f16d6bd65124e21b7045e0aa}{S\+X1276\+Read\+Buffer} (uint8\+\_\+t addr, uint8\+\_\+t $\ast$buffer, uint8\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Reads multiple radio registers starting at address. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_aac0bb6d289a1afe69f550cb148f3bac8}{S\+X1276\+Set\+Max\+Payload\+Length} (Radio\+Modems\+\_\+t modem, uint8\+\_\+t max)
+\begin{DoxyCompactList}\small\item\em Sets the maximum payload length. \end{DoxyCompactList}\item 
+void \hyperlink{sx1276_8h_a8acacaf2d3e05a712a90f587d1908c6c}{S\+X1276\+Set\+Public\+Network} (bool enable)
+\begin{DoxyCompactList}\small\item\em Sets the network to public or private. Updates the sync byte. \end{DoxyCompactList}\item 
+uint32\+\_\+t \hyperlink{sx1276_8h_a9b6e3fa7bd90fa2dce95ef4d00db7bfe}{S\+X1276\+Get\+Radio\+Wake\+Up\+Time} (void)
+\begin{DoxyCompactList}\small\item\em Service to get the radio wake-\/up time. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{sx1276_8h_acf7f83d7d25c85897b88fcdc94345e56}{S\+X1276\+\_\+t} \hyperlink{sx1276_8h_a91a81a798b3d849e2cc114c18bf9c5cc}{S\+X1276}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{sx1276_8h_ad7977f4d7c0acbc564d01fb225f94630}\label{sx1276_8h_ad7977f4d7c0acbc564d01fb225f94630}} 
+\index{sx1276.\+h@{sx1276.\+h}!F\+R\+E\+Q\+\_\+\+S\+T\+EP@{F\+R\+E\+Q\+\_\+\+S\+T\+EP}}
+\index{F\+R\+E\+Q\+\_\+\+S\+T\+EP@{F\+R\+E\+Q\+\_\+\+S\+T\+EP}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{F\+R\+E\+Q\+\_\+\+S\+T\+EP}{FREQ\_STEP}}
+{\footnotesize\ttfamily \#define F\+R\+E\+Q\+\_\+\+S\+T\+EP~61.\+03515625}
+
+\mbox{\Hypertarget{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}\label{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}} 
+\index{sx1276.\+h@{sx1276.\+h}!F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8@{F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8}}
+\index{F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8@{F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8}{FREQ\_STEP\_8}}
+{\footnotesize\ttfamily \#define F\+R\+E\+Q\+\_\+\+S\+T\+E\+P\+\_\+8~15625 /$\ast$ \hyperlink{sx1276_8h_ad7977f4d7c0acbc564d01fb225f94630}{F\+R\+E\+Q\+\_\+\+S\+T\+EP}$<$$<$8 $\ast$/}
+
+\mbox{\Hypertarget{sx1276_8h_a3a91534e6b1d9c4f1a179a495c38d7fe}\label{sx1276_8h_a3a91534e6b1d9c4f1a179a495c38d7fe}} 
+\index{sx1276.\+h@{sx1276.\+h}!L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}}
+\index{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}{LORA\_MAC\_PRIVATE\_SYNCWORD}}
+{\footnotesize\ttfamily \#define L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+R\+I\+V\+A\+T\+E\+\_\+\+S\+Y\+N\+C\+W\+O\+RD~0x12}
+
+Sync word for Private Lo\+Ra networks \mbox{\Hypertarget{sx1276_8h_ac2b07e04414b57bcebcb1eea5ba5ea70}\label{sx1276_8h_ac2b07e04414b57bcebcb1eea5ba5ea70}} 
+\index{sx1276.\+h@{sx1276.\+h}!L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}}
+\index{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD@{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD}{LORA\_MAC\_PUBLIC\_SYNCWORD}}
+{\footnotesize\ttfamily \#define L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+S\+Y\+N\+C\+W\+O\+RD~0x34}
+
+Sync word for Public Lo\+Ra networks \mbox{\Hypertarget{sx1276_8h_abef7202d2ca987f0fe762a046d5cec52}\label{sx1276_8h_abef7202d2ca987f0fe762a046d5cec52}} 
+\index{sx1276.\+h@{sx1276.\+h}!R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE@{R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE}}
+\index{R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE@{R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE}{RADIO\_INIT\_REGISTERS\_VALUE}}
+{\footnotesize\ttfamily \#define R\+A\+D\+I\+O\+\_\+\+I\+N\+I\+T\+\_\+\+R\+E\+G\+I\+S\+T\+E\+R\+S\+\_\+\+V\+A\+L\+UE}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\{                                                 \(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_ab08aa4c56ad75b3e715a1115330109ca}{REG\_LNA}                , 0x23 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a6bba52e363d49d2783439eb8062d90c8}{REG\_RXCONFIG}           , 0x1E \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a9ba1a67481c3ba0a454cb4873e4db10b}{REG\_RSSICONFIG}         , 0xD2 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a04f60f1d03035cf80cebff9648a894c0}{REG\_AFCFEI}             , 0x01 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a8acf717d67c4e7f4b92a25653ddb495c}{REG\_PREAMBLEDETECT}     , 0xAA \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a1edb093ed684495473ecd2e97e3a49c2}{REG\_OSC}                , 0x07 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_ae80bd3142a5c405bf7063ac7b0e8e101}{REG\_SYNCCONFIG}         , 0x12 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a4d0160e654656b6cd6426c295c8e131b}{REG\_SYNCVALUE1}         , 0xC1 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a840d780f6d455dc828e2ec8217e9043a}{REG\_SYNCVALUE2}         , 0x94 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_af89062529e96d32eecd0f89963d52adf}{REG\_SYNCVALUE3}         , 0xC1 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a035c91c3eea7209c78ac5bda775940cc}{REG\_PACKETCONFIG1}      , 0xD8 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_a18b41b1ddfbe6eb514f74431b5d76792}{REG\_FIFOTHRESH}         , 0x8F \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_aeb557bae3e3e5ffb390a6f6a61ac686d}{REG\_IMAGECAL}           , 0x02 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_ac16d5678e98fa6ab73655240a11f9b69}{REG\_DIOMAPPING1}        , 0x00 \},\(\backslash\)
+    \{ MODEM\_FSK , \hyperlink{sx1276Regs-Fsk_8h_aec8b1ddf72925f502675593fabcc469f}{REG\_DIOMAPPING2}        , 0x30 \},\(\backslash\)
+    \{ MODEM\_LORA, \hyperlink{sx1276Regs-LoRa_8h_ae71e7acfa7c8c737e55349e72c71349f}{REG\_LR\_PAYLOADMAXLENGTH}, 0x40 \},\(\backslash\)
+\}                                                 \(\backslash\)
+\end{DoxyCode}
+
+
+Radio hardware registers initialization definition. 
+
+\begin{DoxyRemark}{Remarks}
+Can be automatically generated by the S\+X1276 G\+UI (not yet implemented) 
+\end{DoxyRemark}
+\mbox{\Hypertarget{sx1276_8h_a42ef173c36527c948a507929f25f8e49}\label{sx1276_8h_a42ef173c36527c948a507929f25f8e49}} 
+\index{sx1276.\+h@{sx1276.\+h}!R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME@{R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME}}
+\index{R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME@{R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME}{RADIO\_WAKEUP\_TIME}}
+{\footnotesize\ttfamily \#define R\+A\+D\+I\+O\+\_\+\+W\+A\+K\+E\+U\+P\+\_\+\+T\+I\+ME~2}
+
+Radio wake-\/up time from sleep \mbox{\Hypertarget{sx1276_8h_a51ad727a195c907dda006b5a40467136}\label{sx1276_8h_a51ad727a195c907dda006b5a40467136}} 
+\index{sx1276.\+h@{sx1276.\+h}!R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH@{R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH}}
+\index{R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH@{R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH}{RF\_MID\_BAND\_THRESH}}
+{\footnotesize\ttfamily \#define R\+F\+\_\+\+M\+I\+D\+\_\+\+B\+A\+N\+D\+\_\+\+T\+H\+R\+E\+SH~525000000}
+
+\mbox{\Hypertarget{sx1276_8h_a739a2a1a0047c98ac1b18ecd25dac092}\label{sx1276_8h_a739a2a1a0047c98ac1b18ecd25dac092}} 
+\index{sx1276.\+h@{sx1276.\+h}!R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}
+\index{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE@{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}{RX\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define R\+X\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~256}
+
+\mbox{\Hypertarget{sx1276_8h_a398fcca28fef483bd7b9ea7345a805a0}\label{sx1276_8h_a398fcca28fef483bd7b9ea7345a805a0}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ@{S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ}}
+\index{S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ@{S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ}{SX\_CHANNEL\_TO\_FREQ}}
+{\footnotesize\ttfamily \#define S\+X\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+T\+O\+\_\+\+F\+R\+EQ(\begin{DoxyParamCaption}\item[{}]{channel,  }\item[{}]{freq }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do}                                                                                              \(\backslash\)
+    \{                                                                                               \(\backslash\)
+        uint32\_t initialChanInt, initialChanFrac;                                                   \(\backslash\)
+        initialChanInt = channel  >> 8;                                                             \(\backslash\)
+        initialChanFrac = channel - ( initialChanInt << 8 );                                        \(\backslash\)
+        freq = initialChanInt * \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{FREQ\_STEP\_8} + ( ( initialChanFrac * 
+      \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{FREQ\_STEP\_8} + ( 128 ) ) >> 8 ); \(\backslash\)
+    \}\textcolor{keywordflow}{while}( 0 )
+\end{DoxyCode}
+\mbox{\Hypertarget{sx1276_8h_ab5f9f10543ab6e2b52e98b9ade9f1ada}\label{sx1276_8h_ab5f9f10543ab6e2b52e98b9ade9f1ada}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL@{S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL}}
+\index{S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL@{S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL}{SX\_FREQ\_TO\_CHANNEL}}
+{\footnotesize\ttfamily \#define S\+X\+\_\+\+F\+R\+E\+Q\+\_\+\+T\+O\+\_\+\+C\+H\+A\+N\+N\+EL(\begin{DoxyParamCaption}\item[{}]{channel,  }\item[{}]{freq }\end{DoxyParamCaption})}
+
+{\bfseries Value\+:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do}                                                                                                         
+         \(\backslash\)
+    \{                                                                                                      
+             \(\backslash\)
+        uint32\_t initialFreqInt, initialFreqFrac;                                                          
+             \(\backslash\)
+        initialFreqInt = freq / \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{FREQ\_STEP\_8};                                                    
+                        \(\backslash\)
+        initialFreqFrac = freq - ( initialFreqInt * \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{FREQ\_STEP\_8} );                              
+                        \(\backslash\)
+        channel = ( initialFreqInt << 8 ) + ( ( ( initialFreqFrac << 8 ) + ( 
+      \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{FREQ\_STEP\_8} / 2 ) ) / \hyperlink{sx1276_8h_a0336ee1c2a498b2556d444cc28f32ba7}{FREQ\_STEP\_8} ); \(\backslash\)
+    \}\textcolor{keywordflow}{while}( 0 )
+\end{DoxyCode}
+\mbox{\Hypertarget{sx1276_8h_a3d24a8ac8f673b60ac35b6d92fe72747}\label{sx1276_8h_a3d24a8ac8f673b60ac35b6d92fe72747}} 
+\index{sx1276.\+h@{sx1276.\+h}!X\+T\+A\+L\+\_\+\+F\+R\+EQ@{X\+T\+A\+L\+\_\+\+F\+R\+EQ}}
+\index{X\+T\+A\+L\+\_\+\+F\+R\+EQ@{X\+T\+A\+L\+\_\+\+F\+R\+EQ}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{X\+T\+A\+L\+\_\+\+F\+R\+EQ}{XTAL\_FREQ}}
+{\footnotesize\ttfamily \#define X\+T\+A\+L\+\_\+\+F\+R\+EQ~32000000}
+
+S\+X1276 definitions 
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{sx1276_8h_af462584f307238535daaea42f6ce791c}\label{sx1276_8h_af462584f307238535daaea42f6ce791c}} 
+\index{sx1276.\+h@{sx1276.\+h}!Dio\+Irq\+Handler@{Dio\+Irq\+Handler}}
+\index{Dio\+Irq\+Handler@{Dio\+Irq\+Handler}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{Dio\+Irq\+Handler}{DioIrqHandler}}
+{\footnotesize\ttfamily typedef void() Dio\+Irq\+Handler(void)}
+
+Hardware IO I\+RQ callback function definition \mbox{\Hypertarget{sx1276_8h_ad4ece8886feb1126f7cf786676572610}\label{sx1276_8h_ad4ece8886feb1126f7cf786676572610}} 
+\index{sx1276.\+h@{sx1276.\+h}!Lo\+Ra\+Board\+Callback\+\_\+t@{Lo\+Ra\+Board\+Callback\+\_\+t}}
+\index{Lo\+Ra\+Board\+Callback\+\_\+t@{Lo\+Ra\+Board\+Callback\+\_\+t}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Board\+Callback\+\_\+t}{LoRaBoardCallback\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsBoardCallback}{s\+Board\+Callback} \hyperlink{sx1276_8h_ad4ece8886feb1126f7cf786676572610}{Lo\+Ra\+Board\+Callback\+\_\+t}}
+
+\mbox{\Hypertarget{sx1276_8h_acf7f83d7d25c85897b88fcdc94345e56}\label{sx1276_8h_acf7f83d7d25c85897b88fcdc94345e56}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+\_\+t@{S\+X1276\+\_\+t}}
+\index{S\+X1276\+\_\+t@{S\+X1276\+\_\+t}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+\_\+t}{SX1276\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structSX1276__s}{S\+X1276\+\_\+s} \hyperlink{sx1276_8h_acf7f83d7d25c85897b88fcdc94345e56}{S\+X1276\+\_\+t}}
+
+Radio hardware and global parameters 
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{sx1276_8h_afad8cc2a5afd223af9eba509bfaa15f4}\label{sx1276_8h_afad8cc2a5afd223af9eba509bfaa15f4}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Board\+Init@{S\+X1276\+Board\+Init}}
+\index{S\+X1276\+Board\+Init@{S\+X1276\+Board\+Init}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Init()}{SX1276BoardInit()}}
+{\footnotesize\ttfamily void S\+X1276\+Board\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{sx1276_8h_ad4ece8886feb1126f7cf786676572610}{Lo\+Ra\+Board\+Callback\+\_\+t} $\ast$}]{callbacks }\end{DoxyParamCaption})}
+
+============================================================================ \subsection*{Public functions prototypes }\mbox{\Hypertarget{sx1276_8h_a9b6e3fa7bd90fa2dce95ef4d00db7bfe}\label{sx1276_8h_a9b6e3fa7bd90fa2dce95ef4d00db7bfe}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Get\+Radio\+Wake\+Up\+Time@{S\+X1276\+Get\+Radio\+Wake\+Up\+Time}}
+\index{S\+X1276\+Get\+Radio\+Wake\+Up\+Time@{S\+X1276\+Get\+Radio\+Wake\+Up\+Time}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Get\+Radio\+Wake\+Up\+Time()}{SX1276GetRadioWakeUpTime()}}
+{\footnotesize\ttfamily uint32\+\_\+t S\+X1276\+Get\+Radio\+Wake\+Up\+Time (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Service to get the radio wake-\/up time. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em Value} & of the radio wake-\/up time. \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{sx1276_8h_ad70a0b1db3593630b1124653b6374944}\label{sx1276_8h_ad70a0b1db3593630b1124653b6374944}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Get\+Status@{S\+X1276\+Get\+Status}}
+\index{S\+X1276\+Get\+Status@{S\+X1276\+Get\+Status}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Get\+Status()}{SX1276GetStatus()}}
+{\footnotesize\ttfamily Radio\+State\+\_\+t S\+X1276\+Get\+Status (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+Return current radio status
+
+
+\begin{DoxyParams}{Parameters}
+{\em status} & Radio status.\mbox{[}R\+F\+\_\+\+I\+D\+LE, R\+F\+\_\+\+R\+X\+\_\+\+R\+U\+N\+N\+I\+NG, R\+F\+\_\+\+T\+X\+\_\+\+R\+U\+N\+N\+I\+NG\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a2d0bda0e5f9a4cce63284461e356b5e2}\label{sx1276_8h_a2d0bda0e5f9a4cce63284461e356b5e2}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Get\+Time\+On\+Air@{S\+X1276\+Get\+Time\+On\+Air}}
+\index{S\+X1276\+Get\+Time\+On\+Air@{S\+X1276\+Get\+Time\+On\+Air}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Get\+Time\+On\+Air()}{SX1276GetTimeOnAir()}}
+{\footnotesize\ttfamily uint32\+\_\+t S\+X1276\+Get\+Time\+On\+Air (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem,  }\item[{uint8\+\_\+t}]{pkt\+Len }\end{DoxyParamCaption})}
+
+
+
+Computes the packet time on air in ms for the given payload. 
+
+Can only be called once Set\+Rx\+Config or Set\+Tx\+Config have been called
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & pkt\+Len Packet payload length\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em air\+Time} & Computed air\+Time (ms) for the given packet payload length \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{sx1276_8h_a19a9ddff3f878b85e42c7571485fe3c8}\label{sx1276_8h_a19a9ddff3f878b85e42c7571485fe3c8}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Init@{S\+X1276\+Init}}
+\index{S\+X1276\+Init@{S\+X1276\+Init}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Init()}{SX1276Init()}}
+{\footnotesize\ttfamily uint32\+\_\+t S\+X1276\+Init (\begin{DoxyParamCaption}\item[{Radio\+Events\+\_\+t $\ast$}]{events }\end{DoxyParamCaption})}
+
+
+
+Initializes the radio. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & events Structure containing the driver callback functions \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & returns the wake up time of the radio and associated board \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a29f26f7258f8fcd5c27800295639d7c7}\label{sx1276_8h_a29f26f7258f8fcd5c27800295639d7c7}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Is\+Channel\+Free@{S\+X1276\+Is\+Channel\+Free}}
+\index{S\+X1276\+Is\+Channel\+Free@{S\+X1276\+Is\+Channel\+Free}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Is\+Channel\+Free()}{SX1276IsChannelFree()}}
+{\footnotesize\ttfamily bool S\+X1276\+Is\+Channel\+Free (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem,  }\item[{uint32\+\_\+t}]{freq,  }\item[{int16\+\_\+t}]{rssi\+Thresh,  }\item[{uint32\+\_\+t}]{max\+Carrier\+Sense\+Time }\end{DoxyParamCaption})}
+
+
+
+Checks if the channel is free for the given time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & freq Channel RF frequency \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rssi\+Thresh R\+S\+SI threshold \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & max\+Carrier\+Sense\+Time Max time while the R\+S\+SI is measured\\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em is\+Free} & \mbox{[}true\+: Channel is free, false\+: Channel is not free\mbox{]} \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{sx1276_8h_a9ba39c96b8e339b06dd24543920fd2f7}\label{sx1276_8h_a9ba39c96b8e339b06dd24543920fd2f7}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Random@{S\+X1276\+Random}}
+\index{S\+X1276\+Random@{S\+X1276\+Random}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Random()}{SX1276Random()}}
+{\footnotesize\ttfamily uint32\+\_\+t S\+X1276\+Random (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Generates a 32 bits random value based on the R\+S\+SI readings. 
+
+\begin{DoxyRemark}{Remarks}
+This function sets the radio in Lo\+Ra modem mode and disables all interrupts. After calling this function either S\+X1276\+Set\+Rx\+Config or S\+X1276\+Set\+Tx\+Config functions must be called.
+\end{DoxyRemark}
+
+\begin{DoxyRetVals}{Return values}
+{\em random\+Value} & 32 bits random value \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{sx1276_8h_a80f15707dfe79d5cd46a9e3d78214522}\label{sx1276_8h_a80f15707dfe79d5cd46a9e3d78214522}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Read@{S\+X1276\+Read}}
+\index{S\+X1276\+Read@{S\+X1276\+Read}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Read()}{SX1276Read()}}
+{\footnotesize\ttfamily uint8\+\_\+t S\+X1276\+Read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr }\end{DoxyParamCaption})}
+
+
+
+Reads the radio register at the specified address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr Register address \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em data} & Register value \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{sx1276_8h_a26a0fc71f16d6bd65124e21b7045e0aa}\label{sx1276_8h_a26a0fc71f16d6bd65124e21b7045e0aa}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Read\+Buffer@{S\+X1276\+Read\+Buffer}}
+\index{S\+X1276\+Read\+Buffer@{S\+X1276\+Read\+Buffer}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Read\+Buffer()}{SX1276ReadBuffer()}}
+{\footnotesize\ttfamily void S\+X1276\+Read\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint8\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Reads multiple radio registers starting at address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr First Radio register address \\
+\hline
+{\em \mbox{[}\+O\+U\+T\mbox{]}} & buffer Buffer where to copy the registers data \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Number of registers to be read \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a5741300714435f1dd69084a30031f6e3}\label{sx1276_8h_a5741300714435f1dd69084a30031f6e3}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Read\+Rssi@{S\+X1276\+Read\+Rssi}}
+\index{S\+X1276\+Read\+Rssi@{S\+X1276\+Read\+Rssi}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Read\+Rssi()}{SX1276ReadRssi()}}
+{\footnotesize\ttfamily int16\+\_\+t S\+X1276\+Read\+Rssi (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem }\end{DoxyParamCaption})}
+
+
+
+Reads the current R\+S\+SI value. 
+
+
+\begin{DoxyRetVals}{Return values}
+{\em rssi\+Value} & Current R\+S\+SI value in \mbox{[}d\+Bm\mbox{]} \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{sx1276_8h_a901a3dcdbf26005e0f3f2def3e3d83b3}\label{sx1276_8h_a901a3dcdbf26005e0f3f2def3e3d83b3}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Send@{S\+X1276\+Send}}
+\index{S\+X1276\+Send@{S\+X1276\+Send}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Send()}{SX1276Send()}}
+{\footnotesize\ttfamily void S\+X1276\+Send (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint8\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Sends the buffer of size. Prepares the packet to be sent and sets the radio in transmission. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer Buffer pointer \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Buffer size \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a00768e908043081bc32cb83913192f7f}\label{sx1276_8h_a00768e908043081bc32cb83913192f7f}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Channel@{S\+X1276\+Set\+Channel}}
+\index{S\+X1276\+Set\+Channel@{S\+X1276\+Set\+Channel}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Channel()}{SX1276SetChannel()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Channel (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq }\end{DoxyParamCaption})}
+
+
+
+Sets the channel configuration. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & freq Channel RF frequency \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_aac0bb6d289a1afe69f550cb148f3bac8}\label{sx1276_8h_aac0bb6d289a1afe69f550cb148f3bac8}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Max\+Payload\+Length@{S\+X1276\+Set\+Max\+Payload\+Length}}
+\index{S\+X1276\+Set\+Max\+Payload\+Length@{S\+X1276\+Set\+Max\+Payload\+Length}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Max\+Payload\+Length()}{SX1276SetMaxPayloadLength()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Max\+Payload\+Length (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem,  }\item[{uint8\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+
+
+Sets the maximum payload length. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & max Maximum payload length in bytes \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a8325968bbefefab02537762dd274aa8b}\label{sx1276_8h_a8325968bbefefab02537762dd274aa8b}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Modem@{S\+X1276\+Set\+Modem}}
+\index{S\+X1276\+Set\+Modem@{S\+X1276\+Set\+Modem}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Modem()}{SX1276SetModem()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Modem (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem }\end{DoxyParamCaption})}
+
+
+
+Configures the radio with the given modem. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_aaaac2e0d7b5bd63fabf38a235d27a452}\label{sx1276_8h_aaaac2e0d7b5bd63fabf38a235d27a452}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Op\+Mode@{S\+X1276\+Set\+Op\+Mode}}
+\index{S\+X1276\+Set\+Op\+Mode@{S\+X1276\+Set\+Op\+Mode}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Op\+Mode()}{SX1276SetOpMode()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Op\+Mode (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{op\+Mode }\end{DoxyParamCaption})}
+
+
+
+Sets the S\+X1276 operating mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & op\+Mode New operating mode \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a8acacaf2d3e05a712a90f587d1908c6c}\label{sx1276_8h_a8acacaf2d3e05a712a90f587d1908c6c}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Public\+Network@{S\+X1276\+Set\+Public\+Network}}
+\index{S\+X1276\+Set\+Public\+Network@{S\+X1276\+Set\+Public\+Network}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Public\+Network()}{SX1276SetPublicNetwork()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Public\+Network (\begin{DoxyParamCaption}\item[{bool}]{enable }\end{DoxyParamCaption})}
+
+
+
+Sets the network to public or private. Updates the sync byte. 
+
+\begin{DoxyRemark}{Remarks}
+Applies to Lo\+Ra modem only
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & enable if true, it enables a public network \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a8c2df9351fbde83379717dc6f76e5c11}\label{sx1276_8h_a8c2df9351fbde83379717dc6f76e5c11}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Rx@{S\+X1276\+Set\+Rx}}
+\index{S\+X1276\+Set\+Rx@{S\+X1276\+Set\+Rx}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Rx()}{SX1276SetRx()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Rx (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Sets the radio in reception mode for the given time. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & timeout Reception timeout \mbox{[}ms\mbox{]} \mbox{[}0\+: continuous, others timeout\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a6a66ceb9e18a33aaff10d384fa493cf8}\label{sx1276_8h_a6a66ceb9e18a33aaff10d384fa493cf8}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Rx\+Config@{S\+X1276\+Set\+Rx\+Config}}
+\index{S\+X1276\+Set\+Rx\+Config@{S\+X1276\+Set\+Rx\+Config}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Rx\+Config()}{SX1276SetRxConfig()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Rx\+Config (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem,  }\item[{uint32\+\_\+t}]{bandwidth,  }\item[{uint32\+\_\+t}]{datarate,  }\item[{uint8\+\_\+t}]{coderate,  }\item[{uint32\+\_\+t}]{bandwidth\+Afc,  }\item[{uint16\+\_\+t}]{preamble\+Len,  }\item[{uint16\+\_\+t}]{symb\+Timeout,  }\item[{bool}]{fix\+Len,  }\item[{uint8\+\_\+t}]{payload\+Len,  }\item[{bool}]{crc\+On,  }\item[{bool}]{freq\+Hop\+On,  }\item[{uint8\+\_\+t}]{hop\+Period,  }\item[{bool}]{iq\+Inverted,  }\item[{bool}]{rx\+Continuous }\end{DoxyParamCaption})}
+
+
+
+Sets the reception parameters. 
+
+\begin{DoxyRemark}{Remarks}
+When using Lo\+Ra modem only bandwidths 125, 250 and 500 k\+Hz are supported
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bandwidth Sets the bandwidth F\+SK \+: $>$= 2600 and $<$= 250000 Hz Lo\+Ra\+: \mbox{[}0\+: 125 k\+Hz, 1\+: 250 k\+Hz, 2\+: 500 k\+Hz, 3\+: Reserved\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & datarate Sets the Datarate F\+SK \+: 600..300000 bits/s Lo\+Ra\+: \mbox{[}6\+: 64, 7\+: 128, 8\+: 256, 9\+: 512, 10\+: 1024, 11\+: 2048, 12\+: 4096 chips\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & coderate Sets the coding rate (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}1\+: 4/5, 2\+: 4/6, 3\+: 4/7, 4\+: 4/8\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bandwidth\+Afc Sets the A\+FC Bandwidth (F\+SK only) F\+SK \+: $>$= 2600 and $<$= 250000 Hz Lo\+Ra\+: N/A ( set to 0 ) \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & preamble\+Len Sets the Preamble length F\+SK \+: Number of bytes Lo\+Ra\+: Length in symbols (the hardware adds 4 more symbols) \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & symb\+Timeout Sets the Rx\+Single timeout value F\+SK \+: timeout number of bytes Lo\+Ra\+: timeout in symbols \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & fix\+Len Fixed length packets \mbox{[}0\+: variable, 1\+: fixed\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & payload\+Len Sets payload length when fixed length is used \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & crc\+On Enables/\+Disables the C\+RC \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & freq\+Hop\+On Enables disables the intra-\/packet frequency hopping F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & hop\+Period Number of symbols between each hop F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: Number of symbols \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & iq\+Inverted Inverts IQ signals (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: not inverted, 1\+: inverted\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & rx\+Continuous Sets the reception in continuous mode \mbox{[}false\+: single mode, true\+: continuous mode\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a32a7b8c477b2f400f96a3255e1ab7620}\label{sx1276_8h_a32a7b8c477b2f400f96a3255e1ab7620}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Sleep@{S\+X1276\+Set\+Sleep}}
+\index{S\+X1276\+Set\+Sleep@{S\+X1276\+Set\+Sleep}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Sleep()}{SX1276SetSleep()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Sleep (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sets the radio in sleep mode. 
+
+\mbox{\Hypertarget{sx1276_8h_aaef7a98104b400b235ef76de0cfb17df}\label{sx1276_8h_aaef7a98104b400b235ef76de0cfb17df}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Stby@{S\+X1276\+Set\+Stby}}
+\index{S\+X1276\+Set\+Stby@{S\+X1276\+Set\+Stby}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Stby()}{SX1276SetStby()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Stby (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Sets the radio in standby mode. 
+
+\mbox{\Hypertarget{sx1276_8h_a805df2c0c4aa1630eeeb17177a600269}\label{sx1276_8h_a805df2c0c4aa1630eeeb17177a600269}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Tx\+Config@{S\+X1276\+Set\+Tx\+Config}}
+\index{S\+X1276\+Set\+Tx\+Config@{S\+X1276\+Set\+Tx\+Config}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Tx\+Config()}{SX1276SetTxConfig()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Tx\+Config (\begin{DoxyParamCaption}\item[{Radio\+Modems\+\_\+t}]{modem,  }\item[{int8\+\_\+t}]{power,  }\item[{uint32\+\_\+t}]{fdev,  }\item[{uint32\+\_\+t}]{bandwidth,  }\item[{uint32\+\_\+t}]{datarate,  }\item[{uint8\+\_\+t}]{coderate,  }\item[{uint16\+\_\+t}]{preamble\+Len,  }\item[{bool}]{fix\+Len,  }\item[{bool}]{crc\+On,  }\item[{bool}]{freq\+Hop\+On,  }\item[{uint8\+\_\+t}]{hop\+Period,  }\item[{bool}]{iq\+Inverted,  }\item[{uint32\+\_\+t}]{timeout }\end{DoxyParamCaption})}
+
+
+
+Sets the transmission parameters. 
+
+\begin{DoxyRemark}{Remarks}
+When using Lo\+Ra modem only bandwidths 125, 250 and 500 k\+Hz are supported
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & modem Radio modem to be used \mbox{[}0\+: F\+SK, 1\+: Lo\+Ra\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & power Sets the output power \mbox{[}d\+Bm\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & fdev Sets the frequency deviation (F\+SK only) F\+SK \+: \mbox{[}Hz\mbox{]} Lo\+Ra\+: 0 \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & bandwidth Sets the bandwidth (Lo\+Ra only) F\+SK \+: 0 Lo\+Ra\+: \mbox{[}0\+: 125 k\+Hz, 1\+: 250 k\+Hz, 2\+: 500 k\+Hz, 3\+: Reserved\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & datarate Sets the Datarate F\+SK \+: 600..300000 bits/s Lo\+Ra\+: \mbox{[}6\+: 64, 7\+: 128, 8\+: 256, 9\+: 512, 10\+: 1024, 11\+: 2048, 12\+: 4096 chips\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & coderate Sets the coding rate (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}1\+: 4/5, 2\+: 4/6, 3\+: 4/7, 4\+: 4/8\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & preamble\+Len Sets the preamble length F\+SK \+: Number of bytes Lo\+Ra\+: Length in symbols (the hardware adds 4 more symbols) \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & fix\+Len Fixed length packets \mbox{[}0\+: variable, 1\+: fixed\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & crc\+On Enables disables the C\+RC \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & freq\+Hop\+On Enables disables the intra-\/packet frequency hopping F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: O\+FF, 1\+: ON\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & hop\+Period Number of symbols between each hop F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: Number of symbols \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & iq\+Inverted Inverts IQ signals (Lo\+Ra only) F\+SK \+: N/A ( set to 0 ) Lo\+Ra\+: \mbox{[}0\+: not inverted, 1\+: inverted\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & timeout Transmission timeout \mbox{[}ms\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_ac77895b054eb64df0ee2fa97061efae8}\label{sx1276_8h_ac77895b054eb64df0ee2fa97061efae8}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Set\+Tx\+Continuous\+Wave@{S\+X1276\+Set\+Tx\+Continuous\+Wave}}
+\index{S\+X1276\+Set\+Tx\+Continuous\+Wave@{S\+X1276\+Set\+Tx\+Continuous\+Wave}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Set\+Tx\+Continuous\+Wave()}{SX1276SetTxContinuousWave()}}
+{\footnotesize\ttfamily void S\+X1276\+Set\+Tx\+Continuous\+Wave (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{freq,  }\item[{int8\+\_\+t}]{power,  }\item[{uint16\+\_\+t}]{time }\end{DoxyParamCaption})}
+
+
+
+Sets the radio in continuous wave transmission mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & freq Channel RF frequency \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & power Sets the output power \mbox{[}d\+Bm\mbox{]} \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & time Transmission mode timeout \mbox{[}s\mbox{]} \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a9958c574c62b2235c4f3d4d6571854db}\label{sx1276_8h_a9958c574c62b2235c4f3d4d6571854db}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Start\+Cad@{S\+X1276\+Start\+Cad}}
+\index{S\+X1276\+Start\+Cad@{S\+X1276\+Start\+Cad}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Start\+Cad()}{SX1276StartCad()}}
+{\footnotesize\ttfamily void S\+X1276\+Start\+Cad (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+Start a Channel Activity Detection. 
+
+\mbox{\Hypertarget{sx1276_8h_a77f5d37bad59c99a14637f1eee273edc}\label{sx1276_8h_a77f5d37bad59c99a14637f1eee273edc}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Write@{S\+X1276\+Write}}
+\index{S\+X1276\+Write@{S\+X1276\+Write}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Write()}{SX1276Write()}}
+{\footnotesize\ttfamily void S\+X1276\+Write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+Writes the radio register at the specified address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr Register address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & data New register value \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{sx1276_8h_a9fbc81d0d84656f61feca7ce78dda70b}\label{sx1276_8h_a9fbc81d0d84656f61feca7ce78dda70b}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276\+Write\+Buffer@{S\+X1276\+Write\+Buffer}}
+\index{S\+X1276\+Write\+Buffer@{S\+X1276\+Write\+Buffer}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276\+Write\+Buffer()}{SX1276WriteBuffer()}}
+{\footnotesize\ttfamily void S\+X1276\+Write\+Buffer (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{addr,  }\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{uint8\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Writes multiple radio registers starting at address. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & addr First Radio register address \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & buffer Buffer containing the new register\textquotesingle{}s values \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & size Number of registers to be written \\
+\hline
+\end{DoxyParams}
+
+
+\subsection{Variable Documentation}
+\mbox{\Hypertarget{sx1276_8h_a91a81a798b3d849e2cc114c18bf9c5cc}\label{sx1276_8h_a91a81a798b3d849e2cc114c18bf9c5cc}} 
+\index{sx1276.\+h@{sx1276.\+h}!S\+X1276@{S\+X1276}}
+\index{S\+X1276@{S\+X1276}!sx1276.\+h@{sx1276.\+h}}
+\subsubsection{\texorpdfstring{S\+X1276}{SX1276}}
+{\footnotesize\ttfamily \hyperlink{sx1276_8h_acf7f83d7d25c85897b88fcdc94345e56}{S\+X1276\+\_\+t} S\+X1276}
+
+Radio hardware and global parameters 

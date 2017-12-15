@@ -1,0 +1,12 @@
+//Header
+Symbol_name="20-0066"
+Symbol_shape=""
+Symbol_text="Led noname RGB, anode commune, 10mm"
+Body_glyph=
+
+//Number,Name,Label,Type,Direction,Polarity,Pin_Graphic,Position,Gate,Slot,PinSwapId
+//
+1,CATHODE_R,,undefined,undefined,undefined,,right,,,
+2,ANODE_R,,undefined,undefined,undefined,,left,,,
+3,CATHODE_G,,undefined,undefined,undefined,,right,,,
+4,CATHODE_B,,undefined,undefined,undefined,,right,,,

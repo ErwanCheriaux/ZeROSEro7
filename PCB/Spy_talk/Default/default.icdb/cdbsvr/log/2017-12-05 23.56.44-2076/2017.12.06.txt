@@ -1,0 +1,40 @@
+[2017.12.06 00:29:47] [0033m.02s.699ms] [0] IT: Session [4122] for host [windows01] user [admin] with process ID [2812] created
+[2017.12.06 00:29:47] [0033m.02s.699ms] [1] SCL: WARNING: Could not find client [4122] stat data
+[2017.12.06 00:29:47] [0033m.02s.714ms] [1] CMT: There are [2] clients now: 4121, 4122
+[2017.12.06 00:29:48] [0033m.03s.152ms] [1] SC[4122]: Registered sub-client [ICDBC] with ID [1] for session ID [4122] host [windows01] user [admin] process ID [2812]
+[2017.12.06 00:29:48] [0033m.03s.261ms] [1] SC[4122]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4122] host [windows01] user [admin] process ID [2812]
+[2017.12.06 00:29:51] [0033m.06s.433ms] [1] SC[4122]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4122] host [windows01] user [admin] process ID [2812]
+[2017.12.06 00:29:51] [0033m.06s.433ms] [1] SC[4122]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4122] host [windows01] user [admin] process ID [2812]
+[2017.12.06 00:29:51] [0033m.06s.558ms] [1] CMT: Removed client [4122]
+[2017.12.06 00:29:51] [0033m.06s.558ms] [1] CMT: There are [1] clients now: 4121
+[2017.12.06 00:29:56] [0033m.11s.558ms] [0] IT: Session [4123] for host [windows01] user [admin] with process ID [3228] created
+[2017.12.06 00:29:56] [0033m.11s.574ms] [1] SC[4123]: Registered sub-client [Packager_2603203] with ID [1] for session ID [4123] host [windows01] user [admin] process ID [3228]
+[2017.12.06 00:29:56] [0033m.11s.589ms] [1] CMT: There are [2] clients now: 4121, 4123
+[2017.12.06 00:29:57] [0033m.12s.949ms] [1] SC[4123]: UnRegistered sub-client [Packager_2603203] with ID [1] for session ID [4123] host [windows01] user [admin] process ID [3228]
+[2017.12.06 00:29:58] [0033m.13s.199ms] [1] CMT: Removed client [4123]
+[2017.12.06 00:29:58] [0033m.13s.199ms] [1] CMT: There are [1] clients now: 4121
+[2017.12.06 00:30:23] [0033m.38s.230ms] [1] SC[4121]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4121] host [windows01] user [admin] process ID [2628]
+[2017.12.06 00:30:23] [0033m.38s.511ms] [1] CMT: Removed client [4121]
+[2017.12.06 00:30:23] [0033m.38s.511ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.06 00:30:23] [0033m.38s.886ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.06 00:30:25] [0033m.40s.152ms] [0] CMT: Starting server auto-close
+[2017.12.06 00:30:25] [0033m.40s.214ms] [0] S: Closing server
+[2017.12.06 00:30:25] [0033m.40s.246ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.12.06 00:30:25] [0033m.40s.371ms] [0] iCDB Server PI: Closing plugins
+[2017.12.06 00:30:25] [0033m.40s.464ms] [0] iCDB Server PI: Plugins closed
+[2017.12.06 00:30:25] [0033m.40s.464ms] [0] iCDB Server PI: Unloading database
+[2017.12.06 00:30:25] [0033m.40s.464ms] [0] iCDB Server PI: Saving storage
+[2017.12.06 00:30:25] [0033m.40s.464ms] [0] iCDB Server PI: Closing database
+[2017.12.06 00:30:25] [0033m.40s.464ms] [1] iCDB Server PI: Stats: Database defragmentation: max[2] avg[1] holes[13%] data[93%]
+[2017.12.06 00:30:25] [0033m.40s.464ms] [1] iCDB Server PI: Stats: Database file size [260272 (254.2 kB)]
+[2017.12.06 00:30:25] [0033m.40s.699ms] [0] iCDB Server PI: Database closed
+[2017.12.06 00:30:25] [0033m.40s.699ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [13682128] ticks
+[2017.12.06 00:30:25] [0033m.40s.699ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1368212] microseconds
+[2017.12.06 00:30:25] [0033m.40s.699ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [226]
+[2017.12.06 00:30:25] [0033m.40s.699ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [165] commands per second
+[2017.12.06 00:30:25] [0033m.40s.714ms] [0] Single file [C:\Users\admin\Documents\Spy_talk\Default\default.icdb\icdb.dat] closed with size [260272 (254.2 kB)]
+[2017.12.06 00:30:25] [0033m.40s.824ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.06 00:30:26] [0033m.41s.683ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.06 00:30:26] [0033m.41s.792ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.06 00:30:26] [0033m.41s.792ms] [0] MWT: STOP
+[2017.12.06 00:30:26] [0033m.41s.792ms] [0] S: STOP

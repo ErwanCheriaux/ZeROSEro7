@@ -1,0 +1,378 @@
+\hypertarget{LoRaMac_8h}{}\section{Mac/\+Lo\+Ra\+Mac.h File Reference}
+\label{LoRaMac_8h}\index{Mac/\+Lo\+Ra\+Mac.\+h@{Mac/\+Lo\+Ra\+Mac.\+h}}
+
+
+Lo\+Ra M\+AC layer implementation.  
+
+
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{LoRaMac_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unionuDrRange}{u\+Dr\+Range}
+\item 
+struct \hyperlink{structuDrRange_1_1sFields}{u\+Dr\+Range\+::s\+Fields}
+\item 
+struct \hyperlink{structsBand}{s\+Band}
+\item 
+struct \hyperlink{structsChannelParams}{s\+Channel\+Params}
+\item 
+struct \hyperlink{structsRx2ChannelParams}{s\+Rx2\+Channel\+Params}
+\item 
+struct \hyperlink{structsLoRaMacParams}{s\+Lo\+Ra\+Mac\+Params}
+\item 
+struct \hyperlink{structsMulticastParams}{s\+Multicast\+Params}
+\item 
+union \hyperlink{unionuLoRaMacHeader}{u\+Lo\+Ra\+Mac\+Header}
+\item 
+struct \hyperlink{structuLoRaMacHeader_1_1sHdrBits}{u\+Lo\+Ra\+Mac\+Header\+::s\+Hdr\+Bits}
+\item 
+union \hyperlink{unionuLoRaMacFrameCtrl}{u\+Lo\+Ra\+Mac\+Frame\+Ctrl}
+\item 
+struct \hyperlink{structuLoRaMacFrameCtrl_1_1sCtrlBits}{u\+Lo\+Ra\+Mac\+Frame\+Ctrl\+::s\+Ctrl\+Bits}
+\item 
+union \hyperlink{unioneLoRaMacFlags__t}{e\+Lo\+Ra\+Mac\+Flags\+\_\+t}
+\item 
+struct \hyperlink{structeLoRaMacFlags__t_1_1sMacFlagBits}{e\+Lo\+Ra\+Mac\+Flags\+\_\+t\+::s\+Mac\+Flag\+Bits}
+\item 
+struct \hyperlink{structsMcpsReqUnconfirmed}{s\+Mcps\+Req\+Unconfirmed}
+\item 
+struct \hyperlink{structsMcpsReqConfirmed}{s\+Mcps\+Req\+Confirmed}
+\item 
+struct \hyperlink{structsMcpsReqProprietary}{s\+Mcps\+Req\+Proprietary}
+\item 
+struct \hyperlink{structsMcpsReq}{s\+Mcps\+Req}
+\item 
+union \hyperlink{unionsMcpsReq_1_1uMcpsParam}{s\+Mcps\+Req\+::u\+Mcps\+Param}
+\item 
+struct \hyperlink{structsMcpsConfirm}{s\+Mcps\+Confirm}
+\item 
+struct \hyperlink{structsMcpsIndication}{s\+Mcps\+Indication}
+\item 
+struct \hyperlink{structsMlmeReqJoin}{s\+Mlme\+Req\+Join}
+\item 
+struct \hyperlink{structsMlmeReqTxCw}{s\+Mlme\+Req\+Tx\+Cw}
+\item 
+struct \hyperlink{structsMlmeReq}{s\+Mlme\+Req}
+\item 
+union \hyperlink{unionsMlmeReq_1_1uMlmeParam}{s\+Mlme\+Req\+::u\+Mlme\+Param}
+\item 
+struct \hyperlink{structsMlmeConfirm}{s\+Mlme\+Confirm}
+\item 
+union \hyperlink{unionuMibParam}{u\+Mib\+Param}
+\item 
+struct \hyperlink{structeMibRequestConfirm}{e\+Mib\+Request\+Confirm}
+\item 
+struct \hyperlink{structsLoRaMacTxInfo}{s\+Lo\+Ra\+Mac\+Tx\+Info}
+\item 
+struct \hyperlink{structsLoRaMacPrimitives}{s\+Lo\+Ra\+Mac\+Primitives}
+\item 
+struct \hyperlink{structsLoRaMacCallback}{s\+Lo\+Ra\+Mac\+Callback}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__LORAMAC_ga3468d8935b09a7191e43fecdd9a15c67}{M\+A\+C\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+H\+E\+C\+K\+\_\+\+T\+I\+M\+E\+O\+UT}~1000
+\item 
+\#define \hyperlink{group__LORAMAC_ga47bc6aeb5be0ba39387e2049e342fa7e}{M\+A\+X\+\_\+\+A\+C\+K\+\_\+\+R\+E\+T\+R\+I\+ES}~8
+\item 
+\#define \hyperlink{group__LORAMAC_ga7e75f3071d6911b19a563d554038f8da}{U\+P\+\_\+\+L\+I\+NK}~0
+\item 
+\#define \hyperlink{group__LORAMAC_ga801525db3ba12b250029f026403524b7}{D\+O\+W\+N\+\_\+\+L\+I\+NK}~1
+\item 
+\#define \hyperlink{group__LORAMAC_ga1727f288e9a871f1474ce61f942a08f3}{L\+O\+R\+A\+M\+A\+C\+\_\+\+M\+F\+R\+\_\+\+L\+EN}~4
+\item 
+\#define \hyperlink{group__LORAMAC_ga9623296c345a3636f460ecdb8b1bbd9d}{L\+O\+R\+A\+\_\+\+M\+A\+C\+\_\+\+F\+R\+M\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+O\+V\+E\+R\+H\+E\+AD}~13
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga133e92597739340bac439d1b0916dcb6}{e\+Device\+Class} \hyperlink{group__LORAMAC_ga29dc2e097802faaf8fbd0e18ff99695f}{Device\+Class\+\_\+t}
+\item 
+typedef union \hyperlink{unionuDrRange}{u\+Dr\+Range} \hyperlink{group__LORAMAC_ga8b818a36013d6bdd83ac5fd20f42b503}{Dr\+Range\+\_\+t}
+\item 
+typedef struct \hyperlink{structsBand}{s\+Band} \hyperlink{group__LORAMAC_ga8f49721ee96ceb52c80a896ab11a2ed8}{Band\+\_\+t}
+\item 
+typedef struct \hyperlink{structsChannelParams}{s\+Channel\+Params} \hyperlink{group__LORAMAC_ga1360ca6f82c6d125ea43a9dad9b56184}{Channel\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsRx2ChannelParams}{s\+Rx2\+Channel\+Params} \hyperlink{group__LORAMAC_ga8f57f29481ea92c24f6af04b96a95e0f}{Rx2\+Channel\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLoRaMacParams}{s\+Lo\+Ra\+Mac\+Params} \hyperlink{group__LORAMAC_gad9c979008eadcd47b4d0f90bdae38b44}{Lo\+Ra\+Mac\+Params\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMulticastParams}{s\+Multicast\+Params} \hyperlink{group__LORAMAC_ga02d2523505cac70954c043074087ea65}{Multicast\+Params\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga5e02f214e1a4b8578c415045367c0a11}{e\+Lo\+Ra\+Mac\+Frame\+Type} \hyperlink{group__LORAMAC_ga3772acf0e9af9869ead480132e733cb2}{Lo\+Ra\+Mac\+Frame\+Type\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_gaa56523d6cd76c438d6bc4263b5254d73}{e\+Lo\+Ra\+Mac\+Mote\+Cmd} \hyperlink{group__LORAMAC_ga7ef7dff520934ecc71835673f2acd015}{Lo\+Ra\+Mac\+Mote\+Cmd\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_gac91cc4dc69ad7de2426360f9f1f2d079}{e\+Lo\+Ra\+Mac\+Srv\+Cmd} \hyperlink{group__LORAMAC_gabf2096aa70e466d0403f90200fab17b5}{Lo\+Ra\+Mac\+Srv\+Cmd\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_gac7cbd1d9dc906cf2b33e3715cdd426c3}{e\+Lo\+Ra\+Mac\+Battery\+Level} \hyperlink{group__LORAMAC_ga05ad2aa3ef6de09ab289684a26901f75}{Lo\+Ra\+Mac\+Battery\+Level\+\_\+t}
+\item 
+typedef union \hyperlink{unionuLoRaMacHeader}{u\+Lo\+Ra\+Mac\+Header} \hyperlink{group__LORAMAC_gaff5f7004a7a48d53d858e26834b53efa}{Lo\+Ra\+Mac\+Header\+\_\+t}
+\item 
+typedef union \hyperlink{unionuLoRaMacFrameCtrl}{u\+Lo\+Ra\+Mac\+Frame\+Ctrl} \hyperlink{group__LORAMAC_ga12b0f3e7e6edd26cfdb9d10a1d873ab7}{Lo\+Ra\+Mac\+Frame\+Ctrl\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga3c4e7a774e25faf1606f577ee5e7d201}{e\+Lo\+Ra\+Mac\+Event\+Info\+Status} \hyperlink{group__LORAMAC_gac6ffc346a4c767f7a743c87a686c51b4}{Lo\+Ra\+Mac\+Event\+Info\+Status\+\_\+t}
+\item 
+typedef union \hyperlink{unioneLoRaMacFlags__t}{e\+Lo\+Ra\+Mac\+Flags\+\_\+t} \hyperlink{group__LORAMAC_ga4044e22ced14e9517d7a21663c577c30}{Lo\+Ra\+Mac\+Flags\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga7b080a046606f23fe030d0aa6d2a0e30}{e\+Mcps} \hyperlink{group__LORAMAC_ga670d0c87a52aeb13391f303a4cf94f00}{Mcps\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC data services. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structsMcpsReqUnconfirmed}{s\+Mcps\+Req\+Unconfirmed} \hyperlink{group__LORAMAC_gaab871b914dfa4013c176586dcc2ea6df}{Mcps\+Req\+Unconfirmed\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMcpsReqConfirmed}{s\+Mcps\+Req\+Confirmed} \hyperlink{group__LORAMAC_ga02103c0ee1374a6b1eec217f148ec0e2}{Mcps\+Req\+Confirmed\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMcpsReqProprietary}{s\+Mcps\+Req\+Proprietary} \hyperlink{group__LORAMAC_gac856bc282e89301412e0a294b3e663c4}{Mcps\+Req\+Proprietary\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMcpsReq}{s\+Mcps\+Req} \hyperlink{group__LORAMAC_ga038e0fe5eecc1fc4e8165eace8e2e683}{Mcps\+Req\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMcpsConfirm}{s\+Mcps\+Confirm} \hyperlink{group__LORAMAC_ga925536babf8abe83918a19f5ae88bd44}{Mcps\+Confirm\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMcpsIndication}{s\+Mcps\+Indication} \hyperlink{group__LORAMAC_ga202591b6553d63fae89bd42787496616}{Mcps\+Indication\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga320f4c08fe99747b08463689be624f7b}{e\+Mlme} \hyperlink{group__LORAMAC_ga663544b83d50ec3518608be495896809}{Mlme\+\_\+t}
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC management services. \end{DoxyCompactList}\item 
+typedef struct \hyperlink{structsMlmeReqJoin}{s\+Mlme\+Req\+Join} \hyperlink{group__LORAMAC_gab12f7f7d9bdfb8067d56f7c9f1297d95}{Mlme\+Req\+Join\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMlmeReqTxCw}{s\+Mlme\+Req\+Tx\+Cw} \hyperlink{group__LORAMAC_gab71a9931686ff623fa01ceecc61f1986}{Mlme\+Req\+Tx\+Cw\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMlmeReq}{s\+Mlme\+Req} \hyperlink{group__LORAMAC_ga5a32f5920a7a3d04435c142be7f38b19}{Mlme\+Req\+\_\+t}
+\item 
+typedef struct \hyperlink{structsMlmeConfirm}{s\+Mlme\+Confirm} \hyperlink{group__LORAMAC_ga73d9d9e11e282a6c258c4d22865fe824}{Mlme\+Confirm\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga32ea83d13a3f5bb4b3ec2ace2319ab61}{e\+Mib} \hyperlink{group__LORAMAC_gaf17bd3de9ec75e4954be9a070cd8ddf9}{Mib\+\_\+t}
+\item 
+typedef union \hyperlink{unionuMibParam}{u\+Mib\+Param} \hyperlink{group__LORAMAC_gae9f2411f44447849f5b36bcaca1feb5c}{Mib\+Param\+\_\+t}
+\item 
+typedef struct \hyperlink{structeMibRequestConfirm}{e\+Mib\+Request\+Confirm} \hyperlink{group__LORAMAC_ga9269d5ae88dd157a58e9d60f680d63f0}{Mib\+Request\+Confirm\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLoRaMacTxInfo}{s\+Lo\+Ra\+Mac\+Tx\+Info} \hyperlink{group__LORAMAC_ga3219fea2f3c3355f80d2ed29db613683}{Lo\+Ra\+Mac\+Tx\+Info\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga1d18f26b344040b3ec5c3db662919661}{e\+Lo\+Ra\+Mac\+Status} \hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t}
+\item 
+typedef enum \hyperlink{group__LORAMAC_ga5d863ec55bc300e0ffeef88bcbeb70af}{e\+Lo\+Ra\+Mac\+Region\+\_\+t} \hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLoRaMacPrimitives}{s\+Lo\+Ra\+Mac\+Primitives} \hyperlink{group__LORAMAC_gafc0443f59f49d8597c0accb5e6074c44}{Lo\+Ra\+Mac\+Primitives\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLoRaMacCallback}{s\+Lo\+Ra\+Mac\+Callback} \hyperlink{group__LORAMAC_ga2899a8ebbefe08452ddf89e14159a160}{Lo\+Ra\+Mac\+Callback\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{group__LORAMAC_ga133e92597739340bac439d1b0916dcb6}{e\+Device\+Class} \{ \hyperlink{group__LORAMAC_gga133e92597739340bac439d1b0916dcb6a307ee33f71385819abc142fe4f23c3bb}{C\+L\+A\+S\+S\+\_\+A}, 
+\hyperlink{group__LORAMAC_gga133e92597739340bac439d1b0916dcb6a10611f4c3b970c7d722c98eaea63ddd5}{C\+L\+A\+S\+S\+\_\+B}, 
+\hyperlink{group__LORAMAC_gga133e92597739340bac439d1b0916dcb6abfee35359a39adbacbc3f13eddc76cd0}{C\+L\+A\+S\+S\+\_\+C}
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_ga5e02f214e1a4b8578c415045367c0a11}{e\+Lo\+Ra\+Mac\+Frame\+Type} \{ \newline
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11ae01d60e50804065d3564dc1e12d80811}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+R\+EQ} = 0x00, 
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11a47ee6b14ec9dfe5ae33773749c30c103}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+PT} = 0x01, 
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11a6701b29296dc0a006f52d51f510a138f}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+D\+A\+T\+A\+\_\+\+U\+N\+C\+O\+N\+F\+I\+R\+M\+E\+D\+\_\+\+UP} = 0x02, 
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11a0309638c699fe7748561e2bac00bd689}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+D\+A\+T\+A\+\_\+\+U\+N\+C\+O\+N\+F\+I\+R\+M\+E\+D\+\_\+\+D\+O\+WN} = 0x03, 
+\newline
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11ac64f43487ee770c216c2ee1a829b75ca}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+D\+A\+T\+A\+\_\+\+C\+O\+N\+F\+I\+R\+M\+E\+D\+\_\+\+UP} = 0x04, 
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11ad9249e47768f5551f2733532da9f3712}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+D\+A\+T\+A\+\_\+\+C\+O\+N\+F\+I\+R\+M\+E\+D\+\_\+\+D\+O\+WN} = 0x05, 
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11a161e7c522a6d16fc5d3efb813f2f1351}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+R\+FU} = 0x06, 
+\hyperlink{group__LORAMAC_gga5e02f214e1a4b8578c415045367c0a11a68dbf0499a1912728cc6a6d1ab328b37}{F\+R\+A\+M\+E\+\_\+\+T\+Y\+P\+E\+\_\+\+P\+R\+O\+P\+R\+I\+E\+T\+A\+RY} = 0x07
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_gaa56523d6cd76c438d6bc4263b5254d73}{e\+Lo\+Ra\+Mac\+Mote\+Cmd} \{ \newline
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a035270648ea6d6ff24b23a953d8f969b}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+L\+I\+N\+K\+\_\+\+C\+H\+E\+C\+K\+\_\+\+R\+EQ} = 0x02, 
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a7e789c1aa1dfcd3ca03935dd65cf572c}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+L\+I\+N\+K\+\_\+\+A\+D\+R\+\_\+\+A\+NS} = 0x03, 
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a258e400aeae362afff0d14b7f6153bd4}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+L\+E\+\_\+\+A\+NS} = 0x04, 
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a155ae506492f1ddb173b99b52da4092a}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+R\+X\+\_\+\+P\+A\+R\+A\+M\+\_\+\+S\+E\+T\+U\+P\+\_\+\+A\+NS} = 0x05, 
+\newline
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73ae3d02a70f26e3f3daf8a84408e962425}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+NS} = 0x06, 
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a83cdaea222c3968f69fe1c23c29a4385}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+N\+E\+W\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+NS} = 0x07, 
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73abd4c19102721cfb18b76136732ac2de8}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+R\+X\+\_\+\+T\+I\+M\+I\+N\+G\+\_\+\+S\+E\+T\+U\+P\+\_\+\+A\+NS} = 0x08, 
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a462cebd0ba7165044eeabf44c00b1f4c}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+T\+X\+\_\+\+P\+A\+R\+A\+M\+\_\+\+S\+E\+T\+U\+P\+\_\+\+A\+NS} = 0x09, 
+\newline
+\hyperlink{group__LORAMAC_ggaa56523d6cd76c438d6bc4263b5254d73a6dfc8ca9222ce73c834a0907992cce13}{M\+O\+T\+E\+\_\+\+M\+A\+C\+\_\+\+D\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+A\+NS} = 0x0A
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_gac91cc4dc69ad7de2426360f9f1f2d079}{e\+Lo\+Ra\+Mac\+Srv\+Cmd} \{ \newline
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079ac9df0550be22a470d4f68681ee97191c}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+L\+I\+N\+K\+\_\+\+C\+H\+E\+C\+K\+\_\+\+A\+NS} = 0x02, 
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079af7fc388963e2bb713062bd51960ed4cc}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+L\+I\+N\+K\+\_\+\+A\+D\+R\+\_\+\+R\+EQ} = 0x03, 
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079ae1175fb1d39611d84efb70f141064fbf}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+D\+U\+T\+Y\+\_\+\+C\+Y\+C\+L\+E\+\_\+\+R\+EQ} = 0x04, 
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079a534efe0aaa23bc72032a0e8b0335832b}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+R\+X\+\_\+\+P\+A\+R\+A\+M\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+EQ} = 0x05, 
+\newline
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079ac98ae516df5419b24285a74da2d58d7f}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+D\+E\+V\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+EQ} = 0x06, 
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079a34e94bc23cacf1ab088ae1010e55efeb}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+N\+E\+W\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+EQ} = 0x07, 
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079aa24b1505ef48247c1d2a3d486d603686}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+R\+X\+\_\+\+T\+I\+M\+I\+N\+G\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+EQ} = 0x08, 
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079a6b15b371027770899224e613bbe162a8}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+T\+X\+\_\+\+P\+A\+R\+A\+M\+\_\+\+S\+E\+T\+U\+P\+\_\+\+R\+EQ} = 0x09, 
+\newline
+\hyperlink{group__LORAMAC_ggac91cc4dc69ad7de2426360f9f1f2d079ae3385a6aa575b3ac756c362dbbc8c39f}{S\+R\+V\+\_\+\+M\+A\+C\+\_\+\+D\+L\+\_\+\+C\+H\+A\+N\+N\+E\+L\+\_\+\+R\+EQ} = 0x0A
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_gac7cbd1d9dc906cf2b33e3715cdd426c3}{e\+Lo\+Ra\+Mac\+Battery\+Level} \{ \hyperlink{group__LORAMAC_ggac7cbd1d9dc906cf2b33e3715cdd426c3ab2585bfe30f5bf5b5eee079ed2239cf4}{B\+A\+T\+\_\+\+L\+E\+V\+E\+L\+\_\+\+E\+X\+T\+\_\+\+S\+RC} = 0x00, 
+\hyperlink{group__LORAMAC_ggac7cbd1d9dc906cf2b33e3715cdd426c3aa350120effa2360e583ad6e91704b067}{B\+A\+T\+\_\+\+L\+E\+V\+E\+L\+\_\+\+E\+M\+P\+TY} = 0x01, 
+\hyperlink{group__LORAMAC_ggac7cbd1d9dc906cf2b33e3715cdd426c3a72005e8306adb99b1398ff2c6817e6b9}{B\+A\+T\+\_\+\+L\+E\+V\+E\+L\+\_\+\+F\+U\+LL} = 0x\+FE, 
+\hyperlink{group__LORAMAC_ggac7cbd1d9dc906cf2b33e3715cdd426c3a74b9377d8f67a38ad73ce627ba610b55}{B\+A\+T\+\_\+\+L\+E\+V\+E\+L\+\_\+\+N\+O\+\_\+\+M\+E\+A\+S\+U\+RE} = 0x\+FF
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_ga3c4e7a774e25faf1606f577ee5e7d201}{e\+Lo\+Ra\+Mac\+Event\+Info\+Status} \{ \newline
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201aa5e3d1c382c8473a1095b56067aea3f4}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK} = 0, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a613ed77c0e8416a512224fffdbfdf6c1}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a0c2eb197e4102e139b43c01e806fa538}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+T\+X\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201ab79a8aa20783ae5825ab8488d66a77cc}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+X1\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\newline
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a743858a21ae7cb162abc9acaa62cd4df}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+X2\+\_\+\+T\+I\+M\+E\+O\+UT}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a7bea16ca3ce17932dd5ee3558fdd0ed1}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+X1\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201afe9be38729233485ea6edd190eaa8716}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+X2\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201af42941643347e10f0e5a01c324bf6170}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+J\+O\+I\+N\+\_\+\+F\+A\+IL}, 
+\newline
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201aaae47a8316ae996d506323e0e6613b9b}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+R\+E\+P\+E\+A\+T\+ED}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a6e7b21fbf0358f3438f2de0fc3fdd866}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+T\+X\+\_\+\+D\+R\+\_\+\+P\+A\+Y\+L\+O\+A\+D\+\_\+\+S\+I\+Z\+E\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a4a75f7744209239bb80e6af142d0249d}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+T\+O\+O\+\_\+\+M\+A\+N\+Y\+\_\+\+F\+R\+A\+M\+E\+S\+\_\+\+L\+O\+SS}, 
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201af141bb217ba31a2dc7d3cc128a13de10}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+F\+A\+IL}, 
+\newline
+\hyperlink{group__LORAMAC_gga3c4e7a774e25faf1606f577ee5e7d201a43bdb9277722c567c81539fd175a7a63}{L\+O\+R\+A\+M\+A\+C\+\_\+\+E\+V\+E\+N\+T\+\_\+\+I\+N\+F\+O\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+M\+I\+C\+\_\+\+F\+A\+IL}
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_ga7b080a046606f23fe030d0aa6d2a0e30}{e\+Mcps} \{ \hyperlink{group__LORAMAC_gga7b080a046606f23fe030d0aa6d2a0e30a340afc087e96410da04d07fb0470f84a}{M\+C\+P\+S\+\_\+\+U\+N\+C\+O\+N\+F\+I\+R\+M\+ED}, 
+\hyperlink{group__LORAMAC_gga7b080a046606f23fe030d0aa6d2a0e30a5eb18aef0f2abda0d56add7e868b8546}{M\+C\+P\+S\+\_\+\+C\+O\+N\+F\+I\+R\+M\+ED}, 
+\hyperlink{group__LORAMAC_gga7b080a046606f23fe030d0aa6d2a0e30aba17be1162725df5e78e03b3aeff83fa}{M\+C\+P\+S\+\_\+\+M\+U\+L\+T\+I\+C\+A\+ST}, 
+\hyperlink{group__LORAMAC_gga7b080a046606f23fe030d0aa6d2a0e30a29a54ded2edefe9179a33a14e3ceaca5}{M\+C\+P\+S\+\_\+\+P\+R\+O\+P\+R\+I\+E\+T\+A\+RY}
+ \}\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC data services. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__LORAMAC_ga320f4c08fe99747b08463689be624f7b}{e\+Mlme} \{ \hyperlink{group__LORAMAC_gga320f4c08fe99747b08463689be624f7ba475ad5dea1c4c13b93b31095c665e92e}{M\+L\+M\+E\+\_\+\+J\+O\+IN}, 
+\hyperlink{group__LORAMAC_gga320f4c08fe99747b08463689be624f7ba57ba2a5951a2a4637ff0e574c0e48750}{M\+L\+M\+E\+\_\+\+L\+I\+N\+K\+\_\+\+C\+H\+E\+CK}, 
+\hyperlink{group__LORAMAC_gga320f4c08fe99747b08463689be624f7ba7633734852fb50e0f241ae8059b0aed1}{M\+L\+M\+E\+\_\+\+T\+X\+CW}, 
+\hyperlink{group__LORAMAC_gga320f4c08fe99747b08463689be624f7ba9a6b50c77269c8fbff9a5a6d33574503}{M\+L\+M\+E\+\_\+\+T\+X\+C\+W\+\_\+1}
+ \}\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC management services. \end{DoxyCompactList}
+\item 
+enum \hyperlink{group__LORAMAC_ga32ea83d13a3f5bb4b3ec2ace2319ab61}{e\+Mib} \{ \newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ac0426517132356c9977dcdafa5ab3a7f}{M\+I\+B\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+C\+L\+A\+SS}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a2e2a91bfbbb7bbbe1467eec239effbd0}{M\+I\+B\+\_\+\+N\+E\+T\+W\+O\+R\+K\+\_\+\+J\+O\+I\+N\+ED}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a756ff0b66217e3e4ddd0442c8aa56802}{M\+I\+B\+\_\+\+A\+DR}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a982c4b7cc1e276633134aa89298c96b0}{M\+I\+B\+\_\+\+N\+E\+T\+\_\+\+ID}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ab1459b05690ffa347a71393006b526ac}{M\+I\+B\+\_\+\+D\+E\+V\+\_\+\+A\+D\+DR}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a60d7688e714c9b140648aadd2e7ab36e}{M\+I\+B\+\_\+\+N\+W\+K\+\_\+\+S\+K\+EY}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ae65b7c035d9969666eb5e26a2b3c19fd}{M\+I\+B\+\_\+\+A\+P\+P\+\_\+\+S\+K\+EY}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ab2819c46ba94b53c1fb2c3a0bfa75e48}{M\+I\+B\+\_\+\+P\+U\+B\+L\+I\+C\+\_\+\+N\+E\+T\+W\+O\+RK}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a2d0a50cc4dd24771854bd138934ef3e5}{M\+I\+B\+\_\+\+R\+E\+P\+E\+A\+T\+E\+R\+\_\+\+S\+U\+P\+P\+O\+RT}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a0236aae7748c12308383eab208a3cc5a}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+LS}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a60fe29749b57c7a5315e9c1475269ba3}{M\+I\+B\+\_\+\+R\+X2\+\_\+\+C\+H\+A\+N\+N\+EL}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ac3a212e314ab58f78007ce812187179d}{M\+I\+B\+\_\+\+R\+X2\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+C\+H\+A\+N\+N\+EL}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61aafe40b1c0e252d607876423247feab62}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+M\+A\+SK}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a59afc276ca425cd4055ff5cb5b5fa946}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+M\+A\+SK}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61af8775ceffd8bc73429e43eac205383ea}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+N\+B\+\_\+\+R\+EP}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ad6ba0cae3e33f0cf042ded8936d965da}{M\+I\+B\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+W\+I\+N\+D\+O\+W\+\_\+\+D\+U\+R\+A\+T\+I\+ON}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61aa3511cfca5a46654d97b022d50c82ae8}{M\+I\+B\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y\+\_\+1}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a3d147bf887f0d7317cb2930335857000}{M\+I\+B\+\_\+\+R\+E\+C\+E\+I\+V\+E\+\_\+\+D\+E\+L\+A\+Y\+\_\+2}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a3fa6b527109f8a6d5994ddaf7e9b0bd1}{M\+I\+B\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y\+\_\+1}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61aa1ca7d4484b41008a69d5d786cfd6a20}{M\+I\+B\+\_\+\+J\+O\+I\+N\+\_\+\+A\+C\+C\+E\+P\+T\+\_\+\+D\+E\+L\+A\+Y\+\_\+2}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61addef34adbf844ace9eeea97ae93da918}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+D\+A\+T\+A\+R\+A\+TE}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a78f3b4e3ae4ebaacb478073d2a2ec4f1}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+A\+T\+A\+R\+A\+TE}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ae42f1a0c858ffdb283e0236a24ab6398}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a9c5b2d3ad2caf87710b09e8a6e68cc6a}{M\+I\+B\+\_\+\+C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+D\+E\+F\+A\+U\+L\+T\+\_\+\+T\+X\+\_\+\+P\+O\+W\+ER}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ad0d2e0023858ce3fab3647fa97428d84}{M\+I\+B\+\_\+\+U\+P\+L\+I\+N\+K\+\_\+\+C\+O\+U\+N\+T\+ER}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ae75b53deee33594312d1d2987c24b698}{M\+I\+B\+\_\+\+D\+O\+W\+N\+L\+I\+N\+K\+\_\+\+C\+O\+U\+N\+T\+ER}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61af8ac424460fccb3115c6fe6ccb450862}{M\+I\+B\+\_\+\+M\+U\+L\+T\+I\+C\+A\+S\+T\+\_\+\+C\+H\+A\+N\+N\+EL}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61ad5d382841f32fba944bdb68b25699e45}{M\+I\+B\+\_\+\+S\+Y\+S\+T\+E\+M\+\_\+\+M\+A\+X\+\_\+\+R\+X\+\_\+\+E\+R\+R\+OR}, 
+\newline
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a82fb27fd6414d2bde20a7a00c80e26a1}{M\+I\+B\+\_\+\+M\+I\+N\+\_\+\+R\+X\+\_\+\+S\+Y\+M\+B\+O\+LS}, 
+\hyperlink{group__LORAMAC_gga32ea83d13a3f5bb4b3ec2ace2319ab61a268b2f7da53dbc25655a7bdcc7e6128e}{M\+I\+B\+\_\+\+A\+N\+T\+E\+N\+N\+A\+\_\+\+G\+A\+IN}
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_ga1d18f26b344040b3ec5c3db662919661}{e\+Lo\+Ra\+Mac\+Status} \{ \newline
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661a03db5fca052313edb3823c014b653a74}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+OK}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661a66b12f569207eacd97ee1c1d6c4cee6d}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+B\+U\+SY}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661aff502a87db22d6a9a4919e4b54c7c1cf}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+S\+E\+R\+V\+I\+C\+E\+\_\+\+U\+N\+K\+N\+O\+WN}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661ad0d3119f247d00e1787dda106fcb3017}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+P\+A\+R\+A\+M\+E\+T\+E\+R\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\newline
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661ae3ea7b89796aed5a320013d9743b2955}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+C\+Y\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661aa910e51ef7a7cf64c27dd3ffe5eb9d38}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+A\+T\+A\+R\+A\+T\+E\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661a163a1a739baee13607068af42f2e9d30}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+F\+R\+E\+Q\+\_\+\+A\+N\+D\+\_\+\+D\+R\+\_\+\+I\+N\+V\+A\+L\+ID}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661a105228330376111d46d99d57688a20ae}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+N\+O\+\_\+\+N\+E\+T\+W\+O\+R\+K\+\_\+\+J\+O\+I\+N\+ED}, 
+\newline
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661a4ab40311dcd2eeffc77f573a919b29b1}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+L\+E\+N\+G\+T\+H\+\_\+\+E\+R\+R\+OR}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661aff1d3a91250809d1770a74776057b8ce}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+D\+E\+V\+I\+C\+E\+\_\+\+O\+FF}, 
+\hyperlink{group__LORAMAC_gga1d18f26b344040b3ec5c3db662919661af424839424174be5fc5e52e00160940e}{L\+O\+R\+A\+M\+A\+C\+\_\+\+S\+T\+A\+T\+U\+S\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+N\+O\+T\+\_\+\+S\+U\+P\+P\+O\+R\+T\+ED}
+ \}
+\item 
+enum \hyperlink{group__LORAMAC_ga5d863ec55bc300e0ffeef88bcbeb70af}{e\+Lo\+Ra\+Mac\+Region\+\_\+t} \{ \newline
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa5b791cd5d892cd4ffdc891177f9c424f}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+A\+S923}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa31c5134a31ba71dd67fffc7cd2e8d402}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+A\+U915}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa8bf5c395dec14c8c24bc629e9cb4ab64}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+C\+N470}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afaa462c6a59045bcdbe27177b3c7d91ed0}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+C\+N779}, 
+\newline
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa484c9c5522a1bd8411920cc7703d3977}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+E\+U433}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afadbfed23153fb6254b9ca2301ec19c24f}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+E\+U868}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa2f45370a935e8767a90e19e24101f859}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+K\+R920}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa58507c2e7248ab724cd3e0d0144ebd77}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+I\+N865}, 
+\newline
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afab2c106945b06878a5ded0cb466330412}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+U\+S915}, 
+\hyperlink{group__LORAMAC_gga5d863ec55bc300e0ffeef88bcbeb70afa973a53fba592cda6ade4592cf7b814b0}{L\+O\+R\+A\+M\+A\+C\+\_\+\+R\+E\+G\+I\+O\+N\+\_\+\+U\+S915\+\_\+\+H\+Y\+B\+R\+ID}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga7ca445cf825e45999810b3991273eba5}{Lo\+Ra\+Mac\+Initialization} (\hyperlink{group__LORAMAC_gafc0443f59f49d8597c0accb5e6074c44}{Lo\+Ra\+Mac\+Primitives\+\_\+t} $\ast$primitives, \hyperlink{group__LORAMAC_ga2899a8ebbefe08452ddf89e14159a160}{Lo\+Ra\+Mac\+Callback\+\_\+t} $\ast$callbacks, \hyperlink{group__LORAMAC_ga80c48efda9ae02e14b58160d34a798dd}{Lo\+Ra\+Mac\+Region\+\_\+t} region)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC layer initialization. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga8b0aeaf75f9404ce01da9b202252c231}{Lo\+Ra\+Mac\+Query\+Tx\+Possible} (uint8\+\_\+t size, \hyperlink{group__LORAMAC_ga3219fea2f3c3355f80d2ed29db613683}{Lo\+Ra\+Mac\+Tx\+Info\+\_\+t} $\ast$tx\+Info)
+\begin{DoxyCompactList}\small\item\em Queries the Lo\+Ra\+M\+AC if it is possible to send the next frame with a given payload size. The Lo\+Ra\+M\+AC takes scheduled M\+AC commands into account and reports, when the frame can be send or not. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_gad74920538f07f34e773ca5de9ec89370}{Lo\+Ra\+Mac\+Channel\+Add} (uint8\+\_\+t id, \hyperlink{group__LORAMAC_ga1360ca6f82c6d125ea43a9dad9b56184}{Channel\+Params\+\_\+t} params)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC channel add service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_gafad6c929a33557ac2fd4000bcacd9453}{Lo\+Ra\+Mac\+Channel\+Remove} (uint8\+\_\+t id)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC channel remove service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga89622bf6a1705558ba7b76dbb2d59c2f}{Lo\+Ra\+Mac\+Multicast\+Channel\+Link} (\hyperlink{group__LORAMAC_ga02d2523505cac70954c043074087ea65}{Multicast\+Params\+\_\+t} $\ast$channel\+Param)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC multicast channel link service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga1542a215938fcff1d665ae48b449335e}{Lo\+Ra\+Mac\+Multicast\+Channel\+Unlink} (\hyperlink{group__LORAMAC_ga02d2523505cac70954c043074087ea65}{Multicast\+Params\+\_\+t} $\ast$channel\+Param)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC multicast channel unlink service. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga3e208a4f73213aa801eeb9d9da7b71dd}{Lo\+Ra\+Mac\+Mib\+Get\+Request\+Confirm} (\hyperlink{group__LORAMAC_ga9269d5ae88dd157a58e9d60f680d63f0}{Mib\+Request\+Confirm\+\_\+t} $\ast$mib\+Get)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+I\+B-\/\+Get. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga7a4ee0ced221591206b09630d4a70844}{Lo\+Ra\+Mac\+Mib\+Set\+Request\+Confirm} (\hyperlink{group__LORAMAC_ga9269d5ae88dd157a58e9d60f680d63f0}{Mib\+Request\+Confirm\+\_\+t} $\ast$mib\+Set)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+I\+B-\/\+Set. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga097113f30feecc17c780940ff74af33e}{Lo\+Ra\+Mac\+Mlme\+Request} (\hyperlink{group__LORAMAC_ga5a32f5920a7a3d04435c142be7f38b19}{Mlme\+Req\+\_\+t} $\ast$mlme\+Request)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+L\+M\+E-\/\+Request. \end{DoxyCompactList}\item 
+\hyperlink{group__LORAMAC_ga30bd25657e10480f8605ee951b0ecfbd}{Lo\+Ra\+Mac\+Status\+\_\+t} \hyperlink{group__LORAMAC_ga79768f8a3c22aaff84d4dfcc77ad508c}{Lo\+Ra\+Mac\+Mcps\+Request} (\hyperlink{group__LORAMAC_ga038e0fe5eecc1fc4e8165eace8e2e683}{Mcps\+Req\+\_\+t} $\ast$mcps\+Request)
+\begin{DoxyCompactList}\small\item\em Lo\+Ra\+M\+AC M\+C\+P\+S-\/\+Request. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Lo\+Ra M\+AC layer implementation. 
+
+\begin{DoxyCopyright}{Copyright}
+Revised B\+SD License, see section L\+I\+C\+E\+N\+SE.
+\end{DoxyCopyright}
+
+\begin{DoxyCode}
+  \_\_\_\_\_\_                              \_
+ / \_\_\_\_\_)             \_              | |
+( (\_\_\_\_  \_\_\_\_\_ \_\_\_\_ \_| |\_ \_\_\_\_\_  \_\_\_\_| |\_\_
+ \(\backslash\)\_\_\_\_ \(\backslash\)| \_\_\_ |    (\_   \_) \_\_\_ |/ \_\_\_)  \_ \(\backslash\)
+ \_\_\_\_\_) ) \_\_\_\_| | | || |\_| \_\_\_\_( (\_\_\_| | | |
+(\_\_\_\_\_\_/|\_\_\_\_\_)\_|\_|\_| \(\backslash\)\_\_)\_\_\_\_\_)\(\backslash\)\_\_\_\_)\_| |\_|
+(C)2013 Semtech
+
+ \_\_\_ \_\_\_\_\_ \_   \_\_\_ \_  \_\_\_\_\_ \_\_\_  \_\_\_  \_\_\_ \_\_\_
+/ \_\_|\_   \_/\_\(\backslash\) / \_\_| |/ / \_\_/ \_ \(\backslash\)| \_ \(\backslash\)/ \_\_| \_\_|
+\(\backslash\)\_\_ \(\backslash\) | |/ \_ \(\backslash\) (\_\_| \textcolor{stringliteral}{' <| \_| (\_) |   / (\_\_| \_|}
+\textcolor{stringliteral}{|\_\_\_/ |\_/\_/ \(\backslash\)\_\(\backslash\)\_\_\_|\_|\(\backslash\)\_\(\backslash\)\_| \(\backslash\)\_\_\_/|\_|\_\(\backslash\)\(\backslash\)\_\_\_|\_\_\_|}
+\textcolor{stringliteral}{embedded.connectivity.solutions===============}
+\end{DoxyCode}
+
+
+\begin{DoxyAuthor}{Author}
+Miguel Luis ( Semtech )
+
+Gregory Cristian ( Semtech )
+
+Daniel Jaeckle ( S\+T\+A\+C\+K\+F\+O\+R\+CE ) 
+\end{DoxyAuthor}

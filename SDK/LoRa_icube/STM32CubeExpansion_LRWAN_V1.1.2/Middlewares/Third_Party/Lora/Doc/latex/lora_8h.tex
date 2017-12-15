@@ -1,0 +1,238 @@
+\hypertarget{lora_8h}{}\section{Core/lora.h File Reference}
+\label{lora_8h}\index{Core/lora.\+h@{Core/lora.\+h}}
+{\ttfamily \#include \char`\"{}Commissioning.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Lo\+Ra\+Mac.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}region/\+Region.\+h\char`\"{}}\newline
+Include dependency graph for lora.\+h\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{lora_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=145pt]{lora_8h__dep__incl}
+\end{center}
+\end{figure}
+\subsection*{Data Structures}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlora__AppData__t}{lora\+\_\+\+App\+Data\+\_\+t}
+\item 
+struct \hyperlink{structsLoRaParam}{s\+Lo\+Ra\+Param}
+\item 
+struct \hyperlink{structsLoRaMainCallback}{s\+Lo\+Ra\+Main\+Callback}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef enum \hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27}{e\+Devic\+State} \hyperlink{lora_8h_ae7cd63b2daaa72965c2b3594e11f38d7}{Device\+State\+\_\+t}
+\item 
+typedef enum \hyperlink{lora_8h_a720c475eb13bb6b5523f349e34b1b813}{e\+Tx\+Event\+Type} \hyperlink{lora_8h_ad214b606ffdf2be60abb61bcebbbc83e}{Tx\+Event\+Type\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLoRaParam}{s\+Lo\+Ra\+Param} \hyperlink{lora_8h_a34fefd9575c41bc86d86d7d740a38fe8}{Lo\+Ra\+Param\+\_\+t}
+\item 
+typedef struct \hyperlink{structsLoRaMainCallback}{s\+Lo\+Ra\+Main\+Callback} \hyperlink{lora_8h_a6d9d62812a66a54510e9dc9f3f7a2b5e}{Lo\+Ra\+Main\+Callback\+\_\+t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27}{e\+Devic\+State} \{ \newline
+\hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a286f8821833d7a35ccb7fbfcfaec94b9}{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT}, 
+\hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27ac86db85bcdfe3189a4cf2d95dfce0b78}{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+IN}, 
+\hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a0222625afc558d780b24f8080c535a9f}{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+I\+N\+ED}, 
+\hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a5befd8bc234194c79dbc2dd2f4e3b966}{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+ND}, 
+\newline
+\hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27aebc0f22559125b76030bdbd52013e7a0}{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+Y\+C\+LE}, 
+\hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a9c756d338f93884941d142899f226583}{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+L\+E\+EP}
+ \}
+\item 
+enum \hyperlink{lora_8h_a720c475eb13bb6b5523f349e34b1b813}{e\+Tx\+Event\+Type} \{ \hyperlink{lora_8h_a720c475eb13bb6b5523f349e34b1b813a4f3161e467887e98bcedd864f3cfc16e}{T\+X\+\_\+\+O\+N\+\_\+\+T\+I\+M\+ER}, 
+\hyperlink{lora_8h_a720c475eb13bb6b5523f349e34b1b813a2d3c00188e9ba996f5f291272d029d52}{T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lora_8h_a6ccf1d9dc586fe020b3206fdf497e9bc}{lora\+\_\+\+Init} (\hyperlink{lora_8h_a6d9d62812a66a54510e9dc9f3f7a2b5e}{Lo\+Ra\+Main\+Callback\+\_\+t} $\ast$callbacks, \hyperlink{lora_8h_a34fefd9575c41bc86d86d7d740a38fe8}{Lo\+Ra\+Param\+\_\+t} $\ast$Lo\+Ra\+Param)
+\begin{DoxyCompactList}\small\item\em Lora Initialisation. \end{DoxyCompactList}\item 
+void \hyperlink{lora_8h_a55aa2eacf9b0140d4458ff1f33783afe}{lora\+\_\+fsm} (void)
+\begin{DoxyCompactList}\small\item\em run Lora classA state Machine \end{DoxyCompactList}\item 
+void \hyperlink{lora_8h_a5e5279c24de9f5ddeed823dc3ab696f8}{On\+Send\+Event} (void)
+\begin{DoxyCompactList}\small\item\em functionl requesting lo\+Ra state machine to send data \end{DoxyCompactList}\item 
+\hyperlink{lora_8h_ae7cd63b2daaa72965c2b3594e11f38d7}{Device\+State\+\_\+t} \hyperlink{lora_8h_a0118145d83e11a4c79ef4dd5852efadc}{lora\+\_\+get\+Device\+State} (void)
+\begin{DoxyCompactList}\small\item\em A\+PI returns the state of the lora state machine. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\mbox{\Hypertarget{lora_8h_ae7cd63b2daaa72965c2b3594e11f38d7}\label{lora_8h_ae7cd63b2daaa72965c2b3594e11f38d7}} 
+\index{lora.\+h@{lora.\+h}!Device\+State\+\_\+t@{Device\+State\+\_\+t}}
+\index{Device\+State\+\_\+t@{Device\+State\+\_\+t}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{Device\+State\+\_\+t}{DeviceState\_t}}
+{\footnotesize\ttfamily typedef enum \hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27}{e\+Devic\+State}  \hyperlink{lora_8h_ae7cd63b2daaa72965c2b3594e11f38d7}{Device\+State\+\_\+t}}
+
+Lo\+Ra State Machine states \mbox{\Hypertarget{lora_8h_a6d9d62812a66a54510e9dc9f3f7a2b5e}\label{lora_8h_a6d9d62812a66a54510e9dc9f3f7a2b5e}} 
+\index{lora.\+h@{lora.\+h}!Lo\+Ra\+Main\+Callback\+\_\+t@{Lo\+Ra\+Main\+Callback\+\_\+t}}
+\index{Lo\+Ra\+Main\+Callback\+\_\+t@{Lo\+Ra\+Main\+Callback\+\_\+t}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Main\+Callback\+\_\+t}{LoRaMainCallback\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsLoRaMainCallback}{s\+Lo\+Ra\+Main\+Callback}  \hyperlink{lora_8h_a6d9d62812a66a54510e9dc9f3f7a2b5e}{Lo\+Ra\+Main\+Callback\+\_\+t}}
+
+\mbox{\Hypertarget{lora_8h_a34fefd9575c41bc86d86d7d740a38fe8}\label{lora_8h_a34fefd9575c41bc86d86d7d740a38fe8}} 
+\index{lora.\+h@{lora.\+h}!Lo\+Ra\+Param\+\_\+t@{Lo\+Ra\+Param\+\_\+t}}
+\index{Lo\+Ra\+Param\+\_\+t@{Lo\+Ra\+Param\+\_\+t}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{Lo\+Ra\+Param\+\_\+t}{LoRaParam\_t}}
+{\footnotesize\ttfamily typedef struct \hyperlink{structsLoRaParam}{s\+Lo\+Ra\+Param}  \hyperlink{lora_8h_a34fefd9575c41bc86d86d7d740a38fe8}{Lo\+Ra\+Param\+\_\+t}}
+
+Lo\+Ra State Machine states \mbox{\Hypertarget{lora_8h_ad214b606ffdf2be60abb61bcebbbc83e}\label{lora_8h_ad214b606ffdf2be60abb61bcebbbc83e}} 
+\index{lora.\+h@{lora.\+h}!Tx\+Event\+Type\+\_\+t@{Tx\+Event\+Type\+\_\+t}}
+\index{Tx\+Event\+Type\+\_\+t@{Tx\+Event\+Type\+\_\+t}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{Tx\+Event\+Type\+\_\+t}{TxEventType\_t}}
+{\footnotesize\ttfamily typedef enum \hyperlink{lora_8h_a720c475eb13bb6b5523f349e34b1b813}{e\+Tx\+Event\+Type}  \hyperlink{lora_8h_ad214b606ffdf2be60abb61bcebbbc83e}{Tx\+Event\+Type\+\_\+t}}
+
+Lo\+Ra State Machine states 
+
+\subsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27}} 
+\index{lora.\+h@{lora.\+h}!e\+Devic\+State@{e\+Devic\+State}}
+\index{e\+Devic\+State@{e\+Devic\+State}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{e\+Devic\+State}{eDevicState}}
+{\footnotesize\ttfamily enum \hyperlink{lora_8h_aad05e5b05f12b64358a24ebafebf4a27}{e\+Devic\+State}}
+
+Lo\+Ra State Machine states \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT}}}\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a286f8821833d7a35ccb7fbfcfaec94b9}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a286f8821833d7a35ccb7fbfcfaec94b9}} 
+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+I\+N\+IT&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+IN@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+IN}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+IN@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+IN}}}\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27ac86db85bcdfe3189a4cf2d95dfce0b78}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27ac86db85bcdfe3189a4cf2d95dfce0b78}} 
+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+IN&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+I\+N\+ED@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+I\+N\+ED}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+I\+N\+ED@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+I\+N\+ED}}}\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a0222625afc558d780b24f8080c535a9f}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a0222625afc558d780b24f8080c535a9f}} 
+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+J\+O\+I\+N\+ED&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+ND@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+ND}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+ND@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+ND}}}\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a5befd8bc234194c79dbc2dd2f4e3b966}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a5befd8bc234194c79dbc2dd2f4e3b966}} 
+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+E\+ND&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+Y\+C\+LE@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+Y\+C\+LE}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+Y\+C\+LE@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+Y\+C\+LE}}}\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27aebc0f22559125b76030bdbd52013e7a0}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27aebc0f22559125b76030bdbd52013e7a0}} 
+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+C\+Y\+C\+LE&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+L\+E\+EP@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+L\+E\+EP}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+L\+E\+EP@{D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+L\+E\+EP}}}\mbox{\Hypertarget{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a9c756d338f93884941d142899f226583}\label{lora_8h_aad05e5b05f12b64358a24ebafebf4a27a9c756d338f93884941d142899f226583}} 
+D\+E\+V\+I\+C\+E\+\_\+\+S\+T\+A\+T\+E\+\_\+\+S\+L\+E\+EP&\\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{lora_8h_a720c475eb13bb6b5523f349e34b1b813}\label{lora_8h_a720c475eb13bb6b5523f349e34b1b813}} 
+\index{lora.\+h@{lora.\+h}!e\+Tx\+Event\+Type@{e\+Tx\+Event\+Type}}
+\index{e\+Tx\+Event\+Type@{e\+Tx\+Event\+Type}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{e\+Tx\+Event\+Type}{eTxEventType}}
+{\footnotesize\ttfamily enum \hyperlink{lora_8h_a720c475eb13bb6b5523f349e34b1b813}{e\+Tx\+Event\+Type}}
+
+Lo\+Ra State Machine states \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+X\+\_\+\+O\+N\+\_\+\+T\+I\+M\+ER@{T\+X\+\_\+\+O\+N\+\_\+\+T\+I\+M\+ER}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!T\+X\+\_\+\+O\+N\+\_\+\+T\+I\+M\+ER@{T\+X\+\_\+\+O\+N\+\_\+\+T\+I\+M\+ER}}}\mbox{\Hypertarget{lora_8h_a720c475eb13bb6b5523f349e34b1b813a4f3161e467887e98bcedd864f3cfc16e}\label{lora_8h_a720c475eb13bb6b5523f349e34b1b813a4f3161e467887e98bcedd864f3cfc16e}} 
+T\+X\+\_\+\+O\+N\+\_\+\+T\+I\+M\+ER&Appdata\+Transmition issue based on timer every Tx\+Duty\+Cycle\+Time. \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT@{T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT}!lora.\+h@{lora.\+h}}\index{lora.\+h@{lora.\+h}!T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT@{T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT}}}\mbox{\Hypertarget{lora_8h_a720c475eb13bb6b5523f349e34b1b813a2d3c00188e9ba996f5f291272d029d52}\label{lora_8h_a720c475eb13bb6b5523f349e34b1b813a2d3c00188e9ba996f5f291272d029d52}} 
+T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT&Appdata\+Transmition external event plugged on \hyperlink{lora_8h_a5e5279c24de9f5ddeed823dc3ab696f8}{On\+Send\+Event( )} \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{lora_8h_a55aa2eacf9b0140d4458ff1f33783afe}\label{lora_8h_a55aa2eacf9b0140d4458ff1f33783afe}} 
+\index{lora.\+h@{lora.\+h}!lora\+\_\+fsm@{lora\+\_\+fsm}}
+\index{lora\+\_\+fsm@{lora\+\_\+fsm}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{lora\+\_\+fsm()}{lora\_fsm()}}
+{\footnotesize\ttfamily void lora\+\_\+fsm (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+run Lora classA state Machine 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & none \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & lora class A state machine \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{lora_8h_a0118145d83e11a4c79ef4dd5852efadc}\label{lora_8h_a0118145d83e11a4c79ef4dd5852efadc}} 
+\index{lora.\+h@{lora.\+h}!lora\+\_\+get\+Device\+State@{lora\+\_\+get\+Device\+State}}
+\index{lora\+\_\+get\+Device\+State@{lora\+\_\+get\+Device\+State}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{lora\+\_\+get\+Device\+State()}{lora\_getDeviceState()}}
+{\footnotesize\ttfamily \hyperlink{lora_8h_ae7cd63b2daaa72965c2b3594e11f38d7}{Device\+State\+\_\+t} lora\+\_\+get\+Device\+State (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+A\+PI returns the state of the lora state machine. 
+
+\begin{DoxyNote}{Note}
+return  state 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & none \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em return} & \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{lora_8h_a6ccf1d9dc586fe020b3206fdf497e9bc}\label{lora_8h_a6ccf1d9dc586fe020b3206fdf497e9bc}} 
+\index{lora.\+h@{lora.\+h}!lora\+\_\+\+Init@{lora\+\_\+\+Init}}
+\index{lora\+\_\+\+Init@{lora\+\_\+\+Init}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{lora\+\_\+\+Init()}{lora\_Init()}}
+{\footnotesize\ttfamily void lora\+\_\+\+Init (\begin{DoxyParamCaption}\item[{\hyperlink{lora_8h_a6d9d62812a66a54510e9dc9f3f7a2b5e}{Lo\+Ra\+Main\+Callback\+\_\+t} $\ast$}]{callbacks,  }\item[{\hyperlink{lora_8h_a34fefd9575c41bc86d86d7d740a38fe8}{Lo\+Ra\+Param\+\_\+t} $\ast$}]{Lo\+Ra\+Param }\end{DoxyParamCaption})}
+
+
+
+Lora Initialisation. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & Lo\+Ra\+Main\+Callback\+\_\+t \\
+\hline
+{\em \mbox{[}\+I\+N\mbox{]}} & application parmaters \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & lora Init \\
+\hline
+\end{DoxyRetVals}
+\mbox{\Hypertarget{lora_8h_a5e5279c24de9f5ddeed823dc3ab696f8}\label{lora_8h_a5e5279c24de9f5ddeed823dc3ab696f8}} 
+\index{lora.\+h@{lora.\+h}!On\+Send\+Event@{On\+Send\+Event}}
+\index{On\+Send\+Event@{On\+Send\+Event}!lora.\+h@{lora.\+h}}
+\subsubsection{\texorpdfstring{On\+Send\+Event()}{OnSendEvent()}}
+{\footnotesize\ttfamily void On\+Send\+Event (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})}
+
+
+
+functionl requesting lo\+Ra state machine to send data 
+
+\begin{DoxyNote}{Note}
+function to link in mode T\+X\+\_\+\+O\+N\+\_\+\+E\+V\+E\+NT 
+\end{DoxyNote}
+
+\begin{DoxyParams}{Parameters}
+{\em none} & \\
+\hline
+\end{DoxyParams}
+
+\begin{DoxyRetVals}{Return values}
+{\em none} & \\
+\hline
+\end{DoxyRetVals}

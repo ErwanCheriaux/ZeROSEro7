@@ -1,0 +1,7 @@
+<map id="Mac/region/RegionCommon.c" name="Mac/region/RegionCommon.c">
+<area shape="rect" id="node6" href="$timer_8h.html" title="timer.h" alt="" coords="370,80,433,107"/>
+<area shape="rect" id="node8" href="$utilities_8h.html" title="utilities.h" alt="" coords="391,229,465,256"/>
+<area shape="rect" id="node10" href="$LoRaMac_8h.html" title="LoRa MAC layer implementation. " alt="" coords="509,80,598,107"/>
+<area shape="rect" id="node11" href="$RegionCommon_8h.html" title="Region independent implementations which are common to all regions. " alt="" coords="622,80,749,107"/>
+<area shape="rect" id="node7" href="$timeServer_8h.html" title="timeServer.h" alt="" coords="337,155,433,181"/>
+</map>

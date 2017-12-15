@@ -1,0 +1,107 @@
+\hypertarget{structsBoardCallback}{}\section{s\+Board\+Callback Struct Reference}
+\label{structsBoardCallback}\index{s\+Board\+Callback@{s\+Board\+Callback}}
+
+
+{\ttfamily \#include $<$sx1276.\+h$>$}
+
+\subsection*{Data Fields}
+\begin{DoxyCompactItemize}
+\item 
+void($\ast$ \hyperlink{structsBoardCallback_ae6be070dbcbbcdb0f30d087e6152dd55}{S\+X1276\+Board\+Set\+XO} )(uint8\+\_\+t state)
+\begin{DoxyCompactList}\small\item\em Set XO state on the board. \end{DoxyCompactList}\item 
+uint32\+\_\+t($\ast$ \hyperlink{structsBoardCallback_a91e24be9e9f398614e25b89d05ee0aa3}{S\+X1276\+Board\+Get\+Wake\+Time} )(void)
+\begin{DoxyCompactList}\small\item\em Get Board Wake Up time. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structsBoardCallback_ac8a78c18252b452f5f4305be2abd1f2c}{S\+X1276\+Board\+Io\+Irq\+Init} )(\hyperlink{sx1276_8h_af462584f307238535daaea42f6ce791c}{Dio\+Irq\+Handler} $\ast$$\ast$irq\+Handlers)
+\begin{DoxyCompactList}\small\item\em Initializes the radio I/\+Os Irq. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structsBoardCallback_aec7b6d1c4de061f3d2f1bebe75c64c13}{S\+X1276\+Board\+Set\+Rf\+Tx\+Power} )(int8\+\_\+t power)
+\begin{DoxyCompactList}\small\item\em Sets the radio output power. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structsBoardCallback_a91d44db14871cfcf950cce928922ba17}{S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power} )(bool status)
+\begin{DoxyCompactList}\small\item\em Set the RF Switch I/\+Os pins in Low Power mode. \end{DoxyCompactList}\item 
+void($\ast$ \hyperlink{structsBoardCallback_a9c50d59b5bffe4261b6e141d503ea74a}{S\+X1276\+Board\+Set\+Ant\+Sw} )(uint8\+\_\+t op\+Mode)
+\begin{DoxyCompactList}\small\item\em Controls the antena switch if necessary. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Field Documentation}
+\mbox{\Hypertarget{structsBoardCallback_a91e24be9e9f398614e25b89d05ee0aa3}\label{structsBoardCallback_a91e24be9e9f398614e25b89d05ee0aa3}} 
+\index{s\+Board\+Callback@{s\+Board\+Callback}!S\+X1276\+Board\+Get\+Wake\+Time@{S\+X1276\+Board\+Get\+Wake\+Time}}
+\index{S\+X1276\+Board\+Get\+Wake\+Time@{S\+X1276\+Board\+Get\+Wake\+Time}!s\+Board\+Callback@{s\+Board\+Callback}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Get\+Wake\+Time}{SX1276BoardGetWakeTime}}
+{\footnotesize\ttfamily uint32\+\_\+t( $\ast$ s\+Board\+Callback\+::\+S\+X1276\+Board\+Get\+Wake\+Time) (void)}
+
+
+
+Get Board Wake Up time. 
+
+\mbox{\Hypertarget{structsBoardCallback_ac8a78c18252b452f5f4305be2abd1f2c}\label{structsBoardCallback_ac8a78c18252b452f5f4305be2abd1f2c}} 
+\index{s\+Board\+Callback@{s\+Board\+Callback}!S\+X1276\+Board\+Io\+Irq\+Init@{S\+X1276\+Board\+Io\+Irq\+Init}}
+\index{S\+X1276\+Board\+Io\+Irq\+Init@{S\+X1276\+Board\+Io\+Irq\+Init}!s\+Board\+Callback@{s\+Board\+Callback}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Io\+Irq\+Init}{SX1276BoardIoIrqInit}}
+{\footnotesize\ttfamily void( $\ast$ s\+Board\+Callback\+::\+S\+X1276\+Board\+Io\+Irq\+Init) (\hyperlink{sx1276_8h_af462584f307238535daaea42f6ce791c}{Dio\+Irq\+Handler} $\ast$$\ast$irq\+Handlers)}
+
+
+
+Initializes the radio I/\+Os Irq. 
+
+\mbox{\Hypertarget{structsBoardCallback_a9c50d59b5bffe4261b6e141d503ea74a}\label{structsBoardCallback_a9c50d59b5bffe4261b6e141d503ea74a}} 
+\index{s\+Board\+Callback@{s\+Board\+Callback}!S\+X1276\+Board\+Set\+Ant\+Sw@{S\+X1276\+Board\+Set\+Ant\+Sw}}
+\index{S\+X1276\+Board\+Set\+Ant\+Sw@{S\+X1276\+Board\+Set\+Ant\+Sw}!s\+Board\+Callback@{s\+Board\+Callback}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Set\+Ant\+Sw}{SX1276BoardSetAntSw}}
+{\footnotesize\ttfamily void( $\ast$ s\+Board\+Callback\+::\+S\+X1276\+Board\+Set\+Ant\+Sw) (uint8\+\_\+t op\+Mode)}
+
+
+
+Controls the antena switch if necessary. 
+
+\begin{DoxyRemark}{Remarks}
+see errata note
+\end{DoxyRemark}
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & op\+Mode Current radio operating mode \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structsBoardCallback_a91d44db14871cfcf950cce928922ba17}\label{structsBoardCallback_a91d44db14871cfcf950cce928922ba17}} 
+\index{s\+Board\+Callback@{s\+Board\+Callback}!S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power@{S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power}}
+\index{S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power@{S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power}!s\+Board\+Callback@{s\+Board\+Callback}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power}{SX1276BoardSetAntSwLowPower}}
+{\footnotesize\ttfamily void( $\ast$ s\+Board\+Callback\+::\+S\+X1276\+Board\+Set\+Ant\+Sw\+Low\+Power) (bool status)}
+
+
+
+Set the RF Switch I/\+Os pins in Low Power mode. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & status enable or disable \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structsBoardCallback_aec7b6d1c4de061f3d2f1bebe75c64c13}\label{structsBoardCallback_aec7b6d1c4de061f3d2f1bebe75c64c13}} 
+\index{s\+Board\+Callback@{s\+Board\+Callback}!S\+X1276\+Board\+Set\+Rf\+Tx\+Power@{S\+X1276\+Board\+Set\+Rf\+Tx\+Power}}
+\index{S\+X1276\+Board\+Set\+Rf\+Tx\+Power@{S\+X1276\+Board\+Set\+Rf\+Tx\+Power}!s\+Board\+Callback@{s\+Board\+Callback}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Set\+Rf\+Tx\+Power}{SX1276BoardSetRfTxPower}}
+{\footnotesize\ttfamily void( $\ast$ s\+Board\+Callback\+::\+S\+X1276\+Board\+Set\+Rf\+Tx\+Power) (int8\+\_\+t power)}
+
+
+
+Sets the radio output power. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em \mbox{[}\+I\+N\mbox{]}} & power Sets the RF output power \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{structsBoardCallback_ae6be070dbcbbcdb0f30d087e6152dd55}\label{structsBoardCallback_ae6be070dbcbbcdb0f30d087e6152dd55}} 
+\index{s\+Board\+Callback@{s\+Board\+Callback}!S\+X1276\+Board\+Set\+XO@{S\+X1276\+Board\+Set\+XO}}
+\index{S\+X1276\+Board\+Set\+XO@{S\+X1276\+Board\+Set\+XO}!s\+Board\+Callback@{s\+Board\+Callback}}
+\subsubsection{\texorpdfstring{S\+X1276\+Board\+Set\+XO}{SX1276BoardSetXO}}
+{\footnotesize\ttfamily void( $\ast$ s\+Board\+Callback\+::\+S\+X1276\+Board\+Set\+XO) (uint8\+\_\+t state)}
+
+
+
+Set XO state on the board. 
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Components/sx1276/\hyperlink{sx1276_8h}{sx1276.\+h}\end{DoxyCompactItemize}

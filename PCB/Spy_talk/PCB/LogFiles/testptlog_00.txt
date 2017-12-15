@@ -1,0 +1,23 @@
+=======================================================================
+Xpedition Layout - Version 117.0.817.8330
+=======================================================================
+
+Job Directory:    C:\Users\admin\Documents\Spy_talk\PCB\
+
+
+Design Units:(mm)
+
+Test Point Log:   C:\Users\admin\Documents\Spy_talk\PCB\LogFiles\testptlog_00.txt
+
+Sun Dec 10 20:45:37 2017
+
+Net Name        Ref                  X          Y     Side    Location        Operation Result
+==============================================================================================
+SPI_MOSI        PT4                      0          0 Top     Hanger          Delete              
+SPI_MOSI        PT4                      0          0 Top     Hanger          Delete              
+SPI_MISO        PT3                      0          0 Top     Hanger          Delete              
+SPI_MISO        PT3                      0          0 Top     Hanger          Delete              
+SPI_SCK         PT2                      0          0 Top     Hanger          Delete              
+SPI_SCK         PT2                      0          0 Top     Hanger          Delete              
+SPI_NSS         PT1                      0          0 Top     Hanger          Delete              
+SPI_NSS         PT1                      0          0 Top     Hanger          Delete              
