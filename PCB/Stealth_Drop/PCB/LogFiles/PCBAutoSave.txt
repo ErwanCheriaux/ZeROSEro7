@@ -2,13 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                       11:23 AM Friday, December 15, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
+                      10:35 PM Saturday, December 16, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
 
                                Autosave log closed
                                -------------------
 
-                       11:23 AM Friday, December 15, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
+                      10:37 PM Saturday, December 16, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
