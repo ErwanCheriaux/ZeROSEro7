@@ -20,22 +20,28 @@ void wifi_init(void)
     uart_init();
 }
 
-/* Get header response from command
-** buff:   message to send buffer
-** format: message format, set to 'L' or 'R' (output)
-** result: data length or error (if < 0)
+/* Send acommand to wifi chip using uart
+** buff: message to send buffer
 */
-static int get_header(void* buff, char* format)
+static void send_command(void* buff)
 {
-    int     header_len = 9 + strlen(buff);
-    uint8_t header_buffer[header_len];
     rtt_printf(0, ">%s", buff);
     uart_send(buff);
+}
+
+/* Get header response from command
+** bufflen: message to send length
+** format:  message format, set to 'L' or 'R' (output)
+** result:  data length or error (if < 0)
+*/
+static int get_header(int bufflen, char* format)
+{
+    int     header_len = 9 + bufflen;
+    uint8_t header_buffer[header_len];
     // get header
-    int received_data = uart_receive(header_buffer, header_len);
+    uart_receive(header_buffer, header_len);
     header_buffer[header_len - 2] = '\0';  // two last charaters are "\r\n"
 #ifdef DEBUG
-    rtt_printf(0, "Received_header_size: %d/%d\n", received_data, header_len);
     rtt_printf(0, "Header: %s\n", header_buffer + header_len - 9);
 #endif
     // set format
@@ -74,7 +80,8 @@ static int get_header(void* buff, char* format)
 int wifi_command(void* buff)
 {
     char format;
-    int data_len = get_header(buff, &format);
+    send_command(buff);
+    int data_len = get_header(strlen(buff), &format);
     // handle get_header error
     if(data_len < 0)
         return data_len;
@@ -86,17 +93,13 @@ int wifi_command(void* buff)
         int data_buff_len = data_len;
         if(data_len > MAX_DATA_BUFFER_LEN)
             data_buff_len = MAX_DATA_BUFFER_LEN;
-        int received_data = uart_receive(data_buffer, data_buff_len);
-#ifdef DEBUG
-        rtt_printf(0, "received_data: %d/%d\n", received_data, data_buff_len); // fix strange telnet error
-#endif
+        uart_receive(data_buffer, data_buff_len);
         data_len -= data_buff_len;
         if(data_len == 0){
             data_buffer[data_buff_len - 2] = '\0'; // last characters are "\r\n"
             if(format == 'R')
                 data_buffer[data_buff_len - 4] = '\0'; // last characters are "\r\n> "
         }
-        rtt_printf(0, ""); // fix strange telnet error
         // print data
         rtt_printf(0, "%s", data_buffer);
     }
@@ -108,7 +111,8 @@ int wifi_command(void* buff)
 int find_devices(void)
 {
     // scan command
-    int data_len = get_header("scan\r\n", NULL);
+    send_command("scan\r\n");
+    int data_len = get_header(6, NULL);
     // handle get_header error
     if(data_len < 0)
         return data_len;
@@ -160,7 +164,7 @@ int find_devices(void)
                 }
                 if(equal)
                     rtt_printf(0, "\nFOUND !: %s\n", ssid);
-                rtt_printf(0, "\nSSID: %s - ", ssid, hash);
+                rtt_printf(0, "\nSSID: %s", ssid);
                 // TODO: ssid must be handled
 
                 lf_pos = new_lf_pos;

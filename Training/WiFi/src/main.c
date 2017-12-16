@@ -25,6 +25,10 @@ int main(void)
     led_on();
 
     wifi_command("ver\r\n");
+    find_devices();
+    wifi_command("ver\r\n");
+    wifi_command("scan\r\n");
+    wifi_command("ver\r\n");
     wifi_command("tcp_server -i wlan start 666\r\n");
     wifi_command("ver\r\n");
 

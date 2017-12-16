@@ -14,10 +14,9 @@ void uart_init(void);
 void uart_send(void* buff);
 
 /* Receive data using uart
-** buff:   receive buffer
-** size:   number of data frames to receive
-** return: number of bytes received
+** buff: receive buffer
+** size: number of data frames to receive
 */
-int uart_receive(void* buff, int size);
+void uart_receive(void* buff, int size);
 
 #endif

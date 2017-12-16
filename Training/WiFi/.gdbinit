@@ -6,7 +6,7 @@ define split
   focus cmd
 end
 
-define restart
+define r
   mon halt
   load
   mon reset
@@ -18,4 +18,4 @@ end
 
 target ext :2331
 mon endian little
-restart
+r
