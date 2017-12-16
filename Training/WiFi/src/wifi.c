@@ -38,6 +38,7 @@ static int get_header(int bufflen, char* format)
 {
     int     header_len = 9 + bufflen;
     uint8_t header_buffer[header_len];
+    char    format_tmp;
     // get header
     uart_receive(header_buffer, header_len);
     header_buffer[header_len - 2] = '\0';  // two last charaters are "\r\n"
@@ -45,8 +46,9 @@ static int get_header(int bufflen, char* format)
     rtt_printf(0, "Header: %s\n", header_buffer + header_len - 9);
 #endif
     // set format
+    format_tmp = header_buffer[header_len - 9];
     if(format != NULL)
-        *format = header_buffer[header_len - 9];
+        *format = format_tmp;
     // check error code
     int err_code = header_buffer[header_len - 7] - '0';
     if(err_code != 0) {
@@ -72,7 +74,7 @@ static int get_header(int bufflen, char* format)
 #ifdef DEBUG
     rtt_printf(0, "Data len: %d\n", data_len);
 #endif
-    if(*format == 'R')
+    if(format_tmp == 'R')
         data_len += 2;  // data finish by "> " but are not counted in the header
     return data_len;
 }
@@ -177,6 +179,7 @@ int find_devices(void)
 #endif
         }
     }
+    rtt_printf(0, "\n\n");
 
     return 0;
 }
