@@ -32,15 +32,18 @@ static void send_command(void* buff)
 /* Get header response from command
 ** bufflen: message to send length
 ** format:  message format, set to 'L' or 'R' (output)
-** result:  data length or error (if < 0)
+** return:  data length or error (if < 0)
 */
-static int get_header(int bufflen, char* format)
+static int get_header(int bufflen, char* format, int timeout)
 {
     int     header_len = 9 + bufflen;
     uint8_t header_buffer[header_len];
     char    format_tmp;
+    if(timeout == 0)
+        timeout = TIME_INFINITE;
     // get header
-    uart_receive(header_buffer, header_len);
+    if(uart_receive_timeout(header_buffer, header_len, timeout))
+        return 0;
     header_buffer[header_len - 2] = '\0';  // two last charaters are "\r\n"
 #ifdef DEBUG
     rtt_printf(0, "Header: %s\n", header_buffer + header_len - 9);
@@ -79,15 +82,12 @@ static int get_header(int bufflen, char* format)
     return data_len;
 }
 
-int wifi_command(void* buff)
+/* Get all data and display them
+** data_len: size of the data (in bytes)
+** format:   data format (Response or Log)
+*/
+static void print_data(int data_len, char format)
 {
-    char format;
-    send_command(buff);
-    int data_len = get_header(strlen(buff), &format);
-    // handle get_header error
-    if(data_len < 0)
-        return data_len;
-    // get data
     uint8_t data_buffer[MAX_DATA_BUFFER_LEN];
     while(data_len > 0) {
         data_buffer[0] = '\0';
@@ -105,8 +105,25 @@ int wifi_command(void* buff)
         // print data
         rtt_printf(0, "%s", data_buffer);
     }
-
     rtt_printf(0, "\n\n");
+}
+
+int wifi_command(void* buff)
+{
+    char format;
+    send_command(buff);
+    int count = 0;
+    int timeout = 0;
+    int data_len = 0;
+    do {
+        data_len = get_header(strlen(buff), &format, timeout);
+        if(data_len < 0)
+            return data_len;
+        if(data_len)
+            print_data(data_len, format);
+        count++;
+        timeout = 100;
+    } while(data_len != 0);
     return 0;
 }
 
@@ -114,7 +131,7 @@ int find_devices(void)
 {
     // scan command
     send_command("scan\r\n");
-    int data_len = get_header(6, NULL);
+    int data_len = get_header(6, NULL, 0);
     // handle get_header error
     if(data_len < 0)
         return data_len;
