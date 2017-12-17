@@ -5,8 +5,6 @@
 #include "uart.h"
 #include "rtt.h"
 
-#define DEBUG 1
-
 void wifi_init(void)
 {
     uart_init();

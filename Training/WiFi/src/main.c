@@ -26,7 +26,7 @@ int main(void)
     wifi_command("setup stop\r\n", 1000);
     wifi_command("set setup.web.ssid \"We <3 M.Polti & M.Tardieu\"\r\n", 1000);
     wifi_command("set setup.web.passkey \"zerosero7\"\r\n", 1000);
-    wifi_command("setup web\r\n", 0);
+    wifi_command("setup web\r\n", 4000);
 
     chThdSleep(TIME_INFINITE);
     return 0;
