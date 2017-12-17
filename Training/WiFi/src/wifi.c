@@ -111,18 +111,18 @@ static void print_data(int data_len, char format)
 int wifi_command(void* buff)
 {
     char format;
+    int buff_len = strlen(buff);
     send_command(buff);
-    int count = 0;
     int timeout = 0;
     int data_len = 0;
     do {
-        data_len = get_header(strlen(buff), &format, timeout);
+        data_len = get_header(buff_len, &format, timeout);
         if(data_len < 0)
             return data_len;
         if(data_len)
             print_data(data_len, format);
-        count++;
         timeout = 100;
+        buff_len = 0;
     } while(data_len != 0);
     return 0;
 }
