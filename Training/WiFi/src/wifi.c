@@ -117,7 +117,10 @@ int wifi_command(void* buff, int timeout)
     int buff_len = strlen(buff);
     send_command(buff);
     int data_len = 0;
-    timeout = MS2ST(timeout);
+    if(timeout)
+        timeout = MS2ST(timeout);
+    else
+        timeout = TIME_INFINITE;
     do {
         data_len = get_header(buff_len, &format, timeout);
         if(data_len < 0) // An error occured

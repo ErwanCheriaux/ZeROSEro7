@@ -24,13 +24,8 @@ int main(void)
     rtt_printf(0, "\n======== INITIALIZATION SUCCED ========\n\n");
     led_on();
 
-    wifi_command("ver\r\n", 1000);
-    wifi_command("reboot\r\n", 6000);
-    wifi_command("ver\r\n", 1000);
-    wifi_command("hge https://www.google.com\r\n", 4000);
-    wifi_command("ver\r\n", 1000);
-    wifi_command("tcp_server -i wlan start 666\r\n", 4000);
-    wifi_command("ver\r\n", 1000);
+    wifi_command("setup stop\r\n", 1000);
+    wifi_command("setup web\r\n", 0);
 
     chThdSleep(TIME_INFINITE);
     return 0;
