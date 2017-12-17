@@ -23,6 +23,8 @@
 #include "usbh_custom_class_example.h"
 #include "usbh/internal.h"
 
+#include "rtt.h"
+
 #if USBH_DEBUG_ENABLE_TRACE
 #define udbgf(f, ...) usbDbgPrintf(f, ##__VA_ARGS__)
 #define udbg(f, ...) usbDbgPuts(f, ##__VA_ARGS__)
@@ -36,8 +38,8 @@
 #endif
 
 #if USBH_DEBUG_ENABLE_INFO
-#define uinfof(f, ...) usbDbgPrintf(f, ##__VA_ARGS__)
-#define uinfo(f, ...) usbDbgPuts(f, ##__VA_ARGS__)
+#define uinfof(f, ...) do { rtt_printf(0,f); } while(0)
+#define uinfo(f, ...)  do { rtt_printf(0,f); } while(0)
 #else
 #define uinfof(f, ...) \
     do {               \

@@ -42,7 +42,7 @@ int main(void)
     while(1) {
         usbhMainLoop(&USBHD2);
         chThdSleepMilliseconds(100);
-//      usbhDevicePrintInfo(&USBHD2);
+        usbhDevicePrintInfo(&USBHD2.rootport.device);
     }
 
     chThdSleep(TIME_INFINITE);
