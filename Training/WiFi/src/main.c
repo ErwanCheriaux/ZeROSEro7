@@ -8,7 +8,6 @@
 #include "timer.h"
 #include "wifi.h"
 #include "rtt.h"
-#include "sha256.h"
 
 int main(void)
 {
@@ -25,6 +24,8 @@ int main(void)
     led_on();
 
     wifi_command("setup stop\r\n", 1000);
+    wifi_command("set setup.web.ssid \"We <3 M.Polti & M.Tardieu\"\r\n", 1000);
+    wifi_command("set setup.web.passkey \"zerosero7\"\r\n", 1000);
     wifi_command("setup web\r\n", 0);
 
     chThdSleep(TIME_INFINITE);

@@ -26,9 +26,4 @@ void wifi_init(void);
 */
 int wifi_command(void* buff, int timeout);
 
-/* Find devices using white list
-** return: error code (0 means success)
-*/
-int find_devices(void);
-
 #endif
