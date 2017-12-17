@@ -34,8 +34,8 @@
 #endif
 
 #if USBH_DEBUG_ENABLE_INFO
-#define uinfof(f, ...) do { rtt_printf(0, f, ##__VA_ARGS__); } while(0)
-#define uinfo(f, ...)  do { rtt_printf(0, f, ##__VA_ARGS__); } while(0)
+#define uinfof(f, ...) do { rtt_printf(0, f, ##__VA_ARGS__); rtt_printf(0,"\n"); } while(0)
+#define uinfo(f, ...)  do { rtt_printf(0, f, ##__VA_ARGS__); rtt_printf(0,"\n"); } while(0)
 //#define uinfof(f, ...)  usbDbgPrintf(f, ##__VA_ARGS__)
 //#define uinfo(f, ...)  usbDbgPuts(f, ##__VA_ARGS__)
 #else

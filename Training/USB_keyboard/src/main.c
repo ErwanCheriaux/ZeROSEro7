@@ -13,6 +13,9 @@
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
 
+static uint8_t descriptor[32];
+static uint16_t rem = 32;
+
 int main(void)
 {
     halInit();
@@ -42,7 +45,10 @@ int main(void)
     while(1) {
         usbhMainLoop(&USBHD2);
         chThdSleepMilliseconds(100);
+
+        rtt_printf(0,"\n");
         usbhDevicePrintInfo(&USBHD2.rootport.device);
+        usbhDevicePrintConfiguration(descriptor, rem);
     }
 
     chThdSleep(TIME_INFINITE);
