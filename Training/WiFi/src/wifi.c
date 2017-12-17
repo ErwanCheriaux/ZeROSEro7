@@ -32,6 +32,7 @@ static void send_command(void* buff)
 /* Get header response from command
 ** bufflen: message to send length
 ** format:  message format, set to 'L' or 'R' (output)
+** timeout: time to wait for WiFi chip response
 ** return:  data length or error (if < 0)
 */
 static int get_header(int bufflen, char* format, int timeout)
@@ -85,8 +86,9 @@ static int get_header(int bufflen, char* format, int timeout)
 /* Get all data and display them
 ** data_len: size of the data (in bytes)
 ** format:   data format (Response or Log)
+** timeout: time to wait for WiFi chip response
 */
-static void print_data(int data_len, char format)
+static void print_data(int data_len, char format, int timeout)
 {
     uint8_t data_buffer[MAX_DATA_BUFFER_LEN];
     while(data_len > 0) {
@@ -95,7 +97,8 @@ static void print_data(int data_len, char format)
         int data_buff_len = data_len;
         if(data_len > MAX_DATA_BUFFER_LEN)
             data_buff_len = MAX_DATA_BUFFER_LEN;
-        uart_receive(data_buffer, data_buff_len);
+        if(uart_receive_timeout(data_buffer, data_buff_len, timeout))
+            break;
         data_len -= data_buff_len;
         if(data_len == 0){
             data_buffer[data_buff_len - 2] = '\0'; // last characters are "\r\n"
@@ -108,19 +111,19 @@ static void print_data(int data_len, char format)
     rtt_printf(0, "\n\n");
 }
 
-int wifi_command(void* buff)
+int wifi_command(void* buff, int timeout)
 {
     char format;
     int buff_len = strlen(buff);
     send_command(buff);
-    int timeout = MS2ST(4000); // We wait an 4s time a response from WiFi chip
     int data_len = 0;
+    timeout = MS2ST(timeout);
     do {
         data_len = get_header(buff_len, &format, timeout);
         if(data_len < 0) // An error occured
             return data_len;
         if(data_len) // Data length could be null if there was a timeout
-            print_data(data_len, format);
+            print_data(data_len, format, timeout);
         buff_len = 0;
     } while(data_len != 0); // Until there is a response of the WiFi chip
     return 0;

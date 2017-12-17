@@ -20,10 +20,11 @@ extern const unsigned char white_list[WHITE_LIST_SIZE][65];
 void wifi_init(void);
 
 /* Send data using uart and print response
-** buff:   message to send buffer
-** return: error code (0 means success)
+** buff:    message to send buffer
+** timeout: WiFi chip waiting time in ms
+** return:  error code (0 means success)
 */
-int wifi_command(void* buff);
+int wifi_command(void* buff, int timeout);
 
 /* Find devices using white list
 ** return: error code (0 means success)
