@@ -113,17 +113,16 @@ int wifi_command(void* buff)
     char format;
     int buff_len = strlen(buff);
     send_command(buff);
-    int timeout = 0;
+    int timeout = MS2ST(4000); // We wait an 4s time a response from WiFi chip
     int data_len = 0;
     do {
         data_len = get_header(buff_len, &format, timeout);
-        if(data_len < 0)
+        if(data_len < 0) // An error occured
             return data_len;
-        if(data_len)
+        if(data_len) // Data length could be null if there was a timeout
             print_data(data_len, format);
-        timeout = 100;
         buff_len = 0;
-    } while(data_len != 0);
+    } while(data_len != 0); // Until there is a response of the WiFi chip
     return 0;
 }
 
