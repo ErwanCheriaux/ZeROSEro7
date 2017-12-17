@@ -43,6 +43,7 @@ include $(CHIBIOS)/os/various/shell/shell.mk
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
 
+PROJ = .
 SRC = src
 TEST_FIBO = ../Test/fibo
 
@@ -78,7 +79,8 @@ INCDIR = $(CHIBIOS)/os/license \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
          $(CHIBIOS)/os/various \
-		 $(TEST_FIBO)
+		 $(TEST_FIBO) \
+		 $(PROJ)
 
 #
 # Project, sources and paths
@@ -144,7 +146,7 @@ format: src/*.c src/*.h
 telnet:
 	telnet localhost 19021
 
-.PHONY: help startgdbserver stopgdbserver debug format
+.PHONY: help startgdbserver stopgdbserver debug format telnet
 
 #
 # Démon JLink
