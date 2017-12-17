@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      10:35 PM Saturday, December 16, 2017
-            Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj
+                       06:12 PM Sunday, December 17, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jH:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj -CleanBuild -NoFill"
 
-     The Common Database is at "H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb".
+     The Common Database is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 

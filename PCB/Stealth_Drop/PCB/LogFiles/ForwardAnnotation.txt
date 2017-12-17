@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                      10:35 PM Saturday, December 16, 2017
-               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                       06:12 PM Sunday, December 17, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -121,8 +121,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                      10:35 PM Saturday, December 16, 2017
-               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                       06:12 PM Sunday, December 17, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -134,107 +134,7 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-	WARNING:  "C5" is being forward annotated to "C16".
-
-	WARNING:  "J5" is being forward annotated to "J4".
-
-	WARNING:  "C7" is being forward annotated to "C13".
-
-	WARNING:  "C13" is being forward annotated to "C7".
-
-	WARNING:  "C16" is being forward annotated to "C5".
-
-	WARNING:  "C19" is being forward annotated to "C25".
-
-	WARNING:  "C27" is being forward annotated to "C24".
-
-     WARNING:  The "FC135" cell used by "QZ2" in Layout does not
-      not match the "XRCGB_F_P/M/L" cell specified in the schematic.
-
-     WARNING:  The "FC135" cell used by "QZ2" in the Layout is not
-      valid for a "83-0025" Part Number.
-     INFO: Cell "FC135" is being replaced by cell "XRCGB_F_P/M/L".
-
-     WARNING:  The "XRCGB_F_P/M/L" cell used by "QZ3" in Layout does not
-      not match the "FC135" cell specified in the schematic.
-
-     WARNING:  The "XRCGB_F_P/M/L" cell used by "QZ3" in the Layout is not
-      valid for a "81-0002" Part Number.
-     INFO: Cell "XRCGB_F_P/M/L" is being replaced by cell "FC135".
-
-     WARNING:  The "SOT23_5" cell used by "U1" in Layout does not
-      not match the "2450AT18A100" cell specified in the schematic.
-
-     WARNING:  The "SOT23_5" cell used by "U1" in the Layout is not
-      valid for a "80-0050" Part Number.
-     INFO: Cell "SOT23_5" is being replaced by cell "2450AT18A100".
-
-     WARNING:  The "AMW006" cell used by "U2" in Layout does not
-      not match the "2450AT18A100" cell specified in the schematic.
-
-     WARNING:  The "AMW006" cell used by "U2" in the Layout is not
-      valid for a "80-0050" Part Number.
-     INFO: Cell "AMW006" is being replaced by cell "2450AT18A100".
-
-     WARNING:  The "BAR02P2.54/W2.54" cell used by "J3" in Layout does not
-      not match the "FTSH-105-01-L-DV" cell specified in the schematic.
-
-     WARNING:  The "BAR02P2.54/W2.54" cell used by "J3" in the Layout is not
-      valid for a "70-0081" Part Number.
-     INFO: Cell "BAR02P2.54/W2.54" is being replaced by cell "FTSH-105-01-L-DV".
-
-	WARNING:  "D4" is being removed from the Layout since it is no longer in the schematic.
-
-	WARNING:  The old version of "J4" is being removed from the Layout.
-
-     WARNING:  The "2450AT18A100" cell used by "U5" in Layout does not
-      not match the "AMW006" cell specified in the schematic.
-
-     WARNING:  The "2450AT18A100" cell used by "U5" in the Layout is not
-      valid for a "80-0071" Part Number.
-     INFO: Cell "2450AT18A100" is being replaced by cell "AMW006".
-
-     WARNING:  The "EQFN48_040_600_600_90" cell used by "U7" in the Layout is not
-      valid for a "40-0232" Part Number.
-     INFO: Cell "EQFN48_040_600_600_90" is being replaced by cell "MS10_050_30_30_110".
-
-	WARNING:  The old version of "C24" is being removed from the Layout.
-
-     WARNING:  The "2450AT18A100" cell used by "U8" in Layout does not
-      not match the "EQFN48_040_600_600_90" cell specified in the schematic.
-
-     WARNING:  The "2450AT18A100" cell used by "U8" in the Layout is not
-      valid for a "40-0308" Part Number.
-     INFO: Cell "2450AT18A100" is being replaced by cell "EQFN48_040_600_600_90".
-
-	WARNING:  The old version of "C25" is being removed from the Layout.
-
-     WARNING:  The "C0402" cell used by "C9" in the Layout is not
-      valid for a "10-0103" Part Number.
-     INFO: Cell "C0402" is being replaced by cell "C0603".
-
-     The following 18 components have not been placed:
-
-        C19
-        C27
-        C29
-        C30
-        C31
-        C32
-        C33
-        D3
-        L3
-        R11
-        R12
-        R13
-        R14
-        R15
-        R16
-        R17
-        R18
-        R19
-
-     Netload completed successfully with 27 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 
@@ -265,96 +165,9 @@ Version:  02.11.12
 
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
-	Assigned net GND to a trace which was originally on net RGB_G.
-	Broke back a trace from the point (34496371, 30370831).
-	Assigned net GND to a trace which was originally on net RGB_R.
-	Broke back a trace from the point (32835463, 30409363).
-	Assigned net XSIG020404 to a trace which was originally on net VCC.
-	Broke back a trace from the point (25214709, 33103423).
-	Assigned net VCC to a trace which was originally on net XSIG020248.
-	Assigned net VCC to a trace which was originally on net XSIG020355.
-	Assigned net VCC to a trace which was originally on net XSIG020355.
-	Assigned net XSIG020401 to a trace which was originally on net RGB_B.
-	Broke back a trace from the point (35852666, 30431023).
-	Assigned net XSIG020405 to a trace which was originally on net SD_CMD.
-	Broke back a trace from the point (25925042, 26714746).
-	Broke back a trace from the point (24758503, 28459865).
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a via which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a via which was originally on net OTG_HS_VBAT.
-	Assigned net OTG_HS_VBUS to a trace which was originally on net OTG_HS_VBAT.
-	Assigned net VBAT to a trace which was originally on net XSIG020286.
-	Assigned net VBAT to a trace which was originally on net XSIG020286.
-	Assigned net VBAT to a trace which was originally on net XSIG020286.
-	Assigned net VBAT to a trace which was originally on net XSIG020286.
-	Assigned net WIFI_WAKE to a trace which was originally on net WAKE.
-	Assigned net WIFI_WAKE to a via which was originally on net WAKE.
-	Assigned net WIFI_WAKE to a trace which was originally on net WAKE.
-	Assigned net WIFI_WAKE to a via which was originally on net WAKE.
-	Assigned net WIFI_WAKE to a trace which was originally on net WAKE.
-	Assigned net XSIG011656 to a trace which was originally on net XSIG011624.
-	Assigned net XSIG011656 to a trace which was originally on net XSIG011624.
-	Assigned net XSIG020392 to a trace which was originally on net XSIG020247.
-	Assigned net XSIG020406 to a trace which was originally on net XSIG020246.
-	Assigned net XSIG020401 to a trace which was originally on net XSIG020246.
-	Broke back a trace from the point (32952028, 26673620).
-	Assigned net XSIG020410 to a trace which was originally on net XSIG020369.
-	Assigned net XSIG020410 to a trace which was originally on net XSIG020369.
-	Assigned net XSIG020410 to a trace which was originally on net XSIG020369.
-	Assigned net XSIG040055 to a trace which was originally on net XSIG020334.
-	Assigned net XSIG040055 to a trace which was originally on net XSIG020334.
-	Assigned net XSIG040056 to a trace which was originally on net XSIG020335.
-	Assigned net XSIG040060 to a trace which was originally on net XSIG011599.
-	Assigned net XSIG040065 to a trace which was originally on net XSIG020345.
-	Assigned net XSIG040066 to a trace which was originally on net XSIG020346.
-	Assigned net XSIG040071 to a trace which was originally on net XSIG020352.
-	Assigned net XSIG040071 to a via which was originally on net XSIG020352.
-	Assigned net XSIG040071 to a trace which was originally on net XSIG020352.
-	Assigned net XSIG040071 to a trace which was originally on net XSIG020352.
-	Assigned net XSIG040076 to a trace which was originally on net XSIG020378.
-	Assigned net XSIG040076 to a via which was originally on net XSIG020378.
-	Assigned net XSIG040076 to a trace which was originally on net XSIG020378.
-	Assigned net XSIG040080 to a trace which was originally on net XSIG020366.
-	Assigned net XSIG040081 to a trace which was originally on net LED_B.
-	Assigned net XSIG040084 to a trace which was originally on net XSIG020337.
-
-Some nets were completely deleted from the Layout Design....
-	Deleted net LED_B, which has no pins, from the Layout Design.
-	Deleted net OTG_HS_VBAT, which has no pins, from the Layout Design.
-	Deleted net WAKE, which has no pins, from the Layout Design.
-	Deleted net XSIG011598, which has no pins, from the Layout Design.
-	Deleted net XSIG011599, which has no pins, from the Layout Design.
-	Deleted net XSIG011624, which has no pins, from the Layout Design.
-	Deleted net XSIG020246, which has no pins, from the Layout Design.
-	Deleted net XSIG020247, which has no pins, from the Layout Design.
-	Deleted net XSIG020248, which has no pins, from the Layout Design.
-	Deleted net XSIG020286, which has no pins, from the Layout Design.
-	Deleted net XSIG020334, which has no pins, from the Layout Design.
-	Deleted net XSIG020335, which has no pins, from the Layout Design.
-	Deleted net XSIG020337, which has no pins, from the Layout Design.
-	Deleted net XSIG020340, which has no pins, from the Layout Design.
-	Deleted net XSIG020345, which has no pins, from the Layout Design.
-	Deleted net XSIG020346, which has no pins, from the Layout Design.
-	Deleted net XSIG020350, which has no pins, from the Layout Design.
-	Deleted net XSIG020352, which has no pins, from the Layout Design.
-	Deleted net XSIG020355, which has no pins, from the Layout Design.
-	Deleted net XSIG020357, which has no pins, from the Layout Design.
-	Deleted net SWCLK_p02, which has no pins, from the Layout Design.
-	Deleted net SWDIO_p02, which has no pins, from the Layout Design.
-	Deleted net XSIG020366, which has no pins, from the Layout Design.
-	Deleted net XSIG020369, which has no pins, from the Layout Design.
-	Deleted net XSIG020378, which has no pins, from the Layout Design.
 
 Forward-Annotation on the Layout Design has been successfully completed.
 
-There were 53 reassignments of nets.
-There were 7 traces broken back.
-There were 25 nets removed from the Layout Design.
+There were 0 reassignments of nets.
+There were 0 traces broken back.
+There were 0 nets removed from the Layout Design.
