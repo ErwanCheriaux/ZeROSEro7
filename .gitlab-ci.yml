@@ -105,7 +105,7 @@ test_apps:
     - cd smartphone
     - cd BLEParrot
     - ./gradlew test
-    - cd WifiParrot
+    - cd ../WifiParrot
     - ./gradlew test
 
 test_test:
