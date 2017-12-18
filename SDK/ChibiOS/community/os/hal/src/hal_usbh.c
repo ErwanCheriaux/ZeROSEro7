@@ -23,7 +23,7 @@
 #include "usbh/dev/hub.h"
 #include <string.h>
 
-#include "../../../../../../Training/USB_keyboard/src/rtt.h"
+#include "rtt.h"
 
 #if USBH_DEBUG_ENABLE_TRACE
 #define udbgf(f, ...)  usbDbgPrintf(f, ##__VA_ARGS__)

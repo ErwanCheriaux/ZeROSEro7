@@ -80,6 +80,7 @@ INCDIR = $(CHIBIOS)/os/license \
          $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
          $(CHIBIOS)/os/various \
 		 $(TEST_FIBO) \
+		 $(SRC) \
 		 $(PROJ)
 
 #
