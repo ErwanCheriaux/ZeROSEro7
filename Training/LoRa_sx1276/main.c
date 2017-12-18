@@ -92,12 +92,9 @@ static void lora_callback() {
 int main(void)
 {
     rtt_init();
-    rtt_write_string("\n\n======== DEBUG INITIALIZED ========\n");
-
-    low_power_init();
 
     log_init();
-    NRF_LOG_INFO("Log initialized\n");
+    NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
 
     bsp_board_leds_init();
     rtt_write_string("LEDs initialized\n");
