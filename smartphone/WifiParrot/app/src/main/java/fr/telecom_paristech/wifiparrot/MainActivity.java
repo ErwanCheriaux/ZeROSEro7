@@ -1,10 +1,12 @@
 package fr.telecom_paristech.wifiparrot;
 
+import android.Manifest;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.content.ServiceConnection;
-import android.net.wifi.WifiManager;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -30,6 +32,9 @@ public class MainActivity extends AppCompatActivity
                 mService.scan();
             }
         });
+        // Allow WiFi
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
     }
 
     @Override
