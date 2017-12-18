@@ -10,14 +10,14 @@ import android.os.Build;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity
 {
     Wifi mService;
-    Button button;
+    Button buttonScan;
+    Button buttonUpload;
     Intent wifiIntent;
 
     @Override
@@ -26,15 +26,24 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        button = (Button)findViewById(R.id.button_scan);
-        button.setOnClickListener(new View.OnClickListener() {
+        buttonScan = (Button)findViewById(R.id.button_scan);
+        buttonScan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
                 mService.scan();
+            }
+        });
+        buttonUpload = (Button)findViewById(R.id.button_upload);
+        buttonUpload.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mService.uploadFile();
             }
         });
         // Allow WiFi
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        // Allow File
+        if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
     }
 
     @Override

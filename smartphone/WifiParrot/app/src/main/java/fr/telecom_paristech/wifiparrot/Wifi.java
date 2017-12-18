@@ -8,9 +8,11 @@ import android.net.wifi.WifiConfiguration;
 import android.net.wifi.WifiInfo;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
+import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 
+import java.io.File;
 import java.util.List;
 
 public class Wifi extends Service
@@ -50,5 +52,12 @@ public class Wifi extends Service
     public IBinder onBind(Intent intent)
     {
         return mBinder;
+    }
+
+    public void uploadFile()
+    {
+        String selectedFilePath = Environment.getExternalStorageDirectory().toString() + "/Download/telecom.png";
+        DataTransfers dataTransfers = new DataTransfers();
+        dataTransfers.uploadFile(selectedFilePath);
     }
 }

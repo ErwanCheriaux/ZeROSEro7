@@ -17,4 +17,12 @@
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/textView"
         android:text="Scan" />
+
+    <Button
+        android:id="@+id/button_upload"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/button_scan"
+        android:text="Upload" />
 </RelativeLayout>
