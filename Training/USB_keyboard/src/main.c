@@ -99,18 +99,18 @@ int main(void)
     timer_on();
 
     /*USBH OTG*/
-    palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-    palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(10));
+//  palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
+//  palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(10));
+//  palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(10));
+//  palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(10));
     palSetPadMode(GPIOA, GPIOA_USB_HS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
+//  palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
 
 #if HAL_USBH_USE_HID
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
 
-    //turn on USB power
+    uinfo("turn on USB power");
     palSetPad(GPIOA, GPIOA_USB_HS_BUSON);
     chThdSleepMilliseconds(100);
 

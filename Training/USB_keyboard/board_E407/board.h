@@ -442,10 +442,10 @@
                                      PIN_MODE_INPUT(GPIOB_I2C1_SDA)      |\
                                      PIN_MODE_INPUT(GPIOB_SPI2_SCK)      |\
                                      PIN_MODE_INPUT(GPIOB_PIN11)         |\
-                                     PIN_MODE_INPUT(GPIOB_OTG_HS_ID)     |\
+                                     PIN_MODE_ALTERNATE(GPIOB_OTG_HS_ID)     |\
                                      PIN_MODE_INPUT(GPIOB_OTG_HS_VBUS)   |\
-                                     PIN_MODE_INPUT(GPIOB_OTG_HS_DM)     |\
-                                     PIN_MODE_INPUT(GPIOB_OTG_HS_DP))
+                                     PIN_MODE_ALTERNATE(GPIOB_OTG_HS_DM)     |\
+                                     PIN_MODE_ALTERNATE(GPIOB_OTG_HS_DP))
 #define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(GPIOB_USB_FS_BUSON) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_USB_FS_FAULT) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_BOOT1)        |\
@@ -506,10 +506,10 @@
                                      PIN_ODR_LOW(GPIOB_I2C1_SDA)     |\
                                      PIN_ODR_LOW(GPIOB_SPI2_SCK)     |\
                                      PIN_ODR_LOW(GPIOB_PIN11)        |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_ID)    |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_VBUS)  |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_DM)    |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_DP))
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_ID)    |\
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_VBUS)  |\
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_DM)    |\
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_DP))
 #define VAL_GPIOB_AFRL              (PIN_AFIO_AF(GPIOB_USB_FS_BUSON, 0U) |\
                                      PIN_AFIO_AF(GPIOB_USB_FS_FAULT, 0U) |\
                                      PIN_AFIO_AF(GPIOB_BOOT1,        0U) |\
@@ -522,10 +522,10 @@
                                      PIN_AFIO_AF(GPIOB_I2C1_SDA,    0U) |\
                                      PIN_AFIO_AF(GPIOB_SPI2_SCK,    0U) |\
                                      PIN_AFIO_AF(GPIOB_PIN11,       0U) |\
-                                     PIN_AFIO_AF(GPIOB_OTG_HS_ID,   0U) |\
+                                     PIN_AFIO_AF(GPIOB_OTG_HS_ID,  10U) |\
                                      PIN_AFIO_AF(GPIOB_OTG_HS_VBUS, 0U) |\
-                                     PIN_AFIO_AF(GPIOB_OTG_HS_DM,   0U) |\
-                                     PIN_AFIO_AF(GPIOB_OTG_HS_DP,   0U))
+                                     PIN_AFIO_AF(GPIOB_OTG_HS_DM,  10U) |\
+                                     PIN_AFIO_AF(GPIOB_OTG_HS_DP,  10U))
 
 /*
  * GPIOC setup:
