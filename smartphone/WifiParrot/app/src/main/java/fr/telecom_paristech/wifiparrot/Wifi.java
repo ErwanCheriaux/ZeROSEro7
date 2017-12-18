@@ -42,7 +42,6 @@ public class Wifi extends Service
 
     public void scan()
     {
-        setWiFiStatus();
         if(!wifiManager.startScan())
             Log.println(Log.ERROR, "Scan", "startScan Error");
         Log.println(Log.INFO, "Scan", "Start");
@@ -51,35 +50,5 @@ public class Wifi extends Service
     public IBinder onBind(Intent intent)
     {
         return mBinder;
-    }
-
-    private void setWiFiStatus()
-    {
-        String textStatus = "";
-        switch(wifiManager.getWifiState()){
-            case WifiManager.WIFI_STATE_ENABLED:
-                Log.d("State", "WIFI_STATE_ENABLED");
-                break;
-            case WifiManager.WIFI_STATE_DISABLED:
-                Log.d("State", "WIFI_STATE_DISABLED");
-                break;
-            case WifiManager.WIFI_STATE_DISABLING:
-                Log.d("State", "WIFI_STATE_DISABLING");
-                break;
-            case WifiManager.WIFI_STATE_ENABLING:
-                Log.d("State", "WIFI_STATE_ENABLING");
-                break;
-            case WifiManager.WIFI_STATE_UNKNOWN:
-                Log.d("State", "WIFI_STATE_UNKNOWN");
-                break;
-        }
-        // Get WiFi status
-        WifiInfo info = wifiManager.getConnectionInfo();
-        textStatus += "\n\nWiFi Status: " + info.toString();
-        // List available networks
-        List<WifiConfiguration> configs = wifiManager.getConfiguredNetworks();
-        for (WifiConfiguration config : configs)
-            textStatus += "\n\n" + config.toString();
-        Log.d("status", textStatus);
     }
 }
