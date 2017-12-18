@@ -7,7 +7,7 @@
 *   SX1276 high level control. Check out radio.h for a list of implemented functions.
 */
 
-void lora_init(RadioEvents_t * RadioEvents);
+void lora_init(RadioEvents_t* RadioEvents);
 
 extern const struct Radio_s Radio;
 

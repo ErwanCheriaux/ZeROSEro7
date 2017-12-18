@@ -19,7 +19,7 @@ static uint8_t rx_buffer[4];                                // SPI MISO
 static uint8_t tx_buffer[4]        = {1, 2, 3, 4};          // SPI MOSI
 static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};  // LORA FIFO TX
 
-#define LORA_RX_TIMEOUT 8000    // ms
+#define LORA_RX_TIMEOUT 8000  // ms
 
 static void lora_callback();
 
@@ -53,19 +53,19 @@ static void lora_rx_done_handler(uint8_t *payload, uint16_t size, int16_t rssi, 
     rtt_write_string(" -> Rx done\nData : ");
     rtt_write_buffer(0, payload, size);
     rtt_printf(0, "\nRssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
-    DelayMs(LORA_RX_TIMEOUT-1000);
+    DelayMs(LORA_RX_TIMEOUT - 1000);
     Radio.Standby();
     lora_callback();
 }
 
-static RadioEvents_t RadioEvents ={
+static RadioEvents_t RadioEvents = {
     lora_tx_done_handler,
     lora_tx_timeout_handler,
     lora_rx_done_handler,
     lora_rx_timeout_handler,
     lora_rx_error_handler,
-    NULL,   // Frequency Hopping handler
-    NULL    // CAD done handler
+    NULL,  // Frequency Hopping handler
+    NULL   // CAD done handler
 };
 
 static void log_init(void)
@@ -78,10 +78,11 @@ static void log_init(void)
 
 static bool send = true;
 
-static void lora_callback() {
+static void lora_callback()
+{
     if(send) {
         rtt_write_string("\nLoRa sending\n");
-        Radio.Send(lora_send_buffer,4);
+        Radio.Send(lora_send_buffer, 4);
     } else {
         rtt_write_string("\nReceiving\n");
         Radio.Rx(LORA_RX_TIMEOUT);
@@ -89,6 +90,7 @@ static void lora_callback() {
     send = !send;
 }
 
+// TODO Measure Reset time for deep sleep
 int main(void)
 {
     rtt_init();
@@ -120,11 +122,11 @@ int main(void)
     rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000));
 
     rtt_write_string("\nLoRa sending\n");
-    Radio.Send(lora_send_buffer,4);
+    Radio.Send(lora_send_buffer, 4);
     send = !send;
 
     while(true) {
-        low_power_standby() ;
+        low_power_standby();
     }
 
     return 0;

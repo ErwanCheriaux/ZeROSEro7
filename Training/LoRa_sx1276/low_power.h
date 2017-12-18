@@ -8,8 +8,13 @@
 *   Constant latency mode isn't required because it only saves a few µs.
 */
 
-// Enters low power ON mode until next interrupt
+// Enters low power ON mode until next interrupt. Low latency.
 // Each peripheral can be set to idle mode for lower consumption
 void low_power_standby();
+
+// Goes to power OFF mode. High latency, lower consumption.
+// Equivalent to a RESET. Exited only when DETECT or RESET.
+// TODO Device must not be in debug mode. It is only emulated in debug.
+void low_power_deep_sleep();
 
 #endif

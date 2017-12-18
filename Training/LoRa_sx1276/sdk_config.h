@@ -1516,7 +1516,7 @@
 // <q> SPI0_USE_EASY_DMA  - Use EasyDMA
 
 #ifndef SPI0_USE_EASY_DMA
-#define SPI0_USE_EASY_DMA 0 // TODO could be used to sleep during transfers, but they are already so short
+#define SPI0_USE_EASY_DMA 0  // TODO could be used to sleep during transfers, but they are already so short
 #endif
 
 // </e>
