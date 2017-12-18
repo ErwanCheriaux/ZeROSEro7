@@ -2,13 +2,16 @@
 #include <stdint.h>
 #include "boards.h"
 #include "rtt.h"
+
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
+#include "nrf_log_default_backends.h"
+
 #include "hw.h"
 #include "ble_central.h"
 #include "lora.h"
 #include "sx1276Regs-LoRa.h"
 #include "delay.h"
-
-#ifndef LORA_PARROT
 
 static uint8_t addr;                                        // SPI address
 static uint8_t rx_buffer[4];                                // SPI MISO
@@ -57,10 +60,21 @@ static RadioEvents_t RadioEvents ={
     NULL    // CAD done handler
 };
 
+static void log_init(void)
+{
+    ret_code_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+
+    NRF_LOG_DEFAULT_BACKENDS_INIT();
+}
+
 int main(void)
 {
     rtt_init();
     rtt_write_string("\n\n======== DEBUG INITIALIZED ========\n");
+
+    log_init();
+    NRF_LOG_INFO("Log initialized\n");
 
     bsp_board_leds_init();
     rtt_write_string("LEDs initialized\n");
@@ -88,6 +102,7 @@ int main(void)
     static bool send = true;
 
     while(true) {
+         NRF_LOG_PROCESS() ;
 
         if(send) {
             rtt_write_string("\nLoRa sending\n");
@@ -104,8 +119,3 @@ int main(void)
 
     return 0;
 }
-
-#else
-
-
-#endif // LORA_PARROT
