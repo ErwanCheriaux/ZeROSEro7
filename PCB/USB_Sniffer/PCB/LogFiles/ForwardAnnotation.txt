@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                       03:05 PM Sunday, December 10, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
+                       08:49 AM Monday, December 18, 2017
+           Job Name: C:\Users\admin\Documents\USB_Sniffer\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -41,9 +41,9 @@ Version:  01.01.00
           Part Numb: 20-0038 -> Vend Part: 20-0038 
           Part Numb: 20-0041 -> Vend Part: 20-0041 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
-          Part Numb: 40-0297 -> Vend Part: 40-0297 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
+          Part Numb: 40-0332 -> Vend Part: 40-0332 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
           Part Numb: 70-0042 -> Vend Part: 70-0042 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
@@ -86,7 +86,7 @@ Version:  01.01.00
 
 
 
-     39 nets were found containing 152 pins
+     40 nets were found containing 155 pins
      45 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
@@ -101,8 +101,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                       03:06 PM Sunday, December 10, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
+                       08:49 AM Monday, December 18, 2017
+           Job Name: C:\Users\admin\Documents\USB_Sniffer\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -114,15 +114,31 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-	WARNING:  "QZ1" is being removed from the Layout since it is no longer in the schematic.
+	WARNING:  Physical Net "SPI1_MISO" is being renamed to "SPI_MISO" to match the change
+	in the schematic.
 
-	WARNING:  "QZ2" is being removed from the Layout since it is no longer in the schematic.
+	WARNING:  Physical Net "SPI1_MOSI" is being renamed to "SPI_MOSI" to match the change
+	in the schematic.
 
-	WARNING:  "QZ4" is being removed from the Layout since it is no longer in the schematic.
+	WARNING:  Physical Net "SPI1_NSS" is being renamed to "SPI_NSS" to match the change
+	in the schematic.
 
-     "QZ5" is being converted from a spare to a "83-0028" part.
+	WARNING:  Physical Net "SPI1_SCK" is being renamed to "SPI_SCK" to match the change
+	in the schematic.
 
-     Netload completed successfully with 3 warning(s).
+	WARNING:  Physical Net "SWCLK_NRF" is being renamed to "SWCLK" to match the change
+	in the schematic.
+
+	WARNING:  Physical Net "SWDIO_NRF" is being renamed to "SWDIO" to match the change
+	in the schematic.
+
+	WARNING:  "R9" is being removed from the Layout since it is no longer in the schematic.
+
+     The following 1 components have not been placed:
+
+        R8
+
+     Netload completed successfully with 7 warning(s).
      
      Back Annotating...
 
@@ -153,9 +169,23 @@ Version:  02.11.12
 
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
+	Assigned net (Net0) to a via which was originally on net XSIG011435.
+	Assigned net (Net0) to a trace which was originally on net XSIG011435.
+	Broke back a trace from the point (33031828, 23690361).
+	Broke back a trace from the point (36453022, 20029242).
+	Assigned net USB_DEVICE_TO_KEYBOARD_VBUS to a trace which was originally on net USB_PC_TO_DEVICE_VBUS.
+	Broke back a trace from the point (18684151, 18825163).
+	Assigned net XSIG011445 to a trace which was originally on net BOOT0.
+	Assigned net XSIG011445 to a trace which was originally on net BOOT0.
+	Assigned net XSIG011445 to a via which was originally on net BOOT0.
+	Assigned net XSIG011445 to a trace which was originally on net BOOT0.
+
+Some nets were completely deleted from the Layout Design....
+	Deleted net BOOT0, which has no pins, from the Layout Design.
+	Deleted net BOOT1, which has no pins, from the Layout Design.
 
 Forward-Annotation on the Layout Design has been successfully completed.
 
-There were 0 reassignments of nets.
-There were 0 traces broken back.
-There were 0 nets removed from the Layout Design.
+There were 7 reassignments of nets.
+There were 3 traces broken back.
+There were 2 nets removed from the Layout Design.

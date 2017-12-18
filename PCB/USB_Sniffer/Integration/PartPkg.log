@@ -2,13 +2,13 @@
                                     Packager
                                     --------
 
-                       11:36 AM Friday, December 15, 2017
+                       08:49 AM Monday, December 18, 2017
          Job Name: C:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: "C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package "-uC:\Users\admin\Documents\USB_Sniffer\Default\default.icdb" -k -CleanBuild "-jC:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj" "
+        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj -CleanBuild -NoFill"
 
      The Common Database is at "C:\Users\admin\Documents\USB_Sniffer\Default\default.icdb".
 
@@ -37,10 +37,8 @@
      Properties that have been checked off in the Property Definition Editor
       found at Library Manager/Common Properties will be checked for value
       differences between the PartsDB and the non-null properties on symbols.
-     Those properties checked off will be transferred from the PartsDB to all
-      symbols, both packaged and unpackaged.  However, the property values
-      transferred will be limited to the precision specified in the Notation
-      Settings dialog.
+     Those properties checked off (other than Part Number)
+      will not be transferred from the PartsDB to symbols.
      The following properties were checked off in the Property Definition Editor:
        "Parametric"
        "Value2"
@@ -78,30 +76,6 @@
 	No errors found.  Proceeding with packaging...
 
 
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP950:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP951:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP952:
-     Reference designator removal.
-     The Reference Designator "U" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
 
      Common Data Base has been read
 
@@ -144,48 +118,6 @@
      Checking for value differences between non-null symbol properties and PartsDB properties,
       but only for those properties checked off in the Property Definition Editor
 
-    WARNING: Block Schematic1, Page 2, Symbol XCMP918:
-      Symbol property changed to ignored notation PartsDB value:
-                       Resolved PartNumber = 10-0060
-                       Symbol Property: Code Fournisseur = Fa : 1845729
-     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 2507061
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP814:
-      Symbol property changed to ignored notation PartsDB value:
-                       Resolved PartNumber = 10-0058
-                       Symbol Property: Code Fournisseur = Fa : 1362420
-     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP813:
-      Symbol property changed to ignored notation PartsDB value:
-                       Resolved PartNumber = 10-0058
-                       Symbol Property: Code Fournisseur = Fa : 1362420
-     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP748:
-      Symbol property changed to ignored notation PartsDB value:
-                       Resolved PartNumber = 10-0058
-                       Symbol Property: Code Fournisseur = Fa : 1362420
-     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP747:
-      Symbol property changed to ignored notation PartsDB value:
-                       Resolved PartNumber = 10-0058
-                       Symbol Property: Code Fournisseur = Fa : 1362420
-     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 1288252
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP906:
-      Symbol property changed to limited precision PartsDB value:
-                        Resolved PartNumber = 10-0106
-                        Symbol Property: Description = Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, Murata GRM155R60J106ME44D, case 0402
-     Limited Precision PartsDB Property: Description = Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402
-
-    WARNING: Block Schematic1, Page 2, Symbol XCMP906:
-      Symbol property changed to ignored notation PartsDB value:
-                       Resolved PartNumber = 10-0106
-                       Symbol Property: Code Fournisseur = Fa : 2218854
-     Ignored Notation PartsDB Property: Code Fournisseur = Fa : 2346872
-
      Checking the validity of the packaging of prepackaged schematic
       symbols.  Only the first error in symbols having the same
       Reference Designator will be reported.
@@ -217,14 +149,11 @@
 
      Checking Pins....
 
-     Testing of Packaging has been completed with 10 warnings.
-      Erroneous results may occur if not fixed.
+     Packaging has been successfully tested with no errors or warnings.
 
      Updating the Common DataBase
 
      A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
-     There have been 3 reference designator changes.
-     The BAM file will list all of the from-to changes.
 
 The Common DataBase has been successfully updated.
 
@@ -234,5 +163,3 @@ The Common DataBase has been successfully updated.
      An unused pin and gate report has been written to Integration\UnusedPins.txt
      An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
      An augmented pin report has been written to Integration\AugmentedPins.txt.
-
-     There have been 10 warnings.

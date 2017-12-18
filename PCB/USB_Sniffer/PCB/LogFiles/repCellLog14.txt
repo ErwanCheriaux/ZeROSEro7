@@ -1,0 +1,46 @@
+=======================================================================
+Xpedition Layout - Version 117.0.817.8330
+=======================================================================
+
+RELOAD CELLS
+
+Job Directory:  C:\Users\admin\Documents\USB_Sniffer\PCB\
+
+
+Design Units:(mm)
+
+Replace Cell Log:   repCellLog14.txt
+
+Mon Dec 18 08:49:40 2017
+
+Reference Designator            Cell Name                         New Cell Name
+===============================================================================
+
+
+---------------  RELOAD CELLS  Mon Dec 18 08:49:40 2017  ---------------
+
+
+
+
+---------------  RELOAD CELLS TMP  Mon Dec 18 08:49:40 2017  ---------------
+
+
+J5                              PTEST_0.90MM                      PTEST_0.90MM                    
+J6                              PTEST_0.90MM                      PTEST_0.90MM                    
+J7                              PTEST_0.90MM                      PTEST_0.90MM                    
+J8                              PTEST_0.90MM                      PTEST_0.90MM                    
+
+
+---------------    Mon Dec 18 08:49:40 2017  ---------------
+
+
+
+
+---------------    Mon Dec 18 08:49:40 2017  ---------------
+
+
+
+
+---------------    Mon Dec 18 08:50:11 2017  ---------------
+
+
