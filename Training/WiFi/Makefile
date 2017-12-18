@@ -18,10 +18,10 @@ endif
 #
 
 # Define project name here
-PROJECT = usb_dev_kit
+PROJECT = wifi_dev_kit
 
 # Imported source files and paths
-CHIBIOS = ../SDK/ChibiOS
+CHIBIOS = ../../SDK/ChibiOS
 # Startup files.
 include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
 # HAL-OSAL files (optional).
@@ -35,8 +35,6 @@ include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
-
-TEST_FIBO = ../Training/Test/fibo
 
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -52,7 +50,15 @@ CSRC = $(STARTUPSRC) \
        $(FATFSSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
-       $(CHIBIOS)/os/various/evtimer.c src/main.c src/led.c src/timer.c src/pwm.c $(TEST_FIBO)/fibo.c
+       $(CHIBIOS)/os/various/evtimer.c \
+	   		src/main.c \
+			src/led.c \
+			src/timer.c \
+			src/pwm.c \
+			src/uart.c \
+			src/SEGGER_RTT.c \
+			src/SEGGER_RTT_printf.c \
+			src/wifi.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -61,8 +67,7 @@ INCDIR = $(CHIBIOS)/os/license \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
-         $(CHIBIOS)/os/various \
-		 $(TEST_FIBO)
+         $(CHIBIOS)/os/various
 
 #
 # Project, sources and paths
@@ -112,17 +117,20 @@ help:
 	@echo		format         - format code
 	@echo		clean          - remove build
 
-startgdbserver:
+start:
 	    @pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
-stopgdbserver:
+stop:
 	    @pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
-debug: $(ELF)
-	    $(GDB) $(ELF)
+db: $(ELF)
+	    $(GDB) $<
 
 format: src/*.c src/*.h
 	clang-format -i $^
+
+telnet:
+	telnet localhost 19021
 
 .PHONY: help startgdbserver stopgdbserver debug format
 
