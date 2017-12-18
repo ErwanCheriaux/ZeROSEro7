@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      10:59 PM Saturday, December 16, 2017
-                Job Name: H:\ZeROSEro7\PCB\Spy_talk\Spy_talk.prj
+                       02:37 AM Monday, December 18, 2017
+            Job Name: C:\Users\admin\Documents\Spy_talk\Spy_talk.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: "C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package "-uH:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb" -k -CleanBuild "-jH:\ZeROSEro7\PCB\Spy_talk\Spy_talk.prj" "
+        Commandline is: "C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package "-uC:\Users\admin\Documents\Spy_talk\Default\default.icdb" -k -CleanBuild "-jC:\Users\admin\Documents\Spy_talk\Spy_talk.prj" "
 
-     The Common Database is at "H:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb".
+     The Common Database is at "C:\Users\admin\Documents\Spy_talk\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "H:\ZeROSEro7\PCB\Spy_talk\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "C:\Users\admin\Documents\Spy_talk\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -78,6 +78,38 @@
 	No errors found.  Proceeding with packaging...
 
 
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP978:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP979:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP980:
+     Reference designator removal.
+     The Reference Designator "R" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
+
+    WARNING: Block Schematic1, Page 2, Symbol XCMP981:
+     Reference designator removal.
+     The Reference Designator "C" is being removed
+     from Symbol.  Such 'all alpha' designators that are
+     not instance properties are usually built into symbols and are 
+     not intended as a request to be packaged in the same pack with 
+     symbols of like designators.
 
      Common Data Base has been read
 
@@ -149,8 +181,8 @@
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 85 Symbols:
-              85  **********************************
+     Clustering 89 Symbols:
+              89  **************************************
               50  **************************************************
      Clustering is Complete
 
@@ -158,8 +190,8 @@
 
 
 
-     60 nets were found containing 237 pins
-     85 components were found
+     60 nets were found containing 245 pins
+     89 components were found
 
      Parsed netlist - Augmenting..
 
@@ -169,11 +201,14 @@
 
      Checking Pins....
 
-     Packaging has been successfully tested with no errors or warnings.
+     Testing of Packaging has been completed with 4 warnings.
+      Erroneous results may occur if not fixed.
 
      Updating the Common DataBase
 
      A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
+     There have been 4 reference designator changes.
+     The BAM file will list all of the from-to changes.
 
 The Common DataBase has been successfully updated.
 
@@ -183,3 +218,5 @@ The Common DataBase has been successfully updated.
      An unused pin and gate report has been written to Integration\UnusedPins.txt
      An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
      An augmented pin report has been written to Integration\AugmentedPins.txt.
+
+     There have been 4 warnings.
