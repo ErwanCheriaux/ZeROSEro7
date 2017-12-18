@@ -47,7 +47,7 @@ Maintainer: Miguel Luis, Gregory Cristian and Wael Guibene
   *
   ******************************************************************************
   */
-  
+
 /* Includes ------------------------------------------------------------------*/
 #include "hw.h"
 #include "radio.h"
@@ -1249,19 +1249,19 @@ void SX1276SetOpMode( uint8_t opMode )
     if( opMode == RF_OPMODE_SLEEP )
     {
       SX1276Write( REG_OPMODE, ( SX1276Read( REG_OPMODE ) & RF_OPMODE_MASK ) | opMode );
-      
+
       LoRaBoardCallbacks->SX1276BoardSetAntSwLowPower( true );
-      
-      LoRaBoardCallbacks->SX1276BoardSetXO( RESET ); 
+
+      LoRaBoardCallbacks->SX1276BoardSetXO( RESET );
     }
     else
     {
-      LoRaBoardCallbacks->SX1276BoardSetXO( SET ); 
-      
+      LoRaBoardCallbacks->SX1276BoardSetXO( SET );
+
       LoRaBoardCallbacks->SX1276BoardSetAntSwLowPower( false );
-      
+
       LoRaBoardCallbacks->SX1276BoardSetAntSw( opMode );
-      
+
       SX1276Write( REG_OPMODE, ( SX1276Read( REG_OPMODE ) & RF_OPMODE_MASK ) | opMode );
     }
 }
@@ -1315,6 +1315,7 @@ uint8_t SX1276Read( uint8_t addr )
     return data;
 }
 
+#ifndef NRF52
 void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
 {
     uint8_t i;
@@ -1349,6 +1350,30 @@ void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
     //NSS = 1;
     HW_GPIO_Write( RADIO_NSS_PORT, RADIO_NSS_PIN, 1 );
 }
+
+#else   // Send all data in one buffer (much faster with the nRF driver)
+
+void SX1276WriteBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
+{
+    uint8_t tx_buffer[size+1] ; // TODO could be static with fixed length
+    tx_buffer[0] = addr | 0x80 ;
+    memcpy1(tx_buffer+1, buffer, size) ;
+
+    HW_SPI_transfer(tx_buffer, tx_buffer, size+1) ;
+}
+
+void SX1276ReadBuffer( uint8_t addr, uint8_t *buffer, uint8_t size )
+{
+    uint8_t rx_buffer[size+1] ;
+    rx_buffer[0] = addr & 0x7F ;
+
+    HW_SPI_transfer(rx_buffer, rx_buffer, size+1) ;
+
+    for(int i = 0; i < size ; i++) {
+        buffer[i] = rx_buffer[i+1] ;
+    }
+}
+#endif
 
 void SX1276WriteFifo( uint8_t *buffer, uint8_t size )
 {
@@ -1398,6 +1423,34 @@ uint32_t SX1276GetRadioWakeUpTime( void )
 {
     return ( uint32_t )LoRaBoardCallbacks->SX1276BoardGetWakeTime( ) + RADIO_WAKEUP_TIME;// BOARD_WAKEUP_TIME;
 }
+
+// State is set by handling DIO pins IRQ. If not connected, update manually
+#ifndef DIO_PINS_CONNECTED  // TODO Connect DIO pins, correctly assign IRQ in lora_ant_switch.c
+void SX1276OnTimeoutIrq( void )
+{
+    switch(SX1276.Settings.State) {
+        case RF_TX_RUNNING :
+            if(SX1276Read(REG_LR_IRQFLAGS) & RFLR_IRQFLAGS_TXDONE) {
+                SX1276Write(REG_LR_IRQFLAGS, RFLR_IRQFLAGS_TXDONE) ;
+                SX1276.Settings.State = RF_IDLE ;
+                RadioEvents->TxDone() ;
+                return ;
+            }
+            else {
+                RadioEvents->TxTimeout() ;
+            }
+            break ;
+        case RF_RX_RUNNING :
+            SX1276.Settings.State = RF_IDLE ;
+            SX1276SetOpMode(RF_OPMODE_STANDBY) ;
+            RadioEvents->RxTimeout() ;
+            break ;
+        default :
+            break ;
+    }
+}
+
+#else
 
 void SX1276OnTimeoutIrq( void )
 {
@@ -1473,6 +1526,7 @@ void SX1276OnTimeoutIrq( void )
         break;
     }
 }
+#endif
 
 void SX1276OnDio0Irq( void )
 {

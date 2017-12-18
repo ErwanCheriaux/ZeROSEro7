@@ -1,0 +1,192 @@
+[2017.12.01 19:24:23] [0000m.00s.031ms] [0] WELCOME
+[2017.12.01 19:24:23] [0000m.00s.031ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.01 19:24:23] [0000m.00s.031ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.01 19:24:23] [0000m.00s.031ms] [1] Base flow version [VX.2.2]
+[2017.12.01 19:24:23] [0000m.00s.031ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.01 19:24:23] [0000m.00s.031ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.01 19:24:23] [0000m.00s.031ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] Machine [WINDOWS01]  IP [10.0.2.15,127.0.0.1]  User [admin]  PID [2632]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] Operating system [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] Current working dir [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] PATH [C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\help;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] SDD_HOME [C:\MentorGraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] SDD_PLATFORM [win32]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\MentorGraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] S: Config file name [ServerWG.cfg]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [2] S: Loading config files
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] Config file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.12.01 19:24:23] [0000m.00s.046ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.12.01 19:24:23] [0000m.00s.046ms] [3] S: Config loaded
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Project path [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb] on file system [NTFS]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Project global path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb] on file system [NTFS]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [1] S: WARNING: No project file (.prj) path specified
+[2017.12.01 19:24:23] [0000m.00s.062ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Multi-user mode (config)
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Event polling mode autodetection
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Started up automatically by iCDB Client: WINDOWS01:admin:1008
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Auto close mode
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Database ID [7259-2805-df96-9898-f7e0-12a4-8e01-2a50-c18d-3d2c-dc7d-1df8]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: BEGIN dumping
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: Local -> global path prefix list
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: [C:\Users] -> [\\WINDOWS01\Users]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: [E:\] -> [\\vboxsrv\Partage\]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: Global -> local path prefix list
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: [\\vboxsrv\Partage\] -> [E:\]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: [\\WINDOWS01\Users] -> [C:\Users]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] PathTranslator: END dumping
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: START
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Server startup lock file created
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Listening for client connections on port [10001]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Server network ID [windows01:10.0.2.15,windows01:10001]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Server GUID [d75a-f3d8-9d59-7632-75e9-12ac-5e91-2a50-cb0d-3d2c-dc7d-1df8]
+[2017.12.01 19:24:23] [0000m.00s.062ms] [0] S: Project GUID [7259-2805-df96-9898-f7e0-12a4-8e01-2a50-c18d-3d2c-dc7d-1df8]
+[2017.12.01 19:24:23] [0000m.00s.078ms] [0] S: Wrote data to server address file
+[2017.12.01 19:24:23] [0000m.00s.078ms] [0] S: Server startup lock file removed
+[2017.12.01 19:24:23] [0000m.00s.078ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.12.01 19:24:23] [0000m.00s.125ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] S: Local disc access time: 36 us
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] S: File server access time: 45 us
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\icdb.dat] size [248696 (242.9 kB)]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [1] Single file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] Database GUARD OK: [248696]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] Database GUARD OK: [248696]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] Database GUARD OK: [248696]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] Database GUARD OK: [248696]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] Database GUARD OK: [248696]
+[2017.12.01 19:24:23] [0000m.00s.125ms] [0] SingleFile: [2cb7-77d5-3b25-dfe1] SFI version check [1009] [1009]
+[2017.12.01 19:24:23] [0000m.00s.140ms] [0] SingleFile: [2cb7-77d5-3b25-dfe1] Database SFI header has been read in [16ms 169us]
+[2017.12.01 19:24:23] [0000m.00s.156ms] [0] iCDB Server PI: Server & plugin session [4206]
+[2017.12.01 19:24:23] [0000m.00s.156ms] [0] iCDB Server PI: Opening database [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb]
+[2017.12.01 19:24:23] [0000m.00s.156ms] [0] iCDB Server PI: Database [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb] opened
+[2017.12.01 19:24:23] [0000m.00s.171ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.12.01 19:24:23] [0000m.00s.171ms] [0] iCDB Database: Checking constraint definitions version
+[2017.12.01 19:24:23] [0000m.00s.281ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=d077-c76f-3e54-155f-ea37-50a3-b375-0a50-084d-3d2c-dc7d-1df8] up to date
+[2017.12.01 19:24:23] [0000m.00s.328ms] [0] iCDB Server PI: Initializing plugins
+[2017.12.01 19:24:23] [0000m.00s.328ms] [0] iCDB Server PI: Plugins initialized
+[2017.12.01 19:24:23] [0000m.00s.328ms] [0] S: iCDB database loaded
+[2017.12.01 19:24:23] [0000m.00s.328ms] [0] S: Starting threads
+[2017.12.01 19:24:23] [0000m.00s.328ms] [0] ProjectBackupManager: WARNING: Could not startup Project Backup engine - functionality not initialized
+[2017.12.01 19:24:23] [0000m.00s.328ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.12.01 19:24:23] [0000m.00s.343ms] [0] IT: Session [4207] for host [windows01] user [admin] with process ID [1008] created
+[2017.12.01 19:24:23] [0000m.00s.343ms] [1] CMT: There are [1] clients now: 4207
+[2017.12.01 19:24:23] [0000m.00s.375ms] [0] IT: iCDB Server Monitor session [1] for host [windows01] user [admin] with process ID [1360] created
+[2017.12.01 19:24:23] [0000m.00s.375ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.12.01 19:24:23] [0000m.00s.375ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.12.01 19:24:23] [0000m.00s.375ms] [1] SC[4207]: Registered sub-client [DCDV] with ID [1] for session ID [4207] host [windows01] user [admin] process ID [1008]
+[2017.12.01 19:25:07] [0000m.43s.718ms] [0] DFAMT: File server access time: 85 us
+[2017.12.01 19:31:27] [0007m.04s.584ms] [0] IT: Session [4208] for host [windows01] user [admin] with process ID [2980] created
+[2017.12.01 19:31:27] [0007m.04s.584ms] [1] CMT: There are [2] clients now: 4207, 4208
+[2017.12.01 19:31:27] [0007m.04s.584ms] [1] SCL: WARNING: Could not find client [4208] stat data
+[2017.12.01 19:31:28] [0007m.04s.866ms] [1] ProjectBackupManager: Client [ClientData[ClientNetAddress[windows01] # ClientUserName[admin] # ClientProcessID[2980] # SessionID[4208] # Type[0]] # SubClientData[SubClientName[] # SubClientID[0]]] set project file (.prj): local path [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\USB_Sniffer.prj], global path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\USB_Sniffer\USB_Sniffer.prj]
+[2017.12.01 19:31:28] [0007m.05s.225ms] [0] PrjBackupMgr: Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017.12.01 19:31:28] [0007m.05s.225ms] [0] PrjBackupMgr: Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017.12.01 19:31:29] [0007m.05s.694ms] [1] PrjBackupMgr: Successfully created Project Backup [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zip] with GUID [ae53-30c9-4a3e-8591-000a-12a5-00a1-2a50-c68d-3d2c-dc7d-1df8]
+[2017.12.01 19:31:29] [0007m.05s.756ms] [1] PrjBackupMgr: Migrated iCDB content backup file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\cdbback\2017-11-20 18.42.10-2168.zip] removed
+[2017.12.01 19:31:29] [0007m.05s.756ms] [0] PrjBackupMgr: Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017.12.01 19:31:29] [0007m.05s.834ms] [1] SC[4208]: Registered sub-client [Expedition PCB_8980468] with ID [1] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:33] [0007m.09s.616ms] [1] PrjBackupMgr: Successfully created Project Backup [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\ProjectBackup\backups\2017-12-01 19.31.29 - auto.zip] with GUID [9a1b-cfa5-ca36-1cf6-100a-12a6-00a1-2a50-428d-3d2c-dc7d-1df8]
+[2017.12.01 19:31:33] [0007m.09s.647ms] [0] PrjBackupEngine: Successfully created backup:  BackupGUID[9a1b-cfa5-ca36-1cf6-100a-12a6-00a1-2a50-428d-3d2c-dc7d-1df8] CreationTime[Friday, December 01, 2017 18:31:29] Type[Autosave] Creator[iCDB Server (2017-12-01 19.24.23-2632)] ApplicationName[iCDB Server (2017-12-01 19.24.23-2632)] UserName[admin] MachineName[WINDOWS01] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\ProjectBackup\backups\2017-12-01 19.31.29 - auto.zip] BackupFileSize[363009] Persistent[FALSE]
+[2017.12.01 19:31:34] [0007m.10s.694ms] [1] SC[4208]: Registered sub-client [EEVM] with ID [2] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:34] [0007m.11s.350ms] [1] SC[4208]: UnRegistered sub-client [EEVM] with ID [2] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:39] [0007m.15s.709ms] [1] SC[4208]: Registered sub-client [JobPrefsDBPI_8993468] with ID [3] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:39] [0007m.16s.069ms] [1] SC[4208]: UnRegistered sub-client [JobPrefsDBPI_8993468] with ID [3] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:44] [0007m.21s.381ms] [1] SC[4208]: Registered sub-client [JobPrefsDBPI_8999156] with ID [4] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:44] [0007m.21s.381ms] [1] SC[4208]: UnRegistered sub-client [JobPrefsDBPI_8999156] with ID [4] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:53] [0007m.29s.991ms] [1] SC[4208]: Registered sub-client [ExpeditionCrossProber] with ID [5] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:53] [0007m.30s.053ms] [1] SC[4208]: Registered sub-client [StartServerClient718] with ID [6] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:31:53] [0007m.30s.225ms] [1] SC[4208]: UnRegistered sub-client [StartServerClient718] with ID [6] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:30] [0008m.07s.475ms] [1] SC[4208]: UnRegistered sub-client [ExpeditionCrossProber] with ID [5] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:30] [0008m.07s.538ms] [1] SC[4208]: Registered sub-client [EEVM_EEVM_1633836] with ID [7] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:31] [0008m.07s.553ms] [1] SC[4208]: UnRegistered sub-client [EEVM_EEVM_1633836] with ID [7] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:31] [0008m.08s.475ms] [1] SC[4208]: Registered sub-client [JobPrefsDBPI_9046265] with ID [8] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:32] [0008m.08s.569ms] [1] SC[4208]: UnRegistered sub-client [JobPrefsDBPI_9046265] with ID [8] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:35] [0008m.11s.725ms] [1] SC[4208]: Registered sub-client [JobPrefsDBPI_9049515] with ID [9] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:35] [0008m.11s.741ms] [1] SC[4208]: UnRegistered sub-client [JobPrefsDBPI_9049515] with ID [9] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:43] [0008m.19s.570ms] [0] IT: Session [4209] for host [windows01] user [admin] with process ID [1128] created
+[2017.12.01 19:32:43] [0008m.19s.617ms] [1] SC[4209]: Registered sub-client [Packager_9056890] with ID [1] for session ID [4209] host [windows01] user [admin] process ID [1128]
+[2017.12.01 19:32:43] [0008m.19s.664ms] [1] CMT: There are [3] clients now: 4207, 4208, 4209
+[2017.12.01 19:32:44] [0008m.20s.914ms] [1] SC[4209]: UnRegistered sub-client [Packager_9056890] with ID [1] for session ID [4209] host [windows01] user [admin] process ID [1128]
+[2017.12.01 19:32:44] [0008m.21s.101ms] [1] CMT: Removed client [4209]
+[2017.12.01 19:32:44] [0008m.21s.101ms] [1] CMT: There are [2] clients now: 4207, 4208
+[2017.12.01 19:32:49] [0008m.25s.664ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.01 19:32:50] [0008m.26s.992ms] [0] IT: Session [4210] for host [windows01] user [admin] with process ID [1888] created
+[2017.12.01 19:32:50] [0008m.27s.007ms] [1] SC[4210]: Registered sub-client [Expedition_9064546] with ID [1] for session ID [4210] host [windows01] user [admin] process ID [1888]
+[2017.12.01 19:32:50] [0008m.27s.023ms] [1] CMT: There are [3] clients now: 4207, 4208, 4210
+[2017.12.01 19:32:50] [0008m.27s.101ms] [1] SC[4210]: UnRegistered sub-client [Expedition_9064546] with ID [1] for session ID [4210] host [windows01] user [admin] process ID [1888]
+[2017.12.01 19:32:50] [0008m.27s.273ms] [1] CMT: Removed client [4210]
+[2017.12.01 19:32:50] [0008m.27s.273ms] [1] CMT: There are [2] clients now: 4207, 4208
+[2017.12.01 19:32:52] [0008m.28s.554ms] [0] IT: Session [4211] for host [windows01] user [admin] with process ID [1888] created
+[2017.12.01 19:32:52] [0008m.28s.554ms] [1] SC[4211]: Registered sub-client [JobPrefsDBPI_9066250] with ID [1] for session ID [4211] host [windows01] user [admin] process ID [1888]
+[2017.12.01 19:32:52] [0008m.28s.585ms] [1] CMT: There are [3] clients now: 4207, 4208, 4211
+[2017.12.01 19:32:52] [0008m.28s.757ms] [1] SC[4211]: UnRegistered sub-client [JobPrefsDBPI_9066250] with ID [1] for session ID [4211] host [windows01] user [admin] process ID [1888]
+[2017.12.01 19:32:52] [0008m.28s.851ms] [1] CMT: Removed client [4211]
+[2017.12.01 19:32:52] [0008m.28s.851ms] [1] CMT: There are [2] clients now: 4207, 4208
+[2017.12.01 19:32:52] [0008m.29s.195ms] [0] IT: Session [4212] for host [windows01] user [admin] with process ID [1888] created
+[2017.12.01 19:32:52] [0008m.29s.195ms] [1] SC[4212]: Registered sub-client [JobPrefsDBPI_9066937] with ID [1] for session ID [4212] host [windows01] user [admin] process ID [1888]
+[2017.12.01 19:32:52] [0008m.29s.242ms] [1] SC[4212]: UnRegistered sub-client [JobPrefsDBPI_9066937] with ID [1] for session ID [4212] host [windows01] user [admin] process ID [1888]
+[2017.12.01 19:32:52] [0008m.29s.335ms] [1] CMT: There are [3] clients now: 4207, 4208, 4212
+[2017.12.01 19:32:52] [0008m.29s.335ms] [1] CMT: Removed client [4212]
+[2017.12.01 19:32:52] [0008m.29s.335ms] [1] CMT: There are [2] clients now: 4207, 4208
+[2017.12.01 19:32:55] [0008m.31s.585ms] [0] IT: Session [4213] for host [windows01] user [admin] with process ID [1932] created
+[2017.12.01 19:32:55] [0008m.31s.601ms] [1] SC[4213]: Registered sub-client [JobPrefsDBPI_9069218] with ID [1] for session ID [4213] host [windows01] user [admin] process ID [1932]
+[2017.12.01 19:32:55] [0008m.31s.632ms] [1] SC[4213]: Registered sub-client [Expedition_9069421] with ID [2] for session ID [4213] host [windows01] user [admin] process ID [1932]
+[2017.12.01 19:32:55] [0008m.31s.695ms] [1] SC[4213]: UnRegistered sub-client [JobPrefsDBPI_9069218] with ID [1] for session ID [4213] host [windows01] user [admin] process ID [1932]
+[2017.12.01 19:32:55] [0008m.31s.695ms] [1] CMT: There are [3] clients now: 4207, 4208, 4213
+[2017.12.01 19:32:55] [0008m.31s.742ms] [1] SC[4213]: UnRegistered sub-client [Expedition_9069421] with ID [2] for session ID [4213] host [windows01] user [admin] process ID [1932]
+[2017.12.01 19:32:55] [0008m.31s.820ms] [1] CMT: Removed client [4213]
+[2017.12.01 19:32:55] [0008m.31s.820ms] [1] CMT: There are [2] clients now: 4207, 4208
+[2017.12.01 19:32:55] [0008m.32s.289ms] [1] SC[4208]: Registered sub-client [EEVM_EEVM_230359700] with ID [10] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:55] [0008m.32s.304ms] [1] SC[4208]: UnRegistered sub-client [EEVM_EEVM_230359700] with ID [10] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:55] [0008m.32s.304ms] [1] SC[4208]: Registered sub-client [EEVM_EEVM_230359700] with ID [11] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:55] [0008m.32s.304ms] [1] SC[4208]: UnRegistered sub-client [EEVM_EEVM_230359700] with ID [11] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:55] [0008m.32s.304ms] [1] SC[4208]: Registered sub-client [EEVM_EEVM_230359700] with ID [12] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:55] [0008m.32s.335ms] [1] SC[4208]: UnRegistered sub-client [EEVM_EEVM_230359700] with ID [12] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:58] [0008m.35s.039ms] [1] SC[4208]: UnRegistered sub-client [Expedition PCB_8980468] with ID [1] for session ID [4208] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:32:58] [0008m.35s.148ms] [1] CMT: Removed client [4208]
+[2017.12.01 19:32:58] [0008m.35s.148ms] [1] CMT: There are [1] clients now: 4207
+[2017.12.01 19:33:01] [0008m.38s.179ms] [0] IT: Session [4214] for host [windows01] user [admin] with process ID [2980] created
+[2017.12.01 19:33:01] [0008m.38s.195ms] [1] SC[4214]: Registered sub-client [Expedition PCB_9075828] with ID [1] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:33:01] [0008m.38s.210ms] [1] CMT: There are [2] clients now: 4207, 4214
+[2017.12.01 19:33:02] [0008m.39s.070ms] [1] SC[4214]: Registered sub-client [JobPrefsDBPI_9076859] with ID [2] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:33:02] [0008m.39s.117ms] [1] SC[4214]: UnRegistered sub-client [JobPrefsDBPI_9076859] with ID [2] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:33:18] [0008m.55s.484ms] [1] SC[4214]: Registered sub-client [JobPrefsDBPI_9093265] with ID [3] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:33:19] [0008m.55s.625ms] [1] SC[4214]: UnRegistered sub-client [JobPrefsDBPI_9093265] with ID [3] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:33:19] [0008m.55s.687ms] [1] SC[4214]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:34:24] [0010m.01s.453ms] [1] SC[4214]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:34:26] [0010m.03s.156ms] [1] SC[4214]: UnRegistered sub-client [Expedition PCB_9075828] with ID [1] for session ID [4214] host [windows01] user [admin] process ID [2980]
+[2017.12.01 19:34:26] [0010m.03s.281ms] [1] CMT: Removed client [4214]
+[2017.12.01 19:34:26] [0010m.03s.281ms] [1] CMT: There are [1] clients now: 4207
+[2017.12.01 19:38:24] [0014m.00s.718ms] [1] SC[4207]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4207] host [windows01] user [admin] process ID [1008]
+[2017.12.01 19:38:24] [0014m.01s.031ms] [1] CMT: Removed client [4207]
+[2017.12.01 19:38:24] [0014m.01s.046ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.01 19:38:24] [0014m.01s.281ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.01 19:38:26] [0014m.02s.578ms] [0] CMT: Starting server auto-close
+[2017.12.01 19:38:26] [0014m.02s.593ms] [0] S: Closing server
+[2017.12.01 19:38:26] [0014m.02s.734ms] [0] iCDB Server PI: Closing plugins
+[2017.12.01 19:38:26] [0014m.02s.812ms] [0] iCDB Server PI: Plugins closed
+[2017.12.01 19:38:26] [0014m.02s.812ms] [0] iCDB Server PI: Unloading database
+[2017.12.01 19:38:26] [0014m.02s.812ms] [0] iCDB Server PI: Saving storage
+[2017.12.01 19:38:26] [0014m.02s.812ms] [0] iCDB Server PI: Closing database
+[2017.12.01 19:38:26] [0014m.02s.812ms] [1] Hole: zero line at 248636 of size 32 bytes.
+[2017.12.01 19:38:26] [0014m.03s.484ms] [1] iCDB Server PI: Stats: Database defragmentation: max[1] avg[1] holes[5%] data[89%]
+[2017.12.01 19:38:26] [0014m.03s.484ms] [1] iCDB Server PI: Stats: Database file size [248696 (242.9 kB)]
+[2017.12.01 19:38:26] [0014m.03s.484ms] [1] Hole: zero line at 248636 of size 32 bytes.
+[2017.12.01 19:38:28] [0014m.05s.031ms] [0] iCDB Server PI: Database closed
+[2017.12.01 19:38:28] [0014m.05s.031ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [6895048] ticks
+[2017.12.01 19:38:28] [0014m.05s.031ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [689504] microseconds
+[2017.12.01 19:38:28] [0014m.05s.031ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [37]
+[2017.12.01 19:38:28] [0014m.05s.031ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [53] commands per second
+[2017.12.01 19:38:28] [0014m.05s.031ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\icdb.dat] closed with size [248696 (242.9 kB)]
+[2017.12.01 19:38:28] [0014m.05s.140ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.01 19:38:31] [0014m.08s.218ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.01 19:38:31] [0014m.08s.328ms] [0] MWT: STOP
+[2017.12.01 19:38:31] [0014m.08s.328ms] [0] S: STOP

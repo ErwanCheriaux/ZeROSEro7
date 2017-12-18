@@ -85,6 +85,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
+    $(SDK_ROOT)/components/drivers_nrf/spi_master/nrf_drv_spi.c \
 
 # Include folders common to all targets
 INC_FOLDERS += $(USER_INC) \
@@ -282,7 +283,7 @@ include $(TEMPLATE_PATH)/Makefile.common
 
 $(foreach target, $(TARGETS), $(call define_target, $(target)))
 
-.PHONY: flash startgdbserver debug
+.PHONY: flash startgdbserver debug rtttelnet
 
 # Flash the program
 flash: $(HEX)
