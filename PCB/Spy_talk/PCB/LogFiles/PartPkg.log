@@ -2,7 +2,7 @@
                                     Packager
                                     --------
 
-                       04:46 PM Monday, December 11, 2017
+                       11:56 AM Monday, December 18, 2017
             Job Name: C:\Users\admin\Documents\Spy_talk\Spy_talk.prj
 
 
@@ -48,6 +48,7 @@
        "Option"
        "ESR"
        "Imax"
+       "Place"
        "Cout HT"
        "Vf"
        "Code Fournisseur"
@@ -80,20 +81,29 @@
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 34
+     Number of Part Numbers: 46
+          Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
+          Part Numb: 00-0074 -> Vend Part: 00-0074 
           Part Numb: 00-0085 -> Vend Part: 00-0085 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
           Part Numb: 10-0010 -> Vend Part: 10-0010 
           Part Numb: 10-0011 -> Vend Part: 10-0011 
           Part Numb: 10-0037 -> Vend Part: 10-0037 
+          Part Numb: 10-0054 -> Vend Part: 10-0054 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
+          Part Numb: 10-0072 -> Vend Part: 10-0072 
+          Part Numb: 10-0084 -> Vend Part: 10-0084 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
+          Part Numb: 10-0108 -> Vend Part: 10-0108 
+          Part Numb: 10-0109 -> Vend Part: 10-0109 
+          Part Numb: 10-0118 -> Vend Part: 10-0118 
+          Part Numb: 10-0119 -> Vend Part: 10-0119 
           Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
           Part Numb: 20-0022 -> Vend Part: 20-0022 
@@ -105,7 +115,10 @@
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0316 -> Vend Part: 40-0316 
           Part Numb: 50-0029 -> Vend Part: 50-0029 
+          Part Numb: 50-0030 -> Vend Part: 50-0030 
+          Part Numb: 50-0032 -> Vend Part: 50-0032 
           Part Numb: 50-0033 -> Vend Part: 50-0033 
+          Part Numb: 50-0047 -> Vend Part: 50-0047 
           Part Numb: 70-0065 -> Vend Part: 70-0065 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
           Part Numb: 70-0086 -> Vend Part: 70-0086 
@@ -136,8 +149,8 @@
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 63 Symbols:
-              63  ************
+     Clustering 84 Symbols:
+              84  *********************************
               50  **************************************************
      Clustering is Complete
 
@@ -145,8 +158,8 @@
 
 
 
-     48 nets were found containing 190 pins
-     63 components were found
+     58 nets were found containing 235 pins
+     84 components were found
 
      Parsed netlist - Augmenting..
 

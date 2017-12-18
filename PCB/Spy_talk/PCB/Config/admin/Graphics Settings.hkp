@@ -2,10 +2,10 @@
 ! change it at your own peril
 
 !
-! Created 12/11/17 18:27:47
+! Created 12/18/17 15:00:56
 !
 
-.Global_Constants 51 2
+.Global_Constants 61 2
     ..File_Type Graphics_Settings
     ..Version Version_7
     ..Num_Views 1
@@ -13,7 +13,7 @@
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
-	(-1, -1)	! ptMinPosition
+	(-32000, -32000)	! ptMinPosition
 	(-1, -1)	! ptMaxPosition
 	(253, 109) (1675,829)	! ..rcNormalPosition
     ..Active_Place_Layer_Top             False
@@ -1311,29 +1311,39 @@
 	"XSIG011292"	! [26]
 	"XSIG011297"	! [27]
 	"XSIG011299"	! [28]
-	"XSIG011300"	! [29]
-	"XSIG011302"	! [30]
-	"XSIG011321"	! [31]
-	"XSIG011323"	! [32]
-	"XSIG011327"	! [33]
-	"XSIG011329"	! [34]
-	"XSIG011338"	! [35]
-	"XSIG011340"	! [36]
-	"XSIG020006"	! [37]
-	"XSIG020007"	! [38]
-	"XSIG020010"	! [39]
-	"XSIG020011"	! [40]
-	"XSIG020035"	! [41]
-	"XSIG020041"	! [42]
-	"XSIG020057"	! [43]
-	"XSIG020058"	! [44]
-	"XSIG020059"	! [45]
-	"DIO0"	! [46]
-	"DIO1"	! [47]
-	"DIO2"	! [48]
-	"DIO3"	! [49]
-	"DIO4"	! [50]
-	"DIO5"	! [51]
+	"XSIG011321"	! [29]
+	"XSIG011323"	! [30]
+	"XSIG011327"	! [31]
+	"XSIG011329"	! [32]
+	"DIO0"	! [33]
+	"DIO1"	! [34]
+	"DIO2"	! [35]
+	"DIO3"	! [36]
+	"DIO4"	! [37]
+	"DIO5"	! [38]
+	"VR_PA"	! [39]
+	"XSIG011411"	! [40]
+	"XSIG011414"	! [41]
+	"XSIG011415"	! [42]
+	"XSIG011416"	! [43]
+	"XSIG020078"	! [44]
+	"XSIG020079"	! [45]
+	"XSIG020081"	! [46]
+	"XSIG020082"	! [47]
+	"XSIG020108"	! [48]
+	"XSIG020111"	! [49]
+	"XSIG020116"	! [50]
+	"XSIG020119"	! [51]
+	"XSIG020120"	! [52]
+	"XSIG020125"	! [53]
+	"XSIG020139"	! [54]
+	"XSIG020140"	! [55]
+	"XSIG020141"	! [56]
+	"XSIG020152"	! [57]
+	"XSIG030117"	! [58]
+	"XSIG030120"	! [59]
+	"XSIG030123"	! [60]
+	"XSIG030124"	! [61]
     )
     ..Netclass_Names ( 
 	"(Default)"	! [1]
@@ -1364,13 +1374,18 @@
 	0x00ffffff 0x00ffffff	! [33-34] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [35-36] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [37-38] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [39-40] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [41-42] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [43-44] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [45-46] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [47-48] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff 0x00ffffff	! [49-50] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff		! [51] RGB(255,255,255)
+	        -1         -1	! [39-40] undefined  undefined
+	        -1         -1	! [41-42] undefined  undefined
+	        -1         -1	! [43-44] undefined  undefined
+	        -1         -1	! [45-46] undefined  undefined
+	        -1         -1	! [47-48] undefined  undefined
+	        -1         -1	! [49-50] undefined  undefined
+	        -1         -1	! [51-52] undefined  undefined
+	        -1         -1	! [53-54] undefined  undefined
+	        -1         -1	! [55-56] undefined  undefined
+	        -1         -1	! [57-58] undefined  undefined
+	        -1         -1	! [59-60] undefined  undefined
+	        -1		! [61] undefined
     )
     ..Net_Ptrnidx ( 
 	0 0 0 0 0 0 0 0 0 0 	! [1 - 10]
@@ -1378,7 +1393,8 @@
 	0 0 0 0 0 0 0 0 0 0 	! [21 - 30]
 	0 0 0 0 0 0 0 0 0 0 	! [31 - 40]
 	0 0 0 0 0 0 0 0 0 0 	! [41 - 50]
-	0 ! [51 - 51]
+	0 0 0 0 0 0 0 0 0 0 	! [51 - 60]
+	0 ! [61 - 61]
 	)
     ..Net_Alpha ( 
 	100 100 100 100 100 100 100 100 100 100 	! [1 - 10]
@@ -1386,7 +1402,8 @@
 	100 100 100 100 100 100 100 100 100 100 	! [21 - 30]
 	100 100 100 100 100 100 100 100 100 100 	! [31 - 40]
 	100 100 100 100 100 100 100 100 100 100 	! [41 - 50]
-	100 ! [51 - 51]
+	100 100 100 100 100 100 100 100 100 100 	! [51 - 60]
+	100 ! [61 - 61]
 	)
     ..Net_Nopaque ( 
 	F F F F F F F F F F 	! [1 - 10]
@@ -1394,15 +1411,17 @@
 	F F F F F F F F F F 	! [21 - 30]
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
-	F ! [51 - 51]
+	F F F F F F F F F F 	! [51 - 60]
+	F ! [61 - 61]
 	)
     ..Net_Outline ( 
 	T T F T T T F F F F 	! [1 - 10]
 	F F F F F F F F F F 	! [11 - 20]
 	F F F F F F F F F F 	! [21 - 30]
-	F F F F F F F F F F 	! [31 - 40]
-	F F F F F F F F F F 	! [41 - 50]
-	F ! [51 - 51]
+	F F F F F F F F T T 	! [31 - 40]
+	T T T T T T T T T T 	! [41 - 50]
+	T T T T T T T T T T 	! [51 - 60]
+	T ! [61 - 61]
 	)
     ..Netclass_Color (
 	0x00ffffff	! top     RGB(255,255,255)
@@ -1447,7 +1466,8 @@
 	F F F F F F F F F F 	! [21 - 30]
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
-	F ! [51 - 51]
+	F F F F F F F F F F 	! [51 - 60]
+	F ! [61 - 61]
 	)
     ..Netclass_On                        False	! top
                                          False	! bottom
@@ -1758,7 +1778,7 @@
 	"[VirtualGlobal].iDC.NetlinesFrom" "3"
 	"[VirtualGlobal].iDC.Nets.0" "GND"
 	"[VirtualGlobal].iDC.Nets.1" "VCC"
-	"[VirtualGlobal].iDC.Nets.Collapsed" "3"
+	"[VirtualGlobal].iDC.Nets.Collapsed" "2"
 	"[VirtualGlobal].iDC.Nets.Count" "2"
 	"[VirtualGlobal].iDC.Object Appearance.CollapsedSectionOrder" "6"
 	"[VirtualGlobal].iDC.Obstructs.CollapsedSectionOrder" "8"
@@ -1799,8 +1819,8 @@
 
 .view "PCB"
     ..extrema
-	(-24996831,-2539986)		! (xmin, ymin)
-	(58006913,35836221)		! (xmax, ymax)
+	(-18153028,-2284409)		! (xmin, ymin)
+	(53517398,35836324)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
@@ -13392,29 +13412,39 @@
 	"[Net].XSIG011292" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG011297" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG011299" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011300" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011302" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG011321" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG011323" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG011327" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG011329" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011338" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011340" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020006" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020007" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020010" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020011" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020035" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020041" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020057" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020058" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020059" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].DIO0" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].DIO1" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].DIO2" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].DIO3" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].DIO4" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].DIO5" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].VR_PA" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011411" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011414" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011415" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011416" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020078" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020079" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020081" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020082" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020108" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020111" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020116" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020119" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020120" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020125" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020139" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020140" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020141" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020152" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030117" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030120" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030123" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030124" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[NetClass].(Default)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[NetClass].(SpacerNetClass)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[ConstraintClass].(All)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"

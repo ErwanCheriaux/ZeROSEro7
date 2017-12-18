@@ -15,3 +15,16 @@
 [2017-12-10 20.43.47] Successfully created [AutoSave] backup [2017-12-10 20.43.46 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-11 11.05.54] Successfully created [AutoSave] backup [2017-12-11 11.05.53 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-11 15.05.55] Successfully created [AutoSave] backup [2017-12-11 15.05.53 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-18 11.48.39] Migrating iCDB upgrade backups from directory [Spy_talk\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-18 11.48.39] Migrating iCDB upgrade backup file [2017-12-18 02.11.22-3652].
+[2017-12-18 11.48.40] Successfully created [Constraints Definition Upgrade] backup [2017-12-18 02.11.22 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-18 11.48.40] Removing excessive [Constraints Definition Upgrade] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-11-19 16.18.02 - consDefUpgr.zip].
+[2017-12-18 11.48.40] [Constraints Definition Upgrade] backup file [Spy_talk\Default\ProjectBackup\backups\2017-11-19 16.18.02 - consDefUpgr.zip] removed.
+[2017-12-18 11.48.40] Migrated iCDB content backup file [cdbback\2017-12-18 02.11.22-3652.zip] removed.
+[2017-12-18 11.48.40] Successfully migrated iCDB upgrade backup file [2017-12-18 02.11.22-3652] to Project Backup format [2017-12-18 02.11.22 - consDefUpgr.zip]
+[2017-12-18 11.48.40] Migrating iCDB upgrade backup file [2017-12-16 22.50.09-3976].
+[2017-12-18 11.48.40] iCDB upgrade backup file [2017-12-16 22.50.09-3976] is excessive.
+[2017-12-18 11.48.40] Excessive iCDB upgrade backup file [2017-12-16 22.50.09-3976] removed.
+[2017-12-18 11.48.45] Successfully created [AutoSave] backup [2017-12-18 11.48.40 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-18 11.48.45] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-12-10 20.43.46 - auto.zip].
+[2017-12-18 11.48.45] [AutoSave] backup file [Spy_talk\Default\ProjectBackup\backups\2017-12-10 20.43.46 - auto.zip] removed.
