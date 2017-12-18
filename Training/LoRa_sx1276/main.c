@@ -2,6 +2,7 @@
 #include <stdint.h>
 #include "boards.h"
 #include "rtt.h"
+#include "nrf_power.h"
 
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
@@ -102,7 +103,7 @@ int main(void)
     static bool send = true;
 
     while(true) {
-         NRF_LOG_PROCESS() ;
+        NRF_LOG_PROCESS() ;
 
         if(send) {
             rtt_write_string("\nLoRa sending\n");
@@ -113,8 +114,7 @@ int main(void)
         }
         send = !send;
 
-        while(Radio.GetStatus() != RF_IDLE)
-            ;
+        nrf_power_task_trigger(NRF_POWER_TASK_CONSTLAT) ;   // Stops MCU, waiting for IRQ
     }
 
     return 0;
