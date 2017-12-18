@@ -23,6 +23,7 @@ USER_SRC = \
 	$(PROJ_DIR)/hw_gpio.c \
 	$(PROJ_DIR)/lora.c \
 	$(PROJ_DIR)/lora_board.c \
+	$(PROJ_DIR)/low_power.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
