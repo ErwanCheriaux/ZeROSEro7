@@ -22,15 +22,9 @@ public class WifiScanReceiver extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent)
     {
-        if(!intent.getAction().equals(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION)) {
-            Log.println(Log.DEBUG, "Scan","Action Error");
-            return;
-        }
-        Log.println(Log.DEBUG, "Scan","Finished");
         List<ScanResult> scanResultList = wifiManager.getScanResults();
-        Log.println(Log.DEBUG, "Scan","" + scanResultList.size());
-        for (int i = 0; i < scanResultList.size(); i++) {
-            //Log.println(Log.DEBUG, "scanResult[" + i + "]","" + scanResultList.get(i));
-        }
+        Log.println(Log.DEBUG, "Scan","Finished: " + scanResultList.size());
+        for (int i = 0; i < scanResultList.size(); i++)
+            Log.println(Log.DEBUG, "scanResult[" + i + "]","" + scanResultList.get(i));
     }
 }
