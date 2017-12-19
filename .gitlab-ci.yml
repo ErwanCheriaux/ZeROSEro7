@@ -22,6 +22,8 @@ lint_main:
   script:
     - cd Training/BLE_nrf52
     - make format
+    - cd ../SD_card
+    - make format
     - cd ../../usb_dev_kit
     - make format
     - cd ../Training/lora_discovery
@@ -58,6 +60,8 @@ build_main:
   script:
     - cd Training/BLE_nrf52
     - make
+    - cd ../SD_card
+    - make
     - cd ../../usb_dev_kit
     - make
     - cd ../Training/lora_discovery
@@ -69,6 +73,7 @@ build_main:
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
+    - Training/SD_card/build/sd_card.elf
     - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
     - usb_dev_kit/build/usb_dev_kit.elf
     - Training/WiFi/build/wifi_dev_kit.elf
