@@ -28,3 +28,16 @@
 [2017-12-18 11.48.45] Successfully created [AutoSave] backup [2017-12-18 11.48.40 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-18 11.48.45] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-12-10 20.43.46 - auto.zip].
 [2017-12-18 11.48.45] [AutoSave] backup file [Spy_talk\Default\ProjectBackup\backups\2017-12-10 20.43.46 - auto.zip] removed.
+[2017-12-18 18.16.29] Migrating iCDB upgrade backups from directory [SPY_TALK\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-18 18.16.29] Migrating iCDB upgrade backup file [2017-12-18 18.07.41-7160].
+[2017-12-18 18.16.29] Successfully created [Constraints Definition Upgrade] backup [2017-12-18 18.07.41 - consDefUpgr.zip] requested by [WINDOWS01:admin].
+[2017-12-18 18.16.29] Removing excessive [Constraints Definition Upgrade] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 02.11.22 - consDefUpgr.zip].
+[2017-12-18 18.16.29] [Constraints Definition Upgrade] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-18 02.11.22 - consDefUpgr.zip] removed.
+[2017-12-18 18.16.29] Migrated iCDB content backup file [cdbback\2017-12-18 18.07.41-7160.zip] removed.
+[2017-12-18 18.16.29] Successfully migrated iCDB upgrade backup file [2017-12-18 18.07.41-7160] to Project Backup format [2017-12-18 18.07.41 - consDefUpgr.zip]
+[2017-12-18 18.16.30] Successfully created [AutoSave] backup [2017-12-18 18.16.29 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-18 18.16.30] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-11 11.05.53 - auto.zip].
+[2017-12-18 18.16.30] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-11 11.05.53 - auto.zip] removed.
+[2017-12-18 22.16.29] Successfully created [AutoSave] backup [2017-12-18 22.16.29 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-18 22.16.29] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-11 15.05.53 - auto.zip].
+[2017-12-18 22.16.29] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-11 15.05.53 - auto.zip] removed.

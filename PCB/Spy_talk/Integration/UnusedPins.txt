@@ -1,36 +1,33 @@
 
-Schematic unused pins from : Packager  18-Dec-2017  11:56
+Schematic unused pins from : Packager  19-Dec-2017  01:22
 
 ------------------------------------------------------------------------
             Part/Reference             |          Unused pins
                                        |  (G) - Gate, (P) - Partial Gate
 ------------------------------------------------------------------------
- Part 00-0001                          |
- Part 00-0050                          |
  Part 00-0057                          |
  Part 00-0061                          |
- Part 00-0074                          |
  Part 00-0085                          |
- Part 00-0098                          |
+ Part 02-0074                          |
+ Part 02-0098                          |
  Part 10-0010                          |
- Part 10-0011                          |
  Part 10-0037                          |
- Part 10-0054                          |
- Part 10-0057                          |
  Part 10-0058                          |
+ Part 10-0059                          |
  Part 10-0067                          |
- Part 10-0072                          |
- Part 10-0084                          |
+ Part 10-0091                          |
  Part 10-0096                          |
+ Part 10-0097                          |
  Part 10-0106                          |
+ Part 10-0107                          |
  Part 10-0108                          |
  Part 10-0109                          |
  Part 10-0118                          |
  Part 10-0119                          |
- Part 20-0004                          |
  Part 20-0009                          |
  Part 20-0022                          |
  Part 20-0038                          |
+ Part 20-0040                          |
  Part 30-0010                          |
  Part 40-0229                          |
  Part 40-0287                          |
@@ -44,15 +41,16 @@ Schematic unused pins from : Packager  18-Dec-2017  11:56
  Part 50-0030                          |
  Part 50-0032                          |
  Part 50-0033                          |
+ Part 50-0036                          |
  Part 50-0047                          |
  Part 70-0065                          |
   J2                                   | (P)  2 3 4
  Part 70-0081                          |
   J1                                   | (P)  6 8
  Part 70-0086                          |
- Part 70-0087                          |
  Part 80-0035                          |
  Part 80-0050                          |
  Part 80-0063                          |
- Part 81-0002                          |
+ Part 80-0068                          |
  Part 83-0025                          |
+ Part 83-0027                          |
