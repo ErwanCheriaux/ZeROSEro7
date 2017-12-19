@@ -105,3 +105,5 @@
 [2017-12-17 18.07.07] Successfully created [AutoSave] backup [2017-12-17 18.07.06 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-17 18.07.07] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\ProjectBackup\backups\2017-12-14 17.38.59 - auto.zip].
 [2017-12-17 18.07.07] [AutoSave] backup file [Stealth_Drop\Default\ProjectBackup\backups\2017-12-14 17.38.59 - auto.zip] removed.
+[2017-12-19 01.04.56] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-19 01.04.56] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.

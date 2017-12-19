@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                       06:12 PM Sunday, December 17, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
+                       01:07 AM Tuesday, December 19, 2017
+           Job Name: C:\Users\admin\Documents\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -121,8 +121,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                       06:12 PM Sunday, December 17, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
+                       01:07 AM Tuesday, December 19, 2017
+           Job Name: C:\Users\admin\Documents\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -165,9 +165,11 @@ Version:  02.11.12
 
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
+	Assigned net GND to a trace which was originally on net VBAT.
+	Broke back a trace from the point (53174386, 10349290).
 
 Forward-Annotation on the Layout Design has been successfully completed.
 
-There were 0 reassignments of nets.
-There were 0 traces broken back.
+There were 1 reassignments of nets.
+There were 1 traces broken back.
 There were 0 nets removed from the Layout Design.
