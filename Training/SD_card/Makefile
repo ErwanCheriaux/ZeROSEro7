@@ -86,6 +86,7 @@ endif
 PROJECT = sd_card
 
 # Imported source files and paths
+SRC = src
 CHIBIOS = ../../SDK/ChibiOS
 # Startup files.
 include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
@@ -117,7 +118,7 @@ CSRC = $(STARTUPSRC) \
        $(TESTSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
-       main.c
+       $(SRC)/main.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -243,6 +244,9 @@ stopgdbserver:
 
 debug: $(ELF)
 	$(GDB) $<
+
+format: $(SRC)/*.c #$(SRC)/*.h
+	clang-format -i $^
 
 telnet:
 	telnet localhost 19021
