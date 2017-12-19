@@ -1,6 +1,5 @@
 target ext :2331
 mon endian little
-mon halt
 
 # User interface with asm, regs and cmd windows
 define split
@@ -10,7 +9,8 @@ define split
   focus cmd
 end
 
-define flash
+define restart
+  mon halt
   load
   mon reset
 end

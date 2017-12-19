@@ -300,6 +300,19 @@ int main(void)
     halInit();
     chSysInit();
 
+    /* Pinout config */
+    //led_init
+    palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPad(GPIOC, GPIOC_LED);  //led off
+
+    //sd_init
+    palSetPadMode(GPIOC, GPIOC_SD_D0, PAL_MODE_ALTERNATE(12));
+    palSetPadMode(GPIOC, GPIOC_SD_D1, PAL_MODE_ALTERNATE(12));
+    palSetPadMode(GPIOC, GPIOC_SD_D2, PAL_MODE_ALTERNATE(12));
+    palSetPadMode(GPIOC, GPIOC_SD_D3, PAL_MODE_ALTERNATE(12));
+    palSetPadMode(GPIOC, GPIOC_SD_CLK, PAL_MODE_ALTERNATE(12));
+    palSetPadMode(GPIOD, GPIOD_SD_CMD, PAL_MODE_ALTERNATE(12));
+
     /*
    * Shell manager initialization.
    */
