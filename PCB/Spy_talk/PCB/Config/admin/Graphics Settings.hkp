@@ -2,10 +2,10 @@
 ! change it at your own peril
 
 !
-! Created 12/18/17 15:00:56
+! Created 12/19/17 11:52:17
 !
 
-.Global_Constants 61 2
+.Global_Constants 60 2
     ..File_Type Graphics_Settings
     ..Version Version_7
     ..Num_Views 1
@@ -13,13 +13,13 @@
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
-	(-32000, -32000)	! ptMinPosition
+	(-1, -1)	! ptMinPosition
 	(-1, -1)	! ptMaxPosition
 	(253, 109) (1675,829)	! ..rcNormalPosition
     ..Active_Place_Layer_Top             False
     ..Active_Place_Layer_Bottom          True
     ..Active_Place_Layer_Internal        False
-    ..Active_Route_Layer 0
+    ..Active_Route_Layer 1
     ..Trace_Layer_Color ( 
 	0x00ff6633 0x009933ff	! [1-2] RGB( 51,102,255)  RGB(255, 51,153)
 	0x0066ff99 0x000000ff	! [3-4] RGB(153,255,102)  RGB(255,  0,  0)
@@ -515,13 +515,13 @@
     ..Netline_Trace_Ends_On              False
     ..Classline_Color 0x00ff00cc	! RGB(204,  0,255)
     ..Netline_Of_Classline_On            True
-    ..Show_Plane_Data                    True
+    ..Show_Plane_Data                    False
     ..Show_Plane_Shapes                  True
-    ..Show_Fill_Plane_Shapes             True
+    ..Show_Fill_Plane_Shapes             False
     ..Show_Plane_Data_Behind_Traces      True
-    ..Show_Dynamic_Area_Fills            True
+    ..Show_Dynamic_Area_Fills            False
     ..Show_Plane_Aps_Outlines            False
-    ..Show_Plane_Aps_Fills               True
+    ..Show_Plane_Aps_Fills               False
     ..All_Plane_Items_Enabled            True
     ..Show_Plane_Plane_Sketches          False
     ..Show_Cubal_Data                    True
@@ -1308,42 +1308,41 @@
 	"XSIG011287"	! [23]
 	"XSIG011288"	! [24]
 	"XSIG011289"	! [25]
-	"XSIG011292"	! [26]
-	"XSIG011297"	! [27]
-	"XSIG011299"	! [28]
-	"XSIG011321"	! [29]
-	"XSIG011323"	! [30]
-	"XSIG011327"	! [31]
-	"XSIG011329"	! [32]
-	"DIO0"	! [33]
-	"DIO1"	! [34]
-	"DIO2"	! [35]
-	"DIO3"	! [36]
-	"DIO4"	! [37]
-	"DIO5"	! [38]
-	"VR_PA"	! [39]
-	"XSIG011411"	! [40]
-	"XSIG011414"	! [41]
-	"XSIG011415"	! [42]
-	"XSIG011416"	! [43]
-	"XSIG020078"	! [44]
-	"XSIG020079"	! [45]
-	"XSIG020081"	! [46]
-	"XSIG020082"	! [47]
-	"XSIG020108"	! [48]
-	"XSIG020111"	! [49]
-	"XSIG020116"	! [50]
-	"XSIG020119"	! [51]
-	"XSIG020120"	! [52]
-	"XSIG020125"	! [53]
-	"XSIG020139"	! [54]
-	"XSIG020140"	! [55]
-	"XSIG020141"	! [56]
-	"XSIG020152"	! [57]
-	"XSIG030117"	! [58]
-	"XSIG030120"	! [59]
-	"XSIG030123"	! [60]
-	"XSIG030124"	! [61]
+	"XSIG011297"	! [26]
+	"XSIG011299"	! [27]
+	"XSIG011321"	! [28]
+	"XSIG011323"	! [29]
+	"XSIG011327"	! [30]
+	"XSIG011329"	! [31]
+	"DIO0"	! [32]
+	"DIO1"	! [33]
+	"DIO2"	! [34]
+	"DIO3"	! [35]
+	"DIO4"	! [36]
+	"DIO5"	! [37]
+	"VR_PA"	! [38]
+	"XSIG011411"	! [39]
+	"XSIG011414"	! [40]
+	"XSIG011415"	! [41]
+	"XSIG011416"	! [42]
+	"XSIG020078"	! [43]
+	"XSIG020079"	! [44]
+	"XSIG020081"	! [45]
+	"XSIG020082"	! [46]
+	"XSIG020111"	! [47]
+	"XSIG020116"	! [48]
+	"XSIG020119"	! [49]
+	"XSIG020120"	! [50]
+	"XSIG020125"	! [51]
+	"XSIG020139"	! [52]
+	"XSIG030117"	! [53]
+	"XSIG030120"	! [54]
+	"XSIG030123"	! [55]
+	"XSIG030124"	! [56]
+	"XSIG020155"	! [57]
+	"XSIG011440"	! [58]
+	"XSIG011442"	! [59]
+	"XSIG020157"	! [60]
     )
     ..Netclass_Names ( 
 	"(Default)"	! [1]
@@ -1374,18 +1373,17 @@
 	0x00ffffff 0x00ffffff	! [33-34] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [35-36] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [37-38] RGB(255,255,255)  RGB(255,255,255)
-	        -1         -1	! [39-40] undefined  undefined
-	        -1         -1	! [41-42] undefined  undefined
-	        -1         -1	! [43-44] undefined  undefined
-	        -1         -1	! [45-46] undefined  undefined
-	        -1         -1	! [47-48] undefined  undefined
-	        -1         -1	! [49-50] undefined  undefined
-	        -1         -1	! [51-52] undefined  undefined
-	        -1         -1	! [53-54] undefined  undefined
-	        -1         -1	! [55-56] undefined  undefined
+	0x00ffffff 0x00ffffff	! [39-40] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [41-42] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [43-44] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [45-46] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [47-48] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [49-50] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [51-52] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [53-54] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff 0x00ffffff	! [55-56] RGB(255,255,255)  RGB(255,255,255)
 	        -1         -1	! [57-58] undefined  undefined
 	        -1         -1	! [59-60] undefined  undefined
-	        -1		! [61] undefined
     )
     ..Net_Ptrnidx ( 
 	0 0 0 0 0 0 0 0 0 0 	! [1 - 10]
@@ -1394,7 +1392,6 @@
 	0 0 0 0 0 0 0 0 0 0 	! [31 - 40]
 	0 0 0 0 0 0 0 0 0 0 	! [41 - 50]
 	0 0 0 0 0 0 0 0 0 0 	! [51 - 60]
-	0 ! [61 - 61]
 	)
     ..Net_Alpha ( 
 	100 100 100 100 100 100 100 100 100 100 	! [1 - 10]
@@ -1403,7 +1400,6 @@
 	100 100 100 100 100 100 100 100 100 100 	! [31 - 40]
 	100 100 100 100 100 100 100 100 100 100 	! [41 - 50]
 	100 100 100 100 100 100 100 100 100 100 	! [51 - 60]
-	100 ! [61 - 61]
 	)
     ..Net_Nopaque ( 
 	F F F F F F F F F F 	! [1 - 10]
@@ -1412,16 +1408,14 @@
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
 	F F F F F F F F F F 	! [51 - 60]
-	F ! [61 - 61]
 	)
     ..Net_Outline ( 
 	T T F T T T F F F F 	! [1 - 10]
 	F F F F F F F F F F 	! [11 - 20]
 	F F F F F F F F F F 	! [21 - 30]
-	F F F F F F F F T T 	! [31 - 40]
-	T T T T T T T T T T 	! [41 - 50]
-	T T T T T T T T T T 	! [51 - 60]
-	T ! [61 - 61]
+	F F F F F F F F F F 	! [31 - 40]
+	F F F F F F F F F F 	! [41 - 50]
+	F F F F F F T T T T 	! [51 - 60]
 	)
     ..Netclass_Color (
 	0x00ffffff	! top     RGB(255,255,255)
@@ -1467,7 +1461,6 @@
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
 	F F F F F F F F F F 	! [51 - 60]
-	F ! [61 - 61]
 	)
     ..Netclass_On                        False	! top
                                          False	! bottom
@@ -1643,7 +1636,7 @@
 	"Global.Option.FullScreenCursor" "1"
 	"Global.Option.FullScreenCursorDuringMoveOnly" "1"
 	"Global.Option.HalfScreenCursor" "0"
-	"Global.Option.IgnoreSelectionFilter" "1"
+	"Global.Option.IgnoreSelectionFilter" "0"
 	"Global.Option.LinkSketchNetlineDisplayToLayerVisibility" "1"
 	"Global.Option.NetNamesOnTraces" "0"
 	"Global.Option.PlaneDataBehindTraces" "1"
@@ -1708,7 +1701,7 @@
 	"[VirtualGlobal].iDC.3D.Objects.CollapsedSectionOrder" "3"
 	"[VirtualGlobal].iDC.3D.Options.CollapsedSectionOrder" "2"
 	"[VirtualGlobal].iDC.3D.PCBs.CollapsedSectionOrder" "8"
-	"[VirtualGlobal].iDC.ActiveTabId" "2"
+	"[VirtualGlobal].iDC.ActiveTabId" "3"
 	"[VirtualGlobal].iDC.AplyTo" "2"
 	"[VirtualGlobal].iDC.AssemblyItems" "2"
 	"[VirtualGlobal].iDC.Batch.CollapsedSectionOrder" "4"
@@ -1819,8 +1812,8 @@
 
 .view "PCB"
     ..extrema
-	(-18153028,-2284409)		! (xmin, ymin)
-	(53517398,35836324)		! (xmax, ymax)
+	(-28964321,-5434891)		! (xmin, ymin)
+	(64306560,37598229)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
@@ -1832,60 +1825,60 @@
     ..Trace_All_Enabled                  True
     ..Pad_All_Enabled                    True
     ..Pad_Layer_On ( 
-	T F F F F F F F F F 	! [1 - 10]
-	F F F F F F F F F F 	! [11 - 20]
-	F F F F F F F F F F 	! [21 - 30]
-	F F F F F F F F F F 	! [31 - 40]
-	F F F F F F F F F F 	! [41 - 50]
-	F F F F F F F F F F 	! [51 - 60]
-	F F F F F F F F F F 	! [61 - 70]
-	F F F F F F F F F F 	! [71 - 80]
-	F F F F F F F F F F 	! [81 - 90]
-	F F F F F F F F F F 	! [91 - 100]
-	F F F F F F F F F F 	! [101 - 110]
-	F F F F F F F F F F 	! [111 - 120]
-	F F F F F F F F F F 	! [121 - 130]
-	F F F F F F F F F F 	! [131 - 140]
-	F F F F F F F F F F 	! [141 - 150]
-	F F F F F F F F F F 	! [151 - 160]
-	F F F F F F F F F F 	! [161 - 170]
-	F F F F F F F F F F 	! [171 - 180]
-	F F F F F F F F F F 	! [181 - 190]
-	F F F F F F F F F F 	! [191 - 200]
-	F F F F F F F F F F 	! [201 - 210]
-	F F F F F F F F F F 	! [211 - 220]
-	F F F F F F F F F F 	! [221 - 230]
-	F F F F F F F F F F 	! [231 - 240]
-	F F F F F F F F F F 	! [241 - 250]
-	F F F F F F ! [251 - 256]
+	T T T T T T T T T T 	! [1 - 10]
+	T T T T T T T T T T 	! [11 - 20]
+	T T T T T T T T T T 	! [21 - 30]
+	T T T T T T T T T T 	! [31 - 40]
+	T T T T T T T T T T 	! [41 - 50]
+	T T T T T T T T T T 	! [51 - 60]
+	T T T T T T T T T T 	! [61 - 70]
+	T T T T T T T T T T 	! [71 - 80]
+	T T T T T T T T T T 	! [81 - 90]
+	T T T T T T T T T T 	! [91 - 100]
+	T T T T T T T T T T 	! [101 - 110]
+	T T T T T T T T T T 	! [111 - 120]
+	T T T T T T T T T T 	! [121 - 130]
+	T T T T T T T T T T 	! [131 - 140]
+	T T T T T T T T T T 	! [141 - 150]
+	T T T T T T T T T T 	! [151 - 160]
+	T T T T T T T T T T 	! [161 - 170]
+	T T T T T T T T T T 	! [171 - 180]
+	T T T T T T T T T T 	! [181 - 190]
+	T T T T T T T T T T 	! [191 - 200]
+	T T T T T T T T T T 	! [201 - 210]
+	T T T T T T T T T T 	! [211 - 220]
+	T T T T T T T T T T 	! [221 - 230]
+	T T T T T T T T T T 	! [231 - 240]
+	T T T T T T T T T T 	! [241 - 250]
+	T T T T T T ! [251 - 256]
 	)
     ..Trace_Layer_On ( 
-	T F F F F F F F F F 	! [1 - 10]
-	F F F F F F F F F F 	! [11 - 20]
-	F F F F F F F F F F 	! [21 - 30]
-	F F F F F F F F F F 	! [31 - 40]
-	F F F F F F F F F F 	! [41 - 50]
-	F F F F F F F F F F 	! [51 - 60]
-	F F F F F F F F F F 	! [61 - 70]
-	F F F F F F F F F F 	! [71 - 80]
-	F F F F F F F F F F 	! [81 - 90]
-	F F F F F F F F F F 	! [91 - 100]
-	F F F F F F F F F F 	! [101 - 110]
-	F F F F F F F F F F 	! [111 - 120]
-	F F F F F F F F F F 	! [121 - 130]
-	F F F F F F F F F F 	! [131 - 140]
-	F F F F F F F F F F 	! [141 - 150]
-	F F F F F F F F F F 	! [151 - 160]
-	F F F F F F F F F F 	! [161 - 170]
-	F F F F F F F F F F 	! [171 - 180]
-	F F F F F F F F F F 	! [181 - 190]
-	F F F F F F F F F F 	! [191 - 200]
-	F F F F F F F F F F 	! [201 - 210]
-	F F F F F F F F F F 	! [211 - 220]
-	F F F F F F F F F F 	! [221 - 230]
-	F F F F F F F F F F 	! [231 - 240]
-	F F F F F F F F F F 	! [241 - 250]
-	F F F F F F ! [251 - 256]
+	T T T T T T T T T T 	! [1 - 10]
+	T T T T T T T T T T 	! [11 - 20]
+	T T T T T T T T T T 	! [21 - 30]
+	T T T T T T T T T T 	! [31 - 40]
+	T T T T T T T T T T 	! [41 - 50]
+	T T T T T T T T T T 	! [51 - 60]
+	T T T T T T T T T T 	! [61 - 70]
+	T T T T T T T T T T 	! [71 - 80]
+	T T T T T T T T T T 	! [81 - 90]
+	T T T T T T T T T T 	! [91 - 100]
+	T T T T T T T T T T 	! [101 - 110]
+	T T T T T T T T T T 	! [111 - 120]
+	T T T T T T T T T T 	! [121 - 130]
+	T T T T T T T T T T 	! [131 - 140]
+	T T T T T T T T T T 	! [141 - 150]
+	T T T T T T T T T T 	! [151 - 160]
+	T T T T T T T T T T 	! [161 - 170]
+	T T T T T T T T T T 	! [171 - 180]
+	T T T T T T T T T T 	! [181 - 190]
+	T T T T T T T T T T 	! [191 - 200]
+	T T T T T T T T T T 	! [201 - 210]
+	T T T T T T T T T T 	! [211 - 220]
+	T T T T T T T T T T 	! [221 - 230]
+	T T T T T T T T T T 	! [231 - 240]
+	T T T T T T T T T T 	! [241 - 250]
+	T T T T T T ! [251 - 256]
 	)
     ..Netline_All_Enabled                True
     ..Netline_Ordered_Routed_On          True
@@ -1910,7 +1903,7 @@
     ..Scoringline_On                     True
     ..Shearingline_On                    True
     ..Soldermask_On                      True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Solderpaste_On                     False	! top
                                          False	! bottom
     ..Group_Outline_On                   False	! top
@@ -1957,7 +1950,7 @@
     ..Mounting_Hole_On                   True
     ..Other_Hole_On                      True
     ..Fiducial_On                        True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Origin_On                          True
     ..Nc_Drill_Origin_On                 True
     ..Route_Obstruct_On                  True
@@ -1978,7 +1971,7 @@
     ..Fill_Patterns_On                   True
     ..Force_Outline_On                   False
     ..Force_Solid_On                     False
-    ..Dsp_Active_Route_Layer_Only        True
+    ..Dsp_Active_Route_Layer_Only        False
     ..Display_Legible_Text_Only          False
     ..Mirror_View_On                     False
     ..All_Text_Items_Enabled             True
@@ -1998,7 +1991,7 @@
     ..Distributed_Part_On                False	! top
                                          False	! bottom
     ..Place_Outline_On                   True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Insert_Outline_On                  False	! top
                                          False	! bottom
     ..Jumper_Wire_On                     True 	! top
@@ -2012,13 +2005,13 @@
     ..Pin_Type_On                        False	! top
                                          False	! bottom
     ..Part_Hazard_On                     True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Thermal_Data_On                    True 	! top
                                          True 	! bottom
     ..All_Assy_Enabled                   True 	! top
                                          True 	! bottom
     ..Assy_Outline_On                    True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Assy_Part_Number_On                False	! top
                                          False	! bottom
     ..Assy_Ref_Des_On                    False	! top
@@ -2044,15 +2037,15 @@
     ..All_Tpoint_Enabled                 True 	! top
                                          True 	! bottom
     ..Tpoint_Pad_On                      True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Tpoint_Obstruct_On                 False	! top
                                          False	! bottom
     ..Tpoint_Assy_Ref_Des_On             True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Tpoint_Silk_Ref_Des_On             True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..Tpoint_Probe_On                    True 	! top
-                                         False	! bottom
+                                         True 	! bottom
     ..All_Wirebond_Enabled               True 	! top
                                          True 	! bottom
     ..All_Diepin_Enabled                 True 	! top
@@ -13391,70 +13384,69 @@
 	"[Net].VCC" "d:1" "e:1" "s:1" "se:1" "c:39168" "a:100" "p:0" "t:0" "o:1"
 	"[Net].SWCLK" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[Net].RSTn" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].LED_B" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RFI_HF" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RFO_HF" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RGB_B" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RGB_G" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RGB_R" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].RXTX" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI_MISO" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI_MOSI" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI_NSS" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SPI_SCK" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].SWDIO" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].USB_VBUS" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].VBAT" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011286" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011287" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011288" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011289" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011292" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011297" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011299" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011321" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011323" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011327" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011329" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].DIO0" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].DIO1" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].DIO2" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].DIO3" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].DIO4" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].DIO5" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].VR_PA" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011411" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011414" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011415" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG011416" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020078" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020079" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020081" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020082" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020108" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020111" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020116" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020119" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020120" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020125" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020139" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020140" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020141" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG020152" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG030117" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG030120" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG030123" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG030124" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].LED_B" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RFI_HF" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RFO_HF" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RGB_B" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RGB_G" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RGB_R" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].RXTX" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI_MISO" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI_MOSI" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI_NSS" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SPI_SCK" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].SWDIO" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].USB_VBUS" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].VBAT" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011286" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011287" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011288" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011289" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011297" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011299" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011321" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011323" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011327" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011329" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].DIO0" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].DIO1" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].DIO2" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].DIO3" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].DIO4" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].DIO5" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].VR_PA" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011411" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011414" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011415" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011416" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020078" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020079" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020081" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020082" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020111" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020116" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020119" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020120" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020125" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020139" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030117" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030120" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030123" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030124" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020155" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011440" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG011442" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG020157" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[NetClass].(Default)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[NetClass].(SpacerNetClass)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[ConstraintClass].(All)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
     )
     ..Virtual_String_Options ( 
-	"[Virtual].iDC.SchemeSelectorName" "Sys: Routage + plan"
+	"[Virtual].iDC.SchemeSelectorName" "Sys: Routage"
     )
     ..Named_Options ( 
 	"Internal.Option.FabricationObjects.Propagating" "1"
-	"Option.ActiveLayerOnly" "1"
+	"Option.ActiveLayerOnly" "0"
 	"Option.BoardElements.Enabled" "1"
 	"Option.BoardElements.Selectable" "1"
 	"Option.BoardObjects.Enabled" "1"
@@ -13581,8 +13573,8 @@
 	"Option.PlaceObjects.Parts.Top" "1"
 	"Option.PlaceObjects.Selectable" "1"
 	"Option.PlaceObstructsHeight" "3"
-	"Option.Planes.Data.Enabled" "1"
-	"Option.Planes.Data.Fill" "1"
+	"Option.Planes.Data.Enabled" "0"
+	"Option.Planes.Data.Fill" "3"
 	"Option.Planes.Enabled" "1"
 	"Option.Planes.Selectable" "1"
 	"Option.Planes.Shape.Enabled" "1"
