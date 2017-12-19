@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                       01:22 AM Tuesday, December 19, 2017
-                Job Name: H:\ZEROSERO7\PCB\SPY_TALK\Spy_talk.prj
+                       04:13 PM Tuesday, December 19, 2017
+                Job Name: G:\ZEROSERO7\PCB\SPY_TALK\Spy_talk.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jH:\ZEROSERO7\PCB\SPY_TALK\Spy_talk.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jG:\ZEROSERO7\PCB\SPY_TALK\Spy_talk.prj -CleanBuild -NoFill"
 
-     The Common Database is at "H:\ZEROSERO7\PCB\SPY_TALK\Default\default.icdb".
+     The Common Database is at "G:\ZEROSERO7\PCB\SPY_TALK\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "H:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "G:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -101,10 +101,10 @@
           Part Numb: 10-0109 -> Vend Part: 10-0109 
           Part Numb: 10-0118 -> Vend Part: 10-0118 
           Part Numb: 10-0119 -> Vend Part: 10-0119 
-          Part Numb: 20-0009 -> Vend Part: 20-0009 
-          Part Numb: 20-0022 -> Vend Part: 20-0022 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
           Part Numb: 20-0040 -> Vend Part: 20-0040 
+          Part Numb: 20-0041 -> Vend Part: 20-0041 
+          Part Numb: 20-0060 -> Vend Part: 20-0060 
           Part Numb: 30-0010 -> Vend Part: 30-0010 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
           Part Numb: 40-0287 -> Vend Part: 40-0287 

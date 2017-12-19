@@ -1,7 +1,7 @@
 .FILETYPE GerberPlotSetupFile
 .VERSION "VB99.0"
-.CREATOR "Expedition PCB Gerber Output"
-.DATE "Tuesday, December 20, 2016 02:00 PM"
+.CREATOR "Xpedition Layout Gerber Output"
+.DATE "Tuesday, December 19, 2017 04:04 PM"
 
 .BaseUnits "1NM"
 
@@ -50,9 +50,8 @@
  ..BoardItem SolderpasteBottom
 
 .GerberOutputFile "SilkScreenTop.gdo"
- ..ProcessFile Yes
+ ..ProcessFile No
  ..FlashPads Yes
- ..GerberOutputPath "Output\\Gerber\\SilkScreenTop.gdo"
  ..BoardItem AlteredSilkscreenTop
  ..BoardItem BoardOutline
  ..CellType Buried
@@ -80,9 +79,8 @@
  ..CellType TestPoint
 
 .GerberOutputFile "SilkScreenBottom.gdo"
- ..ProcessFile Yes
+ ..ProcessFile No
  ..FlashPads Yes
- ..GerberOutputPath "Output\\Gerber\\SilkScreenBottom.gdo"
  ..BoardItem AlteredSilkscreenBottom
  ..BoardItem BoardOutline
  ..CellType Buried
