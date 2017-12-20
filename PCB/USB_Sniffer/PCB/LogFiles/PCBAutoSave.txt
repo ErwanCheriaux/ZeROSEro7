@@ -2,19 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                      02:54 PM Wednesday, December 20, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
+                      04:53 PM Wednesday, December 20, 2017
+               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
-Autosave pending at 14:59:37 Wed  Attempting...
-Autosave completed successfully.  14:59:38 Wed
-Autosave pending at 15:08:40 Wed  Attempting...
-Autosave completed successfully.  15:08:41 Wed
-Autosave pending at 15:14:07 Wed  Attempting...
-Autosave completed successfully.  15:14:08 Wed
 
                                Autosave log closed
                                -------------------
 
-                      04:25 PM Wednesday, December 20, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
+                      05:13 PM Wednesday, December 20, 2017
+               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
