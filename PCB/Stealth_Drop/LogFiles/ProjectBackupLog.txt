@@ -116,3 +116,11 @@
 [2017-12-20 17.07.43] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
 [2017-12-20 17.13.53] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
 [2017-12-20 17.13.53] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-20 17.24.50] Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 17.24.50] Migrating iCDB upgrade backup file [2017-12-20 17.15.54-1736].
+[2017-12-20 17.24.50] Successfully created [Constraints Definition Upgrade] backup [2017-12-20 17.15.54 - consDefUpgr.zip] requested by [WINDOWS01:admin].
+[2017-12-20 17.24.50] Removing excessive [Constraints Definition Upgrade] backup file [G:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-17 18.05.29 - consDefUpgr.zip].
+[2017-12-20 17.24.50] [Constraints Definition Upgrade] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-17 18.05.29 - consDefUpgr.zip] removed.
+[2017-12-20 17.24.50] Migrated iCDB content backup file [cdbback\2017-12-20 17.15.54-1736.zip] removed.
+[2017-12-20 17.24.50] Successfully migrated iCDB upgrade backup file [2017-12-20 17.15.54-1736] to Project Backup format [2017-12-20 17.15.54 - consDefUpgr.zip]
+[2017-12-20 17.24.50] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.

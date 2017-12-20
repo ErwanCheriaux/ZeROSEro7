@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      05:11 PM Wednesday, December 20, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj
+                      05:25 PM Wednesday, December 20, 2017
+            Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jG:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj -CleanBuild -NoFill"
 
-     The Common Database is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb".
+     The Common Database is at "G:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -81,12 +81,11 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 50
+     Number of Part Numbers: 49
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
           Part Numb: 00-0074 -> Vend Part: 00-0074 
-          Part Numb: 00-0081 -> Vend Part: 00-0081 
           Part Numb: 00-0090 -> Vend Part: 00-0090 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
           Part Numb: 00-0122 -> Vend Part: 00-0122 
@@ -110,8 +109,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
-          Part Numb: 20-0022 -> Vend Part: 20-0022 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 20-0060 -> Vend Part: 20-0060 
           Part Numb: 30-0010 -> Vend Part: 30-0010 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
           Part Numb: 40-0232 -> Vend Part: 40-0232 
@@ -129,8 +128,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
           Part Numb: 70-0087 -> Vend Part: 70-0087 
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0071 -> Vend Part: 80-0071 
-          Part Numb: 81-0002 -> Vend Part: 81-0002 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
+          Part Numb: 83-0027 -> Vend Part: 83-0027 
           Part Numb: 83-0028 -> Vend Part: 83-0028 
 
      Number of Part Names: 0
@@ -162,7 +161,7 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
 
 
-     69 nets were found containing 286 pins
+     69 nets were found containing 287 pins
      81 components were found
 
      Parsed netlist - Augmenting..
