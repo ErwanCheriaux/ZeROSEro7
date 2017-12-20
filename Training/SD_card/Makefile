@@ -118,7 +118,9 @@ CSRC = $(STARTUPSRC) \
        $(TESTSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
-       $(SRC)/main.c
+       $(SRC)/main.c \
+       $(SRC)/rtt.c \
+       $(SRC)/SEGGER_RTT.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -151,7 +153,8 @@ ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 INCDIR = $(CHIBIOS)/os/license \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
-         $(STREAMSINC) $(SHELLINC)
+         $(STREAMSINC) $(SHELLINC) \
+		 $(SRC)
 
 #
 # Project, sources and paths

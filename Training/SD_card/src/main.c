@@ -22,6 +22,8 @@
 #include "chprintf.h"
 #include "shell.h"
 
+#include "rtt.h"
+
 /*
  * Working area for driver.
  */
