@@ -2,10 +2,10 @@
 ! change it at your own peril
 
 !
-! Created 12/19/17 01:12:12
+! Created 12/20/17 16:53:55
 !
 
-.Global_Constants 69 2
+.Global_Constants 72 2
     ..File_Type Graphics_Settings
     ..Version Version_7
     ..Num_Views 1
@@ -16,8 +16,8 @@
 	(-1, -1)	! ptMinPosition
 	(-1, -1)	! ptMaxPosition
 	(253, 109) (1675,829)	! ..rcNormalPosition
-    ..Active_Place_Layer_Top             True
-    ..Active_Place_Layer_Bottom          False
+    ..Active_Place_Layer_Top             False
+    ..Active_Place_Layer_Bottom          True
     ..Active_Place_Layer_Internal        False
     ..Active_Route_Layer 0
     ..Trace_Layer_Color ( 
@@ -1337,21 +1337,24 @@
 	"XSIG020405"	! [52]
 	"XSIG020406"	! [53]
 	"XSIG020410"	! [54]
-	"XSIG030028"	! [55]
-	"XSIG030029"	! [56]
-	"XSIG040055"	! [57]
-	"XSIG040056"	! [58]
-	"XSIG040057"	! [59]
-	"XSIG040060"	! [60]
-	"XSIG040065"	! [61]
-	"XSIG040066"	! [62]
-	"XSIG040069"	! [63]
-	"XSIG040071"	! [64]
-	"XSIG040074"	! [65]
-	"XSIG040076"	! [66]
-	"XSIG040080"	! [67]
-	"XSIG040081"	! [68]
-	"XSIG040084"	! [69]
+	"XSIG040055"	! [55]
+	"XSIG040056"	! [56]
+	"XSIG040057"	! [57]
+	"XSIG040065"	! [58]
+	"XSIG040066"	! [59]
+	"XSIG040069"	! [60]
+	"XSIG040071"	! [61]
+	"XSIG040074"	! [62]
+	"XSIG040076"	! [63]
+	"XSIG040080"	! [64]
+	"XSIG040081"	! [65]
+	"XSIG040084"	! [66]
+	"XSIG030051"	! [67]
+	"XSIG040091"	! [68]
+	"XSIG040092"	! [69]
+	"XSIG030058"	! [70]
+	"XSIG030059"	! [71]
+	"XSIG030061"	! [72]
     )
     ..Netclass_Names ( 
 	"(Default)"	! [1]
@@ -1397,7 +1400,8 @@
 	0x00ffffff 0x00ffffff	! [63-64] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [65-66] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [67-68] RGB(255,255,255)  RGB(255,255,255)
-	0x00ffffff		! [69] RGB(255,255,255)
+	0x00ffffff         -1	! [69-70] RGB(255,255,255)  undefined
+	        -1         -1	! [71-72] undefined  undefined
     )
     ..Net_Ptrnidx ( 
 	0 0 0 0 0 0 0 0 0 0 	! [1 - 10]
@@ -1406,7 +1410,8 @@
 	0 0 0 0 0 0 0 0 0 0 	! [31 - 40]
 	0 0 0 0 0 0 0 0 0 0 	! [41 - 50]
 	0 0 0 0 0 0 0 0 0 0 	! [51 - 60]
-	0 0 0 0 0 0 0 0 0 ! [61 - 69]
+	0 0 0 0 0 0 0 0 0 0 	! [61 - 70]
+	0 0 ! [71 - 72]
 	)
     ..Net_Alpha ( 
 	100 100 100 100 100 100 100 100 100 100 	! [1 - 10]
@@ -1415,7 +1420,8 @@
 	100 100 100 100 100 100 100 100 100 100 	! [31 - 40]
 	100 100 100 100 100 100 100 100 100 100 	! [41 - 50]
 	100 100 100 100 100 100 100 100 100 100 	! [51 - 60]
-	100 100 100 100 100 100 100 100 100 ! [61 - 69]
+	100 100 100 100 100 100 100 100 100 100 	! [61 - 70]
+	100 100 ! [71 - 72]
 	)
     ..Net_Nopaque ( 
 	F F F F F F F F F F 	! [1 - 10]
@@ -1424,7 +1430,8 @@
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
 	F F F F F F F F F F 	! [51 - 60]
-	F F F F F F F F F ! [61 - 69]
+	F F F F F F F F F F 	! [61 - 70]
+	F F ! [71 - 72]
 	)
     ..Net_Outline ( 
 	T T F T T T F F F F 	! [1 - 10]
@@ -1433,7 +1440,8 @@
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
 	F F F F F F F F F F 	! [51 - 60]
-	F F F F F F F F F ! [61 - 69]
+	F F F F F F F F F T 	! [61 - 70]
+	T T ! [71 - 72]
 	)
     ..Netclass_Color (
 	0x00ffffff	! top     RGB(255,255,255)
@@ -1479,7 +1487,8 @@
 	F F F F F F F F F F 	! [31 - 40]
 	F F F F F F F F F F 	! [41 - 50]
 	F F F F F F F F F F 	! [51 - 60]
-	F F F F F F F F F ! [61 - 69]
+	F F F F F F F F F F 	! [61 - 70]
+	F F ! [71 - 72]
 	)
     ..Netclass_On                        False	! top
                                          False	! bottom
@@ -1614,16 +1623,18 @@
     ..Valorseverity3_Hzd_Clr 0x00ffffff	! RGB(255,255,255)
     ..Valorseverity4_Hzd_Clr 0x00ffffff	! RGB(255,255,255)
     ..Valorseverity5_Hzd_Clr 0x00ffffff	! RGB(255,255,255)
-    ..Num_Unigroups 4
+    ..Num_Unigroups 5
     ..Unigroup_Names ( 
 	"189296"	! [1]
 	"482201"	! [2]
 	"502524"	! [3]
 	"618537"	! [4]
+	"686136"	! [5]
     )
     ..Unigroup_Colors ( 
 	0x00ffffff 0x00ffffff	! [1-2] RGB(255,255,255)  RGB(255,255,255)
 	0x00ffffff 0x00ffffff	! [3-4] RGB(255,255,255)  RGB(255,255,255)
+	0x00ffffff		! [5] RGB(255,255,255)
     )
     ..Global_Options ( 
 	"Global.Option.AutoPan" "1"
@@ -1809,9 +1820,9 @@
 	"[VirtualGlobal].iDC.SilkscreenItems" "3"
 	"[VirtualGlobal].iDC.SketchPlans.Collapsed" "3"
 	"[VirtualGlobal].iDC.Spacers" "3"
-	"[VirtualGlobal].iDC.SplitViewHeight.0" "140"
-	"[VirtualGlobal].iDC.SplitViewHeight.1" "270"
-	"[VirtualGlobal].iDC.SplitViewHeight.2" "350"
+	"[VirtualGlobal].iDC.SplitViewHeight.0" "144"
+	"[VirtualGlobal].iDC.SplitViewHeight.1" "185"
+	"[VirtualGlobal].iDC.SplitViewHeight.2" "311"
 	"[VirtualGlobal].iDC.Substrate Objects.CollapsedSectionOrder" "3"
 	"[VirtualGlobal].iDC.TestPointItems" "3"
 	"[VirtualGlobal].iDC.TextItems.Collapsed" "3"
@@ -1826,8 +1837,8 @@
 
 .view "PCB"
     ..extrema
-	(-10799539,-2540084)		! (xmin, ymin)
-	(68314986,39540084)		! (xmax, ymax)
+	(-33831877,-5850655)		! (xmin, ymin)
+	(86236180,49546090)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd
@@ -2066,24 +2077,27 @@
                                          True 	! bottom
     ..Cluster_2on                        True 	! top
                                          True 	! bottom
-    ..V_Num_Unigroups 4
+    ..V_Num_Unigroups 5
     ..V_Unigroup_Names ( 
 	"189296"	! [1]
 	"482201"	! [2]
 	"502524"	! [3]
 	"618537"	! [4]
+	"686136"	! [5]
     )
     ..V_Unigroup_On ( 
 	False ![1]
 	False ![2]
 	False ![3]
 	False ![4]
+	False ![5]
     )
     ..V_Unigroup_Enabled ( 
 	False ![1]
 	False ![2]
 	False ![3]
 	False ![4]
+	False ![5]
     )
     ..Virtual_Options ( 
 	"[Virtual].iDC.ListSelectableLayersOnly" "1"
@@ -13437,12 +13451,9 @@
 	"[Net].XSIG020405" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG020406" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG020410" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG030028" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG030029" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040055" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040056" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040057" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
-	"[Net].XSIG040060" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040065" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040066" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040069" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
@@ -13452,6 +13463,12 @@
 	"[Net].XSIG040080" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040081" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[Net].XSIG040084" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030051" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG040091" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG040092" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030058" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030059" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
+	"[Net].XSIG030061" "d:0" "e:1" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:0"
 	"[NetClass].(Default)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[NetClass].(SpacerNetClass)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"[ConstraintClass].(All)" "d:0" "e:0" "s:1" "se:1" "c:16777215" "a:100" "p:0" "t:0" "o:1"

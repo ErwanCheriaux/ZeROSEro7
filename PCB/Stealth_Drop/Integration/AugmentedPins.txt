@@ -11,7 +11,6 @@
  Part 80-0050                          |
        U3                              |    2| <unconnected pin>
        U2                              |    2| <unconnected pin>
-       U1                              |    2| <unconnected pin>
  Part 70-0081                          |
        J6                              |    7| <unconnected pin>
        J3                              |    7| <unconnected pin>

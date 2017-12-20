@@ -7,10 +7,6 @@ Time to ReCreate UniGroup outline: 0.000 sec
 
 Time to Create bubble graphics: 0.000 sec
 
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1752 points to process 
 Time to ReCreate UniGroup outline: 0.000 sec
 
 Time to Create bubble graphics: 0.000 sec
@@ -18,62 +14,160 @@ Time to Create bubble graphics: 0.000 sec
 Time to ReCreate UniGroup outline: 0.000 sec
 
 Successfully read the design.
-Time to Create bubble graphics: 0.000 sec
-
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1752 points to process 
-Time to ReCreate UniGroup outline: 0.000 sec
-
-Time to Create bubble graphics: 0.000 sec
-
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1752 points to process 
-Time to ReCreate UniGroup outline: 0.000 sec
-
-Time to Create bubble graphics: 0.000 sec
-
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1752 points to process 
-Time to ReCreate UniGroup outline: 0.016 sec
-
-Time to Create bubble graphics: 0.016 sec
-
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1752 points to process 
-Time to ReCreate UniGroup outline: 0.000 sec
-
-Time to Create bubble graphics: 0.015 sec
-
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1748 points to process 
-Time to ReCreate UniGroup outline: 0.000 sec
-
-Time to Create bubble graphics: 0.000 sec
-
-Time to collect shapes for UniGroup outline: 0.000 sec
-Time to qsort for UniGroup outline: 0.000 sec
-Time to build convex hull for UniGroup outline: 0.000 sec
-1748 points to process 
-Time to ReCreate UniGroup outline: 0.000 sec
-
 Cannot resolve immovable metal conflicts.
 Cannot resolve immovable metal conflicts.
-DRC violation found. Cannot make copy.
 Cannot resolve immovable metal conflicts.
 Cannot resolve immovable metal conflicts.
-DRC violation found. Cannot make copy.
+Cannot resolve immovable metal conflicts.
+Cannot resolve immovable metal conflicts.
+Cannot resolve immovable metal conflicts.
+Saved the design...
+
+
+
+
+
+
+
+
+
+
+
+
 Cannot resolve immovable metal conflicts.
 Cannot resolve immovable metal conflicts.
 Copy Trace Failed.  Either unrepairable violations exist or an attempt was made to copy an unconnected trace/via set.
+Saved the design...
+Cannot resolve immovable metal conflicts.
+Cannot resolve immovable metal conflicts.
+DRC violation found. Cannot make copy.
+Cannot resolve immovable metal conflicts.
+Cannot resolve immovable metal conflicts.
+DRC violation found. Cannot make copy.
+Cannot resolve immovable metal conflicts.
+Cannot resolve immovable metal conflicts.
+DRC violation found. Cannot make copy.
+Cannot resolve immovable metal conflicts.
+Cannot resolve immovable metal conflicts.
+DRC violation found. Cannot make copy.
+Saved the design...
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+404 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+404 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+400 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+396 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.016 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+396 points to process 
+Time to ReCreate UniGroup outline: 0.016 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+392 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+392 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+388 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+384 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+380 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+376 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+372 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+372 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Time spent Generating UPG
+
+Lap Elapsed Time  = 00:00:00	Total Elapsed time = 00:00:00
+Lap CPU  Time     = 00:00:00.00	Total CPU  Time    = 00:00:00.00
+
+Time to Create bubble graphics: 0.000 sec
+
+Time to collect shapes for UniGroup outline: 0.000 sec
+Time to qsort for UniGroup outline: 0.000 sec
+Time to build convex hull for UniGroup outline: 0.000 sec
+372 points to process 
+Time to ReCreate UniGroup outline: 0.000 sec
+
+Saved the design...
 Saved the design...
 Saved the design...
