@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                       08:49 AM Monday, December 18, 2017
-         Job Name: C:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj
+                      02:54 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\USB_Sniffer.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\USB_Sniffer.prj -CleanBuild -NoFill"
 
-     The Common Database is at "C:\Users\admin\Documents\USB_Sniffer\Default\default.icdb".
+     The Common Database is at "C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "C:\Users\admin\Documents\USB_Sniffer\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -81,7 +81,7 @@
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 27
+     Number of Part Numbers: 29
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
@@ -94,6 +94,7 @@
           Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0097 -> Vend Part: 10-0097 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
@@ -102,6 +103,7 @@
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
           Part Numb: 40-0332 -> Vend Part: 40-0332 
+          Part Numb: 50-0036 -> Vend Part: 50-0036 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
           Part Numb: 70-0042 -> Vend Part: 70-0042 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
@@ -130,16 +132,16 @@
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 45 Symbols:
-              45  ********************************************
+     Clustering 47 Symbols:
+              47  **********************************************
      Clustering is Complete
 
      Packager Assignments successfully completed
 
 
 
-     40 nets were found containing 155 pins
-     45 components were found
+     41 nets were found containing 159 pins
+     47 components were found
 
      Parsed netlist - Augmenting..
 

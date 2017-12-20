@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                       08:49 AM Monday, December 18, 2017
-           Job Name: C:\Users\admin\Documents\USB_Sniffer\PCB\PCB.pcb
+                      02:54 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -23,7 +23,7 @@ Version:  01.01.00
 
      Target PDB Name: Work\Layout_Temp\PartsDB.pdb
 
-     Number of Part Numbers: 27
+     Number of Part Numbers: 29
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
@@ -36,6 +36,7 @@ Version:  01.01.00
           Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0097 -> Vend Part: 10-0097 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
@@ -44,6 +45,7 @@ Version:  01.01.00
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
           Part Numb: 40-0332 -> Vend Part: 40-0332 
+          Part Numb: 50-0036 -> Vend Part: 50-0036 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
           Part Numb: 70-0042 -> Vend Part: 70-0042 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
@@ -78,16 +80,16 @@ Version:  01.01.00
 
 
      The Common DataBase has been read and will be packaged.
-     Clustering 45 Symbols:
-              45  ********************************************
+     Clustering 47 Symbols:
+              47  **********************************************
      Clustering is Complete
 
      Packager Assignments successfully completed
 
 
 
-     40 nets were found containing 155 pins
-     45 components were found
+     41 nets were found containing 159 pins
+     47 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
      A formatted Schematic Netlist has been created.
@@ -101,8 +103,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                       08:49 AM Monday, December 18, 2017
-           Job Name: C:\Users\admin\Documents\USB_Sniffer\PCB\PCB.pcb
+                      02:54 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -114,31 +116,12 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-	WARNING:  Physical Net "SPI1_MISO" is being renamed to "SPI_MISO" to match the change
-	in the schematic.
+     The following 2 components have not been placed:
 
-	WARNING:  Physical Net "SPI1_MOSI" is being renamed to "SPI_MOSI" to match the change
-	in the schematic.
+        C21
+        L1
 
-	WARNING:  Physical Net "SPI1_NSS" is being renamed to "SPI_NSS" to match the change
-	in the schematic.
-
-	WARNING:  Physical Net "SPI1_SCK" is being renamed to "SPI_SCK" to match the change
-	in the schematic.
-
-	WARNING:  Physical Net "SWCLK_NRF" is being renamed to "SWCLK" to match the change
-	in the schematic.
-
-	WARNING:  Physical Net "SWDIO_NRF" is being renamed to "SWDIO" to match the change
-	in the schematic.
-
-	WARNING:  "R9" is being removed from the Layout since it is no longer in the schematic.
-
-     The following 1 components have not been placed:
-
-        R8
-
-     Netload completed successfully with 7 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 
@@ -169,23 +152,15 @@ Version:  02.11.12
 
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
-	Assigned net (Net0) to a via which was originally on net XSIG011435.
-	Assigned net (Net0) to a trace which was originally on net XSIG011435.
-	Broke back a trace from the point (33031828, 23690361).
-	Broke back a trace from the point (36453022, 20029242).
-	Assigned net USB_DEVICE_TO_KEYBOARD_VBUS to a trace which was originally on net USB_PC_TO_DEVICE_VBUS.
-	Broke back a trace from the point (18684151, 18825163).
-	Assigned net XSIG011445 to a trace which was originally on net BOOT0.
-	Assigned net XSIG011445 to a trace which was originally on net BOOT0.
-	Assigned net XSIG011445 to a via which was originally on net BOOT0.
-	Assigned net XSIG011445 to a trace which was originally on net BOOT0.
+	Assigned net XSIG020169 to a trace which was originally on net XSIG020164.
+	Assigned net XSIG020168 to a trace which was originally on net XSIG020164.
+	Broke back a trace from the point (33565217, 12900454).
 
 Some nets were completely deleted from the Layout Design....
-	Deleted net BOOT0, which has no pins, from the Layout Design.
-	Deleted net BOOT1, which has no pins, from the Layout Design.
+	Deleted net XSIG020164, which has no pins, from the Layout Design.
 
 Forward-Annotation on the Layout Design has been successfully completed.
 
-There were 7 reassignments of nets.
-There were 3 traces broken back.
-There were 2 nets removed from the Layout Design.
+There were 2 reassignments of nets.
+There were 1 traces broken back.
+There were 1 nets removed from the Layout Design.
