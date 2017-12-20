@@ -61,6 +61,15 @@ static void ThreadTestHID(void *p) {
 
     for (;;) {
         for (i = 0; i < HAL_USBHHID_MAX_INSTANCES; i++) {
+            /*
+             * typedef enum {
+             *     USBHHID_STATE_UNINIT = 0,
+             *     USBHHID_STATE_STOP   = 1,
+             *     USBHHID_STATE_ACTIVE = 2,
+             *     USBHHID_STATE_READY  = 3 
+             * } usbhhid_state_t;
+             */
+            uinfo("USBH_STATE(%d) = %d", i, usbhhidGetState(&USBHHIDD[i]));
             if (usbhhidGetState(&USBHHIDD[i]) == USBHHID_STATE_ACTIVE) {
                 uinfof("HID: Connected, HID%d", i);
                 usbhhidStart(&USBHHIDD[i], &hidcfg[i]);

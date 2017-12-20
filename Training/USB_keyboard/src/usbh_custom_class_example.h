@@ -62,10 +62,12 @@ struct USBHCustomDriver {
 #define uinfof(f, ...)                   \
     do {                                 \
         rtt_printf(0, f, ##__VA_ARGS__); \
+        rtt_printf(0, "\n"); \
     } while(0)
 #define uinfo(f, ...)                    \
     do {                                 \
         rtt_printf(0, f, ##__VA_ARGS__); \
+        rtt_printf(0, "\n"); \
     } while(0)
 #else
 #define uinfof(f, ...) \
