@@ -1,7 +1,7 @@
  ----------------------------
 |      Drill Engine Log      |
 |          Started           |
-|  Tue Dec 19 16:04:22 2017  |
+|  Wed Dec 27 13:10:06 2017  |
  ----------------------------
 
 Removing Output/NCDrill/ThruHolePlated.ncd
@@ -18,5 +18,5 @@ Total holes, contours in this file 117, 0
  ----------------------------
 |      Drill Engine Log      |
 |          Finished          |
-|  Tue Dec 19 16:04:24 2017  |
+|  Wed Dec 27 13:10:08 2017  |
  ----------------------------

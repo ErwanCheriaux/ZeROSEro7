@@ -2,8 +2,8 @@
                                 DRC - (Final DRC)
                                 -----------------
 
-                       04:03 PM Tuesday, December 19, 2017
-                 Job Name: G:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb
+                      01:09 PM Wednesday, December 27, 2017
+                 Job Name: H:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb
 
 
     ---------
@@ -316,11 +316,16 @@
 
 
 
+    Test Probe Clearances And Rules
+    ------------------------------
+
+    Test Probe Checks Not Selected.
+
+
+
+
     Non-Net Class Element To Element Clearances And Rules
     -----------------------------------------------------
-
-        Test Points Top TO Test Points Top    Clearance: 0.25mm
-            No Hazards.
 
         Test Pads Top TO Test Point Obstructs Layer 1    Clearance: 0mm
             No Hazards.
@@ -349,7 +354,7 @@
         Board Outline TO Fiducial Pads Top    Clearance: 0mm
             No Hazards.
 
-        Board Outline TO Placement Outlines Layer 1    Clearance: 0.25mm
+        Board Outline TO Placement Outlines Layer 1    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Via Pads Layer 1    Clearance: 0mm
@@ -391,7 +396,7 @@
         Part Pads Thru Layer 2 TO Route Border    Clearance: 0mm
             No Hazards.
 
-        Board Outline TO Placement Outlines Layer 2    Clearance: 0.25mm
+        Board Outline TO Placement Outlines Layer 2    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Via Pads Layer 2    Clearance: 0mm
@@ -442,6 +447,9 @@
         No Hazards.
 
 
+    Check Test Probe Hazards                      : NO
+
+
     Check Trace Hangers                           : YES
         No Hazards.
 
@@ -475,7 +483,7 @@
 
 
     Check Dangling Vias/Jumpers                   : YES
-        Hazards Found : 7
+        No Hazards.
 
 
     Check Unrouted Pins                           : YES
@@ -520,7 +528,7 @@
 
 
 
-    Total Connectivity/SpecialRules Hazards Found : 10
+    Total Connectivity/SpecialRules Hazards Found : 3
 
 
 
@@ -528,8 +536,8 @@
 
 
 
-    Total DRC Hazards Found : 10
+    Total DRC Hazards Found : 3
 
 
 
-                         04:03 PM Tuesday, December 19, 2017
+                         01:09 PM Wednesday, December 27, 2017

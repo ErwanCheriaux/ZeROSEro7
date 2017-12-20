@@ -2,13 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                       04:13 PM Tuesday, December 19, 2017
-                 Job Name: G:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb
+                      01:08 PM Wednesday, December 27, 2017
+                 Job Name: H:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb
 
 
                                Autosave log closed
                                -------------------
 
-                       04:13 PM Tuesday, December 19, 2017
-                 Job Name: G:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb
+                      01:10 PM Wednesday, December 27, 2017
+                 Job Name: H:\ZEROSERO7\PCB\SPY_TALK\PCB\PCB.pcb
 

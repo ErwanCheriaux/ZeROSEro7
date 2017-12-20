@@ -61,3 +61,6 @@
 [2017-12-19 15.00.26] Successfully created [AutoSave] backup [2017-12-19 15.00.26 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
 [2017-12-19 15.00.26] Removing excessive [AutoSave] backup file [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 18.16.29 - auto.zip].
 [2017-12-19 15.00.26] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-18 18.16.29 - auto.zip] removed.
+[2017-12-27 13.08.38] Successfully created [AutoSave] backup [2017-12-27 13.08.37 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-27 13.08.38] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 22.16.29 - auto.zip].
+[2017-12-27 13.08.38] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-18 22.16.29 - auto.zip] removed.
