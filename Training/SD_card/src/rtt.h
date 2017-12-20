@@ -8,6 +8,6 @@
 
 #include "SEGGER_RTT.h"
 
-BaseSequentialStream    rtt_bss;
+extern BaseSequentialStream    rtt_shell;
 
 #endif

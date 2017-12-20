@@ -284,7 +284,7 @@ static const ShellCommand commands[] = {
     {NULL, NULL}};
 
 static const ShellConfig shell_cfg1 = {
-    (BaseSequentialStream *)&SD6,
+    (BaseSequentialStream *)&rtt_shell,
     commands};
 
 /*

@@ -30,8 +30,8 @@ static msg_t get(void *instance)
 /* Stream read buffer method.*/
 static size_t read(void *instance, uint8_t *bp, size_t n)
 {
-    for(unsigned int i=0; i<n; i++)
-        bp[i] = get(instance);
+    for(unsigned int i = 0; i < n; i++)
+        bp[i]          = get(instance);
 
     return n;
 }
@@ -40,9 +40,7 @@ static const struct BaseSequentialStreamVMT rtt_bss_vmt = {
     write,
     read,
     put,
-    get
-};
+    get};
 
-BaseSequentialStream rtt_bss = {
-   &rtt_bss_vmt
-};
+BaseSequentialStream rtt_shell = {
+    &rtt_bss_vmt};
