@@ -22,20 +22,28 @@ PROJECT = USB_keyboard
 
 # Imported source files and paths
 CHIBIOS = ../../SDK/ChibiOS
+CHIBIOS_CONTRIB = $(CHIBIOS)/community
 # Startup files.
 include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
 # HAL-OSAL files (optional).
-include $(CHIBIOS)/os/hal/hal.mk
-include $(CHIBIOS)/os/hal/ports/STM32/STM32F4xx/platform.mk
 include ./board_E407/board.mk
+include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/hal/osal/rt/osal.mk
+include $(CHIBIOS)/os/hal/ports/STM32/STM32F4xx/platform.mk
+include $(CHIBIOS_CONTRIB)/os/hal/hal.mk
+include $(CHIBIOS_CONTRIB)/os/hal/ports/STM32/STM32F4xx/platform.mk
 # RTOS files (optional).
 include $(CHIBIOS)/os/rt/rt.mk
 include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
+# Other files (optional).
+include $(CHIBIOS)/test/rt/test.mk
+include $(CHIBIOS)/os/hal/lib/streams/streams.mk
+include $(CHIBIOS)/os/various/shell/shell.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
 
+PROJ = .
 SRC = src
 TEST_FIBO = ../Test/fibo
 
@@ -54,11 +62,14 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
-	   $(SRC)/main.c \
-	   $(SRC)/led.c \
-	   $(SRC)/timer.c \
-	   $(SRC)/pwm.c \
-	   $(TEST_FIBO)/fibo.c
+       $(SRC)/main.c \
+       $(SRC)/led.c \
+       $(SRC)/timer.c \
+       $(SRC)/usb.c \
+       $(TEST_FIBO)/fibo.c \
+       $(SRC)/SEGGER_RTT.c \
+       $(SRC)/SEGGER_RTT_printf.c \
+       $(SRC)/usbh_custom_class_example.c
 
 # List ASM source files here
 ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
@@ -68,7 +79,9 @@ INCDIR = $(CHIBIOS)/os/license \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
          $(CHIBIOS)/os/various \
-		 $(TEST_FIBO)
+		 $(TEST_FIBO) \
+		 $(SRC) \
+		 $(PROJ)
 
 #
 # Project, sources and paths
@@ -115,22 +128,26 @@ help:
 	@echo		startgdbserver - open a gdb connection with the device
 	@echo		startgdbserver - close a gdb connection with the device
 	@echo		debug          - after startgdbserver, load and debug a prog on the device
+	@echo		telnet         - open rtt communication
 	@echo		format         - format code
 	@echo		clean          - remove build
 
 startgdbserver:
-	    @pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
+	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
 stopgdbserver:
-	    @pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
+	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
 debug: $(ELF)
-	    $(GDB) $<
+	$(GDB) $<
 
 format: $(SRC)/*.c $(SRC)/*.h
 	clang-format -i $^
 
-.PHONY: help startgdbserver stopgdbserver debug format
+telnet:
+	telnet localhost 19021
+
+.PHONY: help startgdbserver stopgdbserver debug format telnet
 
 #
 # Démon JLink

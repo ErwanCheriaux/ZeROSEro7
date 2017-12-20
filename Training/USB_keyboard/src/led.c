@@ -12,18 +12,19 @@ void led_init(void)
 
 void led_on(void)
 {
-    pwm_on();
+    palSetPad(GPIOC, GPIOC_LED);
     toggle = true;
 }
 
 void led_off(void)
 {
-    pwm_off();
+    palClearPad(GPIOC, GPIOC_LED);
     toggle = false;
 }
 
 void led_toggle(void)
 {
+    rtt_printf(0, "LED toggle\n");
     if(toggle)
         led_off();
     else

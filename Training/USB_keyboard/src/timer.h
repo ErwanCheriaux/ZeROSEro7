@@ -6,7 +6,6 @@
 #include "ch.h"
 #include "hal.h"
 #include "led.h"
-#include "pwm.h"
 
 void timer_init(void);
 void timer_on(void);
