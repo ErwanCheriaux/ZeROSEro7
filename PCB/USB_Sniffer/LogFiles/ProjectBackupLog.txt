@@ -1,0 +1,47 @@
+[2017-10-26 20.40.12] Successfully created [AutoSave] backup [2017-10-26 20.40.11 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-12 13.42.14] Successfully created [AutoSave] backup [2017-11-12 13.42.14 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-12 14.20.53] Removing (by prune) [AutoSave] backup file [C:\t\Project_template\Default\ProjectBackup\backups\2017-10-26 20.40.11 - auto.zip].
+[2017-11-12 14.20.53] [AutoSave] backup file [Project_template\Default\ProjectBackup\backups\2017-10-26 20.40.11 - auto.zip] removed.
+[2017-11-12 14.20.53] Removing (by prune) [AutoSave] backup file [C:\t\Project_template\Default\ProjectBackup\backups\2017-11-12 13.42.14 - auto.zip].
+[2017-11-12 14.20.53] [AutoSave] backup file [Project_template\Default\ProjectBackup\backups\2017-11-12 13.42.14 - auto.zip] removed.
+[2017-11-12 14.28.48] Successfully created [AutoSave] backup [2017-11-12 14.28.47 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-12 14.30.41] Removing (by prune) [AutoSave] backup file [F:\Project_template\Default\ProjectBackup\backups\2017-11-12 14.28.47 - auto.zip].
+[2017-11-12 14.30.41] [AutoSave] backup file [\Project_template\Default\ProjectBackup\backups\2017-11-12 14.28.47 - auto.zip] removed.
+[2017-12-01 19.31.28] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-01 19.31.28] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017-12-01 19.31.29] Successfully created [Constraints Definition Upgrade] backup [2017-11-20 18.42.10 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-01 19.31.29] Migrated iCDB content backup file [cdbback\2017-11-20 18.42.10-2168.zip] removed.
+[2017-12-01 19.31.29] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-01 19.31.33] Successfully created [AutoSave] backup [2017-12-01 19.31.29 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-04 08.45.57] Successfully created [AutoSave] backup [2017-12-04 08.45.54 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-06 15.32.22] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-06 15.32.22] Migrating iCDB upgrade backup file [2017-11-20 18.42.10-2168].
+[2017-12-06 15.32.22] Successfully migrated iCDB upgrade backup file [2017-11-20 18.42.10-2168] to Project Backup format [2017-11-20 18.42.10 - consDefUpgr.zip]
+[2017-12-06 15.32.22] Successfully created [AutoSave] backup [2017-12-06 15.32.22 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-06 16.57.10] WARNING: Removing broken (incomplete) backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-11-20 18.42.10 - consDefUpgr.zi]
+[2017-12-06 16.57.10] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-06 16.57.10] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 01.03.17] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-07 01.03.17] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 01.16.18] Successfully created [AutoSave] backup [2017-12-07 01.16.18 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-07 01.16.19] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-12-01 19.31.29 - auto.zip].
+[2017-12-07 01.16.19] [AutoSave] backup file [USB_Sniffer\Default\ProjectBackup\backups\2017-12-01 19.31.29 - auto.zip] removed.
+[2017-12-07 01.58.09] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-07 01.58.09] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-07 18.18.25] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-07 18.18.25] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-08 09.46.35] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-08 09.46.35] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-08 09.59.38] Successfully created [AutoSave] backup [2017-12-08 09.59.37 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-08 09.59.38] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-12-04 08.45.54 - auto.zip].
+[2017-12-08 09.59.38] [AutoSave] backup file [USB_Sniffer\Default\ProjectBackup\backups\2017-12-04 08.45.54 - auto.zip] removed.
+[2017-12-08 13.59.37] Successfully created [AutoSave] backup [2017-12-08 13.59.37 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-08 13.59.37] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-12-06 15.32.22 - auto.zip].
+[2017-12-08 13.59.37] [AutoSave] backup file [USB_Sniffer\Default\ProjectBackup\backups\2017-12-06 15.32.22 - auto.zip] removed.
+[2017-12-08 17.42.37] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-08 17.42.37] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-10 15.02.52] Migrating iCDB upgrade backups from directory [USB_Sniffer\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-10 15.02.52] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-10 15.02.53] Successfully created [AutoSave] backup [2017-12-10 15.02.52 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-10 15.02.53] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\Default\ProjectBackup\backups\2017-12-07 01.16.18 - auto.zip].
+[2017-12-10 15.02.53] [AutoSave] backup file [USB_Sniffer\Default\ProjectBackup\backups\2017-12-07 01.16.18 - auto.zip] removed.

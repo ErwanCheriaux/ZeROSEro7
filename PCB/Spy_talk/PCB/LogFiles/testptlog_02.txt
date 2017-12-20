@@ -1,0 +1,37 @@
+=======================================================================
+Xpedition Layout - Version 117.0.817.8330
+=======================================================================
+
+Job Directory:    C:\Users\admin\Documents\Spy_talk\PCB\
+
+
+Design Units:(mm)
+
+Test Point Log:   C:\Users\admin\Documents\Spy_talk\PCB\LogFiles\testptlog_02.txt
+
+Mon Dec 11 11:35:21 2017
+
+Net Name        Ref                  X          Y     Side    Location        Operation Result
+==============================================================================================
+RXTX            PT11                     0          0 Top     Hanger          Delete              
+RXTX            PT11                     0          0 Top     Hanger          Delete              
+DIO5            PT10                     0          0 Top     Hanger          Delete              
+DIO5            PT10                     0          0 Top     Hanger          Delete              
+DIO4            PT9                      0          0 Top     Hanger          Delete              
+DIO4            PT9                      0          0 Top     Hanger          Delete              
+DIO3            PT8                      0          0 Top     Hanger          Delete              
+DIO3            PT8                      0          0 Top     Hanger          Delete              
+DIO2            PT7                      0          0 Top     Hanger          Delete              
+DIO2            PT7                      0          0 Top     Hanger          Delete              
+DIO1            PT6                      0          0 Top     Hanger          Delete              
+DIO1            PT6                      0          0 Top     Hanger          Delete              
+DIO0            PT5                      0          0 Top     Hanger          Delete              
+DIO0            PT5                      0          0 Top     Hanger          Delete              
+SPI_MOSI        PT4                  -38,5      35,44 Top     Hanger          Delete              
+SPI_MOSI        PT4                  -38,5      35,44 Top     Hanger          Delete              
+SPI_MISO        PT3                 -38,53       36,8 Top     Hanger          Delete              
+SPI_MISO        PT3                 -38,53       36,8 Top     Hanger          Delete              
+SPI_SCK         PT2                 -38,54      38,07 Top     Hanger          Delete              
+SPI_SCK         PT2                 -38,54      38,07 Top     Hanger          Delete              
+SPI_NSS         PT1                 -38,53      39,37 Top     Hanger          Delete              
+SPI_NSS         PT1                 -38,53      39,37 Top     Hanger          Delete              

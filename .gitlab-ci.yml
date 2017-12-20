@@ -26,6 +26,10 @@ lint_main:
     - make format
     - cd ../lora_discovery
     - make format
+    - cd ..//WiFi
+    - make format
+    - cd ../LoRa_sx1276
+    - make format
     - git status --porcelain
 
 lint_apps:
@@ -34,6 +38,8 @@ lint_apps:
   script:
     - cd smartphone
     - cd BLEParrot
+    - ./gradlew lint
+    - cd ../WifiParrot
     - ./gradlew lint
 
 lint_test:
@@ -56,10 +62,16 @@ build_main:
     - make
     - cd ../lora_discovery
     - make
+    - cd ../WiFi
+    - make
+    - cd ../LoRa_sx1276
+    - make
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
     - Training/USB_keyboard/build/USB_keyboard.elf
+    - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
+    - Training/WiFi/build/wifi_dev_kit.elf
     expire_in: 1 week
 
 build_apps:
@@ -69,9 +81,12 @@ build_apps:
     - cd smartphone
     - cd BLEParrot
     - ./gradlew build
+    - cd ../WifiParrot
+    - ./gradlew build
   artifacts:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
 
 build_test:
@@ -94,6 +109,8 @@ test_apps:
   script:
     - cd smartphone
     - cd BLEParrot
+    - ./gradlew test
+    - cd ../WifiParrot
     - ./gradlew test
 
 test_test:

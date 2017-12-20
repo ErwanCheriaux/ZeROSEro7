@@ -127,7 +127,7 @@ stopgdbserver:
 debug: $(ELF)
 	    $(GDB) $<
 
-format: src/*.c src/*.h
+format: $(SRC)/*.c $(SRC)/*.h
 	clang-format -i $^
 
 .PHONY: help startgdbserver stopgdbserver debug format
