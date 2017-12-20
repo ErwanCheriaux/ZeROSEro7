@@ -112,3 +112,7 @@
 [2017-12-20 15.32.10] Successfully created [AutoSave] backup [2017-12-20 15.32.07 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-20 15.32.10] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\Stealth_Drop\Default\ProjectBackup\backups\2017-12-15 11.11.32 - auto.zip].
 [2017-12-20 15.32.10] [AutoSave] backup file [Stealth_Drop\Default\ProjectBackup\backups\2017-12-15 11.11.32 - auto.zip] removed.
+[2017-12-20 17.07.43] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 17.07.43] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-20 17.13.53] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 17.13.53] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.

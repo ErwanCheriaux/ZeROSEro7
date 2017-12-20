@@ -1,0 +1,27 @@
+=======================================================================
+Xpedition Layout - Version 117.0.817.8330
+=======================================================================
+
+RELOAD CELLS
+
+Job Directory:  C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\
+
+
+Design Units:(mm)
+
+Replace Cell Log:   repCellLog11.txt
+
+Wed Dec 20 17:11:13 2017
+
+Reference Designator            Cell Name                         New Cell Name
+===============================================================================
+
+
+---------------  RELOAD CELLS  Wed Dec 20 17:11:13 2017  ---------------
+
+
+
+
+---------------    Wed Dec 20 17:11:13 2017  ---------------
+
+

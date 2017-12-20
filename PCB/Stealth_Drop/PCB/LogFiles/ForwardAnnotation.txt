@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                      04:34 PM Wednesday, December 20, 2017
-           Job Name: C:\Users\admin\Documents\Stealth_Drop\PCB\PCB.pcb
+                      05:11 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -125,8 +125,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                      04:34 PM Wednesday, December 20, 2017
-           Job Name: C:\Users\admin\Documents\Stealth_Drop\PCB\PCB.pcb
+                      05:11 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -170,13 +170,8 @@ Version:  02.11.12
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
 
-Some nets were completely deleted from the Layout Design....
-	Deleted net XSIG030044, which has no pins, from the Layout Design.
-	Deleted net XSIG030053, which has no pins, from the Layout Design.
-	Deleted net XSIG030054, which has no pins, from the Layout Design.
-
 Forward-Annotation on the Layout Design has been successfully completed.
 
 There were 0 reassignments of nets.
 There were 0 traces broken back.
-There were 3 nets removed from the Layout Design.
+There were 0 nets removed from the Layout Design.
