@@ -10,6 +10,7 @@ import android.os.Build;
 import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
@@ -39,6 +40,8 @@ public class MainActivity extends AppCompatActivity
             }
         });
         // Allow WiFi
+        // Location access is only used to make a network scan.
+        // If Scan function doesn't works, please enable location on your mobile phone
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
         // Allow File

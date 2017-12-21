@@ -12,6 +12,7 @@ import java.util.List;
 public class WifiScanReceiver extends BroadcastReceiver
 {
     private WifiManager wifiManager;
+    public boolean scan_started = false;
 
     WifiScanReceiver(WifiManager wifiManager)
     {
@@ -22,6 +23,9 @@ public class WifiScanReceiver extends BroadcastReceiver
     @Override
     public void onReceive(Context context, Intent intent)
     {
+        if(!scan_started)
+            return;
+        scan_started = false;
         List<ScanResult> scanResultList = wifiManager.getScanResults();
         Log.println(Log.DEBUG, "Scan","Finished: " + scanResultList.size());
         for (int i = 0; i < scanResultList.size(); i++)

@@ -11,6 +11,7 @@ import android.os.Binder;
 import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import java.io.File;
 import java.util.List;
@@ -27,7 +28,7 @@ public class Wifi extends Service
     @Override
     public void onCreate()
     {
-        wifiManager = (WifiManager) getSystemService(Context.WIFI_SERVICE);
+        wifiManager = (WifiManager) getApplicationContext().getSystemService(Context.WIFI_SERVICE);
         wifiManager.setWifiEnabled(true);
         wifiReceiver = new WifiScanReceiver(wifiManager);
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
@@ -46,6 +47,7 @@ public class Wifi extends Service
     {
         if(!wifiManager.startScan())
             Log.println(Log.ERROR, "Scan", "startScan Error");
+        wifiReceiver.scan_started = true;
         Log.println(Log.INFO, "Scan", "Start");
     }
 
@@ -57,7 +59,6 @@ public class Wifi extends Service
     public void uploadFile()
     {
         String selectedFilePath = Environment.getExternalStorageDirectory().toString() + "/Download/telecom.png";
-        DataTransfers dataTransfers = new DataTransfers();
-        dataTransfers.uploadFile(selectedFilePath);
+        new DataTransfers().execute(selectedFilePath);
     }
 }
