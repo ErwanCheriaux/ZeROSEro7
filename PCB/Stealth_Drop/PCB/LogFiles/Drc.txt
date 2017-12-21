@@ -2,8 +2,8 @@
                                 DRC - (Final DRC)
                                 -----------------
 
-                      05:47 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                      12:59 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
 
     ---------
@@ -76,6 +76,24 @@
         Via Holes Layer 1 TO Via Holes Layer 1
             No Hazards.
 
+        Traces Layer 1 TO Fiducial Pads Top
+            No Hazards.
+
+        User Text Route Layer 1 TO Fiducial Pads Top
+            No Hazards.
+
+        Fiducial Pads Top TO Fiducial Pads Top
+            No Hazards.
+
+        Fiducial Pads Top TO Part Pads SMD Layer 1
+            No Hazards.
+
+        Fiducial Pads Top TO Via Pads Layer 1
+            No Hazards.
+
+        Fiducial Pads Top TO Via Holes Layer 1
+            No Hazards.
+
         Components Layer 2 TO Components Layer 2
             No Hazards.
 
@@ -124,6 +142,24 @@
         Via Holes Layer 2 TO Via Holes Layer 2
             No Hazards.
 
+        Traces Layer 2 TO Fiducial Pads Bottom
+            No Hazards.
+
+        User Text Route Layer 2 TO Fiducial Pads Bottom
+            No Hazards.
+
+        Fiducial Pads Bottom TO Fiducial Pads Bottom
+            No Hazards.
+
+        Fiducial Pads Bottom TO Part Pads SMD Layer 2
+            No Hazards.
+
+        Fiducial Pads Bottom TO Via Pads Layer 2
+            No Hazards.
+
+        Fiducial Pads Bottom TO Via Holes Layer 2
+            No Hazards.
+
 
         Total Hazards Found : 0
 
@@ -154,6 +190,9 @@
         Positive Planes Layer 1 TO Via Holes Layer 1
             No Hazards.
 
+        Positive Planes Layer 1 TO Fiducial Pads Top
+            No Hazards.
+
         Positive Planes Layer 2 TO Part Pads SMD Layer 2
             No Hazards.
 
@@ -175,6 +214,9 @@
         Positive Planes Layer 2 TO Via Holes Layer 2
             No Hazards.
 
+        Positive Planes Layer 2 TO Fiducial Pads Bottom
+            No Hazards.
+
 
         Total Hazards Found : 0
 
@@ -192,8 +234,8 @@
     Non-Net Class Element To Element Clearances And Rules
     -----------------------------------------------------
 
-    >>  Route Border TO Via Pads Layer 1    Clearance: 0mm
-            Hazards Found : 1
+        Route Border TO Via Pads Layer 1    Clearance: 0mm
+            No Hazards.
 
         Route Border TO Traces Layer 1    Clearance: 0mm
             No Hazards.
@@ -204,7 +246,13 @@
         Part Pads SMD Layer 1 TO Route Border    Clearance: 0mm
             No Hazards.
 
-        Board Outline TO Placement Outlines Layer 1    Clearance: 0.25mm
+        Fiducial Pads Top TO Route Border    Clearance: 0mm
+            No Hazards.
+
+        Board Outline TO Fiducial Pads Top    Clearance: 0mm
+            No Hazards.
+
+        Board Outline TO Placement Outlines Layer 1    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Via Pads Layer 1    Clearance: 0mm
@@ -222,8 +270,8 @@
         Board Outline TO User Text Route Layer 1    Clearance: 0mm
             No Hazards.
 
-    >>  Route Border TO Via Pads Layer 2    Clearance: 0mm
-            Hazards Found : 1
+        Route Border TO Via Pads Layer 2    Clearance: 0mm
+            No Hazards.
 
         Route Border TO Traces Layer 2    Clearance: 0mm
             No Hazards.
@@ -234,7 +282,13 @@
         Part Pads SMD Layer 2 TO Route Border    Clearance: 0mm
             No Hazards.
 
-        Board Outline TO Placement Outlines Layer 2    Clearance: 0.25mm
+        Fiducial Pads Bottom TO Route Border    Clearance: 0mm
+            No Hazards.
+
+        Board Outline TO Fiducial Pads Bottom    Clearance: 0mm
+            No Hazards.
+
+        Board Outline TO Placement Outlines Layer 2    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Via Pads Layer 2    Clearance: 0mm
@@ -253,11 +307,11 @@
             No Hazards.
 
 
-        Total Hazards Found : 2
+        Total Hazards Found : 0
 
 
 
-    Total Proximity Hazards Found : 2
+    Total Proximity Hazards Found : 0
 
 
 
@@ -315,7 +369,7 @@
 
 
     Check Dangling Vias/Jumpers                   : YES
-        Hazards Found : 8
+        No Hazards.
 
 
     Check Unrouted Pins                           : YES
@@ -360,7 +414,7 @@
 
 
 
-    Total Connectivity/SpecialRules Hazards Found : 26
+    Total Connectivity/SpecialRules Hazards Found : 18
 
 
 
@@ -368,8 +422,8 @@
 
 
 
-    Total DRC Hazards Found : 28
+    Total DRC Hazards Found : 18
 
 
 
-                         05:47 PM Wednesday, December 20, 2017
+                         12:59 PM Wednesday, December 27, 2017

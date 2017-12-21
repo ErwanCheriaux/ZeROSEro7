@@ -1,7 +1,7 @@
 .FILETYPE GerberPlotSetupFile
 .VERSION "VB99.0"
-.CREATOR "Expedition PCB Gerber Output"
-.DATE "Tuesday, December 20, 2016 02:00 PM"
+.CREATOR "Xpedition Layout Gerber Output"
+.DATE "Wednesday, December 27, 2017 12:59 PM"
 
 .BaseUnits "1NM"
 
@@ -116,6 +116,7 @@
  ..HeaderText
    ...CommentLine "Mentor Graphics Example Gerber Output Definition"
  ..ConductiveLayer 1
+   ...ConductiveItem BondPads
    ...ConductiveItem EtchedText
    ...ConductiveItem Fiducials
    ...ConductiveItem PartPadsSMD
@@ -125,6 +126,7 @@
    ...ConductiveItem ResistorAreas
    ...ConductiveItem Traces
    ...ConductiveItem ViaPads
+   ...ConductiveItem CopperBalancing
    ...ProcessUnconnectedPads Yes
  ..BoardItem BoardOutline
  ..CellType Buried
@@ -158,6 +160,7 @@
  ..HeaderText
    ...CommentLine "Mentor Graphics Example Gerber Output Definition"
  ..ConductiveLayer 2
+   ...ConductiveItem BondPads
    ...ConductiveItem EtchedText
    ...ConductiveItem Fiducials
    ...ConductiveItem PartPadsSMD
@@ -167,6 +170,7 @@
    ...ConductiveItem ResistorAreas
    ...ConductiveItem Traces
    ...ConductiveItem ViaPads
+   ...ConductiveItem CopperBalancing
    ...ProcessUnconnectedPads Yes
  ..BoardItem BoardOutline
  ..CellType Buried

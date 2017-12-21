@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                      05:25 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                       11:00 PM Tuesday, December 26, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -23,7 +23,7 @@ Version:  01.01.00
 
      Target PDB Name: Work\Layout_Temp\PartsDB.pdb
 
-     Number of Part Numbers: 49
+     Number of Part Numbers: 48
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
@@ -47,11 +47,11 @@ Version:  01.01.00
           Part Numb: 10-0097 -> Vend Part: 10-0097 
           Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
-          Part Numb: 10-0111 -> Vend Part: 10-0111 
+          Part Numb: 10-0110 -> Vend Part: 10-0110 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
-          Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 20-0039 -> Vend Part: 20-0039 
           Part Numb: 20-0060 -> Vend Part: 20-0060 
           Part Numb: 30-0010 -> Vend Part: 30-0010 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
@@ -60,9 +60,8 @@ Version:  01.01.00
           Part Numb: 40-0317 -> Vend Part: 40-0317 
           Part Numb: 50-0029 -> Vend Part: 50-0029 
           Part Numb: 50-0033 -> Vend Part: 50-0033 
-          Part Numb: 50-0035 -> Vend Part: 50-0035 
           Part Numb: 50-0036 -> Vend Part: 50-0036 
-          Part Numb: 50-0044 -> Vend Part: 50-0044 
+          Part Numb: 50-0048 -> Vend Part: 50-0048 
           Part Numb: 70-0058 -> Vend Part: 70-0058 
           Part Numb: 70-0065 -> Vend Part: 70-0065 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
@@ -100,8 +99,8 @@ Version:  01.01.00
 
 
      The Common DataBase has been read and will be packaged.
-     Clustering 81 Symbols:
-              81  ******************************
+     Clustering 80 Symbols:
+              80  *****************************
               50  **************************************************
      Clustering is Complete
 
@@ -109,8 +108,8 @@ Version:  01.01.00
 
 
 
-     69 nets were found containing 287 pins
-     81 components were found
+     68 nets were found containing 285 pins
+     80 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
      A formatted Schematic Netlist has been created.
@@ -124,8 +123,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                      05:25 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                       11:00 PM Tuesday, December 26, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -137,14 +136,7 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-     WARNING:  The "FC135" cell used by "QZ3" in Layout does not
-      not match the "ECX-1210" cell specified in the schematic.
-
-     WARNING:  The "FC135" cell used by "QZ3" in the Layout is not
-      valid for a "83-0027" Part Number.
-     INFO: Cell "FC135" is being replaced by cell "ECX-1210".
-
-     Netload completed successfully with 2 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 
@@ -176,8 +168,11 @@ Version:  02.11.12
                  Beginning Netload on the Layout Design.
            ---------------------------------------------------
 
+Some nets were completely deleted from the Layout Design....
+	Deleted net XSIG020230, which has no pins, from the Layout Design.
+
 Forward-Annotation on the Layout Design has been successfully completed.
 
 There were 0 reassignments of nets.
 There were 0 traces broken back.
-There were 0 nets removed from the Layout Design.
+There were 1 nets removed from the Layout Design.

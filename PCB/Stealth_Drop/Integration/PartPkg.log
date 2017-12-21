@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      05:25 PM Wednesday, December 20, 2017
-            Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj
+                       11:00 PM Tuesday, December 26, 2017
+            Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jG:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jH:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj -CleanBuild -NoFill"
 
-     The Common Database is at "G:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb".
+     The Common Database is at "H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -81,7 +81,7 @@
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 49
+     Number of Part Numbers: 48
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
@@ -105,11 +105,11 @@
           Part Numb: 10-0097 -> Vend Part: 10-0097 
           Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
-          Part Numb: 10-0111 -> Vend Part: 10-0111 
+          Part Numb: 10-0110 -> Vend Part: 10-0110 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
-          Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 20-0039 -> Vend Part: 20-0039 
           Part Numb: 20-0060 -> Vend Part: 20-0060 
           Part Numb: 30-0010 -> Vend Part: 30-0010 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
@@ -118,9 +118,8 @@
           Part Numb: 40-0317 -> Vend Part: 40-0317 
           Part Numb: 50-0029 -> Vend Part: 50-0029 
           Part Numb: 50-0033 -> Vend Part: 50-0033 
-          Part Numb: 50-0035 -> Vend Part: 50-0035 
           Part Numb: 50-0036 -> Vend Part: 50-0036 
-          Part Numb: 50-0044 -> Vend Part: 50-0044 
+          Part Numb: 50-0048 -> Vend Part: 50-0048 
           Part Numb: 70-0058 -> Vend Part: 70-0058 
           Part Numb: 70-0065 -> Vend Part: 70-0065 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
@@ -152,8 +151,8 @@
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 81 Symbols:
-              81  ******************************
+     Clustering 80 Symbols:
+              80  *****************************
               50  **************************************************
      Clustering is Complete
 
@@ -161,8 +160,8 @@
 
 
 
-     69 nets were found containing 287 pins
-     81 components were found
+     68 nets were found containing 285 pins
+     80 components were found
 
      Parsed netlist - Augmenting..
 

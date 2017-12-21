@@ -2,15 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                      05:28 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                      12:47 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
-Autosave pending at 17:34:49 Wed  Attempting...
-Autosave completed successfully.  17:34:49 Wed
 
                                Autosave log closed
                                -------------------
 
-                      05:49 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+                      01:00 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
 
