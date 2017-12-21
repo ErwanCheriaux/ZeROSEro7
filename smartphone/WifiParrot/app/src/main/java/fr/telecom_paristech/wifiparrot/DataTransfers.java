@@ -7,16 +7,17 @@ package fr.telecom_paristech.wifiparrot;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class DataTransfers extends AsyncTask<String, Void, Integer>
 {
-    private String SERVER_URL = "http://setup.com/";
+    private String SERVER_URL = "http://setup.com/command/ls%20-v";
 
     protected Integer doInBackground(String... input)
     {
@@ -49,22 +50,26 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         // Http
         try {
             // Http config
-            URL url;
-            url = new URL(SERVER_URL);
-            HttpURLConnection connection;
-            connection = (HttpURLConnection) url.openConnection();
-            connection.setDoInput(true);//Allow Inputs
-            connection.setDoOutput(true);//Allow Outputs
-            connection.setUseCaches(false);//Don't use a cached Copy
-            connection.setRequestMethod("POST");
-            connection.setRequestProperty("Connection", "Keep-Alive");
-            connection.setRequestProperty("ENCTYPE", "multipart/form-data");
-            connection.setRequestProperty("Content-Type", "multipart/form-data;boundary=" + boundary);
-            connection.setRequestProperty("uploaded_file", selectedFilePath);
+            URL url = new URL(SERVER_URL);
+            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
 
             // Http connection
-            DataOutputStream dataOutputStream = new DataOutputStream(connection.getOutputStream());
+            InputStream in = connection.getInputStream();
             Log.d("Server", "Server found.");
+
+            // Receive Data
+            InputStreamReader isw = new InputStreamReader(in);
+            int data = isw.read();
+            String res = "";
+            while (data != -1) {
+                char current = (char) data;
+                data = isw.read();
+                res += current;
+            }
+            Log.d("Data", res);
+
+            //closing the input and output streams
+            fileInputStream.close();
 
             // Http disconnection
             connection.disconnect();
