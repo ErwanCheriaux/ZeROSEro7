@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                      04:52 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+                      01:19 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -23,12 +23,10 @@ Version:  01.01.00
 
      Target PDB Name: Work\Layout_Temp\PartsDB.pdb
 
-     Number of Part Numbers: 29
+     Number of Part Numbers: 28
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
-          Part Numb: 00-0085 -> Vend Part: 00-0085 
-          Part Numb: 00-0090 -> Vend Part: 00-0090 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
@@ -37,6 +35,7 @@ Version:  01.01.00
           Part Numb: 10-0068 -> Vend Part: 10-0068 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
           Part Numb: 10-0097 -> Vend Part: 10-0097 
+          Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
@@ -103,8 +102,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                      04:53 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+                      01:19 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -116,15 +115,7 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-     WARNING:  The "C0805" cell used by "C11" in the Layout is not
-      valid for a "10-0068" Part Number.
-     INFO: Cell "C0805" is being replaced by cell "C0603".
-
-     WARNING:  The "C0805" cell used by "C9" in the Layout is not
-      valid for a "10-0068" Part Number.
-     INFO: Cell "C0805" is being replaced by cell "C0603".
-
-     Netload completed successfully with 2 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 

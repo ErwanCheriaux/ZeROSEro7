@@ -2,8 +2,8 @@
                                 DRC - (Final DRC)
                                 -----------------
 
-                      05:09 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+                      01:23 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
 
     ---------
@@ -330,37 +330,37 @@
         Part Pads Thru Layer 1 TO Route Border    Clearance: 0mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Mounting Holes Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Mounting Holes Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Via Pads Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Via Pads Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Part Holes Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Part Holes Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Test Pads Top    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Test Pads Top    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Part Pads SMD Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Part Pads SMD Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Part Pads Thru Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Part Pads Thru Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Via Holes Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Via Holes Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO Traces Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO Traces Layer 1    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 1 TO User Text Route Layer 1    Clearance: 0.25mm
+        Mounting Holes Layer 1 TO User Text Route Layer 1    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Mounting Holes Layer 1    Clearance: 0mm
             No Hazards.
 
-    >>  Board Outline TO Placement Outlines Layer 1    Clearance: 0.25mm
+    >>  Board Outline TO Placement Outlines Layer 1    Clearance: 0.254mm
             Hazards Found : 1
 
         Board Outline TO Via Pads Layer 1    Clearance: 0mm
@@ -402,34 +402,34 @@
         Part Pads Thru Layer 2 TO Route Border    Clearance: 0mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Mounting Holes Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Mounting Holes Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Via Pads Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Via Pads Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Part Holes Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Part Holes Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Part Pads SMD Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Part Pads SMD Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Part Pads Thru Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Part Pads Thru Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Via Holes Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Via Holes Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO Traces Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO Traces Layer 2    Clearance: 0.254mm
             No Hazards.
 
-        Mounting Holes Layer 2 TO User Text Route Layer 2    Clearance: 0.25mm
+        Mounting Holes Layer 2 TO User Text Route Layer 2    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Mounting Holes Layer 2    Clearance: 0mm
             No Hazards.
 
-        Board Outline TO Placement Outlines Layer 2    Clearance: 0.25mm
+        Board Outline TO Placement Outlines Layer 2    Clearance: 0.254mm
             No Hazards.
 
         Board Outline TO Via Pads Layer 2    Clearance: 0mm
@@ -484,7 +484,7 @@
 
 
     Check Trace Hangers                           : YES
-        Hazards Found : 3
+        Hazards Found : 4
 
 
     Check Trace Loops                             : YES
@@ -516,7 +516,7 @@
 
 
     Check Dangling Vias/Jumpers                   : YES
-        Hazards Found : 9
+        No Hazards.
 
 
     Check Unrouted Pins                           : YES
@@ -561,7 +561,7 @@
 
 
 
-    Total Connectivity/SpecialRules Hazards Found : 15
+    Total Connectivity/SpecialRules Hazards Found : 7
 
 
 
@@ -569,8 +569,8 @@
 
 
 
-    Total DRC Hazards Found : 16
+    Total DRC Hazards Found : 8
 
 
 
-                         05:09 PM Wednesday, December 20, 2017
+                         01:23 PM Wednesday, December 27, 2017

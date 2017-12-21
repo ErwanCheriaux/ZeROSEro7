@@ -2,7 +2,7 @@
 ! change it at your own peril
 
 !
-! Created 12/20/17 17:13:29
+! Created 12/27/17 13:25:40
 !
 
 .Global_Constants 44 2
@@ -15,7 +15,7 @@
 	0x00000003	! showCmd
 	(-1, -1)	! ptMinPosition
 	(-1, -1)	! ptMaxPosition
-	(498, 321) (1798,961)	! ..rcNormalPosition
+	(9, 5) (647,443)	! ..rcNormalPosition
     ..Active_Place_Layer_Top             False
     ..Active_Place_Layer_Bottom          True
     ..Active_Place_Layer_Internal        False
@@ -1761,8 +1761,8 @@
 	"[VirtualGlobal].iDC.SketchPlans.Collapsed" "3"
 	"[VirtualGlobal].iDC.Spacers" "3"
 	"[VirtualGlobal].iDC.SplitViewHeight.0" "144"
-	"[VirtualGlobal].iDC.SplitViewHeight.1" "185"
-	"[VirtualGlobal].iDC.SplitViewHeight.2" "311"
+	"[VirtualGlobal].iDC.SplitViewHeight.1" "183"
+	"[VirtualGlobal].iDC.SplitViewHeight.2" "313"
 	"[VirtualGlobal].iDC.Substrate Objects.CollapsedSectionOrder" "3"
 	"[VirtualGlobal].iDC.TestPointItems" "3"
 	"[VirtualGlobal].iDC.TextItems.Collapsed" "3"
@@ -1777,8 +1777,8 @@
 
 .view "PCB"
     ..extrema
-	(-32083870,18810479)		! (xmin, ymin)
-	(69340107,57655968)		! (xmax, ymax)
+	(-32083871,18757265)		! (xmin, ymin)
+	(69340108,57709182)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000000	! flags
 	0x00000001	! showCmd
@@ -12288,8 +12288,8 @@
 	"Part.Hazard.Bottom" "d:1" "e:1" "s:1" "se:1" "c:26367" "a:100" "p:0" "t:0" "o:1"
 	"Part.InsertionOutline.Top" "d:0" "e:1" "s:1" "se:0" "c:16776960" "a:100" "p:0" "t:0" "o:1"
 	"Part.InsertionOutline.Bottom" "d:0" "e:1" "s:1" "se:0" "c:10027212" "a:100" "p:0" "t:0" "o:1"
-	"Part.Pin.NumberType.Top" "d:1" "e:0" "s:1" "se:0" "c:16777215" "a:100" "p:0" "t:0" "o:1"
-	"Part.Pin.NumberType.Bottom" "d:1" "e:0" "s:1" "se:0" "c:16777215" "a:100" "p:0" "t:0" "o:1"
+	"Part.Pin.NumberType.Top" "d:1" "e:1" "s:1" "se:0" "c:16777215" "a:100" "p:0" "t:0" "o:1"
+	"Part.Pin.NumberType.Bottom" "d:1" "e:1" "s:1" "se:0" "c:16777215" "a:100" "p:0" "t:0" "o:1"
 	"Part.PlaceOutline.Top" "d:1" "e:1" "s:1" "se:1" "c:16776960" "a:100" "p:2" "t:0" "o:1"
 	"Part.PlaceOutline.Bottom" "d:1" "e:1" "s:1" "se:1" "c:10027212" "a:100" "p:2" "t:0" "o:1"
 	"Part.SpecialPlaceOutline.Top" "d:1" "e:1" "s:1" "se:1" "c:16776960" "a:100" "p:2" "t:0" "o:1"
@@ -13584,8 +13584,8 @@
 
 .view "PCB"
     ..extrema
-	(-13166415,-2540075)		! (xmin, ymin)
-	(59366415,25240075)		! (xmax, ymax)
+	(-13067303,-2540066)		! (xmin, ymin)
+	(59267303,25240066)		! (xmax, ymax)
     ..WindowPlacement
 	0x00000002	! flags
 	0x00000003	! showCmd

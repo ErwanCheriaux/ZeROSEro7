@@ -2839,3 +2839,18 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pc
 ;------------------------------- --------------------------------
 ; STARTING AN IMPLICIT FORWARD ANNOTATION
 ;------------------------------- --------------------------------
+
+;------------------------------- --------------------------------
+; STARTING AN EXPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------
+
+                      Renumbered Reference Designator List
+                      ------------------------------------
+
+                      01:19 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+
+
+;------------------------------- --------------------------------
+; STARTING AN IMPLICIT FORWARD ANNOTATION
+;------------------------------- --------------------------------

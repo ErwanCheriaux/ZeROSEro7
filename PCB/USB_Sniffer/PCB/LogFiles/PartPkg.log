@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      04:52 PM Wednesday, December 20, 2017
-             Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\USB_Sniffer.prj
+                      01:19 PM Wednesday, December 27, 2017
+             Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\USB_Sniffer.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jG:\ZEROSERO7\PCB\USB_SNIFFER\USB_Sniffer.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jH:\ZEROSERO7\PCB\USB_SNIFFER\USB_Sniffer.prj -CleanBuild -NoFill"
 
-     The Common Database is at "G:\ZEROSERO7\PCB\USB_SNIFFER\Default\default.icdb".
+     The Common Database is at "H:\ZEROSERO7\PCB\USB_SNIFFER\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -81,12 +81,10 @@
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 29
+     Number of Part Numbers: 28
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
-          Part Numb: 00-0085 -> Vend Part: 00-0085 
-          Part Numb: 00-0090 -> Vend Part: 00-0090 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
@@ -95,6 +93,7 @@
           Part Numb: 10-0068 -> Vend Part: 10-0068 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
           Part Numb: 10-0097 -> Vend Part: 10-0097 
+          Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0038 -> Vend Part: 20-0038 

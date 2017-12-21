@@ -2,13 +2,13 @@
                                 Autosave Log File
                                 -----------------
 
-                      04:53 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+                      01:19 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
 
                                Autosave log closed
                                -------------------
 
-                      05:13 PM Wednesday, December 20, 2017
-               Job Name: G:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+                      01:25 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 

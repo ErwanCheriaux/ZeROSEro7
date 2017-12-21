@@ -65,3 +65,5 @@
 [2017-12-20 16.42.17] Migrated iCDB content backup file [cdbback\2017-12-20 16.40.05-7752.zip] removed.
 [2017-12-20 16.42.17] Successfully migrated iCDB upgrade backup file [2017-12-20 16.40.05-7752] to Project Backup format [2017-12-20 16.40.05 - consDefUpgr.zip]
 [2017-12-20 16.42.17] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-27 13.14.35] Migrating iCDB upgrade backups from directory [USB_SNIFFER\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-27 13.14.35] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
