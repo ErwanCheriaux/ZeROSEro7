@@ -7,6 +7,7 @@ package fr.telecom_paristech.wifiparrot;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.InputStream;
@@ -17,7 +18,97 @@ import java.net.URL;
 
 public class DataTransfers extends AsyncTask<String, Void, Integer>
 {
-    private String SERVER_URL = "http://setup.com/command/ls%20-v";
+    /* Send a GET request to a url and return server response
+    ** url:    url to connect
+    ** return: server response
+     */
+    private String GET(String url)
+    {
+        String res = "";
+        try {
+            // Http config
+            URL request_url = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) request_url.openConnection();
+
+            // Http connection
+            InputStream in = connection.getInputStream();
+            Log.d("Server", "Server found.");
+
+            // Receive Data
+            InputStreamReader isw = new InputStreamReader(in);
+            int data = isw.read();
+            while (data != -1) {
+                char current = (char) data;
+                data = isw.read();
+                res += current;
+            }
+            connection.disconnect();
+        } catch (ConnectException e){
+            return "Server not found.\nPlease verify server is running.";
+        } catch (Exception e) {
+            e.printStackTrace();
+            return "Error";
+        }
+        return res;
+    }
+
+    /* Send a POST request to a url and return server response
+    ** url:    url to connect
+    ** header: header parameters
+    ** msg:    content to send
+    ** return: server response
+     */
+    private int POST(String url, String[] header, String msg)
+    {
+        try {
+            // Http config
+            URL request_url = new URL(url);
+            HttpURLConnection connection = (HttpURLConnection) request_url.openConnection();
+            connection.setDoInput(true);
+            connection.setDoOutput(true);
+            connection.setRequestMethod("POST");
+            //String dosData = "";
+            for(int i = 0; i < header.length; i += 2)
+                connection.setRequestProperty(header[i], header[i + 1]);
+
+            // Http connection
+            Log.d("Server", "Server found.");
+            DataOutputStream dos = new DataOutputStream(connection.getOutputStream());
+            dos.writeBytes(msg);
+            dos.flush();
+            dos.close();
+            connection.connect();
+
+            // Response code
+            int response = connection.getResponseCode();
+            connection.disconnect();
+            return response;
+        } catch (ConnectException e){
+            Log.i("Error", "Server not found.\nPlease verify server is running.");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return 1;
+    }
+
+    private void uploadRequests()
+    {
+        // POST request to create a file
+        String[] args = {
+                "Host", "setup.com",
+                "Connection", "keep-alive",
+                "Accept", "application/json",
+                "Origin", "http://setup.com",
+                "Content-Type", "application/json",
+                "Referer", "http://setup.com/",
+                "Accept-Encoding", "gzip, deflate"
+        };
+        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"test.txt\\\" 13\"}";
+        Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
+        // POST request to fill the created file
+        msg = "{\"command\":\"write 0 13\",\"flags\":4,\"data\":\"aGVsbG8gd29ybGQKCg==\"}";
+        Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
+    }
 
     protected Integer doInBackground(String... input)
     {
@@ -25,15 +116,8 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         int serverResponseCode = 0;
 
         // Open file
-        String lineEnd = "\r\n";
-        String twoHyphens = "--";
-        String boundary = "*****";
-        int bytesRead,bytesAvailable,bufferSize;
-        byte[] buffer;
-        int maxBufferSize = 1 * 1024 * 1024;
         File selectedFile = new File(selectedFilePath);
         String[] parts = selectedFilePath.split("/");
-        final String fileName = parts[parts.length-1];
         if (!selectedFile.isFile()){
             Log.i("Data", "Source File Doesn't Exist: " + selectedFilePath);
             return 1;
@@ -47,39 +131,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         }
         Log.d("Data", "Source File Found: " + selectedFilePath);
 
-        // Http
-        try {
-            // Http config
-            URL url = new URL(SERVER_URL);
-            HttpURLConnection connection = (HttpURLConnection) url.openConnection();
-
-            // Http connection
-            InputStream in = connection.getInputStream();
-            Log.d("Server", "Server found.");
-
-            // Receive Data
-            InputStreamReader isw = new InputStreamReader(in);
-            int data = isw.read();
-            String res = "";
-            while (data != -1) {
-                char current = (char) data;
-                data = isw.read();
-                res += current;
-            }
-            Log.d("Data", res);
-
-            //closing the input and output streams
-            fileInputStream.close();
-
-            // Http disconnection
-            connection.disconnect();
-        } catch (ConnectException e){
-            Log.i("Server", "Server not found.\nPlease verify server is running.");
-            return 1;
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 1;
-        }
+        uploadRequests();
 
         return serverResponseCode;
     }
