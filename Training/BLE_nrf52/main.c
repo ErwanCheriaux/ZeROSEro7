@@ -12,9 +12,9 @@ void power_manage()
     APP_ERROR_CHECK(err_code);
 }
 
-static void phone_noticed_handler() {
-    rtt_write_string("Phone get !") ;
-    APP_ERROR_CHECK(0xDEADBEEF);
+static void phone_noticed_handler()
+{
+    rtt_write_string("!!! Phone get !!!\n");
 }
 
 int main(void)

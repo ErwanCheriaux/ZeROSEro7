@@ -33,8 +33,9 @@ typedef struct
 
 // GAP Handler
 
-static void (* ble_on_notice_phone)() ; // Handler from main
+static void (*ble_on_notice_phone)();  // Handler from main
 
+static char *   phone_expected_name = "ZeROSEro7 phone";
 static uint32_t parse_advdata(data_t const *const adv_data)
 {
     uint32_t field_index = 0;
@@ -53,15 +54,18 @@ static uint32_t parse_advdata(data_t const *const adv_data)
         field_data.p_data   = &p_data[field_index + 2];
         field_data.data_len = field_length - 1;
         rtt_write_string("Data: ");
+
         if(field_type == BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME || field_type == BLE_GAP_AD_TYPE_SHORT_LOCAL_NAME) {
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
-            if(strcmp((char *)field_data.p_data,"ZeROSEro7 phone") > 15 || strcmp((char *)field_data.p_data,"ZeROSEro7 phone") < -15) {    // TODO Shifting codes via pairing.
-                ble_on_notice_phone() ;
+            rtt_write_string("\n");
+            if(!memcmp(phone_expected_name, (char *)field_data.p_data, sizeof(phone_expected_name))) {  // TODO Shifting codes via pairing.
+                ble_on_notice_phone();
             }
+
         } else {
             rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
+            rtt_write_string("\n");
         }
-        rtt_write_string("\n");
 
         field_index += field_length + 1;
     }
@@ -92,7 +96,7 @@ static void on_adv_report(const ble_evt_t *const p_ble_evt)
     parse_advdata(&adv_data);
 }
 
-    // Scanning Parameters
+// Scanning Parameters
 
 #define SCAN_INTERVAL 0x00A0 /**< Determines scan interval in units of 0.625 millisecond. */
 #define SCAN_WINDOW 0x0050   /**< Determines scan window in units of 0.625 millisecond. */
@@ -132,7 +136,7 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
     }
 }
 
-    // BLE Parameters
+// BLE Parameters
 
 #define APP_BLE_CONN_CFG_TAG 1  /**< A tag identifying the SoftDevice BLE configuration. */
 #define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
@@ -156,7 +160,7 @@ static void ble_stack_init()
 }
 
 // Exports
-void ble_init(void (* phone_noticed_handler)())
+void ble_init(void (*phone_noticed_handler)())
 {
     ble_stack_init();
     scan_init();

@@ -7,12 +7,12 @@ import android.bluetooth.le.AdvertiseData;
 import android.bluetooth.le.AdvertiseSettings;
 import android.bluetooth.le.BluetoothLeAdvertiser;
 import android.content.Intent;
-import android.content.Context;
+import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
 import android.widget.Toast;
 
-public class Advertiser extends Service {
+public class AdvertiserService extends Service {
 
     private BluetoothAdapter adapter ;
     private BluetoothLeAdvertiser advertiserInstance ;
@@ -21,21 +21,38 @@ public class Advertiser extends Service {
     private AdvertiseData advertiseData ;
     private AdvertiseCallback callback ;
 
-    public Advertiser() {
+    private final IBinder mBinder = new LocalBinder() ;
+
+    public void onCreate() {
         adapter = BluetoothAdapter.getDefaultAdapter() ;
         advertiserInstance = adapter.getBluetoothLeAdvertiser() ;
-        Log.i("Advertiser","Advertiser Instance : " + advertiserInstance) ;
+        Log.i("AdvertiserService","AdvertiserService Instance : " + advertiserInstance) ;
 
         settings = buildSettings() ;
         advertiseData = buildData() ;
         callback = new AdvertiserCallbackFeedback(this) ;
 
-        Log.i("Advertiser",settings +" "+ advertiseData +" "+ callback) ;
+        Log.i("AdvertiserService",settings +" "+ advertiseData +" "+ callback) ;
 
         advertiserInstance.startAdvertising (settings,
                 advertiseData,
                 callback
         ) ;
+    }
+
+
+    public void pause() {
+        advertiserInstance.stopAdvertising(callback) ;
+        Log.i("AdvertiserService","BLE Advertising paused") ;
+    }
+
+
+    public void resume() {
+        advertiserInstance.startAdvertising (settings,
+                advertiseData,
+                callback
+        ) ;
+        Log.i("AdvertiserService","BLE Advertising resumed") ;
     }
 
     private AdvertiseSettings buildSettings() {
@@ -63,33 +80,48 @@ public class Advertiser extends Service {
 
     private class AdvertiserCallbackFeedback extends AdvertiseCallback {
 
-        private Advertiser parentAdvertiser ; // Context of the application to make Toasts
+        private AdvertiserService parentAdvertiserService; // Context of the application to make Toasts
 
-        AdvertiserCallbackFeedback(Advertiser parentAdvertiser) {
-            this.parentAdvertiser = parentAdvertiser ;
+        AdvertiserCallbackFeedback(AdvertiserService parentAdvertiserService) {
+            this.parentAdvertiserService = parentAdvertiserService;
         }
 
         @Override
         public void onStartSuccess(AdvertiseSettings settingsInEffect) {
             super.onStartSuccess(settingsInEffect);
-            Toast.makeText(parentAdvertiser.getApplicationContext(), "Now advertising through BLE", Toast.LENGTH_LONG) ;
+            Toast.makeText(parentAdvertiserService.getApplicationContext(), "Now advertising through BLE", Toast.LENGTH_LONG) ;
         }
 
         @Override
         public void onStartFailure(int errorCode) {
             super.onStartFailure(errorCode);
-            Toast.makeText(parentAdvertiser.getApplicationContext(), "Failed to start BLE advertising", Toast.LENGTH_LONG) ;
+            Toast.makeText(parentAdvertiserService.getApplicationContext(), "Failed to start BLE advertising", Toast.LENGTH_LONG) ;
         }
     }
 
     @Override
     public void onDestroy() {
-        advertiserInstance.stopAdvertising(callback);
+        pause() ;
+        Log.i("AdvertiserService", "Service destroyed") ;
+        super.onDestroy() ;
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i("AdvertiserService", "Service started. Received start id " + startId + ": " + intent);
+        return START_STICKY;    // Remain in the background when the app is paused
+    }
+
+    public class LocalBinder extends Binder {
+        // Return this instance of LocalService so clients can call public methods
+        AdvertiserService getService() {
+            return AdvertiserService.this;
+        }
     }
 
     @Override
     public IBinder onBind(Intent intent) {
-        // No data exchanged with this service.
-        return null ;
+        return mBinder ;
     }
+
 }
