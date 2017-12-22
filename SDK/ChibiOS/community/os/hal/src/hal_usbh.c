@@ -27,15 +27,15 @@
 
 #if USBH_DEBUG_ENABLE_TRACE
 #define udbgf(f, ...)  usbDbgPrintf(f, ##__VA_ARGS__)
-#define udbg(f, ...)  usbDbgPuts(f, ##__VA_ARGS__)
+#define udbg(f, ...)   usbDbgPuts(f, ##__VA_ARGS__)
 #else
 #define udbgf(f, ...)  do {} while(0)
 #define udbg(f, ...)   do {} while(0)
 #endif
 
 #if USBH_DEBUG_ENABLE_INFO
-#define uinfof(f, ...) do { rtt_printf(0, f, ##__VA_ARGS__); rtt_printf(0,"\n"); } while(0)
-#define uinfo(f, ...)  do { rtt_printf(0, f, ##__VA_ARGS__); rtt_printf(0,"\n"); } while(0)
+#define uinfof(f, ...)  usbDbgPrintf(f, ##__VA_ARGS__)
+#define uinfo(f, ...)   usbDbgPuts(f, ##__VA_ARGS__)
 #else
 #define uinfof(f, ...)  do {} while(0)
 #define uinfo(f, ...)   do {} while(0)
@@ -43,7 +43,7 @@
 
 #if USBH_DEBUG_ENABLE_WARNINGS
 #define uwarnf(f, ...)  usbDbgPrintf(f, ##__VA_ARGS__)
-#define uwarn(f, ...)  usbDbgPuts(f, ##__VA_ARGS__)
+#define uwarn(f, ...)   usbDbgPuts(f, ##__VA_ARGS__)
 #else
 #define uwarnf(f, ...)  do {} while(0)
 #define uwarn(f, ...)   do {} while(0)
@@ -107,6 +107,7 @@ void usbhObjectInit(USBHDriver *usbh) {
 
 void usbhStart(USBHDriver *usbh) {
 	usbDbgInit(usbh);
+    usbDbgPrintf("Debug Start");
 
 	osalSysLock();
 	osalDbgAssert((usbh->status == USBH_STATUS_STOPPED) || (usbh->status == USBH_STATUS_STARTED),

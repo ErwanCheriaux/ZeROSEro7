@@ -8,7 +8,8 @@
 
 /* Printf signature : int SEGGER_RTT_printf(unsigned BufferIndex, const char * sFormat, ...);
 Put 0 as first argument for default channel 0 */
-#define rtt_printf SEGGER_RTT_printf
 #define rtt_write_buffer SEGGER_RTT_Write
+
+void rtt_printf(const char *f, ...);
 
 #endif

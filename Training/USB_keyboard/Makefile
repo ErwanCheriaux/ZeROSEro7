@@ -67,6 +67,7 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/timer.c \
        $(SRC)/usb.c \
        $(TEST_FIBO)/fibo.c \
+       $(SRC)/rtt.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/SEGGER_RTT_printf.c \
        $(SRC)/usbh_custom_class_example.c
@@ -110,7 +111,7 @@ BIN  = $(CP) -O binary
 TOPT = -mthumb -DTHUMB
 
 # Define C warning options here
-CWARN = -Wall -Wextra -Werror -Wundef -Wstrict-prototypes -Wno-implicit-fallthrough
+CWARN = -Wall -Wextra -Werror -Wundef -Wstrict-prototypes -Wno-implicit-fallthrough -Wno-unused-function
 
 #
 # Compiler settings

@@ -20,15 +20,16 @@
 #define USBH_DEBUG_H_
 
 #include "hal_usbh.h"
+#include "rtt.h"
 
 #if HAL_USE_USBH
 
 #if USBH_DEBUG_ENABLE
-	void usbDbgPrintf(const char *fmt, ...);
-	void usbDbgPuts(const char *s);
-	void usbDbgInit(USBHDriver *host);
-	void usbDbgReset(void);
-	void usbDbgSystemHalted(void);
+#define usbDbgPrintf rtt_printf
+#define usbDbgPuts rtt_printf
+void usbDbgInit(USBHDriver *host);
+void usbDbgReset(void);
+void usbDbgSystemHalted(void);
 #else
 #define usbDbgPrintf(fmt, ...) do {} while(0)
 #define usbDbgPuts(s) do {} while(0)

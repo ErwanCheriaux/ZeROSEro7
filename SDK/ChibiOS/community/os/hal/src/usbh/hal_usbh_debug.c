@@ -377,6 +377,7 @@ static void _print_hdr(void)
 	_put((hdr[1] >> 24) & 0xff);
 }
 
+#if 0
 void usbDbgPrintf(const char *fmt, ...)
 {
 	va_list ap;
@@ -395,8 +396,9 @@ void usbDbgPrintf(const char *fmt, ...)
 	chSysRestoreStatusX(sts);
 	va_end(ap);
 }
+#endif
 
-
+#if 0
 void usbDbgPuts(const char *s)
 {
 	_build_hdr();
@@ -423,6 +425,7 @@ void usbDbgPuts(const char *s)
 	}
 	chSysRestoreStatusX(sts);
 }
+#endif
 
 void usbDbgReset(void) {
 	const char *msg = "\r\n\r\n==== DEBUG OUTPUT RESET ====\r\n";

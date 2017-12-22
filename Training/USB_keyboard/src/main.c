@@ -69,7 +69,7 @@ static void ThreadTestHID(void *p) {
              *     USBHHID_STATE_READY  = 3 
              * } usbhhid_state_t;
              */
-            uinfo("USBH_STATE(%d) = %d", i, usbhhidGetState(&USBHHIDD[i]));
+//          uinfo("USBH_STATE(%d) = %d", i, usbhhidGetState(&USBHHIDD[i]));
             if (usbhhidGetState(&USBHHIDD[i]) == USBHHID_STATE_ACTIVE) {
                 uinfof("HID: Connected, HID%d", i);
                 usbhhidStart(&USBHHIDD[i], &hidcfg[i]);
@@ -108,12 +108,12 @@ int main(void)
     timer_on();
 
     /*USBH OTG*/
-//  palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-//  palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(10));
-//  palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(10));
-//  palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(10));
     palSetPadMode(GPIOA, GPIOA_USB_HS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-//  palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
+    palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
 
 #if HAL_USBH_USE_HID
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
