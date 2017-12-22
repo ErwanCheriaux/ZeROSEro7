@@ -125,7 +125,7 @@ int main(void)
 
     usbhStart(&USBHD2);
 
-    usbDbgPrintf("Turn on USB power %d %s %x", 12, "toto", 255);
+    usbDbgPrintf("PRINT %d %s %x", 12, "toto", 255);
 
     while(1) {
         usbhMainLoop(&USBHD2);
