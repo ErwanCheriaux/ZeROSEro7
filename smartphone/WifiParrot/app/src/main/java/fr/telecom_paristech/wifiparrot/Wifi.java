@@ -52,7 +52,7 @@ public class Wifi extends Service
 
     public void uploadFile()
     {
-        String selectedFilePath = Environment.getExternalStorageDirectory().toString() + "/Download/telecom.txt";
+        String selectedFilePath = Environment.getExternalStorageDirectory().toString() + "/Download/telecom.png";
         new DataTransfers().execute(selectedFilePath);
     }
 }
