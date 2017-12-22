@@ -100,17 +100,21 @@ public class AdvertiserService extends Service {
     }
 
     @Override
-    public void onDestroy() {
-        pause() ;
-        Log.i("AdvertiserService", "Service destroyed") ;
-        super.onDestroy() ;
+    public void onDestroy()
+    {
+        pause()
+
+        ;
+        Log.i
+                ("AdvertiserService",
+"Service destroyed") ;
+        super.onDestroy
+    () ;
     }
 
     @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i("AdvertiserService", "Service started. Received start id " + startId + ": " + intent);
-        return START_STICKY;    // Remain in the background when the app is paused
-    }
+    public int onStartCommand(Intent intent, int flags, int startId) {     Log.i("AdvertiserService", "Service started. Received start id " + startId + ": " + intent);        return START_STICKY;    // Remain in the background when the app is paused
+}
 
     public class LocalBinder extends Binder {
         // Return this instance of LocalService so clients can call public methods
