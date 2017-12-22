@@ -7,11 +7,14 @@ package fr.telecom_paristech.wifiparrot;
 import android.os.AsyncTask;
 import android.util.Log;
 
+import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.UnsupportedEncodingException;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -91,7 +94,43 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return 1;
     }
 
-    private void uploadRequests()
+    /* Do not handle long files (> 1kB)
+     */
+    private String encode(String in)
+    {
+        int[] a = new int[in.length()];
+        for(int i = 0; i < in.length(); i++)
+            a[i] = in.charAt(i);
+        int b, c, d, e, f;
+        String g = "";
+        String h = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
+        int j = a.length;
+        int k = j % 3;
+        int l = j - k;
+        for (int m = 0; l > m; m += 3) {
+            f = a[m] << 16 | a[m + 1] << 8 | a[m + 2];
+            b = (16515072 & f) >> 18;
+            c = (258048 & f) >> 12;
+            d = (4032 & f) >> 6;
+            e = 63 & f;
+            g += "" + h.charAt(b) + h.charAt(c) + h.charAt(d) + h.charAt(e);
+        }
+        if(1 == k) {
+            f = a[l];
+            b = (252 & f) >> 2;
+            c = (3 & f) << 4;
+            g += "" + h.charAt(b) + h.charAt(c) + "==";
+            return g;
+        }
+        f = a[l] << 8 | a[l + 1];
+        b = (64512 & f) >> 10;
+        c = (1008 & f) >> 4;
+        d = (15 & f) << 2;
+        g += "" + h.charAt(b) + h.charAt(c) + h.charAt(d) + "=";
+        return g;
+    }
+
+    private void uploadRequests(String data)
     {
         // POST request to create a file
         String[] args = {
@@ -103,10 +142,12 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
                 "Referer", "http://setup.com/",
                 "Accept-Encoding", "gzip, deflate"
         };
-        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"test.txt\\\" 13\"}";
+        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"test.txt\\\" " + data.length() + "\"}";
+        Log.d("Request", msg);
         Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
         // POST request to fill the created file
-        msg = "{\"command\":\"write 0 13\",\"flags\":4,\"data\":\"aGVsbG8gd29ybGQKCg==\"}";
+        msg = "{\"command\":\"write 0 " + data.length() + "\",\"flags\":4,\"data\":\"" + encode(data) + "\"}";
+        Log.d("Request", msg);
         Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
     }
 
@@ -131,7 +172,18 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         }
         Log.d("Data", "Source File Found: " + selectedFilePath);
 
-        uploadRequests();
+        try {
+            InputStreamReader isr = new InputStreamReader(fileInputStream, "UTF-8");
+            BufferedReader bufferedReader = new BufferedReader(isr);
+            String line;
+            String data = "";
+            while((line = bufferedReader.readLine()) != null)
+                data = data.concat(line).concat("\n");
+            Log.i("Data", data);
+            uploadRequests(data);
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
         return serverResponseCode;
     }
