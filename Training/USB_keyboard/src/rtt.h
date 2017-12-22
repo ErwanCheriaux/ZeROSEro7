@@ -10,6 +10,6 @@
 Put 0 as first argument for default channel 0 */
 #define rtt_write_buffer SEGGER_RTT_Write
 
-void rtt_printf(const char *f, ...);
+#define rtt_printf(f, ...) do {SEGGER_RTT_printf(0, f, ##__VA_ARGS__); SEGGER_RTT_printf(0,"\n");} while(0)
 
 #endif

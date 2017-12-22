@@ -119,14 +119,17 @@ int main(void)
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
 
-    uinfo("turn on USB power");
+    usbDbgPrintf("Turn on USB power");
     palSetPad(GPIOA, GPIOA_USB_HS_BUSON);
     chThdSleepMilliseconds(100);
 
     usbhStart(&USBHD2);
 
+    usbDbgPrintf("Turn on USB power %d %s %x", 12, "toto", 255);
+
     while(1) {
         usbhMainLoop(&USBHD2);
+//      usbhDevicePrintInfo(&USBHD2.rootport.device);
         chThdSleepMilliseconds(100);
     }
 

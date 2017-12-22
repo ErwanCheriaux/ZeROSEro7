@@ -67,7 +67,6 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/timer.c \
        $(SRC)/usb.c \
        $(TEST_FIBO)/fibo.c \
-       $(SRC)/rtt.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/SEGGER_RTT_printf.c \
        $(SRC)/usbh_custom_class_example.c
