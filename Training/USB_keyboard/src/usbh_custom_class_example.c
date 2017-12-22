@@ -35,6 +35,18 @@
     } while(0)
 #endif
 
+#if USBH_DEBUG_ENABLE_INFO
+#define uinfof(f, ...) usbDbgPrintf(f, ##__VA_ARGS__)
+#define uinfo(f, ...) usbDbgPuts(f, ##__VA_ARGS__)
+#else
+#define uinfof(f, ...) \
+    do {               \
+    } while(0)
+#define uinfo(f, ...) \
+    do {              \
+    } while(0)
+#endif
+
 #if USBH_DEBUG_ENABLE_WARNINGS
 #define uwarnf(f, ...) usbDbgPrintf(f, ##__VA_ARGS__)
 #define uwarn(f, ...) usbDbgPuts(f, ##__VA_ARGS__)

@@ -17,14 +17,14 @@
 #include "hal.h"
 
 /* Virtual serial port over USB.*/
-SerialUSBDriver SDU1;
+SerialUSBDriver SDU2;
 
 /*
- * Endpoints to be used for USBD1.
+ * Endpoints to be used for USBD2.
  */
-#define USBD1_DATA_REQUEST_EP 1
-#define USBD1_DATA_AVAILABLE_EP 1
-#define USBD1_INTERRUPT_REQUEST_EP 2
+#define USBD2_DATA_REQUEST_EP 1
+#define USBD2_DATA_AVAILABLE_EP 1
+#define USBD2_INTERRUPT_REQUEST_EP 2
 
 /*
  * USB Device Descriptor.
@@ -101,7 +101,7 @@ static const uint8_t vcom_configuration_descriptor_data[67] = {
     USB_DESC_BYTE(0x01), /* bSlaveInterface0 (Data Class
                                            Interface).                      */
     /* Endpoint 2 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD1_INTERRUPT_REQUEST_EP | 0x80,
+    USB_DESC_ENDPOINT(USBD2_INTERRUPT_REQUEST_EP | 0x80,
                       0x03,   /* bmAttributes (Interrupt).        */
                       0x0008, /* wMaxPacketSize.                  */
                       0xFF),  /* bInterval.                       */
@@ -117,12 +117,12 @@ static const uint8_t vcom_configuration_descriptor_data[67] = {
                                            4.7).                            */
                        0x00), /* iInterface.                      */
     /* Endpoint 3 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD1_DATA_AVAILABLE_EP, /* bEndpointAddress.*/
+    USB_DESC_ENDPOINT(USBD2_DATA_AVAILABLE_EP, /* bEndpointAddress.*/
                       0x02,                    /* bmAttributes (Bulk).             */
                       0x0040,                  /* wMaxPacketSize.                  */
                       0x00),                   /* bInterval.                       */
     /* Endpoint 1 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD1_DATA_REQUEST_EP | 0x80, /* bEndpointAddress.*/
+    USB_DESC_ENDPOINT(USBD2_DATA_REQUEST_EP | 0x80, /* bEndpointAddress.*/
                       0x02,                         /* bmAttributes (Bulk).             */
                       0x0040,                       /* wMaxPacketSize.                  */
                       0x00)                         /* bInterval.                       */
@@ -257,7 +257,7 @@ static const USBEndpointConfig ep2config = {
  */
 static void usb_event(USBDriver *usbp, usbevent_t event)
 {
-    extern SerialUSBDriver SDU1;
+    extern SerialUSBDriver SDU2;
 
     switch(event) {
         case USB_EVENT_ADDRESS:
@@ -268,11 +268,11 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
             /* Enables the endpoints specified into the configuration.
        Note, this callback is invoked from an ISR so I-Class functions
        must be used.*/
-            usbInitEndpointI(usbp, USBD1_DATA_REQUEST_EP, &ep1config);
-            usbInitEndpointI(usbp, USBD1_INTERRUPT_REQUEST_EP, &ep2config);
+            usbInitEndpointI(usbp, USBD2_DATA_REQUEST_EP, &ep1config);
+            usbInitEndpointI(usbp, USBD2_INTERRUPT_REQUEST_EP, &ep2config);
 
             /* Resetting the state of the CDC subsystem.*/
-            sduConfigureHookI(&SDU1);
+            sduConfigureHookI(&SDU2);
 
             chSysUnlockFromISR();
             return;
@@ -284,7 +284,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
             chSysLockFromISR();
 
             /* Disconnection event on suspend.*/
-            sduSuspendHookI(&SDU1);
+            sduSuspendHookI(&SDU2);
 
             chSysUnlockFromISR();
             return;
@@ -292,7 +292,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
             chSysLockFromISR();
 
             /* Disconnection event on suspend.*/
-            sduWakeupHookI(&SDU1);
+            sduWakeupHookI(&SDU2);
 
             chSysUnlockFromISR();
             return;
@@ -310,7 +310,7 @@ static void sof_handler(USBDriver *usbp)
     (void)usbp;
 
     osalSysLockFromISR();
-    sduSOFHookI(&SDU1);
+    sduSOFHookI(&SDU2);
     osalSysUnlockFromISR();
 }
 
@@ -327,10 +327,10 @@ const USBConfig usbcfg = {
  * Serial over USB driver configuration.
  */
 const SerialUSBConfig serusbcfg = {
-    &USBD1,
-    USBD1_DATA_REQUEST_EP,
-    USBD1_DATA_AVAILABLE_EP,
-    USBD1_INTERRUPT_REQUEST_EP};
+    &USBD2,
+    USBD2_DATA_REQUEST_EP,
+    USBD2_DATA_AVAILABLE_EP,
+    USBD2_INTERRUPT_REQUEST_EP};
 
 /*
  * USB initialization get on the demo file 
@@ -339,20 +339,20 @@ const SerialUSBConfig serusbcfg = {
 void usb_init(void)
 {
     /*
-   * Initializes USB GPIO.
+   * Initializes USB_HS GPIO.
    */
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_ID, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOB, GPIOB_USB_FS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, GPIOB_USB_FS_FAULT, PAL_MODE_INPUT);
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_USB_HS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
 
     /*
    * Initializes a serial-over-USB CDC driver.
    */
-    sduObjectInit(&SDU1);
-    sduStart(&SDU1, &serusbcfg);
+    sduObjectInit(&SDU2);
+    sduStart(&SDU2, &serusbcfg);
 
     /*
    * Activates the USB driver and then the USB bus pull-up on D+.

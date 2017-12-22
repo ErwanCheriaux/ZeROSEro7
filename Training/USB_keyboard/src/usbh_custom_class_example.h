@@ -56,27 +56,6 @@ struct USBHCustomDriver {
 /*===========================================================================*/
 /* Driver macros.                                                            */
 /*===========================================================================*/
-#include "rtt.h"
-
-#if USBH_DEBUG_ENABLE_INFO
-#define uinfof(f, ...)                   \
-    do {                                 \
-        rtt_printf(0, f, ##__VA_ARGS__); \
-        rtt_printf(0, "\n"); \
-    } while(0)
-#define uinfo(f, ...)                    \
-    do {                                 \
-        rtt_printf(0, f, ##__VA_ARGS__); \
-        rtt_printf(0, "\n"); \
-    } while(0)
-#else
-#define uinfof(f, ...) \
-    do {               \
-    } while(0)
-#define uinfo(f, ...) \
-    do {              \
-    } while(0)
-#endif
 
 /*===========================================================================*/
 /* External declarations.                                                    */

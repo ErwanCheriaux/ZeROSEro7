@@ -690,7 +690,6 @@ OSAL_IRQ_HANDLER(STM32_OTG1_HANDLER) {
   OSAL_IRQ_PROLOGUE();
 
   usb_lld_serve_interrupt(&USBD1);
-  rtt_printf("usb_lld_serve_interrupt USB1");
 
   OSAL_IRQ_EPILOGUE();
 }
@@ -707,7 +706,6 @@ OSAL_IRQ_HANDLER(STM32_OTG2_HANDLER) {
   OSAL_IRQ_PROLOGUE();
 
   usb_lld_serve_interrupt(&USBD2);
-  rtt_printf("usb_lld_serve_interrupt USB2");
 
   OSAL_IRQ_EPILOGUE();
 }

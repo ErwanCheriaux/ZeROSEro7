@@ -146,7 +146,7 @@
 
 /* debug */
 #define USBH_DEBUG_ENABLE                             TRUE
-#define USBH_DEBUG_USBHD                              USBHD2
+#define USBH_DEBUG_USBHD                              USBHD1
 #define USBH_DEBUG_SD                                 SD6
 #define USBH_DEBUG_BUFFER                             25000
 

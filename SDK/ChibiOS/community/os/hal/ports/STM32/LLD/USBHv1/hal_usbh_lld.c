@@ -1360,7 +1360,6 @@ OSAL_IRQ_HANDLER(STM32_OTG1_HANDLER) {
 	OSAL_IRQ_PROLOGUE();
 	osalSysLockFromISR();
 	usb_lld_serve_interrupt(&USBHD1);
-    rtt_printf("usb_lld_serve_interrupt USBH1");
 	osalSysUnlockFromISR();
 	OSAL_IRQ_EPILOGUE();
 }
@@ -1371,7 +1370,6 @@ OSAL_IRQ_HANDLER(STM32_OTG2_HANDLER) {
 	OSAL_IRQ_PROLOGUE();
 	osalSysLockFromISR();
 	usb_lld_serve_interrupt(&USBHD2);
-    rtt_printf("usb_lld_serve_interrupt USBH2");
 	osalSysUnlockFromISR();
 	OSAL_IRQ_EPILOGUE();
 }

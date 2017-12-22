@@ -110,7 +110,7 @@ BIN  = $(CP) -O binary
 TOPT = -mthumb -DTHUMB
 
 # Define C warning options here
-CWARN = -Wall -Wextra -Werror -Wundef -Wstrict-prototypes -Wno-implicit-fallthrough -Wno-unused-function
+CWARN = -Wall -Wextra -Werror -Wundef -Wstrict-prototypes -Wno-unused-function
 
 #
 # Compiler settings
