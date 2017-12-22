@@ -24,9 +24,12 @@ int main(void)
     led_on();
 
     wifi_command("setup stop\r\n", 1000);
-    wifi_command("set setup.web.ssid \"We <3 M.Polti & M.Tardieu\"\r\n", 1000);
-    wifi_command("set setup.web.passkey \"zerosero7\"\r\n", 1000);
-    wifi_command("setup web\r\n", 4000);
+    wifi_command("set so s \"We <3 M.Polti & M.Tardieu\"\r\n", 1000);
+    wifi_command("set so p \"zerosero7\"\r\n", 1000);
+    wifi_command("set so u \"zerosero7.com\"\r\n", 1000);
+    wifi_command("tcp_server -i softap start 20\r\n", 2000);
+    wifi_command("get so i\r\n", 1000);
+    wifi_command("get so u\r\n", 1000);
 
     chThdSleep(TIME_INFINITE);
     return 0;

@@ -8,18 +8,97 @@ import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.io.OutputStreamWriter;
+import java.io.PrintWriter;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
+import java.net.InetAddress;
+import java.net.Socket;
 import java.net.URL;
 
 public class DataTransfers extends AsyncTask<String, Void, Integer>
 {
+    private PrintWriter tcpSendBuffer;
+    private boolean tcpRun = false;
+    private BufferedReader tcpReceiveBuffer;
+    private String tcpServerMessage;
+    private OnMessageReceived tcpMessageListener = null;
+
+    public interface OnMessageReceived {
+        public void messageReceived(String message);
+    }
+
+    public void TCPStart()
+    {
+        try {
+            InetAddress ip = InetAddress.getByName("10.10.10.1");
+            Log.i("TCP Client", "C: Connecting...");
+            Socket socket = new Socket(ip, 20);
+            try {
+                //sends the message to the server
+                tcpSendBuffer = new PrintWriter(socket.getOutputStream());
+                //receives the message which the server sends back
+                tcpReceiveBuffer = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                int charsRead;
+                char[] buffer = new char[1024];
+                //in this while the client listens for the messages sent by the server
+                while (tcpRun) {
+                    charsRead = tcpReceiveBuffer.read(buffer);
+                    tcpServerMessage = new String(buffer).substring(0, charsRead);
+                    if (tcpServerMessage != null && tcpMessageListener != null)
+                        //call the method messageReceived from MyActivity class
+                        tcpMessageListener.messageReceived(tcpServerMessage);
+                    tcpServerMessage = null;
+                }
+                Log.i("RESPONSE FROM SERVER", "S: Received Message: '" + tcpServerMessage + "'");
+            } catch (Exception e) {
+                Log.e("TCP", "S: Error", e);
+            } finally {
+                //the socket must be closed. It is not possible to reconnect to this socket
+                // after it is closed, which means a new socket instance has to be created.
+                socket.close();
+            }
+        } catch (Exception e) {
+            Log.e("TCP", "C: Error", e);
+        }
+    }
+
+    /* Close the TCP connection and release the members
+     */
+    public void TCPStop()
+    {
+        tcpRun = false;
+        if (tcpSendBuffer != null) {
+            tcpSendBuffer.flush();
+            tcpSendBuffer.close();
+        }
+        tcpMessageListener = null;
+        tcpReceiveBuffer = null;
+        tcpSendBuffer = null;
+        tcpServerMessage = null;
+    }
+
+    /* Send a TCP request to a url and return server response
+    ** msg:    content to send
+    ** return: server response
+     */
+    private String TCPRequest(String msg)
+    {
+        if (tcpSendBuffer != null && !tcpSendBuffer.checkError()) {
+            tcpSendBuffer.println(msg);
+            tcpSendBuffer.flush();
+            Log.i("TCP", "Message sent.");
+        }
+        return "";
+    }
+
     /* Send a GET request to a url and return server response
     ** url:    url to connect
     ** return: server response
@@ -93,7 +172,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return 1;
     }
 
-    /* Do not handle long files (> 1kB)
+    /* Do not handle long files (> 41kB)
      */
     private String encode(String in)
     {
@@ -171,19 +250,23 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         }
         Log.d("Data", "Source File Found: " + selectedFilePath);
 
+        TCPStart();
         try {
             InputStreamReader isr = new InputStreamReader(fileInputStream, "UTF-8");
             BufferedReader bufferedReader = new BufferedReader(isr);
             String line;
             String data = "";
-            while((line = bufferedReader.readLine()) != null)
+            while((line = bufferedReader.readLine()) != null) {
                 data = data.concat(line).concat("\n");
-            Log.i("Data", data);
-            uploadRequests(data);
+            }
+            String msg = "fcr \"test.txt\" 10\n" + data + "\r\n";
+            Log.i("Data", msg);
+            TCPRequest(msg);
+            //uploadRequests(data);
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        TCPStop();
         return serverResponseCode;
     }
 }
