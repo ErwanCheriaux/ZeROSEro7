@@ -30,6 +30,8 @@ public class Advertiser extends Service {
         advertiseData = buildData() ;
         callback = new AdvertiserCallbackFeedback(this) ;
 
+        Log.i("Advertiser",settings +" "+ advertiseData +" "+ callback) ;
+
         advertiserInstance.startAdvertising (settings,
                 advertiseData,
                 callback

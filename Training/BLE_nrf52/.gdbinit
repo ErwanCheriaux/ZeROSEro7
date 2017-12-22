@@ -9,7 +9,7 @@ define split
   focus cmd
 end
 
-define restart
+define flash
   mon halt
   load
   mon reset

@@ -33,6 +33,8 @@ typedef struct
 
 // GAP Handler
 
+static void (* ble_on_notice_phone)() ; // Handler from main
+
 static uint32_t parse_advdata(data_t const *const adv_data)
 {
     uint32_t field_index = 0;
@@ -53,6 +55,9 @@ static uint32_t parse_advdata(data_t const *const adv_data)
         rtt_write_string("Data: ");
         if(field_type == BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME || field_type == BLE_GAP_AD_TYPE_SHORT_LOCAL_NAME) {
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
+            if(strcmp((char *)field_data.p_data,"ZeROSEro7 phone") > 15 || strcmp((char *)field_data.p_data,"ZeROSEro7 phone") < -15) {    // TODO Shifting codes via pairing.
+                ble_on_notice_phone() ;
+            }
         } else {
             rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
         }
@@ -151,10 +156,11 @@ static void ble_stack_init()
 }
 
 // Exports
-void ble_init(void)
+void ble_init(void (* phone_noticed_handler)())
 {
     ble_stack_init();
     scan_init();
+    ble_on_notice_phone = phone_noticed_handler;
 }
 
 void ble_start_observing()
@@ -164,4 +170,9 @@ void ble_start_observing()
 
     err_code = sd_ble_gap_scan_start(&scan_conf);
     APP_ERROR_CHECK(err_code);
+}
+
+void ble_stop_observing()
+{
+    sd_ble_gap_scan_stop();
 }

@@ -12,6 +12,11 @@ void power_manage()
     APP_ERROR_CHECK(err_code);
 }
 
+static void phone_noticed_handler() {
+    rtt_write_string("Phone get !") ;
+    APP_ERROR_CHECK(0xDEADBEEF);
+}
+
 int main(void)
 {
     rtt_init();
@@ -20,7 +25,7 @@ int main(void)
     bsp_board_leds_init();
     bsp_board_led_on(1);
 
-    ble_init();
+    ble_init(phone_noticed_handler);
     rtt_write_string("BLE initialized\n");
     bsp_board_led_on(2);
 
