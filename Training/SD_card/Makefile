@@ -249,7 +249,7 @@ stopgdbserver:
 debug: $(ELF)
 	$(GDB) $<
 
-format: $(SRC)/*.c #$(SRC)/*.h
+format: $(SRC)/*.c $(SRC)/*.h
 	clang-format -i $^
 
 telnet:

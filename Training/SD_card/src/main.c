@@ -23,7 +23,6 @@
 #include "shell.h"
 
 #include "rtt.h"
-#include "SEGGER_RTT.h"
 
 /*
  * Working area for driver.
@@ -76,30 +75,30 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     uint32_t           n, startblk;
 
     if(argc != 1) {
-        SEGGER_RTT_printf(0, "Usage: sdiotest read|write|erase|all\r\n");
+        rtt_printf("Usage: sdiotest read|write|erase|all");
         return;
     }
 
     /* Card presence check.*/
     if(!blkIsInserted(&SDCD1)) {
-        SEGGER_RTT_printf(0, "Card not inserted, aborting.\r\n");
+        rtt_printf("Card not inserted, aborting.");
         return;
     }
 
     /* Connection to the card.*/
-    SEGGER_RTT_printf(0, "Connecting... ");
+    rtt_printf("Connecting... ");
     if(sdcConnect(&SDCD1)) {
-        SEGGER_RTT_printf(0, "failed\r\n");
+        rtt_printf("failed");
         return;
     }
 
-    SEGGER_RTT_printf(0, "OK\r\n\r\nCard Info\r\n");
-    SEGGER_RTT_printf(0, "CSD      : %08X %8X %08X %08X \r\n",
-             SDCD1.csd[3], SDCD1.csd[2], SDCD1.csd[1], SDCD1.csd[0]);
-    SEGGER_RTT_printf(0, "CID      : %08X %8X %08X %08X \r\n",
-             SDCD1.cid[3], SDCD1.cid[2], SDCD1.cid[1], SDCD1.cid[0]);
-    SEGGER_RTT_printf(0, "Mode     : %s\r\n", mode[SDCD1.cardmode & 3U]);
-    SEGGER_RTT_printf(0, "Capacity : %DMB\r\n", SDCD1.capacity / 2048);
+    rtt_printf("OK\r\n\r\nCard Info");
+    rtt_printf("CSD      : %08X %8X %08X %08X ",
+               SDCD1.csd[3], SDCD1.csd[2], SDCD1.csd[1], SDCD1.csd[0]);
+    rtt_printf("CID      : %08X %8X %08X %08X ",
+               SDCD1.cid[3], SDCD1.cid[2], SDCD1.cid[1], SDCD1.cid[0]);
+    rtt_printf("Mode     : %s", mode[SDCD1.cardmode & 3U]);
+    rtt_printf("Capacity : %dMB", SDCD1.capacity / 2048);
 
     /* The test is performed in the middle of the flash area.*/
     startblk = (SDCD1.capacity / MMCSD_BLOCK_SIZE) / 2;
@@ -107,61 +106,61 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     if((strcmp(argv[0], "read") == 0) ||
        (strcmp(argv[0], "all") == 0)) {
         /* Single block read performance, aligned.*/
-        SEGGER_RTT_printf(0, "Single block aligned read performance:           ");
+        rtt_printf("Single block aligned read performance:           ");
         start = chVTGetSystemTime();
         end   = start + MS2ST(1000);
         n     = 0;
         do {
             if(blkRead(&SDCD1, startblk, buf, 1)) {
-                SEGGER_RTT_printf(0, "failed\r\n");
+                rtt_printf("failed");
                 goto exittest;
             }
             n++;
         } while(chVTIsSystemTimeWithin(start, end));
-        SEGGER_RTT_printf(0, "%D blocks/S, %D bytes/S\r\n", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
 
         /* Multiple sequential blocks read performance, aligned.*/
-        SEGGER_RTT_printf(0, "16 sequential blocks aligned read performance:   ");
+        rtt_printf("16 sequential blocks aligned read performance:   ");
         start = chVTGetSystemTime();
         end   = start + MS2ST(1000);
         n     = 0;
         do {
             if(blkRead(&SDCD1, startblk, buf, SDC_BURST_SIZE)) {
-                SEGGER_RTT_printf(0, "failed\r\n");
+                rtt_printf("failed");
                 goto exittest;
             }
             n += SDC_BURST_SIZE;
         } while(chVTIsSystemTimeWithin(start, end));
-        SEGGER_RTT_printf(0, "%D blocks/S, %D bytes/S\r\n", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
 
 #if STM32_SDC_SDIO_UNALIGNED_SUPPORT
         /* Single block read performance, unaligned.*/
-        SEGGER_RTT_printf(0, "Single block unaligned read performance:         ");
+        rtt_printf("Single block unaligned read performance:         ");
         start = chVTGetSystemTime();
         end   = start + MS2ST(1000);
         n     = 0;
         do {
             if(blkRead(&SDCD1, startblk, buf + 1, 1)) {
-                SEGGER_RTT_printf(0, "failed\r\n");
+                rtt_printf("failed");
                 goto exittest;
             }
             n++;
         } while(chVTIsSystemTimeWithin(start, end));
-        SEGGER_RTT_printf(0, "%D blocks/S, %D bytes/S\r\n", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
 
         /* Multiple sequential blocks read performance, unaligned.*/
-        SEGGER_RTT_printf(0, "16 sequential blocks unaligned read performance: ");
+        rtt_printf("16 sequential blocks unaligned read performance: ");
         start = chVTGetSystemTime();
         end   = start + MS2ST(1000);
         n     = 0;
         do {
             if(blkRead(&SDCD1, startblk, buf + 1, SDC_BURST_SIZE)) {
-                SEGGER_RTT_printf(0, "failed\r\n");
+                rtt_printf("failed");
                 goto exittest;
             }
             n += SDC_BURST_SIZE;
         } while(chVTIsSystemTimeWithin(start, end));
-        SEGGER_RTT_printf(0, "%D blocks/S, %D bytes/S\r\n", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
 #endif /* STM32_SDC_SDIO_UNALIGNED_SUPPORT */
     }
 
@@ -170,37 +169,37 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         unsigned i;
 
         memset(buf, 0xAA, MMCSD_BLOCK_SIZE * 2);
-        SEGGER_RTT_printf(0, "Writing...");
+        rtt_printf("Writing...");
         if(sdcWrite(&SDCD1, startblk, buf, 2)) {
-            SEGGER_RTT_printf(0, "failed\r\n");
+            rtt_printf("failed");
             goto exittest;
         }
-        SEGGER_RTT_printf(0, "OK\r\n");
+        rtt_printf("OK");
 
         memset(buf, 0x55, MMCSD_BLOCK_SIZE * 2);
-        SEGGER_RTT_printf(0, "Reading...");
+        rtt_printf("Reading...");
         if(blkRead(&SDCD1, startblk, buf, 1)) {
-            SEGGER_RTT_printf(0, "failed\r\n");
+            rtt_printf("failed");
             goto exittest;
         }
-        SEGGER_RTT_printf(0, "OK\r\n");
+        rtt_printf("OK");
 
         for(i      = 0; i < MMCSD_BLOCK_SIZE; i++)
             buf[i] = i + 8;
-        SEGGER_RTT_printf(0, "Writing...");
+        rtt_printf("Writing...");
         if(sdcWrite(&SDCD1, startblk, buf, 2)) {
-            SEGGER_RTT_printf(0, "failed\r\n");
+            rtt_printf("failed");
             goto exittest;
         }
-        SEGGER_RTT_printf(0, "OK\r\n");
+        rtt_printf("OK");
 
         memset(buf, 0, MMCSD_BLOCK_SIZE * 2);
-        SEGGER_RTT_printf(0, "Reading...");
+        rtt_printf("Reading...");
         if(blkRead(&SDCD1, startblk, buf, 1)) {
-            SEGGER_RTT_printf(0, "failed\r\n");
+            rtt_printf("failed");
             goto exittest;
         }
-        SEGGER_RTT_printf(0, "OK\r\n");
+        rtt_printf("OK");
     }
 
     if((strcmp(argv[0], "erase") == 0) ||
@@ -226,51 +225,51 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         }
         /* 2. */
         if(sdcWrite(&SDCD1, startblk, buf, 2)) {
-            SEGGER_RTT_printf(0, "sdcErase() test write failed\r\n");
+            rtt_printf("sdcErase() test write failed");
             goto exittest;
         }
         /* 3. (erase) */
         if(sdcErase(&SDCD1, startblk + 1, startblk + 2)) {
-            SEGGER_RTT_printf(0, "sdcErase() failed\r\n");
+            rtt_printf("sdcErase() failed");
             goto exittest;
         }
         sdcflags_t errflags = sdcGetAndClearErrors(&SDCD1);
         if(errflags) {
-            SEGGER_RTT_printf(0, "sdcErase() yielded error flags: %d\r\n", errflags);
+            rtt_printf("sdcErase() yielded error flags: %d", errflags);
             goto exittest;
         }
         if(sdcRead(&SDCD1, startblk, buf2, 2)) {
-            SEGGER_RTT_printf(0, "single-block sdcErase() failed\r\n");
+            rtt_printf("single-block sdcErase() failed");
             goto exittest;
         }
         /* 3.1. */
         if(memcmp(buf, buf2, MMCSD_BLOCK_SIZE) != 0) {
-            SEGGER_RTT_printf(0, "sdcErase() non-erased block compare failed\r\n");
+            rtt_printf("sdcErase() non-erased block compare failed");
             goto exittest;
         }
         /* 3.2. */
         if(memcmp(buf + MMCSD_BLOCK_SIZE,
                   buf2 + MMCSD_BLOCK_SIZE, MMCSD_BLOCK_SIZE) == 0) {
-            SEGGER_RTT_printf(0, "sdcErase() erased block compare failed\r\n");
+            rtt_printf("sdcErase() erased block compare failed");
             goto exittest;
         }
         /* 4. */
         if(sdcErase(&SDCD1, startblk, startblk + 2)) {
-            SEGGER_RTT_printf(0, "multi-block sdcErase() failed\r\n");
+            rtt_printf("multi-block sdcErase() failed");
             goto exittest;
         }
         if(sdcRead(&SDCD1, startblk, buf2, 2)) {
-            SEGGER_RTT_printf(0, "single-block sdcErase() failed\r\n");
+            rtt_printf("single-block sdcErase() failed");
             goto exittest;
         }
         /* 4.1 */
         if(memcmp(buf, buf2, MMCSD_BLOCK_SIZE) == 0) {
-            SEGGER_RTT_printf(0, "multi-block sdcErase() erased block compare failed\r\n");
+            rtt_printf("multi-block sdcErase() erased block compare failed");
             goto exittest;
         }
         if(memcmp(buf + MMCSD_BLOCK_SIZE,
                   buf2 + MMCSD_BLOCK_SIZE, MMCSD_BLOCK_SIZE) == 0) {
-            SEGGER_RTT_printf(0, "multi-block sdcErase() erased block compare failed\r\n");
+            rtt_printf("multi-block sdcErase() erased block compare failed");
             goto exittest;
         }
         /* END of sdcErase() test */
