@@ -14,12 +14,36 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 
+import java.net.URISyntaxException;
+
 public class MainActivity extends AppCompatActivity
 {
     Wifi mService;
     Button buttonScan;
     Button buttonUpload;
     Intent wifiIntent;
+
+    static final int FILE_PICK = 1;
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data)
+    {
+        if (requestCode == FILE_PICK) {
+            // Make sure the request was successful
+            if (resultCode == RESULT_OK) {
+                try {
+                    String path = PathUtil.getPath(getApplicationContext(), data.getData());
+                    Log.d("File manager data", path);
+                    mService.uploadFile(path);
+                } catch (URISyntaxException e) {
+                    e.printStackTrace();
+                }
+
+                return;
+            }
+            Log.e("File manager", "File manger result is not correct");
+        }
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState)
@@ -36,7 +60,10 @@ public class MainActivity extends AppCompatActivity
         buttonUpload = (Button)findViewById(R.id.button_upload);
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.uploadFile();
+                Intent intent = new Intent();
+                intent.setAction(Intent.ACTION_GET_CONTENT);
+                intent.setType("*/*");
+                startActivityForResult(intent, FILE_PICK);
             }
         });
         // Allow WiFi

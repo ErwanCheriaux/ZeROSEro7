@@ -50,9 +50,8 @@ public class Wifi extends Service
         return mBinder;
     }
 
-    public void uploadFile()
+    public void uploadFile(String filename)
     {
-        String selectedFilePath = Environment.getExternalStorageDirectory().toString() + "/Download/telecom.jpg";
-        new DataTransfers().execute(selectedFilePath);
+        new DataTransfers().execute(filename);
     }
 }
