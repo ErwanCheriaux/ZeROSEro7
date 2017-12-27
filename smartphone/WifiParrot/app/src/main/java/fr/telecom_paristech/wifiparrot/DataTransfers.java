@@ -7,7 +7,6 @@ package fr.telecom_paristech.wifiparrot;
 import android.os.AsyncTask;
 import android.util.Log;
 
-import java.io.BufferedReader;
 import java.io.DataOutputStream;
 import java.io.File;
 import java.io.FileInputStream;
@@ -17,9 +16,12 @@ import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
+import java.util.Arrays;
 
 public class DataTransfers extends AsyncTask<String, Void, Integer>
 {
+    private final int MAX_DATA_LEN_HTTP = 2560;
+
     /* Send a GET request to a url and return server response
     ** url:    url to connect
     ** return: server response
@@ -95,19 +97,16 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
 
     /* Do not handle long files (> 1kB)
      */
-    private String encode(String in)
+    private String encode(byte[] data, int dataLen)
     {
-        int[] a = new int[in.length()];
-        for(int i = 0; i < in.length(); i++)
-            a[i] = in.charAt(i);
+        Log.d("rowData", Arrays.toString(data));
         int b, c, d, e, f;
         String g = "";
         String h = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
-        int j = a.length;
-        int k = j % 3;
-        int l = j - k;
+        int k = dataLen % 3;
+        int l = dataLen - k;
         for (int m = 0; l > m; m += 3) {
-            f = a[m] << 16 | a[m + 1] << 8 | a[m + 2];
+            f = data[m] << 16 | data[m + 1] << 8 | data[m + 2];
             b = (16515072 & f) >> 18;
             c = (258048 & f) >> 12;
             d = (4032 & f) >> 6;
@@ -115,13 +114,13 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
             g += "" + h.charAt(b) + h.charAt(c) + h.charAt(d) + h.charAt(e);
         }
         if(1 == k) {
-            f = a[l];
+            f = data[l];
             b = (252 & f) >> 2;
             c = (3 & f) << 4;
             g += "" + h.charAt(b) + h.charAt(c) + "==";
             return g;
         }
-        f = a[l] << 8 | a[l + 1];
+        f = data[l] << 8 | data[l + 1];
         b = (64512 & f) >> 10;
         c = (1008 & f) >> 4;
         d = (15 & f) << 2;
@@ -129,8 +128,10 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return g;
     }
 
-    private void uploadRequests(String data)
+    private void uploadRequests(FileInputStream fileInputStream, long fileSize)
     {
+        byte[] data = new byte[MAX_DATA_LEN_HTTP];
+        int dataLen;
         // POST request to create a file
         String[] args = {
                 "Host", "setup.com",
@@ -141,13 +142,25 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
                 "Referer", "http://setup.com/",
                 "Accept-Encoding", "gzip, deflate"
         };
-        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"test.txt\\\" " + data.length() + "\"}";
+        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"test.jpg\\\" " + fileSize + "\"}";
         Log.d("Request", msg);
         Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
-        // POST request to fill the created file
-        msg = "{\"command\":\"write 0 " + data.length() + "\",\"flags\":4,\"data\":\"" + encode(data) + "\"}";
-        Log.d("Request", msg);
-        Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
+        int sendSize = 0;
+        while(true) {
+            try {
+                dataLen = fileInputStream.read(data, 0, MAX_DATA_LEN_HTTP);
+            } catch (IOException e) {
+                e.printStackTrace();
+                return;
+            }
+            sendSize += dataLen;
+            if(dataLen == -1)
+                break;
+            // POST request to fill the created file
+            msg = "{\"command\":\"write 0 " + dataLen + "\",\"flags\":4,\"data\":\"" + encode(data, dataLen) + "\"}";
+            Log.d("Request (" + sendSize + "/" + fileSize + ")", msg);
+            Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
+        }
     }
 
     protected Integer doInBackground(String... input)
@@ -171,18 +184,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         }
         Log.d("Data", "Source File Found: " + selectedFilePath);
 
-        try {
-            InputStreamReader isr = new InputStreamReader(fileInputStream, "UTF-8");
-            BufferedReader bufferedReader = new BufferedReader(isr);
-            String line;
-            String data = "";
-            while((line = bufferedReader.readLine()) != null)
-                data = data.concat(line).concat("\n");
-            Log.i("Data", data);
-            uploadRequests(data);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+        uploadRequests(fileInputStream, selectedFile.length());
 
         return serverResponseCode;
     }
