@@ -95,18 +95,22 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return 1;
     }
 
+    public static int byte2uint8(byte b)
+    {
+        return 0x00 << 24 | b & 0xff;
+    }
+
     /* Do not handle long files (> 1kB)
      */
     private String encode(byte[] data, int dataLen)
     {
-        Log.d("rowData", Arrays.toString(data));
         int b, c, d, e, f;
         String g = "";
         String h = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/";
         int k = dataLen % 3;
         int l = dataLen - k;
         for (int m = 0; l > m; m += 3) {
-            f = data[m] << 16 | data[m + 1] << 8 | data[m + 2];
+            f = byte2uint8(data[m]) << 16 | byte2uint8(data[m + 1]) << 8 | byte2uint8(data[m + 2]);
             b = (16515072 & f) >> 18;
             c = (258048 & f) >> 12;
             d = (4032 & f) >> 6;
@@ -114,13 +118,13 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
             g += "" + h.charAt(b) + h.charAt(c) + h.charAt(d) + h.charAt(e);
         }
         if(1 == k) {
-            f = data[l];
+            f = byte2uint8(data[l]);
             b = (252 & f) >> 2;
             c = (3 & f) << 4;
             g += "" + h.charAt(b) + h.charAt(c) + "==";
             return g;
         }
-        f = data[l] << 8 | data[l + 1];
+        f = byte2uint8(data[l]) << 8 | byte2uint8(data[l + 1]);
         b = (64512 & f) >> 10;
         c = (1008 & f) >> 4;
         d = (15 & f) << 2;
@@ -128,7 +132,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return g;
     }
 
-    private void uploadRequests(FileInputStream fileInputStream, long fileSize)
+    private void uploadRequests(FileInputStream fileInputStream, long fileSize, String filename)
     {
         byte[] data = new byte[MAX_DATA_LEN_HTTP];
         int dataLen;
@@ -142,7 +146,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
                 "Referer", "http://setup.com/",
                 "Accept-Encoding", "gzip, deflate"
         };
-        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"test.jpg\\\" " + fileSize + "\"}";
+        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"" + filename + "\\\" " + fileSize + "\"}";
         Log.d("Request", msg);
         Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
         int sendSize = 0;
@@ -158,7 +162,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
                 break;
             // POST request to fill the created file
             msg = "{\"command\":\"write 0 " + dataLen + "\",\"flags\":4,\"data\":\"" + encode(data, dataLen) + "\"}";
-            Log.d("Request (" + sendSize + "/" + fileSize + ")", msg);
+            Log.i("Request (" + sendSize + "/" + fileSize + ")", msg);
             Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
         }
     }
@@ -184,7 +188,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         }
         Log.d("Data", "Source File Found: " + selectedFilePath);
 
-        uploadRequests(fileInputStream, selectedFile.length());
+        uploadRequests(fileInputStream, selectedFile.length(), parts[parts.length - 1]);
 
         return serverResponseCode;
     }
