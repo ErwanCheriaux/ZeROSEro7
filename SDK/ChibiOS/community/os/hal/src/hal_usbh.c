@@ -1125,8 +1125,6 @@ static uint32_t _hub_get_status_change_bitmap(USBHDriver *host, USBHHubDriver *h
 static void _hub_process(USBHDriver *host, USBHHubDriver *hub) {
 	uint32_t bitmap = _hub_get_status_change_bitmap(host, hub);
 
-    usbDbgPrintf("bitmap = %x", bitmap);
-
 	if (!bitmap)
 		return;
 
