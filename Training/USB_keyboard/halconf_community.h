@@ -145,7 +145,7 @@
 #define HAL_USBH_USE_ADDITIONAL_CLASS_DRIVERS		  TRUE
 
 /* debug */
-#define USBH_DEBUG_ENABLE                             TRUE
+#define USBH_DEBUG_ENABLE                             FALSE
 #define USBH_DEBUG_USBHD                              USBHD1
 #define USBH_DEBUG_SD                                 SD6
 #define USBH_DEBUG_BUFFER                             25000

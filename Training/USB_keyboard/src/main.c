@@ -13,6 +13,7 @@
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
 #include "usbh_custom_class_example.h"
+#include "usb_hid_keys.h"
 
 #if HAL_USBH_USE_HID
 #include "usbh/dev/hid.h"
@@ -22,24 +23,20 @@ static THD_WORKING_AREA(waTestHID, 1024);
 
 static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 {
+    (void)len;
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
-    if(hidp->type == USBHHID_DEVTYPE_BOOT_MOUSE) {
-        rtt_printf("Mouse report: buttons=%02x, Dx=%d, Dy=%d",
-                   report[0],
-                   (int8_t)report[1],
-                   (int8_t)report[2]);
-    } else if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-        rtt_printf("Keyboard report: modifier=%02x, keys=%02x %02x %02x %02x %02x %02x",
-                   report[0],
-                   report[2],
-                   report[3],
-                   report[4],
-                   report[5],
-                   report[6],
-                   report[7]);
-    } else {
-        rtt_printf("Generic report, %d bytes", len);
+    if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
+        SEGGER_RTT_printf(0, "%c", usb_to_qwerty[report[2]]);
+
+        //      rtt_printf("Keyboard report: modifier=%02x, keys=%02x %02x %02x %02x %02x %02x",
+        //                 report[0],
+        //                 report[2],
+        //                 report[3],
+        //                 report[4],
+        //                 report[5],
+        //                 report[6],
+        //                 report[7]);
     }
 }
 
