@@ -15,6 +15,7 @@
 */
 
 #include "hal.h"
+#include "rtt.h"
 
 /* Virtual serial port over USB.*/
 SerialUSBDriver SDU2;
@@ -363,4 +364,24 @@ void usb_init(void)
     chThdSleepMilliseconds(1500);
     usbStart(serusbcfg.usbp, &usbcfg);
     usbConnectBus(serusbcfg.usbp);
+}
+
+/*
+ * Initialisation of OTG FS port connected to a keyboard.
+ */
+void usbh_init(void)
+{
+    /*USBH_FS OTG*/
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_INPUT_PULLDOWN);
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_ID, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_USB_FS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOB, GPIOB_USB_FS_FAULT, PAL_MODE_INPUT);
+
+    rtt_printf("Turn on USB power");
+    palSetPad(GPIOB, GPIOB_USB_FS_BUSON);
+    chThdSleepMilliseconds(100);
+
+    usbhStart(&USBHD1);
 }

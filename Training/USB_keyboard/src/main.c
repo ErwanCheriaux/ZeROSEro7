@@ -83,27 +83,14 @@ int main(void)
     led_init();
     rtt_init();
     usb_init();
+    usbh_init();
     timer_init();
 
     timer_on();
 
-    /*USBH_FS OTG*/
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_ID, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOB, GPIOB_USB_FS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, GPIOB_USB_FS_FAULT, PAL_MODE_INPUT);
-
 #if HAL_USBH_USE_HID
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
-
-    rtt_printf("Turn on USB power");
-    palSetPad(GPIOB, GPIOB_USB_FS_BUSON);
-    chThdSleepMilliseconds(100);
-
-    usbhStart(&USBHD1);
 
     while(1) {
         usbhMainLoop(&USBHD1);
