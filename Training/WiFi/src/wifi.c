@@ -232,13 +232,13 @@ void wifi_save_file(char* filename)
     while((stream = file_exists(file_block)) != -1) {
         // read stream
         read_cmd[5] = stream + '0';
-        wifi_command(read_cmd, 1000, 1);
+        wifi_command(read_cmd, 200, 1);
         // remove file
         int cur = int_into_str(remove_cmd, file_size + 5, count);
         remove_cmd[cur++] = '\r';
         remove_cmd[cur++] = '\n';
         remove_cmd[cur] = '\0';
-        wifi_command(remove_cmd, 1000, 0);
+        wifi_command(remove_cmd, 200, 0);
         count++;
         // increment block filename
         cur = int_into_str(file_block, file_size + 1, count);
