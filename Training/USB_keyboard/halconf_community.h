@@ -145,50 +145,50 @@
 #define HAL_USBH_USE_ADDITIONAL_CLASS_DRIVERS		  TRUE
 
 /* debug */
-#define USBH_DEBUG_ENABLE                             FALSE
+#define USBH_DEBUG_ENABLE                             TRUE
 #define USBH_DEBUG_USBHD                              USBHD1
 #define USBH_DEBUG_SD                                 SD6
 #define USBH_DEBUG_BUFFER                             25000
 
-#define USBH_DEBUG_ENABLE_TRACE                       TRUE
+#define USBH_DEBUG_ENABLE_TRACE                       FALSE
 #define USBH_DEBUG_ENABLE_INFO                        TRUE
-#define USBH_DEBUG_ENABLE_WARNINGS                    TRUE
-#define USBH_DEBUG_ENABLE_ERRORS                      TRUE
+#define USBH_DEBUG_ENABLE_WARNINGS                    FALSE
+#define USBH_DEBUG_ENABLE_ERRORS                      FALSE
 
-#define USBH_LLD_DEBUG_ENABLE_TRACE                   TRUE
-#define USBH_LLD_DEBUG_ENABLE_INFO                    TRUE
-#define USBH_LLD_DEBUG_ENABLE_WARNINGS                TRUE
-#define USBH_LLD_DEBUG_ENABLE_ERRORS                  TRUE
+#define USBH_LLD_DEBUG_ENABLE_TRACE                   FALSE
+#define USBH_LLD_DEBUG_ENABLE_INFO                    FALSE
+#define USBH_LLD_DEBUG_ENABLE_WARNINGS                FALSE
+#define USBH_LLD_DEBUG_ENABLE_ERRORS                  FALSE
 
-#define USBHHUB_DEBUG_ENABLE_TRACE                    TRUE
-#define USBHHUB_DEBUG_ENABLE_INFO                     TRUE
-#define USBHHUB_DEBUG_ENABLE_WARNINGS                 TRUE
-#define USBHHUB_DEBUG_ENABLE_ERRORS                   TRUE
+#define USBHHUB_DEBUG_ENABLE_TRACE                    FALSE
+#define USBHHUB_DEBUG_ENABLE_INFO                     FALSE
+#define USBHHUB_DEBUG_ENABLE_WARNINGS                 FALSE
+#define USBHHUB_DEBUG_ENABLE_ERRORS                   FALSE
 
 #define USBHMSD_DEBUG_ENABLE_TRACE                    FALSE
-#define USBHMSD_DEBUG_ENABLE_INFO                     TRUE
-#define USBHMSD_DEBUG_ENABLE_WARNINGS                 TRUE
-#define USBHMSD_DEBUG_ENABLE_ERRORS                   TRUE
+#define USBHMSD_DEBUG_ENABLE_INFO                     FALSE
+#define USBHMSD_DEBUG_ENABLE_WARNINGS                 FALSE
+#define USBHMSD_DEBUG_ENABLE_ERRORS                   FALSE
 
 #define USBHUVC_DEBUG_ENABLE_TRACE                    FALSE
-#define USBHUVC_DEBUG_ENABLE_INFO                     TRUE
-#define USBHUVC_DEBUG_ENABLE_WARNINGS                 TRUE
-#define USBHUVC_DEBUG_ENABLE_ERRORS                   TRUE
+#define USBHUVC_DEBUG_ENABLE_INFO                     FALSE
+#define USBHUVC_DEBUG_ENABLE_WARNINGS                 FALSE
+#define USBHUVC_DEBUG_ENABLE_ERRORS                   FALSE
 
 #define USBHFTDI_DEBUG_ENABLE_TRACE                   FALSE
-#define USBHFTDI_DEBUG_ENABLE_INFO                    TRUE
-#define USBHFTDI_DEBUG_ENABLE_WARNINGS                TRUE
-#define USBHFTDI_DEBUG_ENABLE_ERRORS                  TRUE
+#define USBHFTDI_DEBUG_ENABLE_INFO                    FALSE
+#define USBHFTDI_DEBUG_ENABLE_WARNINGS                FALSE
+#define USBHFTDI_DEBUG_ENABLE_ERRORS                  FALSE
 
 #define USBHAOA_DEBUG_ENABLE_TRACE                    FALSE
-#define USBHAOA_DEBUG_ENABLE_INFO                     TRUE
-#define USBHAOA_DEBUG_ENABLE_WARNINGS                 TRUE
-#define USBHAOA_DEBUG_ENABLE_ERRORS                   TRUE
+#define USBHAOA_DEBUG_ENABLE_INFO                     FALSE
+#define USBHAOA_DEBUG_ENABLE_WARNINGS                 FALSE
+#define USBHAOA_DEBUG_ENABLE_ERRORS                   FALSE
 
-#define USBHHID_DEBUG_ENABLE_TRACE                    TRUE
-#define USBHHID_DEBUG_ENABLE_INFO                     TRUE
-#define USBHHID_DEBUG_ENABLE_WARNINGS                 TRUE
-#define USBHHID_DEBUG_ENABLE_ERRORS                   TRUE
+#define USBHHID_DEBUG_ENABLE_TRACE                    FALSE
+#define USBHHID_DEBUG_ENABLE_INFO                     FALSE
+#define USBHHID_DEBUG_ENABLE_WARNINGS                 FALSE
+#define USBHHID_DEBUG_ENABLE_ERRORS                   FALSE
 
 /*===========================================================================*/
 /* FSMCNAND driver related settings.                                         */

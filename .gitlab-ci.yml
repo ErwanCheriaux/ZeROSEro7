@@ -26,7 +26,7 @@ lint_main:
     - make format
     - cd ../lora_discovery
     - make format
-    - cd ..//WiFi
+    - cd ../WiFi
     - make format
     - cd ../LoRa_sx1276
     - make format
