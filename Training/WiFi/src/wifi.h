@@ -16,6 +16,10 @@
 // NB_FILES = pow(MAX_FILENAME_EXT - 1, 10) - 1 files can be read from wifi chip flash
 // its means that a file with a maximum size of MAX_DATA_LEN_HTTP * NB_FILES could be exchanged 
 #define MAX_FILENAME_EXT 5
+// Delay between two poll (does file exists)
+// Warning, if this dekay is too short, some errors will appear
+// 2000 ms is a good compromise
+#define FILE_POLL_DELAY  2000
 
 /* Allow Network SSID (SHA3-256)
 ** Only these ID will be allowed to connect to this device

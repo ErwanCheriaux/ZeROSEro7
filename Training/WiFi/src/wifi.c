@@ -5,8 +5,6 @@
 #include "uart.h"
 #include "rtt.h"
 
-//#define DEBUG 1
-
 void wifi_init(void)
 {
     uart_init();
@@ -166,14 +164,14 @@ static int file_exists(char* filename)
     send_command(cmd, 0);
     int data_len;
     do {
-        data_len = get_header(buff_len, &format, MS2ST(500));
+        data_len = get_header(buff_len, &format, MS2ST(FILE_POLL_DELAY / 2));
         if(data_len < 0) // An error occured
             return data_len;
         if(data_len) { // Data length could be null if there was a timeout
             if(data_len == 13) // File already exists because answer is "[Opened: X]"
-                answer = get_data(data_len, format, MS2ST(500), 0, get_opened_stream);
+                answer = get_data(data_len, format, MS2ST(FILE_POLL_DELAY / 2), 0, get_opened_stream);
             else
-                get_data(data_len, format, MS2ST(500), 0, 0);
+                get_data(data_len, format, MS2ST(FILE_POLL_DELAY / 2), 0, 0);
         }
         buff_len = 0;
     } while(data_len != 0); // Until there is a response of the WiFi chip
@@ -229,7 +227,16 @@ void wifi_save_file(char* filename)
         remove_cmd[4 + i] = filename[i];
     remove_cmd[file_size + 4] = '_';
     int_into_str(read_cmd, 7, MAX_DATA_LEN_HTTP);
-    while((stream = file_exists(file_block)) != -1) {
+    // Each FILE_POLL_DELAY ms, check if the file is present
+    int timeout = 60;
+    for(; ((stream = file_exists(file_block)) == -1) && (timeout > 0); timeout--);
+    if(stream < 0)
+        return;
+    if(timeout == 0) {
+        rtt_printf(0, "[ERROR] File cannot be received: Timeout\n");
+        return;
+    }
+    do {
         // read stream
         read_cmd[5] = stream + '0';
         wifi_command(read_cmd, 200, 1);
@@ -243,5 +250,5 @@ void wifi_save_file(char* filename)
         // increment block filename
         cur = int_into_str(file_block, file_size + 1, count);
         file_block[cur] = '\0';
-    }
+    } while((stream = file_exists(file_block)) != -1);
 }
