@@ -1,0 +1,66 @@
+[2017-10-26 20.40.12] Successfully created [AutoSave] backup [2017-10-26 20.40.11 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-12 13.42.14] Successfully created [AutoSave] backup [2017-11-12 13.42.14 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-12 14.20.53] Removing (by prune) [AutoSave] backup file [C:\t\Project_template\Default\ProjectBackup\backups\2017-10-26 20.40.11 - auto.zip].
+[2017-11-12 14.20.53] [AutoSave] backup file [Project_template\Default\ProjectBackup\backups\2017-10-26 20.40.11 - auto.zip] removed.
+[2017-11-12 14.20.53] Removing (by prune) [AutoSave] backup file [C:\t\Project_template\Default\ProjectBackup\backups\2017-11-12 13.42.14 - auto.zip].
+[2017-11-12 14.20.53] [AutoSave] backup file [Project_template\Default\ProjectBackup\backups\2017-11-12 13.42.14 - auto.zip] removed.
+[2017-11-12 14.28.48] Successfully created [AutoSave] backup [2017-11-12 14.28.47 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-11-12 14.30.41] Removing (by prune) [AutoSave] backup file [F:\Project_template\Default\ProjectBackup\backups\2017-11-12 14.28.47 - auto.zip].
+[2017-11-12 14.30.41] [AutoSave] backup file [\Project_template\Default\ProjectBackup\backups\2017-11-12 14.28.47 - auto.zip] removed.
+[2017-12-10 20.43.45] Migrating iCDB upgrade backups from directory [Spy_talk\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-10 20.43.45] Migrating iCDB upgrade backup file [2017-11-19 16.18.02-2868].
+[2017-12-10 20.43.46] Successfully created [Constraints Definition Upgrade] backup [2017-11-19 16.18.02 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-10 20.43.46] Migrated iCDB content backup file [cdbback\2017-11-19 16.18.02-2868.zip] removed.
+[2017-12-10 20.43.46] Successfully migrated iCDB upgrade backup file [2017-11-19 16.18.02-2868] to Project Backup format [2017-11-19 16.18.02 - consDefUpgr.zip]
+[2017-12-10 20.43.47] Successfully created [AutoSave] backup [2017-12-10 20.43.46 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-11 11.05.54] Successfully created [AutoSave] backup [2017-12-11 11.05.53 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-11 15.05.55] Successfully created [AutoSave] backup [2017-12-11 15.05.53 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-18 11.48.39] Migrating iCDB upgrade backups from directory [Spy_talk\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-18 11.48.39] Migrating iCDB upgrade backup file [2017-12-18 02.11.22-3652].
+[2017-12-18 11.48.40] Successfully created [Constraints Definition Upgrade] backup [2017-12-18 02.11.22 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-18 11.48.40] Removing excessive [Constraints Definition Upgrade] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-11-19 16.18.02 - consDefUpgr.zip].
+[2017-12-18 11.48.40] [Constraints Definition Upgrade] backup file [Spy_talk\Default\ProjectBackup\backups\2017-11-19 16.18.02 - consDefUpgr.zip] removed.
+[2017-12-18 11.48.40] Migrated iCDB content backup file [cdbback\2017-12-18 02.11.22-3652.zip] removed.
+[2017-12-18 11.48.40] Successfully migrated iCDB upgrade backup file [2017-12-18 02.11.22-3652] to Project Backup format [2017-12-18 02.11.22 - consDefUpgr.zip]
+[2017-12-18 11.48.40] Migrating iCDB upgrade backup file [2017-12-16 22.50.09-3976].
+[2017-12-18 11.48.40] iCDB upgrade backup file [2017-12-16 22.50.09-3976] is excessive.
+[2017-12-18 11.48.40] Excessive iCDB upgrade backup file [2017-12-16 22.50.09-3976] removed.
+[2017-12-18 11.48.45] Successfully created [AutoSave] backup [2017-12-18 11.48.40 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-18 11.48.45] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-12-10 20.43.46 - auto.zip].
+[2017-12-18 11.48.45] [AutoSave] backup file [Spy_talk\Default\ProjectBackup\backups\2017-12-10 20.43.46 - auto.zip] removed.
+[2017-12-18 18.16.29] Migrating iCDB upgrade backups from directory [SPY_TALK\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-18 18.16.29] Migrating iCDB upgrade backup file [2017-12-18 18.07.41-7160].
+[2017-12-18 18.16.29] Successfully created [Constraints Definition Upgrade] backup [2017-12-18 18.07.41 - consDefUpgr.zip] requested by [WINDOWS01:admin].
+[2017-12-18 18.16.29] Removing excessive [Constraints Definition Upgrade] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 02.11.22 - consDefUpgr.zip].
+[2017-12-18 18.16.29] [Constraints Definition Upgrade] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-18 02.11.22 - consDefUpgr.zip] removed.
+[2017-12-18 18.16.29] Migrated iCDB content backup file [cdbback\2017-12-18 18.07.41-7160.zip] removed.
+[2017-12-18 18.16.29] Successfully migrated iCDB upgrade backup file [2017-12-18 18.07.41-7160] to Project Backup format [2017-12-18 18.07.41 - consDefUpgr.zip]
+[2017-12-18 18.16.30] Successfully created [AutoSave] backup [2017-12-18 18.16.29 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-18 18.16.30] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-11 11.05.53 - auto.zip].
+[2017-12-18 18.16.30] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-11 11.05.53 - auto.zip] removed.
+[2017-12-18 22.16.29] Successfully created [AutoSave] backup [2017-12-18 22.16.29 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-18 22.16.29] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-11 15.05.53 - auto.zip].
+[2017-12-18 22.16.29] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-11 15.05.53 - auto.zip] removed.
+[2017-12-19 11.00.25] Migrating iCDB upgrade backups from directory [Spy_talk\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-19 11.00.25] Migrating iCDB upgrade backup file [2017-12-19 10.58.08-2648].
+[2017-12-19 11.00.26] Successfully created [Constraints Definition Upgrade] backup [2017-12-19 10.58.08 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-19 11.00.26] Removing excessive [Constraints Definition Upgrade] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-12-18 18.07.41 - consDefUpgr.zip].
+[2017-12-19 11.00.26] [Constraints Definition Upgrade] backup file [Spy_talk\Default\ProjectBackup\backups\2017-12-18 18.07.41 - consDefUpgr.zip] removed.
+[2017-12-19 11.00.26] Migrated iCDB content backup file [cdbback\2017-12-19 10.58.08-2648.zip] removed.
+[2017-12-19 11.00.26] Successfully migrated iCDB upgrade backup file [2017-12-19 10.58.08-2648] to Project Backup format [2017-12-19 10.58.08 - consDefUpgr.zip]
+[2017-12-19 11.00.29] Successfully created [AutoSave] backup [2017-12-19 11.00.26 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-19 11.00.29] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\Spy_talk\Default\ProjectBackup\backups\2017-12-18 11.48.40 - auto.zip].
+[2017-12-19 11.00.29] [AutoSave] backup file [Spy_talk\Default\ProjectBackup\backups\2017-12-18 11.48.40 - auto.zip] removed.
+[2017-12-19 13.42.33] Migrating iCDB upgrade backups from directory [SPY_TALK\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-19 13.42.33] Migrating iCDB upgrade backup file [2017-12-19 13.41.47-4280].
+[2017-12-19 13.42.33] Successfully created [Constraints Definition Upgrade] backup [2017-12-19 13.41.47 - consDefUpgr.zip] requested by [WINDOWS01:admin].
+[2017-12-19 13.42.33] Removing excessive [Constraints Definition Upgrade] backup file [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-19 10.58.08 - consDefUpgr.zip].
+[2017-12-19 13.42.33] [Constraints Definition Upgrade] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-19 10.58.08 - consDefUpgr.zip] removed.
+[2017-12-19 13.42.33] Migrated iCDB content backup file [cdbback\2017-12-19 13.41.47-4280.zip] removed.
+[2017-12-19 13.42.33] Successfully migrated iCDB upgrade backup file [2017-12-19 13.41.47-4280] to Project Backup format [2017-12-19 13.41.47 - consDefUpgr.zip]
+[2017-12-19 15.00.26] Successfully created [AutoSave] backup [2017-12-19 15.00.26 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-19 15.00.26] Removing excessive [AutoSave] backup file [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 18.16.29 - auto.zip].
+[2017-12-19 15.00.26] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-18 18.16.29 - auto.zip] removed.
+[2017-12-27 13.08.38] Successfully created [AutoSave] backup [2017-12-27 13.08.37 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-27 13.08.38] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 22.16.29 - auto.zip].
+[2017-12-27 13.08.38] [AutoSave] backup file [SPY_TALK\Default\ProjectBackup\backups\2017-12-18 22.16.29 - auto.zip] removed.

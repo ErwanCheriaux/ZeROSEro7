@@ -1,0 +1,27 @@
+=======================================================================
+Xpedition Layout - Version 117.0.817.8330
+=======================================================================
+
+RELOAD CELLS
+
+Job Directory:  G:\ZEROSERO7\PCB\SPY_TALK\PCB\
+
+
+Design Units:(mm)
+
+Replace Cell Log:   repCellLog23.txt
+
+Tue Dec 19 15:22:41 2017
+
+Reference Designator            Cell Name                         New Cell Name
+===============================================================================
+
+
+---------------  RELOAD CELLS  Tue Dec 19 15:22:41 2017  ---------------
+
+
+
+
+---------------    Tue Dec 19 15:22:41 2017  ---------------
+
+

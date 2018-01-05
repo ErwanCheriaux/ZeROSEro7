@@ -1,0 +1,9 @@
+
+                                Circuit Paste log
+                                -----------------
+
+                       01:41 PM Monday, December 18, 2017
+             Job Name: C:\Users\admin\Documents\Spy_talk\PCB\PCB.pcb
+
+         Clipboard: C:\Users\admin\AppData\Local\Temp\mgc_icc_clipboard_tmp\Layout\
+    
