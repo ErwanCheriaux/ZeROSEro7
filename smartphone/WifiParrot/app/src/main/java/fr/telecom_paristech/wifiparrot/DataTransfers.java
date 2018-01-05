@@ -16,7 +16,6 @@ import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
-import java.util.Arrays;
 
 public class DataTransfers extends AsyncTask<String, Void, Integer>
 {
@@ -132,7 +131,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return g;
     }
 
-    private void uploadRequests(FileInputStream fileInputStream, long fileSize, String filename)
+    private void uploadRequests(FileInputStream fileInputStream, String filename)
     {
         byte[] data = new byte[MAX_DATA_LEN_HTTP];
         int dataLen;
@@ -146,10 +145,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
                 "Referer", "http://setup.com/",
                 "Accept-Encoding", "gzip, deflate"
         };
-        String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"" + filename + "\\\" " + fileSize + "\"}";
-        Log.d("Request", msg);
-        Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
-        int sendSize = 0;
+        int count = 0;
         while(true) {
             try {
                 dataLen = fileInputStream.read(data, 0, MAX_DATA_LEN_HTTP);
@@ -157,13 +153,17 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
                 e.printStackTrace();
                 return;
             }
-            sendSize += dataLen;
             if(dataLen == -1)
                 break;
+            // Create a new file
+            String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"" + filename + "_" + count + "\\\" " + dataLen + "\"}";
+            Log.d("Request", msg);
+            Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
             // POST request to fill the created file
             msg = "{\"command\":\"write 0 " + dataLen + "\",\"flags\":4,\"data\":\"" + encode(data, dataLen) + "\"}";
-            Log.i("Request (" + sendSize + "/" + fileSize + ")", msg);
+            Log.i("Request", msg);
             Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
+            count++;
         }
     }
 
@@ -188,7 +188,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         }
         Log.d("Data", "Source File Found: " + selectedFilePath);
 
-        uploadRequests(fileInputStream, selectedFile.length(), parts[parts.length - 1]);
+        uploadRequests(fileInputStream, parts[parts.length - 1]);
 
         return serverResponseCode;
     }

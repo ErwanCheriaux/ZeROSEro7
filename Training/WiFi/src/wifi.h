@@ -6,11 +6,16 @@
 #include "ch.h"
 #include "hal.h"
 
-/* This value musn't be between 66 and 72
-** Default is 256
-*/
+// This value musn't be between 66 and 72
+// Default is 256
 #define MAX_DATA_BUFFER_LEN 256
 #define WHITE_LIST_SIZE     3
+// Number of byte of each part of a file stored into wifi chip flash 
+// /!\ This value must be same as variable defined into DataTransfert.java
+#define MAX_DATA_LEN_HTTP 2560
+// NB_FILES = pow(MAX_FILENAME_EXT - 1, 10) - 1 files can be read from wifi chip flash
+// its means that a file with a maximum size of MAX_DATA_LEN_HTTP * NB_FILES could be exchanged 
+#define MAX_FILENAME_EXT 5
 
 /* Allow Network SSID (SHA3-256)
 ** Only these ID will be allowed to connect to this device
@@ -25,5 +30,12 @@ void wifi_init(void);
 ** return:  error code (0 means success)
 */
 int wifi_command(void* buff, int timeout);
+
+/* move a file from wifi chip flash to stm32 fash
+** file must be composed of one or several files named <filename>_<i>,
+** with i from 0 to NB_FILES (see MAX_FILENAME_EXT).
+** filename: filename to load
+*/
+void wifi_save_file(char* filename);
 
 #endif

@@ -5,6 +5,8 @@
 #include "uart.h"
 #include "rtt.h"
 
+//#define DEBUG 1
+
 void wifi_init(void)
 {
     uart_init();
@@ -76,11 +78,14 @@ static int get_header(int bufflen, char* format, int timeout)
 /* Get all data and display them
 ** data_len: size of the data (in bytes)
 ** format:   data format (Response or Log)
-** timeout: time to wait for WiFi chip response
+** timeout:  time to wait for WiFi chip response
+** handler:  function called with data buffer in parameter
+** return:   value returned by the handler 
 */
-static void print_data(int data_len, char format, int timeout)
+static int print_data(int data_len, char format, int timeout, int (*handler)(uint8_t*))
 {
     uint8_t data_buffer[MAX_DATA_BUFFER_LEN];
+    int answer = 0;
     while(data_len > 0) {
         data_buffer[0] = '\0';
         // set data buffer length
@@ -97,8 +102,11 @@ static void print_data(int data_len, char format, int timeout)
         }
         // print data
         rtt_printf(0, "%s", data_buffer);
+        if(handler)
+            answer = handler(data_buffer);
     }
     rtt_printf(0, "\n\n");
+    return answer;
 }
 
 int wifi_command(void* buff, int timeout)
@@ -116,8 +124,100 @@ int wifi_command(void* buff, int timeout)
         if(data_len < 0) // An error occured
             return data_len;
         if(data_len) // Data length could be null if there was a timeout
-            print_data(data_len, format, timeout);
+            print_data(data_len, format, timeout, 0);
         buff_len = 0;
     } while(data_len != 0); // Until there is a response of the WiFi chip
     return 0;
+}
+
+static int get_opened_stream(uint8_t* buffer)
+{
+    return(buffer[9] - '0');
+}
+
+
+/* Check if a file exists into wifi chip flash
+** filename: file to test
+** return:   if the file exists, id of the stream opened, or -1
+*/
+static int file_exists(char* filename)
+{
+    char format;
+    int answer = -1;
+    int file_size = strlen(filename);
+    int buff_len = file_size + 6;
+    // Send command to open a file
+    char cmd[buff_len + 1];
+    cmd[0] = 'f';
+    cmd[1] = 'o';
+    cmd[2] = 'p';
+    cmd[3] = ' ';
+    for(int i = 0; i < file_size; i++)
+        cmd[4 + i] = filename[i];
+    cmd[file_size + 4] = '\r';
+    cmd[file_size + 5] = '\n';
+    cmd[file_size + 6] = '\0';
+    send_command(cmd);
+    int data_len;
+    do {
+        data_len = get_header(buff_len, &format, MS2ST(500));
+        if(data_len < 0) // An error occured
+            return data_len;
+        if(data_len) { // Data length could be null if there was a timeout
+            if(data_len == 13) // File already exists because answer is "[Opened: X]"
+                answer = print_data(data_len, format, MS2ST(500), get_opened_stream);
+            else
+                print_data(data_len, format, MS2ST(500), 0);
+        }
+        buff_len = 0;
+    } while(data_len != 0); // Until there is a response of the WiFi chip
+#ifdef DEBUG
+    if(answer != -1)
+        rtt_printf(0, "%s exists\n", filename);
+    else
+        rtt_printf(0, "%s doesn't exists\n", filename);
+#endif
+    return answer;
+}
+
+/* Add a number into a string
+** in:     input string
+** pos:    position where number must begin
+** val:    value to insert
+** return: return position after the last figure into the string
+*/
+static int int_into_str(char* in, int pos, int val)
+{
+    int val_cpy = val;
+    while(val > 9) {
+        pos++;
+        val /= 10;
+    }
+    int last_pos = pos;
+    while(val_cpy > 0) {
+        in[pos--] = val_cpy % 10 + '0';
+        val_cpy /= 10;
+    }
+    return last_pos + 1;
+}
+
+void wifi_save_file(char* filename)
+{
+    int file_size = strlen(filename);
+    char file_block[file_size + MAX_FILENAME_EXT + 1];
+    strcpy(file_block, filename);
+    file_block[file_size] = '_';
+    file_block[file_size + 1] = '0';
+    file_block[file_size + 2] = '\0';
+    int count = 0;
+    int stream;
+    char close_cmd[] = "close 0\r\n";
+    while((stream = file_exists(file_block)) != -1) {
+        // close opened stream
+        close_cmd[6] = stream + '0';
+        wifi_command(close_cmd, 500);
+        // increment block filename
+        int cur = int_into_str(file_block, file_size + 1, count++);
+        file_block[cur] = '\0';
+    }
 }

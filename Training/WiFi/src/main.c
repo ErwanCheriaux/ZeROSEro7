@@ -28,6 +28,9 @@ int main(void)
     wifi_command("set setup.web.passkey \"zerosero7\"\r\n", 1000);
     wifi_command("setup web\r\n", 4000);
 
+    char filename[] = "telecom.jpg";
+    wifi_save_file(filename);
+
     chThdSleep(TIME_INFINITE);
     return 0;
 }
