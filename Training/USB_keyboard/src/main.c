@@ -28,15 +28,6 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         SEGGER_RTT_printf(0, "%c", usb_to_qwerty[report[2]]);
-
-        //      rtt_printf("Keyboard report: modifier=%02x, keys=%02x %02x %02x %02x %02x %02x",
-        //                 report[0],
-        //                 report[2],
-        //                 report[3],
-        //                 report[4],
-        //                 report[5],
-        //                 report[6],
-        //                 report[7]);
     }
 }
 
@@ -108,13 +99,11 @@ int main(void)
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
 
-    usbDbgPrintf("Turn on USB power");
+    rtt_printf("Turn on USB power");
     palSetPad(GPIOB, GPIOB_USB_FS_BUSON);
     chThdSleepMilliseconds(100);
 
     usbhStart(&USBHD1);
-
-    usbDbgPrintf("PRINT %d %s %x", 12, "toto", 255);
 
     while(1) {
         usbhMainLoop(&USBHD1);

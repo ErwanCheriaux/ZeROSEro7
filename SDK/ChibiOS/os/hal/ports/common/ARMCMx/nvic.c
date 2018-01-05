@@ -23,7 +23,6 @@
  */
 
 #include "hal.h"
-#include "rtt.h"
 
 /*===========================================================================*/
 /* Driver local definitions.                                                 */
@@ -56,7 +55,6 @@
  * @param[in] prio      the interrupt priority
  */
 void nvicEnableVector(uint32_t n, uint32_t prio) {
-    rtt_printf("nvicEnableVector %d\t%d", n, prio);
 
 #if defined(__CORE_CM0_H_GENERIC)
   NVIC->IP[_IP_IDX(n)] = (NVIC->IP[_IP_IDX(n)] & ~(0xFFU << _BIT_SHIFT(n))) |
