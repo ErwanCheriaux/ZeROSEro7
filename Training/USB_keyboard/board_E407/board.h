@@ -474,10 +474,10 @@
                                      PIN_OSPEED_VERYLOW(GPIOB_I2C1_SDA)     |\
                                      PIN_OSPEED_VERYLOW(GPIOB_SPI2_SCK)     |\
                                      PIN_OSPEED_VERYLOW(GPIOB_PIN11)        |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_ID)    |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_VBUS)  |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_DM)    |\
-                                     PIN_OSPEED_VERYLOW(GPIOB_OTG_HS_DP))
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_ID)    |\
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_VBUS)  |\
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_DM)    |\
+                                     PIN_OSPEED_HIGH(GPIOB_OTG_HS_DP))
 #define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(GPIOB_USB_FS_BUSON) |\
                                      PIN_PUPDR_FLOATING(GPIOB_USB_FS_FAULT) |\
                                      PIN_PUPDR_FLOATING(GPIOB_BOOT1)        |\
@@ -506,10 +506,10 @@
                                      PIN_ODR_LOW(GPIOB_I2C1_SDA)     |\
                                      PIN_ODR_LOW(GPIOB_SPI2_SCK)     |\
                                      PIN_ODR_LOW(GPIOB_PIN11)        |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_ID)    |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_VBUS)  |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_DM)    |\
-                                     PIN_ODR_LOW(GPIOB_OTG_HS_DP))
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_ID)    |\
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_VBUS)  |\
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_DM)    |\
+                                     PIN_ODR_HIGH(GPIOB_OTG_HS_DP))
 #define VAL_GPIOB_AFRL              (PIN_AFIO_AF(GPIOB_USB_FS_BUSON, 0U) |\
                                      PIN_AFIO_AF(GPIOB_USB_FS_FAULT, 0U) |\
                                      PIN_AFIO_AF(GPIOB_BOOT1,        0U) |\
