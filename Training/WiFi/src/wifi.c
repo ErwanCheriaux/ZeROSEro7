@@ -13,11 +13,13 @@ void wifi_init(void)
 }
 
 /* Send acommand to wifi chip using uart
-** buff: message to send buffer
+** buff:    message to send buffer
+** display: will command be displayed?
 */
-static void send_command(void* buff)
+static void send_command(void* buff, int display)
 {
-    rtt_printf(0, ">%s", buff);
+    if(display)
+        rtt_printf(0, ">%s", buff);
     uart_send(buff);
 }
 
@@ -80,20 +82,21 @@ static int get_header(int bufflen, char* format, int timeout)
 ** format:   data format (Response or Log)
 ** timeout:  time to wait for WiFi chip response
 ** handler:  function called with data buffer in parameter
+** display:  will data be printed?
 ** return:   value returned by the handler 
 */
-static int print_data(int data_len, char format, int timeout, int (*handler)(uint8_t*))
+static int get_data(int data_len, char format, int timeout, int display, int (*handler)(uint8_t*))
 {
-    uint8_t data_buffer[MAX_DATA_BUFFER_LEN];
+    uint8_t data_buffer[MAX_DATA_BUFFER_LEN + 1];
     int answer = 0;
     while(data_len > 0) {
-        data_buffer[0] = '\0';
         // set data buffer length
         int data_buff_len = data_len;
         if(data_len > MAX_DATA_BUFFER_LEN)
             data_buff_len = MAX_DATA_BUFFER_LEN;
         if(uart_receive_timeout(data_buffer, data_buff_len, timeout))
             break;
+        data_buffer[data_buff_len] = '\0';
         data_len -= data_buff_len;
         if(data_len == 0){
             data_buffer[data_buff_len - 2] = '\0'; // last characters are "\r\n"
@@ -101,19 +104,21 @@ static int print_data(int data_len, char format, int timeout, int (*handler)(uin
                 data_buffer[data_buff_len - 4] = '\0'; // last characters are "\r\n> "
         }
         // print data
-        rtt_printf(0, "%s", data_buffer);
+        if(display)
+            rtt_printf(0, "%s", data_buffer);
         if(handler)
             answer = handler(data_buffer);
     }
-    rtt_printf(0, "\n\n");
+    if(display)
+        rtt_printf(0, "\n");
     return answer;
 }
 
-int wifi_command(void* buff, int timeout)
+int wifi_command(void* buff, int timeout, int display)
 {
     char format;
     int buff_len = strlen(buff);
-    send_command(buff);
+    send_command(buff, display);
     int data_len = 0;
     if(timeout)
         timeout = MS2ST(timeout);
@@ -124,7 +129,7 @@ int wifi_command(void* buff, int timeout)
         if(data_len < 0) // An error occured
             return data_len;
         if(data_len) // Data length could be null if there was a timeout
-            print_data(data_len, format, timeout, 0);
+            get_data(data_len, format, timeout, display, 0);
         buff_len = 0;
     } while(data_len != 0); // Until there is a response of the WiFi chip
     return 0;
@@ -137,6 +142,7 @@ static int get_opened_stream(uint8_t* buffer)
 
 
 /* Check if a file exists into wifi chip flash
+** Also open the file if it exists
 ** filename: file to test
 ** return:   if the file exists, id of the stream opened, or -1
 */
@@ -157,7 +163,7 @@ static int file_exists(char* filename)
     cmd[file_size + 4] = '\r';
     cmd[file_size + 5] = '\n';
     cmd[file_size + 6] = '\0';
-    send_command(cmd);
+    send_command(cmd, 0);
     int data_len;
     do {
         data_len = get_header(buff_len, &format, MS2ST(500));
@@ -165,9 +171,9 @@ static int file_exists(char* filename)
             return data_len;
         if(data_len) { // Data length could be null if there was a timeout
             if(data_len == 13) // File already exists because answer is "[Opened: X]"
-                answer = print_data(data_len, format, MS2ST(500), get_opened_stream);
+                answer = get_data(data_len, format, MS2ST(500), 0, get_opened_stream);
             else
-                print_data(data_len, format, MS2ST(500), 0);
+                get_data(data_len, format, MS2ST(500), 0, 0);
         }
         buff_len = 0;
     } while(data_len != 0); // Until there is a response of the WiFi chip
@@ -212,10 +218,15 @@ void wifi_save_file(char* filename)
     int count = 0;
     int stream;
     char close_cmd[] = "close 0\r\n";
+    char read_cmd[] = "read 0 XXXX\r\n";
+    int_into_str(read_cmd, 7, MAX_DATA_LEN_HTTP);
     while((stream = file_exists(file_block)) != -1) {
+        // read stream
+        read_cmd[5] = stream + '0';
+        wifi_command(read_cmd, 1000, 1);
         // close opened stream
         close_cmd[6] = stream + '0';
-        wifi_command(close_cmd, 500);
+        wifi_command(close_cmd, 500, 0);
         // increment block filename
         int cur = int_into_str(file_block, file_size + 1, count++);
         file_block[cur] = '\0';
