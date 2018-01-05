@@ -2,15 +2,11 @@
                                 Circuit Paste log
                                 -----------------
 
-                       01:56 PM Sunday, November 12, 2017
-                   Job Name: C:\t\Project_template\PCB\PCB.pcb
+                      03:11 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
 
-         Clipboard: C:\Users\alexi\AppData\Local\Temp\mgc_icc_clipboard_tmp\Layout\
+         Clipboard: C:\Users\admin\AppData\Local\Temp\mgc_icc_clipboard\Layout\
     
-
-    UNMAPPED NETS:
-           GND
-    1 unmapped net(s) found
 
 
 Checking Ref Des Map
@@ -28,6 +24,9 @@ Checking Netlist Map completed
 
 Updating Local Libraries
 ------------------------
+
+    WARNING: 1 padstacks exist in the Local Library. Clipboard data is ignored:
+       VIA0.65
 
 Library update is not required
 
@@ -57,7 +56,7 @@ Loading net items
 
 Loading of Net items complete
     1 objects were created
-        1 plane shapes
+        1 vias
 
 
 Loading Fiducials

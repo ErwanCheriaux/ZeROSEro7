@@ -1,0 +1,28 @@
+; Version : LOCAL
+; Job     : H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+; User    : DESKTOP-D6MOGOB:alexis
+; Date    : Wed Dec 27 13:23:56 2017
+; Format  : 3.3 / Absolute / MM / Leading
+; Contents: Thru / Mill / Plated
+M48
+METRIC,TZ
+FMAT,2
+ICI,OFF
+T01C1.0000
+%
+M71
+G90
+G93X0Y0
+T01
+G00X2986Y6228
+M15
+G01X3736
+X2236
+M16
+G00X2986Y17628
+M15
+G01X3736
+X2236
+M17
+T00
+M30
