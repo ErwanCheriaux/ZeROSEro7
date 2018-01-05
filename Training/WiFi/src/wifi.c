@@ -194,6 +194,8 @@ static int file_exists(char* filename)
 */
 static int int_into_str(char* in, int pos, int val)
 {
+    if(val == 0)
+        in[pos] = '0';
     int val_cpy = val;
     while(val > 9) {
         pos++;
@@ -217,18 +219,29 @@ void wifi_save_file(char* filename)
     file_block[file_size + 2] = '\0';
     int count = 0;
     int stream;
-    char close_cmd[] = "close 0\r\n";
     char read_cmd[] = "read 0 XXXX\r\n";
+    char remove_cmd[file_size + MAX_FILENAME_EXT + 5];
+    remove_cmd[0] = 'f';
+    remove_cmd[1] = 'd';
+    remove_cmd[2] = 'e';
+    remove_cmd[3] = ' ';
+    for(int i = 0; i < file_size; i++)
+        remove_cmd[4 + i] = filename[i];
+    remove_cmd[file_size + 4] = '_';
     int_into_str(read_cmd, 7, MAX_DATA_LEN_HTTP);
     while((stream = file_exists(file_block)) != -1) {
         // read stream
         read_cmd[5] = stream + '0';
         wifi_command(read_cmd, 1000, 1);
-        // close opened stream
-        close_cmd[6] = stream + '0';
-        wifi_command(close_cmd, 500, 0);
+        // remove file
+        int cur = int_into_str(remove_cmd, file_size + 5, count);
+        remove_cmd[cur++] = '\r';
+        remove_cmd[cur++] = '\n';
+        remove_cmd[cur] = '\0';
+        wifi_command(remove_cmd, 1000, 0);
+        count++;
         // increment block filename
-        int cur = int_into_str(file_block, file_size + 1, count++);
+        cur = int_into_str(file_block, file_size + 1, count);
         file_block[cur] = '\0';
     }
 }
