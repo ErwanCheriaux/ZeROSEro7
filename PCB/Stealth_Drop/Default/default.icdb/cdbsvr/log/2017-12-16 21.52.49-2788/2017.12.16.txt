@@ -1,0 +1,309 @@
+[2017.12.16 21:52:49] [0000m.00s.140ms] [0] WELCOME
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Base flow version [VX.2.2]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Machine [DESKTOP-D6MOGOB]  IP [10.0.2.15,127.0.0.1]  User [alexis]  PID [2788]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Operating system [Microsoft Business Edition, 64-bit (build 9200)]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] Current working dir [H:\ZeROSEro7\PCB\Stealth_Drop]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] PATH [C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\help;C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\mentorgraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\mentorgraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\alexi\AppData\Local\Microsoft\WindowsApps]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] SDD_HOME [C:\mentorgraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.16 21:52:49] [0000m.00s.146ms] [1] SDD_PLATFORM [win32]
+[2017.12.16 21:52:49] [0000m.00s.164ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\mentorgraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.16 21:52:49] [0000m.00s.164ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.16 21:52:49] [0000m.00s.164ms] [1] S: Config file name [ServerWG.cfg]
+[2017.12.16 21:52:49] [0000m.00s.164ms] [2] S: Loading config files
+[2017.12.16 21:52:49] [0000m.00s.164ms] [1] Config file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.12.16 21:52:49] [0000m.00s.164ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.12.16 21:52:49] [0000m.00s.182ms] [3] S: Config loaded
+[2017.12.16 21:52:49] [0000m.00s.325ms] [0] S: Project path [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb] on file system [VBoxSharedFolderFS]
+[2017.12.16 21:52:49] [0000m.00s.325ms] [0] S: Project global path [\\vboxsrv\2018\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb] on file system [UNKNOWN]
+[2017.12.16 21:52:49] [0000m.00s.325ms] [1] S: WARNING: No project file (.prj) path specified
+[2017.12.16 21:52:49] [0000m.00s.325ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.12.16 21:52:49] [0000m.00s.325ms] [0] S: Multi-user mode (config)
+[2017.12.16 21:52:49] [0000m.00s.325ms] [0] S: Event polling mode autodetection
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] S: Started up automatically by iCDB Client: DESKTOP-D6MOGOB:alexis:7244
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] S: Auto close mode
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] S: Database ID [0789-efe0-e938-ab94-8978-53ad-9785-3a50-ccaf-509f-9fef-0fc8]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: BEGIN dumping
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: Local -> global path prefix list
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [C:\WINDOWS\system32\spool\drivers] -> [\\DESKTOP-D6MOGOB\print$]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [G:\] -> [\\vboxsrv\windows\]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [H:\] -> [\\vboxsrv\2018\]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: Global -> local path prefix list
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [\\DESKTOP-D6MOGOB\print$] -> [C:\WINDOWS\system32\spool\drivers]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [\\vboxsrv\windows\] -> [G:\]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: [\\vboxsrv\2018\] -> [H:\]
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] PathTranslator: END dumping
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] S: START
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] S: Server startup lock file created
+[2017.12.16 21:52:49] [0000m.00s.343ms] [0] S: Listening for client connections on port [10001]
+[2017.12.16 21:52:49] [0000m.00s.361ms] [0] S: Server network ID [DESKTOP-D6MOGOB:10.0.2.15,DESKTOP-D6MOGOB:10001]
+[2017.12.16 21:52:49] [0000m.00s.362ms] [0] S: Server GUID [3569-eeac-7486-04f8-1a78-53a6-a785-3a50-829e-509f-9fef-0fc8]
+[2017.12.16 21:52:49] [0000m.00s.363ms] [0] S: Project GUID [0789-efe0-e938-ab94-8978-53ad-9785-3a50-ccaf-509f-9fef-0fc8]
+[2017.12.16 21:52:49] [0000m.00s.369ms] [0] S: Wrote data to server address file
+[2017.12.16 21:52:49] [0000m.00s.369ms] [0] S: Server startup lock file removed
+[2017.12.16 21:52:49] [0000m.00s.369ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.16 21:52:49] [0000m.00s.415ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.12.16 21:52:49] [0000m.00s.415ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.12.16 21:52:49] [0000m.00s.415ms] [0] S: Local disc access time: 78 us
+[2017.12.16 21:52:49] [0000m.00s.415ms] [0] S: File server access time: 432 us
+[2017.12.16 21:52:49] [0000m.00s.415ms] [0] S: Server will not release in-memory storage after read (memory usage overhead) - for better performance
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] Single file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\icdb.dat] size [343736 (335.7 kB)]
+[2017.12.16 21:52:49] [0000m.00s.433ms] [1] Single file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] Database GUARD OK: [343736]
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] Database GUARD OK: [343736]
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.16 21:52:49] [0000m.00s.433ms] [0] Database GUARD OK: [343736]
+[2017.12.16 21:52:49] [0000m.00s.451ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.16 21:52:49] [0000m.00s.451ms] [0] Database GUARD OK: [343736]
+[2017.12.16 21:52:49] [0000m.00s.451ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.16 21:52:49] [0000m.00s.451ms] [0] Database GUARD OK: [343736]
+[2017.12.16 21:52:49] [0000m.00s.451ms] [0] SingleFile: [4da1-a32e-11bd-e4cd] SFI version check [1009] [1009]
+[2017.12.16 21:52:49] [0000m.00s.613ms] [0] SingleFile: [4da1-a32e-11bd-e4cd] Database SFI header has been read in [144ms 178us]
+[2017.12.16 21:52:49] [0000m.00s.631ms] [0] iCDB Server PI: Server & plugin session [4629]
+[2017.12.16 21:52:49] [0000m.00s.631ms] [0] iCDB Server PI: Opening database [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb]
+[2017.12.16 21:52:49] [0000m.00s.631ms] [0] iCDB Server PI: Database [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb] opened
+[2017.12.16 21:52:49] [0000m.00s.649ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.12.16 21:52:49] [0000m.00s.649ms] [0] iCDB Database: Checking constraint definitions version
+[2017.12.16 21:52:49] [0000m.00s.739ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=55f1-7e2a-a301-bcc1-2f34-1c97-f341-c950-ce00-609f-9fef-0fc8] up to date
+[2017.12.16 21:52:49] [0000m.00s.847ms] [0] iCDB Server PI: Initializing plugins
+[2017.12.16 21:52:49] [0000m.00s.847ms] [0] iCDB Server PI: Plugins initialized
+[2017.12.16 21:52:49] [0000m.00s.847ms] [0] S: iCDB database loaded
+[2017.12.16 21:52:49] [0000m.00s.865ms] [0] S: Starting threads
+[2017.12.16 21:52:49] [0000m.00s.865ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.12.16 21:52:49] [0000m.00s.865ms] [0] ProjectBackupManager: WARNING: Could not startup Project Backup engine - functionality not initialized
+[2017.12.16 21:52:49] [0000m.00s.865ms] [1] CMT: There are no clients - waiting [10 seconds]
+[2017.12.16 21:52:49] [0000m.00s.865ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.12.16 21:52:49] [0000m.00s.865ms] [0] IT: Session [4630] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7244] created
+[2017.12.16 21:52:49] [0000m.00s.865ms] [1] SC[4630]: Registered sub-client [DCDV] with ID [1] for session ID [4630] host [DESKTOP-D6MOGOB] user [alexis] process ID [7244]
+[2017.12.16 21:52:49] [0000m.00s.883ms] [0] IT: iCDB Server Monitor session [1] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7476] created
+[2017.12.16 21:52:49] [0000m.00s.883ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.12.16 21:52:50] [0000m.00s.990ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 21:53:52] [0001m.03s.216ms] [0] DFAMT: File server access time: 722 us
+[2017.12.16 22:22:44] [0029m.55s.240ms] [0] IT: Session [4631] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7760] created
+[2017.12.16 22:22:44] [0029m.55s.240ms] [1] SC[4631]: Registered sub-client [ICDBC] with ID [1] for session ID [4631] host [DESKTOP-D6MOGOB] user [alexis] process ID [7760]
+[2017.12.16 22:22:44] [0029m.55s.256ms] [1] CMT: There are [2] clients now: 4630, 4631
+[2017.12.16 22:22:44] [0029m.55s.303ms] [1] SC[4631]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4631] host [DESKTOP-D6MOGOB] user [alexis] process ID [7760]
+[2017.12.16 22:22:52] [0030m.02s.981ms] [1] SC[4631]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4631] host [DESKTOP-D6MOGOB] user [alexis] process ID [7760]
+[2017.12.16 22:22:52] [0030m.02s.981ms] [1] SC[4631]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4631] host [DESKTOP-D6MOGOB] user [alexis] process ID [7760]
+[2017.12.16 22:22:52] [0030m.03s.059ms] [1] CMT: Removed client [4631]
+[2017.12.16 22:22:52] [0030m.03s.059ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:22:53] [0030m.04s.309ms] [0] IT: Session [4632] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [8124] created
+[2017.12.16 22:22:53] [0030m.04s.309ms] [1] SC[4632]: Registered sub-client [Packager_1925234] with ID [1] for session ID [4632] host [DESKTOP-D6MOGOB] user [alexis] process ID [8124]
+[2017.12.16 22:22:53] [0030m.04s.372ms] [1] CMT: There are [2] clients now: 4630, 4632
+[2017.12.16 22:22:54] [0030m.05s.245ms] [1] SC[4632]: UnRegistered sub-client [Packager_1925234] with ID [1] for session ID [4632] host [DESKTOP-D6MOGOB] user [alexis] process ID [8124]
+[2017.12.16 22:22:54] [0030m.05s.370ms] [1] CMT: Removed client [4632]
+[2017.12.16 22:22:54] [0030m.05s.370ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:24:09] [0031m.20s.172ms] [0] IT: Session [4633] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6524] created
+[2017.12.16 22:24:09] [0031m.20s.172ms] [1] SC[4633]: Registered sub-client [ICDBC] with ID [1] for session ID [4633] host [DESKTOP-D6MOGOB] user [alexis] process ID [6524]
+[2017.12.16 22:24:09] [0031m.20s.203ms] [1] SC[4633]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4633] host [DESKTOP-D6MOGOB] user [alexis] process ID [6524]
+[2017.12.16 22:24:09] [0031m.20s.281ms] [1] CMT: There are [2] clients now: 4630, 4633
+[2017.12.16 22:24:16] [0031m.27s.897ms] [1] SC[4633]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4633] host [DESKTOP-D6MOGOB] user [alexis] process ID [6524]
+[2017.12.16 22:24:16] [0031m.27s.912ms] [1] SC[4633]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4633] host [DESKTOP-D6MOGOB] user [alexis] process ID [6524]
+[2017.12.16 22:24:17] [0031m.27s.959ms] [1] CMT: Removed client [4633]
+[2017.12.16 22:24:17] [0031m.27s.959ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:24:18] [0031m.29s.162ms] [0] IT: Session [4634] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6508] created
+[2017.12.16 22:24:18] [0031m.29s.162ms] [1] SC[4634]: Registered sub-client [Packager_2010078] with ID [1] for session ID [4634] host [DESKTOP-D6MOGOB] user [alexis] process ID [6508]
+[2017.12.16 22:24:18] [0031m.29s.272ms] [1] CMT: There are [2] clients now: 4630, 4634
+[2017.12.16 22:24:19] [0031m.30s.020ms] [1] SC[4634]: UnRegistered sub-client [Packager_2010078] with ID [1] for session ID [4634] host [DESKTOP-D6MOGOB] user [alexis] process ID [6508]
+[2017.12.16 22:24:19] [0031m.30s.051ms] [1] CMT: Removed client [4634]
+[2017.12.16 22:24:19] [0031m.30s.051ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:26:55] [0034m.06s.747ms] [0] IT: Session [4635] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1676] created
+[2017.12.16 22:26:55] [0034m.06s.747ms] [1] SC[4635]: Registered sub-client [ICDBC] with ID [1] for session ID [4635] host [DESKTOP-D6MOGOB] user [alexis] process ID [1676]
+[2017.12.16 22:26:55] [0034m.06s.763ms] [1] CMT: There are [2] clients now: 4630, 4635
+[2017.12.16 22:26:55] [0034m.06s.794ms] [1] SC[4635]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4635] host [DESKTOP-D6MOGOB] user [alexis] process ID [1676]
+[2017.12.16 22:27:01] [0034m.11s.977ms] [1] SC[4635]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4635] host [DESKTOP-D6MOGOB] user [alexis] process ID [1676]
+[2017.12.16 22:27:01] [0034m.11s.992ms] [1] SC[4635]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4635] host [DESKTOP-D6MOGOB] user [alexis] process ID [1676]
+[2017.12.16 22:27:01] [0034m.12s.086ms] [1] CMT: Removed client [4635]
+[2017.12.16 22:27:01] [0034m.12s.086ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:27:02] [0034m.13s.412ms] [0] IT: Session [4636] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3132] created
+[2017.12.16 22:27:02] [0034m.13s.412ms] [1] SC[4636]: Registered sub-client [Packager_2174328] with ID [1] for session ID [4636] host [DESKTOP-D6MOGOB] user [alexis] process ID [3132]
+[2017.12.16 22:27:02] [0034m.13s.521ms] [1] CMT: There are [2] clients now: 4630, 4636
+[2017.12.16 22:27:04] [0034m.15s.270ms] [1] SC[4636]: UnRegistered sub-client [Packager_2174328] with ID [1] for session ID [4636] host [DESKTOP-D6MOGOB] user [alexis] process ID [3132]
+[2017.12.16 22:27:04] [0034m.15s.285ms] [1] CMT: Removed client [4636]
+[2017.12.16 22:27:04] [0034m.15s.285ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:27:35] [0034m.46s.207ms] [0] IT: Session [4637] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6976] created
+[2017.12.16 22:27:35] [0034m.46s.207ms] [1] SC[4637]: Registered sub-client [ICDBC] with ID [1] for session ID [4637] host [DESKTOP-D6MOGOB] user [alexis] process ID [6976]
+[2017.12.16 22:27:35] [0034m.46s.239ms] [1] SC[4637]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4637] host [DESKTOP-D6MOGOB] user [alexis] process ID [6976]
+[2017.12.16 22:27:35] [0034m.46s.301ms] [1] CMT: There are [2] clients now: 4630, 4637
+[2017.12.16 22:27:41] [0034m.52s.340ms] [1] SC[4637]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4637] host [DESKTOP-D6MOGOB] user [alexis] process ID [6976]
+[2017.12.16 22:27:41] [0034m.52s.340ms] [1] SC[4637]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4637] host [DESKTOP-D6MOGOB] user [alexis] process ID [6976]
+[2017.12.16 22:27:41] [0034m.52s.356ms] [1] CMT: Removed client [4637]
+[2017.12.16 22:27:41] [0034m.52s.356ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:27:42] [0034m.53s.309ms] [0] IT: Session [4638] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4812] created
+[2017.12.16 22:27:42] [0034m.53s.309ms] [1] SC[4638]: Registered sub-client [DCDV_TagNets_2995] with ID [1] for session ID [4638] host [DESKTOP-D6MOGOB] user [alexis] process ID [4812]
+[2017.12.16 22:27:42] [0034m.53s.325ms] [1] SC[4638]: UnRegistered sub-client [DCDV_TagNets_2995] with ID [1] for session ID [4638] host [DESKTOP-D6MOGOB] user [alexis] process ID [4812]
+[2017.12.16 22:27:42] [0034m.53s.340ms] [1] CMT: There are [2] clients now: 4630, 4638
+[2017.12.16 22:27:42] [0034m.53s.340ms] [1] CMT: Removed client [4638]
+[2017.12.16 22:27:42] [0034m.53s.340ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:29:49] [0037m.00s.941ms] [0] IT: Session [4639] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4348] created
+[2017.12.16 22:29:49] [0037m.00s.941ms] [1] SC[4639]: Registered sub-client [ICDBC] with ID [1] for session ID [4639] host [DESKTOP-D6MOGOB] user [alexis] process ID [4348]
+[2017.12.16 22:29:50] [0037m.00s.972ms] [1] CMT: There are [2] clients now: 4630, 4639
+[2017.12.16 22:29:50] [0037m.00s.972ms] [1] SC[4639]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4639] host [DESKTOP-D6MOGOB] user [alexis] process ID [4348]
+[2017.12.16 22:29:56] [0037m.07s.778ms] [1] SC[4639]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4639] host [DESKTOP-D6MOGOB] user [alexis] process ID [4348]
+[2017.12.16 22:29:56] [0037m.07s.778ms] [1] SC[4639]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4639] host [DESKTOP-D6MOGOB] user [alexis] process ID [4348]
+[2017.12.16 22:29:56] [0037m.07s.824ms] [1] CMT: Removed client [4639]
+[2017.12.16 22:29:56] [0037m.07s.824ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:29:57] [0037m.08s.934ms] [0] IT: Session [4640] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6228] created
+[2017.12.16 22:29:57] [0037m.08s.934ms] [1] SC[4640]: Registered sub-client [Packager_2349843] with ID [1] for session ID [4640] host [DESKTOP-D6MOGOB] user [alexis] process ID [6228]
+[2017.12.16 22:29:57] [0037m.08s.949ms] [1] CMT: There are [2] clients now: 4630, 4640
+[2017.12.16 22:29:58] [0037m.09s.822ms] [1] SC[4640]: UnRegistered sub-client [Packager_2349843] with ID [1] for session ID [4640] host [DESKTOP-D6MOGOB] user [alexis] process ID [6228]
+[2017.12.16 22:29:58] [0037m.09s.932ms] [1] CMT: Removed client [4640]
+[2017.12.16 22:29:58] [0037m.09s.932ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:31:03] [0038m.13s.955ms] [0] IT: Session [4641] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6660] created
+[2017.12.16 22:31:03] [0038m.13s.955ms] [1] SC[4641]: Registered sub-client [ICDBC] with ID [1] for session ID [4641] host [DESKTOP-D6MOGOB] user [alexis] process ID [6660]
+[2017.12.16 22:31:03] [0038m.14s.002ms] [1] SC[4641]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4641] host [DESKTOP-D6MOGOB] user [alexis] process ID [6660]
+[2017.12.16 22:31:03] [0038m.14s.017ms] [1] CMT: There are [2] clients now: 4630, 4641
+[2017.12.16 22:31:10] [0038m.21s.790ms] [1] SC[4641]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4641] host [DESKTOP-D6MOGOB] user [alexis] process ID [6660]
+[2017.12.16 22:31:10] [0038m.21s.790ms] [1] SC[4641]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4641] host [DESKTOP-D6MOGOB] user [alexis] process ID [6660]
+[2017.12.16 22:31:10] [0038m.21s.821ms] [1] CMT: Removed client [4641]
+[2017.12.16 22:31:10] [0038m.21s.821ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:31:12] [0038m.23s.055ms] [0] IT: Session [4642] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4064] created
+[2017.12.16 22:31:12] [0038m.23s.055ms] [1] SC[4642]: Registered sub-client [Packager_2423968] with ID [1] for session ID [4642] host [DESKTOP-D6MOGOB] user [alexis] process ID [4064]
+[2017.12.16 22:31:12] [0038m.23s.134ms] [1] CMT: There are [2] clients now: 4630, 4642
+[2017.12.16 22:31:12] [0038m.23s.897ms] [1] SC[4642]: UnRegistered sub-client [Packager_2423968] with ID [1] for session ID [4642] host [DESKTOP-D6MOGOB] user [alexis] process ID [4064]
+[2017.12.16 22:31:12] [0038m.23s.912ms] [1] CMT: Removed client [4642]
+[2017.12.16 22:31:12] [0038m.23s.912ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:32:08] [0039m.19s.854ms] [0] IT: Session [4643] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1640] created
+[2017.12.16 22:32:08] [0039m.19s.854ms] [1] ProjectBackupManager: Client [ClientData[ClientNetAddress[DESKTOP-D6MOGOB] # ClientUserName[alexis] # ClientProcessID[1640] # SessionID[4643] # Type[0]] # SubClientData[SubClientName[] # SubClientID[0]]] set project file (.prj): local path [H:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj], global path [\\vboxsrv\2018\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj]
+[2017.12.16 22:32:08] [0039m.19s.948ms] [1] CMT: There are [2] clients now: 4630, 4643
+[2017.12.16 22:32:09] [0039m.20s.073ms] [0] PrjBackupMgr: Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017.12.16 22:32:09] [0039m.20s.073ms] [0] PrjBackupMgr: Migrating iCDB upgrade backup file [2017-12-16 21.52.42-7420].
+[2017.12.16 22:32:09] [0039m.20s.385ms] [1] PrjBackupMgr: Successfully created Project Backup [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-16 21.52.42 - consDefUpgr.zip] with GUID [463c-13dd-9049-bffb-9d09-53ae-d095-3a50-0dce-509f-9fef-0fc8]
+[2017.12.16 22:32:09] [0039m.20s.385ms] [0] PrjBackupMgr: Removing excessive backup:  BackupGUID[da4d-3578-5c41-b777-5c53-e2aa-c53e-2a50-823d-3d2c-dc7d-1df8] CreationTime[Friday, December 08, 2017 07:57:23] Type[ConsDefUpgrade] Creator[iCDB Server (2017-12-11 08.35.45-412)] ApplicationName[iCDB Server (2017-12-08 08.57.23-3324)] UserName[alexis] MachineName[DESKTOP-D6MOGOB] Description[Before constraint definitions upgrade using flow install:\n    Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3\n    Flow Id: EEVX.2.2\n    Install Id: 1589114; 1589126; 1632660\n    iCDB Build Id: 7609807\n    iCDB Version: 3300] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-08 08.57.23 - consDefUpgr.zip] BackupFileSize[300174] Persistent[FALSE]
+[2017.12.16 22:32:09] [0039m.20s.385ms] [0] PrjBackupMgr: Project Backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-08 08.57.23 - consDefUpgr.zip] with GUID [da4d-3578-5c41-b777-5c53-e2aa-c53e-2a50-823d-3d2c-dc7d-1df8] removed
+[2017.12.16 22:32:09] [0039m.20s.385ms] [1] PrjBackupMgr: Migrated iCDB content backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb\cdbback\2017-12-16 21.52.42-7420.zip] removed
+[2017.12.16 22:32:09] [0039m.20s.385ms] [0] PrjBackupMgr: Successfully migrated iCDB upgrade backup file [2017-12-16 21.52.42-7420] to Project Backup format [2017-12-16 21.52.42 - consDefUpgr.zip]
+[2017.12.16 22:32:09] [0039m.20s.401ms] [0] PrjBackupMgr: WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017.12.16 22:32:09] [0039m.20s.401ms] [1] SC[4643]: Registered sub-client [Expedition PCB_2480765] with ID [1] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:09] [0039m.20s.573ms] [1] SC[4643]: Registered sub-client [EEVM] with ID [2] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:09] [0039m.20s.870ms] [1] SC[4643]: UnRegistered sub-client [EEVM] with ID [2] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:10] [0039m.21s.930ms] [1] PrjBackupMgr: Successfully created Project Backup [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-16 22.32.09 - auto.zip] with GUID [1e2c-9335-8ed7-022c-9d09-53ae-d095-3a50-c59f-509f-9fef-0fc8]
+[2017.12.16 22:32:10] [0039m.21s.946ms] [0] PrjBackupMgr: Removing excessive backup:  BackupGUID[bba5-b852-b666-21f0-6f96-23ab-f962-3a50-0bbd-3d2c-dc7d-1df8] CreationTime[Thursday, December 14, 2017 12:09:26] Type[Autosave] Creator[iCDB Server (2017-12-14 12.45.54-2340)] ApplicationName[iCDB Server (2017-12-14 12.45.54-2340)] UserName[admin] MachineName[WINDOWS01] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-14 13.09.26 - auto.zip] BackupFileSize[824908] Persistent[FALSE]
+[2017.12.16 22:32:10] [0039m.21s.946ms] [0] PrjBackupMgr: Project Backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-14 13.09.26 - auto.zip] with GUID [bba5-b852-b666-21f0-6f96-23ab-f962-3a50-0bbd-3d2c-dc7d-1df8] removed
+[2017.12.16 22:32:10] [0039m.21s.946ms] [0] PrjBackupEngine: Successfully created backup:  BackupGUID[1e2c-9335-8ed7-022c-9d09-53ae-d095-3a50-c59f-509f-9fef-0fc8] CreationTime[Saturday, December 16, 2017 21:32:09] Type[Autosave] Creator[iCDB Server (2017-12-16 21.52.49-2788)] ApplicationName[iCDB Server (2017-12-16 21.52.49-2788)] UserName[alexis] MachineName[DESKTOP-D6MOGOB] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-16 22.32.09 - auto.zip] BackupFileSize[904292] Persistent[FALSE]
+[2017.12.16 22:32:11] [0039m.22s.258ms] [1] SC[4643]: Registered sub-client [JobPrefsDBPI_2483250] with ID [3] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:11] [0039m.22s.305ms] [1] SC[4643]: UnRegistered sub-client [JobPrefsDBPI_2483250] with ID [3] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:14] [0039m.25s.864ms] [1] SC[4643]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:14] [0039m.25s.864ms] [1] SC[4643]: Registered sub-client [StartServerClient1814] with ID [5] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:32:14] [0039m.25s.864ms] [1] SC[4643]: UnRegistered sub-client [StartServerClient1814] with ID [5] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:44] [0040m.55s.219ms] [1] SC[4643]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:45] [0040m.56s.098ms] [1] SC[4643]: UnRegistered sub-client [Expedition PCB_2480765] with ID [1] for session ID [4643] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:45] [0040m.56s.207ms] [1] CMT: Removed client [4643]
+[2017.12.16 22:33:45] [0040m.56s.207ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:33:45] [0040m.56s.644ms] [0] IT: Session [4644] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1640] created
+[2017.12.16 22:33:45] [0040m.56s.644ms] [1] SC[4644]: Registered sub-client [Expedition PCB_2577578] with ID [1] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:45] [0040m.56s.660ms] [1] CMT: There are [2] clients now: 4630, 4644
+[2017.12.16 22:33:45] [0040m.56s.879ms] [1] SC[4644]: Registered sub-client [JobPrefsDBPI_2577875] with ID [2] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:45] [0040m.56s.926ms] [1] SC[4644]: UnRegistered sub-client [JobPrefsDBPI_2577875] with ID [2] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:47] [0040m.58s.799ms] [1] SC[4644]: Registered sub-client [ExpeditionCrossProber] with ID [3] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:47] [0040m.58s.814ms] [1] SC[4644]: Registered sub-client [StartServerClient1814] with ID [4] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:47] [0040m.58s.814ms] [1] SC[4644]: UnRegistered sub-client [StartServerClient1814] with ID [4] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:49] [0041m.00s.485ms] [1] SC[4644]: Registered sub-client [JobPrefsDBPI_2581484] with ID [5] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:49] [0041m.00s.485ms] [1] SC[4644]: UnRegistered sub-client [JobPrefsDBPI_2581484] with ID [5] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:49] [0041m.00s.704ms] [1] SC[4644]: Registered sub-client [JobPrefsDBPI_2581718] with ID [6] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:33:49] [0041m.00s.719ms] [1] SC[4644]: UnRegistered sub-client [JobPrefsDBPI_2581718] with ID [6] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:21] [0042m.32s.671ms] [1] SC[4644]: Registered sub-client [JobPrefsDBPI_2673671] with ID [7] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:21] [0042m.32s.702ms] [1] SC[4644]: UnRegistered sub-client [JobPrefsDBPI_2673671] with ID [7] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:21] [0042m.32s.764ms] [1] SC[4644]: UnRegistered sub-client [ExpeditionCrossProber] with ID [3] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:21] [0042m.32s.811ms] [1] SC[4644]: Registered sub-client [EEVM_EEVM_1698540] with ID [8] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:21] [0042m.32s.811ms] [1] SC[4644]: UnRegistered sub-client [EEVM_EEVM_1698540] with ID [8] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:22] [0042m.33s.403ms] [1] SC[4644]: Registered sub-client [JobPrefsDBPI_2674421] with ID [9] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:22] [0042m.33s.466ms] [1] SC[4644]: UnRegistered sub-client [JobPrefsDBPI_2674421] with ID [9] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:22] [0042m.33s.669ms] [1] SC[4644]: Registered sub-client [JobPrefsDBPI_2674687] with ID [10] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:22] [0042m.33s.716ms] [1] SC[4644]: UnRegistered sub-client [JobPrefsDBPI_2674687] with ID [10] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:23] [0042m.34s.497ms] [0] IT: Session [4645] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7144] created
+[2017.12.16 22:35:23] [0042m.34s.497ms] [1] SC[4645]: Registered sub-client [Packager_2675437] with ID [1] for session ID [4645] host [DESKTOP-D6MOGOB] user [alexis] process ID [7144]
+[2017.12.16 22:35:23] [0042m.34s.528ms] [1] CMT: There are [3] clients now: 4630, 4644, 4645
+[2017.12.16 22:35:24] [0042m.35s.339ms] [1] SC[4645]: UnRegistered sub-client [Packager_2675437] with ID [1] for session ID [4645] host [DESKTOP-D6MOGOB] user [alexis] process ID [7144]
+[2017.12.16 22:35:24] [0042m.35s.417ms] [1] CMT: Removed client [4645]
+[2017.12.16 22:35:24] [0042m.35s.417ms] [1] CMT: There are [2] clients now: 4630, 4644
+[2017.12.16 22:35:25] [0042m.35s.995ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.16 22:35:25] [0042m.36s.744ms] [0] IT: Session [4646] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3980] created
+[2017.12.16 22:35:25] [0042m.36s.744ms] [1] SC[4646]: Registered sub-client [Expedition_2677656] with ID [1] for session ID [4646] host [DESKTOP-D6MOGOB] user [alexis] process ID [3980]
+[2017.12.16 22:35:25] [0042m.36s.759ms] [1] CMT: There are [3] clients now: 4630, 4644, 4646
+[2017.12.16 22:35:25] [0042m.36s.837ms] [1] SC[4646]: UnRegistered sub-client [Expedition_2677656] with ID [1] for session ID [4646] host [DESKTOP-D6MOGOB] user [alexis] process ID [3980]
+[2017.12.16 22:35:25] [0042m.36s.869ms] [1] CMT: Removed client [4646]
+[2017.12.16 22:35:25] [0042m.36s.869ms] [1] CMT: There are [2] clients now: 4630, 4644
+[2017.12.16 22:35:27] [0042m.38s.304ms] [0] IT: Session [4647] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3980] created
+[2017.12.16 22:35:27] [0042m.38s.304ms] [1] SC[4647]: Registered sub-client [JobPrefsDBPI_2679218] with ID [1] for session ID [4647] host [DESKTOP-D6MOGOB] user [alexis] process ID [3980]
+[2017.12.16 22:35:27] [0042m.38s.382ms] [1] SC[4647]: UnRegistered sub-client [JobPrefsDBPI_2679218] with ID [1] for session ID [4647] host [DESKTOP-D6MOGOB] user [alexis] process ID [3980]
+[2017.12.16 22:35:27] [0042m.38s.398ms] [1] CMT: There are [3] clients now: 4630, 4644, 4647
+[2017.12.16 22:35:27] [0042m.38s.398ms] [1] CMT: Removed client [4647]
+[2017.12.16 22:35:27] [0042m.38s.398ms] [1] CMT: There are [2] clients now: 4630, 4644
+[2017.12.16 22:35:28] [0042m.39s.147ms] [0] IT: Session [4648] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3980] created
+[2017.12.16 22:35:28] [0042m.39s.147ms] [1] SC[4648]: Registered sub-client [JobPrefsDBPI_2680062] with ID [1] for session ID [4648] host [DESKTOP-D6MOGOB] user [alexis] process ID [3980]
+[2017.12.16 22:35:28] [0042m.39s.179ms] [1] CMT: There are [3] clients now: 4630, 4644, 4648
+[2017.12.16 22:35:28] [0042m.39s.179ms] [1] SC[4648]: UnRegistered sub-client [JobPrefsDBPI_2680062] with ID [1] for session ID [4648] host [DESKTOP-D6MOGOB] user [alexis] process ID [3980]
+[2017.12.16 22:35:28] [0042m.39s.289ms] [1] CMT: Removed client [4648]
+[2017.12.16 22:35:28] [0042m.39s.289ms] [1] CMT: There are [2] clients now: 4630, 4644
+[2017.12.16 22:35:30] [0042m.41s.239ms] [0] IT: Session [4649] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3728] created
+[2017.12.16 22:35:30] [0042m.41s.239ms] [1] SC[4649]: Registered sub-client [JobPrefsDBPI_2682109] with ID [1] for session ID [4649] host [DESKTOP-D6MOGOB] user [alexis] process ID [3728]
+[2017.12.16 22:35:30] [0042m.41s.271ms] [1] CMT: There are [3] clients now: 4630, 4644, 4649
+[2017.12.16 22:35:30] [0042m.41s.364ms] [1] SC[4649]: Registered sub-client [Expedition_2682359] with ID [2] for session ID [4649] host [DESKTOP-D6MOGOB] user [alexis] process ID [3728]
+[2017.12.16 22:35:30] [0042m.41s.443ms] [1] SC[4649]: UnRegistered sub-client [JobPrefsDBPI_2682109] with ID [1] for session ID [4649] host [DESKTOP-D6MOGOB] user [alexis] process ID [3728]
+[2017.12.16 22:35:30] [0042m.41s.584ms] [1] SC[4649]: UnRegistered sub-client [Expedition_2682359] with ID [2] for session ID [4649] host [DESKTOP-D6MOGOB] user [alexis] process ID [3728]
+[2017.12.16 22:35:30] [0042m.41s.599ms] [1] CMT: Removed client [4649]
+[2017.12.16 22:35:30] [0042m.41s.599ms] [1] CMT: There are [2] clients now: 4630, 4644
+[2017.12.16 22:35:30] [0042m.41s.910ms] [1] SC[4644]: Registered sub-client [EEVM_EEVM_609881852] with ID [11] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:30] [0042m.41s.926ms] [1] SC[4644]: UnRegistered sub-client [EEVM_EEVM_609881852] with ID [11] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:30] [0042m.41s.941ms] [1] SC[4644]: Registered sub-client [EEVM_EEVM_609881852] with ID [12] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:30] [0042m.41s.941ms] [1] SC[4644]: UnRegistered sub-client [EEVM_EEVM_609881852] with ID [12] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:31] [0042m.41s.957ms] [1] SC[4644]: Registered sub-client [EEVM_EEVM_609881852] with ID [13] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:31] [0042m.41s.957ms] [1] SC[4644]: UnRegistered sub-client [EEVM_EEVM_609881852] with ID [13] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:32] [0042m.42s.988ms] [1] SC[4644]: UnRegistered sub-client [Expedition PCB_2577578] with ID [1] for session ID [4644] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:32] [0042m.43s.019ms] [1] CMT: Removed client [4644]
+[2017.12.16 22:35:32] [0042m.43s.019ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:35:32] [0042m.43s.783ms] [0] IT: Session [4650] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1640] created
+[2017.12.16 22:35:32] [0042m.43s.783ms] [1] SC[4650]: Registered sub-client [Expedition PCB_2684718] with ID [1] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:32] [0042m.43s.814ms] [1] CMT: There are [2] clients now: 4630, 4650
+[2017.12.16 22:35:33] [0042m.44s.017ms] [1] SC[4650]: Registered sub-client [JobPrefsDBPI_2685015] with ID [2] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:33] [0042m.44s.064ms] [1] SC[4650]: UnRegistered sub-client [JobPrefsDBPI_2685015] with ID [2] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:40] [0042m.51s.447ms] [1] SC[4650]: Registered sub-client [JobPrefsDBPI_2692437] with ID [3] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:40] [0042m.51s.470ms] [1] SC[4650]: UnRegistered sub-client [JobPrefsDBPI_2692437] with ID [3] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:35:40] [0042m.51s.559ms] [1] SC[4650]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:37:38] [0044m.48s.962ms] [1] SC[4650]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:37:39] [0044m.50s.680ms] [1] SC[4650]: UnRegistered sub-client [Expedition PCB_2684718] with ID [1] for session ID [4650] host [DESKTOP-D6MOGOB] user [alexis] process ID [1640]
+[2017.12.16 22:37:39] [0044m.50s.710ms] [1] CMT: Removed client [4650]
+[2017.12.16 22:37:39] [0044m.50s.710ms] [1] CMT: There are [1] clients now: 4630
+[2017.12.16 22:39:11] [0046m.22s.725ms] [1] SC[4630]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4630] host [DESKTOP-D6MOGOB] user [alexis] process ID [7244]
+[2017.12.16 22:39:11] [0046m.22s.818ms] [1] CMT: Removed client [4630]
+[2017.12.16 22:39:11] [0046m.22s.818ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.16 22:39:11] [0046m.22s.865ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.16 22:39:13] [0046m.24s.036ms] [0] CMT: Starting server auto-close
+[2017.12.16 22:39:13] [0046m.24s.145ms] [0] S: Closing server
+[2017.12.16 22:39:13] [0046m.24s.301ms] [0] iCDB Server PI: Closing plugins
+[2017.12.16 22:39:13] [0046m.24s.301ms] [0] iCDB Server PI: Plugins closed
+[2017.12.16 22:39:13] [0046m.24s.301ms] [0] iCDB Server PI: Unloading database
+[2017.12.16 22:39:13] [0046m.24s.301ms] [0] iCDB Server PI: Saving storage
+[2017.12.16 22:39:13] [0046m.24s.301ms] [0] iCDB Server PI: Closing database
+[2017.12.16 22:39:13] [0046m.24s.317ms] [1] iCDB Server PI: Stats: Database defragmentation: max[4] avg[1] holes[29%] data[75%]
+[2017.12.16 22:39:13] [0046m.24s.317ms] [1] iCDB Server PI: Stats: Database file size [404752 (395.3 kB)]
+[2017.12.16 22:39:13] [0046m.24s.317ms] [1] iCDB Server PI: WARNING: Database needs defragmentation!
+[2017.12.16 22:39:13] [0046m.24s.333ms] [0] iCDB Server PI: Database closed
+[2017.12.16 22:39:13] [0046m.24s.333ms] [0] iCDB Server PI: Defragmenting database
+[2017.12.16 22:39:13] [0046m.24s.333ms] [0] iCDB Server PI: Creating database [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb] backup to file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\cdbback\2017-12-16 22.39.13-2788-d.zip]
+[2017.12.16 22:39:14] [0046m.25s.065ms] [0] iCDB Server PI: Database backup: DONE
+[2017.12.16 22:39:14] [0046m.25s.096ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.16 22:39:14] [0046m.25s.096ms] [0] Database GUARD OK: [404752]
+[2017.12.16 22:39:14] [0046m.25s.096ms] [0] SingleFile: [4da1-a32e-11bd-e4cd] SFI version check [1009] [1009]
+[2017.12.16 22:39:14] [0046m.25s.221ms] [0] SingleFile: [4da1-a32e-11bd-e4cd] Database SFI header has been read in [128ms 596us]
+[2017.12.16 22:39:14] [0046m.25s.690ms] [1] iCDB Server PI: Stats: Database file sizes: before[404752 (395.3 kB)], after[246592 (240.8 kB)], gain[158160 (154.5 kB)]
+[2017.12.16 22:39:14] [0046m.25s.705ms] [0] Single file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\icdb.dat] closed with size [246592 (240.8 kB)]
+[2017.12.16 22:39:14] [0046m.25s.705ms] [0] iCDB Server PI: Database defragmentation completed successfully
+[2017.12.16 22:39:14] [0046m.25s.705ms] [1] BackupTransaction: Removing database backup [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\cdbback\2017-12-16 22.39.13-2788-d.zip]
+[2017.12.16 22:39:14] [0046m.25s.705ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1828198] ticks
+[2017.12.16 22:39:14] [0046m.25s.705ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [695616] microseconds
+[2017.12.16 22:39:14] [0046m.25s.705ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [2394]
+[2017.12.16 22:39:14] [0046m.25s.705ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [3441] commands per second
+[2017.12.16 22:39:14] [0046m.25s.721ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.16 22:39:14] [0046m.25s.893ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.16 22:39:14] [0046m.25s.893ms] [0] MWT: STOP
+[2017.12.16 22:39:14] [0046m.25s.893ms] [0] S: STOP

@@ -1,0 +1,14 @@
+
+                                Autosave Log File
+                                -----------------
+
+                      12:47 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+
+
+                               Autosave log closed
+                               -------------------
+
+                      01:00 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb
+

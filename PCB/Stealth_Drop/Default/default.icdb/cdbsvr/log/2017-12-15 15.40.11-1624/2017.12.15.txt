@@ -1,0 +1,125 @@
+[2017.12.15 15:40:11] [0000m.00s.035ms] [0] WELCOME
+[2017.12.15 15:40:11] [0000m.00s.047ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.15 15:40:11] [0000m.00s.047ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.15 15:40:11] [0000m.00s.047ms] [1] Base flow version [VX.2.2]
+[2017.12.15 15:40:11] [0000m.00s.047ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.15 15:40:11] [0000m.00s.047ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.15 15:40:11] [0000m.00s.047ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] Machine [WINDOWS01]  IP [10.0.2.15,127.0.0.1]  User [admin]  PID [1624]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] Operating system [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] Current working dir [C:\Users\admin\Documents\Stealth_Drop]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] PATH [C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\help;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] SDD_HOME [C:\MentorGraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] SDD_PLATFORM [win32]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\MentorGraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [1] S: Config file name [ServerWG.cfg]
+[2017.12.15 15:40:11] [0000m.00s.129ms] [2] S: Loading config files
+[2017.12.15 15:40:11] [0000m.00s.141ms] [1] Config file [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.12.15 15:40:11] [0000m.00s.141ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.12.15 15:40:11] [0000m.00s.141ms] [3] S: Config loaded
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Project path [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb] on file system [NTFS]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Project global path [\\WINDOWS01\Users\admin\Documents\Stealth_Drop\Default\default.icdb] on file system [NTFS]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [1] S: WARNING: No project file (.prj) path specified
+[2017.12.15 15:40:11] [0000m.00s.248ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Multi-user mode (config)
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Event polling mode autodetection
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Started up automatically by iCDB Client: WINDOWS01:admin:2400
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Auto close mode
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Database ID [d092-cafd-c87c-0766-dbed-33a2-ced3-3a50-855d-3d2c-dc7d-1df8]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: BEGIN dumping
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: Local -> global path prefix list
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: [C:\Users] -> [\\WINDOWS01\Users]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: [E:\] -> [\\vboxsrv\Share\]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: Global -> local path prefix list
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: [\\WINDOWS01\Users] -> [C:\Users]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: [\\vboxsrv\Share\] -> [E:\]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] PathTranslator: END dumping
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: START
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Server startup lock file created
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Listening for client connections on port [10001]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Server network ID [windows01:10.0.2.15,windows01:10001]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Server GUID [190f-115b-2313-2c1c-bced-33a0-ded3-3a50-067d-3d2c-dc7d-1df8]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Project GUID [d092-cafd-c87c-0766-dbed-33a2-ced3-3a50-855d-3d2c-dc7d-1df8]
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Wrote data to server address file
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] S: Server startup lock file removed
+[2017.12.15 15:40:11] [0000m.00s.248ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.12.15 15:40:12] [0000m.00s.560ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] S: Local disc access time: 19 us
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] S: File server access time: 25 us
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] Single file [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb\icdb.dat] size [280296 (273.7 kB)]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [1] Single file [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] Database GUARD OK: [280296]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] Database GUARD OK: [280296]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.15 15:40:12] [0000m.00s.560ms] [0] Database GUARD OK: [280296]
+[2017.12.15 15:40:12] [0000m.00s.573ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.15 15:40:12] [0000m.00s.573ms] [0] Database GUARD OK: [280296]
+[2017.12.15 15:40:12] [0000m.00s.573ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.15 15:40:12] [0000m.00s.573ms] [0] Database GUARD OK: [280296]
+[2017.12.15 15:40:12] [0000m.00s.573ms] [0] SingleFile: [22dd-3bcc-64dd-5ebf] SFI version check [1009] [1009]
+[2017.12.15 15:40:12] [0000m.00s.573ms] [0] SingleFile: [22dd-3bcc-64dd-5ebf] Database SFI header has been read in [8ms 365us]
+[2017.12.15 15:40:12] [0000m.00s.586ms] [0] iCDB Server PI: Server & plugin session [4617]
+[2017.12.15 15:40:12] [0000m.00s.586ms] [0] iCDB Server PI: Opening database [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb]
+[2017.12.15 15:40:12] [0000m.00s.586ms] [0] iCDB Server PI: Database [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb] opened
+[2017.12.15 15:40:12] [0000m.00s.586ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.12.15 15:40:12] [0000m.00s.586ms] [0] iCDB Database: Checking constraint definitions version
+[2017.12.15 15:40:12] [0000m.00s.651ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=d077-c76f-3e54-155f-ea37-50a3-b375-0a50-084d-3d2c-dc7d-1df8] up to date
+[2017.12.15 15:40:12] [0000m.00s.793ms] [0] iCDB Server PI: Initializing plugins
+[2017.12.15 15:40:12] [0000m.00s.793ms] [0] iCDB Server PI: Plugins initialized
+[2017.12.15 15:40:12] [0000m.00s.793ms] [0] S: iCDB database loaded
+[2017.12.15 15:40:12] [0000m.00s.832ms] [0] S: Starting threads
+[2017.12.15 15:40:12] [0000m.00s.832ms] [0] ProjectBackupManager: WARNING: Could not startup Project Backup engine - functionality not initialized
+[2017.12.15 15:40:12] [0000m.00s.832ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.12.15 15:40:12] [0000m.00s.832ms] [0] IT: Session [4618] for host [windows01] user [admin] with process ID [2400] created
+[2017.12.15 15:40:12] [0000m.00s.832ms] [1] CMT: There are [1] clients now: 4618
+[2017.12.15 15:40:12] [0000m.00s.871ms] [0] IT: iCDB Server Monitor session [1] for host [windows01] user [admin] with process ID [1992] created
+[2017.12.15 15:40:12] [0000m.00s.871ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.12.15 15:40:12] [0000m.00s.871ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.12.15 15:40:12] [0000m.00s.871ms] [1] SC[4618]: Registered sub-client [DCDV] with ID [1] for session ID [4618] host [windows01] user [admin] process ID [2400]
+[2017.12.15 15:41:30] [0001m.18s.922ms] [0] DFAMT: File server access time: 34 us
+[2017.12.15 15:48:22] [0008m.10s.344ms] [1] SCL: WARNING: Could not find client [4619] stat data
+[2017.12.15 15:48:22] [0008m.10s.344ms] [0] IT: Session [4619] for host [windows01] user [admin] with process ID [1436] created
+[2017.12.15 15:48:22] [0008m.10s.344ms] [1] CMT: There are [2] clients now: 4618, 4619
+[2017.12.15 15:48:22] [0008m.10s.435ms] [1] SC[4619]: Registered sub-client [ICDBC] with ID [1] for session ID [4619] host [windows01] user [admin] process ID [1436]
+[2017.12.15 15:48:22] [0008m.10s.571ms] [1] SC[4619]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4619] host [windows01] user [admin] process ID [1436]
+[2017.12.15 15:48:27] [0008m.15s.683ms] [1] SC[4619]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4619] host [windows01] user [admin] process ID [1436]
+[2017.12.15 15:48:27] [0008m.15s.704ms] [1] SC[4619]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4619] host [windows01] user [admin] process ID [1436]
+[2017.12.15 15:48:27] [0008m.15s.765ms] [1] CMT: Removed client [4619]
+[2017.12.15 15:48:27] [0008m.15s.765ms] [1] CMT: There are [1] clients now: 4618
+[2017.12.15 15:48:30] [0008m.18s.673ms] [0] IT: Session [4620] for host [windows01] user [admin] with process ID [3532] created
+[2017.12.15 15:48:30] [0008m.18s.673ms] [1] SC[4620]: Registered sub-client [Packager_665968] with ID [1] for session ID [4620] host [windows01] user [admin] process ID [3532]
+[2017.12.15 15:48:30] [0008m.18s.816ms] [1] CMT: There are [2] clients now: 4618, 4620
+[2017.12.15 15:48:31] [0008m.20s.290ms] [1] SC[4620]: UnRegistered sub-client [Packager_665968] with ID [1] for session ID [4620] host [windows01] user [admin] process ID [3532]
+[2017.12.15 15:48:32] [0008m.20s.413ms] [1] CMT: Removed client [4620]
+[2017.12.15 15:48:32] [0008m.20s.413ms] [1] CMT: There are [1] clients now: 4618
+[2017.12.15 15:48:54] [0008m.43s.002ms] [1] SC[4618]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4618] host [windows01] user [admin] process ID [2400]
+[2017.12.15 15:48:54] [0008m.43s.151ms] [1] CMT: Removed client [4618]
+[2017.12.15 15:48:54] [0008m.43s.151ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.15 15:48:55] [0008m.43s.649ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.15 15:48:56] [0008m.44s.428ms] [0] CMT: Starting server auto-close
+[2017.12.15 15:48:56] [0008m.44s.544ms] [0] S: Closing server
+[2017.12.15 15:48:56] [0008m.44s.561ms] [0] ProjectBackupManager: WARNING: Could not shutdown Project Backup engine - not started yet
+[2017.12.15 15:48:56] [0008m.44s.710ms] [0] iCDB Server PI: Closing plugins
+[2017.12.15 15:48:56] [0008m.44s.826ms] [0] iCDB Server PI: Plugins closed
+[2017.12.15 15:48:56] [0008m.44s.826ms] [0] iCDB Server PI: Unloading database
+[2017.12.15 15:48:56] [0008m.44s.826ms] [0] iCDB Server PI: Saving storage
+[2017.12.15 15:48:56] [0008m.44s.826ms] [0] iCDB Server PI: Closing database
+[2017.12.15 15:48:56] [0008m.44s.826ms] [1] iCDB Server PI: Stats: Database defragmentation: max[4] avg[1] holes[14%] data[94%]
+[2017.12.15 15:48:56] [0008m.44s.826ms] [1] iCDB Server PI: Stats: Database file size [343736 (335.7 kB)]
+[2017.12.15 15:48:56] [0008m.45s.009ms] [0] iCDB Server PI: Database closed
+[2017.12.15 15:48:56] [0008m.45s.009ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [7605430] ticks
+[2017.12.15 15:48:56] [0008m.45s.009ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [760543] microseconds
+[2017.12.15 15:48:56] [0008m.45s.009ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [342]
+[2017.12.15 15:48:56] [0008m.45s.009ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [449] commands per second
+[2017.12.15 15:48:56] [0008m.45s.009ms] [0] Single file [C:\Users\admin\Documents\Stealth_Drop\Default\default.icdb\icdb.dat] closed with size [343736 (335.7 kB)]
+[2017.12.15 15:48:56] [0008m.45s.075ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.15 15:48:57] [0008m.45s.821ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.15 15:48:57] [0008m.46s.169ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.15 15:48:57] [0008m.46s.203ms] [0] MWT: STOP
+[2017.12.15 15:48:57] [0008m.46s.219ms] [0] S: STOP
