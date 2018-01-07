@@ -156,8 +156,7 @@ static int file_exists(char* filename)
     cmd[1] = 'o';
     cmd[2] = 'p';
     cmd[3] = ' ';
-    for(int i = 0; i < file_size; i++)
-        cmd[4 + i] = filename[i];
+    strcpy(cmd + 4, filename);
     cmd[file_size + 4] = '\r';
     cmd[file_size + 5] = '\n';
     cmd[file_size + 6] = '\0';
@@ -223,8 +222,7 @@ void wifi_save_file(char* filename)
     remove_cmd[1] = 'd';
     remove_cmd[2] = 'e';
     remove_cmd[3] = ' ';
-    for(int i = 0; i < file_size; i++)
-        remove_cmd[4 + i] = filename[i];
+    strcpy(remove_cmd + 4, filename);
     remove_cmd[file_size + 4] = '_';
     int_into_str(read_cmd, 7, MAX_DATA_LEN_HTTP);
     // Each FILE_POLL_DELAY ms, check if the file is present
@@ -238,6 +236,7 @@ void wifi_save_file(char* filename)
     }
     do {
         // read stream
+        // TODO: must save file into SD card
         read_cmd[5] = stream + '0';
         wifi_command(read_cmd, 200, 1);
         // remove file
@@ -251,4 +250,39 @@ void wifi_save_file(char* filename)
         cur = int_into_str(file_block, file_size + 1, count);
         file_block[cur] = '\0';
     } while((stream = file_exists(file_block)) != -1);
+}
+
+/* Return the number of digits into a number
+** val:    input number
+** return: number of digits
+*/
+int int_len(int val)
+{
+    int count = 1;
+    while(val > 9) {
+        count++;
+        val /= 10;
+    }
+    return count;
+}
+
+void wifi_send_file(char* filename)
+{
+    int filename_len = strlen(filename);
+    // Read file data
+    // TODO: A file must be loaded from SD card
+    char * data = "This is the message you should be able to read on your smartphone.\n\nPS: this stream do not comes from SD card :/";
+    int file_size = strlen(data);
+    int file_size_len = int_len(file_size);
+    // create a nex file on the wifi chip flash
+    char new_file_cmd[filename_len + file_size_len + 11];
+    strcpy(new_file_cmd, "fcr -o ");
+    strcpy(new_file_cmd + 7, filename);
+    new_file_cmd[filename_len + 7] = ' ';
+    int cur = int_into_str(new_file_cmd, filename_len + 8, file_size);
+    new_file_cmd[cur++] = '\r';
+    new_file_cmd[cur++] = '\n';
+    new_file_cmd[cur] = '\0';
+    rtt_printf(0, "Command to add a new file: %s\n", new_file_cmd);
+    //wifi_command(new_file_cmd, 400, 1);
 }

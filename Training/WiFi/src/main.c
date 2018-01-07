@@ -29,7 +29,7 @@ int main(void)
     wifi_command("setup web\r\n", 4000, 1);
 
     char filename[] = "bleed_it_out.txt";
-    wifi_save_file(filename);
+    wifi_send_file(filename);
 
     chThdSleep(TIME_INFINITE);
     return 0;
