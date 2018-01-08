@@ -6,7 +6,6 @@ import android.content.Intent;
 import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
-import android.os.Environment;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -52,6 +51,11 @@ public class Wifi extends Service
 
     public void uploadFile(String filename)
     {
-        new DataTransfers().execute(filename);
+        new Upload().execute(filename);
+    }
+
+    public void downloadFile(String filename)
+    {
+        new Download().execute(filename);
     }
 }

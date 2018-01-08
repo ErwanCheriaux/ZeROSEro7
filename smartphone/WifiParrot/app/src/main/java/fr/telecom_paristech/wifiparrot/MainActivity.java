@@ -21,6 +21,7 @@ public class MainActivity extends AppCompatActivity
     Wifi mService;
     Button buttonScan;
     Button buttonUpload;
+    Button buttonDownload;
     Intent wifiIntent;
 
     static final int FILE_PICK = 1;
@@ -38,7 +39,6 @@ public class MainActivity extends AppCompatActivity
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
-
                 return;
             }
             Log.e("File manager", "File manger result is not correct");
@@ -64,6 +64,12 @@ public class MainActivity extends AppCompatActivity
                 intent.setAction(Intent.ACTION_GET_CONTENT);
                 intent.setType("*/*");
                 startActivityForResult(intent, FILE_PICK);
+            }
+        });
+        buttonDownload = (Button)findViewById(R.id.button_download);
+        buttonDownload.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mService.uploadFile("bleed_it_out.txt");
             }
         });
         // Allow WiFi

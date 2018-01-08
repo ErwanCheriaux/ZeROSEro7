@@ -1,31 +1,24 @@
 package fr.telecom_paristech.wifiparrot;
 
-/**************
-** Code From https://www.coderefer.com/android-upload-file-to-server/ **
-***************/
-
 import android.os.AsyncTask;
 import android.util.Log;
 
 import java.io.DataOutputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.net.ConnectException;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
-public class DataTransfers extends AsyncTask<String, Void, Integer>
+public abstract class Transfer extends AsyncTask<String, Void, Integer>
 {
-    private final int MAX_DATA_LEN_HTTP = 2560;
+    protected final int MAX_DATA_LEN_HTTP = 2560;
 
     /* Send a GET request to a url and return server response
     ** url:    url to connect
     ** return: server response
      */
-    private String GET(String url)
+    protected String GET(String url)
     {
         String res = "";
         try {
@@ -61,7 +54,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
     ** msg:    content to send
     ** return: server response
      */
-    private int POST(String url, String[] header, String msg)
+    protected int POST(String url, String[] header, String msg)
     {
         try {
             // Http config
@@ -101,7 +94,7 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
 
     /* Do not handle long files (> 1kB)
      */
-    private String encode(byte[] data, int dataLen)
+    protected String encode(byte[] data, int dataLen)
     {
         int b, c, d, e, f;
         String g = "";
@@ -131,65 +124,5 @@ public class DataTransfers extends AsyncTask<String, Void, Integer>
         return g;
     }
 
-    private void uploadRequests(FileInputStream fileInputStream, String filename)
-    {
-        byte[] data = new byte[MAX_DATA_LEN_HTTP];
-        int dataLen;
-        // POST request to create a file
-        String[] args = {
-                "Host", "setup.com",
-                "Connection", "keep-alive",
-                "Accept", "application/json",
-                "Origin", "http://setup.com",
-                "Content-Type", "application/json",
-                "Referer", "http://setup.com/",
-                "Accept-Encoding", "gzip, deflate"
-        };
-        int count = 0;
-        while(true) {
-            try {
-                dataLen = fileInputStream.read(data, 0, MAX_DATA_LEN_HTTP);
-            } catch (IOException e) {
-                e.printStackTrace();
-                return;
-            }
-            if(dataLen == -1)
-                break;
-            // Create a new file
-            String msg = "{\"flags\":0,\"command\":\"fcr -o \\\"" + filename + "_" + count + "\\\" " + dataLen + "\"}";
-            Log.d("Request", msg);
-            Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
-            // POST request to fill the created file
-            msg = "{\"command\":\"write 0 " + dataLen + "\",\"flags\":4,\"data\":\"" + encode(data, dataLen) + "\"}";
-            Log.i("Request", msg);
-            Log.d("Response code", "" + POST("http://setup.com/command", args, msg));
-            count++;
-        }
-    }
-
-    protected Integer doInBackground(String... input)
-    {
-        String selectedFilePath = input[0];
-        int serverResponseCode = 0;
-
-        // Open file
-        File selectedFile = new File(selectedFilePath);
-        String[] parts = selectedFilePath.split("/");
-        if (!selectedFile.isFile()){
-            Log.i("Data", "Source File Doesn't Exist: " + selectedFilePath);
-            return 1;
-        }
-        FileInputStream fileInputStream;
-        try{
-            fileInputStream = new FileInputStream(selectedFile);
-        } catch (Exception e) {
-            e.printStackTrace();
-            return 1;
-        }
-        Log.d("Data", "Source File Found: " + selectedFilePath);
-
-        uploadRequests(fileInputStream, parts[parts.length - 1]);
-
-        return serverResponseCode;
-    }
+    protected abstract Integer doInBackground(String... input);
 }
