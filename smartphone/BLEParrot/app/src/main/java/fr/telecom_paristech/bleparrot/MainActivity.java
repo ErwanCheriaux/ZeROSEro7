@@ -16,11 +16,11 @@ import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
-    private Intent advertisementIntent ;
-    private AdvertiserService advertiser ;
-    private Button pauseResumeButton ;
-    private ProgressBar advertisingProgress ;
-    private TextView advertisingTitle ;
+    private Intent advertisementIntent;
+    private AdvertiserService advertiser;
+    private Button pauseResumeButton;
+    private ProgressBar advertisingProgress;
+    private TextView advertisingTitle;
 
     // Defines connection callbacks
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -37,65 +37,66 @@ public class MainActivity extends AppCompatActivity {
         public void onServiceDisconnected(ComponentName arg0) {
         }
 
-    } ;
+    };
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState) ;
-        setContentView(R.layout.activity_main) ;
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_main);
 
-        pauseResumeButton = (Button) findViewById(R.id.pauseResumeButton) ;
-        advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress) ;
-        advertisingTitle = (TextView) findViewById(R.id.advertisingTitle) ;
+        pauseResumeButton = (Button) findViewById(R.id.pauseResumeButton);
+        advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress);
+        advertisingTitle = (TextView) findViewById(R.id.advertisingTitle);
 
-        advertisementIntent = new Intent(this, AdvertiserService.class) ;
+        advertisementIntent = new Intent(this, AdvertiserService.class);
         bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
-        startService(advertisementIntent) ;
+        startService(advertisementIntent);
         // Callback initialized advertiser local attribute
     }
 
-    boolean advertiserStarted = true ;
+    private boolean advertiserStarted = true;
+
     public void onPauseResumeButton(View v) {
-        if(advertiserStarted) {
-            advertiser.pause() ;
-            advertisingProgress.setVisibility(View.INVISIBLE) ;
-            pauseResumeButton.setText("Resume") ;
-            advertisingTitle.setText("Advertising Stopped") ;
+        if (advertiserStarted) {
+            advertiser.pause();
+            advertisingProgress.setVisibility(View.INVISIBLE);
+            pauseResumeButton.setText("Resume");
+            advertisingTitle.setText("Advertising Stopped");
         } else {
-            advertiser.resume() ;
-            advertisingProgress.setVisibility(View.VISIBLE) ;
-            pauseResumeButton.setText("Pause") ;
-            advertisingTitle.setText("Advertising in BLE") ;
+            advertiser.resume();
+            advertisingProgress.setVisibility(View.VISIBLE);
+            pauseResumeButton.setText("Pause");
+            advertisingTitle.setText("Advertising in BLE");
         }
-        advertiserStarted = !advertiserStarted ;
+        advertiserStarted = !advertiserStarted;
     }
 
     @Override
     public void onBackPressed() {
-        moveTaskToBack(true) ;  // Doesn't stop the app
+        moveTaskToBack(true);  // Doesn't stop the app
     }
 
     @Override
     public void onPause() {
-        Toast.makeText(getApplicationContext(), "BLE Advertisement running in the backgruond", Toast.LENGTH_LONG).show() ;
-        Log.i("MainActivity","Activity paused") ;
-        unbindService(mConnection) ;
-        super.onPause() ;
+        Toast.makeText(getApplicationContext(), "BLE Advertisement running in the backgruond", Toast.LENGTH_LONG).show();
+        Log.i("MainActivity", "Activity paused");
+        unbindService(mConnection);
+        super.onPause();
     }
 
     @Override
     public void onResume() {
-        Log.i("MainActivity","Activity resumed") ;
-        super.onResume() ;
-        bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE) ;
+        Log.i("MainActivity", "Activity resumed");
+        super.onResume();
+        bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
     }
 
     @Override
     public void onDestroy() {
-        Toast.makeText(getApplicationContext(), "BLE Advertisement stopped", Toast.LENGTH_LONG).show() ;
-        Log.i("MainActivity","Activity destroyed") ;
-        stopService(advertisementIntent) ;
-        super.onDestroy() ;
+        Toast.makeText(getApplicationContext(), "BLE Advertisement stopped", Toast.LENGTH_LONG).show();
+        Log.i("MainActivity", "Activity destroyed");
+        stopService(advertisementIntent);
+        super.onDestroy();
     }
 
 }
