@@ -24,7 +24,7 @@
 
 #include "rtt.h"
 
-#define BLE_DEVICE_NAME "BLE Parrot"
+#define BLE_DEVICE_NAME "ZeROSEro7 Device"
 #define APP_ADV_FAST_INTERVAL 40 /**< The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
 #define APP_ADV_FAST_TIMEOUT 30  /**< The duration of the fast advertising period (in seconds). */
 #define APP_BLE_CONN_CFG_TAG 1   /**< A tag identifying the SoftDevice BLE configuration. */
@@ -46,21 +46,16 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 
     switch(ble_adv_evt) {
         case BLE_ADV_EVT_DIRECTED:
-            NRF_LOG_INFO("Directed advertising");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_DIRECTED);
-            APP_ERROR_CHECK(err_code);
+            rtt_write_string("Directed advertising");
             break;
 
         case BLE_ADV_EVT_FAST:
-            NRF_LOG_INFO("Fast advertising");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);  // TODO Peer and bond
-            APP_ERROR_CHECK(err_code);
+            rtt_write_string("Fast advertising");
+            // TODO Peer and bond
             break;
 
         case BLE_ADV_EVT_SLOW:
-            NRF_LOG_INFO("Slow advertising");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_SLOW);
-            APP_ERROR_CHECK(err_code);
+            rtt_write_string("Slow advertising");
             break;
 
         case BLE_ADV_EVT_IDLE:
@@ -80,6 +75,10 @@ static void gap_params_init()
     BLE_GAP_CONN_SEC_MODE_SET_OPEN(&gap_seccurity_mode);
 
     APP_ERROR_CHECK(sd_ble_gap_appearance_set(BLE_APPEARANCE_RUNNING_WALKING_SENSOR_IN_SHOE));  // No one will try to find it ;)
+
+    APP_ERROR_CHECK(sd_ble_gap_device_name_set(&gap_seccurity_mode,
+                                               (const uint8_t*)BLE_DEVICE_NAME,
+                                               strlen(BLE_DEVICE_NAME)));
 
     // Connection parameters, mostly for low power.
     gap_conn_params.min_conn_interval = MIN_CONN_INTERVAL;

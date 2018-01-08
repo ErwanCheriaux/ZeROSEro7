@@ -10,8 +10,7 @@
 // Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
 {
-    ret_code_t err_code = sd_app_evt_wait();
-    APP_ERROR_CHECK(err_code);
+    APP_ERROR_CHECK(sd_app_evt_wait());
 }
 
 static void phone_noticed_handler()

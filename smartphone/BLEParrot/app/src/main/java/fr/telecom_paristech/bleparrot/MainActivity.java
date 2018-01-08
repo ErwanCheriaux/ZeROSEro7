@@ -1,11 +1,17 @@
 package fr.telecom_paristech.bleparrot;
 
+import android.Manifest;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
+import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
@@ -22,15 +28,25 @@ public class MainActivity extends AppCompatActivity {
     private ProgressBar advertisingProgress;
     private TextView advertisingTitle;
 
+    private Intent gapIntent;
+    private GAPService gap;
+
     // Defines connection callbacks
     private ServiceConnection mConnection = new ServiceConnection() {
 
         @Override
         public void onServiceConnected(ComponentName className,
                                        IBinder service) {
-            // We've bound to LocalService, cast the IBinder and get LocalService instance
-            AdvertiserService.LocalBinder binder = (AdvertiserService.LocalBinder) service;
-            advertiser = binder.getService();
+            if (className.getClassName().equals(AdvertiserService.class.getName())) {
+                // We've bound to LocalService, cast the IBinder and get LocalService instance
+                AdvertiserService.LocalBinder binder = (AdvertiserService.LocalBinder) service;
+                advertiser = binder.getService();
+            } else if (className.getClassName().equals(GAPService.class.getName())) {
+                GAPService.LocalBinder binder = (GAPService.LocalBinder) service;
+                gap = binder.getService();
+            } else {
+                throw new UnsupportedOperationException("Unsupported service connection");
+            }
         }
 
         @Override // Never disconnected
@@ -39,10 +55,37 @@ public class MainActivity extends AppCompatActivity {
 
     };
 
+    // Device connected callback
+    private BroadcastReceiver broadcastIntentReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(GAPService.DEVICE_DETECTED_ACTION)) {
+                Toast.makeText(getApplicationContext(), "Gotcha !", Toast.LENGTH_LONG).show();
+                advertiser.pause();
+                advertisingProgress.setVisibility(View.INVISIBLE);
+                pauseResumeButton.setText("Resume");
+                advertisingTitle.setText("Device detected");
+                // TODO Connect to GATT
+            }
+        }
+    };
+
+    private boolean advertiserStarted = true;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        // Allow location access, strangely required for accessing BLE scan results.
+        // Permission is prompted once at first use of the application
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED)
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        // Allow File
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED)
+            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
+
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastIntentReceiver, new IntentFilter(GAPService.DEVICE_DETECTED_ACTION));
 
         pauseResumeButton = (Button) findViewById(R.id.pauseResumeButton);
         advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress);
@@ -51,10 +94,11 @@ public class MainActivity extends AppCompatActivity {
         advertisementIntent = new Intent(this, AdvertiserService.class);
         bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
         startService(advertisementIntent);
-        // Callback initialized advertiser local attribute
-    }
 
-    private boolean advertiserStarted = true;
+        gapIntent = new Intent(this, GAPService.class);
+        bindService(gapIntent, mConnection, Context.BIND_AUTO_CREATE);
+        startService(gapIntent);
+    }
 
     public void onPauseResumeButton(View v) {
         if (advertiserStarted) {

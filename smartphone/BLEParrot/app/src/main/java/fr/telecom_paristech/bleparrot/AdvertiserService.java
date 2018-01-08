@@ -14,16 +14,14 @@ import android.widget.Toast;
 
 public class AdvertiserService extends Service {
 
+    private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
     private BluetoothLeAdvertiser advertiserInstance;
-
     private AdvertiseSettings settings;
     private AdvertiseData advertiseData;
     private AdvertiseCallback callback;
 
-    private final IBinder mBinder = new LocalBinder();
-
-    public void onCreate() {
+    public AdvertiserService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
         advertiserInstance = adapter.getBluetoothLeAdvertiser();
         Log.i("AdvertiserService", "AdvertiserService Instance : " + advertiserInstance);
@@ -61,7 +59,7 @@ public class AdvertiserService extends Service {
         // Most consuming for best performances. The phone as great battery and advertisement won't last long.
         settingsBuilder.setAdvertiseMode(AdvertiseSettings.ADVERTISE_MODE_LOW_LATENCY);
         settingsBuilder.setTxPowerLevel(AdvertiseSettings.ADVERTISE_TX_POWER_HIGH);
-        settingsBuilder.setConnectable(false); // TODO Become connectable
+        settingsBuilder.setConnectable(false);
         settingsBuilder.setTimeout(0);
 
         return settingsBuilder.build();
@@ -71,11 +69,26 @@ public class AdvertiserService extends Service {
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
 
         dataBuilder.setIncludeDeviceName(true);
-        /*  TODO Add recognizable Code through UUID or Manufacturer or ...
-            Then enable some king of secured authentication.
-        */
 
         return dataBuilder.build();
+    }
+
+    @Override
+    public void onDestroy() {
+        pause();
+        Log.i("AdvertiserService", "Service destroyed");
+        super.onDestroy();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i("AdvertiserService", "Service started. Received start id " + startId + ": " + intent);
+        return START_STICKY;    // Remain in the background when the app is paused
+    }
+
+    @Override
+    public IBinder onBind(Intent intent) {
+        return mBinder;
     }
 
     private class AdvertiserCallbackFeedback extends AdvertiseCallback {
@@ -99,29 +112,11 @@ public class AdvertiserService extends Service {
         }
     }
 
-    @Override
-    public void onDestroy() {
-        pause();
-        Log.i("AdvertiserService", "Service destroyed");
-        super.onDestroy();
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.i("AdvertiserService", "Service started. Received start id " + startId + ": " + intent);
-        return START_STICKY;    // Remain in the background when the app is paused
-    }
-
     public class LocalBinder extends Binder {
         // Return this instance of LocalService so clients can call public methods
         AdvertiserService getService() {
             return AdvertiserService.this;
         }
-    }
-
-    @Override
-    public IBinder onBind(Intent intent) {
-        return mBinder;
     }
 
 }
