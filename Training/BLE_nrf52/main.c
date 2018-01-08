@@ -3,9 +3,11 @@
 #include "nrf_delay.h"
 #include "boards.h"
 #include "ble_central.h"
+#include "ble_peripheral_gap.h"
 #include "rtt.h"
 #include "app_error.h"
 
+// Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
 {
     ret_code_t err_code = sd_app_evt_wait();
@@ -14,7 +16,14 @@ void power_manage()
 
 static void phone_noticed_handler()
 {
-    rtt_write_string("!!! Phone get !!!\n");
+    rtt_write_string("!!! Phone get, negociating connection !!!\n");
+    // We advertise to switch role in the GAP negociation for lower consumption
+    ble_stop_observing();
+    ble_peripheral_start_advertising();
+}
+
+static void phone_connected_handler() {
+    rtt_write_string("!!! Phone connected !!!\n");
 }
 
 int main(void)
@@ -26,6 +35,7 @@ int main(void)
     bsp_board_led_on(1);
 
     ble_init(phone_noticed_handler);
+    ble_peripheral_advertising_init(phone_connected_handler);
     rtt_write_string("BLE initialized\n");
     bsp_board_led_on(2);
 
