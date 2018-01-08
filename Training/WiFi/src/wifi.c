@@ -271,11 +271,11 @@ void wifi_send_file(char* filename)
     int filename_len = strlen(filename);
     // Read file data
     // TODO: A file must be loaded from SD card
-    char * data = "This is the message you should be able to read on your smartphone.\n\nPS: this stream do not comes from SD card :/";
+    char * data = "This is the message you should be able to read on your smartphone.\n\nPS: this stream doesn't comes from SD card :/";
     int file_size = strlen(data);
     int file_size_len = int_len(file_size);
-    // create a nex file on the wifi chip flash
-    char new_file_cmd[filename_len + file_size_len + 11];
+    // create a new file on the wifi chip flash
+    char new_file_cmd[11 + filename_len + file_size_len];
     strcpy(new_file_cmd, "fcr -o ");
     strcpy(new_file_cmd + 7, filename);
     new_file_cmd[filename_len + 7] = ' ';
@@ -283,6 +283,17 @@ void wifi_send_file(char* filename)
     new_file_cmd[cur++] = '\r';
     new_file_cmd[cur++] = '\n';
     new_file_cmd[cur] = '\0';
-    rtt_printf(0, "Command to add a new file: %s\n", new_file_cmd);
-    //wifi_command(new_file_cmd, 400, 1);
+    wifi_command(new_file_cmd, 1000, 1);
+    // fill the new file
+    int cmd_len = 13 + file_size + file_size_len;
+    char fill_file_cmd[cmd_len];
+    strcpy(fill_file_cmd, "write 0 ");
+    cur = int_into_str(fill_file_cmd, 8, file_size);
+    fill_file_cmd[cur++] = '\r';
+    fill_file_cmd[cur++] = '\n';
+    strcpy(fill_file_cmd + cur, data);
+    fill_file_cmd[cmd_len - 3] = '\r';
+    fill_file_cmd[cmd_len - 2] = '\n';
+    fill_file_cmd[cmd_len - 1] = '\0';
+    wifi_command(fill_file_cmd, 1000, 1);
 }
