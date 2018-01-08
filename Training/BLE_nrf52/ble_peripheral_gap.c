@@ -24,29 +24,27 @@
 
 #include "rtt.h"
 
-#define BLE_DEVICE_NAME                  "BLE Parrot"
-#define APP_ADV_FAST_INTERVAL           40                                          /**< The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
-#define APP_ADV_FAST_TIMEOUT            30                                          /**< The duration of the fast advertising period (in seconds). */
-#define APP_BLE_CONN_CFG_TAG            1                                           /**< A tag identifying the SoftDevice BLE configuration. */
+#define BLE_DEVICE_NAME "BLE Parrot"
+#define APP_ADV_FAST_INTERVAL 40 /**< The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
+#define APP_ADV_FAST_TIMEOUT 30  /**< The duration of the fast advertising period (in seconds). */
+#define APP_BLE_CONN_CFG_TAG 1   /**< A tag identifying the SoftDevice BLE configuration. */
 
-#define MIN_CONN_INTERVAL                   MSEC_TO_UNITS(7.5, UNIT_1_25_MS)           /**< Minimum connection interval (7.5 ms) */
-#define MAX_CONN_INTERVAL                   MSEC_TO_UNITS(30, UNIT_1_25_MS)            /**< Maximum connection interval (30 ms). */
-#define SLAVE_LATENCY                       6                                          /**< Slave latency. */
-#define CONN_SUP_TIMEOUT                    MSEC_TO_UNITS(430, UNIT_10_MS)             /**< Connection supervisory timeout (430 ms). */
-
+#define MIN_CONN_INTERVAL MSEC_TO_UNITS(7.5, UNIT_1_25_MS) /**< Minimum connection interval (7.5 ms) */
+#define MAX_CONN_INTERVAL MSEC_TO_UNITS(30, UNIT_1_25_MS)  /**< Maximum connection interval (30 ms). */
+#define SLAVE_LATENCY 6                                    /**< Slave latency. */
+#define CONN_SUP_TIMEOUT MSEC_TO_UNITS(430, UNIT_10_MS)    /**< Connection supervisory timeout (430 ms). */
 
 static void (*on_phone_connection)();  // Handler from main
 
 BLE_ADVERTISING_DEF(m_advertising); /**< Advertising module instance. */
-static ble_advertising_t * const advertising;
-static ble_advertising_init_t advertising_conf;
+static ble_advertising_t* const advertising;
+static ble_advertising_init_t   advertising_conf;
 
 static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 {
     ret_code_t err_code;
 
-    switch (ble_adv_evt)
-    {
+    switch(ble_adv_evt) {
         case BLE_ADV_EVT_DIRECTED:
             NRF_LOG_INFO("Directed advertising");
             err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_DIRECTED);
@@ -55,7 +53,7 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 
         case BLE_ADV_EVT_FAST:
             NRF_LOG_INFO("Fast advertising");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
+            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);  // TODO Peer and bond
             APP_ERROR_CHECK(err_code);
             break;
 
@@ -73,19 +71,17 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
     }
 }
 
-static ble_gap_conn_params_t gap_conn_params;
-static ble_gap_conn_sec_mode_t sec_mode;
+static ble_gap_conn_params_t    gap_conn_params;
+static ble_gap_conn_sec_mode_t  gap_seccurity_mode;
+static ble_gap_privacy_params_t gap_privacy_params;
 
-static void gap_params_init() {
+static void gap_params_init()
+{
+    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&gap_seccurity_mode);
 
-    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&sec_mode);
+    APP_ERROR_CHECK(sd_ble_gap_appearance_set(BLE_APPEARANCE_RUNNING_WALKING_SENSOR_IN_SHOE));  // No one will try to find it ;)
 
-    APP_ERROR_CHECK(sd_ble_gap_device_name_set(&sec_mode,
-                                          (const uint8_t *)BLE_DEVICE_NAME,
-                                          strlen(BLE_DEVICE_NAME)));
-
-    APP_ERROR_CHECK(sd_ble_gap_appearance_set(BLE_APPEARANCE_HID_KEYBOARD));
-
+    // Connection parameters, mostly for low power.
     gap_conn_params.min_conn_interval = MIN_CONN_INTERVAL;
     gap_conn_params.max_conn_interval = MAX_CONN_INTERVAL;
     gap_conn_params.slave_latency     = SLAVE_LATENCY;
@@ -94,7 +90,19 @@ static void gap_params_init() {
     APP_ERROR_CHECK(sd_ble_gap_ppcp_set(&gap_conn_params));
 }
 
-static void advertising_params_init() {
+static void gap_secure_params_init()
+{
+    BLE_GAP_CONN_SEC_MODE_SET_SIGNED_WITH_MITM(&gap_seccurity_mode);
+
+    // Prevents tracking. Identity Resolving Key (IRK) must be shared with peer.
+    gap_privacy_params.privacy_mode      = BLE_GAP_PRIVACY_MODE_DEVICE_PRIVACY;
+    gap_privacy_params.private_addr_type = BLE_GAP_ADDR_TYPE_RANDOM_PRIVATE_RESOLVABLE;
+
+    APP_ERROR_CHECK(sd_ble_gap_privacy_set(&gap_privacy_params));
+}
+
+static void advertising_params_init()
+{
     advertising_conf.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     advertising_conf.advdata.include_appearance      = true;
     advertising_conf.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
@@ -109,7 +117,8 @@ static void advertising_params_init() {
     advertising_conf.evt_handler = on_adv_evt;
 }
 
-void ble_peripheral_advertising_init(void (*phone_connected_handler)()) {
+void ble_peripheral_advertising_init(void (*phone_connected_handler)())
+{
     on_phone_connection = phone_connected_handler;
 
     gap_params_init();
@@ -119,10 +128,12 @@ void ble_peripheral_advertising_init(void (*phone_connected_handler)()) {
     ble_advertising_conn_cfg_tag_set(&m_advertising, APP_BLE_CONN_CFG_TAG);
 }
 
-void ble_peripheral_start_advertising() {
+void ble_peripheral_start_advertising()
+{
     APP_ERROR_CHECK(ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST));
 }
 
-void ble_peripheral_stop_advertising() {
+void ble_peripheral_stop_advertising()
+{
     APP_ERROR_CHECK(ble_advertising_start(&m_advertising, BLE_ADV_MODE_IDLE));
 }

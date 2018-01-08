@@ -22,7 +22,8 @@ static void phone_noticed_handler()
     ble_peripheral_start_advertising();
 }
 
-static void phone_connected_handler() {
+static void phone_connected_handler()
+{
     rtt_write_string("!!! Phone connected !!!\n");
 }
 

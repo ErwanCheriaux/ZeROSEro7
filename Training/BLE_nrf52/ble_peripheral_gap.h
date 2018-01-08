@@ -1,4 +1,4 @@
-#ifndef  BLE_PERIPHERAL_GAP_H
+#ifndef BLE_PERIPHERAL_GAP_H
 #define BLE_PERIPHERAL_GAP_H
 
 /*
