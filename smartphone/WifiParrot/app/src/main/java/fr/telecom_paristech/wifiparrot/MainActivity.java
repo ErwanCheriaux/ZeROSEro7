@@ -69,7 +69,7 @@ public class MainActivity extends AppCompatActivity
         buttonDownload = (Button)findViewById(R.id.button_download);
         buttonDownload.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.uploadFile("bleed_it_out.txt");
+                mService.downloadFile("bleed_it_out.txt");
             }
         });
         // Allow WiFi
