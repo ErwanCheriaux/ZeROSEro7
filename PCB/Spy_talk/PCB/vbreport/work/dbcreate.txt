@@ -1,4 +1,4 @@
-Creating Database - G:\ZEROSERO7\PCB\SPY_TALK\PCB\vbreport\work\..\output\VBPCBP.mdc
+Creating Database - H:\ZEROSERO7\PCB\SPY_TALK\PCB\vbreport\work\..\output\VBPCBP.mdc
     Creating Table : TBoardInfo
     Creating Table : TBoardOut
     Creating Table : TComp

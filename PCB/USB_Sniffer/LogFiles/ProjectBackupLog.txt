@@ -67,3 +67,5 @@
 [2017-12-20 16.42.17] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
 [2017-12-27 13.14.35] Migrating iCDB upgrade backups from directory [USB_SNIFFER\Default\default.icdb\cdbback] to Project Backup format.
 [2017-12-27 13.14.35] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2018-01-09 18.07.32] Migrating iCDB upgrade backups from directory [USB_SNIFFER\Default\default.icdb\cdbback] to Project Backup format.
+[2018-01-09 18.07.32] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
