@@ -24,10 +24,14 @@
 
 #include "rtt.h"
 
-#define BLE_DEVICE_NAME "ZeROSEro7 Device"
+#define BLE_DEVICE_NAME "Connected shoe"
 #define APP_ADV_FAST_INTERVAL 40 /**< The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
 #define APP_ADV_FAST_TIMEOUT 30  /**< The duration of the fast advertising period (in seconds). */
 #define APP_BLE_CONN_CFG_TAG 1   /**< A tag identifying the SoftDevice BLE configuration. */
+
+#define FIRST_CONN_PARAMS_UPDATE_DELAY      APP_TIMER_TICKS(5000)                      /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
+#define NEXT_CONN_PARAMS_UPDATE_DELAY       APP_TIMER_TICKS(30000)                     /**< Time between each call to sd_ble_gap_conn_param_update after the first call (30 seconds). */
+#define MAX_CONN_PARAMS_UPDATE_COUNT        3                                          /**< Number of attempts before giving up the connection parameter negotiation. */
 
 #define MIN_CONN_INTERVAL MSEC_TO_UNITS(7.5, UNIT_1_25_MS) /**< Minimum connection interval (7.5 ms) */
 #define MAX_CONN_INTERVAL MSEC_TO_UNITS(30, UNIT_1_25_MS)  /**< Maximum connection interval (30 ms). */
@@ -70,6 +74,7 @@ static ble_gap_conn_params_t    gap_conn_params;
 static ble_gap_conn_sec_mode_t  gap_seccurity_mode;
 static ble_gap_privacy_params_t gap_privacy_params;
 
+// Disguise as a smart shoe for the first connection, prior to bonding.
 static void gap_params_init()
 {
     BLE_GAP_CONN_SEC_MODE_SET_OPEN(&gap_seccurity_mode);
@@ -89,6 +94,7 @@ static void gap_params_init()
     APP_ERROR_CHECK(sd_ble_gap_ppcp_set(&gap_conn_params));
 }
 
+// More secure params, including privacy for connecting once bonded
 static void gap_secure_params_init()
 {
     BLE_GAP_CONN_SEC_MODE_SET_SIGNED_WITH_MITM(&gap_seccurity_mode);
@@ -100,11 +106,31 @@ static void gap_secure_params_init()
     APP_ERROR_CHECK(sd_ble_gap_privacy_set(&gap_privacy_params));
 }
 
+static void conn_neg_error_handler(uint32_t nrf_error)
+{
+    APP_ERROR_HANDLER(nrf_error);
+}
+
+static ble_conn_params_init_t conn_neg_init;
+
+static void connenction_negociation_init() {
+    conn_neg_init.p_conn_params                  = NULL;
+    conn_neg_init.first_conn_params_update_delay = FIRST_CONN_PARAMS_UPDATE_DELAY;
+    conn_neg_init.next_conn_params_update_delay  = NEXT_CONN_PARAMS_UPDATE_DELAY;
+    conn_neg_init.max_conn_params_update_count   = MAX_CONN_PARAMS_UPDATE_COUNT;
+    conn_neg_init.start_on_notify_cccd_handle    = BLE_GATT_HANDLE_INVALID;
+    conn_neg_init.disconnect_on_fail             = false;
+    conn_neg_init.evt_handler                    = NULL;
+    conn_neg_init.error_handler                  = conn_neg_error_handler;
+
+    APP_ERROR_CHECK(ble_conn_params_init(&conn_neg_init));
+}
+
 static void advertising_params_init()
 {
     advertising_conf.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     advertising_conf.advdata.include_appearance      = true;
-    advertising_conf.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_GENERAL_DISC_MODE;
+    advertising_conf.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE;
     advertising_conf.advdata.uuids_complete.uuid_cnt = 0;
     advertising_conf.advdata.uuids_complete.p_uuids  = NULL;
 
@@ -121,6 +147,7 @@ void ble_peripheral_advertising_init(void (*phone_connected_handler)())
     on_phone_connection = phone_connected_handler;
 
     gap_params_init();
+    connenction_negociation_init();
     advertising_params_init();
     APP_ERROR_CHECK(ble_advertising_init(&m_advertising, &advertising_conf));
 

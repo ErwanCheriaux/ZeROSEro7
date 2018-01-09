@@ -123,6 +123,8 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             on_adv_report(p_ble_evt);
         } break;
 
+        // TODO Disconnect on gatt timeouts
+
         default:
             // No implementation needed.
             break;

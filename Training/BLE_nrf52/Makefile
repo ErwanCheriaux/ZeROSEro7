@@ -18,6 +18,7 @@ USER_SRC = \
 	$(PROJ_DIR)/rtt.c \
 	$(PROJ_DIR)/ble_central.c \
 	$(PROJ_DIR)/ble_peripheral_gap.c \
+	$(PROJ_DIR)/ble_peripheral_gatt.c \
 	$(PROJ_DIR)/main.c \
 
 USER_INC = $(PROJ_DIR)
@@ -80,6 +81,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/ble/peer_manager/pm_mutex.c \
 	$(SDK_ROOT)/components/ble/peer_manager/security_dispatcher.c \
 	$(SDK_ROOT)/components/ble/peer_manager/security_manager.c \
+    $(SDK_ROOT)/components/ble/ble_services/ble_dis/ble_dis.c \
 	$(SDK_ROOT)/components/toolchain/gcc/gcc_startup_nrf52.S \
 	$(SDK_ROOT)/components/toolchain/system_nrf52.c \
 	$(SDK_ROOT)/components/ble/ble_services/ble_ans_c/ble_ans_c.c \

@@ -31,7 +31,7 @@ public class MainActivity extends AppCompatActivity {
     private Intent gapIntent;
     private GAPService gap;
 
-    // Defines connection callbacks
+    // Defines services connection callbacks
     private ServiceConnection mConnection = new ServiceConnection() {
 
         @Override
@@ -59,13 +59,13 @@ public class MainActivity extends AppCompatActivity {
     private BroadcastReceiver broadcastIntentReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(GAPService.DEVICE_DETECTED_ACTION)) {
+            if (intent.getAction().equals(GAPService.DEVICE_CONECTED_ACTION)) {
                 Toast.makeText(getApplicationContext(), "Gotcha !", Toast.LENGTH_LONG).show();
-                advertiser.pause();
+                stopService(advertisementIntent);
                 advertisingProgress.setVisibility(View.INVISIBLE);
                 pauseResumeButton.setText("Resume");
                 advertisingTitle.setText("Device detected");
-                // TODO Connect to GATT
+                // TODO Switch activity and communicate with GATT
             }
         }
     };
@@ -85,7 +85,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastIntentReceiver, new IntentFilter(GAPService.DEVICE_DETECTED_ACTION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastIntentReceiver, new IntentFilter(GAPService.DEVICE_CONECTED_ACTION));
 
         pauseResumeButton = (Button) findViewById(R.id.pauseResumeButton);
         advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress);
@@ -103,11 +103,13 @@ public class MainActivity extends AppCompatActivity {
     public void onPauseResumeButton(View v) {
         if (advertiserStarted) {
             advertiser.pause();
+            gap.stopScan();
             advertisingProgress.setVisibility(View.INVISIBLE);
             pauseResumeButton.setText("Resume");
             advertisingTitle.setText("Advertising Stopped");
         } else {
             advertiser.resume();
+            gap.startScan();
             advertisingProgress.setVisibility(View.VISIBLE);
             pauseResumeButton.setText("Pause");
             advertisingTitle.setText("Advertising in BLE");
@@ -122,9 +124,8 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onPause() {
-        Toast.makeText(getApplicationContext(), "BLE Advertisement running in the backgruond", Toast.LENGTH_LONG).show();
+        // Advertisement is running in the background
         Log.i("MainActivity", "Activity paused");
-        unbindService(mConnection);
         super.onPause();
     }
 
@@ -132,7 +133,6 @@ public class MainActivity extends AppCompatActivity {
     public void onResume() {
         Log.i("MainActivity", "Activity resumed");
         super.onResume();
-        bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
     }
 
     @Override

@@ -2,6 +2,7 @@ package fr.telecom_paristech.bleparrot;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
+import android.bluetooth.BluetoothDevice;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
@@ -22,7 +23,7 @@ public class GAPService extends Service {
     private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
 
-    public static final String DEVICE_DETECTED_ACTION = "Device connected";
+    public static final String DEVICE_CONECTED_ACTION = "Device connected";
 
     public GAPService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -31,17 +32,29 @@ public class GAPService extends Service {
         scanCb = new ScanCallback() {
             @Override
             public void onScanResult(int callbackType, ScanResult result) {
-                Log.i("GAPService", "BLE Advertisment detected from :" + parseName(result.toString()));
-                if (parseName(result.toString()).equals("ZeROSEro7 Device")) {
-                    Log.i("GAPService", "Recognised device advertisment");
-                    Intent intent = new Intent(DEVICE_DETECTED_ACTION);
+                BluetoothDevice device = result.getDevice();
+                Log.i("GAPService", "BLE Advertisement detected from :" + device);
+
+                // First connection, not bonded
+                if (device != null && device.getName().equals("Connected shoe")) {
+                    Log.i("GAPService", "Recognised device advertisement");
+                    stopScan();
+
+                    BondWithDevice(device);
+
+                    Intent intent = new Intent(DEVICE_CONECTED_ACTION);
                     LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
-                    // TODO Connect and bond
                 }
+
+                // TODO connect to bonded device
             }
         };
 
         startScan();
+    }
+
+    private void BondWithDevice(BluetoothDevice device) {
+        //TODO
     }
 
     private String parseName(String advString) {
@@ -53,13 +66,26 @@ public class GAPService extends Service {
     }
 
     public void startScan() {
-        Log.i("GAPService", "BLE Scanning");
         scannerInstance.startScan(scanCb);
+        Log.i("GAPService", "BLE Scanning");
     }
 
     public void stopScan() {
-        Log.i("GAPService", "BLE stopped Scanning");
         scannerInstance.stopScan(scanCb);
+        Log.i("GAPService", "BLE stopped Scanning");
+    }
+
+    @Override
+    public void onDestroy() {
+        stopScan();
+        Log.i("GAPService", "Service destroyed");
+        super.onDestroy();
+    }
+
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.i("GAPService", "Service started. Received start id " + startId + ": " + intent);
+        return START_STICKY;    // Remain in the background when the app is paused. Has to be explicitly stopped
     }
 
     @Override

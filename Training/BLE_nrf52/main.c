@@ -4,6 +4,7 @@
 #include "boards.h"
 #include "ble_central.h"
 #include "ble_peripheral_gap.h"
+#include "ble_peripheral_gatt.h"
 #include "rtt.h"
 #include "app_error.h"
 
@@ -16,7 +17,8 @@ void power_manage()
 static void phone_noticed_handler()
 {
     rtt_write_string("!!! Phone get, negociating connection !!!\n");
-    // We advertise to switch role in the GAP negociation for lower consumption
+    bsp_board_led_on(2);
+    // We advertise to switch role in the GAP connection for lower consumption
     ble_stop_observing();
     ble_peripheral_start_advertising();
 }
@@ -24,6 +26,7 @@ static void phone_noticed_handler()
 static void phone_connected_handler()
 {
     rtt_write_string("!!! Phone connected !!!\n");
+    bsp_board_led_on(3);
 }
 
 int main(void)
@@ -32,16 +35,15 @@ int main(void)
     rtt_write_string("\n\n======== DEBUG INITIALIZED ========\n");
 
     bsp_board_leds_init();
-    bsp_board_led_on(1);
 
     ble_init(phone_noticed_handler);
+    ble_gatt_init();
     ble_peripheral_advertising_init(phone_connected_handler);
     rtt_write_string("BLE initialized\n");
-    bsp_board_led_on(2);
 
     ble_start_observing();
     rtt_write_string("Now observing BLE\n");
-    bsp_board_led_on(3);
+    bsp_board_led_on(1);
 
     while(true) {
         power_manage();

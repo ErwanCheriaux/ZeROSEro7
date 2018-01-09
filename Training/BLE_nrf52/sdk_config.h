@@ -158,7 +158,7 @@
 // <q> BLE_ANS_C_ENABLED  - ble_ans_c - Alert Notification Service Client
 
 #ifndef BLE_ANS_C_ENABLED
-#define BLE_ANS_C_ENABLED 1
+#define BLE_ANS_C_ENABLED 0
 #endif
 
 // <q> BLE_BAS_C_ENABLED  - ble_bas_c - Battery Service Client
@@ -188,7 +188,7 @@
 // <q> BLE_DIS_ENABLED  - ble_dis - Device Information Service
 
 #ifndef BLE_DIS_ENABLED
-#define BLE_DIS_ENABLED 0
+#define BLE_DIS_ENABLED 1
 #endif
 
 // <q> BLE_GLS_ENABLED  - ble_gls - Glucose Service

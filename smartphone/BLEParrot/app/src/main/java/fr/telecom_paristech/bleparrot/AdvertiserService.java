@@ -91,6 +91,7 @@ public class AdvertiserService extends Service {
         return mBinder;
     }
 
+    // Mandatory callback when starting advertiser
     private class AdvertiserCallbackFeedback extends AdvertiseCallback {
 
         private AdvertiserService parentAdvertiserService; // Context of the application to make Toasts
