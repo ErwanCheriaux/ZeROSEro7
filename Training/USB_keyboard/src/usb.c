@@ -29,6 +29,22 @@ SerialUSBDriver SDU2;
 
 /*
  * USB Device Descriptor.
+ *
+ * DEVICE DESCRIPTOR
+ *  bLength: 18
+ *  bDescriptorType: 0x01 (DEVICE)
+ *  bcdUSB: 0x0110
+ *  bDeviceClass: Device (0x00)
+ *  bDeviceSubClass: 0
+ *  bDeviceProtocol: 0 (Use class code info from Interface Descriptors)
+ *  bMaxPacketSize0: 8
+ *  idVendor: Dell Computer Corp. (0x413c)
+ *  idProduct: Unknown (0x2107)
+ *  bcdDevice: 0x0178
+ *  iManufacturer: 1
+ *  iProduct: 2
+ *  iSerialNumber: 0
+ *  bNumConfigurations: 1
  */
 static const uint8_t vcom_device_descriptor_data[18] = {
     USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
@@ -52,7 +68,55 @@ static const USBDescriptor vcom_device_descriptor = {
     sizeof vcom_device_descriptor_data,
     vcom_device_descriptor_data};
 
-/* Configuration Descriptor tree for a CDC.*/
+/* Configuration Descriptor DELL Keyboard
+ *
+ * CONFIGURATION DESCRIPTOR
+ *  bLength: 9
+ *  bDescriptorType: 0x02 (CONFIGURATION)
+ *  wTotalLength: 34
+ *  bNumInterfaces: 1
+ *  bConfigurationValue: 1
+ *  iConfiguration: 0
+ *  Configuration bmAttributes: 0xa0  NOT SELF-POWERED  REMOTE-WAKEUP
+ *      1... .... = Must be 1: Must be 1 for USB 1.1 and higher
+ *      .0.. .... = Self-Powered: This device is powered from the USB bus
+ *      ..1. .... = Remote Wakeup: This device supports REMOTE WAKEUP
+ *  bMaxPower: 50  (100mA)
+ *
+ * INTERFACE DESCRIPTOR (0.0): class HID
+ *  bLength: 9
+ *  bDescriptorType: 0x04 (INTERFACE)
+ *  bInterfaceNumber: 0
+ *  bAlternateSetting: 0
+ *  bNumEndpoints: 1
+ *  bInterfaceClass: HID (0x03)
+ *  bInterfaceSubClass: Boot Interface (0x01)
+ *  bInterfaceProtocol: Keyboard (0x01)
+ *  iInterface: 0
+ *
+ *  HID DESCRIPTOR
+ *   bLength: 9
+ *   bDescriptorType: 0x21 (HID)
+ *   bcdHID: 0x0110
+ *   bCountryCode: Not Supported (0x00)
+ *   bNumDescriptors: 1
+ *   bDescriptorType: HID Report (0x22)
+ *   wDescriptorLength: 65
+ *
+ *  ENDPOINT DESCRIPTOR
+ *   bLength: 7
+ *   bDescriptorType: 0x05 (ENDPOINT)
+ *   bEndpointAddress: 0x81  IN  Endpoint:1
+ *       1... .... = Direction: IN Endpoint
+ *       .... 0001 = Endpoint Number: 0x1
+ *   bmAttributes: 0x03
+ *       .... ..11 = Transfertype: Interrupt-Transfer (0x3)
+ *   wMaxPacketSize: 8
+ *       ...0 0... .... .... = Transactions per microframe: 1 (0)
+ *       .... ..00 0000 1000 = Maximum Packet Size: 8
+ *   bInterval: 10
+ */
+
 static const uint8_t vcom_configuration_descriptor_data[67] = {
     /* Configuration Descriptor.*/
     USB_DESC_CONFIGURATION(67,   /* wTotalLength.                    */
@@ -138,6 +202,10 @@ static const USBDescriptor vcom_configuration_descriptor = {
 
 /*
  * U.S. English language identifier.
+ * STRING DESCRIPTOR
+ *  bLength: 4
+ *  bDescriptorType: 0x03 (STRING)
+ *  wLANGID: English (United States) (0x0409)
  */
 static const uint8_t vcom_string0[] = {
     USB_DESC_BYTE(4),                     /* bLength.                         */
@@ -147,6 +215,11 @@ static const uint8_t vcom_string0[] = {
 
 /*
  * Vendor string.
+ *
+ * STRING DESCRIPTOR
+ *  bLength: 48
+ *  bDescriptorType: 0x03 (STRING)
+ *  bString: Dell USB Entry Keyboard
  */
 static const uint8_t vcom_string1[] = {
     USB_DESC_BYTE(38),                    /* bLength.                         */
@@ -157,6 +230,11 @@ static const uint8_t vcom_string1[] = {
 
 /*
  * Device Description string.
+ *
+ * STRING DESCRIPTOR
+ *  bLength: 10
+ *  bDescriptorType: 0x03 (STRING)
+ *  bString: DELL
  */
 static const uint8_t vcom_string2[] = {
     USB_DESC_BYTE(56),                    /* bLength.                         */
