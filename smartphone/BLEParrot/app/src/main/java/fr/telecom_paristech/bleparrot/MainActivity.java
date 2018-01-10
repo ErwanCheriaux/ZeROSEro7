@@ -61,9 +61,10 @@ public class MainActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(GAPService.DEVICE_CONECTED_ACTION)) {
                 Toast.makeText(getApplicationContext(), "Gotcha !", Toast.LENGTH_LONG).show();
+                advertiser.pause();
                 stopService(advertisementIntent);
                 advertisingProgress.setVisibility(View.INVISIBLE);
-                pauseResumeButton.setText("Resume");
+                pauseResumeButton.setText("Stopped");
                 advertisingTitle.setText("Device detected");
                 // TODO Switch activity and communicate with GATT
             }

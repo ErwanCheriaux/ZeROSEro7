@@ -3,6 +3,10 @@ package fr.telecom_paristech.bleparrot;
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
 import android.bluetooth.BluetoothDevice;
+import android.bluetooth.BluetoothGatt;
+import android.bluetooth.BluetoothGattCallback;
+import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothProfile;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
@@ -54,7 +58,33 @@ public class GAPService extends Service {
     }
 
     private void BondWithDevice(BluetoothDevice device) {
-        //TODO
+        BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
+            @Override
+            public void onConnectionStateChange(BluetoothGatt gatt, int status,
+                                                int newState) {
+                // TODO
+                Log.i("GAPService","Conn state change : " + status);
+                Log.i("GAPService","Connected : " + (status == BluetoothProfile.STATE_CONNECTED)) ;
+
+            }
+
+            @Override
+            // New services discovered
+            public void onServicesDiscovered(BluetoothGatt gatt, int status) {
+                // TODO
+                Log.i("GAPService","Service Discovered");
+            }
+
+            @Override
+            // Result of a characteristic read operation
+            public void onCharacteristicRead(BluetoothGatt gatt,
+                                             BluetoothGattCharacteristic characteristic,
+                                             int status) {
+                // TODO
+                Log.i("GAPService","Characteristic Read");
+            }
+        };
+        device.connectGatt(this, false, mGattCallback);
     }
 
     private String parseName(String advString) {
