@@ -48,18 +48,18 @@ SerialUSBDriver SDU2;
  *  bNumConfigurations: 1
  */
 static const uint8_t vcom_device_descriptor_data[18] = {
-    USB_DESC_DEVICE(0x0110,                                       /* bcdUSB (1.1).                    */
-                    0x00,                                         /* bDeviceClass (CDC).              */
-                    0x00,                                         /* bDeviceSubClass.                 */
-                    0x00,                                         /* bDeviceProtocol.                 */
-                    0x40, /* bMaxPacketSize.                  */  //fail with 0x08
-                    0x413c,                                       /* idVendor (ST).                   */
-                    0x2107,                                       /* idProduct.                       */
-                    0x0178,                                       /* bcdDevice.                       */
-                    1,                                            /* iManufacturer.                   */
-                    2,                                            /* iProduct.                        */
-                    0,                                            /* iSerialNumber.                   */
-                    1)                                            /* bNumConfigurations.              */
+    USB_DESC_DEVICE(0x0110,         /* bcdUSB (1.1).                    */
+                    0x00,           /* bDeviceClass (CDC).              */
+                    0x00,           /* bDeviceSubClass.                 */
+                    0x00,           /* bDeviceProtocol.                 */
+                    0x40,           /* bMaxPacketSize. Fail with 0x08 ! */
+                    0x413c,         /* idVendor (ST).                   */
+                    0x2107,         /* idProduct.                       */
+                    0x0178,         /* bcdDevice.                       */
+                    1,              /* iManufacturer.                   */
+                    2,              /* iProduct.                        */
+                    0,              /* iSerialNumber.                   */
+                    1)              /* bNumConfigurations.              */
 };
 
 /*
