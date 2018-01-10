@@ -38,9 +38,8 @@
 
 NRF_BLE_GATT_DEF(m_gatt);                                           /**< GATT module instance. */
 
-
 void my_service_init() {
-    // TODO
+    // TODO custom service
 
     ret_code_t       err_code;
     ble_dis_init_t   dis_init_obj;

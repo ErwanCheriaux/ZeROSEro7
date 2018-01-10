@@ -10,6 +10,7 @@
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
+#include "app_timer.h"
 
 
 // Goes in low power mode. Not const lat, not OFF mode
@@ -41,10 +42,13 @@ static void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
+static void timer_init() {
+    APP_ERROR_CHECK(app_timer_init());
+}
 
 int main(void)
 {
-
+    timer_init();
 
     rtt_init();
     log_init();
@@ -64,8 +68,7 @@ int main(void)
     // ble_peer_init(); TODO
     rtt_write_string("BLE initialized\n");
 
-    //ble_start_observing(); TODO Exchange
-    ble_peripheral_start_advertising();
+    ble_start_observing();
 
     rtt_write_string("Now observing BLE\n");
     bsp_board_led_on(1);
