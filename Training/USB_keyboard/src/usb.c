@@ -368,6 +368,42 @@ void usb_init(void)
     palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
 
     /*
+     * Update USBDescriptor and USBConfig.
+     */
+//  usbh_device_descriptor_t *const keyboard_device_descriptor = &USBHD1.rootport.device.devDesc;
+
+//  vcom_device_descriptor_data[0]  = USB_DESC_BYTE(keyboard_device_descriptor->bLength);
+//  vcom_device_descriptor_data[1]  = USB_DESC_BYTE(keyboard_device_descriptor->bDescriptorType);
+//  vcom_device_descriptor_data[2]  = USB_DESC_BCD_0(keyboard_device_descriptor->bcdUSB);
+//  vcom_device_descriptor_data[3]  = USB_DESC_BCD_1(keyboard_device_descriptor->bcdUSB);
+//  vcom_device_descriptor_data[4]  = USB_DESC_BYTE(keyboard_device_descriptor->bDeviceClass);
+//  vcom_device_descriptor_data[5]  = USB_DESC_BYTE(keyboard_device_descriptor->bDeviceSubClass);
+//  vcom_device_descriptor_data[6]  = USB_DESC_BYTE(keyboard_device_descriptor->bDeviceProtocol);
+//  vcom_device_descriptor_data[7]  = USB_DESC_BYTE(keyboard_device_descriptor->bMaxPacketSize0);
+//  vcom_device_descriptor_data[8]  = USB_DESC_WORD_0(keyboard_device_descriptor->idVendor);
+//  vcom_device_descriptor_data[9]  = USB_DESC_WORD_1(keyboard_device_descriptor->idVendor);
+//  vcom_device_descriptor_data[10] = USB_DESC_WORD_0(keyboard_device_descriptor->idProduct);
+//  vcom_device_descriptor_data[11] = USB_DESC_WORD_1(keyboard_device_descriptor->idProduct);
+//  vcom_device_descriptor_data[12] = USB_DESC_BCD_0(keyboard_device_descriptor->bcdDevice);
+//  vcom_device_descriptor_data[13] = USB_DESC_BCD_1(keyboard_device_descriptor->bcdDevice);
+//  vcom_device_descriptor_data[14] = USB_DESC_INDEX(keyboard_device_descriptor->iManufacturer);
+//  vcom_device_descriptor_data[15] = USB_DESC_INDEX(keyboard_device_descriptor->iProduct);
+//  vcom_device_descriptor_data[16] = USB_DESC_INDEX(keyboard_device_descriptor->iSerialNumber);
+//  vcom_device_descriptor_data[17] = USB_DESC_BYTE(keyboard_device_descriptor->bNumConfigurations);
+
+//  usbh_config_descriptor_t *const keyboard_config_descriptor = &USBHD1.rootport.device.basicConfigDesc;
+
+//  vcom_configuration_descriptor_data[0] = USB_DESC_BYTE(keyboard_config_descriptor->bLength);
+//  vcom_configuration_descriptor_data[1] = USB_DESC_BYTE(keyboard_config_descriptor->bDescriptorType);
+//  vcom_configuration_descriptor_data[2] = USB_DESC_WORD_0(keyboard_config_descriptor->wTotalLength);
+//  vcom_configuration_descriptor_data[3] = USB_DESC_WORD_1(keyboard_config_descriptor->wTotalLength);
+//  vcom_configuration_descriptor_data[4] = USB_DESC_BYTE(keyboard_config_descriptor->bNumInterfaces);
+//  vcom_configuration_descriptor_data[5] = USB_DESC_BYTE(keyboard_config_descriptor->bConfigurationValue);
+//  vcom_configuration_descriptor_data[6] = USB_DESC_INDEX(keyboard_config_descriptor->iConfiguration);
+//  vcom_configuration_descriptor_data[7] = USB_DESC_BYTE(keyboard_config_descriptor->bmAttributes);
+//  vcom_configuration_descriptor_data[8] = USB_DESC_BYTE(keyboard_config_descriptor->bMaxPower);
+
+    /*
    * Initializes a serial-over-USB CDC driver.
    */
     sduObjectInit(&SDU2);
