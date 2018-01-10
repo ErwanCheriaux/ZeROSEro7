@@ -213,7 +213,7 @@
   USB_DESC_BYTE(bInterfaceProtocol),                                        \
   USB_DESC_INDEX(iInterface)
 
-#define USB_DESC_INTERFACEi_BIS(bLength, bDescriptorType,                   \
+#define USB_DESC_INTERFACE_BIS(bLength, bDescriptorType,                    \
                                 bInterfaceNumber, bAlternateSetting,        \
                                 bNumEndpoints, bInterfaceClass,             \
                                 bInterfaceSubClass, bInterfaceProtocol,     \

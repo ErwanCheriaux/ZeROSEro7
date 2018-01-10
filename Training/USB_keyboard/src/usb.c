@@ -47,18 +47,20 @@ SerialUSBDriver SDU2;
  *  bNumConfigurations: 1
  */
 static const uint8_t vcom_device_descriptor_data[18] = {
-    USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
-                    0x02,   /* bDeviceClass (CDC).              */
-                    0x00,   /* bDeviceSubClass.                 */
-                    0x00,   /* bDeviceProtocol.                 */
-                    0x40,   /* bMaxPacketSize.                  */
-                    0x0483, /* idVendor (ST).                   */
-                    0x5740, /* idProduct.                       */
-                    0x0200, /* bcdDevice.                       */
-                    1,      /* iManufacturer.                   */
-                    2,      /* iProduct.                        */
-                    3,      /* iSerialNumber.                   */
-                    1)      /* bNumConfigurations.              */
+    USB_DESC_DEVICE_BIS(18,
+                        1,
+                        0x0110, /* bcdUSB (1.1).                    */
+                        0x02,   /* bDeviceClass (CDC).              */
+                        0x00,   /* bDeviceSubClass.                 */
+                        0x00,   /* bDeviceProtocol.                 */
+                        0x40,   /* bMaxPacketSize.                  */
+                        0x0483, /* idVendor (ST).                   */
+                        0x5740, /* idProduct.                       */
+                        0x0200, /* bcdDevice.                       */
+                        1,      /* iManufacturer.                   */
+                        2,      /* iProduct.                        */
+                        3,      /* iSerialNumber.                   */
+                        1)      /* bNumConfigurations.              */
 };
 
 /*
@@ -119,24 +121,28 @@ static const USBDescriptor vcom_device_descriptor = {
 
 static const uint8_t vcom_configuration_descriptor_data[67] = {
     /* Configuration Descriptor.*/
-    USB_DESC_CONFIGURATION(67,   /* wTotalLength.                    */
-                           0x02, /* bNumInterfaces.                  */
-                           0x01, /* bConfigurationValue.             */
-                           0,    /* iConfiguration.                  */
-                           0xC0, /* bmAttributes (self powered).     */
-                           50),  /* bMaxPower (100mA).               */
+    USB_DESC_CONFIGURATION_BIS(9,
+                               2,
+                               67,   /* wTotalLength.                    */
+                               0x02, /* bNumInterfaces.                  */
+                               0x01, /* bConfigurationValue.             */
+                               0,    /* iConfiguration.                  */
+                               0xC0, /* bmAttributes (self powered).     */
+                               50),  /* bMaxPower (100mA).               */
     /* Interface Descriptor.*/
-    USB_DESC_INTERFACE(0x00, /* bInterfaceNumber.                */
-                       0x00, /* bAlternateSetting.               */
-                       0x01, /* bNumEndpoints.                   */
-                       0x02, /* bInterfaceClass (Communications
+    USB_DESC_INTERFACE_BIS(9,
+                           4,
+                           0x00, /* bInterfaceNumber.                */
+                           0x00, /* bAlternateSetting.               */
+                           0x01, /* bNumEndpoints.                   */
+                           0x02, /* bInterfaceClass (Communications
                                            Interface Class, CDC section
                                            4.2).                            */
-                       0x02, /* bInterfaceSubClass (Abstract
+                           0x02, /* bInterfaceSubClass (Abstract
                                          Control Model, CDC section 4.3).   */
-                       0x01, /* bInterfaceProtocol (AT commands,
+                           0x01, /* bInterfaceProtocol (AT commands,
                                            CDC section 4.4).                */
-                       0),   /* iInterface.                      */
+                           0),   /* iInterface.                      */
     /* Header Functional Descriptor (CDC section 5.2.3).*/
     USB_DESC_BYTE(5),     /* bLength.                         */
     USB_DESC_BYTE(0x24),  /* bDescriptorType (CS_INTERFACE).  */
@@ -166,31 +172,39 @@ static const uint8_t vcom_configuration_descriptor_data[67] = {
     USB_DESC_BYTE(0x01), /* bSlaveInterface0 (Data Class
                                            Interface).                      */
     /* Endpoint 2 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD2_INTERRUPT_REQUEST_EP | 0x80,
-                      0x03,   /* bmAttributes (Interrupt).        */
-                      0x0008, /* wMaxPacketSize.                  */
-                      0xFF),  /* bInterval.                       */
+    USB_DESC_ENDPOINT_BIS(7,
+                          5,
+                          USBD2_INTERRUPT_REQUEST_EP | 0x80,
+                          0x03,   /* bmAttributes (Interrupt).        */
+                          0x0008, /* wMaxPacketSize.                  */
+                          0xFF),  /* bInterval.                       */
     /* Interface Descriptor.*/
-    USB_DESC_INTERFACE(0x01,  /* bInterfaceNumber.                */
-                       0x00,  /* bAlternateSetting.               */
-                       0x02,  /* bNumEndpoints.                   */
-                       0x0A,  /* bInterfaceClass (Data Class
+    USB_DESC_INTERFACE_BIS(9,
+                           4,
+                           0x01,  /* bInterfaceNumber.                */
+                           0x00,  /* bAlternateSetting.               */
+                           0x02,  /* bNumEndpoints.                   */
+                           0x0A,  /* bInterfaceClass (Data Class
                                            Interface, CDC section 4.5).     */
-                       0x00,  /* bInterfaceSubClass (CDC section
+                           0x00,  /* bInterfaceSubClass (CDC section
                                            4.6).                            */
-                       0x00,  /* bInterfaceProtocol (CDC section
+                           0x00,  /* bInterfaceProtocol (CDC section
                                            4.7).                            */
-                       0x00), /* iInterface.                      */
+                           0x00), /* iInterface.                      */
     /* Endpoint 3 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD2_DATA_AVAILABLE_EP, /* bEndpointAddress.*/
-                      0x02,                    /* bmAttributes (Bulk).             */
-                      0x0040,                  /* wMaxPacketSize.                  */
-                      0x00),                   /* bInterval.                       */
+    USB_DESC_ENDPOINT_BIS(7,
+                          5,
+                          USBD2_DATA_AVAILABLE_EP, /* bEndpointAddress.*/
+                          0x02,                    /* bmAttributes (Bulk).             */
+                          0x0040,                  /* wMaxPacketSize.                  */
+                          0x00),                   /* bInterval.                       */
     /* Endpoint 1 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD2_DATA_REQUEST_EP | 0x80, /* bEndpointAddress.*/
-                      0x02,                         /* bmAttributes (Bulk).             */
-                      0x0040,                       /* wMaxPacketSize.                  */
-                      0x00)                         /* bInterval.                       */
+    USB_DESC_ENDPOINT_BIS(7,
+                          5,
+                          USBD2_DATA_REQUEST_EP | 0x80, /* bEndpointAddress.*/
+                          0x02,                         /* bmAttributes (Bulk).             */
+                          0x0040,                       /* wMaxPacketSize.                  */
+                          0x00)                         /* bInterval.                       */
 };
 
 /*
