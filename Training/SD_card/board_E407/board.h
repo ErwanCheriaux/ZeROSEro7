@@ -567,12 +567,12 @@
                                      PIN_MODE_INPUT(GPIOC_ETH_RMII_RXD1) |\
                                      PIN_MODE_INPUT(GPIOC_USART6_TX)     |\
                                      PIN_MODE_INPUT(GPIOC_USART6_RX)     |\
-                                     PIN_MODE_INPUT(GPIOC_SD_D0)         |\
-                                     PIN_MODE_INPUT(GPIOC_SD_D1)         |\
-                                     PIN_MODE_INPUT(GPIOC_SD_D2)         |\
-                                     PIN_MODE_INPUT(GPIOC_SD_D3)         |\
-                                     PIN_MODE_INPUT(GPIOC_SD_CLK)        |\
-                                     PIN_MODE_INPUT(GPIOC_LED)           |\
+                                     PIN_MODE_ALTERNATE(GPIOC_SD_D0)     |\
+                                     PIN_MODE_ALTERNATE(GPIOC_SD_D1)     |\
+                                     PIN_MODE_ALTERNATE(GPIOC_SD_D2)     |\
+                                     PIN_MODE_ALTERNATE(GPIOC_SD_D3)     |\
+                                     PIN_MODE_ALTERNATE(GPIOC_SD_CLK)    |\
+                                     PIN_MODE_OUTPUT(GPIOC_LED)          |\
                                      PIN_MODE_INPUT(GPIOC_OSC32_IN)      |\
                                      PIN_MODE_INPUT(GPIOC_OSC32_OUT))
 
@@ -601,12 +601,12 @@
                                      PIN_OSPEED_VERYLOW(GPIOC_ETH_RMII_RXD1) |\
                                      PIN_OSPEED_VERYLOW(GPIOC_USART6_TX)     |\
                                      PIN_OSPEED_VERYLOW(GPIOC_USART6_RX)     |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_SD_D0)         |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_SD_D1)         |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_SD_D2)         |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_SD_D3)         |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_SD_CLK)        |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_LED)           |\
+                                     PIN_OSPEED_HIGH(GPIOC_SD_D0)            |\
+                                     PIN_OSPEED_HIGH(GPIOC_SD_D1)            |\
+                                     PIN_OSPEED_HIGH(GPIOC_SD_D2)            |\
+                                     PIN_OSPEED_HIGH(GPIOC_SD_D3)            |\
+                                     PIN_OSPEED_HIGH(GPIOC_SD_CLK)           |\
+                                     PIN_OSPEED_HIGH(GPIOC_LED)              |\
                                      PIN_OSPEED_VERYLOW(GPIOC_OSC32_IN)      |\
                                      PIN_OSPEED_VERYLOW(GPIOC_OSC32_OUT))
 
@@ -635,11 +635,11 @@
                                      PIN_ODR_LOW(GPIOC_ETH_RMII_RXD1) |\
                                      PIN_ODR_LOW(GPIOC_USART6_TX)     |\
                                      PIN_ODR_LOW(GPIOC_USART6_RX)     |\
-                                     PIN_ODR_LOW(GPIOC_SD_D0)         |\
-                                     PIN_ODR_LOW(GPIOC_SD_D1)         |\
-                                     PIN_ODR_LOW(GPIOC_SD_D2)         |\
-                                     PIN_ODR_LOW(GPIOC_SD_D3)         |\
-                                     PIN_ODR_LOW(GPIOC_SD_CLK)        |\
+                                     PIN_ODR_LOW(GPIOC_SD_D0)        |\
+                                     PIN_ODR_LOW(GPIOC_SD_D1)        |\
+                                     PIN_ODR_LOW(GPIOC_SD_D2)        |\
+                                     PIN_ODR_LOW(GPIOC_SD_D3)        |\
+                                     PIN_ODR_LOW(GPIOC_SD_CLK)       |\
                                      PIN_ODR_LOW(GPIOC_LED)           |\
                                      PIN_ODR_LOW(GPIOC_OSC32_IN)      |\
                                      PIN_ODR_LOW(GPIOC_OSC32_OUT))
@@ -653,13 +653,13 @@
                                      PIN_AFIO_AF(GPIOC_USART6_TX,     0U) |\
                                      PIN_AFIO_AF(GPIOC_USART6_RX,     0U))
 
-#define VAL_GPIOC_AFRH              (PIN_AFIO_AF(GPIOC_SD_D0,     0U) |\
-                                     PIN_AFIO_AF(GPIOC_SD_D1,     0U) |\
-                                     PIN_AFIO_AF(GPIOC_SD_D2,     0U) |\
-                                     PIN_AFIO_AF(GPIOC_SD_D3,     0U) |\
-                                     PIN_AFIO_AF(GPIOC_SD_CLK,    0U) |\
-                                     PIN_AFIO_AF(GPIOC_LED,       0U) |\
-                                     PIN_AFIO_AF(GPIOC_OSC32_IN,  0U) |\
+#define VAL_GPIOC_AFRH              (PIN_AFIO_AF(GPIOC_SD_D0,     12U) |\
+                                     PIN_AFIO_AF(GPIOC_SD_D1,     12U) |\
+                                     PIN_AFIO_AF(GPIOC_SD_D2,     12U) |\
+                                     PIN_AFIO_AF(GPIOC_SD_D3,     12U) |\
+                                     PIN_AFIO_AF(GPIOC_SD_CLK,    12U) |\
+                                     PIN_AFIO_AF(GPIOC_LED,       0U)  |\
+                                     PIN_AFIO_AF(GPIOC_OSC32_IN,  0U)  |\
                                      PIN_AFIO_AF(GPIOC_OSC32_OUT, 0U))
 
 /*
@@ -684,7 +684,7 @@
  */
 #define VAL_GPIOD_MODER             (PIN_MODE_INPUT(GPIOD_PIN0)   |\
                                      PIN_MODE_INPUT(GPIOD_PIN1)   |\
-                                     PIN_MODE_INPUT(GPIOD_SD_CMD) |\
+                                     PIN_MODE_ALTERNATE(GPIOD_SD_CMD) |\
                                      PIN_MODE_INPUT(GPIOD_PIN3)   |\
                                      PIN_MODE_INPUT(GPIOD_PIN4)   |\
                                      PIN_MODE_INPUT(GPIOD_PIN5)   |\
@@ -718,7 +718,7 @@
 
 #define VAL_GPIOD_OSPEEDR           (PIN_OSPEED_VERYLOW(GPIOD_PIN0)   |\
                                      PIN_OSPEED_VERYLOW(GPIOD_PIN1)   |\
-                                     PIN_OSPEED_VERYLOW(GPIOD_SD_CMD) |\
+                                     PIN_OSPEED_HIGH(GPIOD_SD_CMD)    |\
                                      PIN_OSPEED_VERYLOW(GPIOD_PIN3)   |\
                                      PIN_OSPEED_VERYLOW(GPIOD_PIN4)   |\
                                      PIN_OSPEED_VERYLOW(GPIOD_PIN5)   |\
@@ -767,13 +767,13 @@
                                      PIN_ODR_LOW(GPIOD_PIN14)  |\
                                      PIN_ODR_LOW(GPIOD_PIN15))
 
-#define VAL_GPIOD_AFRL              (PIN_AFIO_AF(GPIOD_PIN0,   0U) |\
-                                     PIN_AFIO_AF(GPIOD_PIN1,   0U) |\
-                                     PIN_AFIO_AF(GPIOD_SD_CMD, 0U) |\
-                                     PIN_AFIO_AF(GPIOD_PIN3,   0U) |\
-                                     PIN_AFIO_AF(GPIOD_PIN4,   0U) |\
-                                     PIN_AFIO_AF(GPIOD_PIN5,   0U) |\
-                                     PIN_AFIO_AF(GPIOD_PIN6,   0U) |\
+#define VAL_GPIOD_AFRL              (PIN_AFIO_AF(GPIOD_PIN0,   0U)  |\
+                                     PIN_AFIO_AF(GPIOD_PIN1,   0U)  |\
+                                     PIN_AFIO_AF(GPIOD_SD_CMD, 12U) |\
+                                     PIN_AFIO_AF(GPIOD_PIN3,   0U)  |\
+                                     PIN_AFIO_AF(GPIOD_PIN4,   0U)  |\
+                                     PIN_AFIO_AF(GPIOD_PIN5,   0U)  |\
+                                     PIN_AFIO_AF(GPIOD_PIN6,   0U)  |\
                                      PIN_AFIO_AF(GPIOD_PIN7,   0U))
 
 #define VAL_GPIOD_AFRH              (PIN_AFIO_AF(GPIOD_PIN8,  0U) |\

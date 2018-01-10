@@ -117,7 +117,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             }
             n++;
         } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
 
         /* Multiple sequential blocks read performance, aligned.*/
         rtt_printf("16 sequential blocks aligned read performance:   ");
@@ -131,7 +131,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             }
             n += SDC_BURST_SIZE;
         } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
 
 #if STM32_SDC_SDIO_UNALIGNED_SUPPORT
         /* Single block read performance, unaligned.*/
@@ -146,7 +146,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             }
             n++;
         } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
 
         /* Multiple sequential blocks read performance, unaligned.*/
         rtt_printf("16 sequential blocks unaligned read performance: ");
@@ -160,7 +160,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             }
             n += SDC_BURST_SIZE;
         } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%D blocks/S, %D bytes/S", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
 #endif /* STM32_SDC_SDIO_UNALIGNED_SUPPORT */
     }
 
@@ -304,18 +304,11 @@ int main(void)
     chSysInit();
 
     /* Pinout config */
+
     //led_init
-    palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
+    //palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPad(GPIOC, GPIOC_LED);  //led off
-
-    //sd_init
-    palSetPadMode(GPIOC, GPIOC_SD_D0, PAL_MODE_ALTERNATE(12));
-    palSetPadMode(GPIOC, GPIOC_SD_D1, PAL_MODE_ALTERNATE(12));
-    palSetPadMode(GPIOC, GPIOC_SD_D2, PAL_MODE_ALTERNATE(12));
-    palSetPadMode(GPIOC, GPIOC_SD_D3, PAL_MODE_ALTERNATE(12));
-    palSetPadMode(GPIOC, GPIOC_SD_CLK, PAL_MODE_ALTERNATE(12));
-    palSetPadMode(GPIOD, GPIOD_SD_CMD, PAL_MODE_ALTERNATE(12));
-
+    
     /*
    * Shell manager initialization.
    */
