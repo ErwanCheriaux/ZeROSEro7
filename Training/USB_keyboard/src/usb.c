@@ -521,3 +521,16 @@ void usbh_init(void)
 
     usbhStart(&USBHD1);
 }
+
+void usbMainLoop(void)
+{
+    if(usbhidcfg.usbp->state == USB_ACTIVE) {
+        uint8_t report;
+        size_t  n = hidGetReport(0, &report, sizeof(report));
+        hidWriteReport(&UHD2, &report, n);
+        n = hidReadReportt(&UHD2, &report, sizeof(report), TIME_IMMEDIATE);
+        if(n > 0)
+            hidSetReport(0, &report, n);
+        rtt_printf("Report = %d", report);
+    }
+}

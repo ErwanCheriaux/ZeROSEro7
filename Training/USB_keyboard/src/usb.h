@@ -25,6 +25,7 @@ extern USBHIDDriver       UHD2;
 
 void usb_init(void);
 void usbh_init(void);
+void usbMainLoop(void);
 
 size_t hidGetReport(uint8_t id, uint8_t *bp, size_t n);
 msg_t hidSetReport(uint8_t id, uint8_t *bp, size_t n);
