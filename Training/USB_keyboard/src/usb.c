@@ -135,13 +135,9 @@ static const uint8_t vcom_configuration_descriptor_data[67] = {
                            0x00, /* bInterfaceNumber.                */
                            0x00, /* bAlternateSetting.               */
                            0x01, /* bNumEndpoints.                   */
-                           0x02, /* bInterfaceClass (Communications
-                                           Interface Class, CDC section
-                                           4.2).                            */
-                           0x02, /* bInterfaceSubClass (Abstract
-                                         Control Model, CDC section 4.3).   */
-                           0x01, /* bInterfaceProtocol (AT commands,
-                                           CDC section 4.4).                */
+                           0x03, /* bInterfaceClass                  */ 
+                           0x01, /* bInterfaceSubClass               */
+                           0x01, /* bInterfaceProtocol               */
                            0),   /* iInterface.                      */
     /* Header Functional Descriptor (CDC section 5.2.3).*/
     USB_DESC_BYTE(5),     /* bLength.                         */
