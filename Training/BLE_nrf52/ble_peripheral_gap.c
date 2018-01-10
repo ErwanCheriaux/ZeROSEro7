@@ -75,7 +75,7 @@ static ble_gap_conn_sec_mode_t  gap_seccurity_mode;
 static ble_gap_privacy_params_t gap_privacy_params;
 
 // Disguise as a smart shoe for the first connection, prior to bonding.
-static void gap_params_init()
+void ble_gap_init()
 {
     BLE_GAP_CONN_SEC_MODE_SET_OPEN(&gap_seccurity_mode);
 
@@ -113,7 +113,7 @@ static void conn_neg_error_handler(uint32_t nrf_error)
 
 static ble_conn_params_init_t conn_neg_init;
 
-static void connenction_negociation_init() {
+void ble_conn_negociation_init() {
     conn_neg_init.p_conn_params                  = NULL;
     conn_neg_init.first_conn_params_update_delay = FIRST_CONN_PARAMS_UPDATE_DELAY;
     conn_neg_init.next_conn_params_update_delay  = NEXT_CONN_PARAMS_UPDATE_DELAY;
@@ -131,7 +131,7 @@ static void advertising_params_init()
     advertising_conf.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     advertising_conf.advdata.include_appearance      = true;
     advertising_conf.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE;
-    advertising_conf.advdata.uuids_complete.uuid_cnt = 0;
+    advertising_conf.advdata.uuids_complete.uuid_cnt = 0;   // No need to advertise GATT services, obtained after connection
     advertising_conf.advdata.uuids_complete.p_uuids  = NULL;
 
     // We use fast advertising because advertising doesn't last long. TODO Could use Directed for fast recovery
@@ -142,12 +142,12 @@ static void advertising_params_init()
     advertising_conf.evt_handler = on_adv_evt;
 }
 
-void ble_peripheral_advertising_init(void (*phone_connected_handler)())
+void ble_advertising_handler_init(void (*phone_connected_handler)())
 {
     on_phone_connection = phone_connected_handler;
+}
 
-    gap_params_init();
-    connenction_negociation_init();
+void ble_advertise_init() {
     advertising_params_init();
     APP_ERROR_CHECK(ble_advertising_init(&m_advertising, &advertising_conf));
 

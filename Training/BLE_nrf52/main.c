@@ -36,9 +36,15 @@ int main(void)
 
     bsp_board_leds_init();
 
-    ble_init(phone_noticed_handler);
+    ble_handler_init(phone_noticed_handler);
+    ble_advertising_handler_init(phone_connected_handler);
+    ble_stack_init();
+    ble_gap_init();
     ble_gatt_init();
-    ble_peripheral_advertising_init(phone_connected_handler);
+    ble_advertise_init();
+    ble_services_init();
+    //ble_conn_negociation_init();
+    // ble_peer_init(); TODO
     rtt_write_string("BLE initialized\n");
 
     ble_start_observing();

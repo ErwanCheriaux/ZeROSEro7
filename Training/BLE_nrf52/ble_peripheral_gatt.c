@@ -39,33 +39,12 @@
 NRF_BLE_GATT_DEF(m_gatt);                                           /**< GATT module instance. */
 
 
-static ble_dis_init_t   dis_params;
-static ble_dis_pnp_id_t pnp_id;
-
-// Device information service for flexibility connecting to the phone.
-static void dis_init(void)
-{
-    pnp_id.vendor_id_source = PNP_ID_VENDOR_ID_SOURCE;
-    pnp_id.vendor_id        = PNP_ID_VENDOR_ID;
-    pnp_id.product_id       = PNP_ID_PRODUCT_ID;
-    pnp_id.product_version  = PNP_ID_PRODUCT_VERSION;
-
-    ble_srv_ascii_to_utf8(&dis_params.manufact_name_str, MANUFACTURER_NAME);
-    dis_params.p_pnp_id = &pnp_id;
-
-    BLE_GAP_CONN_SEC_MODE_SET_ENC_NO_MITM(&dis_params.dis_attr_md.read_perm);
-    BLE_GAP_CONN_SEC_MODE_SET_NO_ACCESS(&dis_params.dis_attr_md.write_perm);
-
-    APP_ERROR_CHECK(ble_dis_init(&dis_params));
-}
-
-static void gatt_services_init() {
-    dis_init();
+void ble_services_init() {
+    // my_service_init()
 }
 
 void ble_gatt_init()
 {
     ret_code_t err_code = nrf_ble_gatt_init(&m_gatt, NULL);
     APP_ERROR_CHECK(err_code);
-    gatt_services_init();
 }
