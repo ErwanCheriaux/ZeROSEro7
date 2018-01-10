@@ -36,7 +36,7 @@ public class GAPService extends Service {
                 Log.i("GAPService", "BLE Advertisement detected from :" + device);
 
                 // First connection, not bonded
-                if (device != null && device.getName().equals("Connected shoe")) {
+                if (device != null && device.getName()!=null && device.getName().equals("Connected shoe")) {
                     Log.i("GAPService", "Recognised device advertisement");
                     stopScan();
 

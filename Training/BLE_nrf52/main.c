@@ -7,6 +7,10 @@
 #include "ble_peripheral_gatt.h"
 #include "rtt.h"
 #include "app_error.h"
+#include "nrf_log.h"
+#include "nrf_log_ctrl.h"
+#include "nrf_log_default_backends.h"
+
 
 // Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
@@ -29,10 +33,23 @@ static void phone_connected_handler()
     bsp_board_led_on(3);
 }
 
+static void log_init(void)
+{
+    ret_code_t err_code = NRF_LOG_INIT(NULL);
+    APP_ERROR_CHECK(err_code);
+
+    NRF_LOG_DEFAULT_BACKENDS_INIT();
+}
+
+
 int main(void)
 {
+
+
     rtt_init();
-    rtt_write_string("\n\n======== DEBUG INITIALIZED ========\n");
+    log_init();
+    NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
+
 
     bsp_board_leds_init();
 
@@ -43,11 +60,13 @@ int main(void)
     ble_gatt_init();
     ble_advertise_init();
     ble_services_init();
-    //ble_conn_negociation_init();
+    ble_conn_negociation_init();
     // ble_peer_init(); TODO
     rtt_write_string("BLE initialized\n");
 
-    ble_start_observing();
+    //ble_start_observing(); TODO Exchange
+    ble_peripheral_start_advertising();
+
     rtt_write_string("Now observing BLE\n");
     bsp_board_led_on(1);
 
