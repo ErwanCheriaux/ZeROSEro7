@@ -123,11 +123,11 @@ static const uint8_t vcom_configuration_descriptor_data[67] = {
     /* Configuration Descriptor.*/
     USB_DESC_CONFIGURATION_BIS(9,
                                2,
-                               67,   /* wTotalLength.                    */
-                               0x02, /* bNumInterfaces.                  */
+                               34,   /* wTotalLength.                    */
+                               0x01, /* bNumInterfaces.                  */
                                0x01, /* bConfigurationValue.             */
                                0,    /* iConfiguration.                  */
-                               0xC0, /* bmAttributes (self powered).     */
+                               0xA0, /* bmAttributes (self powered).     */
                                50),  /* bMaxPower (100mA).               */
     /* Interface Descriptor.*/
     USB_DESC_INTERFACE_BIS(9,
