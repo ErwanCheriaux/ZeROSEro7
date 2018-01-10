@@ -80,6 +80,10 @@
 #define HAL_USE_USBH                 TRUE
 #endif
 
+#if !defined(HAL_USE_USB_HID)
+#define HAL_USE_USB_HID              TRUE
+#endif
+
 
 /*===========================================================================*/
 /* USBH driver related settings.                                             */

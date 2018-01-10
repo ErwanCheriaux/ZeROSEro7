@@ -16,6 +16,7 @@
 
 #include "hal.h"
 #include "rtt.h"
+#include "hal_usb_hid.h"
 
 /* Virtual serial port over USB.*/
 SerialUSBDriver SDU2;
@@ -49,18 +50,18 @@ SerialUSBDriver SDU2;
 static const uint8_t vcom_device_descriptor_data[18] = {
     USB_DESC_DEVICE_BIS(18,
                         1,
-                        0x0110, /* bcdUSB (1.1).                    */
-                        0x00,   /* bDeviceClass (CDC).              */
-                        0x00,   /* bDeviceSubClass.                 */
-                        0x00,   /* bDeviceProtocol.                 */
-                        0x40,   /* bMaxPacketSize.                  */ //fail with 0x08
-                        0x413c, /* idVendor (ST).                   */
-                        0x2107, /* idProduct.                       */
-                        0x0178, /* bcdDevice.                       */
-                        1,      /* iManufacturer.                   */
-                        2,      /* iProduct.                        */
-                        0,      /* iSerialNumber.                   */
-                        1)      /* bNumConfigurations.              */
+                        0x0110,                                       /* bcdUSB (1.1).                    */
+                        0x00,                                         /* bDeviceClass (CDC).              */
+                        0x00,                                         /* bDeviceSubClass.                 */
+                        0x00,                                         /* bDeviceProtocol.                 */
+                        0x40, /* bMaxPacketSize.                  */  //fail with 0x08
+                        0x413c,                                       /* idVendor (ST).                   */
+                        0x2107,                                       /* idProduct.                       */
+                        0x0178,                                       /* bcdDevice.                       */
+                        1,                                            /* iManufacturer.                   */
+                        2,                                            /* iProduct.                        */
+                        0,                                            /* iSerialNumber.                   */
+                        1)                                            /* bNumConfigurations.              */
 };
 
 /*
@@ -135,38 +136,16 @@ static const uint8_t vcom_configuration_descriptor_data[67] = {
                            0x00, /* bInterfaceNumber.                */
                            0x00, /* bAlternateSetting.               */
                            0x01, /* bNumEndpoints.                   */
-                           0x03, /* bInterfaceClass                  */ 
+                           0x03, /* bInterfaceClass                  */
                            0x01, /* bInterfaceSubClass               */
                            0x01, /* bInterfaceProtocol               */
                            0),   /* iInterface.                      */
-    /* Header Functional Descriptor (CDC section 5.2.3).*/
-    USB_DESC_BYTE(5),     /* bLength.                         */
-    USB_DESC_BYTE(0x24),  /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x00),  /* bDescriptorSubtype (Header
-                                           Functional Descriptor.           */
-    USB_DESC_BCD(0x0110), /* bcdCDC.                          */
-    /* Call Management Functional Descriptor. */
-    USB_DESC_BYTE(5),    /* bFunctionLength.                 */
-    USB_DESC_BYTE(0x24), /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x01), /* bDescriptorSubtype (Call Management
-                                           Functional Descriptor).          */
-    USB_DESC_BYTE(0x00), /* bmCapabilities (D0+D1).          */
-    USB_DESC_BYTE(0x01), /* bDataInterface.                  */
-    /* ACM Functional Descriptor.*/
-    USB_DESC_BYTE(4),    /* bFunctionLength.                 */
-    USB_DESC_BYTE(0x24), /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x02), /* bDescriptorSubtype (Abstract
-                                           Control Management Descriptor).  */
-    USB_DESC_BYTE(0x02), /* bmCapabilities.                  */
-    /* Union Functional Descriptor.*/
-    USB_DESC_BYTE(5),    /* bFunctionLength.                 */
-    USB_DESC_BYTE(0x24), /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x06), /* bDescriptorSubtype (Union
-                                           Functional Descriptor).          */
-    USB_DESC_BYTE(0x00), /* bMasterInterface (Communication
-                                           Class Interface).                */
-    USB_DESC_BYTE(0x01), /* bSlaveInterface0 (Data Class
-                                           Interface).                      */
+    /* HID Descriptor.*/
+    USB_DESC_HID(    0x0110, /* bcdHID.                              */
+                     0x00,   /* bCountryCode.                        */
+                     0x01,   /* bNumDescriptors.                     */
+                     0x22,   /* bDescriptorTypeHID                   */
+                     65),    /* wDescriptorLength                    */
     /* Endpoint 2 Descriptor.*/
     USB_DESC_ENDPOINT_BIS(7,
                           5,
