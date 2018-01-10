@@ -143,7 +143,8 @@ static const uint8_t hid_configuration_descriptor_data[34] = {
                  0x00,   /* bCountryCode.                        */
                  0x01,   /* bNumDescriptors.                     */
                  0x22,   /* bDescriptorTypeHID                   */
-                 65),    /* wDescriptorLength                    */
+                 34),    /* wDescriptorLength                    */
+                         /* 65 :Have to update report_descriptor */
     /* Endpoint 2 Descriptor.*/
     USB_DESC_ENDPOINT(0x81,
                       0x03, /* bmAttributes (Interrupt).        */
