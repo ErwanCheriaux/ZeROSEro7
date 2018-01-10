@@ -143,8 +143,7 @@ static const uint8_t hid_configuration_descriptor_data[34] = {
                  0x00,   /* bCountryCode.                        */
                  0x01,   /* bNumDescriptors.                     */
                  0x22,   /* bDescriptorTypeHID                   */
-                 34),    /* wDescriptorLength                    */
-                         /* 65 :Have to update report_descriptor */
+                 65),    /* wDescriptorLength                    */
     /* Endpoint 2 Descriptor.*/
     USB_DESC_ENDPOINT(0x81,
                       0x03, /* bmAttributes (Interrupt).        */
@@ -181,41 +180,71 @@ static const USBDescriptor hid_descriptor = {
  * detailed description of all the fields
  */
 static const uint8_t hid_report_descriptor_data[] = {
-    USB_DESC_BYTE(0x06),   /* Usage Page -                     */
-    USB_DESC_WORD(0xFF00), /*   Vendor Defined.                */
-    USB_DESC_BYTE(0x09),   /* Usage -                          */
-    USB_DESC_BYTE(0x01),   /*   Vendor Defined.                */
-    USB_DESC_BYTE(0xA1),   /* Collection -                     */
-    USB_DESC_BYTE(0x01),   /*   Application.                   */
-
-    USB_DESC_BYTE(0x09),   /* Usage -                          */
-    USB_DESC_BYTE(0x01),   /*   Vendor Defined.                */
-    USB_DESC_BYTE(0x15),   /* Logical Minimum -                */
-    USB_DESC_BYTE(0x00),   /*   0.                             */
-    USB_DESC_BYTE(0x26),   /* Logical Maximum -                */
-    USB_DESC_WORD(0x00FF), /*   255.                           */
-    USB_DESC_BYTE(0x75),   /* Report size -                    */
-    USB_DESC_BYTE(0x08),   /*   8 bits.                        */
-    USB_DESC_BYTE(0x95),   /* Report count -                   */
-    USB_DESC_BYTE(0x01),   /*   1.                             */
-    USB_DESC_BYTE(0x81),   /* Input -                          */
-    USB_DESC_BYTE(0x02),   /*   Data, Variable, Absolute.      */
-
-    USB_DESC_BYTE(0x09),   /* Usage -                          */
-    USB_DESC_BYTE(0x01),   /*   Vendor Defined.                */
-    USB_DESC_BYTE(0x15),   /* Logical Minimum -                */
-    USB_DESC_BYTE(0x00),   /*   0.                             */
-    USB_DESC_BYTE(0x26),   /* Logical Maximum -                */
-    USB_DESC_WORD(0x00FF), /*   255.                           */
-    USB_DESC_BYTE(0x75),   /* Report Size -                    */
-    USB_DESC_BYTE(0x08),   /*   8 bits.                        */
-    USB_DESC_BYTE(0x95),   /* Report Count -                   */
-    USB_DESC_BYTE(0x01),   /*   1.                             */
-    USB_DESC_BYTE(0x91),   /* Output -                         */
-    USB_DESC_BYTE(0x02),   /*   Data, Variable, Absolute.      */
-
-    USB_DESC_BYTE(0xC0) /* End Collection.                  */
-};
+    USB_DESC_BYTE(0x05),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x09),
+    USB_DESC_BYTE(0x06),
+    USB_DESC_BYTE(0xa1),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x05),
+    USB_DESC_BYTE(0x07),
+    USB_DESC_BYTE(0x19),
+    USB_DESC_BYTE(0xe0),
+    USB_DESC_BYTE(0x29),
+    USB_DESC_BYTE(0xe7),
+    USB_DESC_BYTE(0x15),
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x25),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x75),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x95),
+    USB_DESC_BYTE(0x08),
+    USB_DESC_BYTE(0x81),
+    USB_DESC_BYTE(0x02),
+    USB_DESC_BYTE(0x95),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x75),
+    USB_DESC_BYTE(0x08),
+    USB_DESC_BYTE(0x81),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x95),
+    USB_DESC_BYTE(0x03),
+    USB_DESC_BYTE(0x75),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x05),
+    USB_DESC_BYTE(0x08),
+    USB_DESC_BYTE(0x19),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x29),
+    USB_DESC_BYTE(0x03),
+    USB_DESC_BYTE(0x91),
+    USB_DESC_BYTE(0x02),
+    USB_DESC_BYTE(0x95),
+    USB_DESC_BYTE(0x05),
+    USB_DESC_BYTE(0x75),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x91),
+    USB_DESC_BYTE(0x01),
+    USB_DESC_BYTE(0x95),
+    USB_DESC_BYTE(0x06),
+    USB_DESC_BYTE(0x75),
+    USB_DESC_BYTE(0x08),
+    USB_DESC_BYTE(0x15),
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x26),
+    USB_DESC_BYTE(0xff),
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x05),
+    USB_DESC_BYTE(0x07),
+    USB_DESC_BYTE(0x19),
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x2a),
+    USB_DESC_BYTE(0xff),
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x81),
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0xc0)};
 
 /*
  * HID Report Descriptor wrapper
