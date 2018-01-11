@@ -349,7 +349,7 @@ static USBOutEndpointState ep1outstate;
  * @brief   EP1 initialization structure (both IN and OUT).
  */
 static const USBEndpointConfig ep1config = {
-    USB_EP_MODE_TYPE_BULK,
+    USB_EP_MODE_TYPE_INTR,
     NULL,
     hidDataTransmitted,
     hidDataReceived,
@@ -367,6 +367,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
 {
     switch(event) {
         case USB_EVENT_CONFIGURED:
+            rtt_printf("USB_EVENT_CONFIGURED");
             chSysLockFromISR();
 
             /* Enables the endpoints specified into the configuration.
@@ -380,16 +381,22 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
             chSysUnlockFromISR();
             return;
         case USB_EVENT_ADDRESS:
+            rtt_printf("USB_EVENT_ADDRESS");
             return;
         case USB_EVENT_RESET:
+            rtt_printf("USB_EVENT_RESET");
             return;
         case USB_EVENT_UNCONFIGURED:
+            rtt_printf("USB_EVENT_UNCONFIGURED");
             return;
         case USB_EVENT_SUSPEND:
+            rtt_printf("USB_EVENT_SUSPEND");
             return;
         case USB_EVENT_WAKEUP:
+            rtt_printf("USB_EVENT_WAKEUP");
             return;
         case USB_EVENT_STALLED:
+            rtt_printf("USB_EVENT_STALLED");
             return;
     }
     return;
@@ -399,9 +406,12 @@ static bool req_handler(USBDriver *usbp)
 {
     size_t n;
 
+    rtt_printf("REQ 1");
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
+        rtt_printf("REQ .2");
         switch(usbp->setup[1]) {
             case HID_GET_REPORT:
+                rtt_printf("REQ ..3");
                 n = hidGetReport(0, &increment_var, sizeof(increment_var));
                 usbSetupTransfer(usbp, &increment_var, n, NULL);
                 return true;
@@ -525,12 +535,27 @@ void usbh_init(void)
 void usbMainLoop(void)
 {
     if(usbhidcfg.usbp->state == USB_ACTIVE) {
-        uint8_t report;
-        size_t  n = hidGetReport(0, &report, sizeof(report));
-        hidWriteReport(&UHD2, &report, n);
-        n = hidReadReportt(&UHD2, &report, sizeof(report), TIME_IMMEDIATE);
-        if(n > 0)
-            hidSetReport(0, &report, n);
-        rtt_printf("Report = %d", report);
+        size_t  n = 8;
+        uint8_t report_a[8] = {
+            0x00,
+            0x00,
+            0x14, // a
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00};
+
+        uint8_t report_null[8] = {
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00};
+        hidWriteReport(&UHD2, report_a, n);
+        hidWriteReport(&UHD2, report_null, n);
     }
 }

@@ -95,7 +95,7 @@ int main(void)
     while(1) {
         usbhMainLoop(&USBHD1);
         usbMainLoop();
-        chThdSleepMilliseconds(100);
+        chThdSleepMilliseconds(1000);
     }
 
     chThdSleep(TIME_INFINITE);
