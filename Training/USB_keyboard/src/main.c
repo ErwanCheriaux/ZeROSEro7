@@ -27,6 +27,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
+        /* send the key on the computer */
+        usb_report(&UHD2, report);
+        /* debug */
         SEGGER_RTT_printf(0, "%c", usb_to_qwerty[report[2]]);
     }
 }
@@ -94,7 +97,6 @@ int main(void)
 
     while(1) {
         usbhMainLoop(&USBHD1);
-        usbMainLoop();
         chThdSleepMilliseconds(1000);
     }
 

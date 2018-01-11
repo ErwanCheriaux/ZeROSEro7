@@ -559,3 +559,9 @@ void usbMainLoop(void)
         hidWriteReport(&UHD2, report_null, n);
     }
 }
+
+void usb_report(USBHIDDriver *uhdp, uint8_t *bp)
+{
+    size_t n = 8;
+    hidWriteReport(uhdp, bp, n);
+}
