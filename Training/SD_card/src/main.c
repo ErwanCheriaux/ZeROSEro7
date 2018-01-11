@@ -15,6 +15,7 @@
 */
 
 #include <string.h>
+#include <stdlib.h>
 
 #include "ch.h"
 #include "hal.h"
@@ -68,8 +69,11 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)*chp;
 
-    if(argc != 1) {
-        rtt_printf("Usage: sdiotest read|write|all");
+    if(argc < 2 || argc > 3) {
+        rtt_printf("Usage: sdc read <addr> |\n" \
+                   "           read block <no> |\n" \
+                   "           write <addr> <value>\n" \
+                   "(values in decimal)");
         return;
     }
 
@@ -85,58 +89,51 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         rtt_printf("failed");
         return;
     }
+    rtt_printf("Connection succeed");
+    rtt_printf("Block size: %d", MMCSD_BLOCK_SIZE);
 
-    /* The test is performed in the middle of the flash area.*/
-    if((strcmp(argv[0], "read") == 0) ||
-       (strcmp(argv[0], "all") == 0)) {
-        rtt_printf("Read the first block:");
-        int nb_blocks_read = 1;
-        if(blkRead(&SDCD1, 0, buf, nb_blocks_read)) {
-            rtt_printf("Reading failed");
-            goto exittest;
+    if(strcmp(argv[0], "read") == 0) {
+        if(argc == 3) { // print a hole block
+            rtt_printf("Read the first block:");
+            int nb_blocks_read = 1;
+            int first_block = atoi(argv[2]);
+            if(blkRead(&SDCD1, first_block, buf, nb_blocks_read)) {
+                rtt_printf("Reading failed");
+                goto exittest;
+            }
+            for(unsigned int i = 0; i < MMCSD_BLOCK_SIZE * nb_blocks_read / 4; i++)
+                rtt_printf("0x%08X  %02X%02X %02X%02X", i*4+MMCSD_BLOCK_SIZE*first_block, buf[4*i], buf[4*i+1], buf[4*i+2], buf[4*i+3]);
         }
-        for(unsigned int i = 0; i < MMCSD_BLOCK_SIZE * nb_blocks_read / 4; i++)
-            rtt_printf("%02X%02X %02X%02X", buf[4*i], buf[4*i+1], buf[4*i+2], buf[4*i+3]);
+        else if (argc == 2) { // print a single value
+            int address = atoi(argv[1]);
+            rtt_printf("Read address %d:", address);
+            if(blkRead(&SDCD1, address / MMCSD_BLOCK_SIZE, buf, 1)) {
+                rtt_printf("Reading failed");
+                goto exittest;
+            }
+            rtt_printf("%08X  %02X", address, buf[address % MMCSD_BLOCK_SIZE]);
+        }
+        else {
+                rtt_printf("Invalid number of parameters");
+        }
     }
 
-    uint32_t startblk = (SDCD1.capacity / MMCSD_BLOCK_SIZE) / 2;
-    if((strcmp(argv[0], "write") == 0) ||
-       (strcmp(argv[0], "all") == 0)) {
-        unsigned i;
-
-        memset(buf, 0x55, MMCSD_BLOCK_SIZE * 2);
-        rtt_printf("Reading...");
-        if(blkRead(&SDCD1, startblk, buf, 1)) {
-            rtt_printf("failed");
-            goto exittest;
+    if(strcmp(argv[0], "write") == 0) {
+        if (argc == 3) {
+            int address = atoi(argv[1]);
+            int value = atoi(argv[2]);
+            rtt_printf("Write %d at position %d", value, address);
+            // clean buffer
+            for(unsigned int i = 0; i < sizeof(buf); i++)
+                buf[i] = 0;
+            buf[address % MMCSD_BLOCK_SIZE] = value;
+            if(sdcWrite(&SDCD1, address / MMCSD_BLOCK_SIZE, buf, 1)) {
+                rtt_printf("Writing failed");
+                goto exittest;
+            }
         }
-        rtt_printf("OK");
-
-        for(i      = 0; i < MMCSD_BLOCK_SIZE; i++)
-            buf[i] = i + 8;
-        rtt_printf("Writing...");
-        if(sdcWrite(&SDCD1, startblk, buf, 2)) {
-            rtt_printf("failed");
-            goto exittest;
-        }
-        rtt_printf("OK");
-
-        memset(buf, 0, MMCSD_BLOCK_SIZE * 2);
-        rtt_printf("Reading...");
-        if(blkRead(&SDCD1, startblk, buf, 1)) {
-            rtt_printf("failed");
-            goto exittest;
-        }
-        rtt_printf("OK");
-
-        rtt_printf("Write '0' at position 0");
-        // clean buffer
-        for(unsigned int i = 0; i < sizeof(buf); i++)
-            buf[i] = 0;
-        buf[0] = '0';
-        if(sdcWrite(&SDCD1, 0, buf, 1)) {
-            rtt_printf("Writing failed");
-            goto exittest;
+        else {
+            rtt_printf("Invalid number of parameters");
         }
     }
 

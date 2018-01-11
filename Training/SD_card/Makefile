@@ -240,13 +240,13 @@ help:
 	@echo		telnet         - open rtt communication
 	@echo		clean          - remove build
 
-startgdbserver:
+start:
 	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
 
-stopgdbserver:
+stop:
 	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
 
-debug: $(ELF)
+db: $(ELF)
 	$(GDB) $<
 
 format: $(SRC)/*.c $(SRC)/*.h

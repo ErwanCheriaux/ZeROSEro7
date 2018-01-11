@@ -1,6 +1,3 @@
-target ext :2331
-mon endian little
-
 # User interface with asm, regs and cmd windows
 define split
   layout split
@@ -8,9 +5,15 @@ define split
   layout regs
   focus cmd
 end
-
-define restart
+define l
+  layout n
+end
+define r
   mon halt
   load
   mon reset
 end
+
+target ext :2331
+mon endian little
+r
