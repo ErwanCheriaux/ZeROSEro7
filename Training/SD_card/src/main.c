@@ -67,9 +67,6 @@ static uint8_t buf[MMCSD_BLOCK_SIZE * SDC_BURST_SIZE + 4];
 void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)*chp;
-    static const char *mode[] = {"SDV11", "SDV20", "MMC", NULL};
-    systime_t          start, end;
-    uint32_t           n, startblk;
 
     if(argc != 1) {
         rtt_printf("Usage: sdiotest read|write|all");
@@ -89,59 +86,23 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         return;
     }
 
-    rtt_printf("OK\r\n\r\nCard Info");
-    rtt_printf("CSD      : %08X %8X %08X %08X ",
-               SDCD1.csd[3], SDCD1.csd[2], SDCD1.csd[1], SDCD1.csd[0]);
-    rtt_printf("CID      : %08X %8X %08X %08X ",
-               SDCD1.cid[3], SDCD1.cid[2], SDCD1.cid[1], SDCD1.cid[0]);
-    rtt_printf("Mode     : %s", mode[SDCD1.cardmode & 3U]);
-    rtt_printf("Capacity : %dMB", SDCD1.capacity / 2048);
-
     /* The test is performed in the middle of the flash area.*/
-    startblk = (SDCD1.capacity / MMCSD_BLOCK_SIZE) / 2;
-
     if((strcmp(argv[0], "read") == 0) ||
        (strcmp(argv[0], "all") == 0)) {
-        /* Single block read performance, aligned.*/
-        rtt_printf("Single block aligned read performance:           ");
-        start = chVTGetSystemTime();
-        end   = start + MS2ST(1000);
-        n     = 0;
-        do {
-            if(blkRead(&SDCD1, startblk, buf, 1)) {
-                rtt_printf("failed");
-                goto exittest;
-            }
-            n++;
-        } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
-
-        /* Multiple sequential blocks read performance, aligned.*/
-        rtt_printf("16 sequential blocks aligned read performance:   ");
-        start = chVTGetSystemTime();
-        end   = start + MS2ST(1000);
-        n     = 0;
-        do {
-            if(blkRead(&SDCD1, startblk, buf, SDC_BURST_SIZE)) {
-                rtt_printf("failed");
-                goto exittest;
-            }
-            n += SDC_BURST_SIZE;
-        } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
+        rtt_printf("Read the first block:");
+        int nb_blocks_read = 1;
+        if(blkRead(&SDCD1, 0, buf, nb_blocks_read)) {
+            rtt_printf("Reading failed");
+            goto exittest;
+        }
+        for(unsigned int i = 0; i < MMCSD_BLOCK_SIZE * nb_blocks_read / 4; i++)
+            rtt_printf("%02X%02X %02X%02X", buf[4*i], buf[4*i+1], buf[4*i+2], buf[4*i+3]);
     }
 
+    uint32_t startblk = (SDCD1.capacity / MMCSD_BLOCK_SIZE) / 2;
     if((strcmp(argv[0], "write") == 0) ||
        (strcmp(argv[0], "all") == 0)) {
         unsigned i;
-
-        memset(buf, 0xAA, MMCSD_BLOCK_SIZE * 2);
-        rtt_printf("Writing...");
-        if(sdcWrite(&SDCD1, startblk, buf, 2)) {
-            rtt_printf("failed");
-            goto exittest;
-        }
-        rtt_printf("OK");
 
         memset(buf, 0x55, MMCSD_BLOCK_SIZE * 2);
         rtt_printf("Reading...");
@@ -167,6 +128,16 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             goto exittest;
         }
         rtt_printf("OK");
+
+        rtt_printf("Write '0' at position 0");
+        // clean buffer
+        for(unsigned int i = 0; i < sizeof(buf); i++)
+            buf[i] = 0;
+        buf[0] = '0';
+        if(sdcWrite(&SDCD1, 0, buf, 1)) {
+            rtt_printf("Writing failed");
+            goto exittest;
+        }
     }
 
 /* Card disconnect and command end.*/
