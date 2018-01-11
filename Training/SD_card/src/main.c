@@ -64,9 +64,6 @@ static THD_FUNCTION(Thread1, arg)
    allocated in order to support unaligned operations.*/
 static uint8_t buf[MMCSD_BLOCK_SIZE * SDC_BURST_SIZE + 4];
 
-/* Additional buffer for sdcErase() test */
-static uint8_t buf2[MMCSD_BLOCK_SIZE * SDC_BURST_SIZE];
-
 void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)*chp;
@@ -75,7 +72,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     uint32_t           n, startblk;
 
     if(argc != 1) {
-        rtt_printf("Usage: sdiotest read|write|erase|all");
+        rtt_printf("Usage: sdiotest read|write|all");
         return;
     }
 
@@ -132,36 +129,6 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             n += SDC_BURST_SIZE;
         } while(chVTIsSystemTimeWithin(start, end));
         rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
-
-#if STM32_SDC_SDIO_UNALIGNED_SUPPORT
-        /* Single block read performance, unaligned.*/
-        rtt_printf("Single block unaligned read performance:         ");
-        start = chVTGetSystemTime();
-        end   = start + MS2ST(1000);
-        n     = 0;
-        do {
-            if(blkRead(&SDCD1, startblk, buf + 1, 1)) {
-                rtt_printf("failed");
-                goto exittest;
-            }
-            n++;
-        } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
-
-        /* Multiple sequential blocks read performance, unaligned.*/
-        rtt_printf("16 sequential blocks unaligned read performance: ");
-        start = chVTGetSystemTime();
-        end   = start + MS2ST(1000);
-        n     = 0;
-        do {
-            if(blkRead(&SDCD1, startblk, buf + 1, SDC_BURST_SIZE)) {
-                rtt_printf("failed");
-                goto exittest;
-            }
-            n += SDC_BURST_SIZE;
-        } while(chVTIsSystemTimeWithin(start, end));
-        rtt_printf("%d blocks/S, %d bytes/S", n, n * MMCSD_BLOCK_SIZE);
-#endif /* STM32_SDC_SDIO_UNALIGNED_SUPPORT */
     }
 
     if((strcmp(argv[0], "write") == 0) ||
@@ -200,79 +167,6 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             goto exittest;
         }
         rtt_printf("OK");
-    }
-
-    if((strcmp(argv[0], "erase") == 0) ||
-       (strcmp(argv[0], "all") == 0)) {
-        /**
-     * Test sdcErase()
-     * Strategy:
-     *   1. Fill two blocks with non-constant data
-     *   2. Write two blocks starting at startblk
-     *   3. Erase the second of the two blocks
-     *      3.1. First block should be equal to the data written
-     *      3.2. Second block should NOT be equal too the data written (i.e. erased).
-     *   4. Erase both first and second block
-     *      4.1 Both blocks should not be equal to the data initially written
-     * Precondition: SDC_BURST_SIZE >= 2
-     */
-        memset(buf, 0, MMCSD_BLOCK_SIZE * 2);
-        memset(buf2, 0, MMCSD_BLOCK_SIZE * 2);
-        /* 1. */
-        unsigned int i = 0;
-        for(; i < MMCSD_BLOCK_SIZE * 2; ++i) {
-            buf[i] = (i + 7) % 'T';  //Ensure block 1/2 are not equal
-        }
-        /* 2. */
-        if(sdcWrite(&SDCD1, startblk, buf, 2)) {
-            rtt_printf("sdcErase() test write failed");
-            goto exittest;
-        }
-        /* 3. (erase) */
-        if(sdcErase(&SDCD1, startblk + 1, startblk + 2)) {
-            rtt_printf("sdcErase() failed");
-            goto exittest;
-        }
-        sdcflags_t errflags = sdcGetAndClearErrors(&SDCD1);
-        if(errflags) {
-            rtt_printf("sdcErase() yielded error flags: %d", errflags);
-            goto exittest;
-        }
-        if(sdcRead(&SDCD1, startblk, buf2, 2)) {
-            rtt_printf("single-block sdcErase() failed");
-            goto exittest;
-        }
-        /* 3.1. */
-        if(memcmp(buf, buf2, MMCSD_BLOCK_SIZE) != 0) {
-            rtt_printf("sdcErase() non-erased block compare failed");
-            goto exittest;
-        }
-        /* 3.2. */
-        if(memcmp(buf + MMCSD_BLOCK_SIZE,
-                  buf2 + MMCSD_BLOCK_SIZE, MMCSD_BLOCK_SIZE) == 0) {
-            rtt_printf("sdcErase() erased block compare failed");
-            goto exittest;
-        }
-        /* 4. */
-        if(sdcErase(&SDCD1, startblk, startblk + 2)) {
-            rtt_printf("multi-block sdcErase() failed");
-            goto exittest;
-        }
-        if(sdcRead(&SDCD1, startblk, buf2, 2)) {
-            rtt_printf("single-block sdcErase() failed");
-            goto exittest;
-        }
-        /* 4.1 */
-        if(memcmp(buf, buf2, MMCSD_BLOCK_SIZE) == 0) {
-            rtt_printf("multi-block sdcErase() erased block compare failed");
-            goto exittest;
-        }
-        if(memcmp(buf + MMCSD_BLOCK_SIZE,
-                  buf2 + MMCSD_BLOCK_SIZE, MMCSD_BLOCK_SIZE) == 0) {
-            rtt_printf("multi-block sdcErase() erased block compare failed");
-            goto exittest;
-        }
-        /* END of sdcErase() test */
     }
 
 /* Card disconnect and command end.*/
