@@ -217,7 +217,6 @@
   USB_DESC_BYTE(bmAttributes),                                              \
   USB_DESC_WORD(wMaxPacketSize),                                            \
   USB_DESC_BYTE(bInterval)
-/** @} */
 
 /**
  * @name    Endpoint types and settings

@@ -16,129 +16,224 @@
 
 #include "hal.h"
 
-/* Virtual serial port over USB.*/
-SerialUSBDriver SDU2;
+#include "usb.h"
+#include "rtt.h"
+
+uint8_t increment_var = 0;
+
+/*
+ * USB HID Driver structure.
+ */
+USBHIDDriver UHD2;
 
 /*
  * Endpoints to be used for USBD2.
  */
 #define USBD2_DATA_REQUEST_EP 1
 #define USBD2_DATA_AVAILABLE_EP 1
-#define USBD2_INTERRUPT_REQUEST_EP 2
 
 /*
  * USB Device Descriptor.
+ *
+ * DEVICE DESCRIPTOR
+ *  bLength: 18
+ *  bDescriptorType: 0x01 (DEVICE)
+ *  bcdUSB: 0x0110
+ *  bDeviceClass: Device (0x00)
+ *  bDeviceSubClass: 0
+ *  bDeviceProtocol: 0 (Use class code info from Interface Descriptors)
+ *  bMaxPacketSize0: 8
+ *  idVendor: Dell Computer Corp. (0x413c)
+ *  idProduct: Unknown (0x2107)
+ *  bcdDevice: 0x0178
+ *  iManufacturer: 1
+ *  iProduct: 2
+ *  iSerialNumber: 0
+ *  bNumConfigurations: 1
  */
-static const uint8_t vcom_device_descriptor_data[18] = {
+static const uint8_t hid_device_descriptor_data[18] = {
     USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
-                    0x02,   /* bDeviceClass (CDC).              */
+                    0x00,   /* bDeviceClass (CDC).              */
                     0x00,   /* bDeviceSubClass.                 */
                     0x00,   /* bDeviceProtocol.                 */
-                    0x40,   /* bMaxPacketSize.                  */
-                    0x0483, /* idVendor (ST).                   */
-                    0x5740, /* idProduct.                       */
-                    0x0200, /* bcdDevice.                       */
+                    0x40,   /* bMaxPacketSize. Fail with 0x08 ! */
+                    0x413c, /* idVendor (ST).                   */
+                    0x2107, /* idProduct.                       */
+                    0x0178, /* bcdDevice.                       */
                     1,      /* iManufacturer.                   */
                     2,      /* iProduct.                        */
-                    3,      /* iSerialNumber.                   */
+                    0,      /* iSerialNumber.                   */
                     1)      /* bNumConfigurations.              */
 };
 
 /*
  * Device Descriptor wrapper.
  */
-static const USBDescriptor vcom_device_descriptor = {
-    sizeof vcom_device_descriptor_data,
-    vcom_device_descriptor_data};
+static const USBDescriptor hid_device_descriptor = {
+    sizeof hid_device_descriptor_data,
+    hid_device_descriptor_data};
 
-/* Configuration Descriptor tree for a CDC.*/
-static const uint8_t vcom_configuration_descriptor_data[67] = {
+/* Configuration Descriptor DELL Keyboard
+ *
+ * CONFIGURATION DESCRIPTOR
+ *  bLength: 9
+ *  bDescriptorType: 0x02 (CONFIGURATION)
+ *  wTotalLength: 34
+ *  bNumInterfaces: 1
+ *  bConfigurationValue: 1
+ *  iConfiguration: 0
+ *  Configuration bmAttributes: 0xa0  NOT SELF-POWERED  REMOTE-WAKEUP
+ *      1... .... = Must be 1: Must be 1 for USB 1.1 and higher
+ *      .0.. .... = Self-Powered: This device is powered from the USB bus
+ *      ..1. .... = Remote Wakeup: This device supports REMOTE WAKEUP
+ *  bMaxPower: 50  (100mA)
+ *
+ * INTERFACE DESCRIPTOR (0.0): class HID
+ *  bLength: 9
+ *  bDescriptorType: 0x04 (INTERFACE)
+ *  bInterfaceNumber: 0
+ *  bAlternateSetting: 0
+ *  bNumEndpoints: 1
+ *  bInterfaceClass: HID (0x03)
+ *  bInterfaceSubClass: Boot Interface (0x01)
+ *  bInterfaceProtocol: Keyboard (0x01)
+ *  iInterface: 0
+ *
+ *  HID DESCRIPTOR
+ *   bLength: 9
+ *   bDescriptorType: 0x21 (HID)
+ *   bcdHID: 0x0110
+ *   bCountryCode: Not Supported (0x00)
+ *   bNumDescriptors: 1
+ *   bDescriptorType: HID Report (0x22)
+ *   wDescriptorLength: 65
+ *
+ *  ENDPOINT DESCRIPTOR
+ *   bLength: 7
+ *   bDescriptorType: 0x05 (ENDPOINT)
+ *   bEndpointAddress: 0x81  IN  Endpoint:1
+ *       1... .... = Direction: IN Endpoint
+ *       .... 0001 = Endpoint Number: 0x1
+ *   bmAttributes: 0x03
+ *       .... ..11 = Transfertype: Interrupt-Transfer (0x3)
+ *   wMaxPacketSize: 8
+ *       ...0 0... .... .... = Transactions per microframe: 1 (0)
+ *       .... ..00 0000 1000 = Maximum Packet Size: 8
+ *   bInterval: 10
+ */
+
+static const uint8_t hid_configuration_descriptor_data[34] = {
     /* Configuration Descriptor.*/
-    USB_DESC_CONFIGURATION(67,   /* wTotalLength.                    */
-                           0x02, /* bNumInterfaces.                  */
+    USB_DESC_CONFIGURATION(34,   /* wTotalLength.                    */
+                           0x01, /* bNumInterfaces.                  */
                            0x01, /* bConfigurationValue.             */
                            0,    /* iConfiguration.                  */
-                           0xC0, /* bmAttributes (self powered).     */
+                           0xA0, /* bmAttributes (self powered).     */
                            50),  /* bMaxPower (100mA).               */
     /* Interface Descriptor.*/
     USB_DESC_INTERFACE(0x00, /* bInterfaceNumber.                */
                        0x00, /* bAlternateSetting.               */
                        0x01, /* bNumEndpoints.                   */
-                       0x02, /* bInterfaceClass (Communications
-                                           Interface Class, CDC section
-                                           4.2).                            */
-                       0x02, /* bInterfaceSubClass (Abstract
-                                         Control Model, CDC section 4.3).   */
-                       0x01, /* bInterfaceProtocol (AT commands,
-                                           CDC section 4.4).                */
+                       0x03, /* bInterfaceClass                  */
+                       0x01, /* bInterfaceSubClass               */
+                       0x01, /* bInterfaceProtocol               */
                        0),   /* iInterface.                      */
-    /* Header Functional Descriptor (CDC section 5.2.3).*/
-    USB_DESC_BYTE(5),     /* bLength.                         */
-    USB_DESC_BYTE(0x24),  /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x00),  /* bDescriptorSubtype (Header
-                                           Functional Descriptor.           */
-    USB_DESC_BCD(0x0110), /* bcdCDC.                          */
-    /* Call Management Functional Descriptor. */
-    USB_DESC_BYTE(5),    /* bFunctionLength.                 */
-    USB_DESC_BYTE(0x24), /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x01), /* bDescriptorSubtype (Call Management
-                                           Functional Descriptor).          */
-    USB_DESC_BYTE(0x00), /* bmCapabilities (D0+D1).          */
-    USB_DESC_BYTE(0x01), /* bDataInterface.                  */
-    /* ACM Functional Descriptor.*/
-    USB_DESC_BYTE(4),    /* bFunctionLength.                 */
-    USB_DESC_BYTE(0x24), /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x02), /* bDescriptorSubtype (Abstract
-                                           Control Management Descriptor).  */
-    USB_DESC_BYTE(0x02), /* bmCapabilities.                  */
-    /* Union Functional Descriptor.*/
-    USB_DESC_BYTE(5),    /* bFunctionLength.                 */
-    USB_DESC_BYTE(0x24), /* bDescriptorType (CS_INTERFACE).  */
-    USB_DESC_BYTE(0x06), /* bDescriptorSubtype (Union
-                                           Functional Descriptor).          */
-    USB_DESC_BYTE(0x00), /* bMasterInterface (Communication
-                                           Class Interface).                */
-    USB_DESC_BYTE(0x01), /* bSlaveInterface0 (Data Class
-                                           Interface).                      */
+    /* HID Descriptor.*/
+    USB_DESC_HID(0x0110, /* bcdHID.                              */
+                 0x00,   /* bCountryCode.                        */
+                 0x01,   /* bNumDescriptors.                     */
+                 0x22,   /* bDescriptorTypeHID                   */
+                 65),    /* wDescriptorLength                    */
     /* Endpoint 2 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD2_INTERRUPT_REQUEST_EP | 0x80,
-                      0x03,   /* bmAttributes (Interrupt).        */
-                      0x0008, /* wMaxPacketSize.                  */
-                      0xFF),  /* bInterval.                       */
-    /* Interface Descriptor.*/
-    USB_DESC_INTERFACE(0x01,  /* bInterfaceNumber.                */
-                       0x00,  /* bAlternateSetting.               */
-                       0x02,  /* bNumEndpoints.                   */
-                       0x0A,  /* bInterfaceClass (Data Class
-                                           Interface, CDC section 4.5).     */
-                       0x00,  /* bInterfaceSubClass (CDC section
-                                           4.6).                            */
-                       0x00,  /* bInterfaceProtocol (CDC section
-                                           4.7).                            */
-                       0x00), /* iInterface.                      */
-    /* Endpoint 3 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD2_DATA_AVAILABLE_EP, /* bEndpointAddress.*/
-                      0x02,                    /* bmAttributes (Bulk).             */
-                      0x0040,                  /* wMaxPacketSize.                  */
-                      0x00),                   /* bInterval.                       */
-    /* Endpoint 1 Descriptor.*/
-    USB_DESC_ENDPOINT(USBD2_DATA_REQUEST_EP | 0x80, /* bEndpointAddress.*/
-                      0x02,                         /* bmAttributes (Bulk).             */
-                      0x0040,                       /* wMaxPacketSize.                  */
-                      0x00)                         /* bInterval.                       */
+    USB_DESC_ENDPOINT(0x81,
+                      0x03, /* bmAttributes (Interrupt).        */
+                      8,    /* wMaxPacketSize.                  */
+                      10)   /* bInterval.                       */
 };
 
 /*
  * Configuration Descriptor wrapper.
  */
-static const USBDescriptor vcom_configuration_descriptor = {
-    sizeof vcom_configuration_descriptor_data,
-    vcom_configuration_descriptor_data};
+static const USBDescriptor hid_configuration_descriptor = {
+    sizeof hid_configuration_descriptor_data,
+    hid_configuration_descriptor_data};
+
+/*
+ * HID Descriptor wrapper.
+ */
+#define HID_DESCRIPTOR_OFFSET 18
+#define HID_DESCRIPTOR_SIZE USB_DESC_HID_SIZE
+
+static const USBDescriptor hid_descriptor = {
+    HID_DESCRIPTOR_SIZE,
+    &hid_configuration_descriptor_data[HID_DESCRIPTOR_OFFSET]};
+
+/*
+ * HID Report Descriptor
+ *
+ * This is the description of the format and the content of the
+ * different IN or/and OUT reports that your application can
+ * receive/send
+ *
+ * See "Device Class Definition for Human Interface Devices (HID)"
+ * (http://www.usb.org/developers/hidpage/HID1_11.pdf) for the
+ * detailed description of all the fields
+ */
+static const uint8_t hid_report_descriptor_data[] = {
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x01), // USAGE_PAGE (Generic Desktop)
+    USB_DESC_BYTE(0x09), USB_DESC_BYTE(0x06), // USAGE (Keyboard)
+    USB_DESC_BYTE(0xa1), USB_DESC_BYTE(0x01), // COLLECTION (Application)
+                                              // --------------------- input report for modifier keys
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x07), //   USAGE_PAGE (Keyboard)
+    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0xe0), //   USAGE_MINIMUM (Keyboard LeftControl)
+    USB_DESC_BYTE(0x29), USB_DESC_BYTE(0xe7), //   USAGE_MAXIMUM (Keyboard Right GUI)
+    USB_DESC_BYTE(0x15), USB_DESC_BYTE(0x00), //   LOGICAL_MINIMUM (0)
+    USB_DESC_BYTE(0x25), USB_DESC_BYTE(0x01), //   LOGICAL_MAXIMUM (1)
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01), //   REPORT_SIZE (1)
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x08), //   REPORT_COUNT (8)
+    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x02), //   INPUT (Data,Var,Abs)
+                                              // --------------------- input report - padding
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x01), //   REPORT_COUNT (1)
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x08), //   REPORT_SIZE (8)
+    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x01), //   INPUT (Cnst,Var,Abs)                         = 0x81, 0x03
+                                              // --------------------- output report for LED
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x03), //   REPORT_COUNT (5)                             = 0x95, 0x05
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01), //   REPORT_SIZE (1)
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x08), //   USAGE_PAGE (LEDs)
+    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0x01), //   USAGE_MINIMUM (Num Lock)
+    USB_DESC_BYTE(0x29), USB_DESC_BYTE(0x03), //   USAGE_MAXIMUM (Kana)                         = 0x29, 0x05
+    USB_DESC_BYTE(0x91), USB_DESC_BYTE(0x02), //   OUTPUT (Data,Var,Abs)
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x05), //   REPORT_COUNT (1)                             = 0x95, 0x01
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01), //   REPORT_SIZE (3)                              = 0x75, 0x03
+    USB_DESC_BYTE(0x91), USB_DESC_BYTE(0x01), //   OUTPUT (Cnst,Var,Abs)                        = 0x91, 0x03
+                                              // --------------------- input report for keycode array
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x06), //   REPORT_COUNT (6)
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x08), //   REPORT_SIZE (8)
+    USB_DESC_BYTE(0x15), USB_DESC_BYTE(0x00), //   LOGICAL_MINIMUM (0)
+    USB_DESC_BYTE(0x26), USB_DESC_BYTE(0xff), //   LOGICAL_MAXIMUM (101)                        = 0x25, 0x65
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x07), //   USAGE_PAGE (Keyboard)    
+    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0x00), //   USAGE_MINIMUM (Reserved (no event indicated))
+    USB_DESC_BYTE(0x2a), USB_DESC_BYTE(0xff), //   USAGE_MAXIMUM (Keyboard Application)         = 0x29, 0x65
+    USB_DESC_BYTE(0x00),
+    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x00), //   INPUT (Data,Ary,Abs)
+    USB_DESC_BYTE(0xc0)};                     // END_COLLECTION
+
+/*
+ * HID Report Descriptor wrapper
+ */
+static const USBDescriptor hid_report_descriptor = {
+    sizeof hid_report_descriptor_data,
+    hid_report_descriptor_data};
 
 /*
  * U.S. English language identifier.
+ * STRING DESCRIPTOR
+ *  bLength: 4
+ *  bDescriptorType: 0x03 (STRING)
+ *  wLANGID: English (United States) (0x0409)
  */
-static const uint8_t vcom_string0[] = {
+static const uint8_t hid_string0[] = {
     USB_DESC_BYTE(4),                     /* bLength.                         */
     USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
     USB_DESC_WORD(0x0409)                 /* wLANGID (U.S. English).          */
@@ -146,43 +241,39 @@ static const uint8_t vcom_string0[] = {
 
 /*
  * Vendor string.
+ *
+ * STRING DESCRIPTOR
+ *  bLength: 10
+ *  bDescriptorType: 0x03 (STRING)
+ *  bString: DELL
  */
-static const uint8_t vcom_string1[] = {
-    USB_DESC_BYTE(38),                    /* bLength.                         */
+static const uint8_t hid_string1[] = {
+    USB_DESC_BYTE(10),                    /* bLength.                         */
     USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
-    'S', 0, 'T', 0, 'M', 0, 'i', 0, 'c', 0, 'r', 0, 'o', 0, 'e', 0,
-    'l', 0, 'e', 0, 'c', 0, 't', 0, 'r', 0, 'o', 0, 'n', 0, 'i', 0,
-    'c', 0, 's', 0};
+    'D', 0, 'E', 0, 'L', 0, 'L', 0};
 
 /*
  * Device Description string.
+ *
+ * STRING DESCRIPTOR
+ *  bLength: 48
+ *  bDescriptorType: 0x03 (STRING)
+ *  bString: Dell USB Entry Keyboard
  */
-static const uint8_t vcom_string2[] = {
-    USB_DESC_BYTE(56),                    /* bLength.                         */
+static const uint8_t hid_string2[] = {
+    USB_DESC_BYTE(48),                    /* bLength.                         */
     USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
-    'C', 0, 'h', 0, 'i', 0, 'b', 0, 'i', 0, 'O', 0, 'S', 0, '/', 0,
-    'R', 0, 'T', 0, ' ', 0, 'V', 0, 'i', 0, 'r', 0, 't', 0, 'u', 0,
-    'a', 0, 'l', 0, ' ', 0, 'C', 0, 'O', 0, 'M', 0, ' ', 0, 'P', 0,
-    'o', 0, 'r', 0, 't', 0};
-
-/*
- * Serial Number string.
- */
-static const uint8_t vcom_string3[] = {
-    USB_DESC_BYTE(8),                     /* bLength.                         */
-    USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
-    '0' + CH_KERNEL_MAJOR, 0,
-    '0' + CH_KERNEL_MINOR, 0,
-    '0' + CH_KERNEL_PATCH, 0};
+    'D', 0, 'e', 0, 'l', 0, 'l', 0, ' ', 0, 'U', 0, 'S', 0, 'B', 0,
+    ' ', 0, 'E', 0, 'n', 0, 't', 0, 'r', 0, 'y', 0, ' ', 0, 'K', 0,
+    'e', 0, 'y', 0, 'b', 0, 'o', 0, 'a', 0, 'r', 0, 'd', 0};
 
 /*
  * Strings wrappers array.
  */
-static const USBDescriptor vcom_strings[] = {
-    {sizeof vcom_string0, vcom_string0},
-    {sizeof vcom_string1, vcom_string1},
-    {sizeof vcom_string2, vcom_string2},
-    {sizeof vcom_string3, vcom_string3}};
+static const USBDescriptor hid_strings[] = {
+    {sizeof hid_string0, hid_string0},
+    {sizeof hid_string1, hid_string1},
+    {sizeof hid_string2, hid_string2}};
 
 /*
  * Handles the GET_DESCRIPTOR callback. All required descriptors must be
@@ -197,12 +288,22 @@ static const USBDescriptor *get_descriptor(USBDriver *usbp,
     (void)lang;
     switch(dtype) {
         case USB_DESCRIPTOR_DEVICE:
-            return &vcom_device_descriptor;
+            return &hid_device_descriptor;
         case USB_DESCRIPTOR_CONFIGURATION:
-            return &vcom_configuration_descriptor;
+            return &hid_configuration_descriptor;
         case USB_DESCRIPTOR_STRING:
-            if(dindex < 4)
-                return &vcom_strings[dindex];
+            if(dindex < 3)
+                return &hid_strings[dindex];
+        case USB_DESCRIPTOR_INTERFACE:
+            break;
+        case USB_DESCRIPTOR_ENDPOINT:
+            break;
+        case USB_DESCRIPTOR_HID:
+            return &hid_descriptor;
+        case HID_REPORT:
+            return &hid_report_descriptor;
+        default:
+            break;
     }
     return NULL;
 }
@@ -221,10 +322,10 @@ static USBOutEndpointState ep1outstate;
  * @brief   EP1 initialization structure (both IN and OUT).
  */
 static const USBEndpointConfig ep1config = {
-    USB_EP_MODE_TYPE_BULK,
+    USB_EP_MODE_TYPE_INTR,
     NULL,
-    sduDataTransmitted,
-    sduDataReceived,
+    hidDataTransmitted,
+    hidDataReceived,
     0x0040,
     0x0040,
     &ep1instate,
@@ -232,86 +333,106 @@ static const USBEndpointConfig ep1config = {
     2,
     NULL};
 
-/**
- * @brief   IN EP2 state.
- */
-static USBInEndpointState ep2instate;
-
-/**
- * @brief   EP2 initialization structure (IN only).
- */
-static const USBEndpointConfig ep2config = {
-    USB_EP_MODE_TYPE_INTR,
-    NULL,
-    sduInterruptTransmitted,
-    NULL,
-    0x0010,
-    0x0000,
-    &ep2instate,
-    NULL,
-    1,
-    NULL};
-
 /*
  * Handles the USB driver global events.
  */
 static void usb_event(USBDriver *usbp, usbevent_t event)
 {
-    extern SerialUSBDriver SDU2;
-
     switch(event) {
-        case USB_EVENT_ADDRESS:
-            return;
         case USB_EVENT_CONFIGURED:
+            rtt_printf("USB_EVENT_CONFIGURED");
             chSysLockFromISR();
 
             /* Enables the endpoints specified into the configuration.
        Note, this callback is invoked from an ISR so I-Class functions
        must be used.*/
             usbInitEndpointI(usbp, USBD2_DATA_REQUEST_EP, &ep1config);
-            usbInitEndpointI(usbp, USBD2_INTERRUPT_REQUEST_EP, &ep2config);
 
             /* Resetting the state of the CDC subsystem.*/
-            sduConfigureHookI(&SDU2);
+            hidConfigureHookI(&UHD2);
 
             chSysUnlockFromISR();
+            return;
+        case USB_EVENT_ADDRESS:
+            rtt_printf("USB_EVENT_ADDRESS");
             return;
         case USB_EVENT_RESET:
-        /* Falls into.*/
+            rtt_printf("USB_EVENT_RESET");
+            return;
         case USB_EVENT_UNCONFIGURED:
-        /* Falls into.*/
+            rtt_printf("USB_EVENT_UNCONFIGURED");
+            return;
         case USB_EVENT_SUSPEND:
-            chSysLockFromISR();
-
-            /* Disconnection event on suspend.*/
-            sduSuspendHookI(&SDU2);
-
-            chSysUnlockFromISR();
+            rtt_printf("USB_EVENT_SUSPEND");
             return;
         case USB_EVENT_WAKEUP:
-            chSysLockFromISR();
-
-            /* Disconnection event on suspend.*/
-            sduWakeupHookI(&SDU2);
-
-            chSysUnlockFromISR();
+            rtt_printf("USB_EVENT_WAKEUP");
             return;
         case USB_EVENT_STALLED:
+            rtt_printf("USB_EVENT_STALLED");
             return;
     }
     return;
 }
 
-/*
- * Handles the USB driver global events.
- */
-static void sof_handler(USBDriver *usbp)
+static bool req_handler(USBDriver *usbp)
 {
-    (void)usbp;
+    size_t n;
 
-    osalSysLockFromISR();
-    sduSOFHookI(&SDU2);
-    osalSysUnlockFromISR();
+    rtt_printf("REQ 1");
+    if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
+        rtt_printf("REQ .2");
+        switch(usbp->setup[1]) {
+            case HID_GET_REPORT:
+                rtt_printf("REQ ..3");
+                n = hidGetReport(0, &increment_var, sizeof(increment_var));
+                usbSetupTransfer(usbp, &increment_var, n, NULL);
+                return true;
+            default:
+                return hidRequestsHook(usbp);
+        }
+    }
+    return hidRequestsHook(usbp);
+}
+
+/**
+ * @brief   Generate HID Report
+ * @details This function generates the data for an HID report so
+ *          that it can be transferred to the host.
+ *
+ * @param[in]  id       report ID
+ * @param[out] bp       data buffer pointer
+ * @param[in]  n        the maximum number of bytes for data buffer
+ * @return              number of bytes of report in data buffer
+ */
+size_t hidGetReport(uint8_t id, uint8_t *bp, size_t n)
+{
+    (void)id;
+    (void)n;
+
+    increment_var++;
+    *bp = increment_var;
+    return sizeof(increment_var);
+}
+
+/**
+ * @brief   Set HID Report
+ * @details This function sets the data for an HID report
+ *          that was transferred from the host.
+ *
+ * @param[in]  id       report ID
+ * @param[in]  bp       data buffer pointer
+ * @param[in]  n        the number of bytes in data buffer
+ * @return              The operation status.
+ * @retval MSG_OK       if the report was set.
+ */
+msg_t hidSetReport(uint8_t id, uint8_t *bp, size_t n)
+{
+    (void)id;
+    (void)n;
+
+    increment_var = *bp;
+    return MSG_OK;
 }
 
 /*
@@ -320,17 +441,16 @@ static void sof_handler(USBDriver *usbp)
 const USBConfig usbcfg = {
     usb_event,
     get_descriptor,
-    sduRequestsHook,
-    sof_handler};
+    req_handler,
+    NULL};
 
 /*
- * Serial over USB driver configuration.
+ * USB HID driver configuration.
  */
-const SerialUSBConfig serusbcfg = {
+const USBHIDConfig usbhidcfg = {
     &USBD2,
     USBD2_DATA_REQUEST_EP,
-    USBD2_DATA_AVAILABLE_EP,
-    USBD2_INTERRUPT_REQUEST_EP};
+    USBD2_DATA_AVAILABLE_EP};
 
 /*
  * USB initialization get on the demo file 
@@ -351,16 +471,70 @@ void usb_init(void)
     /*
    * Initializes a serial-over-USB CDC driver.
    */
-    sduObjectInit(&SDU2);
-    sduStart(&SDU2, &serusbcfg);
+    hidObjectInit(&UHD2);
+    hidStart(&UHD2, &usbhidcfg);
 
     /*
    * Activates the USB driver and then the USB bus pull-up on D+.
    * Note, a delay is inserted in order to not have to disconnect the cable
    * after a reset.
    */
-    usbDisconnectBus(serusbcfg.usbp);
+    usbDisconnectBus(usbhidcfg.usbp);
     chThdSleepMilliseconds(1500);
-    usbStart(serusbcfg.usbp, &usbcfg);
-    usbConnectBus(serusbcfg.usbp);
+    usbStart(usbhidcfg.usbp, &usbcfg);
+    usbConnectBus(usbhidcfg.usbp);
+}
+
+/*
+ * Initialisation of OTG FS port connected to a keyboard.
+ */
+void usbh_init(void)
+{
+    /*USBH_FS OTG*/
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_INPUT_PULLDOWN);
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_ID, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOB, GPIOB_USB_FS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOB, GPIOB_USB_FS_FAULT, PAL_MODE_INPUT);
+
+    rtt_printf("Turn on USB power");
+    palSetPad(GPIOB, GPIOB_USB_FS_BUSON);
+    chThdSleepMilliseconds(100);
+
+    usbhStart(&USBHD1);
+}
+
+void usbMainLoop(void)
+{
+    if(usbhidcfg.usbp->state == USB_ACTIVE) {
+        size_t  n = 8;
+        uint8_t report_a[8] = {
+            0x00,
+            0x00,
+            0x14, // a
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00};
+
+        uint8_t report_null[8] = {
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00,
+            0x00};
+        hidWriteReport(&UHD2, report_a, n);
+        hidWriteReport(&UHD2, report_null, n);
+    }
+}
+
+void usb_report(USBHIDDriver *uhdp, uint8_t *bp)
+{
+    size_t n = 8;
+    hidWriteReport(uhdp, bp, n);
 }
