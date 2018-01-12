@@ -53,6 +53,10 @@ REGION_ALIAS("XTORS_FLASH_LMA", flash0);
 REGION_ALIAS("TEXT_FLASH", flash0);
 REGION_ALIAS("TEXT_FLASH_LMA", flash0);
 
+/* Flash region to be used for code text.*/
+REGION_ALIAS("KEYBOARD_STORAGE_FLASH", flash0);
+REGION_ALIAS("KEYBOARD_STORAGE_FLASH_LMA", flash0);
+
 /* Flash region to be used for read only data.*/
 REGION_ALIAS("RODATA_FLASH", flash0);
 REGION_ALIAS("RODATA_FLASH_LMA", flash0);

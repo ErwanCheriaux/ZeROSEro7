@@ -44,12 +44,12 @@ SECTIONS
         *(.gcc*)
     } > TEXT_FLASH AT > TEXT_FLASH_LMA
 
-    .keyboard_storage
+    .keyboard_storage :
     {
+        _keyboard_storage_start = .;
         *(.keyboard_storage)
-    } > flash0
-
-    PROVIDE (keyboard_storage_start = .);
+        _keyboard_storage_end = .;
+    } > KEYBOARD_STORAGE_FLASH AT > KEYBOARD_STORAGE_FLASH_LMA
 
     .rodata : ALIGN(4)
     {

