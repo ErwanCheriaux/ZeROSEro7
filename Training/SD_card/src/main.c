@@ -24,6 +24,7 @@
 #include "shell.h"
 
 #include "rtt.h"
+#include "sd.h"
 
 /*
  * Working area for driver.
@@ -92,6 +93,20 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     rtt_printf("Connection succeed");
     rtt_printf("Block size: %d", MMCSD_BLOCK_SIZE);
 
+    if(strcmp(argv[0], "write") == 0) {
+        if (argc == 3) {
+            int address = atoi(argv[1]);
+            int value = atoi(argv[2]);
+            rtt_printf("Write %d at position %d", value, address);
+            if(sd_write(address, value, buf)) {
+                rtt_printf("Writing failed");
+                goto exittest;
+            }
+        }
+        else {
+            rtt_printf("Invalid number of parameters");
+        }
+    }
     if(strcmp(argv[0], "read") == 0) {
         if(argc == 3) { // print a hole block
             rtt_printf("Read the first block:");
@@ -105,38 +120,18 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
                 rtt_printf("0x%08X  %02X%02X %02X%02X", i*4+MMCSD_BLOCK_SIZE*first_block, buf[4*i], buf[4*i+1], buf[4*i+2], buf[4*i+3]);
         }
         else if (argc == 2) { // print a single value
-            int address = atoi(argv[1]);
-            rtt_printf("Read address %d:", address);
-            if(blkRead(&SDCD1, address / MMCSD_BLOCK_SIZE, buf, 1)) {
+            int addr = atoi(argv[1]);
+            int value = 0;
+            if(sd_read(addr, &value, buf)) {
                 rtt_printf("Reading failed");
                 goto exittest;
             }
-            rtt_printf("%08X  %02X", address, buf[address % MMCSD_BLOCK_SIZE]);
+            rtt_printf("0x%08X  %02X", addr, value);
         }
         else {
                 rtt_printf("Invalid number of parameters");
         }
     }
-
-    if(strcmp(argv[0], "write") == 0) {
-        if (argc == 3) {
-            int address = atoi(argv[1]);
-            int value = atoi(argv[2]);
-            rtt_printf("Write %d at position %d", value, address);
-            // clean buffer
-            for(unsigned int i = 0; i < sizeof(buf); i++)
-                buf[i] = 0;
-            buf[address % MMCSD_BLOCK_SIZE] = value;
-            if(sdcWrite(&SDCD1, address / MMCSD_BLOCK_SIZE, buf, 1)) {
-                rtt_printf("Writing failed");
-                goto exittest;
-            }
-        }
-        else {
-            rtt_printf("Invalid number of parameters");
-        }
-    }
-
 /* Card disconnect and command end.*/
 exittest:
     sdcDisconnect(&SDCD1);

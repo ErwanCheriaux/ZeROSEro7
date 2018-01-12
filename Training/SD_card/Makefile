@@ -121,7 +121,8 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/main.c \
        $(SRC)/rtt.c \
        $(SRC)/SEGGER_RTT.c \
-       $(SRC)/SEGGER_RTT_printf.c
+       $(SRC)/SEGGER_RTT_printf.c \
+       $(SRC)/sd.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
