@@ -14,7 +14,6 @@ import android.bluetooth.le.ScanResult;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
-import android.os.ParcelUuid;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -65,8 +64,18 @@ public class GAPService extends Service {
             public void onConnectionStateChange(BluetoothGatt gatt, int status,
                                                 int newState) {
                 // TODO
-                Log.i("GAPService", "Conn state change : " + status);
-                Log.i("GAPService", "Connected : " + (status == BluetoothProfile.STATE_CONNECTED));
+                Log.i("GAPService", "Conn state change: " + status);
+                switch (status) {
+                    case BluetoothProfile.STATE_CONNECTED:
+                        Log.i("GAPService", "Connected!");
+                        break;
+                    case BluetoothProfile.STATE_CONNECTING:
+                        Log.i("GAPService", "Connecting");
+                        break;
+                    case BluetoothProfile.STATE_DISCONNECTED:
+                        Log.i("GAPService", "Disconnected");
+                        break;
+                }
 
             }
 
@@ -75,7 +84,7 @@ public class GAPService extends Service {
             public void onServicesDiscovered(BluetoothGatt gatt, int status) {
                 // TODO
                 Log.i("GAPService", "Service Discovered");
-                for(BluetoothGattService service : deviceGatt.getServices()) {
+                for (BluetoothGattService service : deviceGatt.getServices()) {
                     Log.i("GAPService", "Service : " + service);
                 }
             }
@@ -90,9 +99,10 @@ public class GAPService extends Service {
             }
         };
         deviceGatt = device.connectGatt(this, false, mGattCallback);
+        deviceGatt = device.connectGatt(this, true, mGattCallback);
         deviceGatt.connect();
         deviceGatt.discoverServices();
-        for(BluetoothGattService service : deviceGatt.getServices()) {
+        for (BluetoothGattService service : deviceGatt.getServices()) {
             Log.i("GAPService", "Service : " + service);
         }
     }

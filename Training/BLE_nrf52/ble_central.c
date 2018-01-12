@@ -156,6 +156,12 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_ADV_EVT_IDLE:
             break;
 
+        case BLE_GAP_EVT_DISCONNECTED:
+            NRF_LOG_INFO("GAP Disconnected");
+            ble_gap_evt_t gap_evt = (ble_gap_evt_t)(p_ble_evt->evt);
+            rtt_printf(0,"Reason : %u", gap_evt.params.reason);
+        break;
+
         /* TODO
         case BLE_ADV_EVT_WHITELIST_REQUEST:
         {

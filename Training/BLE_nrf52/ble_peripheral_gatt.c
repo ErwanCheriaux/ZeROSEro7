@@ -70,6 +70,5 @@ void ble_services_init()
 
 void ble_gatt_init()
 {
-    ret_code_t err_code = nrf_ble_gatt_init(&m_gatt, NULL);
-    APP_ERROR_CHECK(err_code);
+    APP_ERROR_CHECK(nrf_ble_gatt_init(&m_gatt, NULL));
 }
