@@ -45,10 +45,7 @@ public class GAPService extends Service {
                     Log.i("GAPService", "Recognised device advertisement");
                     stopScan();
 
-                    bondWithDevice(device);
-
-                    Intent intent = new Intent(DEVICE_CONECTED_ACTION);
-                    LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
+                    ConnectDevice(device);
                 }
 
                 // TODO connect to bonded device
@@ -58,7 +55,7 @@ public class GAPService extends Service {
         startScan();
     }
 
-    private void bondWithDevice(BluetoothDevice device) {
+    private void ConnectDevice(BluetoothDevice device) {
         BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int oldState,
@@ -69,6 +66,9 @@ public class GAPService extends Service {
                     case BluetoothProfile.STATE_CONNECTED:
                         Log.i("GAPService", "Connected!");
                         deviceGatt.discoverServices();
+
+                        Intent intent = new Intent(DEVICE_CONECTED_ACTION);
+                        LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
                         break;
                     case BluetoothProfile.STATE_CONNECTING:
                         Log.i("GAPService", "Connecting");
