@@ -23,8 +23,6 @@
 #include "usbh/dev/hub.h"
 #include <string.h>
 
-#include "rtt.h"
-
 #if USBH_DEBUG_ENABLE_TRACE
 #define udbgf(f, ...)  usbDbgPrintf(f, ##__VA_ARGS__)
 #define udbg(f, ...)   usbDbgPuts(f, ##__VA_ARGS__)
