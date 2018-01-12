@@ -27,6 +27,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
+        /* send the key on the computer */
+        usb_report(&UHD2, report);
+        /* debug */
         SEGGER_RTT_printf(0, "%c", usb_to_qwerty[report[2]]);
     }
 }
@@ -83,31 +86,18 @@ int main(void)
     led_init();
     rtt_init();
     usb_init();
+    usbh_init();
     timer_init();
 
     timer_on();
-
-    /*USBH_FS OTG*/
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_ID, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOB, GPIOB_USB_FS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, GPIOB_USB_FS_FAULT, PAL_MODE_INPUT);
 
 #if HAL_USBH_USE_HID
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
 
-    rtt_printf("Turn on USB power");
-    palSetPad(GPIOB, GPIOB_USB_FS_BUSON);
-    chThdSleepMilliseconds(100);
-
-    usbhStart(&USBHD1);
-
     while(1) {
         usbhMainLoop(&USBHD1);
-        chThdSleepMilliseconds(100);
+        chThdSleepMilliseconds(1000);
     }
 
     chThdSleep(TIME_INFINITE);

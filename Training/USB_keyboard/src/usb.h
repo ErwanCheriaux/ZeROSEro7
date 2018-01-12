@@ -17,11 +17,19 @@
 #ifndef USB_H
 #define USB_H
 
-extern const USBConfig usbcfg;
-extern SerialUSBConfig serusbcfg;
-extern SerialUSBDriver SDU1;
+#include "hal_usb_hid.h"
+
+extern const USBConfig    usbcfg;
+extern const USBHIDConfig usbhidcfg;
+extern USBHIDDriver       UHD2;
 
 void usb_init(void);
+void usbh_init(void);
+void usbMainLoop(void);
+void usb_report(USBHIDDriver *uhdp, uint8_t *bp);
+
+size_t hidGetReport(uint8_t id, uint8_t *bp, size_t n);
+msg_t hidSetReport(uint8_t id, uint8_t *bp, size_t n);
 
 #endif /* USB_H */
 

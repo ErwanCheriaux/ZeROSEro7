@@ -3,8 +3,8 @@
 # Run : docker run -ti dock
 
 #FROM rfc1149/rose-dev
-#FROM tuetuopay/arm-none-eabi
-FROM tuetuopay/clang
+FROM tuetuopay/arm-none-eabi
+#FROM tuetuopay/clang
 
 WORKDIR /dock
 COPY . .
