@@ -74,10 +74,10 @@
 
 // LEDs
 
-#define LEDB_PIN 25 // LED 0
+#define LEDB_PIN 25  // LED 0
 #define RGBR_PIN 26
 #define RGBG_PIN 27
-#define RGBB_PIN 28 // LED 3
+#define RGBB_PIN 28  // LED 3
 
 void leds_init();
 void led_on(int i);

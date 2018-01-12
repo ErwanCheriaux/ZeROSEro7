@@ -105,15 +105,16 @@ int main(void)
     ble_stack_init();
     ble_gap_init();
     ble_advertise_init();
-    ble_peripheral_start_advertising();
     rtt_write_string("BLE initialized\n");
 
+    ble_peripheral_start_advertising();
+
     HW_RTC_Init();
-    rtt_write_string("RTC Initialized\n");
+    rtt_write_string("RTC initialized\n");
     led_on(0);
 
     HW_SPI_Init();
-    rtt_write_string("SPI Initialized\n");
+    rtt_write_string("SPI initialized\n");
 
     lora_init(&RadioEvents);
     rtt_write_string("LoRa initialized\n");

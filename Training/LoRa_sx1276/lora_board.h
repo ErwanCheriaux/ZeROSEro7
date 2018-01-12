@@ -5,7 +5,6 @@
 #include "radio.h"
 #include "sx1276.h"
 
-
 /*!
  * \brief Initializes the io
  */
