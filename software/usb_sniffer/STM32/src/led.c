@@ -6,19 +6,19 @@ static bool toggle = false;
 
 void led_init(void)
 {
-    palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPad(GPIOC, GPIOC_LED);  //led off
+    palSetPadMode(GPIOC, GPIOC_RGB_G, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPad(GPIOC, GPIOC_RGB_G);  //led off
 }
 
 void led_on(void)
 {
-    palSetPad(GPIOC, GPIOC_LED);
+    palSetPad(GPIOC, GPIOC_RGB_G);
     toggle = true;
 }
 
 void led_off(void)
 {
-    palClearPad(GPIOC, GPIOC_LED);
+    palClearPad(GPIOC, GPIOC_RGB_G);
     toggle = false;
 }
 

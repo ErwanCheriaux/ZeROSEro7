@@ -462,11 +462,8 @@ void usb_init(void)
    * Initializes USB_HS GPIO.
    */
     palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-    palSetPadMode(GPIOB, GPIOB_OTG_HS_ID, PAL_MODE_ALTERNATE(12));
     palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(12));
     palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(12));
-    palSetPadMode(GPIOA, GPIOA_USB_HS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOF, GPIOF_USB_HS_FAULT, PAL_MODE_INPUT);
 
     /*
    * Initializes a serial-over-USB CDC driver.
@@ -491,15 +488,12 @@ void usb_init(void)
 void usbh_init(void)
 {
     /*USBH_FS OTG*/
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_INPUT_PULLDOWN);
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_ID, PAL_MODE_ALTERNATE(10));
+    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOB, GPIOB_USB_FS_BUSON, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOB, GPIOB_USB_FS_FAULT, PAL_MODE_INPUT);
 
     rtt_printf("Turn on USB power");
-    palSetPad(GPIOB, GPIOB_USB_FS_BUSON);
+    palSetPad(GPIOB, GPIOA_OTG_FS_VBUS);
     chThdSleepMilliseconds(100);
 
     usbhStart(&USBHD1);
