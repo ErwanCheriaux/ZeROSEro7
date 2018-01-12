@@ -18,7 +18,7 @@ stages:
 
 lint_main:
   stage: lint
-  image: rfc1149/rose-dev
+  image: tuetuopay/clang
   script:
     - cd Training/BLE_nrf52
     - make format
@@ -32,15 +32,17 @@ lint_main:
 
 lint_apps:
   stage: lint
-  image : runmymind/docker-android-sdk
+  image : lpzantony/ca3
   script:
     - cd smartphone
     - cd BLEParrot
     - ./gradlew lint
+  tags:
+    - android
 
 lint_test:
   stage: lint
-  image: rfc1149/rose-dev
+  image: tuetuopay/clang
   script:
     - cd Training/Test
     - make format
@@ -70,7 +72,7 @@ build_main:
 
 build_apps:
   stage: build
-  image : runmymind/docker-android-sdk
+  image : lpzantony/little-brosers
   script:
     - cd smartphone
     - cd BLEParrot
@@ -79,10 +81,12 @@ build_apps:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
+  tags:
+    - android
 
 build_test:
   stage: build
-  image: rfc1149/rose-dev
+  image: tuetuopay/arm-none-eabi
   script:
     - cd Training/Test
     - make
@@ -96,15 +100,17 @@ build_test:
 # Runs all JUnit tests
 test_apps:
   stage: test
-  image : runmymind/docker-android-sdk
+  image : lpzantony/little-brosers
   script:
     - cd smartphone
     - cd BLEParrot
     - ./gradlew test
+  tags:
+    - android
 
 test_test:
   stage: test
-  image: rfc1149/rose-dev
+  image: tuetuopay/arm-none-eabi
   script:
     - cd Training/Test
     - ./main
