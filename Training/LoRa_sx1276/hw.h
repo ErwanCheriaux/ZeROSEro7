@@ -13,6 +13,7 @@
 #include "hw_gpio.h"
 #include "hw_spi.h"
 #include "hw_rtc.h"
+#include "board.h"
 
 // Only used to print tX/rXDone. RTT can't be include because it redefines same symbols
 inline void PRINTF(char* c)

@@ -1,6 +1,5 @@
 #include <stdbool.h>
 #include <stdint.h>
-#include "boards.h"
 #include "rtt.h"
 #include "low_power.h"
 
@@ -98,7 +97,7 @@ int main(void)
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
 
-    bsp_board_leds_init();
+    leds_init();
     rtt_write_string("LEDs initialized\n");
 
     // Like if we were using BLE, has the side effect of starting LFCLK needed by RTC
@@ -107,7 +106,7 @@ int main(void)
 
     HW_RTC_Init();
     rtt_write_string("RTC Initialized\n");
-    bsp_board_led_on(0);
+    led_on(0);
 
     HW_SPI_Init();
     rtt_write_string("SPI Initialized\n");

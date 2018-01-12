@@ -5,16 +5,6 @@
 #include "radio.h"
 #include "sx1276.h"
 
-/*
-*   Board specific control of the SX1276 including PA, ANTSW and DIO
-*/
-
-#define SX1276_DIO0_PIN 6
-#define SX1276_DIO1_PIN 7
-#define SX1276_DIO2_PIN 8
-#define SX1276_DIO3_PIN 5
-#define SX1276_DIO4_PIN 1
-#define SX1276_DIO5_PIN 0
 
 /*!
  * \brief Initializes the io
