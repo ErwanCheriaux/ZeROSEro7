@@ -61,13 +61,14 @@ public class GAPService extends Service {
     private void bondWithDevice(BluetoothDevice device) {
         BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
             @Override
-            public void onConnectionStateChange(BluetoothGatt gatt, int status,
+            public void onConnectionStateChange(BluetoothGatt gatt, int oldState,
                                                 int newState) {
                 // TODO
-                Log.i("GAPService", "Conn state change: " + status);
-                switch (status) {
+                Log.i("GAPService", "Conn state change: " + newState);
+                switch (newState) {
                     case BluetoothProfile.STATE_CONNECTED:
                         Log.i("GAPService", "Connected!");
+                        deviceGatt.discoverServices();
                         break;
                     case BluetoothProfile.STATE_CONNECTING:
                         Log.i("GAPService", "Connecting");
@@ -99,12 +100,6 @@ public class GAPService extends Service {
             }
         };
         deviceGatt = device.connectGatt(this, false, mGattCallback);
-        deviceGatt = device.connectGatt(this, true, mGattCallback);
-        deviceGatt.connect();
-        deviceGatt.discoverServices();
-        for (BluetoothGattService service : deviceGatt.getServices()) {
-            Log.i("GAPService", "Service : " + service);
-        }
     }
 
     private String parseName(String advString) {

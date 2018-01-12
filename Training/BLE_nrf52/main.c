@@ -67,9 +67,7 @@ int main(void)
     // ble_peer_init(); TODO
     rtt_write_string("BLE initialized\n");
 
-    //ble_start_observing();
-    ble_peripheral_start_advertising(); // Eases debug
-
+    ble_start_observing();
     rtt_write_string("Now observing BLE\n");
     bsp_board_led_on(1);
 

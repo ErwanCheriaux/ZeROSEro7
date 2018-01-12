@@ -118,6 +118,8 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
 {
     ret_code_t err_code;
 
+    static ble_gap_conn_params_t new_conn_params;
+
     switch(p_ble_evt->header.evt_id) {
         case BLE_GAP_EVT_ADV_REPORT:
             on_adv_report(p_ble_evt);
@@ -160,7 +162,13 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             rtt_printf(0,"Connected with : %016x\n",p_ble_evt->evt.gap_evt.params.connected.peer_addr);
             break ;
         case BLE_GAP_EVT_CONN_PARAM_UPDATE :
-            rtt_printf(0,"Params Update");
+            new_conn_params = p_ble_evt->evt.gap_evt.params.conn_param_update.conn_params;
+            rtt_printf(0,"Params Update\nmin_conn_interval:%u\nmax_conn_interval:%u\nslave_latency:%u\nconn_sup_timeout:%u\n",
+                new_conn_params.min_conn_interval*5/4,
+                new_conn_params.max_conn_interval*5/4,
+                new_conn_params.slave_latency,
+                new_conn_params.conn_sup_timeout*10
+            );
             break ;
         case BLE_GAP_EVT_TIMEOUT:
         case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
