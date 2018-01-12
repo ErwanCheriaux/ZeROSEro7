@@ -94,7 +94,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             int address = atoi(argv[1]);
             int value = atoi(argv[2]);
             rtt_printf("Write %d at position %d", value, address);
-            if(sd_write(address, value)) {
+            if(sd_write_byte(address, value)) {
                 rtt_printf("Writing failed");
                 goto exittest;
             }
@@ -118,7 +118,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         else if (argc == 2) { // print a single value
             int addr = atoi(argv[1]);
             int value = 0;
-            if(sd_read(addr, &value)) {
+            if(sd_read_byte(addr, &value)) {
                 rtt_printf("Reading failed");
                 goto exittest;
             }

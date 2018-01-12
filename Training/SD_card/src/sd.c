@@ -2,7 +2,7 @@
 
 uint8_t buf[SD_BUF_SIZE];
 
-int sd_read(int addr, int* value)
+int sd_read_byte(int addr, int* value)
 {
     if(sdcRead(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, 1))
         return 1;
@@ -11,12 +11,14 @@ int sd_read(int addr, int* value)
     return 0;
 }
 
-int sd_write(int addr, int value)
+int sd_write_byte(int addr, int value)
 {
-    // clean buffer
-    for(unsigned int i = 0; i < MMCSD_BLOCK_SIZE * SDC_BURST_SIZE + 4; i++)
-        buf[i] = 0;
+    // copy memory block
+    if(sdcRead(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, 1))
+        return 1;
+    // change a single byte
     buf[addr % MMCSD_BLOCK_SIZE] = value;
+    // write block in memory
     if(sdcWrite(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, 1))
         return 1;
     return 0;
