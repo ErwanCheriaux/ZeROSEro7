@@ -36,6 +36,7 @@ lint_apps:
   script:
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew lint
   tags:
     - android
@@ -76,6 +77,7 @@ build_apps:
   script:
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew build
   artifacts:
     paths:
@@ -104,6 +106,7 @@ test_apps:
   script:
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew test
   tags:
     - android
