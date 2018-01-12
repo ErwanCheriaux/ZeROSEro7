@@ -34,13 +34,16 @@ lint_main:
 
 lint_apps:
   stage: lint
-  image : runmymind/docker-android-sdk
+  image : lpzantony/ndk
   script:
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew lint
     - cd ../WifiParrot
     - ./gradlew lint
+  tags:
+    - android
 
 lint_test:
   stage: lint
@@ -76,10 +79,11 @@ build_main:
 
 build_apps:
   stage: build
-  image : runmymind/docker-android-sdk
+  image : lpzantony/little-brosers
   script:
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew build
     - cd ../WifiParrot
     - ./gradlew build
@@ -88,6 +92,8 @@ build_apps:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
+  tags:
+    - android
 
 build_test:
   stage: build
@@ -105,13 +111,16 @@ build_test:
 # Runs all JUnit tests
 test_apps:
   stage: test
-  image : runmymind/docker-android-sdk
+  image : lpzantony/little-brosers
   script:
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew test
     - cd ../WifiParrot
     - ./gradlew test
+  tags:
+    - android
 
 test_test:
   stage: test

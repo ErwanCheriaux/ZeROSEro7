@@ -2,7 +2,7 @@ package fr.telecom_paristech.bleparrot;
 
 import org.junit.Test;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 /**
  * Example local unit test, which will execute on the development machine (host).
@@ -11,7 +11,8 @@ import static org.junit.Assert.*;
  */
 public class ExampleUnitTest {
     @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
+    public void additionIsCorrect() throws Exception {
+        final int result = 4;
+        assertEquals(result, 2 + 2);
     }
 }
