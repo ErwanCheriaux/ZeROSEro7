@@ -18,7 +18,7 @@ stages:
 
 lint_main:
   stage: lint
-  image: tuetuopay/clang
+  image: rfc1149/rose-dev
   script:
     - cd Training/BLE_nrf52
     - make format
@@ -32,7 +32,7 @@ lint_main:
 
 lint_apps:
   stage: lint
-  image : lpzantony/ca3
+  image : lpzantony/ndk
   script:
     - cd smartphone
     - cd BLEParrot
@@ -42,7 +42,7 @@ lint_apps:
 
 lint_test:
   stage: lint
-  image: tuetuopay/clang
+  image: rfc1149/rose-dev
   script:
     - cd Training/Test
     - make format
