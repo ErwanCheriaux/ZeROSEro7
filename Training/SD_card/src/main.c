@@ -108,38 +108,22 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             rtt_printf("Read a big memory area:\n");
             int addr = atoi(argv[1]);
             int size = atoi(argv[2]);
+            if(size > (int)SD_BUF_SIZE) {
+                rtt_printf("[ERROR] sd_read: too large len: %d / %d\n", size, SD_BUF_SIZE);
+                goto exittest;
+            }
             uint8_t buffer[size];
             if(sd_read(addr, size, buffer)) {
                 rtt_printf("Reading failed\n");
                 goto exittest;
             }
             // print
-            int buf_idx = 0;
-            rtt_printf("0x%08X  ", (int)(addr/4)*4);
-            for(int i = 0; i < 4; i++) {
-                if(i < addr % 4)
-                    rtt_printf("  ");
-                else
-                    rtt_printf("%02X", buffer[buf_idx++]);
-                if(i == 1)
-                    rtt_printf(" ");
+            for (int i = 0; i < size; i++) {
+                if(i % 8 == 0)
+                    rtt_printf("\n%05d  ", i);
+                rtt_printf("%02X ", buffer[i]);
             }
             rtt_printf("\n");
-            addr -= addr % 4;
-            for(int i = 0; i < size / 4; i++) {
-                addr += 4;
-                rtt_printf("0x%08X  %02X%02X %02X%02X\n", addr, buffer[buf_idx], buffer[buf_idx+1], buffer[buf_idx+2], buffer[buf_idx+3]);
-                buf_idx += 4;
-            }
-            if(size % 4 != 0)
-                rtt_printf("0x%08X  ", addr);
-            for(int i = 0; i < size % 4; i++) {
-                rtt_printf("%02X", buffer[buf_idx++]);
-                if(i == 1)
-                    rtt_printf(" ");
-            }
-            if(size % 4 != 0)
-                rtt_printf("\n");
         }
         else if (argc == 2) { // print a single value
             int addr = atoi(argv[1]);

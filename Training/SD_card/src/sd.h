@@ -24,7 +24,7 @@ int sd_read_byte(int addr, int* value);
 ** buffer: returned content 
 ** return: 0 for success, 1 for error
 */
-int sd_read(int addr, int len, uint8_t* buffer);
+int sd_read(int addr, unsigned int len, uint8_t* buffer);
 
 /* Write a byte into a given address
 ** addr:   address to write the byte
