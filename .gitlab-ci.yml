@@ -88,7 +88,7 @@ build_apps:
 
 build_test:
   stage: build
-  image: tuetuopay/arm-none-eabi
+  image: rfc1149/rose-dev
   script:
     - cd Training/Test
     - make
@@ -113,7 +113,7 @@ test_apps:
 
 test_test:
   stage: test
-  image: tuetuopay/arm-none-eabi
+  image: rfc1149/rose-dev
   script:
     - cd Training/Test
     - ./main
