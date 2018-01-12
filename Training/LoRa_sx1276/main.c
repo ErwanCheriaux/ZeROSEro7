@@ -9,6 +9,7 @@
 
 #include "hw.h"
 #include "ble_central.h"
+#include "ble_peripheral_gap.h"
 #include "lora.h"
 #include "sx1276Regs-LoRa.h"
 #include "delay.h"
@@ -102,6 +103,9 @@ int main(void)
 
     // Like if we were using BLE, has the side effect of starting LFCLK needed by RTC
     ble_stack_init();
+    ble_gap_init();
+    ble_advertise_init();
+    ble_peripheral_start_advertising();
     rtt_write_string("BLE initialized\n");
 
     HW_RTC_Init();
