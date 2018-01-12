@@ -1,0 +1,546 @@
+[2017.12.04 11:33:47] [0000m.00s.031ms] [0] WELCOME
+[2017.12.04 11:33:47] [0000m.00s.031ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.04 11:33:47] [0000m.00s.031ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.04 11:33:47] [0000m.00s.031ms] [1] Base flow version [VX.2.2]
+[2017.12.04 11:33:47] [0000m.00s.031ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.04 11:33:47] [0000m.00s.031ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.04 11:33:47] [0000m.00s.031ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] Machine [WINDOWS01]  IP [10.0.2.15,127.0.0.1]  User [admin]  PID [2928]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] Operating system [Microsoft Windows 7 Home Premium Edition, 64-bit Service Pack 1 (build 7601)]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] Current working dir [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] PATH [C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\help;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\MentorGraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Program Files\OpenVPN\bin]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] SDD_HOME [C:\MentorGraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] SDD_PLATFORM [win32]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\MentorGraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.04 11:33:47] [0000m.00s.046ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.04 11:33:47] [0000m.00s.062ms] [1] S: Config file name [ServerWG.cfg]
+[2017.12.04 11:33:47] [0000m.00s.062ms] [2] S: Loading config files
+[2017.12.04 11:33:47] [0000m.00s.062ms] [1] Config file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.12.04 11:33:47] [0000m.00s.062ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.12.04 11:33:47] [0000m.00s.062ms] [3] S: Config loaded
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Project path [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb] on file system [NTFS]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Project global path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb] on file system [NTFS]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [1] S: WARNING: No project file (.prj) path specified
+[2017.12.04 11:33:47] [0000m.00s.078ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Multi-user mode (config)
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Event polling mode autodetection
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Started up automatically by iCDB Client: WINDOWS01:admin:2192
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Auto close mode
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Database ID [7259-2805-df96-9898-f7e0-12a4-8e01-2a50-c18d-3d2c-dc7d-1df8]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: BEGIN dumping
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: Local -> global path prefix list
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: [C:\Users] -> [\\WINDOWS01\Users]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: [E:\] -> [\\vboxsrv\Partage\]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: Global -> local path prefix list
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: [\\vboxsrv\Partage\] -> [E:\]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: [\\WINDOWS01\Users] -> [C:\Users]
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] PathTranslator: END dumping
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: START
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Server startup lock file created
+[2017.12.04 11:33:47] [0000m.00s.078ms] [0] S: Listening for client connections on port [10001]
+[2017.12.04 11:33:47] [0000m.00s.093ms] [0] S: Server network ID [windows01:10.0.2.15,windows01:10001]
+[2017.12.04 11:33:47] [0000m.00s.093ms] [0] S: Server GUID [3000-ca86-6b10-3462-b842-52a0-9425-2a50-cd4d-3d2c-dc7d-1df8]
+[2017.12.04 11:33:47] [0000m.00s.093ms] [0] S: Project GUID [7259-2805-df96-9898-f7e0-12a4-8e01-2a50-c18d-3d2c-dc7d-1df8]
+[2017.12.04 11:33:47] [0000m.00s.093ms] [0] S: Wrote data to server address file
+[2017.12.04 11:33:47] [0000m.00s.093ms] [0] S: Server startup lock file removed
+[2017.12.04 11:33:47] [0000m.00s.093ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.12.04 11:33:47] [0000m.00s.140ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\MentorGraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] S: Local disc access time: 37 us
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] S: File server access time: 46 us
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\icdb.dat] size [221408 (216.2 kB)]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [1] Single file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] Database GUARD OK: [221408]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] Database GUARD OK: [221408]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] Database GUARD OK: [221408]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] Database GUARD OK: [221408]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] Database GUARD OK: [221408]
+[2017.12.04 11:33:47] [0000m.00s.140ms] [0] SingleFile: [2cb7-77d5-3b25-dfe1] SFI version check [1009] [1009]
+[2017.12.04 11:33:47] [0000m.00s.156ms] [0] SingleFile: [2cb7-77d5-3b25-dfe1] Database SFI header has been read in [14ms 982us]
+[2017.12.04 11:33:47] [0000m.00s.171ms] [0] iCDB Server PI: Server & plugin session [4278]
+[2017.12.04 11:33:47] [0000m.00s.171ms] [0] iCDB Server PI: Opening database [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb]
+[2017.12.04 11:33:47] [0000m.00s.171ms] [0] iCDB Server PI: Database [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb] opened
+[2017.12.04 11:33:47] [0000m.00s.187ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.12.04 11:33:47] [0000m.00s.187ms] [0] iCDB Database: Checking constraint definitions version
+[2017.12.04 11:33:47] [0000m.00s.296ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=d077-c76f-3e54-155f-ea37-50a3-b375-0a50-084d-3d2c-dc7d-1df8] up to date
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] iCDB Server PI: Initializing plugins
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] iCDB Server PI: Plugins initialized
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] S: iCDB database loaded
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] S: Starting threads
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] ProjectBackupManager: WARNING: Could not startup Project Backup engine - functionality not initialized
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.12.04 11:33:47] [0000m.00s.359ms] [0] IT: Session [4279] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:33:47] [0000m.00s.359ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:33:47] [0000m.00s.406ms] [0] IT: iCDB Server Monitor session [1] for host [windows01] user [admin] with process ID [1984] created
+[2017.12.04 11:33:47] [0000m.00s.406ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.12.04 11:33:47] [0000m.00s.406ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.12.04 11:33:47] [0000m.00s.406ms] [1] SC[4279]: Registered sub-client [DCDV] with ID [1] for session ID [4279] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:34:00] [0000m.12s.875ms] [0] IT: Session [4280] for host [windows01] user [admin] with process ID [1848] created
+[2017.12.04 11:34:00] [0000m.12s.890ms] [1] SC[4280]: Registered sub-client [ICDBC] with ID [1] for session ID [4280] host [windows01] user [admin] process ID [1848]
+[2017.12.04 11:34:00] [0000m.12s.906ms] [1] SC[4280]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4280] host [windows01] user [admin] process ID [1848]
+[2017.12.04 11:34:00] [0000m.12s.968ms] [1] CMT: There are [2] clients now: 4279, 4280
+[2017.12.04 11:34:00] [0000m.13s.343ms] [1] SC[4280]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4280] host [windows01] user [admin] process ID [1848]
+[2017.12.04 11:34:00] [0000m.13s.359ms] [1] SC[4280]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4280] host [windows01] user [admin] process ID [1848]
+[2017.12.04 11:34:00] [0000m.13s.515ms] [1] CMT: Removed client [4280]
+[2017.12.04 11:34:00] [0000m.13s.515ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:34:18] [0000m.30s.649ms] [0] DFAMT: File server access time: 92 us
+[2017.12.04 11:34:41] [0000m.53s.805ms] [0] IT: Session [4281] for host [windows01] user [admin] with process ID [2996] created
+[2017.12.04 11:34:41] [0000m.53s.805ms] [1] SC[4281]: Registered sub-client [ICDBC] with ID [1] for session ID [4281] host [windows01] user [admin] process ID [2996]
+[2017.12.04 11:34:41] [0000m.53s.852ms] [1] SC[4281]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4281] host [windows01] user [admin] process ID [2996]
+[2017.12.04 11:34:41] [0000m.53s.915ms] [1] CMT: There are [2] clients now: 4279, 4281
+[2017.12.04 11:34:41] [0000m.53s.930ms] [1] SC[4281]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4281] host [windows01] user [admin] process ID [2996]
+[2017.12.04 11:34:41] [0000m.53s.930ms] [1] SC[4281]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4281] host [windows01] user [admin] process ID [2996]
+[2017.12.04 11:34:41] [0000m.54s.024ms] [1] CMT: Removed client [4281]
+[2017.12.04 11:34:41] [0000m.54s.024ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:36:16] [0002m.29s.488ms] [0] IT: Session [4282] for host [windows01] user [admin] with process ID [1648] created
+[2017.12.04 11:36:16] [0002m.29s.488ms] [1] SC[4282]: Registered sub-client [ICDBC] with ID [1] for session ID [4282] host [windows01] user [admin] process ID [1648]
+[2017.12.04 11:36:16] [0002m.29s.503ms] [1] SC[4282]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4282] host [windows01] user [admin] process ID [1648]
+[2017.12.04 11:36:16] [0002m.29s.582ms] [1] CMT: There are [2] clients now: 4279, 4282
+[2017.12.04 11:36:19] [0002m.31s.753ms] [1] SC[4282]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4282] host [windows01] user [admin] process ID [1648]
+[2017.12.04 11:36:19] [0002m.31s.753ms] [1] SC[4282]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4282] host [windows01] user [admin] process ID [1648]
+[2017.12.04 11:36:19] [0002m.31s.800ms] [1] CMT: Removed client [4282]
+[2017.12.04 11:36:19] [0002m.31s.800ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:36:21] [0002m.34s.113ms] [0] IT: Session [4283] for host [windows01] user [admin] with process ID [1100] created
+[2017.12.04 11:36:21] [0002m.34s.113ms] [1] SC[4283]: Registered sub-client [Packager_1215218] with ID [1] for session ID [4283] host [windows01] user [admin] process ID [1100]
+[2017.12.04 11:36:21] [0002m.34s.128ms] [1] CMT: There are [2] clients now: 4279, 4283
+[2017.12.04 11:36:22] [0002m.35s.144ms] [1] SC[4283]: UnRegistered sub-client [Packager_1215218] with ID [1] for session ID [4283] host [windows01] user [admin] process ID [1100]
+[2017.12.04 11:36:22] [0002m.35s.238ms] [1] CMT: Removed client [4283]
+[2017.12.04 11:36:22] [0002m.35s.238ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:38:39] [0004m.52s.113ms] [0] IT: Session [4284] for host [windows01] user [admin] with process ID [1116] created
+[2017.12.04 11:38:39] [0004m.52s.144ms] [1] CMT: There are [2] clients now: 4279, 4284
+[2017.12.04 11:38:39] [0004m.52s.144ms] [1] SCL: WARNING: Could not find client [4284] stat data
+[2017.12.04 11:38:39] [0004m.52s.191ms] [1] ProjectBackupManager: Client [ClientData[ClientNetAddress[windows01] # ClientUserName[admin] # ClientProcessID[1116] # SessionID[4284] # Type[0]] # SubClientData[SubClientName[] # SubClientID[0]]] set project file (.prj): local path [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\USB_Sniffer.prj], global path [\\WINDOWS01\Users\admin\Documents\XpeditionPCB\USB_Sniffer\USB_Sniffer.prj]
+[2017.12.04 11:38:40] [0004m.52s.769ms] [1] SC[4284]: Registered sub-client [Expedition PCB_1353078] with ID [1] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:40] [0004m.53s.503ms] [1] SC[4284]: Registered sub-client [EEVM] with ID [2] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:41] [0004m.53s.722ms] [1] SC[4284]: UnRegistered sub-client [EEVM] with ID [2] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:46] [0004m.58s.769ms] [1] SC[4284]: Registered sub-client [JobPrefsDBPI_1360109] with ID [3] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:46] [0004m.58s.863ms] [1] SC[4284]: UnRegistered sub-client [JobPrefsDBPI_1360109] with ID [3] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:57] [0005m.09s.957ms] [1] SC[4284]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:57] [0005m.09s.988ms] [1] SC[4284]: Registered sub-client [StartServerClient4dc] with ID [5] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:38:57] [0005m.10s.050ms] [1] SC[4284]: UnRegistered sub-client [StartServerClient4dc] with ID [5] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:33] [0005m.46s.019ms] [1] SC[4284]: Registered sub-client [JobPrefsDBPI_1407359] with ID [6] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:33] [0005m.46s.097ms] [1] SC[4284]: UnRegistered sub-client [JobPrefsDBPI_1407359] with ID [6] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:33] [0005m.46s.175ms] [1] SC[4284]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:33] [0005m.46s.253ms] [1] SC[4284]: Registered sub-client [EEVM_EEVM_1633484] with ID [7] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:33] [0005m.46s.285ms] [1] SC[4284]: UnRegistered sub-client [EEVM_EEVM_1633484] with ID [7] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:34] [0005m.47s.082ms] [1] SC[4284]: Registered sub-client [JobPrefsDBPI_1408406] with ID [8] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:34] [0005m.47s.097ms] [1] SC[4284]: UnRegistered sub-client [JobPrefsDBPI_1408406] with ID [8] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:34] [0005m.47s.238ms] [1] SC[4284]: Registered sub-client [JobPrefsDBPI_1408578] with ID [9] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:34] [0005m.47s.269ms] [1] SC[4284]: UnRegistered sub-client [JobPrefsDBPI_1408578] with ID [9] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:39:46] [0005m.59s.222ms] [0] IT: Session [4285] for host [windows01] user [admin] with process ID [1864] created
+[2017.12.04 11:39:46] [0005m.59s.222ms] [1] SCL: WARNING: Could not find client [4285] stat data
+[2017.12.04 11:39:46] [0005m.59s.253ms] [1] CMT: There are [3] clients now: 4279, 4284, 4285
+[2017.12.04 11:39:46] [0005m.59s.285ms] [1] SC[4285]: Registered sub-client [Packager_1419343] with ID [1] for session ID [4285] host [windows01] user [admin] process ID [1864]
+[2017.12.04 11:39:48] [0006m.01s.347ms] [1] SC[4285]: UnRegistered sub-client [Packager_1419343] with ID [1] for session ID [4285] host [windows01] user [admin] process ID [1864]
+[2017.12.04 11:39:48] [0006m.01s.519ms] [1] CMT: Removed client [4285]
+[2017.12.04 11:39:48] [0006m.01s.519ms] [1] CMT: There are [2] clients now: 4279, 4284
+[2017.12.04 11:39:51] [0006m.04s.613ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.04 11:39:57] [0006m.10s.128ms] [0] IT: Session [4286] for host [windows01] user [admin] with process ID [2452] created
+[2017.12.04 11:39:57] [0006m.10s.128ms] [1] SC[4286]: Registered sub-client [Expedition_1431390] with ID [1] for session ID [4286] host [windows01] user [admin] process ID [2452]
+[2017.12.04 11:39:57] [0006m.10s.175ms] [1] CMT: There are [3] clients now: 4279, 4284, 4286
+[2017.12.04 11:39:57] [0006m.10s.253ms] [1] SC[4286]: UnRegistered sub-client [Expedition_1431390] with ID [1] for session ID [4286] host [windows01] user [admin] process ID [2452]
+[2017.12.04 11:39:57] [0006m.10s.347ms] [1] CMT: Removed client [4286]
+[2017.12.04 11:39:57] [0006m.10s.347ms] [1] CMT: There are [2] clients now: 4279, 4284
+[2017.12.04 11:39:59] [0006m.12s.035ms] [0] IT: Session [4287] for host [windows01] user [admin] with process ID [2452] created
+[2017.12.04 11:39:59] [0006m.12s.035ms] [1] SC[4287]: Registered sub-client [JobPrefsDBPI_1433296] with ID [1] for session ID [4287] host [windows01] user [admin] process ID [2452]
+[2017.12.04 11:39:59] [0006m.12s.097ms] [1] CMT: There are [3] clients now: 4279, 4284, 4287
+[2017.12.04 11:39:59] [0006m.12s.253ms] [1] SC[4287]: UnRegistered sub-client [JobPrefsDBPI_1433296] with ID [1] for session ID [4287] host [windows01] user [admin] process ID [2452]
+[2017.12.04 11:39:59] [0006m.12s.332ms] [1] CMT: Removed client [4287]
+[2017.12.04 11:39:59] [0006m.12s.332ms] [1] CMT: There are [2] clients now: 4279, 4284
+[2017.12.04 11:40:00] [0006m.12s.675ms] [0] IT: Session [4288] for host [windows01] user [admin] with process ID [2452] created
+[2017.12.04 11:40:00] [0006m.12s.675ms] [1] SC[4288]: Registered sub-client [JobPrefsDBPI_1433968] with ID [1] for session ID [4288] host [windows01] user [admin] process ID [2452]
+[2017.12.04 11:40:00] [0006m.12s.707ms] [1] SC[4288]: UnRegistered sub-client [JobPrefsDBPI_1433968] with ID [1] for session ID [4288] host [windows01] user [admin] process ID [2452]
+[2017.12.04 11:40:00] [0006m.12s.785ms] [1] CMT: There are [3] clients now: 4279, 4284, 4288
+[2017.12.04 11:40:00] [0006m.12s.785ms] [1] CMT: Removed client [4288]
+[2017.12.04 11:40:00] [0006m.12s.785ms] [1] CMT: There are [2] clients now: 4279, 4284
+[2017.12.04 11:40:03] [0006m.16s.378ms] [0] IT: Session [4289] for host [windows01] user [admin] with process ID [2344] created
+[2017.12.04 11:40:03] [0006m.16s.378ms] [1] SC[4289]: Registered sub-client [JobPrefsDBPI_1437593] with ID [1] for session ID [4289] host [windows01] user [admin] process ID [2344]
+[2017.12.04 11:40:03] [0006m.16s.425ms] [1] CMT: There are [3] clients now: 4279, 4284, 4289
+[2017.12.04 11:40:03] [0006m.16s.425ms] [1] SC[4289]: Registered sub-client [Expedition_1437765] with ID [2] for session ID [4289] host [windows01] user [admin] process ID [2344]
+[2017.12.04 11:40:03] [0006m.16s.472ms] [1] SC[4289]: UnRegistered sub-client [JobPrefsDBPI_1437593] with ID [1] for session ID [4289] host [windows01] user [admin] process ID [2344]
+[2017.12.04 11:40:03] [0006m.16s.535ms] [1] SC[4289]: UnRegistered sub-client [Expedition_1437765] with ID [2] for session ID [4289] host [windows01] user [admin] process ID [2344]
+[2017.12.04 11:40:03] [0006m.16s.628ms] [1] CMT: Removed client [4289]
+[2017.12.04 11:40:03] [0006m.16s.628ms] [1] CMT: There are [2] clients now: 4279, 4284
+[2017.12.04 11:40:04] [0006m.17s.144ms] [1] SC[4284]: Registered sub-client [EEVM_EEVM_222905876] with ID [10] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:04] [0006m.17s.160ms] [1] SC[4284]: UnRegistered sub-client [EEVM_EEVM_222905876] with ID [10] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:04] [0006m.17s.175ms] [1] SC[4284]: Registered sub-client [EEVM_EEVM_222905876] with ID [11] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:04] [0006m.17s.175ms] [1] SC[4284]: UnRegistered sub-client [EEVM_EEVM_222905876] with ID [11] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:04] [0006m.17s.175ms] [1] SC[4284]: Registered sub-client [EEVM_EEVM_222905876] with ID [12] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:04] [0006m.17s.253ms] [1] SC[4284]: UnRegistered sub-client [EEVM_EEVM_222905876] with ID [12] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:05] [0006m.18s.488ms] [1] SC[4284]: UnRegistered sub-client [Expedition PCB_1353078] with ID [1] for session ID [4284] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:05] [0006m.18s.566ms] [1] CMT: Removed client [4284]
+[2017.12.04 11:40:05] [0006m.18s.566ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:40:10] [0006m.23s.050ms] [0] IT: Session [4290] for host [windows01] user [admin] with process ID [1116] created
+[2017.12.04 11:40:10] [0006m.23s.050ms] [1] SC[4290]: Registered sub-client [Expedition PCB_1444125] with ID [1] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:10] [0006m.23s.066ms] [1] CMT: There are [2] clients now: 4279, 4290
+[2017.12.04 11:40:10] [0006m.23s.582ms] [1] SC[4290]: Registered sub-client [JobPrefsDBPI_1444921] with ID [2] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:10] [0006m.23s.597ms] [1] SC[4290]: UnRegistered sub-client [JobPrefsDBPI_1444921] with ID [2] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:22] [0006m.35s.097ms] [1] SC[4290]: Registered sub-client [JobPrefsDBPI_1456421] with ID [3] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:22] [0006m.35s.316ms] [1] SC[4290]: UnRegistered sub-client [JobPrefsDBPI_1456421] with ID [3] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:40:22] [0006m.35s.363ms] [1] SC[4290]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:19] [0011m.31s.898ms] [1] SC[4290]: Registered sub-client [JobPrefsDBPI_1753234] with ID [5] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:19] [0011m.31s.992ms] [1] SC[4290]: UnRegistered sub-client [JobPrefsDBPI_1753234] with ID [5] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:19] [0011m.32s.039ms] [1] SC[4290]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:19] [0011m.32s.039ms] [1] SC[4290]: Registered sub-client [EEVM_EEVM_1633484] with ID [6] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:19] [0011m.32s.054ms] [1] SC[4290]: UnRegistered sub-client [EEVM_EEVM_1633484] with ID [6] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:26] [0011m.39s.195ms] [1] SC[4290]: Registered sub-client [JobPrefsDBPI_1760531] with ID [7] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:26] [0011m.39s.257ms] [1] SC[4290]: UnRegistered sub-client [JobPrefsDBPI_1760531] with ID [7] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:26] [0011m.39s.367ms] [1] SC[4290]: Registered sub-client [JobPrefsDBPI_1760703] with ID [8] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:26] [0011m.39s.398ms] [1] SC[4290]: UnRegistered sub-client [JobPrefsDBPI_1760703] with ID [8] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:35] [0011m.48s.023ms] [0] IT: Session [4291] for host [windows01] user [admin] with process ID [496] created
+[2017.12.04 11:45:35] [0011m.48s.023ms] [1] SC[4291]: Registered sub-client [Packager_1769015] with ID [1] for session ID [4291] host [windows01] user [admin] process ID [496]
+[2017.12.04 11:45:35] [0011m.48s.054ms] [1] CMT: There are [3] clients now: 4279, 4290, 4291
+[2017.12.04 11:45:36] [0011m.48s.882ms] [1] SC[4291]: UnRegistered sub-client [Packager_1769015] with ID [1] for session ID [4291] host [windows01] user [admin] process ID [496]
+[2017.12.04 11:45:36] [0011m.48s.960ms] [1] CMT: Removed client [4291]
+[2017.12.04 11:45:36] [0011m.48s.960ms] [1] CMT: There are [2] clients now: 4279, 4290
+[2017.12.04 11:45:37] [0011m.50s.335ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.04 11:45:38] [0011m.51s.132ms] [0] IT: Session [4292] for host [windows01] user [admin] with process ID [2828] created
+[2017.12.04 11:45:38] [0011m.51s.148ms] [1] CMT: There are [3] clients now: 4279, 4290, 4292
+[2017.12.04 11:45:38] [0011m.51s.148ms] [1] SC[4292]: Registered sub-client [Expedition_1772390] with ID [1] for session ID [4292] host [windows01] user [admin] process ID [2828]
+[2017.12.04 11:45:38] [0011m.51s.210ms] [1] SC[4292]: UnRegistered sub-client [Expedition_1772390] with ID [1] for session ID [4292] host [windows01] user [admin] process ID [2828]
+[2017.12.04 11:45:38] [0011m.51s.304ms] [1] CMT: Removed client [4292]
+[2017.12.04 11:45:38] [0011m.51s.304ms] [1] CMT: There are [2] clients now: 4279, 4290
+[2017.12.04 11:45:39] [0011m.52s.304ms] [0] IT: Session [4293] for host [windows01] user [admin] with process ID [2828] created
+[2017.12.04 11:45:39] [0011m.52s.320ms] [1] SC[4293]: Registered sub-client [JobPrefsDBPI_1773593] with ID [1] for session ID [4293] host [windows01] user [admin] process ID [2828]
+[2017.12.04 11:45:39] [0011m.52s.351ms] [1] SC[4293]: UnRegistered sub-client [JobPrefsDBPI_1773593] with ID [1] for session ID [4293] host [windows01] user [admin] process ID [2828]
+[2017.12.04 11:45:39] [0011m.52s.445ms] [1] CMT: There are [3] clients now: 4279, 4290, 4293
+[2017.12.04 11:45:39] [0011m.52s.445ms] [1] CMT: Removed client [4293]
+[2017.12.04 11:45:39] [0011m.52s.445ms] [1] CMT: There are [2] clients now: 4279, 4290
+[2017.12.04 11:45:40] [0011m.52s.960ms] [0] IT: Session [4294] for host [windows01] user [admin] with process ID [2828] created
+[2017.12.04 11:45:40] [0011m.52s.960ms] [1] SC[4294]: Registered sub-client [JobPrefsDBPI_1774234] with ID [1] for session ID [4294] host [windows01] user [admin] process ID [2828]
+[2017.12.04 11:45:40] [0011m.52s.976ms] [1] SC[4294]: UnRegistered sub-client [JobPrefsDBPI_1774234] with ID [1] for session ID [4294] host [windows01] user [admin] process ID [2828]
+[2017.12.04 11:45:40] [0011m.53s.070ms] [1] CMT: There are [3] clients now: 4279, 4290, 4294
+[2017.12.04 11:45:40] [0011m.53s.070ms] [1] CMT: Removed client [4294]
+[2017.12.04 11:45:40] [0011m.53s.070ms] [1] CMT: There are [2] clients now: 4279, 4290
+[2017.12.04 11:45:42] [0011m.55s.007ms] [0] IT: Session [4295] for host [windows01] user [admin] with process ID [1316] created
+[2017.12.04 11:45:42] [0011m.55s.007ms] [1] SC[4295]: Registered sub-client [JobPrefsDBPI_1776156] with ID [1] for session ID [4295] host [windows01] user [admin] process ID [1316]
+[2017.12.04 11:45:42] [0011m.55s.039ms] [1] CMT: There are [3] clients now: 4279, 4290, 4295
+[2017.12.04 11:45:42] [0011m.55s.070ms] [1] SC[4295]: Registered sub-client [Expedition_1776390] with ID [2] for session ID [4295] host [windows01] user [admin] process ID [1316]
+[2017.12.04 11:45:42] [0011m.55s.117ms] [1] SC[4295]: UnRegistered sub-client [JobPrefsDBPI_1776156] with ID [1] for session ID [4295] host [windows01] user [admin] process ID [1316]
+[2017.12.04 11:45:42] [0011m.55s.164ms] [1] SC[4295]: UnRegistered sub-client [Expedition_1776390] with ID [2] for session ID [4295] host [windows01] user [admin] process ID [1316]
+[2017.12.04 11:45:42] [0011m.55s.257ms] [1] CMT: Removed client [4295]
+[2017.12.04 11:45:42] [0011m.55s.257ms] [1] CMT: There are [2] clients now: 4279, 4290
+[2017.12.04 11:45:43] [0011m.55s.773ms] [1] SC[4290]: Registered sub-client [EEVM_EEVM_396068644] with ID [9] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:43] [0011m.55s.789ms] [1] SC[4290]: UnRegistered sub-client [EEVM_EEVM_396068644] with ID [9] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:43] [0011m.55s.789ms] [1] SC[4290]: Registered sub-client [EEVM_EEVM_396068644] with ID [10] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:43] [0011m.55s.789ms] [1] SC[4290]: UnRegistered sub-client [EEVM_EEVM_396068644] with ID [10] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:43] [0011m.55s.789ms] [1] SC[4290]: Registered sub-client [EEVM_EEVM_396068644] with ID [11] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:43] [0011m.55s.804ms] [1] SC[4290]: UnRegistered sub-client [EEVM_EEVM_396068644] with ID [11] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:44] [0011m.57s.554ms] [1] SC[4290]: UnRegistered sub-client [Expedition PCB_1444125] with ID [1] for session ID [4290] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:44] [0011m.57s.601ms] [1] CMT: Removed client [4290]
+[2017.12.04 11:45:44] [0011m.57s.601ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:45:47] [0012m.00s.226ms] [0] IT: Session [4296] for host [windows01] user [admin] with process ID [1116] created
+[2017.12.04 11:45:47] [0012m.00s.226ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:45:47] [0012m.00s.257ms] [1] SC[4296]: Registered sub-client [Expedition PCB_1781390] with ID [1] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:48] [0012m.00s.789ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1782125] with ID [2] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:48] [0012m.00s.820ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1782125] with ID [2] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:59] [0012m.12s.335ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1793656] with ID [3] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:59] [0012m.12s.351ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1793656] with ID [3] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:45:59] [0012m.12s.414ms] [1] SC[4296]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:46:36] [0012m.49s.226ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1830562] with ID [5] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:46:36] [0012m.49s.226ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1830562] with ID [5] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:46:38] [0012m.50s.820ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1832156] with ID [6] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:46:38] [0012m.50s.820ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1832156] with ID [6] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:04] [0013m.17s.507ms] [0] IT: Session [4297] for host [windows01] user [admin] with process ID [1864] created
+[2017.12.04 11:47:04] [0013m.17s.507ms] [1] SC[4297]: Registered sub-client [ICDBC] with ID [1] for session ID [4297] host [windows01] user [admin] process ID [1864]
+[2017.12.04 11:47:04] [0013m.17s.523ms] [1] SC[4297]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4297] host [windows01] user [admin] process ID [1864]
+[2017.12.04 11:47:04] [0013m.17s.570ms] [1] CMT: There are [3] clients now: 4279, 4296, 4297
+[2017.12.04 11:47:07] [0013m.20s.539ms] [1] SC[4297]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4297] host [windows01] user [admin] process ID [1864]
+[2017.12.04 11:47:07] [0013m.20s.570ms] [1] SC[4297]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4297] host [windows01] user [admin] process ID [1864]
+[2017.12.04 11:47:08] [0013m.20s.648ms] [1] CMT: Removed client [4297]
+[2017.12.04 11:47:08] [0013m.20s.648ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:10] [0013m.23s.304ms] [0] IT: Session [4298] for host [windows01] user [admin] with process ID [1892] created
+[2017.12.04 11:47:10] [0013m.23s.320ms] [1] SC[4298]: Registered sub-client [Packager_1864562] with ID [1] for session ID [4298] host [windows01] user [admin] process ID [1892]
+[2017.12.04 11:47:10] [0013m.23s.382ms] [1] CMT: There are [3] clients now: 4279, 4296, 4298
+[2017.12.04 11:47:11] [0013m.24s.226ms] [1] SC[4298]: UnRegistered sub-client [Packager_1864562] with ID [1] for session ID [4298] host [windows01] user [admin] process ID [1892]
+[2017.12.04 11:47:11] [0013m.24s.320ms] [1] CMT: Removed client [4298]
+[2017.12.04 11:47:11] [0013m.24s.320ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:29] [0013m.42s.570ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1883890] with ID [7] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:30] [0013m.42s.695ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1883890] with ID [7] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:30] [0013m.42s.773ms] [1] SC[4296]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:30] [0013m.42s.820ms] [1] SC[4296]: Registered sub-client [EEVM_EEVM_1633484] with ID [8] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:30] [0013m.42s.976ms] [1] SC[4296]: UnRegistered sub-client [EEVM_EEVM_1633484] with ID [8] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:33] [0013m.45s.648ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1886968] with ID [9] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:33] [0013m.45s.664ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1886968] with ID [9] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:33] [0013m.45s.820ms] [1] SC[4296]: Registered sub-client [JobPrefsDBPI_1887140] with ID [10] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:33] [0013m.45s.835ms] [1] SC[4296]: UnRegistered sub-client [JobPrefsDBPI_1887140] with ID [10] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:34] [0013m.46s.726ms] [0] IT: Session [4299] for host [windows01] user [admin] with process ID [996] created
+[2017.12.04 11:47:34] [0013m.46s.742ms] [1] SC[4299]: Registered sub-client [Packager_1887984] with ID [1] for session ID [4299] host [windows01] user [admin] process ID [996]
+[2017.12.04 11:47:34] [0013m.46s.820ms] [1] CMT: There are [3] clients now: 4279, 4296, 4299
+[2017.12.04 11:47:34] [0013m.47s.398ms] [1] SC[4299]: UnRegistered sub-client [Packager_1887984] with ID [1] for session ID [4299] host [windows01] user [admin] process ID [996]
+[2017.12.04 11:47:34] [0013m.47s.492ms] [1] CMT: Removed client [4299]
+[2017.12.04 11:47:34] [0013m.47s.492ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:35] [0013m.48s.382ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.04 11:47:36] [0013m.49s.273ms] [0] IT: Session [4300] for host [windows01] user [admin] with process ID [2824] created
+[2017.12.04 11:47:36] [0013m.49s.273ms] [1] SC[4300]: Registered sub-client [Expedition_1890453] with ID [1] for session ID [4300] host [windows01] user [admin] process ID [2824]
+[2017.12.04 11:47:36] [0013m.49s.351ms] [1] SC[4300]: UnRegistered sub-client [Expedition_1890453] with ID [1] for session ID [4300] host [windows01] user [admin] process ID [2824]
+[2017.12.04 11:47:36] [0013m.49s.445ms] [1] CMT: There are [3] clients now: 4279, 4296, 4300
+[2017.12.04 11:47:36] [0013m.49s.445ms] [1] CMT: Removed client [4300]
+[2017.12.04 11:47:36] [0013m.49s.445ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:37] [0013m.50s.398ms] [0] IT: Session [4301] for host [windows01] user [admin] with process ID [2824] created
+[2017.12.04 11:47:37] [0013m.50s.398ms] [1] SC[4301]: Registered sub-client [JobPrefsDBPI_1891656] with ID [1] for session ID [4301] host [windows01] user [admin] process ID [2824]
+[2017.12.04 11:47:37] [0013m.50s.445ms] [1] CMT: There are [3] clients now: 4279, 4296, 4301
+[2017.12.04 11:47:37] [0013m.50s.445ms] [1] SC[4301]: UnRegistered sub-client [JobPrefsDBPI_1891656] with ID [1] for session ID [4301] host [windows01] user [admin] process ID [2824]
+[2017.12.04 11:47:37] [0013m.50s.554ms] [1] CMT: Removed client [4301]
+[2017.12.04 11:47:37] [0013m.50s.554ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:38] [0013m.51s.054ms] [0] IT: Session [4302] for host [windows01] user [admin] with process ID [2824] created
+[2017.12.04 11:47:38] [0013m.51s.054ms] [1] SC[4302]: Registered sub-client [JobPrefsDBPI_1892328] with ID [1] for session ID [4302] host [windows01] user [admin] process ID [2824]
+[2017.12.04 11:47:38] [0013m.51s.085ms] [1] SC[4302]: UnRegistered sub-client [JobPrefsDBPI_1892328] with ID [1] for session ID [4302] host [windows01] user [admin] process ID [2824]
+[2017.12.04 11:47:38] [0013m.51s.164ms] [1] CMT: There are [3] clients now: 4279, 4296, 4302
+[2017.12.04 11:47:38] [0013m.51s.164ms] [1] CMT: Removed client [4302]
+[2017.12.04 11:47:38] [0013m.51s.164ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:40] [0013m.53s.085ms] [0] IT: Session [4303] for host [windows01] user [admin] with process ID [2900] created
+[2017.12.04 11:47:40] [0013m.53s.085ms] [1] SC[4303]: Registered sub-client [JobPrefsDBPI_1894203] with ID [1] for session ID [4303] host [windows01] user [admin] process ID [2900]
+[2017.12.04 11:47:40] [0013m.53s.132ms] [1] SC[4303]: Registered sub-client [Expedition_1894468] with ID [2] for session ID [4303] host [windows01] user [admin] process ID [2900]
+[2017.12.04 11:47:40] [0013m.53s.195ms] [1] SC[4303]: UnRegistered sub-client [JobPrefsDBPI_1894203] with ID [1] for session ID [4303] host [windows01] user [admin] process ID [2900]
+[2017.12.04 11:47:40] [0013m.53s.195ms] [1] CMT: There are [3] clients now: 4279, 4296, 4303
+[2017.12.04 11:47:40] [0013m.53s.242ms] [1] SC[4303]: UnRegistered sub-client [Expedition_1894468] with ID [2] for session ID [4303] host [windows01] user [admin] process ID [2900]
+[2017.12.04 11:47:40] [0013m.53s.335ms] [1] CMT: Removed client [4303]
+[2017.12.04 11:47:40] [0013m.53s.335ms] [1] CMT: There are [2] clients now: 4279, 4296
+[2017.12.04 11:47:41] [0013m.53s.710ms] [1] SC[4296]: Registered sub-client [EEVM_EEVM_396668460] with ID [11] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:41] [0013m.53s.726ms] [1] SC[4296]: UnRegistered sub-client [EEVM_EEVM_396668460] with ID [11] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:41] [0013m.53s.726ms] [1] SC[4296]: Registered sub-client [EEVM_EEVM_396668460] with ID [12] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:41] [0013m.53s.726ms] [1] SC[4296]: UnRegistered sub-client [EEVM_EEVM_396668460] with ID [12] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:41] [0013m.53s.726ms] [1] SC[4296]: Registered sub-client [EEVM_EEVM_396668460] with ID [13] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:41] [0013m.53s.757ms] [1] SC[4296]: UnRegistered sub-client [EEVM_EEVM_396668460] with ID [13] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:43] [0013m.55s.851ms] [1] SC[4296]: UnRegistered sub-client [Expedition PCB_1781390] with ID [1] for session ID [4296] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:43] [0013m.55s.929ms] [1] CMT: Removed client [4296]
+[2017.12.04 11:47:43] [0013m.55s.929ms] [1] CMT: There are [1] clients now: 4279
+[2017.12.04 11:47:44] [0013m.57s.289ms] [0] IT: Session [4304] for host [windows01] user [admin] with process ID [1116] created
+[2017.12.04 11:47:44] [0013m.57s.289ms] [1] SC[4304]: Registered sub-client [Expedition PCB_1898515] with ID [1] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:44] [0013m.57s.351ms] [1] CMT: There are [2] clients now: 4279, 4304
+[2017.12.04 11:47:45] [0013m.57s.835ms] [1] SC[4304]: Registered sub-client [JobPrefsDBPI_1899125] with ID [2] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:45] [0013m.57s.867ms] [1] SC[4304]: UnRegistered sub-client [JobPrefsDBPI_1899125] with ID [2] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:57] [0014m.09s.697ms] [1] SC[4304]: Registered sub-client [JobPrefsDBPI_1911046] with ID [3] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:57] [0014m.09s.712ms] [1] SC[4304]: UnRegistered sub-client [JobPrefsDBPI_1911046] with ID [3] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:47:57] [0014m.09s.759ms] [1] SC[4304]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:54:17] [0020m.30s.384ms] [0] IT: Session [4305] for host [windows01] user [admin] with process ID [2924] created
+[2017.12.04 11:54:17] [0020m.30s.384ms] [1] SC[4305]: Registered sub-client [ICDBC] with ID [1] for session ID [4305] host [windows01] user [admin] process ID [2924]
+[2017.12.04 11:54:17] [0020m.30s.400ms] [1] CMT: There are [3] clients now: 4279, 4304, 4305
+[2017.12.04 11:54:17] [0020m.30s.416ms] [1] SC[4305]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4305] host [windows01] user [admin] process ID [2924]
+[2017.12.04 11:54:19] [0020m.32s.322ms] [1] SC[4305]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4305] host [windows01] user [admin] process ID [2924]
+[2017.12.04 11:54:19] [0020m.32s.337ms] [1] SC[4305]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4305] host [windows01] user [admin] process ID [2924]
+[2017.12.04 11:54:19] [0020m.32s.384ms] [1] CMT: Removed client [4305]
+[2017.12.04 11:54:19] [0020m.32s.384ms] [1] CMT: There are [2] clients now: 4279, 4304
+[2017.12.04 11:54:21] [0020m.33s.744ms] [0] IT: Session [4306] for host [windows01] user [admin] with process ID [2532] created
+[2017.12.04 11:54:21] [0020m.33s.744ms] [1] SC[4306]: Registered sub-client [Packager_2295000] with ID [1] for session ID [4306] host [windows01] user [admin] process ID [2532]
+[2017.12.04 11:54:21] [0020m.33s.822ms] [1] CMT: There are [3] clients now: 4279, 4304, 4306
+[2017.12.04 11:54:22] [0020m.34s.744ms] [1] SC[4306]: UnRegistered sub-client [Packager_2295000] with ID [1] for session ID [4306] host [windows01] user [admin] process ID [2532]
+[2017.12.04 11:54:22] [0020m.34s.837ms] [1] CMT: Removed client [4306]
+[2017.12.04 11:54:22] [0020m.34s.837ms] [1] CMT: There are [2] clients now: 4279, 4304
+[2017.12.04 11:54:35] [0020m.47s.962ms] [1] SC[4279]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4279] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:54:35] [0020m.48s.478ms] [1] CMT: Removed client [4279]
+[2017.12.04 11:54:35] [0020m.48s.478ms] [1] CMT: There are [1] clients now: 4304
+[2017.12.04 11:54:51] [0021m.04s.572ms] [0] IT: Session [4307] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:54:51] [0021m.04s.572ms] [1] CMT: There are [2] clients now: 4304, 4307
+[2017.12.04 11:54:51] [0021m.04s.603ms] [1] SC[4307]: Registered sub-client [DCDV] with ID [1] for session ID [4307] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:54:52] [0021m.05s.134ms] [1] SC[4307]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4307] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:54:52] [0021m.05s.228ms] [1] CMT: Removed client [4307]
+[2017.12.04 11:54:52] [0021m.05s.228ms] [1] CMT: There are [1] clients now: 4304
+[2017.12.04 11:54:53] [0021m.05s.728ms] [0] IT: Session [4308] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:54:53] [0021m.05s.744ms] [1] SC[4308]: Registered sub-client [DCDV] with ID [1] for session ID [4308] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:54:53] [0021m.05s.775ms] [1] CMT: There are [2] clients now: 4304, 4308
+[2017.12.04 11:54:53] [0021m.05s.962ms] [1] SC[4308]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4308] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:54:53] [0021m.06s.072ms] [1] CMT: Removed client [4308]
+[2017.12.04 11:54:53] [0021m.06s.072ms] [1] CMT: There are [1] clients now: 4304
+[2017.12.04 11:54:56] [0021m.08s.822ms] [0] IT: Session [4309] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:54:56] [0021m.08s.822ms] [1] CMT: There are [2] clients now: 4304, 4309
+[2017.12.04 11:54:56] [0021m.08s.853ms] [1] SC[4309]: Registered sub-client [DCDV] with ID [1] for session ID [4309] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:55:03] [0021m.16s.509ms] [1] SC[4304]: Registered sub-client [JobPrefsDBPI_2337859] with ID [5] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:03] [0021m.16s.572ms] [1] SC[4304]: UnRegistered sub-client [JobPrefsDBPI_2337859] with ID [5] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:03] [0021m.16s.619ms] [1] SC[4304]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:03] [0021m.16s.619ms] [1] SC[4304]: Registered sub-client [EEVM_EEVM_1633484] with ID [6] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:03] [0021m.16s.619ms] [1] SC[4304]: UnRegistered sub-client [EEVM_EEVM_1633484] with ID [6] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:04] [0021m.17s.369ms] [1] SC[4304]: Registered sub-client [JobPrefsDBPI_2338718] with ID [7] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:04] [0021m.17s.384ms] [1] SC[4304]: UnRegistered sub-client [JobPrefsDBPI_2338718] with ID [7] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:04] [0021m.17s.525ms] [1] SC[4304]: Registered sub-client [JobPrefsDBPI_2338875] with ID [8] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:04] [0021m.17s.541ms] [1] SC[4304]: UnRegistered sub-client [JobPrefsDBPI_2338875] with ID [8] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:05] [0021m.18s.353ms] [0] IT: Session [4310] for host [windows01] user [admin] with process ID [592] created
+[2017.12.04 11:55:05] [0021m.18s.353ms] [1] SC[4310]: Registered sub-client [Packager_2339593] with ID [1] for session ID [4310] host [windows01] user [admin] process ID [592]
+[2017.12.04 11:55:05] [0021m.18s.462ms] [1] CMT: There are [3] clients now: 4304, 4309, 4310
+[2017.12.04 11:55:06] [0021m.19s.009ms] [1] SC[4310]: UnRegistered sub-client [Packager_2339593] with ID [1] for session ID [4310] host [windows01] user [admin] process ID [592]
+[2017.12.04 11:55:06] [0021m.19s.087ms] [1] CMT: Removed client [4310]
+[2017.12.04 11:55:06] [0021m.19s.087ms] [1] CMT: There are [2] clients now: 4304, 4309
+[2017.12.04 11:55:07] [0021m.20s.478ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.04 11:55:08] [0021m.21s.603ms] [0] IT: Session [4311] for host [windows01] user [admin] with process ID [2932] created
+[2017.12.04 11:55:08] [0021m.21s.603ms] [1] SC[4311]: Registered sub-client [Expedition_2342843] with ID [1] for session ID [4311] host [windows01] user [admin] process ID [2932]
+[2017.12.04 11:55:09] [0021m.21s.650ms] [1] CMT: There are [3] clients now: 4304, 4309, 4311
+[2017.12.04 11:55:09] [0021m.21s.666ms] [1] SC[4311]: UnRegistered sub-client [Expedition_2342843] with ID [1] for session ID [4311] host [windows01] user [admin] process ID [2932]
+[2017.12.04 11:55:09] [0021m.21s.759ms] [1] CMT: Removed client [4311]
+[2017.12.04 11:55:09] [0021m.21s.759ms] [1] CMT: There are [2] clients now: 4304, 4309
+[2017.12.04 11:55:10] [0021m.22s.806ms] [0] IT: Session [4312] for host [windows01] user [admin] with process ID [2932] created
+[2017.12.04 11:55:10] [0021m.22s.806ms] [1] SC[4312]: Registered sub-client [JobPrefsDBPI_2344109] with ID [1] for session ID [4312] host [windows01] user [admin] process ID [2932]
+[2017.12.04 11:55:10] [0021m.22s.853ms] [1] SC[4312]: UnRegistered sub-client [JobPrefsDBPI_2344109] with ID [1] for session ID [4312] host [windows01] user [admin] process ID [2932]
+[2017.12.04 11:55:10] [0021m.22s.931ms] [1] CMT: There are [3] clients now: 4304, 4309, 4312
+[2017.12.04 11:55:10] [0021m.22s.931ms] [1] CMT: Removed client [4312]
+[2017.12.04 11:55:10] [0021m.22s.931ms] [1] CMT: There are [2] clients now: 4304, 4309
+[2017.12.04 11:55:10] [0021m.23s.509ms] [0] IT: Session [4313] for host [windows01] user [admin] with process ID [2932] created
+[2017.12.04 11:55:10] [0021m.23s.509ms] [1] SC[4313]: Registered sub-client [JobPrefsDBPI_2344796] with ID [1] for session ID [4313] host [windows01] user [admin] process ID [2932]
+[2017.12.04 11:55:10] [0021m.23s.525ms] [1] SC[4313]: UnRegistered sub-client [JobPrefsDBPI_2344796] with ID [1] for session ID [4313] host [windows01] user [admin] process ID [2932]
+[2017.12.04 11:55:10] [0021m.23s.619ms] [1] CMT: There are [3] clients now: 4304, 4309, 4313
+[2017.12.04 11:55:10] [0021m.23s.619ms] [1] CMT: Removed client [4313]
+[2017.12.04 11:55:10] [0021m.23s.619ms] [1] CMT: There are [2] clients now: 4304, 4309
+[2017.12.04 11:55:12] [0021m.25s.509ms] [0] IT: Session [4314] for host [windows01] user [admin] with process ID [1772] created
+[2017.12.04 11:55:12] [0021m.25s.509ms] [1] SC[4314]: Registered sub-client [JobPrefsDBPI_2346703] with ID [1] for session ID [4314] host [windows01] user [admin] process ID [1772]
+[2017.12.04 11:55:12] [0021m.25s.541ms] [1] CMT: There are [3] clients now: 4304, 4309, 4314
+[2017.12.04 11:55:12] [0021m.25s.541ms] [1] SC[4314]: Registered sub-client [Expedition_2346890] with ID [2] for session ID [4314] host [windows01] user [admin] process ID [1772]
+[2017.12.04 11:55:13] [0021m.25s.650ms] [1] SC[4314]: UnRegistered sub-client [JobPrefsDBPI_2346703] with ID [1] for session ID [4314] host [windows01] user [admin] process ID [1772]
+[2017.12.04 11:55:13] [0021m.25s.697ms] [1] SC[4314]: UnRegistered sub-client [Expedition_2346890] with ID [2] for session ID [4314] host [windows01] user [admin] process ID [1772]
+[2017.12.04 11:55:13] [0021m.25s.853ms] [1] CMT: Removed client [4314]
+[2017.12.04 11:55:13] [0021m.25s.853ms] [1] CMT: There are [2] clients now: 4304, 4309
+[2017.12.04 11:55:13] [0021m.26s.212ms] [1] SC[4304]: Registered sub-client [EEVM_EEVM_396651332] with ID [9] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:13] [0021m.26s.244ms] [1] SC[4304]: UnRegistered sub-client [EEVM_EEVM_396651332] with ID [9] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:13] [0021m.26s.244ms] [1] SC[4304]: Registered sub-client [EEVM_EEVM_396651332] with ID [10] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:13] [0021m.26s.244ms] [1] SC[4304]: UnRegistered sub-client [EEVM_EEVM_396651332] with ID [10] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:13] [0021m.26s.259ms] [1] SC[4304]: Registered sub-client [EEVM_EEVM_396651332] with ID [11] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:13] [0021m.26s.306ms] [1] SC[4304]: UnRegistered sub-client [EEVM_EEVM_396651332] with ID [11] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:16] [0021m.28s.916ms] [1] SC[4304]: UnRegistered sub-client [Expedition PCB_1898515] with ID [1] for session ID [4304] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:16] [0021m.29s.119ms] [1] CMT: Removed client [4304]
+[2017.12.04 11:55:16] [0021m.29s.119ms] [1] CMT: There are [1] clients now: 4309
+[2017.12.04 11:55:19] [0021m.31s.884ms] [0] IT: Session [4315] for host [windows01] user [admin] with process ID [1116] created
+[2017.12.04 11:55:19] [0021m.31s.962ms] [1] CMT: There are [2] clients now: 4309, 4315
+[2017.12.04 11:55:19] [0021m.31s.978ms] [1] SC[4315]: Registered sub-client [Expedition PCB_2352984] with ID [1] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:20] [0021m.32s.806ms] [1] SC[4315]: Registered sub-client [JobPrefsDBPI_2354156] with ID [2] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:20] [0021m.32s.869ms] [1] SC[4315]: UnRegistered sub-client [JobPrefsDBPI_2354156] with ID [2] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:34] [0021m.47s.210ms] [1] SC[4315]: Registered sub-client [JobPrefsDBPI_2368546] with ID [3] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:34] [0021m.47s.226ms] [1] SC[4315]: UnRegistered sub-client [JobPrefsDBPI_2368546] with ID [3] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:55:34] [0021m.47s.257ms] [1] SC[4315]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:56:36] [0022m.48s.695ms] [0] IT: Session [4316] for host [windows01] user [admin] with process ID [2224] created
+[2017.12.04 11:56:36] [0022m.48s.695ms] [1] SC[4316]: Registered sub-client [ICDBC] with ID [1] for session ID [4316] host [windows01] user [admin] process ID [2224]
+[2017.12.04 11:56:36] [0022m.48s.726ms] [1] SC[4316]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4316] host [windows01] user [admin] process ID [2224]
+[2017.12.04 11:56:36] [0022m.48s.773ms] [1] CMT: There are [3] clients now: 4309, 4315, 4316
+[2017.12.04 11:56:38] [0022m.50s.976ms] [1] SC[4316]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4316] host [windows01] user [admin] process ID [2224]
+[2017.12.04 11:56:38] [0022m.50s.976ms] [1] SC[4316]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4316] host [windows01] user [admin] process ID [2224]
+[2017.12.04 11:56:38] [0022m.51s.023ms] [1] CMT: Removed client [4316]
+[2017.12.04 11:56:38] [0022m.51s.023ms] [1] CMT: There are [2] clients now: 4309, 4315
+[2017.12.04 11:56:40] [0022m.52s.929ms] [0] IT: Session [4317] for host [windows01] user [admin] with process ID [1936] created
+[2017.12.04 11:56:40] [0022m.52s.945ms] [1] SC[4317]: Registered sub-client [Packager_2434140] with ID [1] for session ID [4317] host [windows01] user [admin] process ID [1936]
+[2017.12.04 11:56:40] [0022m.52s.976ms] [1] CMT: There are [3] clients now: 4309, 4315, 4317
+[2017.12.04 11:56:41] [0022m.53s.773ms] [1] SC[4317]: UnRegistered sub-client [Packager_2434140] with ID [1] for session ID [4317] host [windows01] user [admin] process ID [1936]
+[2017.12.04 11:56:41] [0022m.53s.867ms] [1] CMT: Removed client [4317]
+[2017.12.04 11:56:41] [0022m.53s.867ms] [1] CMT: There are [2] clients now: 4309, 4315
+[2017.12.04 11:57:00] [0023m.13s.101ms] [1] SC[4309]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4309] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:57:00] [0023m.13s.351ms] [1] CMT: Removed client [4309]
+[2017.12.04 11:57:00] [0023m.13s.351ms] [1] CMT: There are [1] clients now: 4315
+[2017.12.04 11:57:11] [0023m.24s.273ms] [0] IT: Session [4318] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:57:11] [0023m.24s.273ms] [1] CMT: There are [2] clients now: 4315, 4318
+[2017.12.04 11:57:11] [0023m.24s.273ms] [1] SC[4318]: Registered sub-client [DCDV] with ID [1] for session ID [4318] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:57:11] [0023m.24s.273ms] [1] SC[4318]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4318] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:57:11] [0023m.24s.382ms] [1] CMT: Removed client [4318]
+[2017.12.04 11:57:11] [0023m.24s.382ms] [1] CMT: There are [1] clients now: 4315
+[2017.12.04 11:57:12] [0023m.24s.835ms] [0] IT: Session [4319] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:57:12] [0023m.24s.835ms] [1] SC[4319]: Registered sub-client [DCDV] with ID [1] for session ID [4319] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:57:12] [0023m.24s.851ms] [1] SC[4319]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4319] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:57:12] [0023m.24s.960ms] [1] CMT: There are [2] clients now: 4315, 4319
+[2017.12.04 11:57:12] [0023m.24s.960ms] [1] CMT: Removed client [4319]
+[2017.12.04 11:57:12] [0023m.24s.960ms] [1] CMT: There are [1] clients now: 4315
+[2017.12.04 11:57:33] [0023m.45s.804ms] [0] IT: Session [4320] for host [windows01] user [admin] with process ID [2192] created
+[2017.12.04 11:57:33] [0023m.45s.820ms] [1] SC[4320]: Registered sub-client [DCDV] with ID [1] for session ID [4320] host [windows01] user [admin] process ID [2192]
+[2017.12.04 11:57:33] [0023m.45s.851ms] [1] CMT: There are [2] clients now: 4315, 4320
+[2017.12.04 11:58:14] [0024m.26s.945ms] [1] SC[4315]: Registered sub-client [JobPrefsDBPI_2528281] with ID [5] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:14] [0024m.27s.070ms] [1] SC[4315]: UnRegistered sub-client [JobPrefsDBPI_2528281] with ID [5] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:14] [0024m.27s.179ms] [1] SC[4315]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:14] [0024m.27s.320ms] [1] SC[4315]: Registered sub-client [EEVM_EEVM_1633484] with ID [6] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:14] [0024m.27s.398ms] [1] SC[4315]: UnRegistered sub-client [EEVM_EEVM_1633484] with ID [6] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:18] [0024m.30s.945ms] [1] SC[4315]: Registered sub-client [JobPrefsDBPI_2532265] with ID [7] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:18] [0024m.30s.976ms] [1] SC[4315]: UnRegistered sub-client [JobPrefsDBPI_2532265] with ID [7] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:18] [0024m.31s.117ms] [1] SC[4315]: Registered sub-client [JobPrefsDBPI_2532437] with ID [8] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:18] [0024m.31s.132ms] [1] SC[4315]: UnRegistered sub-client [JobPrefsDBPI_2532437] with ID [8] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:19] [0024m.32s.070ms] [0] IT: Session [4321] for host [windows01] user [admin] with process ID [2876] created
+[2017.12.04 11:58:19] [0024m.32s.070ms] [1] SC[4321]: Registered sub-client [Packager_2533312] with ID [1] for session ID [4321] host [windows01] user [admin] process ID [2876]
+[2017.12.04 11:58:19] [0024m.32s.148ms] [1] CMT: There are [3] clients now: 4315, 4320, 4321
+[2017.12.04 11:58:20] [0024m.32s.804ms] [1] SC[4321]: UnRegistered sub-client [Packager_2533312] with ID [1] for session ID [4321] host [windows01] user [admin] process ID [2876]
+[2017.12.04 11:58:20] [0024m.32s.882ms] [1] CMT: Removed client [4321]
+[2017.12.04 11:58:20] [0024m.32s.882ms] [1] CMT: There are [2] clients now: 4315, 4320
+[2017.12.04 11:58:21] [0024m.33s.992ms] [1] iCDB Storage Server: WARNING: Unloading CHANGED file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\s2\cdbcatlg\grpobj] - auto-saving it
+[2017.12.04 11:58:22] [0024m.35s.039ms] [0] IT: Session [4322] for host [windows01] user [admin] with process ID [1632] created
+[2017.12.04 11:58:22] [0024m.35s.039ms] [1] SC[4322]: Registered sub-client [Expedition_2536234] with ID [1] for session ID [4322] host [windows01] user [admin] process ID [1632]
+[2017.12.04 11:58:22] [0024m.35s.085ms] [1] CMT: There are [3] clients now: 4315, 4320, 4322
+[2017.12.04 11:58:22] [0024m.35s.148ms] [1] SC[4322]: UnRegistered sub-client [Expedition_2536234] with ID [1] for session ID [4322] host [windows01] user [admin] process ID [1632]
+[2017.12.04 11:58:22] [0024m.35s.226ms] [1] CMT: Removed client [4322]
+[2017.12.04 11:58:22] [0024m.35s.226ms] [1] CMT: There are [2] clients now: 4315, 4320
+[2017.12.04 11:58:23] [0024m.36s.273ms] [0] IT: Session [4323] for host [windows01] user [admin] with process ID [1632] created
+[2017.12.04 11:58:23] [0024m.36s.273ms] [1] SC[4323]: Registered sub-client [JobPrefsDBPI_2537546] with ID [1] for session ID [4323] host [windows01] user [admin] process ID [1632]
+[2017.12.04 11:58:23] [0024m.36s.304ms] [1] SC[4323]: UnRegistered sub-client [JobPrefsDBPI_2537546] with ID [1] for session ID [4323] host [windows01] user [admin] process ID [1632]
+[2017.12.04 11:58:23] [0024m.36s.398ms] [1] CMT: There are [3] clients now: 4315, 4320, 4323
+[2017.12.04 11:58:23] [0024m.36s.398ms] [1] CMT: Removed client [4323]
+[2017.12.04 11:58:23] [0024m.36s.398ms] [1] CMT: There are [2] clients now: 4315, 4320
+[2017.12.04 11:58:24] [0024m.36s.945ms] [0] IT: Session [4324] for host [windows01] user [admin] with process ID [1632] created
+[2017.12.04 11:58:24] [0024m.36s.945ms] [1] SC[4324]: Registered sub-client [JobPrefsDBPI_2538218] with ID [1] for session ID [4324] host [windows01] user [admin] process ID [1632]
+[2017.12.04 11:58:24] [0024m.36s.960ms] [1] SC[4324]: UnRegistered sub-client [JobPrefsDBPI_2538218] with ID [1] for session ID [4324] host [windows01] user [admin] process ID [1632]
+[2017.12.04 11:58:24] [0024m.37s.054ms] [1] CMT: There are [3] clients now: 4315, 4320, 4324
+[2017.12.04 11:58:24] [0024m.37s.054ms] [1] CMT: Removed client [4324]
+[2017.12.04 11:58:24] [0024m.37s.054ms] [1] CMT: There are [2] clients now: 4315, 4320
+[2017.12.04 11:58:26] [0024m.38s.882ms] [0] IT: Session [4325] for host [windows01] user [admin] with process ID [3016] created
+[2017.12.04 11:58:26] [0024m.38s.882ms] [1] SC[4325]: Registered sub-client [JobPrefsDBPI_2540062] with ID [1] for session ID [4325] host [windows01] user [admin] process ID [3016]
+[2017.12.04 11:58:26] [0024m.38s.945ms] [1] CMT: There are [3] clients now: 4315, 4320, 4325
+[2017.12.04 11:58:26] [0024m.38s.945ms] [1] SC[4325]: Registered sub-client [Expedition_2540281] with ID [2] for session ID [4325] host [windows01] user [admin] process ID [3016]
+[2017.12.04 11:58:26] [0024m.39s.007ms] [1] SC[4325]: UnRegistered sub-client [JobPrefsDBPI_2540062] with ID [1] for session ID [4325] host [windows01] user [admin] process ID [3016]
+[2017.12.04 11:58:26] [0024m.39s.054ms] [1] SC[4325]: UnRegistered sub-client [Expedition_2540281] with ID [2] for session ID [4325] host [windows01] user [admin] process ID [3016]
+[2017.12.04 11:58:26] [0024m.39s.164ms] [1] CMT: Removed client [4325]
+[2017.12.04 11:58:26] [0024m.39s.164ms] [1] CMT: There are [2] clients now: 4315, 4320
+[2017.12.04 11:58:26] [0024m.39s.570ms] [1] SC[4315]: Registered sub-client [EEVM_EEVM_396061700] with ID [9] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:26] [0024m.39s.601ms] [1] SC[4315]: UnRegistered sub-client [EEVM_EEVM_396061700] with ID [9] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:26] [0024m.39s.601ms] [1] SC[4315]: Registered sub-client [EEVM_EEVM_396061700] with ID [10] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:26] [0024m.39s.601ms] [1] SC[4315]: UnRegistered sub-client [EEVM_EEVM_396061700] with ID [10] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:26] [0024m.39s.601ms] [1] SC[4315]: Registered sub-client [EEVM_EEVM_396061700] with ID [11] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:26] [0024m.39s.632ms] [1] SC[4315]: UnRegistered sub-client [EEVM_EEVM_396061700] with ID [11] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:29] [0024m.41s.648ms] [1] SC[4315]: UnRegistered sub-client [Expedition PCB_2352984] with ID [1] for session ID [4315] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:29] [0024m.41s.757ms] [1] CMT: Removed client [4315]
+[2017.12.04 11:58:29] [0024m.41s.757ms] [1] CMT: There are [1] clients now: 4320
+[2017.12.04 11:58:31] [0024m.44s.195ms] [0] IT: Session [4326] for host [windows01] user [admin] with process ID [1116] created
+[2017.12.04 11:58:31] [0024m.44s.195ms] [1] SC[4326]: Registered sub-client [Expedition PCB_2545312] with ID [1] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:31] [0024m.44s.273ms] [1] CMT: There are [2] clients now: 4320, 4326
+[2017.12.04 11:58:32] [0024m.44s.835ms] [1] SC[4326]: Registered sub-client [JobPrefsDBPI_2546156] with ID [2] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:58:32] [0024m.44s.882ms] [1] SC[4326]: UnRegistered sub-client [JobPrefsDBPI_2546156] with ID [2] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:59:47] [0025m.59s.732ms] [1] SC[4326]: Registered sub-client [JobPrefsDBPI_2621062] with ID [3] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:59:47] [0025m.59s.748ms] [1] SC[4326]: UnRegistered sub-client [JobPrefsDBPI_2621062] with ID [3] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 11:59:47] [0025m.59s.794ms] [1] SC[4326]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 12:02:43] [0028m.56s.107ms] [1] SC[4326]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 12:02:46] [0028m.58s.873ms] [1] SC[4326]: UnRegistered sub-client [Expedition PCB_2545312] with ID [1] for session ID [4326] host [windows01] user [admin] process ID [1116]
+[2017.12.04 12:02:46] [0028m.59s.076ms] [1] CMT: Removed client [4326]
+[2017.12.04 12:02:46] [0028m.59s.076ms] [1] CMT: There are [1] clients now: 4320
+[2017.12.04 12:05:07] [0031m.19s.794ms] [0] IT: Session [4327] for host [windows01] user [admin] with process ID [2460] created
+[2017.12.04 12:05:07] [0031m.19s.794ms] [1] SC[4327]: Registered sub-client [ICDBC] with ID [1] for session ID [4327] host [windows01] user [admin] process ID [2460]
+[2017.12.04 12:05:07] [0031m.19s.810ms] [1] CMT: There are [2] clients now: 4320, 4327
+[2017.12.04 12:05:07] [0031m.19s.810ms] [1] SC[4327]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4327] host [windows01] user [admin] process ID [2460]
+[2017.12.04 12:05:09] [0031m.21s.998ms] [1] SC[4327]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4327] host [windows01] user [admin] process ID [2460]
+[2017.12.04 12:05:09] [0031m.21s.998ms] [1] SC[4327]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4327] host [windows01] user [admin] process ID [2460]
+[2017.12.04 12:05:09] [0031m.22s.091ms] [1] CMT: Removed client [4327]
+[2017.12.04 12:05:09] [0031m.22s.091ms] [1] CMT: There are [1] clients now: 4320
+[2017.12.04 12:05:10] [0031m.23s.091ms] [0] IT: Session [4328] for host [windows01] user [admin] with process ID [1168] created
+[2017.12.04 12:05:10] [0031m.23s.091ms] [1] CMT: There are [2] clients now: 4320, 4328
+[2017.12.04 12:05:10] [0031m.23s.091ms] [1] SC[4328]: Registered sub-client [Packager_2944343] with ID [1] for session ID [4328] host [windows01] user [admin] process ID [1168]
+[2017.12.04 12:05:11] [0031m.23s.732ms] [1] SC[4328]: UnRegistered sub-client [Packager_2944343] with ID [1] for session ID [4328] host [windows01] user [admin] process ID [1168]
+[2017.12.04 12:05:11] [0031m.23s.857ms] [1] CMT: Removed client [4328]
+[2017.12.04 12:05:11] [0031m.23s.857ms] [1] CMT: There are [1] clients now: 4320
+[2017.12.04 12:07:33] [0033m.45s.942ms] [1] SC[4320]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4320] host [windows01] user [admin] process ID [2192]
+[2017.12.04 12:07:33] [0033m.45s.989ms] [1] CMT: Removed client [4320]
+[2017.12.04 12:07:33] [0033m.45s.989ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.04 12:07:33] [0033m.46s.208ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.04 12:07:35] [0033m.47s.739ms] [0] CMT: Starting server auto-close
+[2017.12.04 12:07:35] [0033m.47s.848ms] [0] S: Closing server
+[2017.12.04 12:07:35] [0033m.48s.036ms] [0] iCDB Server PI: Closing plugins
+[2017.12.04 12:07:35] [0033m.48s.098ms] [0] iCDB Server PI: Plugins closed
+[2017.12.04 12:07:35] [0033m.48s.098ms] [0] iCDB Server PI: Unloading database
+[2017.12.04 12:07:35] [0033m.48s.098ms] [0] iCDB Server PI: Saving storage
+[2017.12.04 12:07:35] [0033m.48s.098ms] [0] iCDB Server PI: Closing database
+[2017.12.04 12:07:35] [0033m.48s.098ms] [1] iCDB Server PI: Stats: Database defragmentation: max[1] avg[1] holes[12%] data[76%]
+[2017.12.04 12:07:35] [0033m.48s.114ms] [1] iCDB Server PI: Stats: Database file size [370928 (362.2 kB)]
+[2017.12.04 12:07:35] [0033m.48s.458ms] [0] iCDB Server PI: Database closed
+[2017.12.04 12:07:35] [0033m.48s.473ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [26940187] ticks
+[2017.12.04 12:07:35] [0033m.48s.473ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [2694018] microseconds
+[2017.12.04 12:07:35] [0033m.48s.473ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [1445]
+[2017.12.04 12:07:35] [0033m.48s.473ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [536] commands per second
+[2017.12.04 12:07:35] [0033m.48s.473ms] [0] Single file [C:\Users\admin\Documents\XpeditionPCB\USB_Sniffer\Default\default.icdb\icdb.dat] closed with size [370928 (362.2 kB)]
+[2017.12.04 12:07:35] [0033m.48s.598ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.04 12:07:37] [0033m.50s.145ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.04 12:07:37] [0033m.50s.223ms] [0] MWT: STOP
+[2017.12.04 12:07:37] [0033m.50s.223ms] [0] S: STOP

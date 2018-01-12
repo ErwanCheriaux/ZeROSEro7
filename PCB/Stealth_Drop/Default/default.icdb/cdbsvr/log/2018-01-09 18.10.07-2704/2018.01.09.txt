@@ -1,0 +1,153 @@
+[2018.01.09 18:10:07] [0000m.00s.155ms] [0] WELCOME
+[2018.01.09 18:10:07] [0000m.00s.155ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2018.01.09 18:10:07] [0000m.00s.155ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2018.01.09 18:10:07] [0000m.00s.155ms] [1] Base flow version [VX.2.2]
+[2018.01.09 18:10:07] [0000m.00s.155ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2018.01.09 18:10:07] [0000m.00s.155ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2018.01.09 18:10:07] [0000m.00s.155ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] Machine [DESKTOP-D6MOGOB]  IP [10.0.2.15,127.0.0.1]  User [alexis]  PID [2704]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] Operating system [Microsoft Business Edition, 64-bit (build 9200)]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] Current working dir [H:\ZEROSERO7\PCB\STEALTH_DROP\PCB]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] PATH [C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\help;C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\mentorgraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\mentorgraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\alexi\AppData\Local\Microsoft\WindowsApps]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] SDD_HOME [C:\mentorgraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] SDD_PLATFORM [win32]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\mentorgraphics\EEVX.2.2\SDD_HOME\standard;]
+[2018.01.09 18:10:07] [0000m.00s.171ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2018.01.09 18:10:07] [0000m.00s.186ms] [1] S: Config file name [ServerWG.cfg]
+[2018.01.09 18:10:07] [0000m.00s.186ms] [2] S: Loading config files
+[2018.01.09 18:10:07] [0000m.00s.186ms] [1] Config file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2018.01.09 18:10:07] [0000m.00s.186ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2018.01.09 18:10:07] [0000m.00s.202ms] [3] S: Config loaded
+[2018.01.09 18:10:07] [0000m.00s.436ms] [0] S: Project path [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb] on file system [VBoxSharedFolderFS]
+[2018.01.09 18:10:07] [0000m.00s.436ms] [0] S: Project global path [\\vboxsrv\2018\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb] on file system [UNKNOWN]
+[2018.01.09 18:10:07] [0000m.00s.436ms] [0] S: Project file (.prj) path [\\vboxsrv\2018\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj] on file system [UNKNOWN]
+[2018.01.09 18:10:07] [0000m.00s.436ms] [0] S: Project file (.prj) local path [H:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj] on file system [VBoxSharedFolderFS]
+[2018.01.09 18:10:07] [0000m.00s.436ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2018.01.09 18:10:07] [0000m.00s.436ms] [0] S: Multi-user mode (config)
+[2018.01.09 18:10:07] [0000m.00s.436ms] [0] S: Event polling mode autodetection
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] S: Started up automatically by iCDB Client: DESKTOP-D6MOGOB:alexis:5996
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] S: Auto close mode
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] S: Database ID [9724-8596-89eb-a9f5-747f-45ac-47f4-5a50-423f-509f-9fef-0fc8]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: BEGIN dumping
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: Local -> global path prefix list
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [C:\WINDOWS\system32\spool\drivers] -> [\\DESKTOP-D6MOGOB\print$]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [G:\] -> [\\vboxsrv\windows\]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [H:\] -> [\\vboxsrv\2018\]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: Global -> local path prefix list
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [\\DESKTOP-D6MOGOB\print$] -> [C:\WINDOWS\system32\spool\drivers]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [\\vboxsrv\windows\] -> [G:\]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: [\\vboxsrv\2018\] -> [H:\]
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] PathTranslator: END dumping
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] S: START
+[2018.01.09 18:10:07] [0000m.00s.450ms] [0] S: Server startup lock file created
+[2018.01.09 18:10:07] [0000m.00s.466ms] [0] S: Listening for client connections on port [10001]
+[2018.01.09 18:10:07] [0000m.00s.466ms] [0] S: Server network ID [DESKTOP-D6MOGOB:10.0.2.15,DESKTOP-D6MOGOB:10001]
+[2018.01.09 18:10:07] [0000m.00s.466ms] [0] S: Server GUID [fe22-4625-8a91-c2b4-f67f-45a4-77f4-5a50-8dfd-509f-9fef-0fc8]
+[2018.01.09 18:10:07] [0000m.00s.466ms] [0] S: Project GUID [9724-8596-89eb-a9f5-747f-45ac-47f4-5a50-423f-509f-9fef-0fc8]
+[2018.01.09 18:10:07] [0000m.00s.481ms] [0] S: Wrote data to server address file
+[2018.01.09 18:10:07] [0000m.00s.481ms] [0] S: Server startup lock file removed
+[2018.01.09 18:10:07] [0000m.00s.481ms] [1] ProjectBackupManager: Setting project file (.prj) path: [H:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj]
+[2018.01.09 18:10:07] [0000m.00s.638ms] [0] PrjBackupMgr: Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2018.01.09 18:10:07] [0000m.00s.638ms] [0] PrjBackupMgr: WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2018.01.09 18:10:07] [0000m.00s.701ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2018.01.09 18:10:07] [0000m.00s.701ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2018.01.09 18:10:07] [0000m.00s.701ms] [0] S: Local disc access time: 94 us
+[2018.01.09 18:10:07] [0000m.00s.701ms] [0] S: File server access time: 948 us
+[2018.01.09 18:10:07] [0000m.00s.701ms] [0] S: Server will not release in-memory storage after read (memory usage overhead) - for better performance
+[2018.01.09 18:10:07] [0000m.00s.716ms] [0] Single file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb\icdb.dat] size [247768 (242.0 kB)]
+[2018.01.09 18:10:07] [0000m.00s.716ms] [1] Single file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb\icdb.dat] opened in read-write mode
+[2018.01.09 18:10:07] [0000m.00s.716ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2018.01.09 18:10:07] [0000m.00s.716ms] [0] Database GUARD OK: [247768]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] Database GUARD OK: [247768]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] Database GUARD OK: [247768]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] Database GUARD OK: [247768]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] Database GUARD OK: [247768]
+[2018.01.09 18:10:07] [0000m.00s.732ms] [0] SingleFile: [4ec2-3bc2-70d0-132f] SFI version check [1009] [1009]
+[2018.01.09 18:10:07] [0000m.00s.857ms] [0] SingleFile: [4ec2-3bc2-70d0-132f] Database SFI header has been read in [125ms 603us]
+[2018.01.09 18:10:07] [0000m.00s.872ms] [0] iCDB Server PI: Server & plugin session [4869]
+[2018.01.09 18:10:07] [0000m.00s.872ms] [0] iCDB Server PI: Opening database [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb]
+[2018.01.09 18:10:07] [0000m.00s.872ms] [0] iCDB Server PI: Database [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb] opened
+[2018.01.09 18:10:08] [0000m.00s.904ms] [0] iCDB Database: Checking existence of constraint definitions
+[2018.01.09 18:10:08] [0000m.00s.904ms] [0] iCDB Database: Checking constraint definitions version
+[2018.01.09 18:10:08] [0000m.00s.966ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=55f1-7e2a-a301-bcc1-2f34-1c97-f341-c950-ce00-609f-9fef-0fc8] up to date
+[2018.01.09 18:10:08] [0000m.01s.044ms] [0] iCDB Server PI: Initializing plugins
+[2018.01.09 18:10:08] [0000m.01s.044ms] [0] iCDB Server PI: Plugins initialized
+[2018.01.09 18:10:08] [0000m.01s.044ms] [0] S: iCDB database loaded
+[2018.01.09 18:10:08] [0000m.01s.060ms] [0] S: Starting threads
+[2018.01.09 18:10:08] [0000m.01s.060ms] [0] BT: Listening for broadcast messages on port [10000]
+[2018.01.09 18:10:08] [0000m.01s.060ms] [1] CMT: There are no clients - waiting [10 seconds]
+[2018.01.09 18:10:08] [0000m.01s.060ms] [0] IT: Session [4870] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5996] created
+[2018.01.09 18:10:08] [0000m.01s.060ms] [0] MWT: WindowProc: WM_NCCREATE
+[2018.01.09 18:10:08] [0000m.01s.060ms] [1] SC[4870]: Registered sub-client [Expedition PCB_508218] with ID [1] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:08] [0000m.01s.075ms] [0] IT: iCDB Server Monitor session [1] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6776] created
+[2018.01.09 18:10:08] [0000m.01s.075ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2018.01.09 18:10:08] [0000m.01s.169ms] [1] CMT: There are [1] clients now: 4870
+[2018.01.09 18:10:08] [0000m.01s.279ms] [1] SC[4870]: Registered sub-client [EEVM] with ID [2] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:08] [0000m.01s.606ms] [1] SC[4870]: UnRegistered sub-client [EEVM] with ID [2] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:09] [0000m.02s.402ms] [1] SC[4870]: Registered sub-client [JobPrefsDBPI_510812] with ID [3] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:09] [0000m.02s.480ms] [1] SC[4870]: UnRegistered sub-client [JobPrefsDBPI_510812] with ID [3] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:11] [0000m.04s.462ms] [1] SC[4870]: Registered sub-client [JobPrefsDBPI_512875] with ID [4] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:11] [0000m.04s.478ms] [1] SC[4870]: UnRegistered sub-client [JobPrefsDBPI_512875] with ID [4] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:12] [0000m.05s.695ms] [1] SC[4870]: Registered sub-client [ExpeditionCrossProber] with ID [5] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:12] [0000m.05s.695ms] [1] SC[4870]: Registered sub-client [StartServerClient328] with ID [6] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:12] [0000m.05s.710ms] [1] SC[4870]: UnRegistered sub-client [StartServerClient328] with ID [6] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:22] [0000m.15s.592ms] [0] IT: Session [4871] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6120] created
+[2018.01.09 18:10:22] [0000m.15s.592ms] [1] SC[4871]: Registered sub-client [JobPrefsDBPI_523859] with ID [1] for session ID [4871] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:22] [0000m.15s.624ms] [1] SC[4871]: UnRegistered sub-client [JobPrefsDBPI_523859] with ID [1] for session ID [4871] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:22] [0000m.15s.701ms] [1] CMT: There are [2] clients now: 4870, 4871
+[2018.01.09 18:10:22] [0000m.15s.701ms] [1] CMT: Removed client [4871]
+[2018.01.09 18:10:22] [0000m.15s.701ms] [1] CMT: There are [1] clients now: 4870
+[2018.01.09 18:10:23] [0000m.16s.403ms] [0] IT: Session [4872] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6120] created
+[2018.01.09 18:10:23] [0000m.16s.403ms] [1] SC[4872]: Registered sub-client [JobPrefsDBPI_524734] with ID [1] for session ID [4872] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:23] [0000m.16s.484ms] [1] CMT: There are [2] clients now: 4870, 4872
+[2018.01.09 18:10:23] [0000m.16s.496ms] [1] SC[4872]: UnRegistered sub-client [JobPrefsDBPI_524734] with ID [1] for session ID [4872] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:23] [0000m.16s.593ms] [1] CMT: Removed client [4872]
+[2018.01.09 18:10:23] [0000m.16s.593ms] [1] CMT: There are [1] clients now: 4870
+[2018.01.09 18:10:24] [0000m.17s.043ms] [0] IT: Session [4873] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6120] created
+[2018.01.09 18:10:24] [0000m.17s.043ms] [1] SC[4873]: Registered sub-client [NetClassDBPI_525375] with ID [1] for session ID [4873] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:24] [0000m.17s.074ms] [1] SC[4873]: UnRegistered sub-client [NetClassDBPI_525375] with ID [1] for session ID [4873] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:24] [0000m.17s.153ms] [1] CMT: There are [2] clients now: 4870, 4873
+[2018.01.09 18:10:24] [0000m.17s.153ms] [1] CMT: Removed client [4873]
+[2018.01.09 18:10:24] [0000m.17s.153ms] [1] CMT: There are [1] clients now: 4870
+[2018.01.09 18:10:24] [0000m.17s.699ms] [0] IT: Session [4874] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6120] created
+[2018.01.09 18:10:24] [0000m.17s.699ms] [1] SC[4874]: Registered sub-client [NetPropsDBPI_526015] with ID [1] for session ID [4874] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:24] [0000m.17s.731ms] [1] SC[4874]: UnRegistered sub-client [NetPropsDBPI_526015] with ID [1] for session ID [4874] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:24] [0000m.17s.809ms] [1] CMT: There are [2] clients now: 4870, 4874
+[2018.01.09 18:10:24] [0000m.17s.809ms] [1] CMT: Removed client [4874]
+[2018.01.09 18:10:24] [0000m.17s.809ms] [1] CMT: There are [1] clients now: 4870
+[2018.01.09 18:10:25] [0000m.18s.526ms] [0] IT: Session [4875] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6120] created
+[2018.01.09 18:10:25] [0000m.18s.526ms] [1] SC[4875]: Registered sub-client [JobPrefsDBPI_526859] with ID [1] for session ID [4875] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:25] [0000m.18s.573ms] [1] CMT: There are [2] clients now: 4870, 4875
+[2018.01.09 18:10:25] [0000m.18s.666ms] [1] SC[4875]: UnRegistered sub-client [JobPrefsDBPI_526859] with ID [1] for session ID [4875] host [DESKTOP-D6MOGOB] user [alexis] process ID [6120]
+[2018.01.09 18:10:25] [0000m.18s.792ms] [1] CMT: Removed client [4875]
+[2018.01.09 18:10:25] [0000m.18s.792ms] [1] CMT: There are [1] clients now: 4870
+[2018.01.09 18:10:33] [0000m.26s.457ms] [1] SC[4870]: UnRegistered sub-client [ExpeditionCrossProber] with ID [5] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:35] [0000m.28s.017ms] [1] SC[4870]: UnRegistered sub-client [Expedition PCB_508218] with ID [1] for session ID [4870] host [DESKTOP-D6MOGOB] user [alexis] process ID [5996]
+[2018.01.09 18:10:35] [0000m.28s.032ms] [1] CMT: Removed client [4870]
+[2018.01.09 18:10:35] [0000m.28s.032ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2018.01.09 18:10:35] [0000m.28s.189ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2018.01.09 18:10:37] [0000m.29s.921ms] [0] CMT: Starting server auto-close
+[2018.01.09 18:10:37] [0000m.30s.031ms] [0] S: Closing server
+[2018.01.09 18:10:37] [0000m.30s.187ms] [0] iCDB Server PI: Closing plugins
+[2018.01.09 18:10:37] [0000m.30s.187ms] [0] iCDB Server PI: Plugins closed
+[2018.01.09 18:10:37] [0000m.30s.187ms] [0] iCDB Server PI: Unloading database
+[2018.01.09 18:10:37] [0000m.30s.187ms] [0] iCDB Server PI: Saving storage
+[2018.01.09 18:10:37] [0000m.30s.187ms] [0] iCDB Server PI: Closing database
+[2018.01.09 18:10:37] [0000m.30s.187ms] [1] iCDB Server PI: Stats: Database defragmentation: max[2] avg[1] holes[0%] data[97%]
+[2018.01.09 18:10:37] [0000m.30s.187ms] [1] iCDB Server PI: Stats: Database file size [247888 (242.1 kB)]
+[2018.01.09 18:10:37] [0000m.30s.217ms] [0] iCDB Server PI: Database closed
+[2018.01.09 18:10:37] [0000m.30s.217ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1075] ticks
+[2018.01.09 18:10:37] [0000m.30s.217ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [409] microseconds
+[2018.01.09 18:10:37] [0000m.30s.217ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [12]
+[2018.01.09 18:10:37] [0000m.30s.217ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [29337] commands per second
+[2018.01.09 18:10:37] [0000m.30s.217ms] [0] Single file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb\icdb.dat] closed with size [247888 (242.1 kB)]
+[2018.01.09 18:10:37] [0000m.30s.279ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2018.01.09 18:10:37] [0000m.30s.467ms] [0] MWT: Destroy the shutdown block reason.
+[2018.01.09 18:10:37] [0000m.30s.467ms] [0] MWT: STOP
+[2018.01.09 18:10:37] [0000m.30s.467ms] [0] S: STOP

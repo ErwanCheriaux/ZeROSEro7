@@ -1,0 +1,6 @@
+
+Can not open Multiple Via Rules file. File doesn't exist:
+       'H:\ZEROSERO7\PCB\SPY_TALK\PCB\Config\MultiViaRules.txt'
+
+Can not open Multiple Via Rules file. File doesn't exist:
+       'H:\ZEROSERO7\PCB\SPY_TALK\PCB\Layout\MVO_Rules.txt'

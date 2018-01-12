@@ -102,7 +102,7 @@ int main(void)
     rtt_write_string("LEDs initialized\n");
 
     // Like if we were using BLE, has the side effect of starting LFCLK needed by RTC
-    ble_init();
+    ble_stack_init();
     rtt_write_string("BLE initialized\n");
 
     HW_RTC_Init();
