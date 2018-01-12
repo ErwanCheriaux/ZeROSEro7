@@ -54,17 +54,13 @@ static THD_FUNCTION(Thread1, arg)
     }
 }
 
+extern uint8_t buf[SD_BUF_SIZE];
+
 /*===========================================================================*/
 /* Command line related.                                                     */
 /*===========================================================================*/
 
 #define SHELL_WA_SIZE THD_WORKING_AREA_SIZE(2048)
-
-#define SDC_BURST_SIZE 16
-
-/* Buffer for block read/write operations, note that extra bytes are
-   allocated in order to support unaligned operations.*/
-static uint8_t buf[MMCSD_BLOCK_SIZE * SDC_BURST_SIZE + 4];
 
 void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
@@ -98,7 +94,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             int address = atoi(argv[1]);
             int value = atoi(argv[2]);
             rtt_printf("Write %d at position %d", value, address);
-            if(sd_write(address, value, buf)) {
+            if(sd_write(address, value)) {
                 rtt_printf("Writing failed");
                 goto exittest;
             }
@@ -108,11 +104,11 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         }
     }
     if(strcmp(argv[0], "read") == 0) {
-        if(argc == 3) { // print a hole block
+        if(argc == 3) { // print a whole block
             rtt_printf("Read the first block:");
             int nb_blocks_read = 1;
             int first_block = atoi(argv[2]);
-            if(blkRead(&SDCD1, first_block, buf, nb_blocks_read)) {
+            if(sd_read_blocks(first_block, nb_blocks_read)) {
                 rtt_printf("Reading failed");
                 goto exittest;
             }
@@ -122,7 +118,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
         else if (argc == 2) { // print a single value
             int addr = atoi(argv[1]);
             int value = 0;
-            if(sd_read(addr, &value, buf)) {
+            if(sd_read(addr, &value)) {
                 rtt_printf("Reading failed");
                 goto exittest;
             }
