@@ -156,10 +156,23 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_ADV_EVT_IDLE:
             break;
 
+        case BLE_GAP_EVT_CONNECTED:
+            rtt_printf(0,"Connected with : %016x\n",p_ble_evt->evt.gap_evt.params.connected.peer_addr);
+            break ;
+        case BLE_GAP_EVT_CONN_PARAM_UPDATE :
+            rtt_printf(0,"Params Update");
+            break ;
+        case BLE_GAP_EVT_TIMEOUT:
+        case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
+        case BLE_GAP_EVT_SEC_INFO_REQUEST:
+        case BLE_GAP_EVT_AUTH_KEY_REQUEST:
+        case BLE_GAP_EVT_PASSKEY_DISPLAY:
+        case BLE_GAP_EVT_AUTH_STATUS:
+        case BLE_GAP_EVT_CONN_SEC_UPDATE:
+        case BLE_GAP_EVT_SEC_REQUEST:
+        case BLE_GAP_EVT_CONN_PARAM_UPDATE_REQUEST:
         case BLE_GAP_EVT_DISCONNECTED:
-            NRF_LOG_INFO("GAP Disconnected");
-            ble_gap_evt_t gap_evt = (ble_gap_evt_t)(p_ble_evt->evt);
-            rtt_printf(0,"Reason : %u", gap_evt.params.reason);
+            rtt_printf(0,"GAP EVT : %u\n",p_ble_evt->header.evt_id - BLE_GAP_EVT_CONNECTED);
         break;
 
         /* TODO
