@@ -156,7 +156,7 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_ADV_EVT_IDLE:
             break;
 
-/* TODO
+        /* TODO
         case BLE_ADV_EVT_WHITELIST_REQUEST:
         {
             ble_gap_addr_t whitelist_addrs[BLE_GAP_WHITELIST_ADDR_MAX_COUNT];

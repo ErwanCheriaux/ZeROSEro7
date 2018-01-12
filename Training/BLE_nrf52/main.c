@@ -12,7 +12,6 @@
 #include "nrf_log_default_backends.h"
 #include "app_timer.h"
 
-
 // Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
 {
@@ -42,7 +41,8 @@ static void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
-static void timer_init() {
+static void timer_init()
+{
     APP_ERROR_CHECK(app_timer_init());
 }
 
@@ -53,7 +53,6 @@ int main(void)
     rtt_init();
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
-
 
     bsp_board_leds_init();
 

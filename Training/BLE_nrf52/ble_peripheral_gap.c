@@ -29,9 +29,9 @@
 #define APP_ADV_FAST_TIMEOUT 30  /**< The duration of the fast advertising period (in seconds). */
 #define APP_BLE_CONN_CFG_TAG 1   /**< A tag identifying the SoftDevice BLE configuration. */
 
-#define FIRST_CONN_PARAMS_UPDATE_DELAY      APP_TIMER_TICKS(5000)                      /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
-#define NEXT_CONN_PARAMS_UPDATE_DELAY       APP_TIMER_TICKS(30000)                     /**< Time between each call to sd_ble_gap_conn_param_update after the first call (30 seconds). */
-#define MAX_CONN_PARAMS_UPDATE_COUNT        3                                          /**< Number of attempts before giving up the connection parameter negotiation. */
+#define FIRST_CONN_PARAMS_UPDATE_DELAY APP_TIMER_TICKS(5000) /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
+#define NEXT_CONN_PARAMS_UPDATE_DELAY APP_TIMER_TICKS(30000) /**< Time between each call to sd_ble_gap_conn_param_update after the first call (30 seconds). */
+#define MAX_CONN_PARAMS_UPDATE_COUNT 3                       /**< Number of attempts before giving up the connection parameter negotiation. */
 
 #define MIN_CONN_INTERVAL MSEC_TO_UNITS(7.5, UNIT_1_25_MS) /**< Minimum connection interval (7.5 ms) */
 #define MAX_CONN_INTERVAL MSEC_TO_UNITS(30, UNIT_1_25_MS)  /**< Maximum connection interval (30 ms). */
@@ -113,7 +113,8 @@ static void conn_neg_error_handler(uint32_t nrf_error)
 
 static ble_conn_params_init_t conn_neg_init;
 
-void ble_conn_negociation_init() {
+void ble_conn_negociation_init()
+{
     conn_neg_init.p_conn_params                  = NULL;
     conn_neg_init.first_conn_params_update_delay = FIRST_CONN_PARAMS_UPDATE_DELAY;
     conn_neg_init.next_conn_params_update_delay  = NEXT_CONN_PARAMS_UPDATE_DELAY;
@@ -131,7 +132,7 @@ static void advertising_params_init()
     advertising_conf.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
     advertising_conf.advdata.include_appearance      = true;
     advertising_conf.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE;
-    advertising_conf.advdata.uuids_complete.uuid_cnt = 0;   // No need to advertise GATT services, obtained after connection
+    advertising_conf.advdata.uuids_complete.uuid_cnt = 0;  // No need to advertise GATT services, obtained after connection
     advertising_conf.advdata.uuids_complete.p_uuids  = NULL;
 
     // We use fast advertising because advertising doesn't last long. TODO Could use Directed for fast recovery
@@ -147,7 +148,8 @@ void ble_advertising_handler_init(void (*phone_connected_handler)())
     on_phone_connection = phone_connected_handler;
 }
 
-void ble_advertise_init() {
+void ble_advertise_init()
+{
     advertising_params_init();
     APP_ERROR_CHECK(ble_advertising_init(&m_advertising, &advertising_conf));
 

@@ -29,16 +29,17 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-#define PNP_ID_VENDOR_ID_SOURCE             0x00C3                                     /**< Vendor ID Source. */
-#define PNP_ID_VENDOR_ID                    0x1915                                     /**< Vendor ID. */
-#define PNP_ID_PRODUCT_ID                   0xEEEE                                     /**< Product ID. */
-#define PNP_ID_PRODUCT_VERSION              0x0001                                     /**< Product Version. */
+#define PNP_ID_VENDOR_ID_SOURCE 0x00C3 /**< Vendor ID Source. */
+#define PNP_ID_VENDOR_ID 0x1915        /**< Vendor ID. */
+#define PNP_ID_PRODUCT_ID 0xEEEE       /**< Product ID. */
+#define PNP_ID_PRODUCT_VERSION 0x0001  /**< Product Version. */
 
-#define MANUFACTURER_NAME                   "adidas ag"             /**< Manufacturer. Will be passed to Device Information Service. */
+#define MANUFACTURER_NAME "adidas ag" /**< Manufacturer. Will be passed to Device Information Service. */
 
-NRF_BLE_GATT_DEF(m_gatt);                                           /**< GATT module instance. */
+NRF_BLE_GATT_DEF(m_gatt); /**< GATT module instance. */
 
-void my_service_init() {
+void my_service_init()
+{
     // TODO custom service
 
     ret_code_t       err_code;
@@ -62,7 +63,8 @@ void my_service_init() {
     APP_ERROR_CHECK(err_code);
 }
 
-void ble_services_init() {
+void ble_services_init()
+{
     my_service_init();
 }
 

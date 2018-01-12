@@ -22,12 +22,11 @@ import android.util.Log;
 
 public class GAPService extends Service {
 
+    public static final String DEVICE_CONECTED_ACTION = "Device connected";
     private final BluetoothLeScanner scannerInstance;
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
-
-    public static final String DEVICE_CONECTED_ACTION = "Device connected";
 
     public GAPService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -40,11 +39,11 @@ public class GAPService extends Service {
                 Log.i("GAPService", "BLE Advertisement detected from :" + device);
 
                 // First connection, not bonded
-                if (device != null && device.getName()!=null && device.getName().equals("Connected shoe")) {
+                if (device != null && device.getName() != null && device.getName().equals("Connected shoe")) {
                     Log.i("GAPService", "Recognised device advertisement");
                     stopScan();
 
-                    BondWithDevice(device);
+                    bondWithDevice(device);
 
                     Intent intent = new Intent(DEVICE_CONECTED_ACTION);
                     LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
@@ -57,14 +56,14 @@ public class GAPService extends Service {
         startScan();
     }
 
-    private void BondWithDevice(BluetoothDevice device) {
+    private void bondWithDevice(BluetoothDevice device) {
         BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int status,
                                                 int newState) {
                 // TODO
-                Log.i("GAPService","Conn state change : " + status);
-                Log.i("GAPService","Connected : " + (status == BluetoothProfile.STATE_CONNECTED)) ;
+                Log.i("GAPService", "Conn state change : " + status);
+                Log.i("GAPService", "Connected : " + (status == BluetoothProfile.STATE_CONNECTED));
 
             }
 
@@ -72,7 +71,7 @@ public class GAPService extends Service {
             // New services discovered
             public void onServicesDiscovered(BluetoothGatt gatt, int status) {
                 // TODO
-                Log.i("GAPService","Service Discovered");
+                Log.i("GAPService", "Service Discovered");
             }
 
             @Override
@@ -81,16 +80,16 @@ public class GAPService extends Service {
                                              BluetoothGattCharacteristic characteristic,
                                              int status) {
                 // TODO
-                Log.i("GAPService","Characteristic Read");
+                Log.i("GAPService", "Characteristic Read");
             }
         };
         device.connectGatt(this, false, mGattCallback);
     }
 
     private String parseName(String advString) {
-        String[] split = advString.split("mDeviceName=") ;
-        String beginning = split[1] ;
-        split = beginning.split("]") ;
+        String[] split = advString.split("mDeviceName=");
+        String beginning = split[1];
+        split = beginning.split("]");
         return split[0];
 
     }
