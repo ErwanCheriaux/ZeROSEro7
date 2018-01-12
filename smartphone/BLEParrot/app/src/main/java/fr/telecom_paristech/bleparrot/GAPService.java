@@ -6,6 +6,7 @@ import android.bluetooth.BluetoothDevice;
 import android.bluetooth.BluetoothGatt;
 import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
+import android.bluetooth.BluetoothGattService;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
@@ -13,6 +14,7 @@ import android.bluetooth.le.ScanResult;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
+import android.os.ParcelUuid;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
@@ -27,6 +29,7 @@ public class GAPService extends Service {
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
+    private BluetoothGatt deviceGatt;
 
     public GAPService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -72,6 +75,9 @@ public class GAPService extends Service {
             public void onServicesDiscovered(BluetoothGatt gatt, int status) {
                 // TODO
                 Log.i("GAPService", "Service Discovered");
+                for(BluetoothGattService service : deviceGatt.getServices()) {
+                    Log.i("GAPService", "Service : " + service);
+                }
             }
 
             @Override
@@ -83,7 +89,12 @@ public class GAPService extends Service {
                 Log.i("GAPService", "Characteristic Read");
             }
         };
-        device.connectGatt(this, false, mGattCallback);
+        deviceGatt = device.connectGatt(this, false, mGattCallback);
+        deviceGatt.connect();
+        deviceGatt.discoverServices();
+        for(BluetoothGattService service : deviceGatt.getServices()) {
+            Log.i("GAPService", "Service : " + service);
+        }
     }
 
     private String parseName(String advString) {

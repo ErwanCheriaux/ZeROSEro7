@@ -26,7 +26,7 @@
 
 #define BLE_DEVICE_NAME "Connected shoe"
 #define APP_ADV_FAST_INTERVAL 40 /**< The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
-#define APP_ADV_FAST_TIMEOUT 30  /**< The duration of the fast advertising period (in seconds). */
+#define APP_ADV_FAST_TIMEOUT 120 /**< The duration of the fast advertising period (in seconds). */
 #define APP_BLE_CONN_CFG_TAG 1   /**< A tag identifying the SoftDevice BLE configuration. */
 
 #define FIRST_CONN_PARAMS_UPDATE_DELAY APP_TIMER_TICKS(5000) /**< Time from initiating event (connect or start of notification) to first time sd_ble_gap_conn_param_update is called (5 seconds). */
