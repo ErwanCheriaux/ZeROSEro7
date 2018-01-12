@@ -1,0 +1,42 @@
+[2017.12.27 03:18:50] [0500m.23s.080ms] [1] PrjBackupMgr: Successfully created Project Backup [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-27 03.18.49 - auto.zip] with GUID [a756-28d1-290c-484b-9030-34ae-0303-4a50-4aed-509f-9fef-0fc8]
+[2017.12.27 03:18:51] [0500m.23s.236ms] [0] PrjBackupMgr: Removing excessive backup:  BackupGUID[9b58-0f99-e316-22dc-7647-a3ac-647a-3a50-0e4d-3d2c-dc7d-1df8] CreationTime[Wednesday, December 20, 2017 14:32:07] Type[Autosave] Creator[iCDB Server (2017-12-20 15.17.50-1824)] ApplicationName[iCDB Server (2017-12-20 15.17.50-1824)] UserName[admin] MachineName[WINDOWS01] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-20 15.32.07 - auto.zip] BackupFileSize[943143] Persistent[FALSE]
+[2017.12.27 03:18:51] [0500m.23s.236ms] [0] PrjBackupMgr: Project Backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-20 15.32.07 - auto.zip] with GUID [9b58-0f99-e316-22dc-7647-a3ac-647a-3a50-0e4d-3d2c-dc7d-1df8] removed
+[2017.12.27 03:18:51] [0500m.23s.236ms] [0] PrjBackupEngine: Successfully created backup:  BackupGUID[a756-28d1-290c-484b-9030-34ae-0303-4a50-4aed-509f-9fef-0fc8] CreationTime[Wednesday, December 27, 2017 02:18:49] Type[Autosave] Creator[iCDB Server (2017-12-26 18.58.27-7612)] ApplicationName[iCDB Server (2017-12-26 18.58.27-7612)] UserName[alexis] MachineName[DESKTOP-D6MOGOB] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-27 03.18.49 - auto.zip] BackupFileSize[974909] Persistent[FALSE]
+[2017.12.27 04:45:42] [0587m.14s.557ms] [1] SC[4817]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4817] host [DESKTOP-D6MOGOB] user [alexis] process ID [6964]
+[2017.12.27 04:45:43] [0587m.15s.946ms] [1] SC[4817]: UnRegistered sub-client [Expedition PCB_18787312] with ID [1] for session ID [4817] host [DESKTOP-D6MOGOB] user [alexis] process ID [6964]
+[2017.12.27 04:45:43] [0587m.15s.977ms] [1] CMT: Removed client [4817]
+[2017.12.27 04:45:43] [0587m.15s.977ms] [1] CMT: There are [1] clients now: 4783
+[2017.12.27 04:45:44] [0587m.16s.430ms] [1] SC[4783]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4783] host [DESKTOP-D6MOGOB] user [alexis] process ID [3920]
+[2017.12.27 04:45:44] [0587m.16s.508ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.27 04:45:44] [0587m.16s.524ms] [1] CMT: Removed client [4783]
+[2017.12.27 04:45:44] [0587m.16s.524ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.27 04:45:46] [0587m.18s.163ms] [0] CMT: Starting server auto-close
+[2017.12.27 04:45:46] [0587m.18s.272ms] [0] S: Closing server
+[2017.12.27 04:45:46] [0587m.18s.428ms] [0] iCDB Server PI: Closing plugins
+[2017.12.27 04:45:46] [0587m.18s.428ms] [0] iCDB Server PI: Plugins closed
+[2017.12.27 04:45:46] [0587m.18s.428ms] [0] iCDB Server PI: Unloading database
+[2017.12.27 04:45:46] [0587m.18s.428ms] [0] iCDB Server PI: Saving storage
+[2017.12.27 04:45:46] [0587m.18s.428ms] [0] iCDB Server PI: Closing database
+[2017.12.27 04:45:46] [0587m.18s.442ms] [1] iCDB Server PI: Stats: Database defragmentation: max[4] avg[1] holes[47%] data[73%]
+[2017.12.27 04:45:46] [0587m.18s.442ms] [1] iCDB Server PI: Stats: Database file size [426696 (416.7 kB)]
+[2017.12.27 04:45:46] [0587m.18s.442ms] [1] iCDB Server PI: WARNING: Database needs defragmentation!
+[2017.12.27 04:45:46] [0587m.18s.458ms] [0] iCDB Server PI: Database closed
+[2017.12.27 04:45:46] [0587m.18s.458ms] [0] iCDB Server PI: Defragmenting database
+[2017.12.27 04:45:46] [0587m.18s.458ms] [0] iCDB Server PI: Creating database [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb] backup to file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\cdbback\2017-12-27 04.45.46-7612-d.zip]
+[2017.12.27 04:45:47] [0587m.19s.286ms] [0] iCDB Server PI: Database backup: DONE
+[2017.12.27 04:45:47] [0587m.19s.317ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.27 04:45:47] [0587m.19s.317ms] [0] Database GUARD OK: [426696]
+[2017.12.27 04:45:47] [0587m.19s.317ms] [0] SingleFile: [2db0-9064-e250-f348] SFI version check [1009] [1009]
+[2017.12.27 04:45:47] [0587m.19s.411ms] [0] SingleFile: [2db0-9064-e250-f348] Database SFI header has been read in [107ms 70us]
+[2017.12.27 04:45:47] [0587m.19s.801ms] [1] iCDB Server PI: Stats: Database file sizes: before[426696 (416.7 kB)], after[213056 (208.1 kB)], gain[213640 (208.6 kB)]
+[2017.12.27 04:45:47] [0587m.19s.833ms] [0] Single file [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\icdb.dat] closed with size [213056 (208.1 kB)]
+[2017.12.27 04:45:47] [0587m.19s.833ms] [0] iCDB Server PI: Database defragmentation completed successfully
+[2017.12.27 04:45:47] [0587m.19s.833ms] [1] BackupTransaction: Removing database backup [H:\ZeROSEro7\PCB\Stealth_Drop\Default\default.icdb\cdbback\2017-12-27 04.45.46-7612-d.zip]
+[2017.12.27 04:45:47] [0587m.19s.833ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [1763851] ticks
+[2017.12.27 04:45:47] [0587m.19s.833ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [671134] microseconds
+[2017.12.27 04:45:47] [0587m.19s.833ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [2396]
+[2017.12.27 04:45:47] [0587m.19s.833ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [3570] commands per second
+[2017.12.27 04:45:47] [0587m.19s.911ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.27 04:45:48] [0587m.20s.145ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.27 04:45:48] [0587m.20s.145ms] [0] MWT: STOP
+[2017.12.27 04:45:48] [0587m.20s.145ms] [0] S: STOP

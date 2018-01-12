@@ -1,0 +1,47 @@
+=======================================================================
+Xpedition Layout - Version 117.0.817.8330
+=======================================================================
+
+Job Directory:    C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\
+
+
+Design Units:(mm)
+
+Test Point Log:   C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\LogFiles\testptlog_00.txt
+
+Wed Dec 06 15:35:19 2017
+
+Net Name        Ref                  X          Y     Side    Location        Operation Result
+==============================================================================================
+SPI2_NSS_TEST   PT1                 117,42       5,34 Top     Hanger          Delete              
+SPI2_NSS_TEST   PT1                 117,42       5,34 Top     Hanger          Delete              
+SPI2_SCK_TEST   PT2                 106,69       2,78 Top     Hanger          Delete              
+SPI2_SCK_TEST   PT2                 106,69       2,78 Top     Hanger          Delete              
+SPI2_MISO       PT3                  96,88      -2,59 Top     Hanger          Delete              
+SPI2_MISO       PT3                  96,88      -2,59 Top     Hanger          Delete              
+SPI2_MOSI       PT4                  88,95      -5,63 Top     Hanger          Delete              
+SPI2_MOSI       PT4                  88,95      -5,63 Top     Hanger          Delete              
+XSIG020124      PT6                  78,44      -6,56 Top     Hanger          Delete              
+XSIG020124      PT6                  78,44      -6,56 Top     Hanger          Delete              
+XSIG020125      PT7                  68,64      -7,73 Top     Hanger          Delete              
+XSIG020125      PT7                  68,64      -7,73 Top     Hanger          Delete              
+XSIG020126      PT8                  56,27      -7,03 Top     Hanger          Delete              
+XSIG020126      PT8                  56,27      -7,03 Top     Hanger          Delete              
+XSIG020127      PT9                   57,2      -13,1 Top     Hanger          Delete              
+XSIG020127      PT9                   57,2      -13,1 Top     Hanger          Delete              
+SPI2_NSS_TEST   PT1                 117,42       5,34 Top     Hanger          Delete              
+SPI2_NSS_TEST   PT1                 117,42       5,34 Top     Hanger          Delete              
+SPI2_SCK_TEST   PT2                 106,69       2,78 Top     Hanger          Delete              
+SPI2_SCK_TEST   PT2                 106,69       2,78 Top     Hanger          Delete              
+SPI2_MISO       PT3                  96,88      -2,59 Top     Hanger          Delete              
+SPI2_MISO       PT3                  96,88      -2,59 Top     Hanger          Delete              
+SPI2_MOSI       PT4                  88,95      -5,63 Top     Hanger          Delete              
+SPI2_MOSI       PT4                  88,95      -5,63 Top     Hanger          Delete              
+XSIG020124      PT6                  78,44      -6,56 Top     Hanger          Delete              
+XSIG020124      PT6                  78,44      -6,56 Top     Hanger          Delete              
+XSIG020125      PT7                  68,64      -7,73 Top     Hanger          Delete              
+XSIG020125      PT7                  68,64      -7,73 Top     Hanger          Delete              
+XSIG020126      PT8                  56,27      -7,03 Top     Hanger          Delete              
+XSIG020126      PT8                  56,27      -7,03 Top     Hanger          Delete              
+XSIG020127      PT9                   57,2      -13,1 Top     Hanger          Delete              
+XSIG020127      PT9                   57,2      -13,1 Top     Hanger          Delete              

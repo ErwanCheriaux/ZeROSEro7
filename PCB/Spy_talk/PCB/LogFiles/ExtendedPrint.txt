@@ -1,0 +1,14 @@
+ ----------------------------
+|  Extended Print Output Log |
+|          Started           |
+|  Tue Dec 19 16:05:33 2017  |
+ ----------------------------
+
+
+    Processing document ......
+    Processing sheet AssemblyTop......
+ ---------------------------
+|  Extended Print Output Log |
+|          Finished          |
+|  Tue Dec 19 16:05:34 2017  |
+ ----------------------------

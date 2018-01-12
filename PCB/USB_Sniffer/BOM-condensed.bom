@@ -1,0 +1,29 @@
+Part	Value	Device	Description	Quantity	Distributor code	Option	Part Number
+R7	0 	RES_0_0603	Resistor 0 ohms / 5% / case 0603	1	Fa : 2008343	DNP	00-0001
+R6	100 	RES_100_0603	Resistor 100 ohms / 5% / case 0603	1	RS : 322-9210	 	00-0050
+R1,R2,R4	300 	RES_300_0603	Resistor 300 ohms / 5% / case 0603	3	Fa : 2059303	 	00-0061
+R3,R5,R8	10K 	RES_10k_0603	Resistor 10k ohms / 5% / case 0603	3	Fa : 9331700	 	00-0098
+C1,C2,C3,C4,C20	100nF	CAP C0603 100nF X7R 16V	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0603	5	Fa : 1414027	 	10-0057
+C7,C8,C17,C18	100nF	CAP C0402 100nF X7R 16V	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	4	Fa : 2496810	 	10-0058
+C12	1uF	CAP C0402 1uF X5R 6.3V	Capacitor Ceramic X5R / 1uF / 6.3V / ±10% / case 0402	1	Fa : 2362087	 	10-0060
+C16	100pF	CAP C0402 100pF NPO 50V	Capacitor Ceramic 100pF / NPO / 50V / ±5% / case 0402 	1	Fa : 2496792	 	10-0067
+C11	1uF	CAP C0603 1uF X5R 25V	Capacitor Ceramic 1uF / X5R / 25V / ±10% / case 0603	1	Fa : 1828802	 	10-0068
+C13,C14,C15,C19	12pF	CAP C0402 12pF C0G 50V 2%	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	4	Fa : 7568134	 	10-0096
+C21	1pF	CAP C0402 1pF NPO 50V 5%	Capacitor Ceramic 1pF, NPO, 50V, ±5%,Multicomp MC000337, case 0402 	1	Fa : 2310367	 	10-0097
+C9	10uF	CAP C0603 10uF X5R 6.3V	Capacitor Ceramic X5R / 10uF / 6.3V / ±20% / case 0603	1	Fa : 1759393 	 	10-0103
+C10	10uF	CAP C0402 10uF X5R 6V3 20%	Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402	1	Fa : 2346872	 	10-0106
+C5,C6	2.2uF	CAP C0603 2.2uF X5R 6.3V	Capacitor Ceramic X5R / 2.2uF / 6.3V / ±20% / case 0603	2	Fa : 1288257	 	10-0112
+D1	 	HSMF-C114	Tricolor RGB  LED, SMD case ChipLed, Avago HSMF-C114, 20mA, 70/180/85mCd, Vf=2.4/3.9/2.9V	1	Fa : 1058362 	 	20-0038
+D2	 	KP-1608PBC	HL Blue LED SMD case 0603, Kingbright KP-1608PBC, 30mA, 3.65V	1	Fa : 8529809	 	20-0041
+U3	 	MIC5504-3.3YM5-TR	Simple LDO 300mA, 3.3V, Micrel MIC5504-3.3YM5-TR, case SOT23	1	Mouser : 998-MIC5504-3.3YM5TR 	 	40-0287
+U2	 	nRF52832-QFAA	Multiprotocol Bluetooth 4.2 Low Energy SoC, 512k flash, 64k RAM, Cortex M4, case QFN exposed pad 48 0.4mm, Nordic nRF52832-QFAA	1	Mouser : 949-NRF52832-QFAA-T	 	40-0308
+U1	 	STM32F215RGT7	ARM Cortex-M4 32b MCU, FPU, 150DMIPS, up to 1MB Flash/128-4KB RAM, USB OTG HS/FS, 17 TIMs, 3 ADCs, ST STM32F215RGT7, case LQFP64	1	Mouser : 511-STM32F205RGT7	 	40-0317
+U5	 	TPS2061CDBVR	Current Limited, USB Power-Distribution Switch Texas Instruments TPS2061CDBVR, case SOT23-5	1	Mouser : 595-TPS2061CDBVR	 	40-0332
+L1	3.9nH	SELF 3.9nH 0402	Inductor 3.9nH 9.5GHz, 2%, Coilcraft 0402HP-3N9XGLU, case 0402	1	Fa : 2285767	 	50-0036
+J2	 	USB A	USB connector single row type A 787616-1 (AMP)	1	Fa : 1076663 	 	70-0007
+J1	 	USB A MALE	Fiche mâle USB type A, SMD, Lumberg 2410 07	1	Fa : 1308875 	 	70-0042
+J3,J4	 	FTSH-105-01-L-DV	Dual row 1.27 CMS 2x5 points connector, Samtec FTSH-105-01-L-DV 	2	Fa : 1667759	 	70-0081
+U4	 	2450AT18A100E	Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E	1	Fa : 1885496	 	80-0050
+J5,J6,J7,J8	 	TEST_POINT_0.9mm	Test point 0.9mm, SMD	4	 	 	80-0063
+QZ3	 	32.000 MHz	Quartz 32.000 MHz, +/- 20ppm, 6pF, SMD, Murata XRCPB32M000F2P00R0, case XRPC (2016)	1	Mouser : 81-XRCPB32M000F2P0R0	 	83-0025
+QZ5	 	16.000 MHz	Quartz 16.000 MHz, +/- 15ppm, 8pF, SMD, Kyocera CX2016DB16000D0FLJCC	1	Mouser : 581-CX2016DB16DFLJCC	 	83-0028
