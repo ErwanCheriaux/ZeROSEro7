@@ -13,7 +13,6 @@ extern BaseSequentialStream rtt_shell;
 #define rtt_printf(f, ...)                      \
     do {                                        \
         SEGGER_RTT_printf(0, f, ##__VA_ARGS__); \
-        SEGGER_RTT_printf(0, "\n");             \
     } while(0)
 
 #endif

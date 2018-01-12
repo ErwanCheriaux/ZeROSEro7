@@ -68,64 +68,90 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 
     if(argc < 2 || argc > 3) {
         rtt_printf("Usage: sdc read <addr> |\n" \
-                   "           read block <no> |\n" \
+                   "           read <addr> <size> |\n" \
                    "           write <addr> <value>\n" \
-                   "(values in decimal)");
+                   "(values in decimal)\n");
         return;
     }
 
     /* Card presence check.*/
     if(!blkIsInserted(&SDCD1)) {
-        rtt_printf("Card not inserted, aborting.");
+        rtt_printf("Card not inserted, aborting.\n");
         return;
     }
 
     /* Connection to the card.*/
-    rtt_printf("Connecting... ");
+    rtt_printf("Connecting... \n");
     if(sdcConnect(&SDCD1)) {
-        rtt_printf("failed");
+        rtt_printf("failed\n");
         return;
     }
-    rtt_printf("Connection succeed");
-    rtt_printf("Block size: %d", MMCSD_BLOCK_SIZE);
+    rtt_printf("Connection succeed\n");
+    rtt_printf("Block size: %d\n", MMCSD_BLOCK_SIZE);
 
     if(strcmp(argv[0], "write") == 0) {
         if (argc == 3) {
             int address = atoi(argv[1]);
             int value = atoi(argv[2]);
-            rtt_printf("Write %d at position %d", value, address);
+            rtt_printf("Write %d at position %d\n", value, address);
             if(sd_write_byte(address, value)) {
-                rtt_printf("Writing failed");
+                rtt_printf("Writing failed\n");
                 goto exittest;
             }
         }
         else {
-            rtt_printf("Invalid number of parameters");
+            rtt_printf("Invalid number of parameters\n");
         }
     }
     if(strcmp(argv[0], "read") == 0) {
-        if(argc == 3) { // print a whole block
-            rtt_printf("Read the first block:");
-            int nb_blocks_read = 1;
-            int first_block = atoi(argv[2]);
-            if(sd_read_blocks(first_block, nb_blocks_read)) {
-                rtt_printf("Reading failed");
+        if(argc == 3) { // print a whole area
+            rtt_printf("Read a big memory area:\n");
+            int addr = atoi(argv[1]);
+            int size = atoi(argv[2]);
+            uint8_t buffer[size];
+            if(sd_read(addr, size, buffer)) {
+                rtt_printf("Reading failed\n");
                 goto exittest;
             }
-            for(unsigned int i = 0; i < MMCSD_BLOCK_SIZE * nb_blocks_read / 4; i++)
-                rtt_printf("0x%08X  %02X%02X %02X%02X", i*4+MMCSD_BLOCK_SIZE*first_block, buf[4*i], buf[4*i+1], buf[4*i+2], buf[4*i+3]);
+            // print
+            int buf_idx = 0;
+            rtt_printf("0x%08X  ", (int)(addr/4)*4);
+            for(int i = 0; i < 4; i++) {
+                if(i < addr % 4)
+                    rtt_printf("  ");
+                else
+                    rtt_printf("%02X", buffer[buf_idx++]);
+                if(i == 1)
+                    rtt_printf(" ");
+            }
+            rtt_printf("\n");
+            addr -= addr % 4;
+            for(int i = 0; i < size / 4; i++) {
+                addr += 4;
+                rtt_printf("0x%08X  %02X%02X %02X%02X\n", addr, buffer[buf_idx], buffer[buf_idx+1], buffer[buf_idx+2], buffer[buf_idx+3]);
+                buf_idx += 4;
+            }
+            if(size % 4 != 0)
+                rtt_printf("0x%08X  ", addr);
+            for(int i = 0; i < size % 4; i++) {
+                rtt_printf("%02X", buffer[buf_idx++]);
+                if(i == 1)
+                    rtt_printf(" ");
+            }
+            if(size % 4 != 0)
+                rtt_printf("\n");
         }
         else if (argc == 2) { // print a single value
             int addr = atoi(argv[1]);
             int value = 0;
             if(sd_read_byte(addr, &value)) {
-                rtt_printf("Reading failed");
+                rtt_printf("Reading failed\n");
                 goto exittest;
             }
-            rtt_printf("0x%08X  %02X", addr, value);
+            rtt_printf("0x%08X  %02X\n", addr, value);
         }
         else {
-                rtt_printf("Invalid number of parameters");
+                rtt_printf("Invalid number of parameters\n");
         }
     }
 /* Card disconnect and command end.*/

@@ -15,15 +15,16 @@
 ** addr:   address to read
 ** value:  returned content at the given address
 ** return: 0 for success, 1 for error
-*/ 
+*/
 int sd_read_byte(int addr, int* value);
 
 /* Read whole memory area
-** block:  block number to start
-** nb:     number of bytes to read
+** addr:   address to read
+** len:    number of bytes to read
+** buffer: returned content 
 ** return: 0 for success, 1 for error
 */
-#define sd_read_blocks(block, nb) sdcRead(&SDCD1, block, buf, nb)
+int sd_read(int addr, int len, uint8_t* buffer);
 
 /* Write a byte into a given address
 ** addr:   address to write the byte
