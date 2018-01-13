@@ -30,6 +30,8 @@ lint_main:
     - make format
     - cd ../LoRa_sx1276
     - make format
+    - cd ../software/usb_sniffer/STM32
+    - make format
     - git status --porcelain
 
 lint_apps:
@@ -69,12 +71,15 @@ build_main:
     - make
     - cd ../LoRa_sx1276
     - make
+    - cd ../software/usb_sniffer/STM32
+    - make
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
     - Training/USB_keyboard/build/USB_keyboard.elf
     - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
     - Training/WiFi/build/wifi_dev_kit.elf
+    - software/usb_sniffer/STM32/build/usb_sniffer.elf
     expire_in: 1 week
 
 build_apps:
