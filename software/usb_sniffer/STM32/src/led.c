@@ -2,30 +2,28 @@
 
 #include "led.h"
 
-static bool toggle = false;
-
 void led_init(void)
 {
-    palSetPadMode(GPIOC, GPIOC_RGB_G, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPad(GPIOC, GPIOC_RGB_G);  //led off
+    palSetPadMode(GPIOC, GPIOC_RGB_R, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOA, GPIOA_RGB_G, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, GPIOC_RGB_B, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPad(GPIOC, GPIOC_RGB_R);  //led off
+    palSetPad(GPIOA, GPIOA_RGB_G);  //led off
+    palSetPad(GPIOC, GPIOC_RGB_B);  //led off
 }
 
-void led_on(void)
+void led_rgb(bool r, bool g, bool b)
 {
-    palSetPad(GPIOC, GPIOC_RGB_G);
-    toggle = true;
-}
-
-void led_off(void)
-{
-    palClearPad(GPIOC, GPIOC_RGB_G);
-    toggle = false;
-}
-
-void led_toggle(void)
-{
-    if(toggle)
-        led_off();
+    if(r)
+        palSetPad(GPIOC, GPIOC_RGB_R);
     else
-        led_on();
+        palClearPad(GPIOC, GPIOC_RGB_R);
+    if(g)
+        palSetPad(GPIOA, GPIOA_RGB_G);
+    else
+        palClearPad(GPIOA, GPIOA_RGB_G);
+    if(b)
+        palSetPad(GPIOC, GPIOC_RGB_B);
+    else
+        palClearPad(GPIOC, GPIOC_RGB_B);
 }

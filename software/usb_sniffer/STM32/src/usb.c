@@ -180,44 +180,44 @@ static const USBDescriptor hid_descriptor = {
  * detailed description of all the fields
  */
 static const uint8_t hid_report_descriptor_data[] = {
-    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x01), // USAGE_PAGE (Generic Desktop)
-    USB_DESC_BYTE(0x09), USB_DESC_BYTE(0x06), // USAGE (Keyboard)
-    USB_DESC_BYTE(0xa1), USB_DESC_BYTE(0x01), // COLLECTION (Application)
-                                              // --------------------- input report for modifier keys
-    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x07), //   USAGE_PAGE (Keyboard)
-    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0xe0), //   USAGE_MINIMUM (Keyboard LeftControl)
-    USB_DESC_BYTE(0x29), USB_DESC_BYTE(0xe7), //   USAGE_MAXIMUM (Keyboard Right GUI)
-    USB_DESC_BYTE(0x15), USB_DESC_BYTE(0x00), //   LOGICAL_MINIMUM (0)
-    USB_DESC_BYTE(0x25), USB_DESC_BYTE(0x01), //   LOGICAL_MAXIMUM (1)
-    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01), //   REPORT_SIZE (1)
-    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x08), //   REPORT_COUNT (8)
-    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x02), //   INPUT (Data,Var,Abs)
-                                              // --------------------- input report - padding
-    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x01), //   REPORT_COUNT (1)
-    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x08), //   REPORT_SIZE (8)
-    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x01), //   INPUT (Cnst,Var,Abs)                         = 0x81, 0x03
-                                              // --------------------- output report for LED
-    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x03), //   REPORT_COUNT (5)                             = 0x95, 0x05
-    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01), //   REPORT_SIZE (1)
-    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x08), //   USAGE_PAGE (LEDs)
-    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0x01), //   USAGE_MINIMUM (Num Lock)
-    USB_DESC_BYTE(0x29), USB_DESC_BYTE(0x03), //   USAGE_MAXIMUM (Kana)                         = 0x29, 0x05
-    USB_DESC_BYTE(0x91), USB_DESC_BYTE(0x02), //   OUTPUT (Data,Var,Abs)
-    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x05), //   REPORT_COUNT (1)                             = 0x95, 0x01
-    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01), //   REPORT_SIZE (3)                              = 0x75, 0x03
-    USB_DESC_BYTE(0x91), USB_DESC_BYTE(0x01), //   OUTPUT (Cnst,Var,Abs)                        = 0x91, 0x03
-                                              // --------------------- input report for keycode array
-    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x06), //   REPORT_COUNT (6)
-    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x08), //   REPORT_SIZE (8)
-    USB_DESC_BYTE(0x15), USB_DESC_BYTE(0x00), //   LOGICAL_MINIMUM (0)
-    USB_DESC_BYTE(0x26), USB_DESC_BYTE(0xff), //   LOGICAL_MAXIMUM (101)                        = 0x25, 0x65
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x01),  // USAGE_PAGE (Generic Desktop)
+    USB_DESC_BYTE(0x09), USB_DESC_BYTE(0x06),  // USAGE (Keyboard)
+    USB_DESC_BYTE(0xa1), USB_DESC_BYTE(0x01),  // COLLECTION (Application)
+                                               // --------------------- input report for modifier keys
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x07),  //   USAGE_PAGE (Keyboard)
+    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0xe0),  //   USAGE_MINIMUM (Keyboard LeftControl)
+    USB_DESC_BYTE(0x29), USB_DESC_BYTE(0xe7),  //   USAGE_MAXIMUM (Keyboard Right GUI)
+    USB_DESC_BYTE(0x15), USB_DESC_BYTE(0x00),  //   LOGICAL_MINIMUM (0)
+    USB_DESC_BYTE(0x25), USB_DESC_BYTE(0x01),  //   LOGICAL_MAXIMUM (1)
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01),  //   REPORT_SIZE (1)
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x08),  //   REPORT_COUNT (8)
+    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x02),  //   INPUT (Data,Var,Abs)
+                                               // --------------------- input report - padding
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x01),  //   REPORT_COUNT (1)
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x08),  //   REPORT_SIZE (8)
+    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x01),  //   INPUT (Cnst,Var,Abs)                         = 0x81, 0x03
+                                               // --------------------- output report for LED
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x03),  //   REPORT_COUNT (5)                             = 0x95, 0x05
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01),  //   REPORT_SIZE (1)
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x08),  //   USAGE_PAGE (LEDs)
+    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0x01),  //   USAGE_MINIMUM (Num Lock)
+    USB_DESC_BYTE(0x29), USB_DESC_BYTE(0x03),  //   USAGE_MAXIMUM (Kana)                         = 0x29, 0x05
+    USB_DESC_BYTE(0x91), USB_DESC_BYTE(0x02),  //   OUTPUT (Data,Var,Abs)
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x05),  //   REPORT_COUNT (1)                             = 0x95, 0x01
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x01),  //   REPORT_SIZE (3)                              = 0x75, 0x03
+    USB_DESC_BYTE(0x91), USB_DESC_BYTE(0x01),  //   OUTPUT (Cnst,Var,Abs)                        = 0x91, 0x03
+                                               // --------------------- input report for keycode array
+    USB_DESC_BYTE(0x95), USB_DESC_BYTE(0x06),  //   REPORT_COUNT (6)
+    USB_DESC_BYTE(0x75), USB_DESC_BYTE(0x08),  //   REPORT_SIZE (8)
+    USB_DESC_BYTE(0x15), USB_DESC_BYTE(0x00),  //   LOGICAL_MINIMUM (0)
+    USB_DESC_BYTE(0x26), USB_DESC_BYTE(0xff),  //   LOGICAL_MAXIMUM (101)                        = 0x25, 0x65
     USB_DESC_BYTE(0x00),
-    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x07), //   USAGE_PAGE (Keyboard)    
-    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0x00), //   USAGE_MINIMUM (Reserved (no event indicated))
-    USB_DESC_BYTE(0x2a), USB_DESC_BYTE(0xff), //   USAGE_MAXIMUM (Keyboard Application)         = 0x29, 0x65
+    USB_DESC_BYTE(0x05), USB_DESC_BYTE(0x07),  //   USAGE_PAGE (Keyboard)
+    USB_DESC_BYTE(0x19), USB_DESC_BYTE(0x00),  //   USAGE_MINIMUM (Reserved (no event indicated))
+    USB_DESC_BYTE(0x2a), USB_DESC_BYTE(0xff),  //   USAGE_MAXIMUM (Keyboard Application)         = 0x29, 0x65
     USB_DESC_BYTE(0x00),
-    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x00), //   INPUT (Data,Ary,Abs)
-    USB_DESC_BYTE(0xc0)};                     // END_COLLECTION
+    USB_DESC_BYTE(0x81), USB_DESC_BYTE(0x00),  //   INPUT (Data,Ary,Abs)
+    USB_DESC_BYTE(0xc0)};                      // END_COLLECTION
 
 /*
  * HID Report Descriptor wrapper
@@ -502,11 +502,11 @@ void usbh_init(void)
 void usbMainLoop(void)
 {
     if(usbhidcfg.usbp->state == USB_ACTIVE) {
-        size_t  n = 8;
+        size_t  n           = 8;
         uint8_t report_a[8] = {
             0x00,
             0x00,
-            0x14, // a
+            0x14,  // a
             0x00,
             0x00,
             0x00,

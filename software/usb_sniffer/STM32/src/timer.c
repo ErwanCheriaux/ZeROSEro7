@@ -4,11 +4,41 @@
 
 static virtual_timer_t timerv;
 static bool            run = false;
+static enum color { RED,
+                    GREEN,
+                    BLUE,
+                    BLACK,
+                    WHITE } color_t = BLACK;
 
 static void timercb(void *arg)
 {
     (void)arg;
-    led_toggle();
+    switch(color_t) {
+        case BLACK:
+            led_rgb(0, 0, 0);
+            color_t++;
+            break;
+        case WHITE:
+            led_rgb(1, 1, 1);
+            color_t++;
+            break;
+        case RED:
+            led_rgb(1, 0, 0);
+            color_t++;
+            break;
+        case GREEN:
+            led_rgb(0, 1, 0);
+            color_t++;
+            break;
+        case BLUE:
+            led_rgb(0, 0, 1);
+            color_t++;
+            break;
+        default:
+            led_rgb(1, 1, 0);  //YELLOW
+            color_t = BLACK;
+            break;
+    }
 
     //re arm timer
     if(run) {

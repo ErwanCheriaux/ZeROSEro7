@@ -66,7 +66,7 @@
 #define GPIOA_PIN5                  5U
 #define GPIOA_PIN6                  6U
 #define GPIOA_PIN7                  7U
-#define GPIOC_RGB_G                 8U
+#define GPIOA_RGB_G                 8U
 #define GPIOA_OTG_FS_VBUS           9U
 #define GPIOA_PIN10                 10U
 #define GPIOA_OTG_FS_DM             11U
@@ -75,7 +75,7 @@
 #define GPIOA_JTAG_TCK              14U
 #define GPIOA_SPI3_NSS              15U
 
-#define GPIOA_PIN0                  0U
+#define GPIOB_PIN0                  0U
 #define GPIOB_PIN1                  1U
 #define GPIOB_BOOT1                 2U
 #define GPIOB_PIN3                  3U
@@ -192,7 +192,7 @@
                                      PIN_MODE_INPUT(GPIOA_PIN5) |\
                                      PIN_MODE_INPUT(GPIOA_PIN6) |\
                                      PIN_MODE_INPUT(GPIOA_PIN7) |\
-                                     PIN_MODE_INPUT(GPIOC_RGB_G) |\
+                                     PIN_MODE_INPUT(GPIOA_RGB_G) |\
                                      PIN_MODE_INPUT(GPIOA_OTG_FS_VBUS) |\
                                      PIN_MODE_INPUT(GPIOA_PIN10) |\
                                      PIN_MODE_INPUT(GPIOA_OTG_FS_DM) |\
@@ -208,7 +208,7 @@
                                      PIN_OTYPE_PUSHPULL(GPIOA_PIN5) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_PIN6) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_PIN7) |\
-                                     PIN_OTYPE_PUSHPULL(GPIOC_RGB_G) |\
+                                     PIN_OTYPE_PUSHPULL(GPIOA_RGB_G) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_OTG_FS_VBUS) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_PIN10) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_OTG_FS_DM) |\
@@ -224,7 +224,7 @@
                                      PIN_OSPEED_VERYLOW(GPIOA_PIN5) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_PIN6) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_PIN7) |\
-                                     PIN_OSPEED_VERYLOW(GPIOC_RGB_G) |\
+                                     PIN_OSPEED_VERYLOW(GPIOA_RGB_G) |\
                                      PIN_OSPEED_HIGH(GPIOA_OTG_FS_VBUS) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_PIN10) |\
                                      PIN_OSPEED_HIGH(GPIOA_OTG_FS_DM) |\
@@ -240,7 +240,7 @@
                                      PIN_PUPDR_FLOATING(GPIOA_PIN5) |\
                                      PIN_PUPDR_FLOATING(GPIOA_PIN6) |\
                                      PIN_PUPDR_FLOATING(GPIOA_PIN7) |\
-                                     PIN_PUPDR_FLOATING(GPIOC_RGB_G) |\
+                                     PIN_PUPDR_FLOATING(GPIOA_RGB_G) |\
                                      PIN_PUPDR_FLOATING(GPIOA_OTG_FS_VBUS) |\
                                      PIN_PUPDR_FLOATING(GPIOA_PIN10) |\
                                      PIN_PUPDR_FLOATING(GPIOA_OTG_FS_DM) |\
@@ -256,7 +256,7 @@
                                      PIN_ODR_LOW(GPIOA_PIN5) |\
                                      PIN_ODR_LOW(GPIOA_PIN6) |\
                                      PIN_ODR_LOW(GPIOA_PIN7) |\
-                                     PIN_ODR_LOW(GPIOC_RGB_G) |\
+                                     PIN_ODR_LOW(GPIOA_RGB_G) |\
                                      PIN_ODR_LOW(GPIOA_OTG_FS_VBUS) |\
                                      PIN_ODR_LOW(GPIOA_PIN10) |\
                                      PIN_ODR_LOW(GPIOA_OTG_FS_DM) |\
@@ -272,7 +272,7 @@
                                      PIN_AFIO_AF(GPIOA_PIN5, 0U) |\
                                      PIN_AFIO_AF(GPIOA_PIN6, 0U) |\
                                      PIN_AFIO_AF(GPIOA_PIN7, 0U))
-#define VAL_GPIOA_AFRH              (PIN_AFIO_AF(GPIOC_RGB_G, 0U) |\
+#define VAL_GPIOA_AFRH              (PIN_AFIO_AF(GPIOA_RGB_G, 0U) |\
                                      PIN_AFIO_AF(GPIOA_OTG_FS_VBUS, 0U) |\
                                      PIN_AFIO_AF(GPIOA_PIN10, 0U) |\
                                      PIN_AFIO_AF(GPIOA_OTG_FS_DM, 0U) |\
@@ -301,7 +301,7 @@
  * PB14 - OTG_HS_DM
  * PB15 - OTG_HS_DP
  */
-#define VAL_GPIOB_MODER             (PIN_MODE_INPUT(GPIOA_PIN0) |\
+#define VAL_GPIOB_MODER             (PIN_MODE_INPUT(GPIOB_PIN0) |\
                                      PIN_MODE_INPUT(GPIOB_PIN1) |\
                                      PIN_MODE_INPUT(GPIOB_BOOT1) |\
                                      PIN_MODE_INPUT(GPIOB_PIN3) |\
@@ -317,7 +317,7 @@
                                      PIN_MODE_INPUT(GPIOB_OTG_HS_VBUS) |\
                                      PIN_MODE_INPUT(GPIOB_OTG_HS_DM) |\
                                      PIN_MODE_INPUT(GPIOB_OTG_HS_DP))
-#define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(GPIOA_PIN0) |\
+#define VAL_GPIOB_OTYPER            (PIN_OTYPE_PUSHPULL(GPIOB_PIN0) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_PIN1) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_BOOT1) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_PIN3) |\
@@ -333,7 +333,7 @@
                                      PIN_OTYPE_PUSHPULL(GPIOB_OTG_HS_VBUS) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_OTG_HS_DM) |\
                                      PIN_OTYPE_PUSHPULL(GPIOB_OTG_HS_DP))
-#define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_VERYLOW(GPIOA_PIN0) |\
+#define VAL_GPIOB_OSPEEDR           (PIN_OSPEED_VERYLOW(GPIOB_PIN0) |\
                                      PIN_OSPEED_VERYLOW(GPIOB_PIN1) |\
                                      PIN_OSPEED_VERYLOW(GPIOB_BOOT1) |\
                                      PIN_OSPEED_VERYLOW(GPIOB_PIN3) |\
@@ -349,7 +349,7 @@
                                      PIN_OSPEED_HIGH(GPIOB_OTG_HS_VBUS) |\
                                      PIN_OSPEED_HIGH(GPIOB_OTG_HS_DM) |\
                                      PIN_OSPEED_HIGH(GPIOB_OTG_HS_DP))
-#define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(GPIOA_PIN0) |\
+#define VAL_GPIOB_PUPDR             (PIN_PUPDR_FLOATING(GPIOB_PIN0) |\
                                      PIN_PUPDR_FLOATING(GPIOB_PIN1) |\
                                      PIN_PUPDR_FLOATING(GPIOB_BOOT1) |\
                                      PIN_PUPDR_FLOATING(GPIOB_PIN3) |\
@@ -365,7 +365,7 @@
                                      PIN_PUPDR_FLOATING(GPIOB_OTG_HS_VBUS) |\
                                      PIN_PUPDR_FLOATING(GPIOB_OTG_HS_DM) |\
                                      PIN_PUPDR_FLOATING(GPIOB_OTG_HS_DP))
-#define VAL_GPIOB_ODR               (PIN_ODR_LOW(GPIOA_PIN0) |\
+#define VAL_GPIOB_ODR               (PIN_ODR_LOW(GPIOB_PIN0) |\
                                      PIN_ODR_LOW(GPIOB_PIN1) |\
                                      PIN_ODR_LOW(GPIOB_BOOT1) |\
                                      PIN_ODR_LOW(GPIOB_PIN3) |\
@@ -381,7 +381,7 @@
                                      PIN_ODR_HIGH(GPIOB_OTG_HS_VBUS) |\
                                      PIN_ODR_HIGH(GPIOB_OTG_HS_DM) |\
                                      PIN_ODR_HIGH(GPIOB_OTG_HS_DP))
-#define VAL_GPIOB_AFRL              (PIN_AFIO_AF(GPIOA_PIN0, 0U) |\
+#define VAL_GPIOB_AFRL              (PIN_AFIO_AF(GPIOB_PIN0, 0U) |\
                                      PIN_AFIO_AF(GPIOB_PIN1, 0U) |\
                                      PIN_AFIO_AF(GPIOB_BOOT1, 0U) |\
                                      PIN_AFIO_AF(GPIOB_PIN3, 0U) |\
