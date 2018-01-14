@@ -66,57 +66,20 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)*chp;
 
-    if(argc < 2 || argc > 3) {
-        rtt_printf("Usage: sdc read <addr> |\n" \
-                   "           read <addr> <size> |\n" \
-                   "           write <addr> <value>\n" \
-                   "(values in decimal)\n");
-        return;
-    }
-
-    /* Card presence check.*/
-    if(!blkIsInserted(&SDCD1)) {
-        rtt_printf("Card not inserted, aborting.\n");
-        return;
-    }
-
-    /* Connection to the card.*/
-    rtt_printf("Connecting... \n");
-    if(sdcConnect(&SDCD1)) {
-        rtt_printf("failed\n");
-        return;
-    }
-    rtt_printf("Connection succeed\n");
-    rtt_printf("Block size: %d\n", MMCSD_BLOCK_SIZE);
+    if(argc < 1 || argc > 3)
+        goto usage;
 
     if(strcmp(argv[0], "write") == 0) {
-        if (argc == 3) {
-            int address = atoi(argv[1]);
-            int value = atoi(argv[2]);
-            rtt_printf("Write %d at position %d\n", value, address);
-            if(sd_write_byte(address, value)) {
-                rtt_printf("Writing failed\n");
-                goto exittest;
-            }
-        }
-        else {
-            rtt_printf("Invalid number of parameters\n");
-        }
+        if (argc == 3) // write a single value
+            sd_write_byte(atoi(argv[1]), atoi(argv[2]));
+        else
+            goto usage;
     }
-    if(strcmp(argv[0], "read") == 0) {
+    else if(strcmp(argv[0], "read") == 0) {
         if(argc == 3) { // print a whole area
-            rtt_printf("Read a big memory area:\n");
-            int addr = atoi(argv[1]);
             int size = atoi(argv[2]);
-            if(size > (int)SD_BUF_SIZE) {
-                rtt_printf("[ERROR] sd_read: too large len: %d / %d\n", size, SD_BUF_SIZE);
-                goto exittest;
-            }
             uint8_t buffer[size];
-            if(sd_read(addr, size, buffer)) {
-                rtt_printf("Reading failed\n");
-                goto exittest;
-            }
+            sd_read(atoi(argv[1]), size, buffer);
             // print
             for (int i = 0; i < size; i++) {
                 if(i % 8 == 0)
@@ -126,21 +89,35 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             rtt_printf("\n");
         }
         else if (argc == 2) { // print a single value
+            uint8_t value;
             int addr = atoi(argv[1]);
-            int value = 0;
-            if(sd_read_byte(addr, &value)) {
-                rtt_printf("Reading failed\n");
-                goto exittest;
-            }
+            sd_read_byte(addr, &value);
             rtt_printf("0x%08X  %02X\n", addr, value);
         }
-        else {
-                rtt_printf("Invalid number of parameters\n");
-        }
+        else
+            goto usage;
     }
-/* Card disconnect and command end.*/
-exittest:
-    sdcDisconnect(&SDCD1);
+    else if(strcmp(argv[0], "test") == 0) { // read and write test
+        if(argc == 1) {
+            int addr = 0;
+            sd_write_byte(addr, 0);
+            uint8_t value;
+            sd_read_byte(addr, &value);
+            rtt_printf("0x%08X  %02X\n", addr, value);
+            sd_write_byte(addr, 123);
+            sd_read_byte(addr, &value);
+            rtt_printf("0x%08X  %02X\n", addr, value);
+        }
+        else
+            goto usage;
+    }
+    return;
+usage:
+    rtt_printf("Invalid parameters\n");
+    rtt_printf("Usage: sdc read <addr> |\n" \
+               "           read <addr> <size> |\n" \
+               "           write <addr> <value>\n" \
+               "(values in decimal)\n");
 }
 
 static const ShellCommand commands[] = {
