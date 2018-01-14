@@ -2,6 +2,8 @@
 #include <string.h>
 #include "rtt.h"
 
+//#define DEBUG 1
+
 uint8_t buf[SD_BUF_SIZE];
 
 #define SD_INIT() \
@@ -25,7 +27,7 @@ static int read_byte(int addr, uint8_t* value)
 
 static int read(int addr, unsigned int len, uint8_t* buffer)
 {
-    int nb_blocks_to_read = len / MMCSD_BLOCK_SIZE + 1;
+    int nb_blocks_to_read = (addr % MMCSD_BLOCK_SIZE + len) / MMCSD_BLOCK_SIZE + 1;
     if (len % MMCSD_BLOCK_SIZE == 0)
         nb_blocks_to_read--;
     if(nb_blocks_to_read > SDC_BURST_SIZE) {
@@ -36,10 +38,7 @@ static int read(int addr, unsigned int len, uint8_t* buffer)
         rtt_printf("[ERROR] sd_read: error: addr:%d, nb_blocks_to_read:%d\n", addr, nb_blocks_to_read);
         return 1;
     }
-    unsigned int bytes_read = nb_blocks_to_read * MMCSD_BLOCK_SIZE - addr % MMCSD_BLOCK_SIZE;
-    if(bytes_read > len)
-        bytes_read = len;
-    memcpy(buffer, buf + addr % MMCSD_BLOCK_SIZE, bytes_read);
+    memcpy(buffer, buf + addr % MMCSD_BLOCK_SIZE, len);
     return 0;
 }
 
@@ -56,6 +55,27 @@ static int write_byte(int addr, int value)
     return 0;
 }
 
+static int write(int addr, unsigned int len, uint8_t* buffer)
+{
+    int nb_blocks_to_write = (addr % MMCSD_BLOCK_SIZE + len) / MMCSD_BLOCK_SIZE + 1;
+    if (len % MMCSD_BLOCK_SIZE == 0)
+        nb_blocks_to_write--;
+    if(nb_blocks_to_write > SDC_BURST_SIZE) {
+        rtt_printf("[ERROR] sd_read: burst size too big: %d / %d\n", nb_blocks_to_write, SDC_BURST_SIZE);
+        return 1;
+    }
+    if(sdcRead(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, nb_blocks_to_write)) {
+        rtt_printf("[ERROR] sd_read: error: addr:%d, nb_blocks_to_write:%d\n", addr, nb_blocks_to_write);
+        return 1;
+    }
+    memcpy(buf + addr % MMCSD_BLOCK_SIZE, buffer, len);
+    if(sdcWrite(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, nb_blocks_to_write)) {
+        rtt_printf("[ERROR] sd_read: error: addr:%d, nb_blocks_to_write:%d\n", addr, nb_blocks_to_write);
+        return 1;
+    }
+    return 0;
+}
+
 /* General function to deal with SD card
 ** sdc (   cmd,      addr, param, buffer)
 ** cmd:    1: read,  addr, ,      buffer
@@ -69,27 +89,47 @@ static int sdc(int cmd, int addr, int param, uint8_t* buffer)
     int result = 1;
     if(cmd == 1){ // print a single value
         if(read_byte(addr, buffer)) {
-            rtt_printf("Reading failed\n");
+            rtt_printf("[ERROR] SD: Reading failed\n");
             goto error;
         }
+#ifdef DEBUG
+        rtt_printf("[INFO] SD: Read 0x%02X at 0x%08X\n", *buffer, addr);
+#endif
     }
     else if(cmd == 2) { // write a single value
-        rtt_printf("Write %d at position %d\n", param, addr);
         if(write_byte(addr, param)) {
-            rtt_printf("Writing failed\n");
+            rtt_printf("[ERROR] SD: Writing failed\n");
             goto error;
         }
+#ifdef DEBUG
+        rtt_printf("[INFO] SD: Write 0x%02X at 0x%08X\n", param, addr);
+#endif
     }
     else if(cmd == 3) { // print a whole area
-        rtt_printf("Read a big memory area:\n");
         if(param > (int)SD_BUF_SIZE) {
             rtt_printf("[ERROR] sd_read: too large len: %d / %d\n", param, SD_BUF_SIZE);
             goto error;
         }
         if(read(addr, param, buffer)) {
-            rtt_printf("Reading failed\n");
+            rtt_printf("[ERROR] SD: Reading failed\n");
             goto error;
         }
+#ifdef DEBUG
+        rtt_printf("[INFO] SD: Read 0x%08X bytes from 0x%08X\n", param, addr);
+#endif
+    }
+    else if(cmd == 4) { // write a whole area
+        if(param > (int)SD_BUF_SIZE) {
+            rtt_printf("[ERROR] sd_write: too large len: %d / %d\n", param, SD_BUF_SIZE);
+            goto error;
+        }
+        if(write(addr, param, buffer)) {
+            rtt_printf("[ERROR] SD: Writing failed\n");
+            goto error;
+        }
+#ifdef DEBUG
+        rtt_printf("[INFO] SD: Write 0x%08X bytes from 0x%08X\n", param, addr);
+#endif
     }
     result = 0;
 error:
@@ -110,4 +150,9 @@ int sd_write_byte(int addr, uint8_t value)
 int sd_read(int addr, unsigned int len, uint8_t* buffer)
 {
     return sdc(3, addr, len, buffer);
+}
+
+int sd_write(int addr, unsigned int len, uint8_t* buffer)
+{
+    return sdc(4, addr, len, buffer);
 }

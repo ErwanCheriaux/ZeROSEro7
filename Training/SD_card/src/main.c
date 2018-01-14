@@ -78,12 +78,19 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     else if(strcmp(argv[0], "read") == 0) {
         if(argc == 3) { // print a whole area
             int size = atoi(argv[2]);
+            int addr = atoi(argv[1]);
             uint8_t buffer[size];
-            sd_read(atoi(argv[1]), size, buffer);
+            sd_read(addr, size, buffer);
             // print
+            int nb_bytes_per_row = 8;
+            if(addr % nb_bytes_per_row != 0) {
+                rtt_printf("0x%08X  ", ((int)addr/nb_bytes_per_row)*nb_bytes_per_row);
+                for(int i = 0; i < addr % nb_bytes_per_row; i++)
+                    rtt_printf("   ");
+            }
             for (int i = 0; i < size; i++) {
-                if(i % 8 == 0)
-                    rtt_printf("\n%05d  ", i);
+                if((addr + i) % nb_bytes_per_row == 0)
+                    rtt_printf("\n0x%08X  ", addr + i);
                 rtt_printf("%02X ", buffer[i]);
             }
             rtt_printf("\n");
@@ -100,13 +107,40 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     else if(strcmp(argv[0], "test") == 0) { // read and write test
         if(argc == 1) {
             int addr = 0;
-            sd_write_byte(addr, 0);
-            uint8_t value;
-            sd_read_byte(addr, &value);
-            rtt_printf("0x%08X  %02X\n", addr, value);
-            sd_write_byte(addr, 123);
-            sd_read_byte(addr, &value);
-            rtt_printf("0x%08X  %02X\n", addr, value);
+            uint8_t value = 0;
+            sd_write_byte(addr, value);
+            uint8_t result;
+            sd_read_byte(addr, &result);
+            if(result != value) {
+                rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
+                return;
+            }
+            value = 123;
+            sd_write_byte(addr, value);
+            sd_read_byte(addr, &result);
+            if(result != value) {
+                rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
+                return;
+            }
+            int len = 0x200;
+            uint8_t buffer[len];
+            for(int i = 0; i < len; i++)
+                buffer[i] = i;
+            sd_write(0, len, buffer);
+            sd_read(0, len, buffer);
+            int res = 0;
+            for(int i = 0; i < len; i++) {
+                if(buffer[i] != i % 0x100) {
+                    res = 1;
+                    rtt_printf("[ERROR] SD: Value 0x%02X has been written at 0x%08X but 0x%02X was read\n", i % 0x100, i, buffer[i]);
+                    break;
+                }
+            }
+            if(res) {
+                rtt_printf("[ERROR] SD: Area value is different from area written\n");
+                return;
+            }
+            rtt_printf("[INFO] SD: Tests successfully passed\n");
         }
         else
             goto usage;

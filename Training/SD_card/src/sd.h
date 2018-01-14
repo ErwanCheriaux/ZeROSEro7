@@ -21,7 +21,7 @@ int sd_read_byte(int addr, uint8_t* value);
 /* Read whole memory area
 ** addr:   address to read
 ** len:    number of bytes to read
-** buffer: returned content 
+** buffer: returned content
 ** return: 0 for success, 1 for error
 */
 int sd_read(int addr, unsigned int len, uint8_t* buffer);
@@ -32,5 +32,13 @@ int sd_read(int addr, unsigned int len, uint8_t* buffer);
 ** return: 0 for success, 1 for error
 */
 int sd_write_byte(int addr, uint8_t value);
+
+/* Write whole memory area
+** addr:   address to write
+** len:    number of bytes to write
+** buffer: input content
+** return: 0 for success, 1 for error
+*/
+int sd_write(int addr, unsigned int len, uint8_t* buffer);
 
 #endif // SD_H
