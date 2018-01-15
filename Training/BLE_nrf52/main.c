@@ -20,17 +20,32 @@ void power_manage()
 
 static void phone_noticed_handler()
 {
-    rtt_write_string("!!! Phone get, negociating connection !!!\n");
+    rtt_write_string("Phone get, negociating connection\n");
     bsp_board_led_on(2);
-    // We advertise to switch role in the GAP connection for lower consumption
+    // We advertise to switch role in the GAP connection for lower consumption.
+    // REVIEW Maybe use whitelisted scan requests instead
     ble_stop_observing();
     ble_peripheral_start_advertising();
 }
 
 static void phone_connected_handler()
 {
-    rtt_write_string("!!! Phone connected !!!\n");
+    rtt_write_string("Phone connected\n");
+    ble_peripheral_stop_advertising();
     bsp_board_led_on(3);
+}
+
+static void phone_disconnected_handler() {
+    rtt_write_string("Phone disconnected\n");
+    ble_peripheral_stop_advertising();
+    ble_start_observing();
+}
+
+// TODO use it in ble_handler central
+static void phone_write_handler(uint8_t *buff, int length) {
+    rtt_write_string("Received data from phone :\n");
+    rtt_write_buffer(0,buff,length);
+    rtt_write_string("\n");
 }
 
 static void log_init(void)
@@ -46,6 +61,12 @@ static void timer_init()
     APP_ERROR_CHECK(app_timer_init());
 }
 
+#include "nrf_drv_gpiote.h"
+static nrf_drv_gpiote_out_config_t led_config = {
+    NRF_GPIOTE_POLARITY_TOGGLE,
+    NRF_GPIOTE_INITIAL_VALUE_HIGH,
+    false};
+
 int main(void)
 {
     timer_init();
@@ -56,19 +77,17 @@ int main(void)
 
     bsp_board_leds_init();
 
-    ble_handler_init(phone_noticed_handler);
-    ble_advertising_handler_init(phone_connected_handler);
+    ble_handler_init(phone_noticed_handler,phone_connected_handler,phone_disconnected_handler,phone_write_handler);
     ble_stack_init();
     ble_gap_init();
     ble_gatt_init();
     ble_advertise_init();
     ble_services_init();
     ble_conn_negociation_init();
-    // ble_peer_init(); TODO
+    // ble_peer_init(); REVIEW Bonus, bond with device and security
     rtt_write_string("BLE initialized\n");
 
     ble_start_observing();
-    ble_peripheral_start_advertising();
     rtt_write_string("Now observing BLE\n");
     bsp_board_led_on(1);
 

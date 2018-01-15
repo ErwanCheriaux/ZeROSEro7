@@ -34,6 +34,9 @@ typedef struct
 // GAP Handler
 
 static void (*ble_on_notice_phone)();  // Handler from main
+static void (*ble_on_phone_connected)();  // Handler from main
+static void (*ble_on_phone_disconnected)();  // Handler from main
+static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from main
 
 static char *   phone_expected_name = "ZeROSEro7 phone";
 static uint32_t parse_advdata(data_t const *const adv_data)
@@ -125,42 +128,16 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             on_adv_report(p_ble_evt);
             break;
 
-        case BLE_ADV_EVT_DIRECTED:
-            NRF_LOG_INFO("Directed advertising.");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_DIRECTED);
-            APP_ERROR_CHECK(err_code);
-            break;
-
-        case BLE_ADV_EVT_FAST:
-            NRF_LOG_INFO("Fast advertising.");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING);
-            APP_ERROR_CHECK(err_code);
-            break;
-
-        case BLE_ADV_EVT_SLOW:
-            NRF_LOG_INFO("Slow advertising.");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_SLOW);
-            APP_ERROR_CHECK(err_code);
-            break;
-
-        case BLE_ADV_EVT_FAST_WHITELIST:
-            NRF_LOG_INFO("Fast advertising with whitelist.");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_WHITELIST);
-            APP_ERROR_CHECK(err_code);
-            break;
-
-        case BLE_ADV_EVT_SLOW_WHITELIST:
-            NRF_LOG_INFO("Slow advertising with whitelist.");
-            err_code = bsp_indication_set(BSP_INDICATE_ADVERTISING_WHITELIST);
-            APP_ERROR_CHECK(err_code);
-            break;
-
-        case BLE_ADV_EVT_IDLE:
-            break;
-
         case BLE_GAP_EVT_CONNECTED:
-            rtt_printf(0,"Connected with : %016x\n",p_ble_evt->evt.gap_evt.params.connected.peer_addr);
+            rtt_printf(0,"Connected with: %08x\n",p_ble_evt->evt.gap_evt.params.connected.peer_addr);
+            ble_on_phone_connected();
             break ;
+        case BLE_GAP_EVT_DISCONNECTED:
+            rtt_printf(0,"Disconnected because HCI reason:%04x\n",
+                p_ble_evt->evt.gap_evt.params.disconnected.reason
+            );
+            ble_on_phone_disconnected();
+            break;
         case BLE_GAP_EVT_CONN_PARAM_UPDATE :
             new_conn_params = p_ble_evt->evt.gap_evt.params.conn_param_update.conn_params;
             rtt_printf(0,"Params Update\nmin_conn_interval:%u\nmax_conn_interval:%u\nslave_latency:%u\nconn_sup_timeout:%u\n",
@@ -179,51 +156,10 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_GAP_EVT_CONN_SEC_UPDATE:
         case BLE_GAP_EVT_SEC_REQUEST:
         case BLE_GAP_EVT_CONN_PARAM_UPDATE_REQUEST:
-        case BLE_GAP_EVT_DISCONNECTED:
             rtt_printf(0,"GAP EVT : %u\n",p_ble_evt->header.evt_id - BLE_GAP_EVT_CONNECTED);
         break;
 
-        /* TODO
-        case BLE_ADV_EVT_WHITELIST_REQUEST:
-        {
-            ble_gap_addr_t whitelist_addrs[BLE_GAP_WHITELIST_ADDR_MAX_COUNT];
-            ble_gap_irk_t  whitelist_irks[BLE_GAP_WHITELIST_ADDR_MAX_COUNT];
-            uint32_t       addr_cnt = BLE_GAP_WHITELIST_ADDR_MAX_COUNT;
-            uint32_t       irk_cnt  = BLE_GAP_WHITELIST_ADDR_MAX_COUNT;
-
-            err_code = pm_whitelist_get(whitelist_addrs, &addr_cnt,
-                                        whitelist_irks,  &irk_cnt);
-            APP_ERROR_CHECK(err_code);
-            NRF_LOG_DEBUG("pm_whitelist_get returns %d addr in whitelist and %d irk whitelist",
-                          addr_cnt, irk_cnt);
-
-            // Apply the whitelist.
-            err_code = ble_advertising_whitelist_reply(&m_advertising,
-                                                       whitelist_addrs,
-                                                       addr_cnt,
-                                                       whitelist_irks,
-                                                       irk_cnt);
-            APP_ERROR_CHECK(err_code);
-        } break; //BLE_ADV_EVT_WHITELIST_REQUEST
-
-        case BLE_ADV_EVT_PEER_ADDR_REQUEST:
-        {
-            pm_peer_data_bonding_t peer_bonding_data;
-
-            // Only Give peer address if we have a handle to the bonded peer.
-            if (m_peer_id != PM_PEER_ID_INVALID)
-            {
-                err_code = pm_peer_data_bonding_load(m_peer_id, &peer_bonding_data);
-                if (err_code != NRF_ERROR_NOT_FOUND)
-                {
-                    APP_ERROR_CHECK(err_code);
-
-                    ble_gap_addr_t * p_peer_addr = &(peer_bonding_data.peer_ble_id.id_addr_info);
-                    err_code = ble_advertising_peer_addr_reply(&m_advertising, p_peer_addr);
-                    APP_ERROR_CHECK(err_code);
-                }
-            }
-        } break; //BLE_ADV_EVT_PEER_ADDR_REQUEST*/
+        // REVIEW Bonus Bonding events
 
         default:
             break;
@@ -254,9 +190,23 @@ void ble_stack_init()
 }
 
 // Exports
-void ble_handler_init(void (*phone_noticed_handler)())
-{
+void ble_handler_init(
+    void (*phone_noticed_handler)(),
+    void (*phone_connected_handler)(),
+    void (*phone_disconnected_handler)(),
+    void (*phone_write_handler)(uint8_t *buff, int length)
+) {
+    if(phone_noticed_handler == NULL ||
+        phone_connected_handler == NULL ||
+        phone_disconnected_handler == NULL ||
+        phone_write_handler == NULL
+    ) {
+        APP_ERROR_CHECK(NRF_ERROR_INVALID_PARAM);
+    }
     ble_on_notice_phone = phone_noticed_handler;
+    ble_on_phone_connected = phone_connected_handler;
+    ble_on_phone_disconnected = phone_disconnected_handler;
+    ble_on_phone_write = phone_write_handler;
 }
 
 void ble_start_observing()

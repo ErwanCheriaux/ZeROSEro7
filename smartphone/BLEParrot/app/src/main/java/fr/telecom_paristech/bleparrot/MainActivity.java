@@ -62,14 +62,19 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getAction().equals(GAPService.DEVICE_CONECTED_ACTION)) {
                 Toast.makeText(getApplicationContext(), "Gotcha !", Toast.LENGTH_LONG).show();
                 advertiser.pause();
-                stopService(advertisementIntent);
+                gap.stopScan();
                 advertisingProgress.setVisibility(View.INVISIBLE);
                 pauseResumeButton.setText("Stopped");
                 advertisingTitle.setText("Device detected");
-                // TODO Switch activity and communicate with GATT
+                startConnectedActiviy();
             }
         }
     };
+
+    private void startConnectedActiviy() {
+        Intent intent = new Intent(this, ConnectedActivity.class);
+        startActivity(intent);
+    }
 
     private boolean advertiserStarted = true;
 
@@ -143,6 +148,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "BLE Advertisement stopped", Toast.LENGTH_LONG).show();
         Log.i("MainActivity", "Activity destroyed");
         stopService(advertisementIntent);
+        stopService(gapIntent);
         super.onDestroy();
     }
 

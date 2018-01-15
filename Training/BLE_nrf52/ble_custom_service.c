@@ -79,7 +79,7 @@ void my_service_init() {
     // Attribute Metadata
     ble_gatts_attr_md_t attr_md = {{0}}; // Double bracket for old gcc version
     // Set GAP connection security to open for read and write permissions
-    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&attr_md.read_perm); // TODO Security
+    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&attr_md.read_perm); // REVIEW Bonus Security
     BLE_GAP_CONN_SEC_MODE_SET_OPEN(&attr_md.write_perm);
     // Storing the attribute value in stack (softdevice) memory
     attr_md.vloc = BLE_GATTS_VLOC_STACK;
@@ -98,4 +98,8 @@ void my_service_init() {
     APP_ERROR_CHECK(sd_ble_gatts_characteristic_add(ble_characteristic_config.service_handle,
                                            &char_md, &attr_char_value,
                                            &ble_characteristic_config.write_handles));
+}
+
+void phone_send_notification(uint8_t *buff, int length) {
+    // TODO and write handling via ble_evt
 }

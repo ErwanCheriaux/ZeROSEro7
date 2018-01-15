@@ -26,11 +26,13 @@
         <service
             android:name=".AdvertiserService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
         <service
             android:name=".GAPService"
             android:enabled="true"
-            android:exported="true"></service>
+            android:exported="true" />
+
+        <activity android:name=".ConnectedActivity"></activity>
     </application>
 
 </manifest>

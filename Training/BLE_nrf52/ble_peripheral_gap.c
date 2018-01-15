@@ -50,19 +50,20 @@ static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 
     switch(ble_adv_evt) {
         case BLE_ADV_EVT_DIRECTED:
-            rtt_write_string("Directed advertising");
+            rtt_write_string("Directed advertising started\n");
             break;
 
         case BLE_ADV_EVT_FAST:
-            rtt_write_string("Fast advertising");
-            // TODO Peer and bond
+            rtt_write_string("Fast advertising started\n");
+            // REVIEW Bonus:  Peer and bond
             break;
 
         case BLE_ADV_EVT_SLOW:
-            rtt_write_string("Slow advertising");
+            rtt_write_string("Slow advertising started\n");
             break;
 
         case BLE_ADV_EVT_IDLE:
+            rtt_write_string("Advertising going to idle\n");
             break;
 
         default:
@@ -135,17 +136,12 @@ static void advertising_params_init()
     advertising_conf.advdata.uuids_complete.uuid_cnt = 0;  // No need to advertise GATT services, obtained after connection
     advertising_conf.advdata.uuids_complete.p_uuids  = NULL;
 
-    // We use fast advertising because advertising doesn't last long. TODO Could use Directed for fast recovery
+    // We use fast advertising because advertising doesn't last long. REVIEW Could use Directed for fast recovery
     advertising_conf.config.ble_adv_fast_enabled  = true;
     advertising_conf.config.ble_adv_fast_interval = APP_ADV_FAST_INTERVAL;
     advertising_conf.config.ble_adv_fast_timeout  = APP_ADV_FAST_TIMEOUT;
 
     advertising_conf.evt_handler = on_adv_evt;
-}
-
-void ble_advertising_handler_init(void (*phone_connected_handler)())
-{
-    on_phone_connection = phone_connected_handler;
 }
 
 void ble_advertise_init()
@@ -158,10 +154,15 @@ void ble_advertise_init()
 
 void ble_peripheral_start_advertising()
 {
-    APP_ERROR_CHECK(ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST));
+    ret_code_t err_code;
+    err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
+    if(err_code != NRF_ERROR_INVALID_STATE) {   // Don't restart while started
+        APP_ERROR_CHECK(err_code);
+    }
 }
 
 void ble_peripheral_stop_advertising()
 {
-    APP_ERROR_CHECK(ble_advertising_start(&m_advertising, BLE_ADV_MODE_IDLE));
+    // Stops at the end of current adv. Could use on_adv_evt to know when.
+    // APP_ERROR_CHECK(ble_advertising_start(&m_advertising, BLE_ADV_MODE_IDLE));
 }

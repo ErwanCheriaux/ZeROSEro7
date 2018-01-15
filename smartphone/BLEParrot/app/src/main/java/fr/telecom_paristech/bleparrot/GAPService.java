@@ -17,6 +17,8 @@ import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import java.util.List;
+
 /*
  * Scans and initiates bonding connection with device.
  */
@@ -86,17 +88,20 @@ public class GAPService extends Service {
                 // TODO
                 Log.i("GAPService", "Service Discovered");
                 for (BluetoothGattService service : deviceGatt.getServices()) {
-                    Log.i("GAPService", "Service : " + service);
+                    Log.i("GAPService", "Service UUID: " + service.getUuid());
+                    List<BluetoothGattCharacteristic> chars = service.getCharacteristics();
+                    for(BluetoothGattCharacteristic chara : chars) {
+                        gatt.readCharacteristic(chara);
+                    }
                 }
             }
 
             @Override
             // Result of a characteristic read operation
             public void onCharacteristicRead(BluetoothGatt gatt,
-                                             BluetoothGattCharacteristic characteristic,
+                                             BluetoothGattCharacteristic chara,
                                              int status) {
-                // TODO
-                Log.i("GAPService", "Characteristic Read");
+                Log.i("GAPService","Characteristic Read " + chara.getService().getUuid() + ":" + chara.getUuid() + "=" +chara.getValue());
             }
         };
         deviceGatt = device.connectGatt(this, false, mGattCallback);
