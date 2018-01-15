@@ -106,7 +106,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     }
     else if(strcmp(argv[0], "test") == 0) { // read and write test
         if(argc == 1) {
-            int addr = FILE_AREA;
+            int addr = 0;
             uint8_t value = 0;
             sd_write_byte(addr, value);
             uint8_t result;
@@ -122,12 +122,12 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
                 rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
                 return;
             }
-            int len = 0x200;
+            int len = 0x100;
             uint8_t buffer[len];
             for(int i = 0; i < len; i++)
                 buffer[i] = i;
-            sd_write(FILE_AREA, len, buffer);
-            sd_read(FILE_AREA, len, buffer);
+            sd_write(0, len, buffer);
+            sd_read(0, len, buffer);
             int res = 0;
             for(int i = 0; i < len; i++) {
                 if(buffer[i] != i % 0x100) {
@@ -136,6 +136,16 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
                     break;
                 }
             }
+            for(int i = 0; i < len; i++)
+                buffer[i] = 0;
+            sd_write(0, len, buffer);
+
+            FIL file;
+            char* ptr;
+            uint8_t res = f_open(&file, ptr, FA_CREATE_ALWAYS | FA_WRITE);
+
+            f_close(&file);
+
             if(res) {
                 rtt_printf("[ERROR] SD: Area value is different from area written\n");
                 return;
