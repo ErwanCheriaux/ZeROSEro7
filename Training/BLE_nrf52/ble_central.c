@@ -162,7 +162,10 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_GATTS_EVT_WRITE:
             write_evt = p_ble_evt->evt.gatts_evt.params.write;
             rtt_printf(0,"GATT Write\n");
+            // TODO Could check if it is indeed the uart_service handle
             ble_on_phone_write(write_evt.data,write_evt.len);
+            rtt_write_buffer_hexa(write_evt.data,write_evt.len);
+            rtt_write_string("\n");
             break;
 
         // REVIEW Bonus Bonding events

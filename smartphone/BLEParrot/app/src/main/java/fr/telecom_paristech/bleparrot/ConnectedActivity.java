@@ -10,6 +10,7 @@ import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
@@ -32,13 +33,15 @@ public class ConnectedActivity extends AppCompatActivity {
         setContentView(R.layout.activity_connected);
 
         logWindow = (TextView) findViewById(R.id.logWindow);
+        logWindow.setMovementMethod(new ScrollingMovementMethod());
         commandField = (EditText) findViewById(R.id.commandField);
 
         commandField.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if(keyCode == KeyEvent.KEYCODE_ENTER) {
+                if(keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                     gapService.send(commandField.getText().toString());
+                    logWindow.append("-> "+commandField.getText()+"\n");
                     Log.i("ConnectedActivity","Sending " + commandField.getText());
                 }
                 return false;
@@ -80,6 +83,16 @@ public class ConnectedActivity extends AppCompatActivity {
             if (intent.getAction().equals(GAPService.DEVICE_DISCONNECTED_ACTION)) {
                 Toast.makeText(getApplicationContext(), "Lost connection !", Toast.LENGTH_LONG).show();
                 finish();
+            }
+        }
+    };
+
+    // Device disconnected callback
+    private BroadcastReceiver notificationBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(GAPService.DEVICE_NOTIFICATION_ACTION)) {
+                logWindow.append("<- "+ intent.getStringExtra("Message")+"\n");
             }
         }
     };

@@ -26,16 +26,17 @@
         android:layout_height="wrap_content"
         android:id="@+id/logWindow"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:layout_marginTop="13dp"
-        android:maxLines="5"
-        android:minLines="5"
+        android:layout_marginTop="50dp"
+        android:maxLines="15"
+        android:minLines="15"
         android:minHeight="179dp"
         android:scrollbars="vertical"
-        android:text="Notifications Log"
+        android:text="Notifications Log\n"
+        android:scrollHorizontally="true"
         android:layout_below="@+id/title"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:scrollHorizontally="true"   />
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentEnd="true" />
 
     <EditText
         android:layout_width="wrap_content"
@@ -45,8 +46,9 @@
         android:id="@+id/commandField"
         android:inputType="text"
         android:hint="Command to Send"
-        android:layout_below="@+id/logWindow"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_below="@+id/title"
+        android:layout_marginTop="14dp"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:layout_alignParentEnd="true" />
 </RelativeLayout>

@@ -29,6 +29,7 @@ public class GAPService extends Service {
 
     public static final String DEVICE_CONNECTED_ACTION = "Device connected";
     public static final String DEVICE_DISCONNECTED_ACTION = "Device disconnected";
+    public static final String DEVICE_NOTIFICATION_ACTION = "Device notification";
     public static final UUID UART_SERVICE_UUID = UUID.fromString("0000abcd-1212-efde-1523-785fef13d123") ;
     public static final UUID UART_CHARACTERISTIC_UUID = UUID.fromString("00001234-1212-efde-1523-785fef13d123") ;
     private final BluetoothLeScanner scannerInstance;
@@ -129,6 +130,9 @@ public class GAPService extends Service {
                 super.onCharacteristicChanged(gatt, characteristic);
                 deviceGatt.readRemoteRssi();
                 Log.i("GAPService","Characteristic changed: " + characteristic.getUuid() + " = " + characteristic.getValue());
+                Intent intent = new Intent(DEVICE_NOTIFICATION_ACTION);
+                intent.putExtra("Message",parseByteArray(characteristic.getValue()));
+                LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
             }
 
             @Override
