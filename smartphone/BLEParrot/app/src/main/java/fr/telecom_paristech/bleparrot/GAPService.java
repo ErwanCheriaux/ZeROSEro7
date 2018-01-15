@@ -17,7 +17,9 @@ import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import java.util.Arrays;
 import java.util.List;
+import java.util.UUID;
 
 /*
  * Scans and initiates bonding connection with device.
@@ -27,11 +29,15 @@ public class GAPService extends Service {
 
     public static final String DEVICE_CONNECTED_ACTION = "Device connected";
     public static final String DEVICE_DISCONNECTED_ACTION = "Device disconnected";
+    public static final UUID UART_SERVICE_UUID = UUID.fromString("0000abcd-1212-efde-1523-785fef13d123") ;
+    public static final UUID UART_CHARACTERISTIC_UUID = UUID.fromString("00001234-1212-efde-1523-785fef13d123") ;
     private final BluetoothLeScanner scannerInstance;
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
     private BluetoothGatt deviceGatt;
+
+    BluetoothGattCharacteristic uart_chara;
 
     public GAPService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -51,11 +57,20 @@ public class GAPService extends Service {
                     ConnectDevice(device);
                 }
 
-                // TODO connect to bonded device
+                // REVIEW could connect to previously bonded device
             }
         };
 
         startScan();
+    }
+
+    private String parseByteArray(byte[] value) {
+        return new String(value) ;
+    }
+
+    public void send(String s) {
+        uart_chara.setValue(s);
+        deviceGatt.writeCharacteristic(uart_chara);
     }
 
     private void ConnectDevice(BluetoothDevice device) {
@@ -88,13 +103,15 @@ public class GAPService extends Service {
             @Override
             // New services discovered
             public void onServicesDiscovered(BluetoothGatt gatt, int status) {
-                // TODO
+                // REVIEW could directly connect to know UUID
                 Log.i("GAPService", "Service Discovered");
                 for (BluetoothGattService service : deviceGatt.getServices()) {
                     Log.i("GAPService", "Service UUID: " + service.getUuid());
-                    List<BluetoothGattCharacteristic> chars = service.getCharacteristics();
-                    for(BluetoothGattCharacteristic chara : chars) {
-                        gatt.readCharacteristic(chara);
+                    if(service.getUuid().equals(UART_SERVICE_UUID)) {
+                        Log.i("GAPService", "Found UART service");
+                        uart_chara = service.getCharacteristic(UART_CHARACTERISTIC_UUID);
+                        deviceGatt.setCharacteristicNotification(uart_chara,true);
+                        Log.i("GAPService", "UART characteristic is " + uart_chara.getUuid());
                     }
                 }
             }
@@ -104,8 +121,22 @@ public class GAPService extends Service {
             public void onCharacteristicRead(BluetoothGatt gatt,
                                              BluetoothGattCharacteristic chara,
                                              int status) {
-                Log.i("GAPService","Characteristic Read " + chara.getService().getUuid() + ":" + chara.getUuid() + "=" +chara.getValue());
+                Log.i("GAPService","Characteristic Read " + chara.getService().getUuid() + ":" + chara.getUuid() + "=" + parseByteArray(chara.getValue()));
             }
+
+            @Override
+            public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
+                super.onCharacteristicChanged(gatt, characteristic);
+                deviceGatt.readRemoteRssi();
+                Log.i("GAPService","Characteristic changed: " + characteristic.getUuid() + " = " + characteristic.getValue());
+            }
+
+            @Override
+            public void onReadRemoteRssi(BluetoothGatt gatt, int rssi, int status) {
+                super.onReadRemoteRssi(gatt, rssi, status);
+                Log.i("GAPService","Connection RSSI: " + rssi);
+            }
+
         };
         deviceGatt = device.connectGatt(this, false, mGattCallback);
     }

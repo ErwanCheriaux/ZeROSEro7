@@ -13,7 +13,7 @@
                 0x12, 0x00, 0x00, 0x00, 0x00                                   \
         }                                                                      \
     }
-#define BLE_UUID_MY_SERVICE 0xABCD
+#define BLE_UUID_UART_SERVICE 0xABCD
 #define BLE_MS_BLE_OBSERVER_PRIO 2
 
 #define BLE_UUID_WRITE_CHAR 0x1234
@@ -29,7 +29,7 @@ typedef struct {
 ble_ms_t ble_characteristic_config;
 
 // Copied from Little Brothers.
-void my_service_init() {
+void uart_service_init() {
     ble_uuid128_t ms_base_uuid = BLE_UUID_BASE;
 
     // Initialize the service structure
@@ -41,7 +41,7 @@ void my_service_init() {
         sd_ble_uuid_vs_add(&ms_base_uuid, &ble_characteristic_config.uuid_type);
     APP_ERROR_CHECK(err_code);
     ms_uuid.type = ble_characteristic_config.uuid_type;
-    ms_uuid.uuid = BLE_UUID_MY_SERVICE;
+    ms_uuid.uuid = BLE_UUID_UART_SERVICE;
 
     // Add the service to the GATT
     err_code = sd_ble_gatts_service_add(BLE_GATTS_SRVC_TYPE_PRIMARY, &ms_uuid,

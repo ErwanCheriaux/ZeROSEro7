@@ -34,7 +34,8 @@
         android:text="Notifications Log"
         android:layout_below="@+id/title"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentEnd="true"
+        android:scrollHorizontally="true"   />
 
     <EditText
         android:layout_width="wrap_content"

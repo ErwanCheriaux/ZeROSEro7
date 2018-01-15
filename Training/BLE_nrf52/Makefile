@@ -19,7 +19,7 @@ USER_SRC = \
 	$(PROJ_DIR)/ble_central.c \
 	$(PROJ_DIR)/ble_peripheral_gap.c \
 	$(PROJ_DIR)/ble_peripheral_gatt.c \
-	$(PROJ_DIR)/ble_custom_service.c \
+	$(PROJ_DIR)/ble_uart_service.c \
 	$(PROJ_DIR)/main.c \
 
 USER_INC = $(PROJ_DIR)

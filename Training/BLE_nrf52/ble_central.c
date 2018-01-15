@@ -116,12 +116,12 @@ static ble_gap_scan_params_t const scan_conf =
 };
 
 // BLE Handler
-
 static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
 {
     ret_code_t err_code;
 
     static ble_gap_conn_params_t new_conn_params;
+    static ble_gatts_evt_write_t write_evt;
 
     switch(p_ble_evt->header.evt_id) {
         case BLE_GAP_EVT_ADV_REPORT:
@@ -158,6 +158,12 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_GAP_EVT_CONN_PARAM_UPDATE_REQUEST:
             rtt_printf(0,"GAP EVT : %u\n",p_ble_evt->header.evt_id - BLE_GAP_EVT_CONNECTED);
         break;
+
+        case BLE_GATTS_EVT_WRITE:
+            write_evt = p_ble_evt->evt.gatts_evt.params.write;
+            rtt_printf(0,"GATT Write\n");
+            ble_on_phone_write(write_evt.data,write_evt.len);
+            break;
 
         // REVIEW Bonus Bonding events
 

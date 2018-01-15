@@ -29,7 +29,7 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-#include "ble_custom_service.h"
+#include "ble_uart_service.h"
 
 #define PNP_ID_VENDOR_ID_SOURCE 0x00C3 /**< Vendor ID Source. */
 #define PNP_ID_VENDOR_ID 0x1915        /**< Vendor ID. */
@@ -65,7 +65,7 @@ void device_information_service_init()
 void ble_services_init()
 {
     device_information_service_init();
-    my_service_init();
+    uart_service_init();
 }
 
 void ble_gatt_init()
