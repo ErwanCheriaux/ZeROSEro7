@@ -25,7 +25,8 @@ import java.util.List;
 
 public class GAPService extends Service {
 
-    public static final String DEVICE_CONECTED_ACTION = "Device connected";
+    public static final String DEVICE_CONNECTED_ACTION = "Device connected";
+    public static final String DEVICE_DISCONNECTED_ACTION = "Device disconnected";
     private final BluetoothLeScanner scannerInstance;
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
@@ -69,7 +70,7 @@ public class GAPService extends Service {
                         Log.i("GAPService", "Connected!");
                         deviceGatt.discoverServices();
 
-                        Intent intent = new Intent(DEVICE_CONECTED_ACTION);
+                        Intent intent = new Intent(DEVICE_CONNECTED_ACTION);
                         LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
                         break;
                     case BluetoothProfile.STATE_CONNECTING:
@@ -77,6 +78,8 @@ public class GAPService extends Service {
                         break;
                     case BluetoothProfile.STATE_DISCONNECTED:
                         Log.i("GAPService", "Disconnected");
+                        Intent disco_intent = new Intent(DEVICE_DISCONNECTED_ACTION);
+                        LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(disco_intent);
                         break;
                 }
 
