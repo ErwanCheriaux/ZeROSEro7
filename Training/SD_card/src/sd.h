@@ -10,6 +10,10 @@
 /* Buffer for block read/write operations, note that extra bytes are
 ** allocated in order to support unaligned operations.*/
 #define SD_BUF_SIZE    MMCSD_BLOCK_SIZE * SDC_BURST_SIZE
+#define FILENAME_SIZE  112
+#define FILE_INFO_SIZE (FILENAME_SIZE + 8 + 8)
+#define NB_FILES       256
+#define FILE_AREA      FILE_INFO_SIZE * NB_FILES
 
 /* Read the content at the given address
 ** addr:   address to read

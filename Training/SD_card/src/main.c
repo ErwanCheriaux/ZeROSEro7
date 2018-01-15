@@ -106,7 +106,7 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
     }
     else if(strcmp(argv[0], "test") == 0) { // read and write test
         if(argc == 1) {
-            int addr = 0;
+            int addr = FILE_AREA;
             uint8_t value = 0;
             sd_write_byte(addr, value);
             uint8_t result;
@@ -126,8 +126,8 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
             uint8_t buffer[len];
             for(int i = 0; i < len; i++)
                 buffer[i] = i;
-            sd_write(0, len, buffer);
-            sd_read(0, len, buffer);
+            sd_write(FILE_AREA, len, buffer);
+            sd_read(FILE_AREA, len, buffer);
             int res = 0;
             for(int i = 0; i < len; i++) {
                 if(buffer[i] != i % 0x100) {

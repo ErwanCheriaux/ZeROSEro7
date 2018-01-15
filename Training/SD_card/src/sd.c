@@ -44,6 +44,11 @@ static int read(int addr, unsigned int len, uint8_t* buffer)
 
 static int write_byte(int addr, int value)
 {
+    // check if file informations are not override
+    if(addr < FILE_AREA) {
+        rtt_printf("[ERROR] sd_write_byte: try to override into file area (0 to 0x%08X): 0x%08X\n", FILE_AREA, addr);
+        return 1;
+    }
     // copy memory block
     if(sdcRead(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, 1))
         return 1;
@@ -57,20 +62,21 @@ static int write_byte(int addr, int value)
 
 static int write(int addr, unsigned int len, uint8_t* buffer)
 {
+    // check if file informations are not override
+    if(addr < FILE_AREA) {
+        rtt_printf("[ERROR] sd_write: try to override into file area (0 to 0x%08X): 0x%08X\n", FILE_AREA, addr);
+        return 1;
+    }
     int nb_blocks_to_write = (addr % MMCSD_BLOCK_SIZE + len) / MMCSD_BLOCK_SIZE + 1;
     if (len % MMCSD_BLOCK_SIZE == 0)
         nb_blocks_to_write--;
-    if(nb_blocks_to_write > SDC_BURST_SIZE) {
-        rtt_printf("[ERROR] sd_read: burst size too big: %d / %d\n", nb_blocks_to_write, SDC_BURST_SIZE);
-        return 1;
-    }
     if(sdcRead(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, nb_blocks_to_write)) {
-        rtt_printf("[ERROR] sd_read: error: addr:%d, nb_blocks_to_write:%d\n", addr, nb_blocks_to_write);
+        rtt_printf("[ERROR] sd_write: error: addr:%d, nb_blocks_to_write:%d\n", addr, nb_blocks_to_write);
         return 1;
     }
     memcpy(buf + addr % MMCSD_BLOCK_SIZE, buffer, len);
     if(sdcWrite(&SDCD1, addr / MMCSD_BLOCK_SIZE, buf, nb_blocks_to_write)) {
-        rtt_printf("[ERROR] sd_read: error: addr:%d, nb_blocks_to_write:%d\n", addr, nb_blocks_to_write);
+        rtt_printf("[ERROR] sd_write: error: addr:%d, nb_blocks_to_write:%d\n", addr, nb_blocks_to_write);
         return 1;
     }
     return 0;
