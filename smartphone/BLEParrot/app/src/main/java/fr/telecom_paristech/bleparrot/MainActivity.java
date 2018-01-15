@@ -71,7 +71,7 @@ public class MainActivity extends AppCompatActivity {
         }
     };
 
-    // Device connected callback
+    // Device disconnected callback
     private BroadcastReceiver disconnectedBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {

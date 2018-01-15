@@ -14,10 +14,38 @@
         android:text="Connected"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/textView2"
+        android:id="@+id/title"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
         android:textAlignment="center"
         android:layout_alignParentTop="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentEnd="true" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/logWindow"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+        android:layout_marginTop="13dp"
+        android:maxLines="5"
+        android:minLines="5"
+        android:minHeight="179dp"
+        android:scrollbars="vertical"
+        android:text="Notifications Log"
+        android:layout_below="@+id/title"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true" />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Command"
+        android:ems="10"
+        android:id="@+id/commandField"
+        android:inputType="text"
+        android:hint="Command to Send"
+        android:layout_below="@+id/logWindow"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
+        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 </RelativeLayout>

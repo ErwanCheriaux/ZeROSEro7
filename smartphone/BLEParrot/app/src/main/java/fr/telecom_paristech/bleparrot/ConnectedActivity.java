@@ -19,7 +19,7 @@ public class ConnectedActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
     }
 
-    // Device connected callback
+    // Device disconnected callback
     private BroadcastReceiver disconnectedBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
