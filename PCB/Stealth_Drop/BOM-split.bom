@@ -1,0 +1,81 @@
+Ref Des	Quantity	Value	Part Label	Part Number	Description	Distributor code	Option	Place
+R2	1	0 	RES_0_0603	00-0001	Resistor 0 ohms / 5% / case 0603	Fa : 2008343	 	 
+R1	1	200 	RES_200_0603	00-0057	Resistor 200 ohms / 5% / case 0603	Fa : 2333571	 	 
+R14	1	300 	RES_300_0603	00-0061	Resistor 300 ohms / 5% / case 0603	Fa : 2059303	 	 
+R15	1	300 	RES_300_0603	00-0061	Resistor 300 ohms / 5% / case 0603	Fa : 2059303	 	 
+R16	1	300 	RES_300_0603	00-0061	Resistor 300 ohms / 5% / case 0603	Fa : 2059303	 	 
+R9	1	1K 	RES_1.0k_0603	00-0074	Resistor 1.0k ohms / 5% / case 0603	Fa : 9331697	 	 
+R4	1	1K 	RES_1.0k_0603	00-0074	Resistor 1.0k ohms / 5% / case 0603	Fa : 9331697	 	 
+R11	1	4.7K 	RES_4.7k_0603	00-0090	Resistor 4.7k ohms / 5% / case 0603	Fa : 2447385	 	 
+R12	1	10K 	RES_10k_0603	00-0098	Resistor 10k ohms / 5% / case 0603	Fa : 9331700	 	 
+R5	1	10K 	RES_10k_0603	00-0098	Resistor 10k ohms / 5% / case 0603	Fa : 9331700	 	 
+R13	1	10K 	RES_10k_0603	00-0098	Resistor 10k ohms / 5% / case 0603	Fa : 9331700	 	 
+R3	1	100K 	RES_100k_0603	00-0122	Resistor 100k ohms / 5% / case 0603	Fa : 9331719	 	 
+R18	1	100K 	RES_100k_0603	00-0122	Resistor 100k ohms / 5% / case 0603	Fa : 9331719	 	 
+R19	1	100K 	RES_100k_0603	00-0122	Resistor 100k ohms / 5% / case 0603	Fa : 9331719	 	 
+R7	1	200K 	RES_200k_0603	00-0129	Resistor 200k ohms / 5% / case 0603	Fa : 9330780	 	 
+R8	1	200K 	RES_200k_0603	00-0129	Resistor 200k ohms / 5% / case 0603	Fa : 9330780	 	 
+R10	1	12.1K 	RES_12.1k_0603	01-0393	Resistor 12.1k ohms / 1% / case 0603	Fa : 1170896	 	 
+R17	1	33.2K 	RES_33.2k_0603	01-0435	Resistor 33.2k ohms / 1% / case 0603	Fa : 1170939	 	 
+R6	1	340K 	RES_340k_0603	01-0532	Resistor 340k ohms / 1% / case 0603	Fa : 2303271	 	 
+C30	1	10nF	CAP C0603 10nF X7R 50V	10-0011	Capacitor Ceramic C0G / 10nF / 50V / ±5% / case 0603	Fa : 2456107	 	 
+C31	1	220pF	CAP C0603 220pF NPO 50V	10-0040	Capacitor Ceramic 220pF / NPO / 50V / ±5% / case 0603	Fa : 498579	 	 
+C32	1	33pF	CAP C0603 33pF NPO 50V	10-0054	Capacitor Ceramic 33pF / NPO / 50V / ±5% / case 0603	Fa : 722029	 	 
+C8	1	100nF	CAP C0603 100nF X7R 16V	10-0057	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0603	Fa : 1414027	 	 
+C12	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C13	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C16	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C17	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C18	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C1	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C2	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C3	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C19	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C4	1	100nF	CAP C0402 100nF X7R 16V	10-0058	Capacitor Ceramic X7R / 100nF / 16V / ±10% / case 0402	Fa : 2496810	 	 
+C22	1	1uF	CAP C0402 1uF X5R 6.3V	10-0060	Capacitor Ceramic X5R / 1uF / 6.3V / ±10% / case 0402	Fa : 2362087	 	 
+C20	1	100pF	CAP C0402 100pF NPO 50V	10-0067	Capacitor Ceramic 100pF / NPO / 50V / ±5% / case 0402 	Fa : 2496792	 	 
+C21	1	100pF	CAP C0402 100pF NPO 50V	10-0067	Capacitor Ceramic 100pF / NPO / 50V / ±5% / case 0402 	Fa : 2496792	 	 
+C6	1	1uF	CAP C0603 1uF X5R 25V	10-0068	Capacitor Ceramic 1uF / X5R / 25V / ±10% / case 0603	Fa : 1828802	 	 
+C26	1	12pF	CAP C0402 12pF C0G 50V 2%	10-0096	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	Fa : 7568134	 	 
+C14	1	12pF	CAP C0402 12pF C0G 50V 2%	10-0096	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	Fa : 7568134	 	 
+C15	1	12pF	CAP C0402 12pF C0G 50V 2%	10-0096	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	Fa : 7568134	 	 
+C27	1	12pF	CAP C0402 12pF C0G 50V 2%	10-0096	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	Fa : 7568134	 	 
+C28	1	12pF	CAP C0402 12pF C0G 50V 2%	10-0096	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	Fa : 7568134	 	 
+C29	1	12pF	CAP C0402 12pF C0G 50V 2%	10-0096	Capacitor Ceramic 12pF, C0G, 50V, ±2%, high Q, case 0402	Fa : 7568134	 	 
+C34	1	1pF	CAP C0402 1pF NPO 50V 5%	10-0097	Capacitor Ceramic 1pF, NPO, 50V, ±5%,Multicomp MC000337, case 0402 	Fa : 2310367	 	 
+C35	1	1pF	CAP C0402 1pF NPO 50V 5%	10-0097	Capacitor Ceramic 1pF, NPO, 50V, ±5%,Multicomp MC000337, case 0402 	Fa : 2310367	 	 
+C7	1	10uF	CAP C0603 10uF X5R 6.3V	10-0103	Capacitor Ceramic X5R / 10uF / 6.3V / ±20% / case 0603	Fa : 1759393 	 	 
+C5	1	10uF	CAP C0603 10uF X5R 6.3V	10-0103	Capacitor Ceramic X5R / 10uF / 6.3V / ±20% / case 0603	Fa : 1759393 	 	 
+C9	1	10uF	CAP C0603 10uF X5R 6.3V	10-0103	Capacitor Ceramic X5R / 10uF / 6.3V / ±20% / case 0603	Fa : 1759393 	 	 
+C23	1	10uF	CAP C0402 10uF X5R 6V3 20%	10-0106	Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402	Fa : 2346872	 	 
+C24	1	10uF	CAP C0402 10uF X5R 6V3 20%	10-0106	Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402	Fa : 2346872	 	 
+C25	1	10uF	CAP C0402 10uF X5R 6V3 20%	10-0106	Capacitor Ceramic 10µF, X5R, 6.3V, ±20%, TDK C1005X5R0J106M050BC, case 0402	Fa : 2346872	 	 
+C33	1	47uF	CAP C0805 47uF X5R 6.3V	10-0110	Capacitor Ceramic X5R / 47uF / 6.3V / ±25% / case 0805	Fa : 2362109	 	 
+C10	1	2.2uF	CAP C0603 2.2uF X5R 6.3V	10-0112	Capacitor Ceramic X5R / 2.2uF / 6.3V / ±20% / case 0603	Fa : 1288257	 	 
+C11	1	2.2uF	CAP C0603 2.2uF X5R 6.3V	10-0112	Capacitor Ceramic X5R / 2.2uF / 6.3V / ±20% / case 0603	Fa : 1288257	 	 
+D1	1	 	BLUE	20-0009	Blue LED SMD case 0805 Agilent HSMB-C190 20mA Vf=3.8-4.6V	Farnell : 322-5112	 	 
+D3	1	 	HSMF-C114	20-0038	Tricolor RGB  LED, SMD case ChipLed, Avago HSMF-C114, 20mA, 70/180/85mCd, Vf=2.4/3.9/2.9V	Fa : 1058362 	 	 
+D2	1	 	KP-1608SURC	20-0039	HL Red LED SMD case 0603, Kingbright KP-1608SURC, 30mA, 1.9V	Fa : 8529868	 	 
+D7	1	 	PMEG4010CEJ	20-0060	Low drop schottky diode, 0.470mV, 1A, 40V reverse, case SOD323F, NXP PMEG4010CEJ	Fa : 1757777	 	 
+Q1	1	 	IRLML5203	30-0010	Basic P-Channel MOSFET, Rds=0.098ohms, 3A, IRLML5203PBF, case SOT23	Fa : 9103511	 	 
+U6	1	 	MCP73831T-2ACI/OT	40-0229	Miniature Single-Cell, Fully Integrated Li-Ion, Li-Polymer Charge Management Controller, 4.2V, Microchip MCP73831T-2ACI/OT, case SOT-23-5	Fa : 1332158 	 	 
+U7	1	 	LTC3530EMS	40-0232	Wide input voltage buck-boost synchronous DC/DC converter, Vin=1.8V-5.5V, 2MHz, 600mA, Linear LTC3530EMS, case MS10	Fa : 1329368	 	 
+U8	1	 	nRF52832-QFAA	40-0308	Multiprotocol Bluetooth 4.2 Low Energy SoC, 512k flash, 64k RAM, Cortex M4, case QFN exposed pad 48 0.4mm, Nordic nRF52832-QFAA	Mouser : 949-NRF52832-QFAA-T	 	 
+U4	1	 	STM32F215RGT7	40-0317	ARM Cortex-M4 32b MCU, FPU, 150DMIPS, up to 1MB Flash/128-4KB RAM, USB OTG HS/FS, 17 TIMs, 3 ADCs, ST STM32F215RGT7, case LQFP64	Mouser : 511-STM32F205RGT7	 	 
+L2	1	15nH	SELF 15nH 0402	50-0029	Inductor 15nH 300mA, 4GHz, TDK MLK1005S15NJ, case 0402	Fa : 1669622	 	 
+L1	1	10uH	SELF 10uH 0603	50-0033	Inductance 10uH 80mA 0.36 ohms, self resonant 32MHz, Tayo Yuden LBMF1608T100K, case 0603	Mouser : 963-LBMF1608T100K	 	 
+L5	1	3.9nH	SELF 3.9nH 0402	50-0036	Inductor 3.9nH 9.5GHz, 2%, Coilcraft 0402HP-3N9XGLU, case 0402	Fa : 2285767	 	 
+L4	1	3.9nH	SELF 3.9nH 0402	50-0036	Inductor 3.9nH 9.5GHz, 2%, Coilcraft 0402HP-3N9XGLU, case 0402	Fa : 2285767	 	 
+L3	1	10uH	SELF 10uH	50-0048	10uH inductor, 1.64 A, shielded, 94mOhms, Würth WE-SPC 74408943100	Fa : 2066941	 	 
+J4	1	 	JAE_ST1W008S4ER1500	70-0058	Connecteur MicroSD, à charnière, JAE ST1W008S4ER1500	Mouser : 656-ST1W008S4ER1500	 	 
+J1	1	 	MOL-47346-0001	70-0065	Female micro-USB B bottom SMD mount connector, Molex 47346-0001	Fa : 1568026	 	 
+J6	1	 	FTSH-105-01-L-DV	70-0081	Dual row 1.27 CMS 2x5 points connector, Samtec FTSH-105-01-L-DV 	Fa : 1667759	 	 
+J3	1	 	FTSH-105-01-L-DV	70-0081	Dual row 1.27 CMS 2x5 points connector, Samtec FTSH-105-01-L-DV 	Fa : 1667759	 	 
+J2	1	 	B2B-PH-SM4-TB	70-0086	Embase mâle CMS JST 2 broches, 2mm, avec détrompeur, à sortie verticale, B2B-PH-SM4-TB	Fa : 9492534	 	 
+J5	1	 	U.FL-R-SMT01	70-0087	U.FL SMD receptacle, Hirose U.FL-R-SMT(01)	Fa : 3908021	 	 
+U2	1	 	2450AT18A100E	80-0050	Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E	Fa : 1885496	 	 
+U3	1	 	2450AT18A100E	80-0050	Mini 2.45GHz chip Antenna, Johanson 2450AT18A100E	Fa : 1885496	 	 
+U5	1	 	AMW106	80-0071	Ultra-low power Wi-Fi networking module for battery powered applications , Silicon Labs AMW106 Numbat, 3.3V	Mouser : 902-AMW106/S	 	 
+QZ2	1	 	32.000 MHz	83-0025	Quartz 32.000 MHz, +/- 20ppm, 6pF, SMD, Murata XRCPB32M000F2P00R0, case XRPC (2016)	Mouser : 81-XRCPB32M000F2P0R0	 	 
+QZ3	1	 	32.768 kHz	83-0027	Quartz 32.768kHz, +/- 20ppm, 12.5pF, ECS ECS-.327-12.5-1210-TR	Mouser : 520-.327-12.5-1210T	 	 
+QZ1	1	 	16.000 MHz	83-0028	Quartz 16.000 MHz, +/- 15ppm, 8pF, SMD, Kyocera CX2016DB16000D0FLJCC	Mouser : 581-CX2016DB16DFLJCC	 	 

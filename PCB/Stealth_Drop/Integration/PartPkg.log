@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      08:26 PM Thursday, December 14, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj
+                       11:00 PM Tuesday, December 26, 2017
+            Job Name: H:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: ""C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jC:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_Drop.prj -CleanBuild -NoFill"
+        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jH:\ZEROSERO7\PCB\STEALTH_DROP\Stealth_Drop.prj -CleanBuild -NoFill"
 
-     The Common Database is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\default.icdb".
+     The Common Database is at "H:\ZEROSERO7\PCB\STEALTH_DROP\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "H:\ZEROSERO7\PCB\STEALTH_DROP\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -48,6 +48,7 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
        "Option"
        "ESR"
        "Imax"
+       "Place"
        "Cout HT"
        "Vf"
        "Code Fournisseur"
@@ -80,43 +81,54 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 37
+     Number of Part Numbers: 48
+          Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0057 -> Vend Part: 00-0057 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
           Part Numb: 00-0074 -> Vend Part: 00-0074 
-          Part Numb: 00-0081 -> Vend Part: 00-0081 
-          Part Numb: 00-0085 -> Vend Part: 00-0085 
+          Part Numb: 00-0090 -> Vend Part: 00-0090 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
           Part Numb: 00-0122 -> Vend Part: 00-0122 
+          Part Numb: 00-0129 -> Vend Part: 00-0129 
+          Part Numb: 01-0393 -> Vend Part: 01-0393 
+          Part Numb: 01-0435 -> Vend Part: 01-0435 
+          Part Numb: 01-0532 -> Vend Part: 01-0532 
+          Part Numb: 10-0011 -> Vend Part: 10-0011 
+          Part Numb: 10-0040 -> Vend Part: 10-0040 
+          Part Numb: 10-0054 -> Vend Part: 10-0054 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
           Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
           Part Numb: 10-0068 -> Vend Part: 10-0068 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0097 -> Vend Part: 10-0097 
           Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
+          Part Numb: 10-0110 -> Vend Part: 10-0110 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
-          Part Numb: 20-0004 -> Vend Part: 20-0004 
           Part Numb: 20-0009 -> Vend Part: 20-0009 
-          Part Numb: 20-0022 -> Vend Part: 20-0022 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
+          Part Numb: 20-0039 -> Vend Part: 20-0039 
+          Part Numb: 20-0060 -> Vend Part: 20-0060 
           Part Numb: 30-0010 -> Vend Part: 30-0010 
           Part Numb: 40-0229 -> Vend Part: 40-0229 
-          Part Numb: 40-0287 -> Vend Part: 40-0287 
+          Part Numb: 40-0232 -> Vend Part: 40-0232 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
           Part Numb: 50-0029 -> Vend Part: 50-0029 
           Part Numb: 50-0033 -> Vend Part: 50-0033 
-          Part Numb: 70-0002 -> Vend Part: 70-0002 
+          Part Numb: 50-0036 -> Vend Part: 50-0036 
+          Part Numb: 50-0048 -> Vend Part: 50-0048 
           Part Numb: 70-0058 -> Vend Part: 70-0058 
           Part Numb: 70-0065 -> Vend Part: 70-0065 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
           Part Numb: 70-0086 -> Vend Part: 70-0086 
+          Part Numb: 70-0087 -> Vend Part: 70-0087 
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0071 -> Vend Part: 80-0071 
-          Part Numb: 81-0002 -> Vend Part: 81-0002 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
+          Part Numb: 83-0027 -> Vend Part: 83-0027 
           Part Numb: 83-0028 -> Vend Part: 83-0028 
 
      Number of Part Names: 0
@@ -139,8 +151,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
      No errors in Existing Schematic Packaging.
 
      The Common DataBase has been read and will be packaged.
-     Clustering 61 Symbols:
-              61  **********
+     Clustering 80 Symbols:
+              80  *****************************
               50  **************************************************
      Clustering is Complete
 
@@ -148,8 +160,8 @@ Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Stealth_D
 
 
 
-     54 nets were found containing 232 pins
-     61 components were found
+     68 nets were found containing 285 pins
+     80 components were found
 
      Parsed netlist - Augmenting..
 

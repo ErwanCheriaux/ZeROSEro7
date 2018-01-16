@@ -1,0 +1,695 @@
+[2017.12.19 13:41:51] [0000m.00s.062ms] [0] WELCOME
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] iCDB Server ver.2.202, 88Zh1V4+7Fzqu6g9/cuD/w, build:7609807 created 2017-06-23 16:16:29, sources stamp:88Zh1V4+7Fzqu6g9/cuD/w
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Copyright 2017 Mentor Graphics Corporation.  All Rights Reserved.
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Base flow version [VX.2.2]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Install Id [1589114], Flow Id [X-ENTP VX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Install Id [1589126], Flow Id [X-ENTP DCVX.2.2], Full Flow Name [Xpedition Enterprise X-ENTP VX.2.2], Exact Access Date [2017/05/01]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] UPDATE Install Info, Install Id [1632660], UPDATE Name [Xpedition Enterprise X-ENTP VX.2.2 - Update 3]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Machine [DESKTOP-D6MOGOB]  IP [10.0.2.15,127.0.0.1]  User [alexis]  PID [2064]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Operating system [Microsoft Business Edition, 64-bit (build 9200)]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] Current working dir [G:\ZeROSEro7\PCB\Spy_talk]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] PATH [C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\help;C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\bin;C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\lib;C:\mentorgraphics\EEVX.2.2\MGC_HOME.ixn\bin;C:\mentorgraphics\EEVX.2.2\MGC_HOME.ixn\lib;C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\lib;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\Users\alexi\AppData\Local\Microsoft\WindowsApps]
+[2017.12.19 13:41:51] [0000m.00s.062ms] [1] SDD_HOME [C:\mentorgraphics\EEVX.2.2\SDD_HOME] on file system [NTFS]
+[2017.12.19 13:41:51] [0000m.00s.077ms] [1] SDD_PLATFORM [win32]
+[2017.12.19 13:41:51] [0000m.00s.077ms] [1] WDIR [C:\WDIR\EEVX.2.2;C:\mentorgraphics\EEVX.2.2\SDD_HOME\standard;]
+[2017.12.19 13:41:51] [0000m.00s.077ms] [1] Local iCDB working dir [C:\WDIR\EEVX.2.2\iCDB] on file system [NTFS]
+[2017.12.19 13:41:51] [0000m.00s.077ms] [1] S: Config file name [ServerWG.cfg]
+[2017.12.19 13:41:51] [0000m.00s.077ms] [2] S: Loading config files
+[2017.12.19 13:41:51] [0000m.00s.077ms] [1] Config file [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb\cdbsvr\ServerWG.cfg] not found
+[2017.12.19 13:41:51] [0000m.00s.077ms] [1] Config: Non-default value [System.SingleUserMode] = [no]
+[2017.12.19 13:41:51] [0000m.00s.077ms] [3] S: Config loaded
+[2017.12.19 13:41:51] [0000m.00s.110ms] [0] S: Project path [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb] on file system [VBoxSharedFolderFS]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Project global path [\\vboxsrv\rose\ZeROSEro7\PCB\Spy_talk\Default\default.icdb] on file system [UNKNOWN]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [1] S: WARNING: No project file (.prj) path specified
+[2017.12.19 13:41:51] [0000m.00s.124ms] [1] S: WARNING: Database auto-repair support DISABLED
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Multi-user mode (config)
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Event polling mode autodetection
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Started up automatically by iCDB Client: DESKTOP-D6MOGOB:alexis:7752
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Auto close mode
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Database ID [6ec6-7050-8205-bf7d-a090-93af-0909-3a50-40ee-509f-9fef-0fc8]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: BEGIN dumping
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: Local -> global path prefix list
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: [E:\] -> [\\vboxsrv\Windows\]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: [F:\] -> [\\vboxsrv\mentor\]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: [G:\] -> [\\vboxsrv\rose\]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: Global -> local path prefix list
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: [\\vboxsrv\Windows\] -> [E:\]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: [\\vboxsrv\mentor\] -> [F:\]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: [\\vboxsrv\rose\] -> [G:\]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] PathTranslator: END dumping
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: START
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Server startup lock file created
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Listening for client connections on port [10001]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Server network ID [DESKTOP-D6MOGOB:10.0.2.15,DESKTOP-D6MOGOB:10001]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Server GUID [7ea7-ee06-626c-c411-f090-93a4-1909-3a50-cf7f-509f-9fef-0fc8]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Project GUID [6ec6-7050-8205-bf7d-a090-93af-0909-3a50-40ee-509f-9fef-0fc8]
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Wrote data to server address file
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] S: Server startup lock file removed
+[2017.12.19 13:41:51] [0000m.00s.124ms] [0] ProjectBackupManager: WARNING: Could not create Project Backup - functionality not initialized
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] S: Plugins loaded: [PIM] [ENetGen70] 
+[2017.12.19 13:41:51] [0000m.00s.171ms] [1] ServerToolkit: INFO: Plugin found in SDD_COMMON_BIN [C:\mentorgraphics\EEVX.2.2\SDD_HOME\common\win32\bin]
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] S: Local disc access time: 30 us
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] S: File server access time: 234 us
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] S: Server will not release in-memory storage after read (memory usage overhead) - for better performance
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] Single file [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb\icdb.dat] size [261080 (255.0 kB)]
+[2017.12.19 13:41:51] [0000m.00s.171ms] [1] Single file [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb\icdb.dat] opened in read-write mode
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] Database GUARD OK: [261080]
+[2017.12.19 13:41:51] [0000m.00s.171ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] Database GUARD OK: [261080]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] Database GUARD OK: [261080]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] Database GUARD OK: [261080]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] SingleFile: [0000-0000-0000-0000] SFI header version check [1009] [1009]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] Database GUARD OK: [261080]
+[2017.12.19 13:41:51] [0000m.00s.187ms] [0] SingleFile: [4f36-648f-2bfd-f8a6] SFI version check [1009] [1009]
+[2017.12.19 13:41:51] [0000m.00s.249ms] [0] SingleFile: [4f36-648f-2bfd-f8a6] Database SFI header has been read in [65ms 696us]
+[2017.12.19 13:41:51] [0000m.00s.249ms] [0] iCDB Server PI: Server & plugin session [4491]
+[2017.12.19 13:41:51] [0000m.00s.249ms] [0] iCDB Server PI: Opening database [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb]
+[2017.12.19 13:41:51] [0000m.00s.249ms] [0] iCDB Server PI: Database [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb] opened
+[2017.12.19 13:41:51] [0000m.00s.281ms] [0] iCDB Database: Checking existence of constraint definitions
+[2017.12.19 13:41:51] [0000m.00s.281ms] [0] iCDB Database: Checking constraint definitions version
+[2017.12.19 13:41:51] [0000m.00s.328ms] [1] iCDB Database: Constraint definitions version [ce_ee.cns=7.10.56;user.cns=55f1-7e2a-a301-bcc1-2f34-1c97-f341-c950-ce00-609f-9fef-0fc8] up to date
+[2017.12.19 13:41:51] [0000m.00s.343ms] [0] iCDB Server PI: Initializing plugins
+[2017.12.19 13:41:51] [0000m.00s.343ms] [0] iCDB Server PI: Plugins initialized
+[2017.12.19 13:41:51] [0000m.00s.343ms] [0] S: iCDB database loaded
+[2017.12.19 13:41:51] [0000m.00s.343ms] [0] S: Starting threads
+[2017.12.19 13:41:51] [0000m.00s.343ms] [0] BT: Listening for broadcast messages on port [10000]
+[2017.12.19 13:41:51] [0000m.00s.343ms] [0] ProjectBackupManager: WARNING: Could not startup Project Backup engine - functionality not initialized
+[2017.12.19 13:41:51] [0000m.00s.343ms] [1] CMT: There are no clients - waiting [10 seconds]
+[2017.12.19 13:41:51] [0000m.00s.359ms] [0] MWT: WindowProc: WM_NCCREATE
+[2017.12.19 13:41:51] [0000m.00s.359ms] [0] IT: Session [4492] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7752] created
+[2017.12.19 13:41:51] [0000m.00s.359ms] [1] SC[4492]: Registered sub-client [DCDV] with ID [1] for session ID [4492] host [DESKTOP-D6MOGOB] user [alexis] process ID [7752]
+[2017.12.19 13:41:51] [0000m.00s.374ms] [1] DMT: There are [1] iCDB Server Monitor connected now
+[2017.12.19 13:41:51] [0000m.00s.374ms] [0] IT: iCDB Server Monitor session [1] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7224] created
+[2017.12.19 13:41:52] [0000m.00s.468ms] [1] CMT: There are [1] clients now: 4492
+[2017.12.19 13:42:01] [0000m.09s.709ms] [0] IT: Session [4493] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4416] created
+[2017.12.19 13:42:01] [0000m.09s.709ms] [1] SC[4493]: Registered sub-client [ICDBC] with ID [1] for session ID [4493] host [DESKTOP-D6MOGOB] user [alexis] process ID [4416]
+[2017.12.19 13:42:01] [0000m.09s.725ms] [1] CMT: There are [2] clients now: 4492, 4493
+[2017.12.19 13:42:01] [0000m.09s.740ms] [1] SC[4493]: Registered sub-client [ConsReuseSubClient] with ID [2] for session ID [4493] host [DESKTOP-D6MOGOB] user [alexis] process ID [4416]
+[2017.12.19 13:42:06] [0000m.14s.719ms] [1] SC[4493]: UnRegistered sub-client [ICDBC] with ID [1] for session ID [4493] host [DESKTOP-D6MOGOB] user [alexis] process ID [4416]
+[2017.12.19 13:42:06] [0000m.14s.719ms] [1] SC[4493]: UnRegistered sub-client [ConsReuseSubClient] with ID [2] for session ID [4493] host [DESKTOP-D6MOGOB] user [alexis] process ID [4416]
+[2017.12.19 13:42:06] [0000m.14s.814ms] [1] CMT: Removed client [4493]
+[2017.12.19 13:42:06] [0000m.14s.814ms] [1] CMT: There are [1] clients now: 4492
+[2017.12.19 13:42:07] [0000m.15s.608ms] [0] IT: Session [4494] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7936] created
+[2017.12.19 13:42:07] [0000m.15s.608ms] [1] SC[4494]: Registered sub-client [Packager_409750] with ID [1] for session ID [4494] host [DESKTOP-D6MOGOB] user [alexis] process ID [7936]
+[2017.12.19 13:42:07] [0000m.15s.702ms] [1] CMT: There are [2] clients now: 4492, 4494
+[2017.12.19 13:42:07] [0000m.16s.108ms] [1] SC[4494]: UnRegistered sub-client [Packager_409750] with ID [1] for session ID [4494] host [DESKTOP-D6MOGOB] user [alexis] process ID [7936]
+[2017.12.19 13:42:07] [0000m.16s.140ms] [1] CMT: Removed client [4494]
+[2017.12.19 13:42:07] [0000m.16s.140ms] [1] CMT: There are [1] clients now: 4492
+[2017.12.19 13:42:28] [0000m.36s.571ms] [0] DFAMT: File server access time: 595 us
+[2017.12.19 13:42:33] [0000m.41s.863ms] [0] IT: Session [4495] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1100] created
+[2017.12.19 13:42:33] [0000m.41s.863ms] [1] ProjectBackupManager: Client [ClientData[ClientNetAddress[DESKTOP-D6MOGOB] # ClientUserName[alexis] # ClientProcessID[1100] # SessionID[4495] # Type[0]] # SubClientData[SubClientName[] # SubClientID[0]]] set project file (.prj): local path [G:\ZEROSERO7\PCB\SPY_TALK\Spy_talk.prj], global path [\\vboxsrv\rose\ZEROSERO7\PCB\SPY_TALK\Spy_talk.prj]
+[2017.12.19 13:42:33] [0000m.41s.925ms] [0] PrjBackupMgr: Migrating iCDB upgrade backups from directory [SPY_TALK\Default\default.icdb\cdbback] to Project Backup format.
+[2017.12.19 13:42:33] [0000m.41s.925ms] [0] PrjBackupMgr: Migrating iCDB upgrade backup file [2017-12-19 13.41.47-4280].
+[2017.12.19 13:42:33] [0000m.41s.972ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 13:42:33] [0000m.42s.050ms] [1] PrjBackupMgr: Successfully created Project Backup [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-19 13.41.47 - consDefUpgr.zip] with GUID [245b-1446-7f3a-176b-9390-93ae-3909-3a50-019f-509f-9fef-0fc8]
+[2017.12.19 13:42:33] [0000m.42s.050ms] [0] PrjBackupMgr: Removing excessive backup:  BackupGUID[dfa9-9226-8dee-221a-933e-83ae-33e8-3a50-c8ec-3d2c-dc7d-1df8] CreationTime[Tuesday, December 19, 2017 09:58:08] Type[ConsDefUpgrade] Creator[iCDB Server (2017-12-19 10.58.13-1748)] ApplicationName[iCDB Server (2017-12-19 10.58.08-2648)] UserName[alexis] MachineName[DESKTOP-D6MOGOB] Description[Before constraint definitions upgrade using flow install:\n    Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3\n    Flow Id: EEVX.2.2\n    Install Id: 1589114; 1589126; 1632660\n    iCDB Build Id: 7609807\n    iCDB Version: 3300] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-19 10.58.08 - consDefUpgr.zip] BackupFileSize[359943] Persistent[FALSE]
+[2017.12.19 13:42:33] [0000m.42s.050ms] [0] PrjBackupMgr: Project Backup file [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-19 10.58.08 - consDefUpgr.zip] with GUID [dfa9-9226-8dee-221a-933e-83ae-33e8-3a50-c8ec-3d2c-dc7d-1df8] removed
+[2017.12.19 13:42:33] [0000m.42s.050ms] [1] PrjBackupMgr: Migrated iCDB content backup file [G:\ZEROSERO7\PCB\SPY_TALK\Default\default.icdb\cdbback\2017-12-19 13.41.47-4280.zip] removed
+[2017.12.19 13:42:33] [0000m.42s.050ms] [0] PrjBackupMgr: Successfully migrated iCDB upgrade backup file [2017-12-19 13.41.47-4280] to Project Backup format [2017-12-19 13.41.47 - consDefUpgr.zip]
+[2017.12.19 13:42:33] [0000m.42s.050ms] [1] SC[4495]: Registered sub-client [Expedition PCB_436015] with ID [1] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:33] [0000m.42s.112ms] [1] SC[4495]: Registered sub-client [EEVM] with ID [2] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:33] [0000m.42s.253ms] [1] SC[4495]: UnRegistered sub-client [EEVM] with ID [2] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:34] [0000m.43s.018ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_437234] with ID [3] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:34] [0000m.43s.050ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_437234] with ID [3] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:37] [0000m.45s.421ms] [1] SC[4495]: Registered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:37] [0000m.45s.437ms] [1] SC[4495]: Registered sub-client [StartServerClient1ed4] with ID [5] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 13:42:37] [0000m.45s.437ms] [1] SC[4495]: UnRegistered sub-client [StartServerClient1ed4] with ID [5] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:15:55] [0034m.03s.733ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_2437953] with ID [6] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:15:55] [0034m.03s.749ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_2437953] with ID [6] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:15:55] [0034m.03s.796ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_2438000] with ID [7] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:15:55] [0034m.03s.796ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_2438000] with ID [7] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:16:12] [0034m.20s.566ms] [0] IT: Session [4496] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5192] created
+[2017.12.19 14:16:12] [0034m.20s.566ms] [1] SC[4496]: Registered sub-client [JobPrefsDBPI_2454640] with ID [1] for session ID [4496] host [DESKTOP-D6MOGOB] user [alexis] process ID [5192]
+[2017.12.19 14:16:12] [0034m.20s.600ms] [1] SC[4496]: Registered sub-client [NetClassDBPI_2454796] with ID [2] for session ID [4496] host [DESKTOP-D6MOGOB] user [alexis] process ID [5192]
+[2017.12.19 14:16:12] [0034m.20s.629ms] [1] CMT: There are [3] clients now: 4492, 4495, 4496
+[2017.12.19 14:16:12] [0034m.20s.660ms] [1] SC[4496]: Registered sub-client [JobPrefsDBPI_2454859] with ID [3] for session ID [4496] host [DESKTOP-D6MOGOB] user [alexis] process ID [5192]
+[2017.12.19 14:16:12] [0034m.20s.926ms] [1] SC[4496]: UnRegistered sub-client [JobPrefsDBPI_2454859] with ID [3] for session ID [4496] host [DESKTOP-D6MOGOB] user [alexis] process ID [5192]
+[2017.12.19 14:16:12] [0034m.20s.926ms] [1] SC[4496]: UnRegistered sub-client [NetClassDBPI_2454796] with ID [2] for session ID [4496] host [DESKTOP-D6MOGOB] user [alexis] process ID [5192]
+[2017.12.19 14:16:12] [0034m.20s.926ms] [1] SC[4496]: UnRegistered sub-client [JobPrefsDBPI_2454640] with ID [1] for session ID [4496] host [DESKTOP-D6MOGOB] user [alexis] process ID [5192]
+[2017.12.19 14:16:12] [0034m.20s.957ms] [1] CMT: Removed client [4496]
+[2017.12.19 14:16:12] [0034m.20s.957ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:16:13] [0034m.21s.487ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_2455687] with ID [8] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:16:13] [0034m.21s.533ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_2455687] with ID [8] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:16:27] [0034m.36s.165ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_2470375] with ID [9] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:16:27] [0034m.36s.165ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_2470375] with ID [9] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:48] [0044m.56s.601ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3090812] with ID [10] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:48] [0044m.56s.601ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3090812] with ID [10] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:48] [0044m.56s.648ms] [1] SC[4495]: Registered sub-client [NetClassDBPI_3090875] with ID [11] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:48] [0044m.56s.648ms] [1] SC[4495]: UnRegistered sub-client [NetClassDBPI_3090875] with ID [11] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:48] [0044m.56s.664ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3090890] with ID [12] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:48] [0044m.56s.680ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3090890] with ID [12] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:49] [0044m.58s.131ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3092343] with ID [13] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:49] [0044m.58s.178ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3092343] with ID [13] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:26:50] [0044m.58s.600ms] [0] IT: Session [4497] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6760] created
+[2017.12.19 14:26:50] [0044m.58s.600ms] [1] SC[4497]: Registered sub-client [JobPrefsDBPI_3092718] with ID [1] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.662ms] [0] IT: Session [4498] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7672] created
+[2017.12.19 14:26:50] [0044m.58s.662ms] [1] SC[4498]: Registered sub-client [JobPrefsDBPI_3092796] with ID [1] for session ID [4498] host [DESKTOP-D6MOGOB] user [alexis] process ID [7672]
+[2017.12.19 14:26:50] [0044m.58s.678ms] [1] CMT: There are [4] clients now: 4492, 4495, 4497, 4498
+[2017.12.19 14:26:50] [0044m.58s.678ms] [1] SC[4497]: Registered sub-client [JobPrefsDBPI_3092890] with ID [2] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.709ms] [1] SC[4497]: Registered sub-client [NetClassDBPI_3092937] with ID [3] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.725ms] [1] SC[4497]: Registered sub-client [Expedition_3092953] with ID [4] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.725ms] [1] SC[4497]: UnRegistered sub-client [Expedition_3092953] with ID [4] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.740ms] [1] SC[4498]: Registered sub-client [JobPrefsDBPI_3092953] with ID [2] for session ID [4498] host [DESKTOP-D6MOGOB] user [alexis] process ID [7672]
+[2017.12.19 14:26:50] [0044m.58s.756ms] [0] IT: Session [4499] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4652] created
+[2017.12.19 14:26:50] [0044m.58s.756ms] [1] SC[4499]: Registered sub-client [JobPrefsDBPI_3092890] with ID [1] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.58s.772ms] [1] SC[4498]: Registered sub-client [NetClassDBPI_3092984] with ID [3] for session ID [4498] host [DESKTOP-D6MOGOB] user [alexis] process ID [7672]
+[2017.12.19 14:26:50] [0044m.58s.787ms] [1] CMT: There are [5] clients now: 4492, 4495, 4497, 4498, 4499
+[2017.12.19 14:26:50] [0044m.58s.787ms] [1] SC[4499]: Registered sub-client [NetClassDBPI_3093015] with ID [2] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.58s.834ms] [1] SC[4499]: Registered sub-client [JobPrefsDBPI_3093062] with ID [3] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.58s.928ms] [1] SC[4497]: UnRegistered sub-client [JobPrefsDBPI_3092890] with ID [2] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.928ms] [1] SC[4497]: UnRegistered sub-client [JobPrefsDBPI_3092718] with ID [1] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.928ms] [1] SC[4497]: UnRegistered sub-client [NetClassDBPI_3092937] with ID [3] for session ID [4497] host [DESKTOP-D6MOGOB] user [alexis] process ID [6760]
+[2017.12.19 14:26:50] [0044m.58s.975ms] [1] SC[4499]: Registered sub-client [Expedition_3093187] with ID [4] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.58s.975ms] [1] SC[4498]: UnRegistered sub-client [JobPrefsDBPI_3092953] with ID [2] for session ID [4498] host [DESKTOP-D6MOGOB] user [alexis] process ID [7672]
+[2017.12.19 14:26:50] [0044m.58s.975ms] [1] SC[4498]: UnRegistered sub-client [JobPrefsDBPI_3092796] with ID [1] for session ID [4498] host [DESKTOP-D6MOGOB] user [alexis] process ID [7672]
+[2017.12.19 14:26:50] [0044m.58s.975ms] [1] SC[4498]: UnRegistered sub-client [NetClassDBPI_3092984] with ID [3] for session ID [4498] host [DESKTOP-D6MOGOB] user [alexis] process ID [7672]
+[2017.12.19 14:26:50] [0044m.58s.990ms] [1] SC[4499]: UnRegistered sub-client [Expedition_3093187] with ID [4] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.59s.004ms] [1] SC[4499]: UnRegistered sub-client [JobPrefsDBPI_3093062] with ID [3] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.59s.004ms] [1] SC[4499]: UnRegistered sub-client [JobPrefsDBPI_3092890] with ID [1] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.59s.004ms] [1] SC[4499]: UnRegistered sub-client [NetClassDBPI_3093015] with ID [2] for session ID [4499] host [DESKTOP-D6MOGOB] user [alexis] process ID [4652]
+[2017.12.19 14:26:50] [0044m.59s.020ms] [1] CMT: Removed client [4497]
+[2017.12.19 14:26:50] [0044m.59s.020ms] [1] CMT: Removed client [4498]
+[2017.12.19 14:26:50] [0044m.59s.020ms] [1] CMT: Removed client [4499]
+[2017.12.19 14:26:50] [0044m.59s.020ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:26:51] [0044m.59s.582ms] [0] IT: Session [4500] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5136] created
+[2017.12.19 14:26:51] [0044m.59s.582ms] [1] SC[4500]: Registered sub-client [JobPrefsDBPI_3093734] with ID [1] for session ID [4500] host [DESKTOP-D6MOGOB] user [alexis] process ID [5136]
+[2017.12.19 14:26:51] [0044m.59s.661ms] [1] SC[4500]: Registered sub-client [JobPrefsDBPI_3093859] with ID [2] for session ID [4500] host [DESKTOP-D6MOGOB] user [alexis] process ID [5136]
+[2017.12.19 14:26:51] [0044m.59s.692ms] [1] CMT: There are [3] clients now: 4492, 4495, 4500
+[2017.12.19 14:26:51] [0044m.59s.692ms] [1] SC[4500]: Registered sub-client [NetClassDBPI_3093906] with ID [3] for session ID [4500] host [DESKTOP-D6MOGOB] user [alexis] process ID [5136]
+[2017.12.19 14:26:51] [0044m.59s.942ms] [1] SC[4500]: UnRegistered sub-client [JobPrefsDBPI_3093859] with ID [2] for session ID [4500] host [DESKTOP-D6MOGOB] user [alexis] process ID [5136]
+[2017.12.19 14:26:51] [0044m.59s.942ms] [1] SC[4500]: UnRegistered sub-client [JobPrefsDBPI_3093734] with ID [1] for session ID [4500] host [DESKTOP-D6MOGOB] user [alexis] process ID [5136]
+[2017.12.19 14:26:51] [0044m.59s.957ms] [1] SC[4500]: UnRegistered sub-client [NetClassDBPI_3093906] with ID [3] for session ID [4500] host [DESKTOP-D6MOGOB] user [alexis] process ID [5136]
+[2017.12.19 14:26:51] [0045m.00s.036ms] [1] CMT: Removed client [4500]
+[2017.12.19 14:26:51] [0045m.00s.036ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:27:23] [0045m.32s.162ms] [1] SC[4492]: Registered sub-client [StartServerClientfb4] with ID [2] for session ID [4492] host [DESKTOP-D6MOGOB] user [alexis] process ID [7752]
+[2017.12.19 14:27:23] [0045m.32s.162ms] [1] SC[4492]: UnRegistered sub-client [StartServerClientfb4] with ID [2] for session ID [4492] host [DESKTOP-D6MOGOB] user [alexis] process ID [7752]
+[2017.12.19 14:28:56] [0047m.05s.128ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3219343] with ID [14] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:56] [0047m.05s.128ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3219343] with ID [14] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:56] [0047m.05s.191ms] [1] SC[4495]: Registered sub-client [NetClassDBPI_3219406] with ID [15] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:56] [0047m.05s.191ms] [1] SC[4495]: UnRegistered sub-client [NetClassDBPI_3219406] with ID [15] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:56] [0047m.05s.207ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3219421] with ID [16] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:56] [0047m.05s.222ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3219421] with ID [16] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:58] [0047m.06s.533ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3220750] with ID [17] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:58] [0047m.06s.580ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3220750] with ID [17] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:28:58] [0047m.06s.955ms] [0] IT: Session [4501] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5060] created
+[2017.12.19 14:28:58] [0047m.06s.955ms] [1] SC[4501]: Registered sub-client [JobPrefsDBPI_3221015] with ID [1] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.06s.971ms] [1] CMT: There are [3] clients now: 4492, 4495, 4501
+[2017.12.19 14:28:58] [0047m.07s.017ms] [0] IT: Session [4502] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4680] created
+[2017.12.19 14:28:58] [0047m.07s.017ms] [1] SC[4502]: Registered sub-client [JobPrefsDBPI_3221093] with ID [1] for session ID [4502] host [DESKTOP-D6MOGOB] user [alexis] process ID [4680]
+[2017.12.19 14:28:58] [0047m.07s.064ms] [1] SC[4501]: Registered sub-client [JobPrefsDBPI_3221265] with ID [2] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.064ms] [0] IT: Session [4503] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5660] created
+[2017.12.19 14:28:58] [0047m.07s.064ms] [1] SC[4503]: Registered sub-client [JobPrefsDBPI_3221187] with ID [1] for session ID [4503] host [DESKTOP-D6MOGOB] user [alexis] process ID [5660]
+[2017.12.19 14:28:58] [0047m.07s.080ms] [1] CMT: There are [5] clients now: 4492, 4495, 4501, 4502, 4503
+[2017.12.19 14:28:58] [0047m.07s.095ms] [1] SC[4502]: Registered sub-client [JobPrefsDBPI_3221296] with ID [2] for session ID [4502] host [DESKTOP-D6MOGOB] user [alexis] process ID [4680]
+[2017.12.19 14:28:58] [0047m.07s.095ms] [1] SC[4501]: Registered sub-client [NetClassDBPI_3221312] with ID [3] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.111ms] [1] SC[4501]: Registered sub-client [Expedition_3221328] with ID [4] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.127ms] [1] SC[4501]: UnRegistered sub-client [Expedition_3221328] with ID [4] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.127ms] [1] SC[4502]: Registered sub-client [NetClassDBPI_3221343] with ID [3] for session ID [4502] host [DESKTOP-D6MOGOB] user [alexis] process ID [4680]
+[2017.12.19 14:28:58] [0047m.07s.142ms] [1] SC[4503]: Registered sub-client [JobPrefsDBPI_3221359] with ID [2] for session ID [4503] host [DESKTOP-D6MOGOB] user [alexis] process ID [5660]
+[2017.12.19 14:28:58] [0047m.07s.190ms] [1] SC[4503]: Registered sub-client [NetClassDBPI_3221406] with ID [3] for session ID [4503] host [DESKTOP-D6MOGOB] user [alexis] process ID [5660]
+[2017.12.19 14:28:58] [0047m.07s.205ms] [0] IT: Session [4504] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7080] created
+[2017.12.19 14:28:58] [0047m.07s.205ms] [1] SC[4504]: Registered sub-client [JobPrefsDBPI_3221312] with ID [1] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:58] [0047m.07s.252ms] [1] SC[4504]: Registered sub-client [NetClassDBPI_3221453] with ID [2] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:58] [0047m.07s.299ms] [1] CMT: There are [6] clients now: 4492, 4495, 4501, 4502, 4503, 4504
+[2017.12.19 14:28:58] [0047m.07s.330ms] [1] SC[4501]: UnRegistered sub-client [JobPrefsDBPI_3221265] with ID [2] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.330ms] [1] SC[4501]: UnRegistered sub-client [JobPrefsDBPI_3221015] with ID [1] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.330ms] [1] SC[4501]: UnRegistered sub-client [NetClassDBPI_3221312] with ID [3] for session ID [4501] host [DESKTOP-D6MOGOB] user [alexis] process ID [5060]
+[2017.12.19 14:28:58] [0047m.07s.346ms] [1] SC[4504]: Registered sub-client [JobPrefsDBPI_3221546] with ID [3] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:59] [0047m.07s.408ms] [1] CMT: Removed client [4501]
+[2017.12.19 14:28:59] [0047m.07s.408ms] [1] CMT: There are [5] clients now: 4492, 4495, 4502, 4503, 4504
+[2017.12.19 14:28:59] [0047m.07s.408ms] [1] SC[4503]: UnRegistered sub-client [JobPrefsDBPI_3221359] with ID [2] for session ID [4503] host [DESKTOP-D6MOGOB] user [alexis] process ID [5660]
+[2017.12.19 14:28:59] [0047m.07s.408ms] [1] SC[4503]: UnRegistered sub-client [JobPrefsDBPI_3221187] with ID [1] for session ID [4503] host [DESKTOP-D6MOGOB] user [alexis] process ID [5660]
+[2017.12.19 14:28:59] [0047m.07s.408ms] [1] SC[4503]: UnRegistered sub-client [NetClassDBPI_3221406] with ID [3] for session ID [4503] host [DESKTOP-D6MOGOB] user [alexis] process ID [5660]
+[2017.12.19 14:28:59] [0047m.07s.455ms] [1] SC[4502]: UnRegistered sub-client [JobPrefsDBPI_3221296] with ID [2] for session ID [4502] host [DESKTOP-D6MOGOB] user [alexis] process ID [4680]
+[2017.12.19 14:28:59] [0047m.07s.455ms] [1] SC[4502]: UnRegistered sub-client [JobPrefsDBPI_3221093] with ID [1] for session ID [4502] host [DESKTOP-D6MOGOB] user [alexis] process ID [4680]
+[2017.12.19 14:28:59] [0047m.07s.455ms] [1] SC[4502]: UnRegistered sub-client [NetClassDBPI_3221343] with ID [3] for session ID [4502] host [DESKTOP-D6MOGOB] user [alexis] process ID [4680]
+[2017.12.19 14:28:59] [0047m.07s.470ms] [1] SC[4504]: Registered sub-client [Expedition_3221671] with ID [4] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:59] [0047m.07s.486ms] [1] SC[4504]: UnRegistered sub-client [Expedition_3221671] with ID [4] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:59] [0047m.07s.502ms] [1] SC[4504]: UnRegistered sub-client [JobPrefsDBPI_3221546] with ID [3] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:59] [0047m.07s.502ms] [1] SC[4504]: UnRegistered sub-client [JobPrefsDBPI_3221312] with ID [1] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:59] [0047m.07s.517ms] [1] CMT: Removed client [4502]
+[2017.12.19 14:28:59] [0047m.07s.517ms] [1] CMT: Removed client [4503]
+[2017.12.19 14:28:59] [0047m.07s.517ms] [1] CMT: There are [3] clients now: 4492, 4495, 4504
+[2017.12.19 14:28:59] [0047m.07s.517ms] [1] SC[4504]: UnRegistered sub-client [NetClassDBPI_3221453] with ID [2] for session ID [4504] host [DESKTOP-D6MOGOB] user [alexis] process ID [7080]
+[2017.12.19 14:28:59] [0047m.07s.627ms] [1] CMT: Removed client [4504]
+[2017.12.19 14:28:59] [0047m.07s.627ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:30:00] [0048m.08s.896ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3283109] with ID [18] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:00] [0048m.08s.896ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3283109] with ID [18] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:00] [0048m.08s.974ms] [1] SC[4495]: Registered sub-client [NetClassDBPI_3283203] with ID [19] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:00] [0048m.08s.974ms] [1] SC[4495]: UnRegistered sub-client [NetClassDBPI_3283203] with ID [19] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:00] [0048m.08s.991ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3283218] with ID [20] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:00] [0048m.09s.005ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3283218] with ID [20] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:02] [0048m.10s.474ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3284703] with ID [21] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:02] [0048m.10s.521ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3284703] with ID [21] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:02] [0048m.10s.863ms] [0] IT: Session [4505] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [2704] created
+[2017.12.19 14:30:02] [0048m.10s.863ms] [1] SC[4505]: Registered sub-client [JobPrefsDBPI_3284953] with ID [1] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.10s.926ms] [1] CMT: There are [3] clients now: 4492, 4495, 4505
+[2017.12.19 14:30:02] [0048m.10s.956ms] [0] IT: Session [4506] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [2596] created
+[2017.12.19 14:30:02] [0048m.10s.956ms] [1] SC[4506]: Registered sub-client [JobPrefsDBPI_3285046] with ID [1] for session ID [4506] host [DESKTOP-D6MOGOB] user [alexis] process ID [2596]
+[2017.12.19 14:30:02] [0048m.10s.991ms] [1] SC[4505]: Registered sub-client [JobPrefsDBPI_3285187] with ID [2] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.003ms] [0] IT: Session [4507] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [424] created
+[2017.12.19 14:30:02] [0048m.11s.003ms] [1] SC[4507]: Registered sub-client [JobPrefsDBPI_3285125] with ID [1] for session ID [4507] host [DESKTOP-D6MOGOB] user [alexis] process ID [424]
+[2017.12.19 14:30:02] [0048m.11s.019ms] [1] SC[4505]: Registered sub-client [NetClassDBPI_3285234] with ID [3] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.035ms] [1] CMT: There are [5] clients now: 4492, 4495, 4505, 4506, 4507
+[2017.12.19 14:30:02] [0048m.11s.035ms] [1] SC[4506]: Registered sub-client [JobPrefsDBPI_3285250] with ID [2] for session ID [4506] host [DESKTOP-D6MOGOB] user [alexis] process ID [2596]
+[2017.12.19 14:30:02] [0048m.11s.050ms] [1] SC[4505]: Registered sub-client [Expedition_3285250] with ID [4] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.050ms] [1] SC[4505]: UnRegistered sub-client [Expedition_3285250] with ID [4] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.066ms] [1] SC[4506]: Registered sub-client [NetClassDBPI_3285281] with ID [3] for session ID [4506] host [DESKTOP-D6MOGOB] user [alexis] process ID [2596]
+[2017.12.19 14:30:02] [0048m.11s.097ms] [1] SC[4507]: Registered sub-client [JobPrefsDBPI_3285296] with ID [2] for session ID [4507] host [DESKTOP-D6MOGOB] user [alexis] process ID [424]
+[2017.12.19 14:30:02] [0048m.11s.129ms] [1] SC[4507]: Registered sub-client [NetClassDBPI_3285328] with ID [3] for session ID [4507] host [DESKTOP-D6MOGOB] user [alexis] process ID [424]
+[2017.12.19 14:30:02] [0048m.11s.144ms] [0] IT: Session [4508] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7544] created
+[2017.12.19 14:30:02] [0048m.11s.144ms] [1] SC[4508]: Registered sub-client [JobPrefsDBPI_3285265] with ID [1] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:02] [0048m.11s.175ms] [1] SC[4508]: Registered sub-client [NetClassDBPI_3285390] with ID [2] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:02] [0048m.11s.238ms] [1] SC[4508]: Registered sub-client [JobPrefsDBPI_3285437] with ID [3] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:02] [0048m.11s.238ms] [1] SC[4505]: UnRegistered sub-client [JobPrefsDBPI_3285187] with ID [2] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.238ms] [1] SC[4505]: UnRegistered sub-client [JobPrefsDBPI_3284953] with ID [1] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.238ms] [1] SC[4505]: UnRegistered sub-client [NetClassDBPI_3285234] with ID [3] for session ID [4505] host [DESKTOP-D6MOGOB] user [alexis] process ID [2704]
+[2017.12.19 14:30:02] [0048m.11s.254ms] [1] CMT: There are [6] clients now: 4492, 4495, 4505, 4506, 4507, 4508
+[2017.12.19 14:30:02] [0048m.11s.254ms] [1] CMT: Removed client [4505]
+[2017.12.19 14:30:02] [0048m.11s.254ms] [1] CMT: There are [5] clients now: 4492, 4495, 4506, 4507, 4508
+[2017.12.19 14:30:02] [0048m.11s.332ms] [1] SC[4507]: UnRegistered sub-client [JobPrefsDBPI_3285296] with ID [2] for session ID [4507] host [DESKTOP-D6MOGOB] user [alexis] process ID [424]
+[2017.12.19 14:30:02] [0048m.11s.332ms] [1] SC[4507]: UnRegistered sub-client [JobPrefsDBPI_3285125] with ID [1] for session ID [4507] host [DESKTOP-D6MOGOB] user [alexis] process ID [424]
+[2017.12.19 14:30:02] [0048m.11s.332ms] [1] SC[4507]: UnRegistered sub-client [NetClassDBPI_3285328] with ID [3] for session ID [4507] host [DESKTOP-D6MOGOB] user [alexis] process ID [424]
+[2017.12.19 14:30:02] [0048m.11s.363ms] [1] CMT: Removed client [4507]
+[2017.12.19 14:30:02] [0048m.11s.363ms] [1] CMT: There are [4] clients now: 4492, 4495, 4506, 4508
+[2017.12.19 14:30:02] [0048m.11s.379ms] [1] SC[4508]: Registered sub-client [Expedition_3285593] with ID [4] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:02] [0048m.11s.395ms] [1] SC[4506]: UnRegistered sub-client [JobPrefsDBPI_3285250] with ID [2] for session ID [4506] host [DESKTOP-D6MOGOB] user [alexis] process ID [2596]
+[2017.12.19 14:30:02] [0048m.11s.395ms] [1] SC[4506]: UnRegistered sub-client [JobPrefsDBPI_3285046] with ID [1] for session ID [4506] host [DESKTOP-D6MOGOB] user [alexis] process ID [2596]
+[2017.12.19 14:30:02] [0048m.11s.395ms] [1] SC[4508]: UnRegistered sub-client [Expedition_3285593] with ID [4] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:02] [0048m.11s.395ms] [1] SC[4506]: UnRegistered sub-client [NetClassDBPI_3285281] with ID [3] for session ID [4506] host [DESKTOP-D6MOGOB] user [alexis] process ID [2596]
+[2017.12.19 14:30:03] [0048m.11s.426ms] [1] SC[4508]: UnRegistered sub-client [JobPrefsDBPI_3285437] with ID [3] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:03] [0048m.11s.426ms] [1] SC[4508]: UnRegistered sub-client [JobPrefsDBPI_3285265] with ID [1] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:03] [0048m.11s.426ms] [1] SC[4508]: UnRegistered sub-client [NetClassDBPI_3285390] with ID [2] for session ID [4508] host [DESKTOP-D6MOGOB] user [alexis] process ID [7544]
+[2017.12.19 14:30:03] [0048m.11s.473ms] [1] CMT: Removed client [4506]
+[2017.12.19 14:30:03] [0048m.11s.473ms] [1] CMT: Removed client [4508]
+[2017.12.19 14:30:03] [0048m.11s.473ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:30:29] [0048m.38s.169ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3312375] with ID [22] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:29] [0048m.38s.169ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3312375] with ID [22] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:29] [0048m.38s.216ms] [1] SC[4495]: Registered sub-client [NetClassDBPI_3312437] with ID [23] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:29] [0048m.38s.216ms] [1] SC[4495]: UnRegistered sub-client [NetClassDBPI_3312437] with ID [23] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:29] [0048m.38s.232ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3312453] with ID [24] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:29] [0048m.38s.232ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3312453] with ID [24] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:31] [0048m.40s.026ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3314250] with ID [25] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:31] [0048m.40s.073ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3314250] with ID [25] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:31] [0048m.40s.400ms] [0] IT: Session [4509] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3736] created
+[2017.12.19 14:30:31] [0048m.40s.400ms] [1] SC[4509]: Registered sub-client [JobPrefsDBPI_3314515] with ID [1] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.447ms] [1] CMT: There are [3] clients now: 4492, 4495, 4509
+[2017.12.19 14:30:32] [0048m.40s.494ms] [0] IT: Session [4510] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [3196] created
+[2017.12.19 14:30:32] [0048m.40s.494ms] [1] SC[4510]: Registered sub-client [JobPrefsDBPI_3314609] with ID [1] for session ID [4510] host [DESKTOP-D6MOGOB] user [alexis] process ID [3196]
+[2017.12.19 14:30:32] [0048m.40s.509ms] [1] SC[4509]: Registered sub-client [JobPrefsDBPI_3314718] with ID [2] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.540ms] [0] IT: Session [4511] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5428] created
+[2017.12.19 14:30:32] [0048m.40s.540ms] [1] SC[4509]: Registered sub-client [NetClassDBPI_3314765] with ID [3] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.540ms] [1] SC[4511]: Registered sub-client [JobPrefsDBPI_3314687] with ID [1] for session ID [4511] host [DESKTOP-D6MOGOB] user [alexis] process ID [5428]
+[2017.12.19 14:30:32] [0048m.40s.556ms] [1] CMT: There are [5] clients now: 4492, 4495, 4509, 4510, 4511
+[2017.12.19 14:30:32] [0048m.40s.572ms] [1] SC[4509]: Registered sub-client [Expedition_3314796] with ID [4] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.572ms] [1] SC[4509]: UnRegistered sub-client [Expedition_3314796] with ID [4] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.634ms] [1] SC[4511]: Registered sub-client [JobPrefsDBPI_3314843] with ID [2] for session ID [4511] host [DESKTOP-D6MOGOB] user [alexis] process ID [5428]
+[2017.12.19 14:30:32] [0048m.40s.665ms] [1] SC[4511]: Registered sub-client [NetClassDBPI_3314890] with ID [3] for session ID [4511] host [DESKTOP-D6MOGOB] user [alexis] process ID [5428]
+[2017.12.19 14:30:32] [0048m.40s.681ms] [0] IT: Session [4512] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [2052] created
+[2017.12.19 14:30:32] [0048m.40s.681ms] [1] SC[4512]: Registered sub-client [JobPrefsDBPI_3314796] with ID [1] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.712ms] [1] SC[4512]: Registered sub-client [NetClassDBPI_3314921] with ID [2] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.759ms] [1] SC[4509]: UnRegistered sub-client [JobPrefsDBPI_3314718] with ID [2] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.759ms] [1] SC[4509]: UnRegistered sub-client [JobPrefsDBPI_3314515] with ID [1] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.759ms] [1] SC[4509]: UnRegistered sub-client [NetClassDBPI_3314765] with ID [3] for session ID [4509] host [DESKTOP-D6MOGOB] user [alexis] process ID [3736]
+[2017.12.19 14:30:32] [0048m.40s.759ms] [1] SC[4512]: Registered sub-client [JobPrefsDBPI_3314984] with ID [3] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.775ms] [1] CMT: There are [6] clients now: 4492, 4495, 4509, 4510, 4511, 4512
+[2017.12.19 14:30:32] [0048m.40s.775ms] [1] CMT: Removed client [4509]
+[2017.12.19 14:30:32] [0048m.40s.775ms] [1] CMT: There are [5] clients now: 4492, 4495, 4510, 4511, 4512
+[2017.12.19 14:30:32] [0048m.40s.853ms] [1] SC[4511]: UnRegistered sub-client [JobPrefsDBPI_3314843] with ID [2] for session ID [4511] host [DESKTOP-D6MOGOB] user [alexis] process ID [5428]
+[2017.12.19 14:30:32] [0048m.40s.853ms] [1] SC[4511]: UnRegistered sub-client [JobPrefsDBPI_3314687] with ID [1] for session ID [4511] host [DESKTOP-D6MOGOB] user [alexis] process ID [5428]
+[2017.12.19 14:30:32] [0048m.40s.853ms] [1] SC[4511]: UnRegistered sub-client [NetClassDBPI_3314890] with ID [3] for session ID [4511] host [DESKTOP-D6MOGOB] user [alexis] process ID [5428]
+[2017.12.19 14:30:32] [0048m.40s.884ms] [1] CMT: Removed client [4511]
+[2017.12.19 14:30:32] [0048m.40s.884ms] [1] CMT: There are [4] clients now: 4492, 4495, 4510, 4512
+[2017.12.19 14:30:32] [0048m.40s.884ms] [1] SC[4512]: Registered sub-client [Expedition_3315109] with ID [4] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.899ms] [1] SC[4512]: UnRegistered sub-client [Expedition_3315109] with ID [4] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.915ms] [1] SC[4512]: UnRegistered sub-client [JobPrefsDBPI_3314984] with ID [3] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.915ms] [1] SC[4512]: UnRegistered sub-client [JobPrefsDBPI_3314796] with ID [1] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.931ms] [1] SC[4512]: UnRegistered sub-client [NetClassDBPI_3314921] with ID [2] for session ID [4512] host [DESKTOP-D6MOGOB] user [alexis] process ID [2052]
+[2017.12.19 14:30:32] [0048m.40s.993ms] [1] CMT: Removed client [4512]
+[2017.12.19 14:30:32] [0048m.40s.993ms] [1] CMT: There are [3] clients now: 4492, 4495, 4510
+[2017.12.19 14:30:33] [0048m.41s.587ms] [1] SC[4510]: Registered sub-client [JobPrefsDBPI_3315796] with ID [2] for session ID [4510] host [DESKTOP-D6MOGOB] user [alexis] process ID [3196]
+[2017.12.19 14:30:33] [0048m.41s.634ms] [1] SC[4510]: Registered sub-client [NetClassDBPI_3315843] with ID [3] for session ID [4510] host [DESKTOP-D6MOGOB] user [alexis] process ID [3196]
+[2017.12.19 14:30:33] [0048m.41s.884ms] [1] SC[4510]: UnRegistered sub-client [JobPrefsDBPI_3315796] with ID [2] for session ID [4510] host [DESKTOP-D6MOGOB] user [alexis] process ID [3196]
+[2017.12.19 14:30:33] [0048m.41s.884ms] [1] SC[4510]: UnRegistered sub-client [JobPrefsDBPI_3314609] with ID [1] for session ID [4510] host [DESKTOP-D6MOGOB] user [alexis] process ID [3196]
+[2017.12.19 14:30:33] [0048m.41s.884ms] [1] SC[4510]: UnRegistered sub-client [NetClassDBPI_3315843] with ID [3] for session ID [4510] host [DESKTOP-D6MOGOB] user [alexis] process ID [3196]
+[2017.12.19 14:30:33] [0048m.41s.976ms] [1] CMT: Removed client [4510]
+[2017.12.19 14:30:33] [0048m.41s.976ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:30:49] [0048m.57s.755ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3331984] with ID [26] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:49] [0048m.57s.770ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3331984] with ID [26] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:49] [0048m.57s.817ms] [1] SC[4495]: Registered sub-client [NetClassDBPI_3332031] with ID [27] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:49] [0048m.57s.817ms] [1] SC[4495]: UnRegistered sub-client [NetClassDBPI_3332031] with ID [27] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:49] [0048m.57s.833ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3332046] with ID [28] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:49] [0048m.57s.833ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3332046] with ID [28] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:51] [0048m.59s.566ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3333781] with ID [29] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:51] [0048m.59s.612ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3333781] with ID [29] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:30:51] [0048m.59s.939ms] [0] IT: Session [4513] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6332] created
+[2017.12.19 14:30:51] [0048m.59s.939ms] [1] SC[4513]: Registered sub-client [JobPrefsDBPI_3334046] with ID [1] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0048m.59s.970ms] [1] CMT: There are [3] clients now: 4492, 4495, 4513
+[2017.12.19 14:30:51] [0049m.00s.017ms] [0] IT: Session [4514] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4784] created
+[2017.12.19 14:30:51] [0049m.00s.017ms] [1] SC[4514]: Registered sub-client [JobPrefsDBPI_3334125] with ID [1] for session ID [4514] host [DESKTOP-D6MOGOB] user [alexis] process ID [4784]
+[2017.12.19 14:30:51] [0049m.00s.033ms] [1] SC[4513]: Registered sub-client [JobPrefsDBPI_3334250] with ID [2] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.080ms] [1] CMT: There are [4] clients now: 4492, 4495, 4513, 4514
+[2017.12.19 14:30:51] [0049m.00s.080ms] [0] IT: Session [4515] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [5080] created
+[2017.12.19 14:30:51] [0049m.00s.080ms] [1] SC[4515]: Registered sub-client [JobPrefsDBPI_3334203] with ID [1] for session ID [4515] host [DESKTOP-D6MOGOB] user [alexis] process ID [5080]
+[2017.12.19 14:30:51] [0049m.00s.080ms] [1] SC[4513]: Registered sub-client [NetClassDBPI_3334281] with ID [3] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.095ms] [1] SC[4514]: Registered sub-client [JobPrefsDBPI_3334296] with ID [2] for session ID [4514] host [DESKTOP-D6MOGOB] user [alexis] process ID [4784]
+[2017.12.19 14:30:51] [0049m.00s.095ms] [1] SC[4513]: Registered sub-client [Expedition_3334296] with ID [4] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.095ms] [1] SC[4513]: UnRegistered sub-client [Expedition_3334296] with ID [4] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.126ms] [1] SC[4514]: Registered sub-client [NetClassDBPI_3334343] with ID [3] for session ID [4514] host [DESKTOP-D6MOGOB] user [alexis] process ID [4784]
+[2017.12.19 14:30:51] [0049m.00s.157ms] [1] SC[4515]: Registered sub-client [JobPrefsDBPI_3334359] with ID [2] for session ID [4515] host [DESKTOP-D6MOGOB] user [alexis] process ID [5080]
+[2017.12.19 14:30:51] [0049m.00s.189ms] [1] CMT: There are [5] clients now: 4492, 4495, 4513, 4514, 4515
+[2017.12.19 14:30:51] [0049m.00s.189ms] [0] IT: Session [4516] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6920] created
+[2017.12.19 14:30:51] [0049m.00s.189ms] [1] SC[4516]: Registered sub-client [JobPrefsDBPI_3334296] with ID [1] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:51] [0049m.00s.189ms] [1] SC[4515]: Registered sub-client [NetClassDBPI_3334406] with ID [3] for session ID [4515] host [DESKTOP-D6MOGOB] user [alexis] process ID [5080]
+[2017.12.19 14:30:51] [0049m.00s.236ms] [1] SC[4516]: Registered sub-client [NetClassDBPI_3334437] with ID [2] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:51] [0049m.00s.283ms] [1] SC[4513]: UnRegistered sub-client [JobPrefsDBPI_3334250] with ID [2] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.283ms] [1] SC[4513]: UnRegistered sub-client [JobPrefsDBPI_3334046] with ID [1] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.298ms] [1] SC[4516]: Registered sub-client [JobPrefsDBPI_3334500] with ID [3] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:51] [0049m.00s.298ms] [1] CMT: There are [6] clients now: 4492, 4495, 4513, 4514, 4515, 4516
+[2017.12.19 14:30:51] [0049m.00s.298ms] [1] SC[4513]: UnRegistered sub-client [NetClassDBPI_3334281] with ID [3] for session ID [4513] host [DESKTOP-D6MOGOB] user [alexis] process ID [6332]
+[2017.12.19 14:30:51] [0049m.00s.392ms] [1] SC[4515]: UnRegistered sub-client [JobPrefsDBPI_3334359] with ID [2] for session ID [4515] host [DESKTOP-D6MOGOB] user [alexis] process ID [5080]
+[2017.12.19 14:30:51] [0049m.00s.392ms] [1] SC[4515]: UnRegistered sub-client [JobPrefsDBPI_3334203] with ID [1] for session ID [4515] host [DESKTOP-D6MOGOB] user [alexis] process ID [5080]
+[2017.12.19 14:30:51] [0049m.00s.392ms] [1] SC[4515]: UnRegistered sub-client [NetClassDBPI_3334406] with ID [3] for session ID [4515] host [DESKTOP-D6MOGOB] user [alexis] process ID [5080]
+[2017.12.19 14:30:52] [0049m.00s.407ms] [1] CMT: Removed client [4513]
+[2017.12.19 14:30:52] [0049m.00s.407ms] [1] CMT: Removed client [4515]
+[2017.12.19 14:30:52] [0049m.00s.407ms] [1] CMT: There are [4] clients now: 4492, 4495, 4514, 4516
+[2017.12.19 14:30:52] [0049m.00s.423ms] [1] SC[4516]: Registered sub-client [Expedition_3334640] with ID [4] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:52] [0049m.00s.439ms] [1] SC[4514]: UnRegistered sub-client [JobPrefsDBPI_3334296] with ID [2] for session ID [4514] host [DESKTOP-D6MOGOB] user [alexis] process ID [4784]
+[2017.12.19 14:30:52] [0049m.00s.439ms] [1] SC[4514]: UnRegistered sub-client [JobPrefsDBPI_3334125] with ID [1] for session ID [4514] host [DESKTOP-D6MOGOB] user [alexis] process ID [4784]
+[2017.12.19 14:30:52] [0049m.00s.439ms] [1] SC[4514]: UnRegistered sub-client [NetClassDBPI_3334343] with ID [3] for session ID [4514] host [DESKTOP-D6MOGOB] user [alexis] process ID [4784]
+[2017.12.19 14:30:52] [0049m.00s.439ms] [1] SC[4516]: UnRegistered sub-client [Expedition_3334640] with ID [4] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:52] [0049m.00s.454ms] [1] SC[4516]: UnRegistered sub-client [JobPrefsDBPI_3334500] with ID [3] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:52] [0049m.00s.454ms] [1] SC[4516]: UnRegistered sub-client [JobPrefsDBPI_3334296] with ID [1] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:52] [0049m.00s.470ms] [1] SC[4516]: UnRegistered sub-client [NetClassDBPI_3334437] with ID [2] for session ID [4516] host [DESKTOP-D6MOGOB] user [alexis] process ID [6920]
+[2017.12.19 14:30:52] [0049m.00s.517ms] [1] CMT: Removed client [4514]
+[2017.12.19 14:30:52] [0049m.00s.517ms] [1] CMT: Removed client [4516]
+[2017.12.19 14:30:52] [0049m.00s.517ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:31:08] [0049m.17s.005ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3351234] with ID [30] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:08] [0049m.17s.020ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3351234] with ID [30] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:08] [0049m.17s.052ms] [1] SC[4495]: Registered sub-client [NetClassDBPI_3351281] with ID [31] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:08] [0049m.17s.067ms] [1] SC[4495]: UnRegistered sub-client [NetClassDBPI_3351281] with ID [31] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:08] [0049m.17s.067ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3351296] with ID [32] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:08] [0049m.17s.083ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3351296] with ID [32] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:10] [0049m.18s.925ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_3353125] with ID [33] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:10] [0049m.18s.972ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_3353125] with ID [33] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:31:10] [0049m.19s.299ms] [0] IT: Session [4517] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7368] created
+[2017.12.19 14:31:10] [0049m.19s.299ms] [1] SC[4517]: Registered sub-client [JobPrefsDBPI_3353406] with ID [1] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:10] [0049m.19s.361ms] [0] IT: Session [4518] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [2532] created
+[2017.12.19 14:31:10] [0049m.19s.361ms] [1] SC[4518]: Registered sub-client [JobPrefsDBPI_3353484] with ID [1] for session ID [4518] host [DESKTOP-D6MOGOB] user [alexis] process ID [2532]
+[2017.12.19 14:31:11] [0049m.19s.408ms] [1] CMT: There are [4] clients now: 4492, 4495, 4517, 4518
+[2017.12.19 14:31:11] [0049m.19s.408ms] [1] SC[4517]: Registered sub-client [JobPrefsDBPI_3353609] with ID [2] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.439ms] [1] SC[4518]: Registered sub-client [JobPrefsDBPI_3353640] with ID [2] for session ID [4518] host [DESKTOP-D6MOGOB] user [alexis] process ID [2532]
+[2017.12.19 14:31:11] [0049m.19s.439ms] [1] SC[4517]: Registered sub-client [NetClassDBPI_3353656] with ID [3] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.455ms] [0] IT: Session [4519] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7412] created
+[2017.12.19 14:31:11] [0049m.19s.455ms] [1] SC[4519]: Registered sub-client [JobPrefsDBPI_3353578] with ID [1] for session ID [4519] host [DESKTOP-D6MOGOB] user [alexis] process ID [7412]
+[2017.12.19 14:31:11] [0049m.19s.470ms] [1] SC[4517]: Registered sub-client [Expedition_3353671] with ID [4] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.470ms] [1] SC[4517]: UnRegistered sub-client [Expedition_3353671] with ID [4] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.486ms] [1] SC[4518]: Registered sub-client [NetClassDBPI_3353687] with ID [3] for session ID [4518] host [DESKTOP-D6MOGOB] user [alexis] process ID [2532]
+[2017.12.19 14:31:11] [0049m.19s.517ms] [1] CMT: There are [5] clients now: 4492, 4495, 4517, 4518, 4519
+[2017.12.19 14:31:11] [0049m.19s.533ms] [1] SC[4519]: Registered sub-client [JobPrefsDBPI_3353734] with ID [2] for session ID [4519] host [DESKTOP-D6MOGOB] user [alexis] process ID [7412]
+[2017.12.19 14:31:11] [0049m.19s.564ms] [0] IT: Session [4520] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6020] created
+[2017.12.19 14:31:11] [0049m.19s.564ms] [1] SC[4520]: Registered sub-client [JobPrefsDBPI_3353671] with ID [1] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.564ms] [1] SC[4519]: Registered sub-client [NetClassDBPI_3353781] with ID [3] for session ID [4519] host [DESKTOP-D6MOGOB] user [alexis] process ID [7412]
+[2017.12.19 14:31:11] [0049m.19s.611ms] [1] SC[4520]: Registered sub-client [NetClassDBPI_3353812] with ID [2] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.642ms] [1] CMT: There are [6] clients now: 4492, 4495, 4517, 4518, 4519, 4520
+[2017.12.19 14:31:11] [0049m.19s.657ms] [1] SC[4520]: Registered sub-client [JobPrefsDBPI_3353859] with ID [3] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.673ms] [1] SC[4517]: UnRegistered sub-client [JobPrefsDBPI_3353609] with ID [2] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.673ms] [1] SC[4517]: UnRegistered sub-client [JobPrefsDBPI_3353406] with ID [1] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.673ms] [1] SC[4517]: UnRegistered sub-client [NetClassDBPI_3353656] with ID [3] for session ID [4517] host [DESKTOP-D6MOGOB] user [alexis] process ID [7368]
+[2017.12.19 14:31:11] [0049m.19s.767ms] [1] CMT: Removed client [4517]
+[2017.12.19 14:31:11] [0049m.19s.767ms] [1] CMT: There are [5] clients now: 4492, 4495, 4518, 4519, 4520
+[2017.12.19 14:31:11] [0049m.19s.767ms] [1] SC[4519]: UnRegistered sub-client [JobPrefsDBPI_3353734] with ID [2] for session ID [4519] host [DESKTOP-D6MOGOB] user [alexis] process ID [7412]
+[2017.12.19 14:31:11] [0049m.19s.767ms] [1] SC[4519]: UnRegistered sub-client [JobPrefsDBPI_3353578] with ID [1] for session ID [4519] host [DESKTOP-D6MOGOB] user [alexis] process ID [7412]
+[2017.12.19 14:31:11] [0049m.19s.767ms] [1] SC[4519]: UnRegistered sub-client [NetClassDBPI_3353781] with ID [3] for session ID [4519] host [DESKTOP-D6MOGOB] user [alexis] process ID [7412]
+[2017.12.19 14:31:11] [0049m.19s.798ms] [1] SC[4518]: UnRegistered sub-client [JobPrefsDBPI_3353640] with ID [2] for session ID [4518] host [DESKTOP-D6MOGOB] user [alexis] process ID [2532]
+[2017.12.19 14:31:11] [0049m.19s.798ms] [1] SC[4518]: UnRegistered sub-client [JobPrefsDBPI_3353484] with ID [1] for session ID [4518] host [DESKTOP-D6MOGOB] user [alexis] process ID [2532]
+[2017.12.19 14:31:11] [0049m.19s.798ms] [1] SC[4518]: UnRegistered sub-client [NetClassDBPI_3353687] with ID [3] for session ID [4518] host [DESKTOP-D6MOGOB] user [alexis] process ID [2532]
+[2017.12.19 14:31:11] [0049m.19s.798ms] [1] SC[4520]: Registered sub-client [Expedition_3354015] with ID [4] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.814ms] [1] SC[4520]: UnRegistered sub-client [Expedition_3354015] with ID [4] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.831ms] [1] SC[4520]: UnRegistered sub-client [JobPrefsDBPI_3353859] with ID [3] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.831ms] [1] SC[4520]: UnRegistered sub-client [JobPrefsDBPI_3353671] with ID [1] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.831ms] [1] SC[4520]: UnRegistered sub-client [NetClassDBPI_3353812] with ID [2] for session ID [4520] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:31:11] [0049m.19s.876ms] [1] CMT: Removed client [4518]
+[2017.12.19 14:31:11] [0049m.19s.876ms] [1] CMT: Removed client [4519]
+[2017.12.19 14:31:11] [0049m.19s.876ms] [1] CMT: Removed client [4520]
+[2017.12.19 14:31:11] [0049m.19s.876ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:43:58] [0062m.07s.199ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4121421] with ID [34] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:06] [0062m.14s.567ms] [0] IT: Session [4521] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6248] created
+[2017.12.19 14:44:06] [0062m.14s.567ms] [1] SC[4521]: Registered sub-client [JobPrefsDBPI_4128718] with ID [1] for session ID [4521] host [DESKTOP-D6MOGOB] user [alexis] process ID [6248]
+[2017.12.19 14:44:06] [0062m.14s.599ms] [1] CMT: There are [3] clients now: 4492, 4495, 4521
+[2017.12.19 14:44:06] [0062m.14s.614ms] [1] SC[4521]: UnRegistered sub-client [JobPrefsDBPI_4128718] with ID [1] for session ID [4521] host [DESKTOP-D6MOGOB] user [alexis] process ID [6248]
+[2017.12.19 14:44:06] [0062m.14s.707ms] [1] CMT: Removed client [4521]
+[2017.12.19 14:44:06] [0062m.14s.707ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:07] [0062m.15s.550ms] [0] IT: Session [4522] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6248] created
+[2017.12.19 14:44:07] [0062m.15s.550ms] [1] SC[4522]: Registered sub-client [JobPrefsDBPI_4129718] with ID [1] for session ID [4522] host [DESKTOP-D6MOGOB] user [alexis] process ID [6248]
+[2017.12.19 14:44:07] [0062m.15s.597ms] [1] CMT: There are [3] clients now: 4492, 4495, 4522
+[2017.12.19 14:44:07] [0062m.15s.659ms] [1] SC[4522]: UnRegistered sub-client [JobPrefsDBPI_4129718] with ID [1] for session ID [4522] host [DESKTOP-D6MOGOB] user [alexis] process ID [6248]
+[2017.12.19 14:44:07] [0062m.15s.706ms] [1] CMT: Removed client [4522]
+[2017.12.19 14:44:07] [0062m.15s.706ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:09] [0062m.17s.738ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4131953] with ID [35] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:09] [0062m.17s.785ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4131953] with ID [35] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:09] [0062m.17s.841ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4132062] with ID [36] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:09] [0062m.17s.869ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4132062] with ID [36] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:10] [0062m.19s.188ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4121421] with ID [34] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:13] [0062m.22s.325ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4136531] with ID [37] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:14] [0062m.22s.404ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4136625] with ID [38] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:14] [0062m.22s.561ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4136531] with ID [37] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:14] [0062m.22s.575ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4136625] with ID [38] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:25] [0062m.34s.390ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4148593] with ID [39] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:26] [0062m.34s.406ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4148593] with ID [39] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:26] [0062m.34s.468ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4148687] with ID [40] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:26] [0062m.34s.499ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4148687] with ID [40] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:27] [0062m.35s.450ms] [0] IT: Session [4523] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6020] created
+[2017.12.19 14:44:27] [0062m.35s.450ms] [1] SC[4523]: Registered sub-client [JobPrefsDBPI_4149578] with ID [1] for session ID [4523] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:27] [0062m.35s.466ms] [1] SC[4523]: UnRegistered sub-client [JobPrefsDBPI_4149578] with ID [1] for session ID [4523] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:27] [0062m.35s.560ms] [1] CMT: There are [3] clients now: 4492, 4495, 4523
+[2017.12.19 14:44:27] [0062m.35s.560ms] [1] CMT: Removed client [4523]
+[2017.12.19 14:44:27] [0062m.35s.560ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:27] [0062m.36s.107ms] [0] IT: Session [4524] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6020] created
+[2017.12.19 14:44:27] [0062m.36s.107ms] [1] SC[4524]: Registered sub-client [JobPrefsDBPI_4150281] with ID [1] for session ID [4524] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:27] [0062m.36s.122ms] [1] CMT: There are [3] clients now: 4492, 4495, 4524
+[2017.12.19 14:44:27] [0062m.36s.185ms] [1] SC[4524]: Registered sub-client [JobPrefsDBPI_4150390] with ID [2] for session ID [4524] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:27] [0062m.36s.201ms] [1] SC[4524]: UnRegistered sub-client [JobPrefsDBPI_4150281] with ID [1] for session ID [4524] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:27] [0062m.36s.201ms] [1] SC[4524]: UnRegistered sub-client [JobPrefsDBPI_4150390] with ID [2] for session ID [4524] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:27] [0062m.36s.232ms] [1] CMT: Removed client [4524]
+[2017.12.19 14:44:27] [0062m.36s.232ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:28] [0062m.36s.716ms] [0] IT: Session [4525] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6020] created
+[2017.12.19 14:44:28] [0062m.36s.732ms] [1] SC[4525]: Registered sub-client [JobPrefsDBPI_4150890] with ID [1] for session ID [4525] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:28] [0062m.36s.779ms] [1] CMT: There are [3] clients now: 4492, 4495, 4525
+[2017.12.19 14:44:28] [0062m.36s.810ms] [1] SC[4525]: Registered sub-client [JobPrefsDBPI_4151015] with ID [2] for session ID [4525] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:28] [0062m.37s.183ms] [1] SC[4525]: UnRegistered sub-client [JobPrefsDBPI_4151015] with ID [2] for session ID [4525] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:28] [0062m.37s.183ms] [1] SC[4525]: UnRegistered sub-client [JobPrefsDBPI_4150890] with ID [1] for session ID [4525] host [DESKTOP-D6MOGOB] user [alexis] process ID [6020]
+[2017.12.19 14:44:28] [0062m.37s.230ms] [1] CMT: Removed client [4525]
+[2017.12.19 14:44:28] [0062m.37s.230ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:28] [0062m.37s.324ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4151546] with ID [41] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:28] [0062m.37s.339ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4151546] with ID [41] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:44:45] [0062m.53s.635ms] [0] IT: Session [4526] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4996] created
+[2017.12.19 14:44:45] [0062m.53s.635ms] [1] SC[4526]: Registered sub-client [JobPrefsDBPI_4167765] with ID [1] for session ID [4526] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:45] [0062m.53s.651ms] [1] SC[4526]: UnRegistered sub-client [JobPrefsDBPI_4167765] with ID [1] for session ID [4526] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:45] [0062m.53s.698ms] [1] CMT: There are [3] clients now: 4492, 4495, 4526
+[2017.12.19 14:44:45] [0062m.53s.698ms] [1] CMT: Removed client [4526]
+[2017.12.19 14:44:45] [0062m.53s.698ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:45] [0062m.54s.276ms] [0] IT: Session [4527] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4996] created
+[2017.12.19 14:44:45] [0062m.54s.276ms] [1] SC[4527]: Registered sub-client [JobPrefsDBPI_4168453] with ID [1] for session ID [4527] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:45] [0062m.54s.323ms] [1] SC[4527]: UnRegistered sub-client [JobPrefsDBPI_4168453] with ID [1] for session ID [4527] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:45] [0062m.54s.354ms] [1] CMT: There are [3] clients now: 4492, 4495, 4527
+[2017.12.19 14:44:45] [0062m.54s.354ms] [1] CMT: Removed client [4527]
+[2017.12.19 14:44:45] [0062m.54s.354ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:46] [0062m.54s.868ms] [0] IT: Session [4528] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4996] created
+[2017.12.19 14:44:46] [0062m.54s.868ms] [1] SC[4528]: Registered sub-client [NetClassDBPI_4169031] with ID [1] for session ID [4528] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:46] [0062m.54s.884ms] [1] SC[4528]: UnRegistered sub-client [NetClassDBPI_4169031] with ID [1] for session ID [4528] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:46] [0062m.54s.915ms] [1] CMT: There are [3] clients now: 4492, 4495, 4528
+[2017.12.19 14:44:46] [0062m.54s.915ms] [1] CMT: Removed client [4528]
+[2017.12.19 14:44:46] [0062m.54s.915ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:47] [0062m.55s.478ms] [0] IT: Session [4529] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4996] created
+[2017.12.19 14:44:47] [0062m.55s.478ms] [1] SC[4529]: Registered sub-client [NetPropsDBPI_4169656] with ID [1] for session ID [4529] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:47] [0062m.55s.508ms] [1] SC[4529]: UnRegistered sub-client [NetPropsDBPI_4169656] with ID [1] for session ID [4529] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:47] [0062m.55s.587ms] [1] CMT: There are [3] clients now: 4492, 4495, 4529
+[2017.12.19 14:44:47] [0062m.55s.587ms] [1] CMT: Removed client [4529]
+[2017.12.19 14:44:47] [0062m.55s.587ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:44:47] [0062m.56s.149ms] [0] IT: Session [4530] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [4996] created
+[2017.12.19 14:44:47] [0062m.56s.149ms] [1] SC[4530]: Registered sub-client [JobPrefsDBPI_4170312] with ID [1] for session ID [4530] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:47] [0062m.56s.211ms] [1] SC[4530]: UnRegistered sub-client [JobPrefsDBPI_4170312] with ID [1] for session ID [4530] host [DESKTOP-D6MOGOB] user [alexis] process ID [4996]
+[2017.12.19 14:44:47] [0062m.56s.243ms] [1] CMT: There are [3] clients now: 4492, 4495, 4530
+[2017.12.19 14:44:47] [0062m.56s.243ms] [1] CMT: Removed client [4530]
+[2017.12.19 14:44:47] [0062m.56s.243ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:49:31] [0067m.40s.043ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4454250] with ID [42] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:49:31] [0067m.40s.121ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_4454343] with ID [43] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:49:44] [0067m.53s.264ms] [0] IT: Session [4531] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1984] created
+[2017.12.19 14:49:44] [0067m.53s.264ms] [1] SC[4531]: Registered sub-client [JobPrefsDBPI_4467406] with ID [1] for session ID [4531] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:44] [0067m.53s.327ms] [1] SC[4531]: Registered sub-client [JobPrefsDBPI_4467546] with ID [2] for session ID [4531] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:44] [0067m.53s.343ms] [1] SC[4531]: UnRegistered sub-client [JobPrefsDBPI_4467406] with ID [1] for session ID [4531] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:44] [0067m.53s.358ms] [1] SC[4531]: UnRegistered sub-client [JobPrefsDBPI_4467546] with ID [2] for session ID [4531] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:44] [0067m.53s.374ms] [1] CMT: There are [3] clients now: 4492, 4495, 4531
+[2017.12.19 14:49:44] [0067m.53s.374ms] [1] CMT: Removed client [4531]
+[2017.12.19 14:49:44] [0067m.53s.374ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:49:45] [0067m.53s.952ms] [0] IT: Session [4532] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1984] created
+[2017.12.19 14:49:45] [0067m.53s.952ms] [1] SC[4532]: Registered sub-client [JobPrefsDBPI_4468109] with ID [1] for session ID [4532] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:45] [0067m.53s.968ms] [1] SC[4532]: UnRegistered sub-client [JobPrefsDBPI_4468109] with ID [1] for session ID [4532] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:45] [0067m.54s.028ms] [1] CMT: There are [3] clients now: 4492, 4495, 4532
+[2017.12.19 14:49:45] [0067m.54s.028ms] [1] CMT: Removed client [4532]
+[2017.12.19 14:49:45] [0067m.54s.028ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:49:46] [0067m.54s.610ms] [0] IT: Session [4533] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [1984] created
+[2017.12.19 14:49:46] [0067m.54s.610ms] [1] SC[4533]: Registered sub-client [JobPrefsDBPI_4468781] with ID [1] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.54s.685ms] [1] CMT: There are [3] clients now: 4492, 4495, 4533
+[2017.12.19 14:49:46] [0067m.54s.685ms] [1] SC[4533]: Registered sub-client [JobPrefsDBPI_4468890] with ID [2] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.122ms] [1] SC[4533]: Registered sub-client [JobPrefsDBPI_4469328] with ID [3] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.200ms] [1] SC[4533]: Registered sub-client [JobPrefsDBPI_4469421] with ID [4] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.232ms] [1] SC[4533]: UnRegistered sub-client [JobPrefsDBPI_4469328] with ID [3] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.232ms] [1] SC[4533]: UnRegistered sub-client [JobPrefsDBPI_4469421] with ID [4] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.248ms] [1] SC[4533]: UnRegistered sub-client [JobPrefsDBPI_4468781] with ID [1] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.248ms] [1] SC[4533]: UnRegistered sub-client [JobPrefsDBPI_4468890] with ID [2] for session ID [4533] host [DESKTOP-D6MOGOB] user [alexis] process ID [1984]
+[2017.12.19 14:49:46] [0067m.55s.357ms] [1] CMT: Removed client [4533]
+[2017.12.19 14:49:46] [0067m.55s.357ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:50:03] [0068m.11s.474ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4454250] with ID [42] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:50:03] [0068m.11s.474ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_4454343] with ID [43] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:59:35] [0077m.44s.238ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_5058437] with ID [44] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:59:35] [0077m.44s.300ms] [1] SC[4495]: Registered sub-client [JobPrefsDBPI_5058515] with ID [45] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 14:59:39] [0077m.48s.234ms] [0] IT: Session [4534] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6072] created
+[2017.12.19 14:59:39] [0077m.48s.234ms] [1] SC[4534]: Registered sub-client [JobPrefsDBPI_5062359] with ID [1] for session ID [4534] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:39] [0077m.48s.312ms] [1] SC[4534]: Registered sub-client [JobPrefsDBPI_5062515] with ID [2] for session ID [4534] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:39] [0077m.48s.312ms] [1] SC[4534]: UnRegistered sub-client [JobPrefsDBPI_5062359] with ID [1] for session ID [4534] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:39] [0077m.48s.312ms] [1] SC[4534]: UnRegistered sub-client [JobPrefsDBPI_5062515] with ID [2] for session ID [4534] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:39] [0077m.48s.328ms] [1] CMT: There are [3] clients now: 4492, 4495, 4534
+[2017.12.19 14:59:40] [0077m.48s.438ms] [1] CMT: Removed client [4534]
+[2017.12.19 14:59:40] [0077m.48s.438ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:59:40] [0077m.48s.938ms] [0] IT: Session [4535] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6072] created
+[2017.12.19 14:59:40] [0077m.48s.938ms] [1] SC[4535]: Registered sub-client [JobPrefsDBPI_5063093] with ID [1] for session ID [4535] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:40] [0077m.48s.953ms] [1] SC[4535]: UnRegistered sub-client [JobPrefsDBPI_5063093] with ID [1] for session ID [4535] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:40] [0077m.48s.985ms] [1] CMT: There are [3] clients now: 4492, 4495, 4535
+[2017.12.19 14:59:40] [0077m.48s.985ms] [1] CMT: Removed client [4535]
+[2017.12.19 14:59:40] [0077m.48s.985ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 14:59:41] [0077m.49s.607ms] [0] IT: Session [4536] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6072] created
+[2017.12.19 14:59:41] [0077m.49s.607ms] [1] SC[4536]: Registered sub-client [JobPrefsDBPI_5063765] with ID [1] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.49s.639ms] [1] CMT: There are [3] clients now: 4492, 4495, 4536
+[2017.12.19 14:59:41] [0077m.49s.685ms] [1] SC[4536]: Registered sub-client [JobPrefsDBPI_5063890] with ID [2] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.107ms] [1] SC[4536]: Registered sub-client [JobPrefsDBPI_5064312] with ID [3] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.185ms] [1] SC[4536]: Registered sub-client [JobPrefsDBPI_5064390] with ID [4] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.201ms] [1] SC[4536]: UnRegistered sub-client [JobPrefsDBPI_5064312] with ID [3] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.201ms] [1] SC[4536]: UnRegistered sub-client [JobPrefsDBPI_5064390] with ID [4] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.217ms] [1] SC[4536]: UnRegistered sub-client [JobPrefsDBPI_5063765] with ID [1] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.217ms] [1] SC[4536]: UnRegistered sub-client [JobPrefsDBPI_5063890] with ID [2] for session ID [4536] host [DESKTOP-D6MOGOB] user [alexis] process ID [6072]
+[2017.12.19 14:59:41] [0077m.50s.295ms] [1] CMT: Removed client [4536]
+[2017.12.19 14:59:41] [0077m.50s.295ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:00:26] [0078m.34s.935ms] [1] PrjBackupMgr: Successfully created Project Backup [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-19 15.00.26 - auto.zip] with GUID [1b0a-ef05-459b-39ae-a7b1-93af-7b19-3a50-c30f-509f-9fef-0fc8]
+[2017.12.19 15:00:26] [0078m.34s.951ms] [0] PrjBackupMgr: Removing excessive backup:  BackupGUID[8f9d-a0a0-ea67-ec3d-de7f-73a2-f7f7-3a50-c41f-509f-9fef-0fc8] CreationTime[Monday, December 18, 2017 17:16:29] Type[Autosave] Creator[iCDB Server (2017-12-18 18.07.45-1824)] ApplicationName[iCDB Server (2017-12-18 18.07.45-1824)] UserName[alexis] MachineName[DESKTOP-D6MOGOB] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 18.16.29 - auto.zip] BackupFileSize[583788] Persistent[FALSE]
+[2017.12.19 15:00:26] [0078m.34s.951ms] [0] PrjBackupMgr: Project Backup file [G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-18 18.16.29 - auto.zip] with GUID [8f9d-a0a0-ea67-ec3d-de7f-73a2-f7f7-3a50-c41f-509f-9fef-0fc8] removed
+[2017.12.19 15:00:26] [0078m.34s.951ms] [0] PrjBackupEngine: Successfully created backup:  BackupGUID[1b0a-ef05-459b-39ae-a7b1-93af-7b19-3a50-c30f-509f-9fef-0fc8] CreationTime[Tuesday, December 19, 2017 14:00:26] Type[Autosave] Creator[iCDB Server (2017-12-19 13.41.51-2064)] ApplicationName[iCDB Server (2017-12-19 13.41.51-2064)] UserName[alexis] MachineName[DESKTOP-D6MOGOB] Description[Autosave] FullFlowName[Xpedition Enterprise X-ENTP VX.2.2; Xpedition Enterprise X-ENTP VX.2.2 - Update 3] FlowId[EEVX.2.2] GBSInstallId[1589114; 1589126; 1632660] GBSBuildId[7609807] IcdbVersion[3300] ReferenceLogFilePath[] BackupFilePath[G:\ZEROSERO7\PCB\SPY_TALK\Default\ProjectBackup\backups\2017-12-19 15.00.26 - auto.zip] BackupFileSize[678559] Persistent[FALSE]
+[2017.12.19 15:00:28] [0078m.37s.231ms] [0] IT: Session [4537] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6152] created
+[2017.12.19 15:00:28] [0078m.37s.231ms] [1] SC[4537]: Registered sub-client [JobPrefsDBPI_5111359] with ID [1] for session ID [4537] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:28] [0078m.37s.246ms] [1] SC[4537]: UnRegistered sub-client [JobPrefsDBPI_5111359] with ID [1] for session ID [4537] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:28] [0078m.37s.262ms] [1] CMT: There are [3] clients now: 4492, 4495, 4537
+[2017.12.19 15:00:28] [0078m.37s.262ms] [1] CMT: Removed client [4537]
+[2017.12.19 15:00:28] [0078m.37s.262ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:00:29] [0078m.37s.901ms] [0] IT: Session [4538] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6152] created
+[2017.12.19 15:00:29] [0078m.37s.901ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112062] with ID [1] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.37s.932ms] [1] CMT: There are [3] clients now: 4492, 4495, 4538
+[2017.12.19 15:00:29] [0078m.37s.979ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112187] with ID [2] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.057ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112265] with ID [3] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.057ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112265] with ID [3] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.166ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112375] with ID [4] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.229ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112453] with ID [5] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.291ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112500] with ID [6] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.291ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112500] with ID [6] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.338ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112546] with ID [7] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.338ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112546] with ID [7] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.385ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112593] with ID [8] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:29] [0078m.38s.385ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112593] with ID [8] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.432ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112640] with ID [9] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.432ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112640] with ID [9] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.479ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112687] with ID [10] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.479ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112687] with ID [10] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.525ms] [1] SC[4538]: Registered sub-client [JobPrefsDBPI_5112734] with ID [11] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.525ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112734] with ID [11] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.525ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112375] with ID [4] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.541ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112453] with ID [5] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.541ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112062] with ID [1] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.557ms] [1] SC[4538]: UnRegistered sub-client [JobPrefsDBPI_5112187] with ID [2] for session ID [4538] host [DESKTOP-D6MOGOB] user [alexis] process ID [6152]
+[2017.12.19 15:00:30] [0078m.38s.588ms] [1] CMT: Removed client [4538]
+[2017.12.19 15:00:30] [0078m.38s.588ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:00:59] [0079m.07s.783ms] [0] IT: Session [4539] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7584] created
+[2017.12.19 15:00:59] [0079m.07s.783ms] [1] SC[4539]: Registered sub-client [JobPrefsDBPI_5141906] with ID [1] for session ID [4539] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:00:59] [0079m.07s.800ms] [1] SC[4539]: UnRegistered sub-client [JobPrefsDBPI_5141906] with ID [1] for session ID [4539] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:00:59] [0079m.07s.830ms] [1] CMT: There are [3] clients now: 4492, 4495, 4539
+[2017.12.19 15:00:59] [0079m.07s.830ms] [1] CMT: Removed client [4539]
+[2017.12.19 15:00:59] [0079m.07s.830ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:01:00] [0079m.08s.486ms] [0] IT: Session [4540] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [7584] created
+[2017.12.19 15:01:00] [0079m.08s.486ms] [1] SC[4540]: Registered sub-client [JobPrefsDBPI_5142656] with ID [1] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.502ms] [1] CMT: There are [3] clients now: 4492, 4495, 4540
+[2017.12.19 15:01:00] [0079m.08s.564ms] [1] SC[4540]: Registered sub-client [JobPrefsDBPI_5142765] with ID [2] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.737ms] [1] SC[4540]: Registered sub-client [JobPrefsDBPI_5142953] with ID [3] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.830ms] [1] SC[4540]: Registered sub-client [JobPrefsDBPI_5143031] with ID [4] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.861ms] [1] SC[4540]: UnRegistered sub-client [JobPrefsDBPI_5142953] with ID [3] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.861ms] [1] SC[4540]: UnRegistered sub-client [JobPrefsDBPI_5143031] with ID [4] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.877ms] [1] SC[4540]: UnRegistered sub-client [JobPrefsDBPI_5142656] with ID [1] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.877ms] [1] SC[4540]: UnRegistered sub-client [JobPrefsDBPI_5142765] with ID [2] for session ID [4540] host [DESKTOP-D6MOGOB] user [alexis] process ID [7584]
+[2017.12.19 15:01:00] [0079m.08s.939ms] [1] CMT: Removed client [4540]
+[2017.12.19 15:01:00] [0079m.08s.939ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:02:11] [0080m.19s.646ms] [0] IT: Session [4541] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [2576] created
+[2017.12.19 15:02:11] [0080m.19s.646ms] [1] SC[4541]: Registered sub-client [JobPrefsDBPI_5213781] with ID [1] for session ID [4541] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:11] [0080m.19s.662ms] [1] SC[4541]: UnRegistered sub-client [JobPrefsDBPI_5213781] with ID [1] for session ID [4541] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:11] [0080m.19s.756ms] [1] CMT: There are [3] clients now: 4492, 4495, 4541
+[2017.12.19 15:02:11] [0080m.19s.756ms] [1] CMT: Removed client [4541]
+[2017.12.19 15:02:11] [0080m.19s.756ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:02:11] [0080m.20s.332ms] [0] IT: Session [4542] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [2576] created
+[2017.12.19 15:02:11] [0080m.20s.332ms] [1] SC[4542]: Registered sub-client [JobPrefsDBPI_5214500] with ID [1] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.410ms] [1] CMT: There are [3] clients now: 4492, 4495, 4542
+[2017.12.19 15:02:12] [0080m.20s.410ms] [1] SC[4542]: Registered sub-client [JobPrefsDBPI_5214609] with ID [2] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.582ms] [1] SC[4542]: Registered sub-client [JobPrefsDBPI_5214781] with ID [3] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.644ms] [1] SC[4542]: Registered sub-client [JobPrefsDBPI_5214859] with ID [4] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.660ms] [1] SC[4542]: UnRegistered sub-client [JobPrefsDBPI_5214781] with ID [3] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.675ms] [1] SC[4542]: UnRegistered sub-client [JobPrefsDBPI_5214859] with ID [4] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.691ms] [1] SC[4542]: UnRegistered sub-client [JobPrefsDBPI_5214500] with ID [1] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.691ms] [1] SC[4542]: UnRegistered sub-client [JobPrefsDBPI_5214609] with ID [2] for session ID [4542] host [DESKTOP-D6MOGOB] user [alexis] process ID [2576]
+[2017.12.19 15:02:12] [0080m.20s.738ms] [1] CMT: Removed client [4542]
+[2017.12.19 15:02:12] [0080m.20s.738ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:02:26] [0080m.35s.265ms] [0] IT: Session [4543] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6528] created
+[2017.12.19 15:02:26] [0080m.35s.265ms] [1] SC[4543]: Registered sub-client [JobPrefsDBPI_5229390] with ID [1] for session ID [4543] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:26] [0080m.35s.281ms] [1] SC[4543]: UnRegistered sub-client [JobPrefsDBPI_5229390] with ID [1] for session ID [4543] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:26] [0080m.35s.312ms] [1] CMT: There are [3] clients now: 4492, 4495, 4543
+[2017.12.19 15:02:26] [0080m.35s.312ms] [1] CMT: Removed client [4543]
+[2017.12.19 15:02:26] [0080m.35s.312ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:02:27] [0080m.35s.951ms] [0] IT: Session [4544] for host [DESKTOP-D6MOGOB] user [alexis] with process ID [6528] created
+[2017.12.19 15:02:27] [0080m.35s.951ms] [1] SC[4544]: Registered sub-client [JobPrefsDBPI_5230125] with ID [1] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.35s.967ms] [1] CMT: There are [3] clients now: 4492, 4495, 4544
+[2017.12.19 15:02:27] [0080m.36s.029ms] [1] SC[4544]: Registered sub-client [JobPrefsDBPI_5230234] with ID [2] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.138ms] [1] SC[4544]: Registered sub-client [JobPrefsDBPI_5230343] with ID [3] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.217ms] [1] SC[4544]: Registered sub-client [JobPrefsDBPI_5230421] with ID [4] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.232ms] [1] SC[4544]: UnRegistered sub-client [JobPrefsDBPI_5230343] with ID [3] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.248ms] [1] SC[4544]: UnRegistered sub-client [JobPrefsDBPI_5230421] with ID [4] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.248ms] [1] SC[4544]: UnRegistered sub-client [JobPrefsDBPI_5230125] with ID [1] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.248ms] [1] SC[4544]: UnRegistered sub-client [JobPrefsDBPI_5230234] with ID [2] for session ID [4544] host [DESKTOP-D6MOGOB] user [alexis] process ID [6528]
+[2017.12.19 15:02:27] [0080m.36s.310ms] [1] CMT: Removed client [4544]
+[2017.12.19 15:02:27] [0080m.36s.310ms] [1] CMT: There are [2] clients now: 4492, 4495
+[2017.12.19 15:02:38] [0080m.46s.458ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_5058437] with ID [44] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 15:02:38] [0080m.46s.474ms] [1] SC[4495]: UnRegistered sub-client [JobPrefsDBPI_5058515] with ID [45] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 15:02:57] [0081m.05s.876ms] [1] SC[4495]: UnRegistered sub-client [ExpeditionCrossProber] with ID [4] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 15:02:58] [0081m.07s.062ms] [1] SC[4495]: UnRegistered sub-client [Expedition PCB_436015] with ID [1] for session ID [4495] host [DESKTOP-D6MOGOB] user [alexis] process ID [1100]
+[2017.12.19 15:02:58] [0081m.07s.155ms] [1] CMT: Removed client [4495]
+[2017.12.19 15:02:58] [0081m.07s.155ms] [1] CMT: There are [1] clients now: 4492
+[2017.12.19 15:03:53] [0082m.02s.011ms] [1] SC[4492]: UnRegistered sub-client [DCDV] with ID [1] for session ID [4492] host [DESKTOP-D6MOGOB] user [alexis] process ID [7752]
+[2017.12.19 15:03:53] [0082m.02s.058ms] [1] SDL: The last connected iCDB Server Monitor [1] is waiting for server close
+[2017.12.19 15:03:53] [0082m.02s.120ms] [1] CMT: Removed client [4492]
+[2017.12.19 15:03:53] [0082m.02s.120ms] [1] CMT: There are no clients left - waiting [1 seconds]
+[2017.12.19 15:03:55] [0082m.03s.446ms] [0] CMT: Starting server auto-close
+[2017.12.19 15:03:55] [0082m.03s.556ms] [0] S: Closing server
+[2017.12.19 15:03:55] [0082m.03s.712ms] [0] iCDB Server PI: Closing plugins
+[2017.12.19 15:03:55] [0082m.03s.712ms] [0] iCDB Server PI: Plugins closed
+[2017.12.19 15:03:55] [0082m.03s.712ms] [0] iCDB Server PI: Unloading database
+[2017.12.19 15:03:55] [0082m.03s.712ms] [0] iCDB Server PI: Saving storage
+[2017.12.19 15:03:55] [0082m.03s.712ms] [0] iCDB Server PI: Closing database
+[2017.12.19 15:03:55] [0082m.03s.712ms] [1] iCDB Server PI: Stats: Database defragmentation: max[5] avg[1] holes[5%] data[97%]
+[2017.12.19 15:03:55] [0082m.03s.712ms] [1] iCDB Server PI: Stats: Database file size [278888 (272.4 kB)]
+[2017.12.19 15:03:55] [0082m.03s.744ms] [0] iCDB Server PI: Database closed
+[2017.12.19 15:03:55] [0082m.03s.744ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [227600] ticks
+[2017.12.19 15:03:55] [0082m.03s.744ms] [1] iCDB Server PI: Stats: Total iCDB execution time: [80551] microseconds
+[2017.12.19 15:03:55] [0082m.03s.744ms] [1] iCDB Server PI: Stats: Total iCDB commands count: [506]
+[2017.12.19 15:03:55] [0082m.03s.744ms] [1] iCDB Server PI: Stats: Average iCDB speed:        [6281] commands per second
+[2017.12.19 15:03:55] [0082m.03s.744ms] [0] Single file [G:\ZeROSEro7\PCB\Spy_talk\Default\default.icdb\icdb.dat] closed with size [278888 (272.4 kB)]
+[2017.12.19 15:03:55] [0082m.03s.774ms] [1] SD[1]: Removing the last connected iCDB Server Monitor [1]
+[2017.12.19 15:03:55] [0082m.03s.993ms] [0] MWT: Destroy the shutdown block reason.
+[2017.12.19 15:03:55] [0082m.03s.993ms] [0] MWT: STOP
+[2017.12.19 15:03:55] [0082m.03s.993ms] [0] S: STOP

@@ -2,8 +2,8 @@
                                Forward Annotation
                                ------------------
 
-                       03:05 PM Sunday, December 10, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
+                      01:19 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
 
 Version:  01.01.00
@@ -23,27 +23,28 @@ Version:  01.01.00
 
      Target PDB Name: Work\Layout_Temp\PartsDB.pdb
 
-     Number of Part Numbers: 27
+     Number of Part Numbers: 28
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
-          Part Numb: 00-0085 -> Vend Part: 00-0085 
-          Part Numb: 00-0090 -> Vend Part: 00-0090 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
-          Part Numb: 10-0037 -> Vend Part: 10-0037 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
           Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
+          Part Numb: 10-0068 -> Vend Part: 10-0068 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0097 -> Vend Part: 10-0097 
+          Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
           Part Numb: 20-0041 -> Vend Part: 20-0041 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
-          Part Numb: 40-0297 -> Vend Part: 40-0297 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
+          Part Numb: 40-0332 -> Vend Part: 40-0332 
+          Part Numb: 50-0036 -> Vend Part: 50-0036 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
           Part Numb: 70-0042 -> Vend Part: 70-0042 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
@@ -78,16 +79,16 @@ Version:  01.01.00
 
 
      The Common DataBase has been read and will be packaged.
-     Clustering 45 Symbols:
-              45  ********************************************
+     Clustering 47 Symbols:
+              47  **********************************************
      Clustering is Complete
 
      Packager Assignments successfully completed
 
 
 
-     39 nets were found containing 152 pins
-     45 components were found
+     41 nets were found containing 160 pins
+     47 components were found
 
      Creating a formatted Schematic Netlist (LogFiles\SchematicNetlist.txt)...
      A formatted Schematic Netlist has been created.
@@ -101,8 +102,8 @@ Version:  01.01.00
                                      NetLoad
                                      -------
 
-                       03:06 PM Sunday, December 10, 2017
-Job Name: C:\Users\admin\Documents\XpeditionPCB\workspace\USB_Sniffer\PCB\PCB.pcb
+                      01:19 PM Wednesday, December 27, 2017
+               Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
 
 
 Version:  02.11.12
@@ -114,15 +115,7 @@ Version:  02.11.12
 	Schematic reference designator changes will be forward annotated.
 
 
-	WARNING:  "QZ1" is being removed from the Layout since it is no longer in the schematic.
-
-	WARNING:  "QZ2" is being removed from the Layout since it is no longer in the schematic.
-
-	WARNING:  "QZ4" is being removed from the Layout since it is no longer in the schematic.
-
-     "QZ5" is being converted from a spare to a "83-0028" part.
-
-     Netload completed successfully with 3 warning(s).
+     Netload completed successfully with 0 warning(s).
      
      Back Annotating...
 
