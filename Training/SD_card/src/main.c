@@ -24,7 +24,7 @@
 #include "shell.h"
 
 #include "rtt.h"
-#include "sd.h"
+#include "ff.h"
 
 /*
  * Working area for driver.
@@ -54,114 +54,51 @@ static THD_FUNCTION(Thread1, arg)
     }
 }
 
-extern uint8_t buf[SD_BUF_SIZE];
-
 /*===========================================================================*/
 /* Command line related.                                                     */
 /*===========================================================================*/
 
 #define SHELL_WA_SIZE THD_WORKING_AREA_SIZE(2048)
 
+static FATFS fatfs;
+
 void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
 {
     (void)*chp;
-
-    if(argc < 1 || argc > 3)
-        goto usage;
-
-    if(strcmp(argv[0], "write") == 0) {
-        if (argc == 3) // write a single value
-            sd_write_byte(atoi(argv[1]), atoi(argv[2]));
-        else
-            goto usage;
+    (void)argc;
+    (void)argv;
+    FIL fp;
+    FRESULT fr = f_mount(&fatfs, "", 0);
+    if (fr) {
+        rtt_printf("[ERROR] f_mount: %d\n", fr);
+        return;
     }
-    else if(strcmp(argv[0], "read") == 0) {
-        if(argc == 3) { // print a whole area
-            int size = atoi(argv[2]);
-            int addr = atoi(argv[1]);
-            uint8_t buffer[size];
-            sd_read(addr, size, buffer);
-            // print
-            int nb_bytes_per_row = 8;
-            if(addr % nb_bytes_per_row != 0) {
-                rtt_printf("0x%08X  ", ((int)addr/nb_bytes_per_row)*nb_bytes_per_row);
-                for(int i = 0; i < addr % nb_bytes_per_row; i++)
-                    rtt_printf("   ");
-            }
-            for (int i = 0; i < size; i++) {
-                if((addr + i) % nb_bytes_per_row == 0)
-                    rtt_printf("\n0x%08X  ", addr + i);
-                rtt_printf("%02X ", buffer[i]);
-            }
-            rtt_printf("\n");
-        }
-        else if (argc == 2) { // print a single value
-            uint8_t value;
-            int addr = atoi(argv[1]);
-            sd_read_byte(addr, &value);
-            rtt_printf("0x%08X  %02X\n", addr, value);
-        }
-        else
-            goto usage;
+    fr = f_open(&fp, "hello.txt", FA_WRITE | FA_CREATE_ALWAYS);
+    if (fr) {
+        rtt_printf("[ERROR] f_open: %d\n", fr);
+        return;
     }
-    else if(strcmp(argv[0], "test") == 0) { // read and write test
-        if(argc == 1) {
-            int addr = 0;
-            uint8_t value = 0;
-            sd_write_byte(addr, value);
-            uint8_t result;
-            sd_read_byte(addr, &result);
-            if(result != value) {
-                rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
-                return;
-            }
-            value = 123;
-            sd_write_byte(addr, value);
-            sd_read_byte(addr, &result);
-            if(result != value) {
-                rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
-                return;
-            }
-            int len = 0x100;
-            uint8_t buffer[len];
-            for(int i = 0; i < len; i++)
-                buffer[i] = i;
-            sd_write(0, len, buffer);
-            sd_read(0, len, buffer);
-            int res = 0;
-            for(int i = 0; i < len; i++) {
-                if(buffer[i] != i % 0x100) {
-                    res = 1;
-                    rtt_printf("[ERROR] SD: Value 0x%02X has been written at 0x%08X but 0x%02X was read\n", i % 0x100, i, buffer[i]);
-                    break;
-                }
-            }
-            for(int i = 0; i < len; i++)
-                buffer[i] = 0;
-            sd_write(0, len, buffer);
-
-            FIL file;
-            char* ptr;
-            uint8_t res = f_open(&file, ptr, FA_CREATE_ALWAYS | FA_WRITE);
-
-            f_close(&file);
-
-            if(res) {
-                rtt_printf("[ERROR] SD: Area value is different from area written\n");
-                return;
-            }
-            rtt_printf("[INFO] SD: Tests successfully passed\n");
-        }
-        else
-            goto usage;
+    rtt_printf("File opened\n");
+    char* buff = "Hello world!\n";
+    unsigned int nb_bytes_written;
+    fr = f_write(&fp, buff, 13, &nb_bytes_written);
+    if (fr) {
+        rtt_printf("[ERROR] f_write: %d\n", fr);
+        return;
     }
-    return;
-usage:
-    rtt_printf("Invalid parameters\n");
-    rtt_printf("Usage: sdc read <addr> |\n" \
-               "           read <addr> <size> |\n" \
-               "           write <addr> <value>\n" \
-               "(values in decimal)\n");
+    rtt_printf("nb_bytes_written: %d\n", nb_bytes_written);
+    fr = f_close(&fp);
+    if (fr) {
+        rtt_printf("[ERROR] f_write: %d\n", fr);
+        return;
+    }
+    rtt_printf("File closed\n");
+    fr = f_mount(0, "", 0);
+    if (fr) {
+        rtt_printf("[ERROR] f_write: %d\n", fr);
+        return;
+    }
+    rtt_printf("[INFO] SD: Tests successfully passed\n");
 }
 
 static const ShellCommand commands[] = {

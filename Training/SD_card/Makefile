@@ -102,6 +102,7 @@ include $(CHIBIOS)/os/common/ports/ARMCMx/compilers/GCC/mk/port_v7m.mk
 #include $(CHIBIOS)/test/rt/test.mk
 include $(CHIBIOS)/os/hal/lib/streams/streams.mk
 include $(CHIBIOS)/os/various/shell/shell.mk
+include $(CHIBIOS)/os/various/fatfs_bindings/fatfs.mk
 
 # Define linker script file here
 LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
@@ -118,13 +119,12 @@ CSRC = $(STARTUPSRC) \
        $(TESTSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
+       $(FATFSSRC) \
        $(SRC)/main.c \
        $(SRC)/rtt.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/SEGGER_RTT_printf.c \
-       $(SRC)/sd.c \
-       $(SRC)/fat.c \
-       $(SRC)/diskio.c
+       $(SRC)/sd.c
 
 # C++ sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -157,7 +157,7 @@ ASMXSRC = $(STARTUPASM) $(PORTASM) $(OSALASM)
 INCDIR = $(CHIBIOS)/os/license \
          $(STARTUPINC) $(KERNINC) $(PORTINC) $(OSALINC) \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
-         $(STREAMSINC) $(SHELLINC) \
+         $(STREAMSINC) $(SHELLINC) $(FATFSINC) \
 		 $(SRC)
 
 #
