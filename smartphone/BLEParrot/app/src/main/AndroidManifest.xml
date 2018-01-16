@@ -32,9 +32,9 @@
             android:enabled="true"
             android:exported="true" />
 
-        <activity android:name=".ConnectedActivity"
-            android:screenOrientation="portrait">
-        </activity>
+        <activity
+            android:name=".ConnectedActivity"
+            android:screenOrientation="portrait"></activity>
     </application>
 
 </manifest>

@@ -12,6 +12,8 @@
 #include "nrf_log_default_backends.h"
 #include "app_timer.h"
 
+#include "ble_uart_service.h"
+
 // Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
 {
@@ -35,16 +37,19 @@ static void phone_connected_handler()
     bsp_board_led_on(3);
 }
 
-static void phone_disconnected_handler() {
+static void phone_disconnected_handler()
+{
     rtt_write_string("Phone disconnected\n");
     ble_peripheral_stop_advertising();
     ble_start_observing();
 }
 
-static void phone_write_handler(uint8_t *buff, int length) {
+static void phone_write_handler(uint8_t *buff, int length)
+{
     rtt_write_string("Received data from phone :\n");
-    rtt_write_buffer(0,buff,length);
+    rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
+    phone_send_notification((uint8_t*)"h",1);
 }
 
 static void log_init(void)
@@ -76,7 +81,7 @@ int main(void)
 
     bsp_board_leds_init();
 
-    ble_handler_init(phone_noticed_handler,phone_connected_handler,phone_disconnected_handler,phone_write_handler);
+    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler);
     ble_stack_init();
     ble_gap_init();
     ble_gatt_init();
