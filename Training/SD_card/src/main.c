@@ -25,6 +25,7 @@
 
 #include "rtt.h"
 #include "sd.h"
+#include "ff.h"
 
 /*
  * Working area for driver.
@@ -147,6 +148,45 @@ void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
                 buffer[i] = 0;
             sd_write(0, len, buffer);
 
+            // FatFs
+            if (sdcConnect(&SDCD1))
+                return;
+            FRESULT fr;
+            FATFS fatfs;
+            fr = f_mount(&fatfs, "", 0);
+            if (fr) {
+                rtt_printf("[ERROR] f_mount: %d\n", fr);
+                return;
+            }
+            rtt_printf("[INFO] File mounted\n");
+            FIL fp;
+            fr = f_open(&fp, "hello.txt", FA_WRITE | FA_OPEN_ALWAYS);
+            if (fr) {
+                rtt_printf("[ERROR] f_open: %d\n", fr);
+                return;
+            }
+            rtt_printf("[INFO] File opened\n");
+            /*char* buff = "Hello world!\n";
+            unsigned int nb_bytes_written;
+            fr = f_write(&fp, buff, 13, &nb_bytes_written);
+            if (fr) {
+                rtt_printf("[ERROR] f_write: %d\n", fr);
+                return;
+            }
+            rtt_printf("nb_bytes_written: %d\n", nb_bytes_written);
+            fr = f_close(&fp);
+            if (fr) {
+                rtt_printf("[ERROR] f_write: %d\n", fr);
+                return;
+            }
+            rtt_printf("File closed\n");*/
+            fr = f_mount(0, "", 0);
+            if (fr) {
+                rtt_printf("[ERROR] f_write: %d\n", fr);
+                return;
+            }
+            sdcDisconnect(&SDCD1);
+
             rtt_printf("[INFO] SD: Tests successfully passed\n");
         }
         else
@@ -221,3 +261,4 @@ int main(void)
         chThdSleepMilliseconds(1000);
     }
 }
+
