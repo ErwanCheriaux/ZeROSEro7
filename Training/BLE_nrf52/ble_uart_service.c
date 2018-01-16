@@ -5,6 +5,7 @@
 #include "nrf_sdh_ble.h"
 #include "sdk_config.h"
 #include "nrf_log.h"
+#include "mem_manager.h"
 
 #define BLE_UUID_BASE                                                          \
     {                                                                          \
@@ -17,16 +18,18 @@
 #define BLE_MS_BLE_OBSERVER_PRIO 2
 
 #define BLE_UUID_WRITE_CHAR 0x1234
-#define BLE_MS_MAX_WRITE_CHAR_LEN 512    // Max length of a packet
+#define BLE_UART_MAX_CHAR_LEN 	BLE_GATTS_VAR_ATTR_LEN_MAX    // Max length of a packet
 
 typedef struct {
     uint8_t uuid_type;
     uint16_t service_handle;
     uint16_t conn_handle;
-    ble_gatts_char_handles_t write_handles;
+    ble_gatts_char_handles_t char_handles;
 } ble_ms_t;
 
 ble_ms_t ble_characteristic_config;
+
+void*  ble_uart_characteristic_value ;
 
 // Copied from Little Brothers.
 void uart_service_init() {
@@ -68,12 +71,13 @@ void uart_service_init() {
     // Characteristic Metadata
     ble_gatts_char_md_t char_md = {{0}}; // Double bracket for old gcc version
     char_md.char_props.write = 1;
+    char_md.char_props.write_wo_resp = 1;
+    char_md.char_props.notify = 1;
     char_md.char_props.read = 1;
     char_md.p_char_user_desc = NULL;
     char_md.p_char_pf = NULL;
     char_md.p_user_desc_md = NULL;
     char_md.p_cccd_md = &cccd_md;
-    char_md.char_props.notify = 1;
     char_md.p_sccd_md = NULL;
 
     // Attribute Metadata
@@ -81,25 +85,32 @@ void uart_service_init() {
     // Set GAP connection security to open for read and write permissions
     BLE_GAP_CONN_SEC_MODE_SET_OPEN(&attr_md.read_perm); // REVIEW Bonus Security
     BLE_GAP_CONN_SEC_MODE_SET_OPEN(&attr_md.write_perm);
-    // Storing the attribute value in stack (softdevice) memory
-    attr_md.vloc = BLE_GATTS_VLOC_STACK;
+    attr_md.vloc = BLE_GATTS_VLOC_USER;
     attr_md.rd_auth = 0;
     attr_md.wr_auth = 0;
     attr_md.vlen = 1;
 
     // Characteristic Value Attribute
     ble_gatts_attr_t attr_char_value = {0};
+    APP_ERROR_CHECK(nrf_mem_init());
+    ble_uart_characteristic_value = nrf_malloc(512);
+    if(ble_uart_characteristic_value == NULL) {
+        APP_ERROR_CHECK(NRF_ERROR_NO_MEM);
+    }
+    attr_char_value.p_value = ble_uart_characteristic_value;
     attr_char_value.p_uuid = &ble_uuid;
     attr_char_value.p_attr_md = &attr_md;
-    attr_char_value.init_len = 512;
+    attr_char_value.init_len = BLE_UART_MAX_CHAR_LEN;
     attr_char_value.init_offs = 0;
-    attr_char_value.max_len = BLE_MS_MAX_WRITE_CHAR_LEN;
-
+    attr_char_value.max_len = BLE_UART_MAX_CHAR_LEN;
     APP_ERROR_CHECK(sd_ble_gatts_characteristic_add(ble_characteristic_config.service_handle,
                                            &char_md, &attr_char_value,
-                                           &ble_characteristic_config.write_handles));
+                                           &ble_characteristic_config.char_handles));
 }
 
 void phone_send_notification(uint8_t *buff, int length) {
     // TODO and write handling via ble_evt
+/*    sd_ble_gatts_hvx	(	uint16_t 	conn_handle,
+ble_gatts_hvx_params_t const * 	p_hvx_params
+)	*/
 }

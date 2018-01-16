@@ -41,7 +41,6 @@ static void phone_disconnected_handler() {
     ble_start_observing();
 }
 
-// TODO use it in ble_handler central
 static void phone_write_handler(uint8_t *buff, int length) {
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0,buff,length);

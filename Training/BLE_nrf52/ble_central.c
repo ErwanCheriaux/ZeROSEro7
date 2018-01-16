@@ -23,6 +23,7 @@
 #include "nrf_log_default_backends.h"
 
 #include "rtt.h"
+#include "ble_uart_service.h"
 
 /**@brief Variable length data encapsulation in terms of length and pointer to data. */
 typedef struct
@@ -163,9 +164,7 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             write_evt = p_ble_evt->evt.gatts_evt.params.write;
             rtt_printf(0,"GATT Write\n");
             // TODO Could check if it is indeed the uart_service handle
-            ble_on_phone_write(write_evt.data,write_evt.len);
-            rtt_write_buffer_hexa(write_evt.data,write_evt.len);
-            rtt_write_string("\n");
+            ble_on_phone_write(ble_uart_characteristic_value,write_evt.len);
             break;
 
         // REVIEW Bonus Bonding events

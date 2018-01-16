@@ -90,6 +90,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
     $(SDK_ROOT)/components/drivers_nrf/spi_master/nrf_drv_spi.c \
+	$(SDK_ROOT)/components/libraries/mem_manager/mem_manager.c \
 
 # Include folders common to all targets
 INC_FOLDERS += $(USER_INC) \
