@@ -46,6 +46,9 @@
 #endif
 // <h> Board Support
 
+
+#include "board.h"
+
 //==========================================================
 // <q> BSP_BTN_BLE_ENABLED  - bsp_btn_ble - Button Control for BLE
 
@@ -446,15 +449,7 @@
 #define CLOCK_CONFIG_XTAL_FREQ 0
 #endif
 
-// <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
 
-// <0=> RC
-// <1=> XTAL
-// <2=> Synth
-
-#ifndef CLOCK_CONFIG_LF_SRC
-#define CLOCK_CONFIG_LF_SRC 1
-#endif
 
 // <o> CLOCK_CONFIG_IRQ_PRIORITY  - Interrupt priority
 
@@ -2357,7 +2352,7 @@
 // <e> MEM_MANAGER_ENABLED - mem_manager - Dynamic memory allocator
 //==========================================================
 #ifndef MEM_MANAGER_ENABLED
-#define MEM_MANAGER_ENABLED 0
+#define MEM_MANAGER_ENABLED 1
 #endif
 // <o> MEMORY_MANAGER_SMALL_BLOCK_COUNT - Size of each memory blocks identified as 'small' block.  <0-255>
 
@@ -2401,7 +2396,7 @@
 // <o> MEMORY_MANAGER_XLARGE_BLOCK_COUNT - Size of each memory blocks identified as 'extra large' block.  <0-255>
 
 #ifndef MEMORY_MANAGER_XLARGE_BLOCK_COUNT
-#define MEMORY_MANAGER_XLARGE_BLOCK_COUNT 0
+#define MEMORY_MANAGER_XLARGE_BLOCK_COUNT 1
 #endif
 
 // <o> MEMORY_MANAGER_XLARGE_BLOCK_SIZE -  Size of each memory blocks identified as 'extra large' block.
@@ -5466,15 +5461,7 @@
 // <h> Clock - SoftDevice clock configuration
 
 //==========================================================
-// <o> NRF_SDH_CLOCK_LF_SRC  - SoftDevice clock source.
 
-// <0=> NRF_CLOCK_LF_SRC_RC
-// <1=> NRF_CLOCK_LF_SRC_XTAL
-// <2=> NRF_CLOCK_LF_SRC_SYNTH
-
-#ifndef NRF_SDH_CLOCK_LF_SRC
-#define NRF_SDH_CLOCK_LF_SRC 1
-#endif
 
 // <o> NRF_SDH_CLOCK_LF_RC_CTIV - SoftDevice calibration timer interval.
 #ifndef NRF_SDH_CLOCK_LF_RC_CTIV

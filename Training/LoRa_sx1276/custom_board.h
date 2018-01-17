@@ -1,6 +1,24 @@
 #ifndef CUSTOM_BOARD_H
 #define CUSTOM_BOARD_H
 
+// <0=> RC
+// <1=> XTAL
+// <2=> Synth
+
+#ifndef CLOCK_CONFIG_LF_SRC
+#define CLOCK_CONFIG_LF_SRC 2
+#endif
+
+// <o> NRF_SDH_CLOCK_LF_SRC  - SoftDevice clock source.
+
+// <0=> NRF_CLOCK_LF_SRC_RC
+// <1=> NRF_CLOCK_LF_SRC_XTAL
+// <2=> NRF_CLOCK_LF_SRC_SYNTH
+
+#ifndef NRF_SDH_CLOCK_LF_SRC
+#define NRF_SDH_CLOCK_LF_SRC 2
+#endif
+
 /*
 *   Board specific control of the SX1276 including PA, ANTSW and DIO
 */

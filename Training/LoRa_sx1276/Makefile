@@ -21,6 +21,8 @@ USER_SRC = \
 	$(BLE_TRAINING_DIR)/rtt.c \
 	$(BLE_TRAINING_DIR)/ble_central.c \
 	$(BLE_TRAINING_DIR)/ble_peripheral_gap.c \
+	$(BLE_TRAINING_DIR)/ble_peripheral_gatt.c \
+	$(BLE_TRAINING_DIR)/ble_uart_service.c \
 	$(PROJ_DIR)/hw_rtc.c \
 	$(PROJ_DIR)/hw_spi.c \
 	$(PROJ_DIR)/hw_gpio.c \
@@ -100,6 +102,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
     $(SDK_ROOT)/components/drivers_nrf/spi_master/nrf_drv_spi.c \
+	$(SDK_ROOT)/components/libraries/mem_manager/mem_manager.c \
 
 # Include folders common to all targets
 INC_FOLDERS += $(USER_INC) \
