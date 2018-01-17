@@ -8,16 +8,19 @@ import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import java.util.List;
 import java.util.UUID;
 
 /*
@@ -32,6 +35,7 @@ public class GAPService extends Service {
     public static final UUID UART_SERVICE_UUID = UUID.fromString("0000abcd-1212-efde-1523-785fef13d123");
     public static final UUID UART_CHARACTERISTIC_UUID = UUID.fromString("00001234-1212-efde-1523-785fef13d123");
     public static final UUID UART_DESCRIPTOR_UUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+    public static final String BLE_DEVICE_NAME = "Connected shoe";
     private final BluetoothLeScanner scannerInstance;
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
@@ -62,6 +66,21 @@ public class GAPService extends Service {
         };
 
         startScan();
+    }
+
+    // Called after application context is initialized
+    @Override
+    public void onCreate() {
+        // Check if device is already connected
+        BluetoothManager bluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
+        List<BluetoothDevice> devices = bluetoothManager.getConnectedDevices(BluetoothProfile.GATT);
+        for(BluetoothDevice device : devices) {
+            if(device.getType() == BluetoothDevice.DEVICE_TYPE_LE) {
+                if(device.getName().equals(BLE_DEVICE_NAME)) {
+                    connectDevice(device);
+                }
+            }
+        }
     }
 
     private String parseByteArray(byte[] value) {
