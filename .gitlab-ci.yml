@@ -36,14 +36,21 @@ lint_apps:
   stage: lint
   image : lpzantony/ndk
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
-    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew lint
     - cd ../WifiParrot
     - ./gradlew lint
   tags:
     - android
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # BUILD STAGE
 
@@ -75,6 +82,7 @@ build_apps:
   stage: build
   image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
     - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
@@ -88,6 +96,12 @@ build_apps:
     expire_in: 1 week
   tags:
     - android
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # TEST STAGE
 
@@ -96,14 +110,21 @@ test_apps:
   stage: test
   image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
-    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew test
     - cd ../WifiParrot
     - ./gradlew test
   tags:
     - android
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # DEPLOY STAGE
 
