@@ -377,18 +377,19 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
 
 static bool req_handler(USBDriver *usbp)
 {
-    size_t n;
+    msg_t msg;
 
-    rtt_printf("REQ 1");
+    rtt_printf("REQ 1 : %08x", usbp->setup[0]);
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
-        rtt_printf("REQ .2");
+        rtt_printf("REQ 2 : %08x", usbp->setup[1]);
         switch(usbp->setup[1]) {
-            case HID_GET_REPORT:
-                rtt_printf("REQ ..3");
-                n = hidGetReport(0, &increment_var, sizeof(increment_var));
-                usbSetupTransfer(usbp, &increment_var, n, NULL);
-                return true;
+            case HID_SET_REPORT:
+                rtt_printf("HID_SET_REPORT");
+                msg = hidSetReport(0, &increment_var, sizeof(increment_var));
+                usbSetupTransfer(usbp, &increment_var, msg, NULL);
+                return msg;
             default:
+                // Do nothing
                 return hidRequestsHook(usbp);
         }
     }
