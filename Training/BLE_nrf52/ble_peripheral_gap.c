@@ -156,6 +156,10 @@ void ble_peripheral_start_advertising()
 {
     ret_code_t err_code;
     err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
+    if(err_code == 0x12) {
+        rtt_write_string("ERROR 0x12 : Undefined SD error on Advertising start");
+        return;
+    }
     if(err_code != NRF_ERROR_INVALID_STATE) {  // Don't restart while started
         APP_ERROR_CHECK(err_code);
     }

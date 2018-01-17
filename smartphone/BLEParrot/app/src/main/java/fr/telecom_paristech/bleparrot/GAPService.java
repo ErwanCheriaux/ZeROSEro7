@@ -143,6 +143,14 @@ public class GAPService extends Service {
             }
 
             @Override
+            // Negociate MTU after notifications
+            public void onDescriptorWrite(BluetoothGatt gatt,
+                                          BluetoothGattDescriptor descriptor,
+                                          int status) {
+                deviceGatt.requestMtu(512);
+            }
+
+            @Override
             // Result of a characteristic read operation
             public void onCharacteristicRead(BluetoothGatt gatt,
                                              BluetoothGattCharacteristic chara,
