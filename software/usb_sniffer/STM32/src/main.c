@@ -38,8 +38,7 @@ static USBHHIDConfig hidcfg[HAL_USBHHID_MAX_INSTANCES];
 static void ThreadTestHID(void *p)
 {
     (void)p;
-    uint8_t        i;
-    static uint8_t kbd_led_states[HAL_USBHHID_MAX_INSTANCES];
+    uint8_t i;
 
     chRegSetThreadName("HID");
 
@@ -58,16 +57,11 @@ static void ThreadTestHID(void *p)
                 if(usbhhidGetType(&USBHHIDD[i]) != USBHHID_DEVTYPE_GENERIC) {
                     usbhhidSetIdle(&USBHHIDD[i], 0, 0);
                 }
-                kbd_led_states[i] = 1;
             } else if(usbhhidGetState(&USBHHIDD[i]) == USBHHID_STATE_READY) {
                 if(usbhhidGetType(&USBHHIDD[i]) == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
                     USBH_DEFINE_BUFFER(uint8_t val);
-                    val = kbd_led_states[i] << 1;
-                    if(val == 0x08) {
-                        val = 1;
-                    }
+                    val = led_status;
                     usbhhidSetReport(&USBHHIDD[i], 0, USBHHID_REPORTTYPE_OUTPUT, &val, 1);
-                    kbd_led_states[i] = val;
                 }
             }
         }

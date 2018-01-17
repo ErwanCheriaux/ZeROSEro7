@@ -20,6 +20,7 @@
 #include "rtt.h"
 
 uint8_t increment_var = 0;
+uint8_t led_status = 0;
 
 /*
  * USB HID Driver structure.
@@ -377,19 +378,34 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
 
 static bool req_handler(USBDriver *usbp)
 {
-    msg_t msg;
-
-    rtt_printf("REQ 1 : %08x", usbp->setup[0]);
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
-        rtt_printf("REQ 2 : %08x", usbp->setup[1]);
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
                 rtt_printf("HID_SET_REPORT");
-                msg = hidSetReport(0, &increment_var, sizeof(increment_var));
-                usbSetupTransfer(usbp, &increment_var, msg, NULL);
-                return msg;
+
+                //usbReadSetupI(usbp, usbp->ep, &led_status);
+
+                rtt_printf("usbp\t\ttransmitting\treceiving");
+                rtt_printf("%08x\t%08x\t%08x", usbp, usbp->transmitting, usbp->receiving);
+                rtt_printf("in_params\tout_params");
+                rtt_printf("%08x\t%08x", *usbp->in_params, *usbp->out_params);
+                rtt_printf("ep0state\tep0next\t\tep0n\t\tep0endcb");
+                rtt_printf("%08x\t%08x\t%08x\t%08x", usbp->ep0state, *usbp->ep0next, usbp->ep0n, usbp->ep0endcb);
+
+                for(int i=0; i<8; i++)
+                    rtt_printf("setup[%d] = %08x", i, usbp->setup[i]);
+
+                rtt_printf("status\t\taddress\t\tconfiguration");
+                rtt_printf("%08x\t%08x\t%08x", usbp->status, usbp->address, usbp->configuration);
+
+                rtt_printf("");
+
+                led_status++;
+                usbSetupTransfer(usbp, &led_status, 1, NULL);
+                return MSG_OK;
             default:
                 // Do nothing
+                rtt_printf("REQ_HANDLER : %08x", usbp->setup[1]);
                 return hidRequestsHook(usbp);
         }
     }

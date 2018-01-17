@@ -22,6 +22,7 @@
 extern const USBConfig    usbcfg;
 extern const USBHIDConfig usbhidcfg;
 extern USBHIDDriver       UHD2;
+extern uint8_t            led_status;
 
 void usb_init(void);
 void usbh_init(void);
