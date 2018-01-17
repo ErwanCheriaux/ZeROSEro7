@@ -45,14 +45,6 @@ lint_apps:
   tags:
     - android
 
-lint_test:
-  stage: lint
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make format
-    - git status --porcelain
-
 # BUILD STAGE
 
 build_main:
@@ -97,17 +89,6 @@ build_apps:
   tags:
     - android
 
-build_test:
-  stage: build
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make
-  artifacts:
-    paths:
-    - Training/Test/main
-    expire_in: 20 minutes
-
 # TEST STAGE
 
 # Runs all JUnit tests
@@ -123,13 +104,6 @@ test_apps:
     - ./gradlew test
   tags:
     - android
-
-test_test:
-  stage: test
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - ./main
 
 # DEPLOY STAGE
 
