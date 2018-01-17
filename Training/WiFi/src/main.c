@@ -8,6 +8,7 @@
 #include "timer.h"
 #include "wifi.h"
 #include "rtt.h"
+#include "uart.h"
 
 int main(void)
 {
@@ -22,15 +23,20 @@ int main(void)
 
     rtt_printf(0, "\n======== INITIALIZATION SUCCED ========\n\n");
     led_on();
-
-    wifi_command("setup stop\r\n", 1000, 0);
-    wifi_command("set setup.web.ssid \"We <3 M.Polti & M.Tardieu\"\r\n", 1000, 0);
-    wifi_command("set setup.web.passkey \"zerosero7\"\r\n", 1000, 0);
-    wifi_command("setup web\r\n", 4000, 1);
-
-    char filename[] = "bleed_it_out.txt";
-    wifi_send_file(filename);
-
+    
+    wifi_command("set bus.mode command\r\n", 1000, 1);
+    wifi_command("set softap.auto_start true\r\n", 1000, 1);
+    wifi_command("set softap.dhcp_server.enabled true\r\n", 1000, 1);
+    wifi_command("set softap.ssid ZeROSEro7\r\n", 1000, 1);
+    wifi_command("get softap.info\r\n", 1000, 1);
+    wifi_command("set tcp.server.auto_interface softap\r\n", 1000, 1);
+    wifi_command("set tcp.server.auto_start true\r\n", 1000, 1);
+    wifi_command("set tcp.server.idle_timeout 300\r\n", 1000, 1);
+    wifi_command("set tcp.server.connected_gpio 22\r\n", 1000, 1);
+    wifi_command("set tcp.server.data_gpio 21\r\n", 1000, 1);
+    wifi_command("save\r\n", 1000, 1);
+    wifi_command("reboot\r\n", 5000, 1);
+    
     chThdSleep(TIME_INFINITE);
     return 0;
 }

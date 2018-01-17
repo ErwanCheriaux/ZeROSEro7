@@ -7,6 +7,13 @@
 
 void wifi_init(void)
 {
+    // rst wifi chip
+    palSetPadMode(GPIOB, GPIOB_I2C1_SCL, PAL_MODE_OUTPUT_PUSHPULL);
+    palClearPad(GPIOB, GPIOB_I2C1_SCL);  // rst on
+    chThdSleep(MS2ST(200));
+    palSetPad(GPIOB, GPIOB_I2C1_SCL);  // rst off
+    chThdSleep(MS2ST(4000));
+
     uart_init();
 }
 
