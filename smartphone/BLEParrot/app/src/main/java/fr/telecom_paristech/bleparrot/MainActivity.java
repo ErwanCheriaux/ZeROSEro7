@@ -56,20 +56,39 @@ public class MainActivity extends AppCompatActivity {
     };
 
     // Device connected callback
-    private BroadcastReceiver broadcastIntentReceiver = new BroadcastReceiver() {
+    private BroadcastReceiver connectedBroadcastReceiver = new BroadcastReceiver() {
         @Override
         public void onReceive(Context context, Intent intent) {
-            if (intent.getAction().equals(GAPService.DEVICE_CONECTED_ACTION)) {
-                Toast.makeText(getApplicationContext(), "Gotcha !", Toast.LENGTH_LONG).show();
+            if (intent.getAction().equals(GAPService.DEVICE_CONNECTED_ACTION)) {
+                Toast.makeText(getApplicationContext(), "Device connected!", Toast.LENGTH_LONG).show();
                 advertiser.pause();
-                stopService(advertisementIntent);
+                gap.stopScan();
                 advertisingProgress.setVisibility(View.INVISIBLE);
                 pauseResumeButton.setText("Stopped");
                 advertisingTitle.setText("Device detected");
-                // TODO Switch activity and communicate with GATT
+                startConnectedActiviy();
             }
         }
     };
+
+    // Device disconnected callback
+    private BroadcastReceiver disconnectedBroadcastReceiver = new BroadcastReceiver() {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            if (intent.getAction().equals(GAPService.DEVICE_DISCONNECTED_ACTION)) {
+                advertiser.resume();
+                gap.startScan();
+                advertisingProgress.setVisibility(View.VISIBLE);
+                pauseResumeButton.setText("Pause");
+                advertisingTitle.setText("Advertising in BLE");
+            }
+        }
+    };
+
+    private void startConnectedActiviy() {
+        Intent intent = new Intent(this, ConnectedActivity.class);
+        startActivity(intent);
+    }
 
     private boolean advertiserStarted = true;
 
@@ -88,7 +107,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(broadcastIntentReceiver, new IntentFilter(GAPService.DEVICE_CONECTED_ACTION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(connectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_CONNECTED_ACTION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
 
         pauseResumeButton = (Button) findViewById(R.id.pauseResumeButton);
         advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress);
@@ -143,6 +163,7 @@ public class MainActivity extends AppCompatActivity {
         Toast.makeText(getApplicationContext(), "BLE Advertisement stopped", Toast.LENGTH_LONG).show();
         Log.i("MainActivity", "Activity destroyed");
         stopService(advertisementIntent);
+        stopService(gapIntent);
         super.onDestroy();
     }
 
