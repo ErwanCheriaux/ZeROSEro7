@@ -1,0 +1,124 @@
+ ----------------------------
+|    Gerber Plotting Log     |
+|          Started           |
+|  Wed Dec 27 13:25:21 2017  |
+ ----------------------------
+
+
+Processing SoldermaskTop.gdo
+    Number of Apertures     = 19
+    Number of Moves         = 154
+    Number of Draws         = 5
+    Number of Arcs          = 0
+    Number of Flashes       = 153
+    Number of Comments      = 5
+    Number of Drawn Pads    = 1
+    Number of Filled Shapes = 0
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 0.71001 (IN)
+    Total Move Length       = 30.689 (IN)
+
+Processing SoldermaskBottom.gdo
+    Number of Apertures     = 12
+    Number of Moves         = 93
+    Number of Draws         = 0
+    Number of Arcs          = 0
+    Number of Flashes       = 93
+    Number of Comments      = 5
+    Number of Drawn Pads    = 0
+    Number of Filled Shapes = 0
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 0 (IN)
+    Total Move Length       = 23.4273 (IN)
+
+Processing SolderPasteTop.gdo
+    Number of Apertures     = 13
+    Number of Moves         = 140
+    Number of Draws         = 4
+    Number of Arcs          = 0
+    Number of Flashes       = 139
+    Number of Comments      = 5
+    Number of Drawn Pads    = 1
+    Number of Filled Shapes = 0
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 0.567 (IN)
+    Total Move Length       = 26.6461 (IN)
+
+Processing SolderPasteBottom.gdo
+    Number of Apertures     = 7
+    Number of Moves         = 83
+    Number of Draws         = 0
+    Number of Arcs          = 0
+    Number of Flashes       = 83
+    Number of Comments      = 5
+    Number of Drawn Pads    = 0
+    Number of Filled Shapes = 0
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 0 (IN)
+    Total Move Length       = 19.153 (IN)
+
+Processing EtchLayerTop.gdo
+    Number of Apertures     = 25
+    Number of Moves         = 462
+    Number of Draws         = 1027
+    Number of Arcs          = 746
+    Number of Flashes       = 241
+    Number of Comments      = 5
+    Number of Drawn Pads    = 1
+    Number of Filled Shapes = 1
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 48.0635 (IN)
+    Total Move Length       = 99.1954 (IN)
+
+Processing EtchLayerBottom.gdo
+    Number of Apertures     = 16
+    Number of Moves         = 288
+    Number of Draws         = 677
+    Number of Arcs          = 563
+    Number of Flashes       = 181
+    Number of Comments      = 5
+    Number of Drawn Pads    = 0
+    Number of Filled Shapes = 3
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 42.3315 (IN)
+    Total Move Length       = 70.6835 (IN)
+
+Processing DrillDrawingThrough.gdo
+    Number of Apertures     = 1
+    Number of Moves         = 768
+    Number of Draws         = 14305
+    Number of Arcs          = 752
+    Number of Flashes       = 0
+    Number of Comments      = 5
+    Number of Drawn Pads    = 0
+    Number of Filled Shapes = 0
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 118.889 (IN)
+    Total Move Length       = 222.399 (IN)
+
+Processing BoardOutlline.gdo
+    Number of Apertures     = 1
+    Number of Moves         = 0
+    Number of Draws         = 4
+    Number of Arcs          = 0
+    Number of Flashes       = 0
+    Number of Comments      = 4
+    Number of Drawn Pads    = 0
+    Number of Filled Shapes = 0
+    Number of Dcode Warnings= 0
+    Number of Dcode Errors  = 0
+    Total Draw Length       = 5.4252 (IN)
+    Total Move Length       = 0 (IN)
+
+ ---------------------------
+|    Gerber Plotting Log     |
+|          Finished          |
+|  Wed Dec 27 13:25:24 2017  |
+ ----------------------------

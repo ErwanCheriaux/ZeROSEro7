@@ -2,21 +2,21 @@
                                     Packager
                                     --------
 
-                      12:03 PM Thursday, December 14, 2017
-         Job Name: C:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj
+                      01:19 PM Wednesday, December 27, 2017
+             Job Name: H:\ZEROSERO7\PCB\USB_SNIFFER\USB_Sniffer.prj
 
 
      Packager     Version: 020806.00
 
-        Commandline is: "C:\MentorGraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package "-uC:\Users\admin\Documents\USB_Sniffer\Default\default.icdb" -k -CleanBuild "-jC:\Users\admin\Documents\USB_Sniffer\USB_Sniffer.prj" "
+        Commandline is: ""C:\mentorgraphics\EEVX.2.2\SDD_HOME\wg\win32\bin\package.exe"  -jH:\ZEROSERO7\PCB\USB_SNIFFER\USB_Sniffer.prj -CleanBuild -NoFill"
 
-     The Common Database is at "C:\Users\admin\Documents\USB_Sniffer\Default\default.icdb".
+     The Common Database is at "H:\ZEROSERO7\PCB\USB_SNIFFER\Default\default.icdb".
 
      The Root of this design is "Schematic1".
 
      The Front End Snapshot of this design is "DCDV".
 
-     The PCB Design Path of this design is at "C:\Users\admin\Documents\USB_Sniffer\PCB\PCB.pcb".
+     The PCB Design Path of this design is at "H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb".
 
      The Central Library is at "F:\Central_Libs\ENST.lmc".
 
@@ -37,10 +37,8 @@
      Properties that have been checked off in the Property Definition Editor
       found at Library Manager/Common Properties will be checked for value
       differences between the PartsDB and the non-null properties on symbols.
-     Those properties checked off will be transferred from the PartsDB to all
-      symbols, both packaged and unpackaged.  However, the property values
-      transferred will be limited to the precision specified in the Notation
-      Settings dialog.
+     Those properties checked off (other than Part Number)
+      will not be transferred from the PartsDB to symbols.
      The following properties were checked off in the Property Definition Editor:
        "Parametric"
        "Value2"
@@ -50,6 +48,7 @@
        "Option"
        "ESR"
        "Imax"
+       "Place"
        "Cout HT"
        "Vf"
        "Code Fournisseur"
@@ -78,54 +77,39 @@
 
 
 
-    WARNING: Block Schematic1, Page 1, Symbol XCMP950:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
-    WARNING: Block Schematic1, Page 1, Symbol XCMP951:
-     Reference designator removal.
-     The Reference Designator "R" is being removed
-     from Symbol.  Such 'all alpha' designators that are
-     not instance properties are usually built into symbols and are 
-     not intended as a request to be packaged in the same pack with 
-     symbols of like designators.
-
      Common Data Base has been read
 
      Target PDB Name: Integration\LocalPartsDB.pdb
 
-     Number of Part Numbers: 27
+     Number of Part Numbers: 28
           Part Numb: 00-0001 -> Vend Part: 00-0001 
           Part Numb: 00-0050 -> Vend Part: 00-0050 
           Part Numb: 00-0061 -> Vend Part: 00-0061 
-          Part Numb: 00-0085 -> Vend Part: 00-0085 
-          Part Numb: 00-0090 -> Vend Part: 00-0090 
           Part Numb: 00-0098 -> Vend Part: 00-0098 
-          Part Numb: 10-0037 -> Vend Part: 10-0037 
           Part Numb: 10-0057 -> Vend Part: 10-0057 
           Part Numb: 10-0058 -> Vend Part: 10-0058 
           Part Numb: 10-0060 -> Vend Part: 10-0060 
           Part Numb: 10-0067 -> Vend Part: 10-0067 
+          Part Numb: 10-0068 -> Vend Part: 10-0068 
           Part Numb: 10-0096 -> Vend Part: 10-0096 
+          Part Numb: 10-0097 -> Vend Part: 10-0097 
+          Part Numb: 10-0103 -> Vend Part: 10-0103 
           Part Numb: 10-0106 -> Vend Part: 10-0106 
           Part Numb: 10-0112 -> Vend Part: 10-0112 
           Part Numb: 20-0038 -> Vend Part: 20-0038 
           Part Numb: 20-0041 -> Vend Part: 20-0041 
           Part Numb: 40-0287 -> Vend Part: 40-0287 
-          Part Numb: 40-0297 -> Vend Part: 40-0297 
           Part Numb: 40-0308 -> Vend Part: 40-0308 
           Part Numb: 40-0317 -> Vend Part: 40-0317 
+          Part Numb: 40-0332 -> Vend Part: 40-0332 
+          Part Numb: 50-0036 -> Vend Part: 50-0036 
           Part Numb: 70-0007 -> Vend Part: 70-0007 
           Part Numb: 70-0042 -> Vend Part: 70-0042 
           Part Numb: 70-0081 -> Vend Part: 70-0081 
           Part Numb: 80-0050 -> Vend Part: 80-0050 
           Part Numb: 80-0063 -> Vend Part: 80-0063 
           Part Numb: 83-0025 -> Vend Part: 83-0025 
-          Part Numb: 83-0028 -> Vend Part:  
+          Part Numb: 83-0028 -> Vend Part: 83-0028 
 
      Number of Part Names: 0
 
@@ -139,22 +123,44 @@
       symbols.  Only the first error in symbols having the same
       Reference Designator will be reported.
 
-     ERROR:  There is no Part Number: 83-0028 in the Parts
-      DataBase for symbols with Part Name: QUARTZ and Part Label: 16.000 MHz.
-      [Please add the Part Number to the PDB either directly
-       or by having the project file point to a PDB that contains it.]
-       The relevant symbols are:
-        Block Schematic1, Page 1, Symbol XCMP947 
+     The packaging of all prepackaged schematic symbols is consistent
+      with the Parts DataBase data for the cross mapping of
+      symbol pin names to Part Number pin numbers.
+      Symbols that were not prepackaged will now be packaged correctly.
+      
+     No errors in Existing Schematic Packaging.
 
-     1 packaging error has been found.
-      For those errors that only involve the application of wrong
-      pin numbers, either repackage the schematic by hand or
-      simply remove at least one pin number per symbol to enable
-      automatic packaging when you run this procedure again.
+     The Common DataBase has been read and will be packaged.
+     Clustering 47 Symbols:
+              47  **********************************************
+     Clustering is Complete
+
+     Packager Assignments successfully completed
 
 
 
-     Testing of Packaging is being terminated with 1 errors and 2 warnings.
-      Design has NOT been packaged.
+     41 nets were found containing 160 pins
+     47 components were found
 
-     There have been 1 errors and 2 warnings.
+     Parsed netlist - Augmenting..
+
+     Augmented - Adding phantom pins....
+
+     Numbering Nets....
+
+     Checking Pins....
+
+     Packaging has been successfully tested with no errors or warnings.
+
+     Updating the Common DataBase
+
+     A BAM WasIs List: Integration\CDBBackAnno.bam has been created.
+
+The Common DataBase has been successfully updated.
+
+     Packager finished successfully.
+     !THE iCDB IS UP-TO-DATE!
+     
+     An unused pin and gate report has been written to Integration\UnusedPins.txt
+     An unused gate report for gates not in schematic has been written to Integration\UnusedGates.txt
+     An augmented pin report has been written to Integration\AugmentedPins.txt.

@@ -11,6 +11,7 @@ define split
 end
 
 define flash
+  mon halt
   load
   mon reset
 end
