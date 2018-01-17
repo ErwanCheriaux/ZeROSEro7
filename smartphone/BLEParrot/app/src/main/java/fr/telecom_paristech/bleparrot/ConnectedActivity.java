@@ -90,5 +90,6 @@ public class ConnectedActivity extends AppCompatActivity {
         startService(gapIntent);
 
         LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(notificationBroadcastReceiver, new IntentFilter(GAPService.DEVICE_NOTIFICATION_ACTION));
     }
 }

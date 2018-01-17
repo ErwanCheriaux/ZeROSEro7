@@ -31,10 +31,11 @@ public class GAPService extends Service {
     public static final String DEVICE_NOTIFICATION_ACTION = "Device notification";
     public static final UUID UART_SERVICE_UUID = UUID.fromString("0000abcd-1212-efde-1523-785fef13d123");
     public static final UUID UART_CHARACTERISTIC_UUID = UUID.fromString("00001234-1212-efde-1523-785fef13d123");
+    public static final UUID UART_DESCRIPTOR_UUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
     private final BluetoothLeScanner scannerInstance;
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
-    BluetoothGattCharacteristic uart_chara;
+    private BluetoothGattCharacteristic bleUartChara;
     private BluetoothAdapter adapter;
     private BluetoothGatt deviceGatt;
 
@@ -53,7 +54,7 @@ public class GAPService extends Service {
                     Log.i("GAPService", "Recognised device advertisement");
                     stopScan();
 
-                    ConnectDevice(device);
+                    connectDevice(device);
                 }
 
                 // REVIEW could connect to previously bonded device
@@ -68,11 +69,11 @@ public class GAPService extends Service {
     }
 
     public void send(String s) {
-        uart_chara.setValue(s);
-        deviceGatt.writeCharacteristic(uart_chara);
+        bleUartChara.setValue(s);
+        deviceGatt.writeCharacteristic(bleUartChara);
     }
 
-    private void ConnectDevice(BluetoothDevice device) {
+    private void connectDevice(BluetoothDevice device) {
         BluetoothGattCallback mGattCallback = new BluetoothGattCallback() {
             @Override
             public void onConnectionStateChange(BluetoothGatt gatt, int oldState,
@@ -92,8 +93,10 @@ public class GAPService extends Service {
                         break;
                     case BluetoothProfile.STATE_DISCONNECTED:
                         Log.i("GAPService", "Disconnected");
-                        Intent disco_intent = new Intent(DEVICE_DISCONNECTED_ACTION);
-                        LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(disco_intent);
+                        Intent disconnectedIntent = new Intent(DEVICE_DISCONNECTED_ACTION);
+                        LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(disconnectedIntent);
+                        break;
+                    default:
                         break;
                 }
 
@@ -108,13 +111,14 @@ public class GAPService extends Service {
                     Log.i("GAPService", "Service UUID: " + service.getUuid());
                     if (service.getUuid().equals(UART_SERVICE_UUID)) {
                         Log.i("GAPService", "Found UART service");
-                        uart_chara = service.getCharacteristic(UART_CHARACTERISTIC_UUID);
-                        deviceGatt.setCharacteristicNotification(uart_chara, true);
-                        BluetoothGattDescriptor descriptor = uart_chara.getDescriptor(UART_CHARACTERISTIC_UUID);
-                        uart_chara.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);    // No ack required, faster
+                        bleUartChara = service.getCharacteristic(UART_CHARACTERISTIC_UUID);
+                        deviceGatt.setCharacteristicNotification(bleUartChara, true);
+                        BluetoothGattDescriptor descriptor = bleUartChara.getDescriptor(UART_DESCRIPTOR_UUID);
+                        bleUartChara.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);    // No ack required, faster
                         descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
                         deviceGatt.writeDescriptor(descriptor);
-                        Log.i("GAPService", "UART characteristic is " + uart_chara.getUuid());
+                        Log.i("GAPService", "UART characteristic is " + bleUartChara.getUuid());
+                        Log.i("GAPService", "Chara descriptors :" + bleUartChara.getDescriptors().get(0).getUuid());
                     }
                 }
             }

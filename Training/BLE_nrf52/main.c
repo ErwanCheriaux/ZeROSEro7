@@ -49,7 +49,10 @@ static void phone_write_handler(uint8_t *buff, int length)
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    phone_send_notification((uint8_t*)"h",1);
+    rtt_write_string("Sending data to phone :\n");
+    rtt_write_buffer(0, buff, length);
+    rtt_write_string("\n");
+    phone_send_notification(buff, length);
 }
 
 static void log_init(void)

@@ -165,7 +165,7 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
         case BLE_GATTS_EVT_WRITE:
             write_evt = p_ble_evt->evt.gatts_evt.params.write;
             rtt_printf(0, "GATT Write\n");
-            if (write_evt.handle == uart_characteristic_config.char_handles.value_handle)
+            if(write_evt.handle == uart_characteristic_config.char_handles.value_handle)
                 ble_on_phone_write(ble_uart_characteristic_value, write_evt.len);
             break;
 

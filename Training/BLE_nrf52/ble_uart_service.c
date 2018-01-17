@@ -107,23 +107,22 @@ void uart_service_init()
 }
 
 static ble_gatts_hvx_params_t notification_params;
-static uint16_t hvx_sent_length;
+static uint16_t               hvx_sent_length;
 
 void phone_send_notification(uint8_t* buff, int length)
 {
-    hvx_sent_length = length;
-    notification_params.p_len = &hvx_sent_length;
+    hvx_sent_length            = length;
+    notification_params.p_len  = &hvx_sent_length;
     notification_params.p_data = buff;
-    notification_params.type = BLE_GATT_HVX_NOTIFICATION;
+    notification_params.type   = BLE_GATT_HVX_NOTIFICATION;
     notification_params.handle = uart_characteristic_config.char_handles.value_handle;
-    ret_code_t err_code = sd_ble_gatts_hvx(ble_central_latest_conn,&notification_params);
+    ret_code_t err_code        = sd_ble_gatts_hvx(ble_central_latest_conn, &notification_params);
     if(err_code != 0x3401) {
         APP_ERROR_CHECK(err_code);
-    } else {// TODO Should not happen
+    } else {  // Happens if the client didn't subscribe to notifications.
         rtt_write_string("BLE_ERROR_GATTS_SYS_ATTR_MISSING. CCCD state not defined yet.\n");
-        APP_ERROR_CHECK(sd_ble_gatts_sys_attr_set(ble_central_latest_conn, NULL,0, 0));
     }
     if(hvx_sent_length != length) {
         APP_ERROR_CHECK(NRF_ERROR_DATA_SIZE);
     }
-}   // TODO check conn handle
+}  // TODO check conn handle
