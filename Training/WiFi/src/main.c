@@ -34,8 +34,14 @@ int main(void)
     wifi_command("set tcp.server.idle_timeout 300\r\n", 1000, 1);
     wifi_command("set tcp.server.connected_gpio 22\r\n", 1000, 1);
     wifi_command("set tcp.server.data_gpio 21\r\n", 1000, 1);
+    wifi_command("set bus.mode stream\r\n", 1000, 1);
     wifi_command("save\r\n", 1000, 1);
     wifi_command("reboot\r\n", 5000, 1);
+    char buff[] = "ok";
+    while(1) {
+        uart_send(buff);
+        chThdSleep(MS2ST(1000));
+    }
     
     chThdSleep(TIME_INFINITE);
     return 0;
