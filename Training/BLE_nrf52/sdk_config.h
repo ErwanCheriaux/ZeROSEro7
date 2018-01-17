@@ -2339,7 +2339,7 @@
 // <e> MEM_MANAGER_ENABLED - mem_manager - Dynamic memory allocator
 //==========================================================
 #ifndef MEM_MANAGER_ENABLED
-#define MEM_MANAGER_ENABLED 0
+#define MEM_MANAGER_ENABLED 1
 #endif
 // <o> MEMORY_MANAGER_SMALL_BLOCK_COUNT - Size of each memory blocks identified as 'small' block.  <0-255>
 
@@ -2383,7 +2383,7 @@
 // <o> MEMORY_MANAGER_XLARGE_BLOCK_COUNT - Size of each memory blocks identified as 'extra large' block.  <0-255>
 
 #ifndef MEMORY_MANAGER_XLARGE_BLOCK_COUNT
-#define MEMORY_MANAGER_XLARGE_BLOCK_COUNT 0
+#define MEMORY_MANAGER_XLARGE_BLOCK_COUNT 1
 #endif
 
 // <o> MEMORY_MANAGER_XLARGE_BLOCK_SIZE -  Size of each memory blocks identified as 'extra large' block.

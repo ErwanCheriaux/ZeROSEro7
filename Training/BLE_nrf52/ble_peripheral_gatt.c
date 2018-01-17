@@ -29,6 +29,8 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
+#include "ble_uart_service.h"
+
 #define PNP_ID_VENDOR_ID_SOURCE 0x00C3 /**< Vendor ID Source. */
 #define PNP_ID_VENDOR_ID 0x1915        /**< Vendor ID. */
 #define PNP_ID_PRODUCT_ID 0xEEEE       /**< Product ID. */
@@ -38,10 +40,8 @@
 
 NRF_BLE_GATT_DEF(m_gatt); /**< GATT module instance. */
 
-void my_service_init()
+void device_information_service_init()
 {
-    // TODO custom service
-
     ret_code_t       err_code;
     ble_dis_init_t   dis_init_obj;
     ble_dis_pnp_id_t pnp_id;
@@ -56,20 +56,19 @@ void my_service_init()
     ble_srv_ascii_to_utf8(&dis_init_obj.manufact_name_str, MANUFACTURER_NAME);
     dis_init_obj.p_pnp_id = &pnp_id;
 
-    BLE_GAP_CONN_SEC_MODE_SET_ENC_NO_MITM(&dis_init_obj.dis_attr_md.read_perm);
-    BLE_GAP_CONN_SEC_MODE_SET_NO_ACCESS(&dis_init_obj.dis_attr_md.write_perm);
+    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&dis_init_obj.dis_attr_md.read_perm);
+    BLE_GAP_CONN_SEC_MODE_SET_OPEN(&dis_init_obj.dis_attr_md.write_perm);
 
-    err_code = ble_dis_init(&dis_init_obj);
-    APP_ERROR_CHECK(err_code);
+    APP_ERROR_CHECK(ble_dis_init(&dis_init_obj));
 }
 
 void ble_services_init()
 {
-    my_service_init();
+    device_information_service_init();
+    uart_service_init();
 }
 
 void ble_gatt_init()
 {
-    ret_code_t err_code = nrf_ble_gatt_init(&m_gatt, NULL);
-    APP_ERROR_CHECK(err_code);
+    APP_ERROR_CHECK(nrf_ble_gatt_init(&m_gatt, NULL));
 }

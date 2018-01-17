@@ -70,6 +70,8 @@ build_main:
     - cd ../WiFi
     - make
     - cd ../LoRa_sx1276
+    - make test_board
+    - make clean
     - make
     - cd ../software/usb_sniffer/STM32
     - make
