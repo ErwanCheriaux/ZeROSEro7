@@ -36,22 +36,21 @@ lint_apps:
   stage: lint
   image : lpzantony/ndk
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
-    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew lint
     - cd ../WifiParrot
     - ./gradlew lint
   tags:
     - android
-
-lint_test:
-  stage: lint
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make format
-    - git status --porcelain
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # BUILD STAGE
 
@@ -83,6 +82,7 @@ build_apps:
   stage: build
   image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
     - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
@@ -96,17 +96,12 @@ build_apps:
     expire_in: 1 week
   tags:
     - android
-
-build_test:
-  stage: build
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make
-  artifacts:
+  cache:
+    key: android
     paths:
-    - Training/Test/main
-    expire_in: 20 minutes
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # TEST STAGE
 
@@ -115,21 +110,21 @@ test_apps:
   stage: test
   image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
-    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew test
     - cd ../WifiParrot
     - ./gradlew test
   tags:
     - android
-
-test_test:
-  stage: test
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - ./main
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # DEPLOY STAGE
 
