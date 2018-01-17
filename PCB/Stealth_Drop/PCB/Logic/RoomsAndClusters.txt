@@ -1,2 +1,15 @@
 
      Rooms & Clusters:
+RefDsg: 	C9 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	C30 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	C31 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	C32 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	C33 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	L3 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	R6 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	R7 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	R8 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	R9 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	R10 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	R17 	Room: 	 	Cluster: 	Newgroup1
+RefDsg: 	U7 	Room: 	 	Cluster: 	Newgroup1

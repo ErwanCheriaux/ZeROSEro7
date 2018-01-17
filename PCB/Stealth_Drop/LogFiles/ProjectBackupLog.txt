@@ -76,3 +76,69 @@
 [2017-12-14 17.39.00] Successfully created [AutoSave] backup [2017-12-14 17.38.59 - auto.zip] requested by [WINDOWS01:admin].
 [2017-12-14 17.39.00] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\ProjectBackup\backups\2017-12-11 12.37.42 - auto.zip].
 [2017-12-14 17.39.00] [AutoSave] backup file [Stealth_Drop\Default\ProjectBackup\backups\2017-12-11 12.37.42 - auto.zip] removed.
+[2017-12-15 11.11.32] Migrating iCDB upgrade backups from directory [\STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-15 11.11.32] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-15 11.11.35] Successfully created [AutoSave] backup [2017-12-15 11.11.32 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-15 11.11.35] Removing excessive [AutoSave] backup file [E:\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-11 16.37.42 - auto.zip].
+[2017-12-15 11.11.35] [AutoSave] backup file [\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-11 16.37.42 - auto.zip] removed.
+[2017-12-15 11.22.58] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-15 11.22.58] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-16 22.32.09] Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-16 22.32.09] Migrating iCDB upgrade backup file [2017-12-16 21.52.42-7420].
+[2017-12-16 22.32.09] Successfully created [Constraints Definition Upgrade] backup [2017-12-16 21.52.42 - consDefUpgr.zip] requested by [WINDOWS01:admin].
+[2017-12-16 22.32.09] Removing excessive [Constraints Definition Upgrade] backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-08 08.57.23 - consDefUpgr.zip].
+[2017-12-16 22.32.09] [Constraints Definition Upgrade] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-08 08.57.23 - consDefUpgr.zip] removed.
+[2017-12-16 22.32.09] Migrated iCDB content backup file [cdbback\2017-12-16 21.52.42-7420.zip] removed.
+[2017-12-16 22.32.09] Successfully migrated iCDB upgrade backup file [2017-12-16 21.52.42-7420] to Project Backup format [2017-12-16 21.52.42 - consDefUpgr.zip]
+[2017-12-16 22.32.09] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-16 22.32.10] Successfully created [AutoSave] backup [2017-12-16 22.32.09 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-16 22.32.10] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-14 13.09.26 - auto.zip].
+[2017-12-16 22.32.10] [AutoSave] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-14 13.09.26 - auto.zip] removed.
+[2017-12-17 18.07.06] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-17 18.07.06] Migrating iCDB upgrade backup file [2017-12-17 18.05.29-3032].
+[2017-12-17 18.07.06] Successfully created [Constraints Definition Upgrade] backup [2017-12-17 18.05.29 - consDefUpgr.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-17 18.07.06] Removing excessive [Constraints Definition Upgrade] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\ProjectBackup\backups\2017-12-16 21.52.42 - consDefUpgr.zip].
+[2017-12-17 18.07.06] [Constraints Definition Upgrade] backup file [Stealth_Drop\Default\ProjectBackup\backups\2017-12-16 21.52.42 - consDefUpgr.zip] removed.
+[2017-12-17 18.07.06] Migrated iCDB content backup file [cdbback\2017-12-17 18.05.29-3032.zip] removed.
+[2017-12-17 18.07.06] Successfully migrated iCDB upgrade backup file [2017-12-17 18.05.29-3032] to Project Backup format [2017-12-17 18.05.29 - consDefUpgr.zip]
+[2017-12-17 18.07.06] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-17 18.07.07] Successfully created [AutoSave] backup [2017-12-17 18.07.06 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-17 18.07.07] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\XpeditionPCB\workspace\Stealth_Drop\Default\ProjectBackup\backups\2017-12-14 17.38.59 - auto.zip].
+[2017-12-17 18.07.07] [AutoSave] backup file [Stealth_Drop\Default\ProjectBackup\backups\2017-12-14 17.38.59 - auto.zip] removed.
+[2017-12-19 01.04.56] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-19 01.04.56] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-20 15.19.07] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 15.19.07] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-20 15.32.10] Successfully created [AutoSave] backup [2017-12-20 15.32.07 - auto.zip] requested by [WINDOWS01:admin].
+[2017-12-20 15.32.10] Removing excessive [AutoSave] backup file [C:\Users\admin\Documents\Stealth_Drop\Default\ProjectBackup\backups\2017-12-15 11.11.32 - auto.zip].
+[2017-12-20 15.32.10] [AutoSave] backup file [Stealth_Drop\Default\ProjectBackup\backups\2017-12-15 11.11.32 - auto.zip] removed.
+[2017-12-20 17.07.43] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 17.07.43] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-20 17.13.53] Migrating iCDB upgrade backups from directory [Stealth_Drop\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 17.13.53] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-20 17.24.50] Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-20 17.24.50] Migrating iCDB upgrade backup file [2017-12-20 17.15.54-1736].
+[2017-12-20 17.24.50] Successfully created [Constraints Definition Upgrade] backup [2017-12-20 17.15.54 - consDefUpgr.zip] requested by [WINDOWS01:admin].
+[2017-12-20 17.24.50] Removing excessive [Constraints Definition Upgrade] backup file [G:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-17 18.05.29 - consDefUpgr.zip].
+[2017-12-20 17.24.50] [Constraints Definition Upgrade] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-17 18.05.29 - consDefUpgr.zip] removed.
+[2017-12-20 17.24.50] Migrated iCDB content backup file [cdbback\2017-12-20 17.15.54-1736.zip] removed.
+[2017-12-20 17.24.50] Successfully migrated iCDB upgrade backup file [2017-12-20 17.15.54-1736] to Project Backup format [2017-12-20 17.15.54 - consDefUpgr.zip]
+[2017-12-20 17.24.50] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-26 19.18.49] Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-26 19.18.49] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-26 19.18.50] Successfully created [AutoSave] backup [2017-12-26 19.18.49 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-26 19.18.50] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-16 22.32.09 - auto.zip].
+[2017-12-26 19.18.50] [AutoSave] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-16 22.32.09 - auto.zip] removed.
+[2017-12-26 23.18.50] Successfully created [AutoSave] backup [2017-12-26 23.18.49 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-26 23.18.50] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-17 18.07.06 - auto.zip].
+[2017-12-26 23.18.50] [AutoSave] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-17 18.07.06 - auto.zip] removed.
+[2017-12-27 03.18.50] Successfully created [AutoSave] backup [2017-12-27 03.18.49 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-27 03.18.51] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-20 15.32.07 - auto.zip].
+[2017-12-27 03.18.51] [AutoSave] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-20 15.32.07 - auto.zip] removed.
+[2017-12-27 12.47.04] Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2017-12-27 12.47.04] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.
+[2017-12-27 12.47.06] Successfully created [AutoSave] backup [2017-12-27 12.47.04 - auto.zip] requested by [DESKTOP-D6MOGOB:alexis].
+[2017-12-27 12.47.06] Removing excessive [AutoSave] backup file [H:\ZEROSERO7\PCB\STEALTH_DROP\Default\ProjectBackup\backups\2017-12-26 19.18.49 - auto.zip].
+[2017-12-27 12.47.06] [AutoSave] backup file [STEALTH_DROP\Default\ProjectBackup\backups\2017-12-26 19.18.49 - auto.zip] removed.
+[2018-01-09 18.10.07] Migrating iCDB upgrade backups from directory [STEALTH_DROP\Default\default.icdb\cdbback] to Project Backup format.
+[2018-01-09 18.10.07] WARNING: Ignoring iCDB backup file [2017-11-20 18.42.10-2168-pbmf.zip] - will not be migrated.

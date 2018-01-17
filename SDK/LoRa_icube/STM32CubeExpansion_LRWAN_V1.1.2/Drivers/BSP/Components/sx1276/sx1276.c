@@ -1425,7 +1425,7 @@ uint32_t SX1276GetRadioWakeUpTime( void )
 }
 
 // State is set by handling DIO pins IRQ. If not connected, update manually
-#ifndef DIO_PINS_CONNECTED  // TODO Connect DIO pins, correctly assign IRQ in lora_ant_switch.c
+#ifndef DIO_PINS_CONNECTED
 void SX1276OnTimeoutIrq( void )
 {
     switch(SX1276.Settings.State) {

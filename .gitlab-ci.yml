@@ -22,21 +22,28 @@ lint_main:
   script:
     - cd Training/BLE_nrf52
     - make format
-    - cd ../../usb_dev_kit
+    - cd ../USB_keyboard
     - make format
-    - cd ../Training/lora_discovery
+    - cd ../lora_discovery
+    - make format
+    - cd ../WiFi
     - make format
     - cd ../LoRa_sx1276
     - make format
     - git status --porcelain
 
-# lint_apps:
-#   stage: lint
-#   image : runmymind/docker-android-sdk
-#   script:
-#     - cd smartphone
-#     - cd BLEParrot
-#     - ./gradlew lint
+lint_apps:
+  stage: lint
+  image : lpzantony/ndk
+  script:
+    - cd smartphone
+    - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - ./gradlew lint
+    - cd ../WifiParrot
+    - ./gradlew lint
+  tags:
+    - android
 
 lint_test:
   stage: lint
@@ -54,30 +61,41 @@ build_main:
   script:
     - cd Training/BLE_nrf52
     - make
-    - cd ../../usb_dev_kit
+    - cd ../USB_keyboard
     - make
-    - cd ../Training/lora_discovery
+    - cd ../lora_discovery
+    - make
+    - cd ../WiFi
     - make
     - cd ../LoRa_sx1276
+    - make test_board
+    - make clean
     - make
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
+    - Training/USB_keyboard/build/USB_keyboard.elf
     - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
-    - usb_dev_kit/build/usb_dev_kit.elf
+    - Training/WiFi/build/wifi_dev_kit.elf
     expire_in: 1 week
 
-# build_apps:
-#   stage: build
-#   image : runmymind/docker-android-sdk
-#   script:
-#     - cd smartphone
-#     - cd BLEParrot
-#     - ./gradlew build
-#   artifacts:
-#     paths:
-#     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
-#     expire_in: 1 week
+build_apps:
+  stage: build
+  image : lpzantony/little-brosers
+  script:
+    - cd smartphone
+    - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - ./gradlew build
+    - cd ../WifiParrot
+    - ./gradlew build
+  artifacts:
+    paths:
+    - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
+    expire_in: 1 week
+  tags:
+    - android
 
 build_test:
   stage: build
@@ -93,13 +111,18 @@ build_test:
 # TEST STAGE
 
 # Runs all JUnit tests
-# test_apps:
-#   stage: test
-#   image : runmymind/docker-android-sdk
-#   script:
-#     - cd smartphone
-#     - cd BLEParrot
-#     - ./gradlew test
+test_apps:
+  stage: test
+  image : lpzantony/little-brosers
+  script:
+    - cd smartphone
+    - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - ./gradlew test
+    - cd ../WifiParrot
+    - ./gradlew test
+  tags:
+    - android
 
 test_test:
   stage: test

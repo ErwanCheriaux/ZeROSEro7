@@ -1,0 +1,14 @@
+
+                                Autosave Log File
+                                -----------------
+
+                      03:49 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\Stealth_Drop\PCB\Work\CellEditorFiles\CellDB\C0402.pcb
+
+
+                               Autosave log closed
+                               -------------------
+
+                      04:34 PM Wednesday, December 20, 2017
+Job Name: C:\Users\admin\Documents\Stealth_Drop\PCB\Work\CellEditorFiles\CellDB\C0402.pcb
+

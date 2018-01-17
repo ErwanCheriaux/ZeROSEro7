@@ -1,0 +1,120 @@
+PropID  	PartNumberID	PropertyName                    	PropertyValue
+1       	23          	Type                            	Resistor
+2       	23          	Value                           	0
+3       	23          	Tolerance                       	5%
+4       	23          	Power Dissipation               	0.0625
+5       	23          	Cout HT                         	0.045
+6       	23          	Code Fournisseur                	Fa : 2008343
+7       	24          	Type                            	Resistor
+8       	24          	Value                           	100
+9       	24          	Tolerance                       	5%
+10      	24          	Power Dissipation               	0.0625
+11      	24          	Cout HT                         	0.045
+12      	24          	Code Fournisseur                	RS : 322-9210
+13      	25          	Type                            	Resistor
+14      	25          	Value                           	300
+15      	25          	Tolerance                       	5%
+16      	25          	Power Dissipation               	0.0625
+17      	25          	Cout HT                         	0.045
+18      	25          	Code Fournisseur                	Fa : 2059303
+19      	26          	Type                            	Resistor
+20      	26          	Value                           	10000
+21      	26          	Tolerance                       	5%
+22      	26          	Power Dissipation               	0.0625
+23      	26          	Cout HT                         	0.045
+24      	26          	Code Fournisseur                	Fa : 9331700
+25      	1           	Type                            	Capacitor
+26      	1           	Value                           	0.0000001
+27      	1           	Tolerance                       	10%
+28      	1           	Code Fournisseur                	Fa : 1414027
+29      	1           	Cout HT                         	0.014
+30      	2           	Type                            	Capacitor
+31      	2           	Value                           	0.0000001
+32      	2           	Tolerance                       	10%
+33      	2           	Code Fournisseur                	Fa : 2496810
+34      	2           	Cout HT                         	0.01
+35      	3           	Type                            	Capacitor
+36      	3           	Value                           	0.000001
+37      	3           	Tolerance                       	10%
+38      	3           	Code Fournisseur                	Fa : 2362087
+39      	3           	Cout HT                         	0.025
+40      	4           	Type                            	Capacitor
+41      	4           	Value                           	0.0000000001
+42      	4           	Tolerance                       	5%
+43      	4           	Code Fournisseur                	Fa : 2496792
+44      	5           	Type                            	Capacitor
+45      	5           	Value                           	0.000001
+46      	5           	Tolerance                       	10%
+47      	5           	Code Fournisseur                	Fa : 1828802
+48      	6           	Type                            	Capacitor
+49      	6           	Value                           	0.000000000012
+50      	6           	Tolerance                       	2%
+51      	6           	Code Fournisseur                	Fa : 7568134
+52      	6           	Cout HT                         	0.0116
+53      	7           	Type                            	Capacitor
+54      	7           	Value                           	0.0000000000010
+55      	7           	Tolerance                       	5%
+56      	7           	Code Fournisseur                	Fa : 2310367
+57      	7           	Cout HT                         	0.084
+58      	8           	Type                            	Capacitor
+59      	8           	Cout HT                         	0.117
+60      	8           	Code Fournisseur                	Fa : 1759393 
+61      	8           	Value                           	0.00001
+62      	8           	Tolerance                       	20%
+63      	8           	Sous Techno                     	X7R
+64      	9           	Type                            	Capacitor
+65      	9           	Value                           	0.00001
+66      	9           	Tolerance                       	20%
+67      	9           	Code Fournisseur                	Fa : 2346872
+68      	9           	Cout HT                         	0.0819
+69      	10          	Type                            	Capacitor
+70      	10          	Cout HT                         	0.117
+71      	10          	Value                           	0.0000022
+72      	10          	Tolerance                       	20%
+73      	10          	Sous Techno                     	X7R
+74      	10          	Code Fournisseur                	Fa : 1288257
+75      	14          	Type                            	Diode
+76      	14          	Cout HT                         	1.75
+77      	14          	Code Fournisseur                	Fa : 1058362 
+78      	15          	Type                            	Diode
+79      	15          	Cout HT                         	0.59
+80      	15          	Vf                              	3.65
+81      	15          	Code Fournisseur                	Fa : 8529809
+82      	16          	Type                            	IC
+83      	16          	Code Fournisseur                	Mouser : 998-MIC5504-3.3YM5TR 
+84      	16          	Cout HT                         	0.109
+85      	17          	Type                            	IC
+86      	17          	Code Fournisseur                	Mouser : 949-NRF52832-QFAA-T
+87      	17          	Cout HT                         	4.64
+88      	18          	Type                            	IC
+89      	18          	Code Fournisseur                	Mouser : 511-STM32F205RGT7
+90      	18          	Cout HT                         	10.14
+91      	19          	Type                            	IC
+92      	19          	Code Fournisseur                	Mouser : 595-TPS2061CDBVR
+93      	19          	Cout HT                         	0.986
+94      	20          	Type                            	Inductor
+95      	20          	Code Fournisseur                	Fa : 2285767
+96      	20          	Cout HT                         	1.09
+97      	20          	Value                           	0.0000000039
+98      	11          	Type                            	Connector
+99      	11          	Code Fournisseur                	Fa : 1076663 
+100     	11          	Cout HT                         	0.45
+101     	12          	Type                            	Connector
+102     	12          	Code Fournisseur                	Fa : 1308875 
+103     	12          	Cout HT                         	1.05
+104     	13          	Type                            	Connector
+105     	13          	Code Fournisseur                	Fa : 1667759
+106     	13          	Cout HT                         	1.96
+107     	27          	Type                            	IC
+108     	27          	Code Fournisseur                	Fa : 1885496
+109     	27          	Cout HT                         	0.7
+110     	28          	Type                            	Connector
+111     	28          	Place                           	no
+112     	21          	Type                            	Misc
+113     	21          	Code Fournisseur                	Mouser : 81-XRCPB32M000F2P0R0
+114     	21          	Tolerance                       	20
+115     	21          	Cout HT                         	0.434
+116     	22          	Type                            	Misc
+117     	22          	Code Fournisseur                	Mouser : 581-CX2016DB16DFLJCC
+118     	22          	Tolerance                       	15
+119     	22          	Cout HT                         	0.765

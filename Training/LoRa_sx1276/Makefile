@@ -14,15 +14,23 @@ GDB := $(GNU_PREFIX)gdb
 ELF := $(OUTPUT_DIRECTORY)/$(TARGETS).out
 HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 
+BLE_TRAINING_DIR = $(PROJ_DIR)/../BLE_nrf52
+
 USER_SRC = \
 	$(PROJ_DIR)/main.c \
-	$(PROJ_DIR)/../BLE_nrf52/rtt.c \
-	$(PROJ_DIR)/../BLE_nrf52/ble_central.c \
+	$(BLE_TRAINING_DIR)/rtt.c \
+	$(BLE_TRAINING_DIR)/ble_central.c \
+	$(BLE_TRAINING_DIR)/ble_peripheral_gap.c \
+	$(BLE_TRAINING_DIR)/ble_peripheral_gatt.c \
+	$(BLE_TRAINING_DIR)/ble_uart_service.c \
 	$(PROJ_DIR)/hw_rtc.c \
 	$(PROJ_DIR)/hw_spi.c \
 	$(PROJ_DIR)/hw_gpio.c \
 	$(PROJ_DIR)/lora.c \
 	$(PROJ_DIR)/lora_board.c \
+	$(PROJ_DIR)/low_power.c \
+	$(PROJ_DIR)/test_board.c \
+	$(PROJ_DIR)/custom_board.c \
 
 USER_INC = $(PROJ_DIR) \
   $(PROJ_DIR)/../BLE_nrf52 \
@@ -94,6 +102,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
     $(SDK_ROOT)/components/drivers_nrf/spi_master/nrf_drv_spi.c \
+	$(SDK_ROOT)/components/libraries/mem_manager/mem_manager.c \
 
 # Include folders common to all targets
 INC_FOLDERS += $(USER_INC) \
@@ -334,6 +343,11 @@ NRFJPROG = $(SDK_ROOT)/../nRF5x-Command-Line-Tools/nrfjprog/nrfjprog
 
 startgdbserver:
 	JLinkGDBServer -device nrf52832_xxAA -if swd -speed auto -port 2331
+
+test_board: $(ELF)
+# Otherwise, custom_board.h is selected instead of test_board.h
+test_board: CFLAGS += -D TEST_BOARD
+
 
 debug: $(ELF)
 	$(GDB) $<

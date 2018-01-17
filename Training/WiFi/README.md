@@ -1,1 +1,0 @@
-WiFi training folder

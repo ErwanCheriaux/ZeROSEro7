@@ -1,0 +1,20 @@
+; Version : LOCAL
+; Job     : H:\ZEROSERO7\PCB\USB_SNIFFER\PCB\PCB.pcb
+; User    : DESKTOP-D6MOGOB:alexis
+; Date    : Wed Dec 27 13:23:56 2017
+; Format  : 3.3 / Absolute / MM / Leading
+; Contents: Thru / Drill / Non-Plated
+M48
+METRIC,TZ
+FMAT,2
+ICI,OFF
+T05C1.3000
+%
+M71
+G90
+G93X0Y0
+T05
+X2986Y9678
+Y14178
+T00
+M30
