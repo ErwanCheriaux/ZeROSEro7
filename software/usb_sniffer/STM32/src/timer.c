@@ -16,23 +16,23 @@ static void timercb(void *arg)
     switch(color_t) {
         case BLACK:
             led_rgb(0, 0, 0);
-            color_t++;
+            color_t = WHITE;
             break;
         case WHITE:
             led_rgb(1, 1, 1);
-            color_t++;
+            color_t = RED;
             break;
         case RED:
             led_rgb(1, 0, 0);
-            color_t++;
+            color_t = GREEN;
             break;
         case GREEN:
             led_rgb(0, 1, 0);
-            color_t++;
+            color_t = BLUE;
             break;
         case BLUE:
             led_rgb(0, 0, 1);
-            color_t++;
+            color_t = BLACK;
             break;
         default:
             led_rgb(1, 1, 0);  //YELLOW

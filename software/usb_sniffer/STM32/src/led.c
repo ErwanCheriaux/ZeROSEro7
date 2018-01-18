@@ -15,15 +15,15 @@ void led_init(void)
 void led_rgb(bool r, bool g, bool b)
 {
     if(r)
-        palSetPad(GPIOC, GPIOC_RGB_R);
-    else
         palClearPad(GPIOC, GPIOC_RGB_R);
+    else
+        palSetPad(GPIOC, GPIOC_RGB_R);
     if(g)
-        palSetPad(GPIOA, GPIOA_RGB_G);
-    else
         palClearPad(GPIOA, GPIOA_RGB_G);
-    if(b)
-        palSetPad(GPIOC, GPIOC_RGB_B);
     else
+        palSetPad(GPIOA, GPIOA_RGB_G);
+    if(b)
         palClearPad(GPIOC, GPIOC_RGB_B);
+    else
+        palSetPad(GPIOC, GPIOC_RGB_B);
 }
