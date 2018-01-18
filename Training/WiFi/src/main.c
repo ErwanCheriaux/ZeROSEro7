@@ -24,20 +24,24 @@ int main(void)
     rtt_printf(0, "\n======== INITIALIZATION SUCCED ========\n\n");
     led_on();
     
-    wifi_command("set bus.mode command\r\n", 1000, 1);
+    // Break stream mode and swtich to command mode
+    char buff_break[] = "$$$";
+    uart_send(buff_break);
+    chThdSleep(MS2ST(1000));
+    
+    // Configure device and restart it
     wifi_command("set softap.auto_start true\r\n", 1000, 1);
     wifi_command("set softap.dhcp_server.enabled true\r\n", 1000, 1);
     wifi_command("set softap.ssid ZeROSEro7\r\n", 1000, 1);
-    wifi_command("get softap.info\r\n", 1000, 1);
     wifi_command("set tcp.server.auto_interface softap\r\n", 1000, 1);
     wifi_command("set tcp.server.auto_start true\r\n", 1000, 1);
     wifi_command("set tcp.server.idle_timeout 300\r\n", 1000, 1);
-    wifi_command("set tcp.server.connected_gpio 22\r\n", 1000, 1);
-    wifi_command("set tcp.server.data_gpio 21\r\n", 1000, 1);
     wifi_command("set bus.mode stream\r\n", 1000, 1);
     wifi_command("save\r\n", 1000, 1);
     wifi_command("reboot\r\n", 5000, 1);
-    char buff[] = "ok";
+
+    // Send message each second
+    char buff[] = "ok\r\n";
     while(1) {
         uart_send(buff);
         chThdSleep(MS2ST(1000));
