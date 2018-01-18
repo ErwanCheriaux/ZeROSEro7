@@ -1,5 +1,6 @@
 package fr.telecom_paristech.wifiparrot;
 
+import android.os.SystemClock;
 import android.util.Log;
 
 import java.io.BufferedReader;
@@ -30,12 +31,12 @@ public class TcpClient
 
     }
 
-    public void sendMessage(String message)
-    {
+    public void sendMessage(String message) {
         if (mBufferOut != null && !mBufferOut.checkError()) {
             mBufferOut.println(message);
             mBufferOut.flush();
-        }
+        } else
+            Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
     }
 
     public void stopClient()
@@ -66,11 +67,10 @@ public class TcpClient
                 mBufferIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
                 //in this while the client listens for the messages sent by the server
                 while (mRun) {
-                    mServerMessage = mBufferIn.readLine();
-                    if (mServerMessage != null) {
-                        //call the method messageReceived from MyActivity class
-                        OnMessageReceived(mServerMessage);
-                    }
+                    String message = "SMART2STM ok\r\n";
+                    Log.i("Tcp", "Send: " + message);
+                    sendMessage(message);
+                    SystemClock.sleep(1000);
                 }
                 Log.e("RESPONSE FROM SERVER", "S: Received Message: '" + mServerMessage + "'");
             } catch (Exception e) {

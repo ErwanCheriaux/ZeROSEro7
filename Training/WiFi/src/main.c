@@ -29,15 +29,14 @@ int main(void)
     //configure();
 
     // Receive
-    
-    int size = 2;
+    int size = 1;
     char buff[size + 1];
     buff[size] = '\0';
     while(1) {
         if(uart_receive_timeout(buff, size, MS2ST(2000)))
             rtt_printf(0, "Timeout\n");
         else
-            rtt_printf(0, "%s\n", buff);
+            rtt_printf(0, "%s", buff);
     }
     
     chThdSleep(TIME_INFINITE);
