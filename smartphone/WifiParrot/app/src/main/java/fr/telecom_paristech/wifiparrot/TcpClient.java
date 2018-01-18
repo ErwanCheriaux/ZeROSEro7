@@ -19,8 +19,6 @@ public class TcpClient
     public static final int SERVER_PORT = 3000;
     // message to send to the server
     private String mServerMessage;
-    // sends message received notifications
-    private OnMessageReceived mMessageListener = null;
     // while this is true, the server will continue running
     private boolean mRun = false;
     // used to send messages
@@ -28,8 +26,8 @@ public class TcpClient
     // used to read messages from the server
     private BufferedReader mBufferIn;
 
-    public TcpClient(OnMessageReceived listener) {
-        mMessageListener = listener;
+    public TcpClient() {
+
     }
 
     public void sendMessage(String message)
@@ -47,7 +45,6 @@ public class TcpClient
             mBufferOut.flush();
             mBufferOut.close();
         }
-        mMessageListener = null;
         mBufferIn = null;
         mBufferOut = null;
         mServerMessage = null;
@@ -70,9 +67,9 @@ public class TcpClient
                 //in this while the client listens for the messages sent by the server
                 while (mRun) {
                     mServerMessage = mBufferIn.readLine();
-                    if (mServerMessage != null && mMessageListener != null) {
+                    if (mServerMessage != null) {
                         //call the method messageReceived from MyActivity class
-                        mMessageListener.messageReceived(mServerMessage);
+                        OnMessageReceived(mServerMessage);
                     }
                 }
                 Log.e("RESPONSE FROM SERVER", "S: Received Message: '" + mServerMessage + "'");
@@ -88,11 +85,9 @@ public class TcpClient
         }
     }
 
-    //Declare the interface. The method messageReceived(String message) will must be implemented in the MyActivity
-    //class at on asynckTask doInBackground
-    public interface OnMessageReceived
+    public void OnMessageReceived(String message)
     {
-        public void messageReceived(String message);
+        Log.i("Tcp Received", message);
     }
 
 }

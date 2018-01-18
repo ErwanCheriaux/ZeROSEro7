@@ -9,15 +9,6 @@ public class Download extends Transfer
 {
     protected Integer doInBackground(String... input)
     {
-        //we create a TCPClient object
-        mTcpClient = new TcpClient(new TcpClient.OnMessageReceived() {
-            @Override
-            //here the messageReceived method is implemented
-            public void messageReceived(String message) {
-                //this method calls the onProgressUpdate
-                Log.i("Tcp receive",  message);
-            }
-        });
         mTcpClient.run();
         return 0;
     }

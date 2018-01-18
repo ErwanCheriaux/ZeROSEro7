@@ -48,4 +48,15 @@ void wifi_save_file(char* filename);
 */
 void wifi_send_file(char* filename);
 
+/* If stream mode is activated, this function
+** breaks stream mode and swtich to command mode
+*/
+void break_stream_mode(void);
+
+/* Send commands to configure tcp server,
+** swtich to stream mode and reboot the chip
+** This function must be called in command mode
+*/
+void configure(void);
+
 #endif

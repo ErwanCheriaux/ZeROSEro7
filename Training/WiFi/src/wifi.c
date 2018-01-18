@@ -5,6 +5,25 @@
 #include "uart.h"
 #include "rtt.h"
 
+void break_stream_mode(void)
+{
+    char buff_break[] = "$$$";
+    uart_send(buff_break);
+}
+
+void configure(void)
+{
+    wifi_command("set softap.auto_start true\r\n", 1000, 1);
+    wifi_command("set softap.dhcp_server.enabled true\r\n", 1000, 1);
+    wifi_command("set softap.ssid ZeROSEro7\r\n", 1000, 1);
+    wifi_command("set tcp.server.auto_interface softap\r\n", 1000, 1);
+    wifi_command("set tcp.server.auto_start true\r\n", 1000, 1);
+    wifi_command("set tcp.server.idle_timeout 300\r\n", 1000, 1);
+    wifi_command("set bus.mode stream\r\n", 1000, 1);
+    wifi_command("save\r\n", 1000, 1);
+    wifi_command("reboot\r\n", 5000, 1);
+}
+
 void wifi_init(void)
 {
     // rst wifi chip
