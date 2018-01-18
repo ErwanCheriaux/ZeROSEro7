@@ -13,58 +13,6 @@
 #define USB_HID_KEYS
 
 /**
- * qwerty convertion table 
- */
-
-char usb_to_qwerty[100] = {
-    0,  // No key pressed
-    0,  // Keyboard Error Roll Over
-    0,  // Keyboard POST Fail
-    0,  // Keyboard Error Undefined
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z',
-    '1',
-    '2',
-    '3',
-    '4',
-    '5',
-    '6',
-    '7',
-    '8',
-    '9',
-    '0',
-    '\n',  //Return
-    0,     //Escape
-    0,     //Backspace
-    '\t',  //Tab
-    ' ',   //Space
-};
-
-/**
  * Modifier masks - used for the first byte in the HID report.
  * NOTE: The second byte in the report is reserved, 0x00
  */

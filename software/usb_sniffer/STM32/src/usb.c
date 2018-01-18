@@ -20,7 +20,7 @@
 #include "rtt.h"
 
 uint8_t increment_var = 0;
-uint8_t led_status = 3;
+uint8_t led_status    = 3;
 
 /*
  * USB HID Driver structure.
@@ -277,27 +277,6 @@ static const USBDescriptor hid_strings[] = {
     {sizeof hid_string2, hid_string2}};
 
 /*
- * Debug print
- */
-static void usb_print_info(USBDriver *usbp)
-{
-                rtt_printf("usbp\t\ttransmitting\treceiving");
-                rtt_printf("%08x\t%08x\t%08x", usbp, usbp->transmitting, usbp->receiving);
-                rtt_printf("in_params\tout_params");
-                rtt_printf("%08x\t%08x", *usbp->in_params, *usbp->out_params);
-                rtt_printf("ep0state\tep0next\t\tep0n\t\tep0endcb");
-                rtt_printf("%08x\t%08x\t%08x\t%08x", usbp->ep0state, *usbp->ep0next, usbp->ep0n, usbp->ep0endcb);
-
-                for(int i=0; i<8; i++)
-                    rtt_printf("setup[%d] = %08x", i, usbp->setup[i]);
-
-                rtt_printf("status\t\taddress\t\tconfiguration");
-                rtt_printf("%08x\t%08x\t%08x", usbp->status, usbp->address, usbp->configuration);
-
-                rtt_printf("");
-}
-
-/*
  * Handles the GET_DESCRIPTOR callback. All required descriptors must be
  * handled here.
  */
@@ -418,46 +397,6 @@ static bool req_handler(USBDriver *usbp)
     return hidRequestsHook(usbp);
 }
 
-/**
- * @brief   Generate HID Report
- * @details This function generates the data for an HID report so
- *          that it can be transferred to the host.
- *
- * @param[in]  id       report ID
- * @param[out] bp       data buffer pointer
- * @param[in]  n        the maximum number of bytes for data buffer
- * @return              number of bytes of report in data buffer
- */
-size_t hidGetReport(uint8_t id, uint8_t *bp, size_t n)
-{
-    (void)id;
-    (void)n;
-
-    increment_var++;
-    *bp = increment_var;
-    return sizeof(increment_var);
-}
-
-/**
- * @brief   Set HID Report
- * @details This function sets the data for an HID report
- *          that was transferred from the host.
- *
- * @param[in]  id       report ID
- * @param[in]  bp       data buffer pointer
- * @param[in]  n        the number of bytes in data buffer
- * @return              The operation status.
- * @retval MSG_OK       if the report was set.
- */
-msg_t hidSetReport(uint8_t id, uint8_t *bp, size_t n)
-{
-    (void)id;
-    (void)n;
-
-    increment_var = *bp;
-    return MSG_OK;
-}
-
 /*
  * USB driver configuration.
  */
@@ -522,14 +461,18 @@ void usbh_init(void)
     usbhStart(&USBHD1);
 }
 
-void usbMainLoop(void)
+void usb_report(USBHIDDriver *uhdp, uint8_t *bp)
+{
+    hidWriteReport(uhdp, bp, sizeof bp);
+}
+
+void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
 {
     if(usbhidcfg.usbp->state == USB_ACTIVE) {
-        size_t  n           = 8;
-        uint8_t report_a[8] = {
+        uint8_t report_key[8] = {
             0x00,
             0x00,
-            0x14,  // a
+            key,
             0x00,
             0x00,
             0x00,
@@ -545,13 +488,7 @@ void usbMainLoop(void)
             0x00,
             0x00,
             0x00};
-        hidWriteReport(&UHD2, report_a, n);
-        hidWriteReport(&UHD2, report_null, n);
+        usb_report(uhdp, report_key);
+        usb_report(uhdp, report_null);
     }
-}
-
-void usb_report(USBHIDDriver *uhdp, uint8_t *bp)
-{
-    size_t n = 8;
-    hidWriteReport(uhdp, bp, n);
 }
