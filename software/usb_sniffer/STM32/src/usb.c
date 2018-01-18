@@ -461,9 +461,9 @@ void usbh_init(void)
     usbhStart(&USBHD1);
 }
 
-void usb_report(USBHIDDriver *uhdp, uint8_t *bp)
+void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
 {
-    hidWriteReport(uhdp, bp, sizeof bp);
+    hidWriteReport(uhdp, bp, n);
 }
 
 void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
@@ -488,7 +488,7 @@ void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
             0x00,
             0x00,
             0x00};
-        usb_report(uhdp, report_key);
-        usb_report(uhdp, report_null);
+        usb_report(uhdp, report_key, 8);
+        usb_report(uhdp, report_null, 8);
     }
 }

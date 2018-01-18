@@ -26,7 +26,7 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
-        usb_report(&UHD2, report);
+        usb_report(&UHD2, report, 8);
     }
 }
 

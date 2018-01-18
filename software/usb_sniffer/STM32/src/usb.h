@@ -27,7 +27,7 @@ extern uint8_t            led_status;
 void usb_init(void);
 void usbh_init(void);
 void usb_send_key(USBHIDDriver *uhdp, uint8_t key);
-void usb_report(USBHIDDriver *uhdp, uint8_t *bp);
+void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n);
 
 #endif /* USB_H */
 
