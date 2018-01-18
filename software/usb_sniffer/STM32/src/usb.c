@@ -20,7 +20,7 @@
 #include "rtt.h"
 
 uint8_t increment_var = 0;
-uint8_t led_status = 0;
+uint8_t led_status = 3;
 
 /*
  * USB HID Driver structure.
@@ -392,7 +392,6 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
             return;
         case USB_EVENT_STALLED:
             rtt_printf("USB_EVENT_STALLED");
-            usb_print_info(usbp);
             return;
     }
     return;
@@ -404,11 +403,10 @@ static bool req_handler(USBDriver *usbp)
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
                 rtt_printf("HID_SET_REPORT");
-                usb_print_info(usbp);
 
-                //usbReceive(usbp, USBD2_DATA_REQUEST_EP, &led_status, sizeof(led_status));
-
+                hidReadReport(&UHD2, &led_status, sizeof led_status);
                 rtt_printf("LED : %d", led_status);
+
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
                 return MSG_OK;
             default:
