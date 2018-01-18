@@ -277,6 +277,27 @@ static const USBDescriptor hid_strings[] = {
     {sizeof hid_string2, hid_string2}};
 
 /*
+ * Debug print
+ */
+static void usb_print_info(USBDriver *usbp)
+{
+                rtt_printf("usbp\t\ttransmitting\treceiving");
+                rtt_printf("%08x\t%08x\t%08x", usbp, usbp->transmitting, usbp->receiving);
+                rtt_printf("in_params\tout_params");
+                rtt_printf("%08x\t%08x", *usbp->in_params, *usbp->out_params);
+                rtt_printf("ep0state\tep0next\t\tep0n\t\tep0endcb");
+                rtt_printf("%08x\t%08x\t%08x\t%08x", usbp->ep0state, *usbp->ep0next, usbp->ep0n, usbp->ep0endcb);
+
+                for(int i=0; i<8; i++)
+                    rtt_printf("setup[%d] = %08x", i, usbp->setup[i]);
+
+                rtt_printf("status\t\taddress\t\tconfiguration");
+                rtt_printf("%08x\t%08x\t%08x", usbp->status, usbp->address, usbp->configuration);
+
+                rtt_printf("");
+}
+
+/*
  * Handles the GET_DESCRIPTOR callback. All required descriptors must be
  * handled here.
  */
@@ -371,6 +392,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
             return;
         case USB_EVENT_STALLED:
             rtt_printf("USB_EVENT_STALLED");
+            usb_print_info(usbp);
             return;
     }
     return;
@@ -382,25 +404,11 @@ static bool req_handler(USBDriver *usbp)
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
                 rtt_printf("HID_SET_REPORT");
+                usb_print_info(usbp);
 
-                //usbReadSetupI(usbp, usbp->ep, &led_status);
+                //usbReceive(usbp, USBD2_DATA_REQUEST_EP, &led_status, sizeof(led_status));
 
-                rtt_printf("usbp\t\ttransmitting\treceiving");
-                rtt_printf("%08x\t%08x\t%08x", usbp, usbp->transmitting, usbp->receiving);
-                rtt_printf("in_params\tout_params");
-                rtt_printf("%08x\t%08x", *usbp->in_params, *usbp->out_params);
-                rtt_printf("ep0state\tep0next\t\tep0n\t\tep0endcb");
-                rtt_printf("%08x\t%08x\t%08x\t%08x", usbp->ep0state, *usbp->ep0next, usbp->ep0n, usbp->ep0endcb);
-
-                for(int i=0; i<8; i++)
-                    rtt_printf("setup[%d] = %08x", i, usbp->setup[i]);
-
-                rtt_printf("status\t\taddress\t\tconfiguration");
-                rtt_printf("%08x\t%08x\t%08x", usbp->status, usbp->address, usbp->configuration);
-
-                rtt_printf("");
-
-                led_status++;
+                rtt_printf("LED : %d", led_status);
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
                 return MSG_OK;
             default:
