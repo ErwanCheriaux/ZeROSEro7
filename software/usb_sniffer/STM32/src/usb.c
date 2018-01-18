@@ -408,7 +408,7 @@ static bool req_handler(USBDriver *usbp)
                 rtt_printf("LED : %d", led_status);
 
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
-                return MSG_OK;
+                return true;
             default:
                 // Do nothing
                 rtt_printf("REQ_HANDLER : %08x", usbp->setup[1]);

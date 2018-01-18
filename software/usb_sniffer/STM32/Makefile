@@ -131,7 +131,7 @@ help:
 	@echo		clean          - remove build
 
 startgdbserver:
-	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
+	@pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F205RG
 
 stopgdbserver:
 	@pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true
