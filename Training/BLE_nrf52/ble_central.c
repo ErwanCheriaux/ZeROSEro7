@@ -116,7 +116,7 @@ static ble_gap_scan_params_t const scan_conf =
         .adv_dir_report = 1,  // Enables printing private addresses not peered
 };
 
-uint16_t ble_central_latest_conn;
+volatile uint16_t ble_central_latest_conn;
 
 // BLE Handler
 static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)

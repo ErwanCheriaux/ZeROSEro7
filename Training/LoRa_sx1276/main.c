@@ -90,10 +90,14 @@ static void lora_callback()
     send = !send;
 }
 
+static void do_nothing() {}
+static void phone_write_handler(uint8_t *buff, int length) {}
+
 // TODO Measure Reset time for deep sleep
 int main(void)
 {
     rtt_init();
+    rtt_write_string("RTT initialized\n");
 
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
@@ -102,6 +106,7 @@ int main(void)
     rtt_write_string("LEDs initialized\n");
 
     // Like if we were using BLE, has the side effect of starting LFCLK needed by RTC
+    ble_handler_init(do_nothing, do_nothing, do_nothing, phone_write_handler);
     ble_stack_init();
     ble_gap_init();
     ble_advertise_init();

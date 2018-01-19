@@ -307,8 +307,11 @@ flash_softdevice:
 	$(NRFJPROG) -f nrf52 --program $(SDK_ROOT)/components/softdevice/s132/hex/s132_nrf52_5.0.0_softdevice.hex --sectorerase
 	$(NRFJPROG) -f nrf52 --reset
 
+recover:
+	$(NRFJPROG) --recover
+
 startgdbserver:
-	JLinkGDBServer -device nrf52832_xxAA -if swd -speed auto -port 2331
+	JLinkGDBServer -device nrf52832_xxAA -if swd -speed 1000 -port 2331
 
 debug: $(ELF)
 	$(GDB) $<

@@ -19,6 +19,6 @@ void ble_stop_observing();
 
 // Handle to latest connection, or BLE_CONN_HANDLE_INVALID if not connected.
 // TODO ensure only one connection at a time
-extern uint16_t ble_central_latest_conn;
+extern volatile uint16_t ble_central_latest_conn;
 
 #endif
