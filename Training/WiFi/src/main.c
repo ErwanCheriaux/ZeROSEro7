@@ -24,16 +24,12 @@ int main(void)
 
     led_on();
 
-    //break_stream_mode();
-    //chThdSleep(MS2ST(500));
-    //configure();
-
     char start_seq[] = START_SEQ;
     char buff;
     char filename[MAX_FILENAME_SIZE];
     while(1) {
         wifi_wait_for(start_seq);
-        if(uart_receive_timeout(&buff, 1, MS2ST(1000)))
+        if(!uart_receive_timeout(&buff, 1, MS2ST(1000)))
             continue;
         switch(buff) {
             case 'U': // Upload a file

@@ -21,8 +21,9 @@ void uart_receive(void* buff, int size);
 
 /* Receive data using uart and return 1 if a timeout occured
 ** buff:    receive buffer
-** size:    number of data frames to receive
+** size:    number of bytes to receive
 ** timeout: time to wait for input in system ticks
+** return:  number of byte sent
 */
 int uart_receive_timeout(void* buff, int size, int timeout);
 

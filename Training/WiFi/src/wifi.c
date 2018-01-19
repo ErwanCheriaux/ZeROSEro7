@@ -19,9 +19,11 @@ void configure(void)
     wifi_command("set tcp.server.auto_interface softap\r\n", 1000);
     wifi_command("set tcp.server.auto_start true\r\n", 1000);
     wifi_command("set tcp.server.idle_timeout 300\r\n", 1000);
+    wifi_command("set bus.log_bus uart1\r\n", 1000);
+    wifi_command("set bus.data_bus uart0\r\n", 1000);
     wifi_command("set bus.mode stream\r\n", 1000);
     wifi_command("save\r\n", 1000);
-    wifi_command("reboot\r\n", 5000);
+    wifi_command("reboot\r\n", 3000);
 }
 
 /* Reset wifi chip
@@ -66,7 +68,7 @@ int wifi_command(void* buff, int timeout)
     send_command(buff);
     char uart_buff[2];
     uart_buff[1] = '\0';
-    while(!uart_receive_timeout(uart_buff, 1, MS2ST(timeout)))
+    while(uart_receive_timeout(uart_buff, 1, MS2ST(timeout)))
         rtt_printf(0, uart_buff);
     return 0;
 }
@@ -74,6 +76,12 @@ int wifi_command(void* buff, int timeout)
 void wifi_save_file(char* filename)
 {
     (void)filename;
+    char uart_buff[BUFF_LEN + 1];
+    int nb_char_received;
+    while((nb_char_received = uart_receive_timeout(uart_buff, BUFF_LEN, MS2ST(TIMEOUT)))) {
+        uart_buff[nb_char_received] = '\0';
+        //rtt_printf(0, "%s", uart_buff);
+    }
 }
 
 void wifi_send_file(char* filename)
@@ -93,8 +101,7 @@ void wifi_wait_for(char* msg)
     char uart_buff[2];
     uart_buff[1] = '\0';
     while(char_received != strlen(msg)) {
-        if(!uart_receive_timeout(uart_buff, 1, MS2ST(1000))) {
-            //rtt_printf(0, "%s", uart_buff);
+        if(uart_receive_timeout(uart_buff, 1, MS2ST(1000))) {
             if(uart_buff[0] == msg[char_received])
                 char_received++;
             else
@@ -108,7 +115,7 @@ int wifi_get_word(char* buffer, int max_len, char separator)
 {
     char uart_buff;
     int idx = 0;
-    while(!uart_receive_timeout(&uart_buff, 1, MS2ST(1000)) && idx < max_len) {
+    while(uart_receive_timeout(&uart_buff, 1, MS2ST(1000)) && idx < max_len) {
         if(uart_buff == separator)
             break;
         buffer[idx++] = uart_buff;
