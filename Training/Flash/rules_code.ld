@@ -44,7 +44,7 @@ SECTIONS
         *(.gcc*)
     } > TEXT_FLASH AT > TEXT_FLASH_LMA
 
-    .keyboard_storage : ALIGN(4)
+    .keyboard_storage : ALIGN(32)
     {
         _keyboard_storage_start = .;
         *(.keyboard_storage)
