@@ -44,14 +44,6 @@ SECTIONS
         *(.gcc*)
     } > TEXT_FLASH AT > TEXT_FLASH_LMA
 
-    .keyboard_storage : ALIGN(32)
-    {
-        _keyboard_storage_start = .;
-        *(.keyboard_storage)
-        . = . + 0x200;
-        _keyboard_storage_end = .;
-    } > KEYBOARD_STORAGE_FLASH AT > KEYBOARD_STORAGE_FLASH_LMA
-
     .rodata : ALIGN(4)
     {
         . = ALIGN(4);
@@ -82,4 +74,13 @@ SECTIONS
     {
         *(.eh_frame)
     } > VARIOUS_FLASH AT > VARIOUS_FLASH_LMA
+
+    .keyboard_storage 0x080e0000 :
+    {
+        _keyboard_storage_start = .;
+        *(.keyboard_storage)
+        . = . + 0x1EFFF;
+        . = ALIGN(1024);
+        _keyboard_storage_end = .;
+    } > KEYBOARD_STORAGE_FLASH AT > KEYBOARD_STORAGE_FLASH_LMA
 }

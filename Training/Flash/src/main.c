@@ -27,11 +27,18 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
-        usb_report(&UHD2, report);
+        //usb_report(&UHD2, report);
         if(report[2] == KEY_F2) {
             flash_display();
+        } else if(report[2] == KEY_F3) {
+            int patern = 0xDDEE;
+            for(int i = patern; i < patern + 20; i++)
+                flash_program(i);
+        } else if(report[2] == KEY_F4) {
+            flash_erase();
+        } else if(report[2] != 0) {
+            flash_program(report[2]);
         }
-        flash_program(report[2]);
     }
 }
 
@@ -86,7 +93,7 @@ int main(void)
 
     led_init();
     rtt_init();
-    usb_init();
+    //usb_init();
     usbh_init();
     timer_init();
     flash_init();

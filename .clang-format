@@ -12,7 +12,7 @@ AllowShortBlocksOnASingleLine: 		false
 AllowShortCaseLabelsOnASingleLine: 	true
 AllowShortFunctionsOnASingleLine:	false
 AllowShortIfStatementsOnASingleLine: 	false
-AllowShortLoopsOnASingleLine: 		false
+AllowShortLoopsOnASingleLine: 		true
 Cpp11BracedListStyle: 			true
 SpaceAfterCStyleCast: 			false
 SpaceBeforeAssignmentOperators:		true
