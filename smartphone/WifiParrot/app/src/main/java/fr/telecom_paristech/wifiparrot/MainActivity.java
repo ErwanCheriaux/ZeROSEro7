@@ -13,6 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 
 import java.net.URISyntaxException;
 
@@ -23,6 +24,7 @@ public class MainActivity extends AppCompatActivity
     Button buttonUpload;
     Button buttonDownload;
     Intent wifiIntent;
+    TextView response;
 
     static final int FILE_PICK = 1;
 
@@ -51,12 +53,6 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        buttonScan = (Button)findViewById(R.id.button_scan);
-        buttonScan.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mService.scan();
-            }
-        });
         buttonUpload = (Button)findViewById(R.id.button_upload);
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -72,6 +68,13 @@ public class MainActivity extends AppCompatActivity
                 mService.downloadFile("bleed_it_out.txt");
             }
         });
+        buttonScan = (Button)findViewById(R.id.button_scan);
+        buttonScan.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mService.getFiles(response);
+            }
+        });
+        response = (TextView) findViewById(R.id.text_results);
         // Allow WiFi
         // Location access is only used to make a network scan.
         // If Scan function doesn't works, please enable location on your mobile phone

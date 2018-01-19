@@ -8,6 +8,7 @@ import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.TextView;
 
 public class Wifi extends Service
 {
@@ -57,5 +58,10 @@ public class Wifi extends Service
     public void downloadFile(String filename)
     {
         new Download().execute(filename);
+    }
+
+    public void getFiles(TextView response)
+    {
+        new Scan(response).execute();
     }
 }
