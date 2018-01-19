@@ -40,8 +40,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
             for(dst = &_keyboard_storage_start; dst < &_keyboard_storage_end; dst++)
                 rtt_printf("%d\t%08x\t%08x", i++, *dst, dst);
         } else {
-            //*flash = report[2];
-            *flash = 0x55;
+            *flash = report[2];
+            rtt_printf("Write %08x at address %08x [%08x]", report[2], flash, *flash);
             if(flash < &_keyboard_storage_end)
                 flash++;
         }
