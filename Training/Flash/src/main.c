@@ -18,10 +18,6 @@
 #include "usbh/dev/hid.h"
 #include "chprintf.h"
 
-extern char  _keyboard_storage_start;
-extern char  _keyboard_storage_end;
-static char *flash = &_keyboard_storage_start;
-
 static THD_WORKING_AREA(waTestHID, 1024);
 
 static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
@@ -33,17 +29,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         /* send the key on the computer */
         usb_report(&UHD2, report);
         if(report[2] == KEY_F2) {
-            int   i   = 0;
-            char *dst = &_keyboard_storage_start;
-            rtt_printf("num\tvalue\t\taddress");
-            for(dst = &_keyboard_storage_start; dst < &_keyboard_storage_end; dst++)
-                rtt_printf("%d\t%08x\t%08x", i++, *dst, dst);
-        } else {
-            *flash = report[2];
-            rtt_printf("Write %08x at address %08x [%08x]", report[2], flash, *flash);
-            if(flash < &_keyboard_storage_end)
-                flash++;
+            flash_display();
         }
+        flash_program(report[2]);
     }
 }
 
@@ -101,6 +89,7 @@ int main(void)
     usb_init();
     usbh_init();
     timer_init();
+    flash_init();
 
     timer_on();
 
