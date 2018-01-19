@@ -1,16 +1,15 @@
 package fr.telecom_paristech.wifiparrot;
 
 import android.util.Log;
-import android.widget.TextView;
 
 public class Scan extends Transfer
 {
-    TextView response = null;
+    CallbackInterface callback = null;
     String[] filenames = null;
 
-    Scan(TextView response)
+    Scan(CallbackInterface callback)
     {
-        this.response = response;
+        this.callback = callback;
     }
 
     @Override
@@ -23,7 +22,7 @@ public class Scan extends Transfer
             filenames = response.split(" ");
             Log.i("Download", "Download list");
             for(int i = 0; i < filenames.length; i++)
-                Log.i("Download", i + filenames[i]);
+                Log.i("Download", filenames[i]);
         }
         mTcpClient.closeSocket();
         if(response == null)
@@ -33,9 +32,8 @@ public class Scan extends Transfer
 
     @Override
     protected void onPostExecute(Integer result) {
-        StringBuffer text = new StringBuffer("");
+        callback.removeDownloadButtons();
         for(int i = 0; i < filenames.length; i++)
-            text.append(filenames[i] + " ");
-        response.setText(text.toString());
+            callback.addDownloadButton(filenames[i]);
     }
 }

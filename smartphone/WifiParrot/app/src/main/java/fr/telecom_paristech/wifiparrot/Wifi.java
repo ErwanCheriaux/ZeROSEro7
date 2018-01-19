@@ -7,8 +7,6 @@ import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.IBinder;
-import android.util.Log;
-import android.widget.TextView;
 
 public class Wifi extends Service
 {
@@ -37,14 +35,6 @@ public class Wifi extends Service
         }
     }
 
-    public void scan()
-    {
-        if(!wifiManager.startScan())
-            Log.println(Log.ERROR, "Scan", "startScan Error");
-        wifiReceiver.scan_started = true;
-        Log.println(Log.INFO, "Scan", "Start");
-    }
-
     public IBinder onBind(Intent intent)
     {
         return mBinder;
@@ -60,8 +50,8 @@ public class Wifi extends Service
         new Download().execute(filename);
     }
 
-    public void getFiles(TextView response)
+    public void getFiles(CallbackInterface callback)
     {
-        new Scan(response).execute();
+        new Scan(callback).execute();
     }
 }

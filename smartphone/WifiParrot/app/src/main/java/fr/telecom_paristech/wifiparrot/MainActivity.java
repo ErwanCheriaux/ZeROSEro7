@@ -13,7 +13,7 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
+import android.widget.LinearLayout;
 
 import java.net.URISyntaxException;
 
@@ -22,9 +22,8 @@ public class MainActivity extends AppCompatActivity
     Wifi mService;
     Button buttonScan;
     Button buttonUpload;
-    Button buttonDownload;
     Intent wifiIntent;
-    TextView response;
+    LinearLayout layout;
 
     static final int FILE_PICK = 1;
 
@@ -52,7 +51,7 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
+        layout = new LinearLayout(getApplicationContext());
         buttonUpload = (Button)findViewById(R.id.button_upload);
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -62,19 +61,30 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(intent, FILE_PICK);
             }
         });
-        buttonDownload = (Button)findViewById(R.id.button_download);
-        buttonDownload.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                mService.downloadFile("bleed_it_out.txt");
-            }
-        });
         buttonScan = (Button)findViewById(R.id.button_scan);
         buttonScan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.getFiles(response);
+                mService.getFiles(new CallbackInterface() {
+                    @Override
+                    public void addDownloadButton(String text) {
+                        Button newBtn = new Button(getApplicationContext());
+                        newBtn.setText(text);
+                        newBtn.setOnClickListener(new View.OnClickListener() {
+                            public void onClick(View v) {
+                                mService.downloadFile(((Button)v).getText().toString());
+                            }
+                        });
+                        layout.addView(newBtn);
+                    }
+
+                    @Override
+                    public void removeDownloadButtons() {
+                        layout.removeAllViews();
+                    }
+                });
             }
         });
-        response = (TextView) findViewById(R.id.text_results);
+        layout = (LinearLayout)findViewById(R.id.layout_scan);
         // Allow WiFi
         // Location access is only used to make a network scan.
         // If Scan function doesn't works, please enable location on your mobile phone

@@ -11,36 +11,28 @@
     tools:context="fr.telecom_paristech.wifiparrot.MainActivity">
 
     <Button
-        android:id="@+id/button_scan"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
-        android:text="Scan" />
-
-    <Button
         android:id="@+id/button_upload"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/button_scan"
         android:text="Upload" />
 
     <Button
-        android:id="@+id/button_download"
+        android:id="@+id/button_scan"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/button_upload"
         android:text="Download" />
 
-    <EditText
-        android:id="@+id/text_results"
+    <LinearLayout
+        android:id="@+id/layout_scan"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_alignParentStart="true"
-        android:layout_below="@+id/button_download"
-        android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Results" />
+        android:layout_below="@+id/button_scan"
+        android:orientation="vertical">
+
+    </LinearLayout>
 
 </RelativeLayout>
