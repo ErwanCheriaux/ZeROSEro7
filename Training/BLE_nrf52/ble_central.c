@@ -23,6 +23,7 @@
 #include "nrf_log_default_backends.h"
 
 #include "rtt.h"
+#include "ble_uart_service.h"
 
 /**@brief Variable length data encapsulation in terms of length and pointer to data. */
 typedef struct
@@ -33,6 +34,12 @@ typedef struct
 
 // GAP Handler
 
+static void (*ble_on_notice_phone)();                          // Handler from main
+static void (*ble_on_phone_connected)();                       // Handler from main
+static void (*ble_on_phone_disconnected)();                    // Handler from main
+static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from main
+
+static char *   phone_expected_name = "ZeROSEro7 phone";
 static uint32_t parse_advdata(data_t const *const adv_data)
 {
     uint32_t field_index = 0;
@@ -51,12 +58,18 @@ static uint32_t parse_advdata(data_t const *const adv_data)
         field_data.p_data   = &p_data[field_index + 2];
         field_data.data_len = field_length - 1;
         rtt_write_string("Data: ");
+
         if(field_type == BLE_GAP_AD_TYPE_COMPLETE_LOCAL_NAME || field_type == BLE_GAP_AD_TYPE_SHORT_LOCAL_NAME) {
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
+            rtt_write_string("\n");
+            if(!memcmp(phone_expected_name, (char *)field_data.p_data, sizeof(phone_expected_name))) {  // TODO Shifting codes via pairing.
+                ble_on_notice_phone();
+            }
+
         } else {
             rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
+            rtt_write_string("\n");
         }
-        rtt_write_string("\n");
 
         field_index += field_length + 1;
     }
@@ -87,7 +100,7 @@ static void on_adv_report(const ble_evt_t *const p_ble_evt)
     parse_advdata(&adv_data);
 }
 
-    // Scanning Parameters
+// Scanning Parameters
 
 #define SCAN_INTERVAL 0x00A0 /**< Determines scan interval in units of 0.625 millisecond. */
 #define SCAN_WINDOW 0x0050   /**< Determines scan window in units of 0.625 millisecond. */
@@ -103,29 +116,72 @@ static ble_gap_scan_params_t const scan_conf =
         .adv_dir_report = 1,  // Enables printing private addresses not peered
 };
 
-// BLE Handler
+uint16_t ble_central_latest_conn;
 
+// BLE Handler
 static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
 {
     ret_code_t err_code;
 
+    static ble_gap_conn_params_t new_conn_params;
+    static ble_gatts_evt_write_t write_evt;
+
     switch(p_ble_evt->header.evt_id) {
-        case BLE_GAP_EVT_ADV_REPORT: {
+        case BLE_GAP_EVT_ADV_REPORT:
             on_adv_report(p_ble_evt);
-        } break;
+            break;
+
+        case BLE_GAP_EVT_CONNECTED:
+            rtt_printf(0, "Connected with: %08x\n", p_ble_evt->evt.gap_evt.params.connected.peer_addr);
+            ble_on_phone_connected();
+            ble_central_latest_conn = p_ble_evt->evt.gap_evt.conn_handle;
+            break;
+        case BLE_GAP_EVT_DISCONNECTED:
+            rtt_printf(0, "Disconnected because HCI reason:%04x\n",
+                       p_ble_evt->evt.gap_evt.params.disconnected.reason);
+            ble_on_phone_disconnected();
+            ble_central_latest_conn = BLE_CONN_HANDLE_INVALID;
+            break;
+        case BLE_GAP_EVT_CONN_PARAM_UPDATE:
+            new_conn_params = p_ble_evt->evt.gap_evt.params.conn_param_update.conn_params;
+            rtt_printf(0, "Params Update\nmin_conn_interval:%u\nmax_conn_interval:%u\nslave_latency:%u\nconn_sup_timeout:%u\n",
+                       new_conn_params.min_conn_interval * 5 / 4,
+                       new_conn_params.max_conn_interval * 5 / 4,
+                       new_conn_params.slave_latency,
+                       new_conn_params.conn_sup_timeout * 10);
+            break;
+        case BLE_GAP_EVT_TIMEOUT:
+        case BLE_GAP_EVT_SEC_PARAMS_REQUEST:
+        case BLE_GAP_EVT_SEC_INFO_REQUEST:
+        case BLE_GAP_EVT_AUTH_KEY_REQUEST:
+        case BLE_GAP_EVT_PASSKEY_DISPLAY:
+        case BLE_GAP_EVT_AUTH_STATUS:
+        case BLE_GAP_EVT_CONN_SEC_UPDATE:
+        case BLE_GAP_EVT_SEC_REQUEST:
+        case BLE_GAP_EVT_CONN_PARAM_UPDATE_REQUEST:
+            rtt_printf(0, "GAP EVT : %u\n", p_ble_evt->header.evt_id - BLE_GAP_EVT_CONNECTED);
+            break;
+
+        case BLE_GATTS_EVT_WRITE:
+            write_evt = p_ble_evt->evt.gatts_evt.params.write;
+            rtt_printf(0, "GATT Write\n");
+            if(write_evt.handle == uart_characteristic_config.char_handles.value_handle)
+                ble_on_phone_write(ble_uart_characteristic_value, write_evt.len);
+            break;
+
+        // REVIEW Bonus Bonding events
 
         default:
-            // No implementation needed.
             break;
     }
 }
 
-    // BLE Parameters
+// BLE Parameters
 
 #define APP_BLE_CONN_CFG_TAG 1  /**< A tag identifying the SoftDevice BLE configuration. */
 #define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 
-static void ble_stack_init()
+void ble_stack_init()
 {
     ret_code_t err_code;
 
@@ -144,9 +200,22 @@ static void ble_stack_init()
 }
 
 // Exports
-void ble_init(void)
+void ble_handler_init(
+    void (*phone_noticed_handler)(),
+    void (*phone_connected_handler)(),
+    void (*phone_disconnected_handler)(),
+    void (*phone_write_handler)(uint8_t *buff, int length))
 {
-    ble_stack_init();
+    if(phone_noticed_handler == NULL ||
+       phone_connected_handler == NULL ||
+       phone_disconnected_handler == NULL ||
+       phone_write_handler == NULL) {
+        APP_ERROR_CHECK(NRF_ERROR_INVALID_PARAM);
+    }
+    ble_on_notice_phone       = phone_noticed_handler;
+    ble_on_phone_connected    = phone_connected_handler;
+    ble_on_phone_disconnected = phone_disconnected_handler;
+    ble_on_phone_write        = phone_write_handler;
 }
 
 void ble_start_observing()
@@ -156,4 +225,9 @@ void ble_start_observing()
 
     err_code = sd_ble_gap_scan_start(&scan_conf);
     APP_ERROR_CHECK(err_code);
+}
+
+void ble_stop_observing()
+{
+    sd_ble_gap_scan_stop();
 }

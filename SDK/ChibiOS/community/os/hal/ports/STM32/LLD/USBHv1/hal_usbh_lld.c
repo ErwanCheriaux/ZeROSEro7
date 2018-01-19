@@ -16,7 +16,6 @@
 */
 
 #include "hal.h"
-#include "rtt.h"
 
 #if HAL_USE_USBH
 #include "usbh/internal.h"

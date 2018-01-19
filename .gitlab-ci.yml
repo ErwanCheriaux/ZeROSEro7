@@ -34,21 +34,23 @@ lint_main:
 
 lint_apps:
   stage: lint
-  image : runmymind/docker-android-sdk
+  image : lpzantony/ndk
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew lint
     - cd ../WifiParrot
     - ./gradlew lint
-
-lint_test:
-  stage: lint
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make format
-    - git status --porcelain
+  tags:
+    - android
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # BUILD STAGE
 
@@ -65,6 +67,8 @@ build_main:
     - cd ../WiFi
     - make
     - cd ../LoRa_sx1276
+    - make test_board
+    - make clean
     - make
   artifacts:
     paths:
@@ -76,10 +80,12 @@ build_main:
 
 build_apps:
   stage: build
-  image : runmymind/docker-android-sdk
+  image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
+    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew build
     - cd ../WifiParrot
     - ./gradlew build
@@ -88,37 +94,37 @@ build_apps:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
-
-build_test:
-  stage: build
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make
-  artifacts:
+  tags:
+    - android
+  cache:
+    key: android
     paths:
-    - Training/Test/main
-    expire_in: 20 minutes
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # TEST STAGE
 
 # Runs all JUnit tests
 test_apps:
   stage: test
-  image : runmymind/docker-android-sdk
+  image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew test
     - cd ../WifiParrot
     - ./gradlew test
-
-test_test:
-  stage: test
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - ./main
+  tags:
+    - android
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # DEPLOY STAGE
 

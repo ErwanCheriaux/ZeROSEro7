@@ -1,5 +1,18 @@
 apply plugin: 'com.android.application'
 
+apply plugin: 'checkstyle'
+
+task checkstyle(type: Checkstyle) {
+    configFile file("${project.rootDir}/config/checkstyle/checkstyle.xml")
+    source 'src'
+    include '**/*.java'
+    exclude '**/generated/**'
+
+    classpath = files()
+}
+
+lint.dependsOn 'checkstyle'
+
 android {
     compileSdkVersion 24
     buildToolsVersion "24.0.3"
