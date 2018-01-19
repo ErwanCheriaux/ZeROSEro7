@@ -148,6 +148,8 @@ public class GAPService extends Service {
                                           BluetoothGattDescriptor descriptor,
                                           int status) {
                 deviceGatt.requestMtu(512);
+                Log.i("GAPService", "MTU of 512 requested");
+
             }
 
             @Override

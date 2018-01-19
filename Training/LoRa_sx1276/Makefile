@@ -6,15 +6,15 @@ NORDIC_DIR	 := ../../SDK/BLE_nordic
 SDK_ROOT     := $(NORDIC_DIR)/nRF5_SDK
 COMMAND_ROOT := $(NORDIC_DIR)/nRF5x-Command-Line-Tools
 PROJ_DIR     := .
+BLE_TRAINING_DIR = $(PROJ_DIR)/../BLE_nrf52
 
 GNU_PREFIX    := arm-none-eabi-
-LINKER_SCRIPT := spi_gcc_nrf52.ld
+LINKER_SCRIPT := $(BLE_TRAINING_DIR)/nrf52832_xxaa.ld
 
 GDB := $(GNU_PREFIX)gdb
 ELF := $(OUTPUT_DIRECTORY)/$(TARGETS).out
 HEX := $(OUTPUT_DIRECTORY)/$(TARGETS).hex
 
-BLE_TRAINING_DIR = $(PROJ_DIR)/../BLE_nrf52
 
 USER_SRC = \
 	$(PROJ_DIR)/main.c \
@@ -100,6 +100,7 @@ SRC_FILES += $(USER_SRC) \
 	$(SDK_ROOT)/components/ble/ble_services/ble_ans_c/ble_ans_c.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_ble.c \
+    $(SDK_ROOT)/components/ble/ble_services/ble_dis/ble_dis.c \
 	$(SDK_ROOT)/components/softdevice/common/nrf_sdh_soc.c \
     $(SDK_ROOT)/components/drivers_nrf/spi_master/nrf_drv_spi.c \
 	$(SDK_ROOT)/components/libraries/mem_manager/mem_manager.c \

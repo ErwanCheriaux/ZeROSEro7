@@ -2,10 +2,6 @@
 #include <stdint.h>
 #include "nrf_delay.h"
 #include "boards.h"
-#include "ble_central.h"
-#include "ble_peripheral_gap.h"
-#include "ble_peripheral_gatt.h"
-#include "rtt.h"
 #include "app_error.h"
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
@@ -13,6 +9,10 @@
 #include "app_timer.h"
 
 #include "ble_uart_service.h"
+#include "ble_central.h"
+#include "ble_peripheral_gap.h"
+#include "ble_peripheral_gatt.h"
+#include "rtt.h"
 
 // Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
@@ -63,11 +63,6 @@ static void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
-static void timer_init()
-{
-    APP_ERROR_CHECK(app_timer_init());
-}
-
 #include "nrf_drv_gpiote.h"
 static nrf_drv_gpiote_out_config_t led_config = {
     NRF_GPIOTE_POLARITY_TOGGLE,
@@ -76,8 +71,6 @@ static nrf_drv_gpiote_out_config_t led_config = {
 
 int main(void)
 {
-    timer_init();
-
     rtt_init();
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");

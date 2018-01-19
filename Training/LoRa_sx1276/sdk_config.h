@@ -53,7 +53,7 @@
 // <q> BSP_BTN_BLE_ENABLED  - bsp_btn_ble - Button Control for BLE
 
 #ifndef BSP_BTN_BLE_ENABLED
-#define BSP_BTN_BLE_ENABLED 1
+#define BSP_BTN_BLE_ENABLED 0
 #endif
 
 // </h>
@@ -161,7 +161,7 @@
 // <q> BLE_ANS_C_ENABLED  - ble_ans_c - Alert Notification Service Client
 
 #ifndef BLE_ANS_C_ENABLED
-#define BLE_ANS_C_ENABLED 1
+#define BLE_ANS_C_ENABLED 0
 #endif
 
 // <q> BLE_BAS_C_ENABLED  - ble_bas_c - Battery Service Client
@@ -191,7 +191,7 @@
 // <q> BLE_DIS_ENABLED  - ble_dis - Device Information Service
 
 #ifndef BLE_DIS_ENABLED
-#define BLE_DIS_ENABLED 0
+#define BLE_DIS_ENABLED 1
 #endif
 
 // <q> BLE_GLS_ENABLED  - ble_gls - Glucose Service
@@ -2357,7 +2357,7 @@
 // <o> MEMORY_MANAGER_SMALL_BLOCK_COUNT - Size of each memory blocks identified as 'small' block.  <0-255>
 
 #ifndef MEMORY_MANAGER_SMALL_BLOCK_COUNT
-#define MEMORY_MANAGER_SMALL_BLOCK_COUNT 1
+#define MEMORY_MANAGER_SMALL_BLOCK_COUNT 0
 #endif
 
 // <o> MEMORY_MANAGER_SMALL_BLOCK_SIZE -  Size of each memory blocks identified as 'small' block.
@@ -2676,7 +2676,7 @@
 // <e> NRF_PWR_MGMT_ENABLED - nrf_pwr_mgmt - Power management module
 //==========================================================
 #ifndef NRF_PWR_MGMT_ENABLED
-#define NRF_PWR_MGMT_ENABLED 0
+#define NRF_PWR_MGMT_ENABLED 1
 #endif
 // <e> NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED - Enables pin debug in the module.
 
@@ -5128,7 +5128,7 @@
 
 // <o> NRF_SDH_BLE_VS_UUID_COUNT - The number of vendor-specific UUIDs.
 #ifndef NRF_SDH_BLE_VS_UUID_COUNT
-#define NRF_SDH_BLE_VS_UUID_COUNT 0
+#define NRF_SDH_BLE_VS_UUID_COUNT 4
 #endif
 
 // <q> NRF_SDH_BLE_SERVICE_CHANGED  - Include the Service Changed characteristic in the Attribute Table.

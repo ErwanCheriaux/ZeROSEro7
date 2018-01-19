@@ -125,6 +125,7 @@ void ble_conn_negociation_init()
     conn_neg_init.evt_handler                    = NULL;
     conn_neg_init.error_handler                  = conn_neg_error_handler;
 
+    APP_ERROR_CHECK(app_timer_init());
     APP_ERROR_CHECK(ble_conn_params_init(&conn_neg_init));
 }
 
