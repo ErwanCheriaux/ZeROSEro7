@@ -54,4 +54,9 @@ public class Wifi extends Service
     {
         new Scan(callback).execute();
     }
+
+    public void removeFile(String filename, CallbackInterface callback)
+    {
+        new Remove(filename, callback).execute();
+    }
 }

@@ -48,6 +48,14 @@ int main(void)
                 wifi_send_file(filename);
                 rtt_printf(0, "Download ended\n");
                 break;
+            case 'R': // Remove a file
+                rtt_printf(0, "Remove file: ");
+                if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
+                    break;
+                rtt_printf(0, "%s\n", filename);
+                // TODO: Remove file
+                rtt_printf(0, "Done\n");
+                break;
             case 'L': // Get file list
                 rtt_printf(0, "List asked\n");
                 chThdSleep(MS2ST(500));

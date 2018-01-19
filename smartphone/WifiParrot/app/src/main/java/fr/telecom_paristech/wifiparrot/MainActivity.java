@@ -11,8 +11,11 @@ import android.os.IBinder;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.net.URISyntaxException;
@@ -24,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     Button buttonUpload;
     Intent wifiIntent;
     LinearLayout layout;
+    CallbackInterface callbacks;
 
     static final int FILE_PICK = 1;
 
@@ -51,7 +55,28 @@ public class MainActivity extends AppCompatActivity
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        callbacks = new CallbackInterface() {
+            @Override
+            public void addDownloadButton(String text) {
+                addButton(text);
+            }
+
+            @Override
+            public void removeDownloadButtons() {
+                layout.removeAllViews();
+            }
+
+            @Override
+            public void removeDownloadButton(String filename) {
+                for(int i = 0; i < layout.getChildCount(); i++)
+                    if(((Button)((LinearLayout)layout.getChildAt(i)).getChildAt(0)).getText().equals(filename))
+                        layout.removeViewAt(i);
+            }
+        };
+
         layout = new LinearLayout(getApplicationContext());
+
         buttonUpload = (Button)findViewById(R.id.button_upload);
         buttonUpload.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
@@ -61,27 +86,11 @@ public class MainActivity extends AppCompatActivity
                 startActivityForResult(intent, FILE_PICK);
             }
         });
+
         buttonScan = (Button)findViewById(R.id.button_scan);
         buttonScan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.getFiles(new CallbackInterface() {
-                    @Override
-                    public void addDownloadButton(String text) {
-                        Button newBtn = new Button(getApplicationContext());
-                        newBtn.setText(text);
-                        newBtn.setOnClickListener(new View.OnClickListener() {
-                            public void onClick(View v) {
-                                mService.downloadFile(((Button)v).getText().toString());
-                            }
-                        });
-                        layout.addView(newBtn);
-                    }
-
-                    @Override
-                    public void removeDownloadButtons() {
-                        layout.removeAllViews();
-                    }
-                });
+                mService.getFiles(callbacks);
             }
         });
         layout = (LinearLayout)findViewById(R.id.layout_scan);
@@ -107,6 +116,31 @@ public class MainActivity extends AppCompatActivity
     protected void onStop() {
         super.onStop();
         unbindService(mConnection);
+    }
+
+    public void addButton(String filename)
+    {
+        Button downloadBtn = new Button(getApplicationContext());
+        downloadBtn.setText(filename);
+        downloadBtn.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                mService.downloadFile(((Button)v).getText().toString());
+            }
+        });
+        ImageButton removeBtn = new ImageButton(getApplicationContext());
+        removeBtn.setBackgroundResource(R.drawable.delete);
+        removeBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mService.removeFile(((Button)(((LinearLayout)v.getParent()).getChildAt(0))).getText().toString(), callbacks);
+            }
+        });
+        LinearLayout hLayout = new LinearLayout(getApplicationContext());
+        hLayout.setOrientation(LinearLayout.HORIZONTAL);
+        hLayout.setGravity(Gravity.CENTER_VERTICAL);
+        hLayout.addView(downloadBtn, 0);
+        hLayout.addView(removeBtn, 1);
+        layout.addView(hLayout);
     }
 
     private ServiceConnection mConnection = new ServiceConnection()

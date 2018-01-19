@@ -33,6 +33,8 @@ public class Scan extends Transfer
     @Override
     protected void onPostExecute(Integer result) {
         callback.removeDownloadButtons();
+        if(filenames == null)
+            return;
         for(int i = 0; i < filenames.length; i++)
             callback.addDownloadButton(filenames[i]);
     }
