@@ -1,5 +1,6 @@
 //main.c
 
+#include <string.h>
 #include "ch.h"
 #include "hal.h"
 
@@ -21,22 +22,46 @@ int main(void)
     wifi_init();
     rtt_init();
 
-    rtt_printf(0, "\n======== INITIALIZATION SUCCED ========\n\n");
     led_on();
 
     //break_stream_mode();
     //chThdSleep(MS2ST(500));
     //configure();
 
-    // Receive
-    int size = 1;
-    char buff[size + 1];
-    buff[size] = '\0';
+    char start_seq[] = START_SEQ;
+    char buff;
+    char filename[MAX_FILENAME_SIZE];
     while(1) {
-        if(uart_receive_timeout(buff, size, MS2ST(2000)))
-            rtt_printf(0, "Timeout\n");
-        else
-            rtt_printf(0, "%s", buff);
+        wifi_wait_for(start_seq);
+        if(!uart_receive_timeout(&buff, 1, MS2ST(1000)))
+            continue;
+        switch(buff) {
+            case 'U': // Upload a file
+                rtt_printf(0, "File uploading: ");
+                if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
+                    break;
+                rtt_printf(0, "%s\n", filename);
+                wifi_save_file(filename);
+                break;
+            case 'D': // Download a file
+                rtt_printf(0, "File download: ");
+                if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
+                    break;
+                rtt_printf(0, "%s\n", filename);
+                wifi_send_file(filename);
+                break;
+            case 'L': // Get file list
+                strcpy(filename, "First_file_name.txt\0");
+                uart_send(filename);
+                strcpy(filename, " \0");
+                uart_send(filename);
+                strcpy(filename, "Second_file_name.txt\0");
+                uart_send(filename);
+                strcpy(filename, "\r\n\0");
+                uart_send(filename);
+                break;
+            default: rtt_printf(0, "[ERROR] Unkown command: %c\n", buff);
+        }
     }
     
     chThdSleep(TIME_INFINITE);

@@ -1,20 +1,20 @@
 package fr.telecom_paristech.wifiparrot;
 
-import android.os.SystemClock;
-import android.util.Log;
-
 /* Inspired by https://stackoverflow.com/questions/38162775/really-simple-tcp-client
  */
+
+import android.util.Log;
 
 public class Download extends Transfer
 {
     protected Integer doInBackground(String... input)
     {
         mTcpClient.openSocket();
-        while(true) {
-            String msg = mTcpClient.receive();
-            Log.i("TCP receive", msg);
-            SystemClock.sleep(100);
-        }
+        mTcpClient.send(START_SEQ + "L\n");
+        String response = mTcpClient.receive();
+        Log.i("Download list", response);
+        mTcpClient.send(START_SEQ + "DFile_wanted.txt\n");
+        mTcpClient.closeSocket();
+        return 0;
     }
 }
