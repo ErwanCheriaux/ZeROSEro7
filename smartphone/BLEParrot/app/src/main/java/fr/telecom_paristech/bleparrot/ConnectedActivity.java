@@ -60,6 +60,7 @@ public class ConnectedActivity extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(GAPService.DEVICE_NOTIFICATION_ACTION)) {
                 logWindow.append("<- " + intent.getStringExtra("Message") + "\n");
+                logWindow.scrollTo(0,0);
             }
         }
     };

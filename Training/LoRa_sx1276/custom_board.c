@@ -5,7 +5,7 @@
 
 static nrf_drv_gpiote_out_config_t led_config = {
     NRF_GPIOTE_POLARITY_TOGGLE,
-    NRF_GPIOTE_INITIAL_VALUE_HIGH,
+    NRF_GPIOTE_INITIAL_VALUE_LOW,
     false};
 
 void leds_init()

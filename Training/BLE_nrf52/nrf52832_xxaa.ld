@@ -13,7 +13,7 @@ GROUP(-lgcc -lc -lnosys)
 MEMORY
 {
   FLASH (rx) : ORIGIN = 0x23000, LENGTH = 0x5d000
-  RAM (rwx) :  ORIGIN = 0x20002120, LENGTH = 0xDEE0
+  RAM (rwx) :  ORIGIN = 0x200027B0, LENGTH = 0xD850
 }
 
 SECTIONS

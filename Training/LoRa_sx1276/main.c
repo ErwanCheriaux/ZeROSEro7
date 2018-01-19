@@ -127,7 +127,7 @@ static void phone_write_handler(uint8_t *buff, int length)
     rtt_write_string("Sending data to phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    phone_send_notification(buff, length);
+    phone_send_notification((uint8_t*)"abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", 50);
 }
 
 
