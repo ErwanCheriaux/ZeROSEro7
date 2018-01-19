@@ -33,7 +33,7 @@ int main(void)
     char filename[MAX_FILENAME_SIZE];
     while(1) {
         wifi_wait_for(start_seq);
-        if(!uart_receive_timeout(&buff, 1, MS2ST(1000)))
+        if(uart_receive_timeout(&buff, 1, MS2ST(1000)))
             continue;
         switch(buff) {
             case 'U': // Upload a file
@@ -48,17 +48,22 @@ int main(void)
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
                 rtt_printf(0, "%s\n", filename);
+                chThdSleep(MS2ST(1000));
                 wifi_send_file(filename);
+                rtt_printf(0, "Download ended\n");
                 break;
             case 'L': // Get file list
+                rtt_printf(0, "List asked\n");
+                chThdSleep(MS2ST(1000));
                 strcpy(filename, "First_file_name.txt\0");
                 uart_send(filename);
                 strcpy(filename, " \0");
                 uart_send(filename);
                 strcpy(filename, "Second_file_name.txt\0");
                 uart_send(filename);
-                strcpy(filename, "\r\n\0");
+                strcpy(filename, "\n\0");
                 uart_send(filename);
+                rtt_printf(0, "List sent\n");
                 break;
             default: rtt_printf(0, "[ERROR] Unkown command: %c\n", buff);
         }

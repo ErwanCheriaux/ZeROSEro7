@@ -9,6 +9,7 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
+import java.net.SocketTimeoutException;
 
 /* Inspired by https://stackoverflow.com/questions/38162775/really-simple-tcp-client
  */
@@ -17,6 +18,7 @@ public class TcpClient
 {
     public static final String SERVER_IP = "10.10.10.1"; //server IP address
     public static final int SERVER_PORT = 3000;
+    private static final int TIMEOUT = 4000;
     // used to send messages
     private PrintWriter mBufferOut;
     // used to read messages from the server
@@ -31,6 +33,7 @@ public class TcpClient
         if (mBufferOut != null && !mBufferOut.checkError()) {
             mBufferOut.println(message);
             mBufferOut.flush();
+            Log.i("Tcp send", message);
         } else
             Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
     }
@@ -38,6 +41,8 @@ public class TcpClient
     public String receive() {
         try {
             return mBufferIn.readLine();
+        } catch(SocketTimeoutException e) {
+            Log.i("RCP receive", "Timeout");
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -52,6 +57,7 @@ public class TcpClient
             Log.i("TCP Client", "C: Connecting...");
             //create a socket to make the connection with the server
             socket = new Socket(serverAddr, SERVER_PORT);
+            socket.setSoTimeout(TIMEOUT);
             try {
                 //sends the message to the server
                 mBufferOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);

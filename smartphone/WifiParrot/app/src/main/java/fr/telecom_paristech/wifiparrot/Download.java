@@ -12,8 +12,10 @@ public class Download extends Transfer
         mTcpClient.openSocket();
         mTcpClient.send(START_SEQ + "L\n");
         String response = mTcpClient.receive();
-        Log.i("Download list", response);
-        mTcpClient.send(START_SEQ + "DFile_wanted.txt\n");
+        if(response != null) {
+            Log.i("Download list", response);
+            mTcpClient.send(START_SEQ + "DFile_wanted.txt\n");
+        }
         mTcpClient.closeSocket();
         return 0;
     }

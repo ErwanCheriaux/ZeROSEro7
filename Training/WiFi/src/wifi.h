@@ -14,10 +14,9 @@ void wifi_init(void);
 /* Send data using uart and print response
 ** buff:    message to send buffer
 ** timeout: WiFi chip waiting time in ms
-** display: will command and answer be displayed? 
 ** return:  error code (0 means success)
 */
-int wifi_command(void* buff, int timeout, int display);
+int wifi_command(void* buff, int timeout);
 
 /* Move a file from wifi chip flash to stm32 fash
 ** file must be composed of one or several files named <filename>_<i>,
