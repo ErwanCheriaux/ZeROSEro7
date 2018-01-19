@@ -78,7 +78,12 @@ void wifi_save_file(char* filename)
 
 void wifi_send_file(char* filename)
 {
-    (void)filename;
+    if(strcmp(filename, "bleed_it_out.txt") != 0) {
+        rtt_printf(0, "[ERROR] File do not exists: %s\n", filename);
+        return;
+    }
+    char file[] = "This is a file content.\nIf you can read this message, download was successful zefhvbeuvbhekvrjbhnskvrunhlkuvnhqkuvr grjk abjrkdvbhcukbg rajkbh kzjbhgvuvskbhgcjbejvnsklnhviudnbvjerhgcuzjhgvsukdhvusjhgvscdhgvnkjhbvnsfhgjchnfgjkchdjkvhjkvbhgnjkccngcjdhvbkjvdhnvcqjkhdvnjdfhvb jkhvnjkdqhvnjdhvndfjh jfvsjdfvnjdfvhnfjvnfjhvgnv jkhgnvdjfhvngjkvfnhvgnudkrjvgniuej vghiujbh vbhjrbgvjkdbhgniujcbhniugvjbhdrngjkvhsdrngjkvbhnsjkghb jrgh iurnkjh bhjfbhjfb uhj gbqhj hqkjhg qjgkvq nkjg hjk fdj ndf  !!\n";
+    uart_send(file);
 }
 
 void wifi_wait_for(char* msg)

@@ -18,7 +18,7 @@ public class Scan extends Transfer
     {
         mTcpClient.openSocket();
         mTcpClient.send(START_SEQ + "L\n");
-        String response = mTcpClient.receive();
+        String response = mTcpClient.receive_line();
         if(response != null) {
             filenames = response.split(" ");
             Log.i("Download", "Download list");

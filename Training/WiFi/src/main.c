@@ -48,13 +48,13 @@ int main(void)
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
                 rtt_printf(0, "%s\n", filename);
-                chThdSleep(MS2ST(1000));
+                chThdSleep(MS2ST(500));
                 wifi_send_file(filename);
                 rtt_printf(0, "Download ended\n");
                 break;
             case 'L': // Get file list
                 rtt_printf(0, "List asked\n");
-                chThdSleep(MS2ST(1000));
+                chThdSleep(MS2ST(500));
                 strcpy(filename, "First_file_name.txt\0");
                 uart_send(filename);
                 strcpy(filename, " \0");

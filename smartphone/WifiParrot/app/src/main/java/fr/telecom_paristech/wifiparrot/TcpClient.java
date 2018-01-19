@@ -10,15 +10,17 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 import java.net.SocketTimeoutException;
+import java.util.Arrays;
 
 /* Inspired by https://stackoverflow.com/questions/38162775/really-simple-tcp-client
  */
 
 public class TcpClient
 {
-    public static final String SERVER_IP = "10.10.10.1"; //server IP address
-    public static final int SERVER_PORT = 3000;
+    private static final String SERVER_IP = "10.10.10.1"; //server IP address
+    private static final int SERVER_PORT = 3000;
     private static final int TIMEOUT = 4000;
+    private static final int BUFF_LEN = 512;
     // used to send messages
     private PrintWriter mBufferOut;
     // used to read messages from the server
@@ -38,11 +40,30 @@ public class TcpClient
             Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
     }
 
-    public String receive() {
+    public String receive_line()
+    {
         try {
             return mBufferIn.readLine();
         } catch(SocketTimeoutException e) {
-            Log.i("RCP receive", "Timeout");
+            Log.i("TCP receive", "Timeout");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public String receive()
+    {
+        try {
+            char[] buffer = new char[BUFF_LEN];
+            int nb_char = mBufferIn.read(buffer, 0, BUFF_LEN);
+            if(nb_char == -1) {
+                Log.i("Download buffer", "EOF reached");
+                return null;
+            }
+            return String.valueOf(buffer);
+        } catch(SocketTimeoutException e) {
+            Log.i("TCP receive", "Timeout");
         } catch (IOException e) {
             e.printStackTrace();
         }
