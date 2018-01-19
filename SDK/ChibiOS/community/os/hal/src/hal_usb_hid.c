@@ -23,7 +23,6 @@
  */
 
 #include "hal.h"
-#include "rtt.h"
 
 #if (HAL_USE_USB_HID == TRUE) || defined(__DOXYGEN__)
 
@@ -393,7 +392,6 @@ bool hidRequestsHook(USBDriver *usbp) {
  * @param[in] ep        IN endpoint number
  */
 void hidDataTransmitted(USBDriver *usbp, usbep_t ep) {
-  rtt_printf("hidDataTransmitted");
   uint8_t *buf;
   size_t n;
   USBHIDDriver *uhdp = usbp->in_params[ep - 1U];
@@ -446,7 +444,6 @@ void hidDataTransmitted(USBDriver *usbp, usbep_t ep) {
  * @param[in] ep        OUT endpoint number
  */
 void hidDataReceived(USBDriver *usbp, usbep_t ep) {
-  rtt_printf("hidDataReceived");
   uint8_t *buf;
   USBHIDDriver *uhdp = usbp->out_params[ep - 1U];
 
@@ -498,8 +495,6 @@ size_t hidWriteReport(USBHIDDriver *uhdp, uint8_t *bp, size_t n) {
   if (val > 0)
     uhdp->vmt->flush(uhdp);
 
-  rtt_printf("hidWriteReport");
-  rtt_printf("val = %08x", val);
   return val;
 }
 

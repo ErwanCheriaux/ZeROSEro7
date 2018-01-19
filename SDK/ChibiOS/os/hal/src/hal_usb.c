@@ -25,7 +25,6 @@
 #include <string.h>
 
 #include "hal.h"
-#include "rtt.h"
 
 #if (HAL_USE_USB == TRUE) || defined(__DOXYGEN__)
 
@@ -450,7 +449,6 @@ void usbDisableEndpointsI(USBDriver *usbp) {
  */
 void usbStartReceiveI(USBDriver *usbp, usbep_t ep,
                       uint8_t *buf, size_t n) {
-  rtt_printf("usbStartReceiveI");
   USBOutEndpointState *osp;
 
   osalDbgCheckClassI();
@@ -472,7 +470,6 @@ void usbStartReceiveI(USBDriver *usbp, usbep_t ep,
 #endif
 
   /* Starting transfer.*/
-  rtt_printf("buf = %08x\tn = %08x", buf, n);
   usb_lld_start_out(usbp, ep);
 }
 
@@ -491,7 +488,6 @@ void usbStartReceiveI(USBDriver *usbp, usbep_t ep,
  */
 void usbStartTransmitI(USBDriver *usbp, usbep_t ep,
                        const uint8_t *buf, size_t n) {
-  rtt_printf("usbStartTransmitI");
   USBInEndpointState *isp;
 
   osalDbgCheckClassI();
@@ -513,7 +509,6 @@ void usbStartTransmitI(USBDriver *usbp, usbep_t ep,
 #endif
 
   /* Starting transfer.*/
-  rtt_printf("buf = %08x\tn = %08x", buf, n);
   usb_lld_start_in(usbp, ep);
 }
 

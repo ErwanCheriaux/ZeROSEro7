@@ -19,8 +19,9 @@
 #include "usbh/dev/hid.h"
 #include "chprintf.h"
 
-extern char _keyboard_storage_start;
-char *dst = &_keyboard_storage_start;
+extern char  _keyboard_storage_start;
+extern char  _keyboard_storage_end;
+static char *flash = &_keyboard_storage_start;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -32,10 +33,18 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
         usb_report(&UHD2, report);
-        *dst = report[2];
-        dst++;
-        /* debug */
-        SEGGER_RTT_printf(0, "%c", usb_to_qwerty[report[2]]);
+        if(report[2] == KEY_F2) {
+            int   i   = 0;
+            char *dst = &_keyboard_storage_start;
+            rtt_printf("num\tvalue\t\taddress");
+            for(dst = &_keyboard_storage_start; dst < &_keyboard_storage_end; dst++)
+                rtt_printf("%d\t%08x\t%08x", i++, *dst, dst);
+        } else {
+            //*flash = report[2];
+            *flash = 0x55;
+            if(flash < &_keyboard_storage_end)
+                flash++;
+        }
     }
 }
 
