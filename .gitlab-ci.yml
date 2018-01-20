@@ -20,16 +20,12 @@ lint_main:
   stage: lint
   image: rfc1149/rose-dev
   script:
-    - cd Training/BLE_nrf52
-    - make format
-    - cd ../USB_keyboard
-    - make format
-    - cd ../lora_discovery
-    - make format
-    - cd ../WiFi
-    - make format
-    - cd ../LoRa_sx1276
-    - make format
+    - make format -C Training/BLE_nrf52
+    - make format -C Training/USB_keyboard
+    - make format -C Training/lora_discovery
+    - make format -C Training/LoRa_sx1276
+    - make format -C Training/WiFi
+    - make format -C software/usb_sniffer/STM32
     - git status --porcelain
 
 lint_apps:
@@ -58,24 +54,21 @@ build_main:
   stage: build
   image: tuetuopay/arm-none-eabi
   script:
-    - cd Training/BLE_nrf52
-    - make
-    - cd ../USB_keyboard
-    - make
-    - cd ../lora_discovery
-    - make
-    - cd ../WiFi
-    - make
-    - cd ../LoRa_sx1276
-    - make test_board
-    - make clean
-    - make
+    - make -C Training/BLE_nrf52
+    - make -C Training/USB_keyboard
+    - make -C Training/lora_discovery
+    - make test_board -C Training/LoRa_sx1276
+    - make clean -C Training/LoRa_sx1276
+    - make -C Training/LoRa_sx1276
+    - make -C Training/WiFi
+    - make -C software/usb_sniffer/STM32
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
     - Training/USB_keyboard/build/USB_keyboard.elf
     - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
     - Training/WiFi/build/wifi_dev_kit.elf
+    - software/usb_sniffer/STM32/build/usb_sniffer.elf
     expire_in: 1 week
 
 build_apps:
