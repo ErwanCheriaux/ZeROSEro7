@@ -3,6 +3,7 @@
 #include "ch.h"
 #include "hal.h"
 #include "usbh/debug.h" /* for usbDbgPuts/rtt_printf */
+#include "usbh_custom_class_example.h"
 
 #include "led.h"
 #include "rtt.h"
@@ -11,7 +12,6 @@
 #include "timer.h"
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
-#include "usbh_custom_class_example.h"
 #include "usb_hid_keys.h"
 
 #if HAL_USBH_USE_HID

@@ -3,6 +3,7 @@
 #include "spi.h"
 #include "rtt.h"
 #include "hal.h"
+#include "vectors.h"
 
 #define SPI3_CR1     (*(volatile uint32_t *)0x40003c00)
 #define SPI3_CR2     (*(volatile uint32_t *)0x40003c04)
