@@ -27,238 +27,153 @@
 #include "sd.h"
 #include "ff.h"
 
-/*
- * Working area for driver.
- */
-static uint8_t sd_scratchpad[512];
-
-/*
- * SDIO configuration.
- */
 static const SDCConfig sdccfg = {
-    sd_scratchpad,
-    SDC_MODE_4BIT};
+    0,            // SD Card do not need it
+    SDC_MODE_4BIT // bus width (D0, D1, D2, ...)
+};
+uint8_t working_buff[4096] __attribute__ ((aligned (4))) ; // Working buffer
+FATFS fatfs;
 
-/*
- * LED blinker thread, times are in milliseconds.
- */
-static THD_WORKING_AREA(waThread1, 128);
-static THD_FUNCTION(Thread1, arg)
+static int f_print_error(int error)
 {
-    (void)arg;
-    chRegSetThreadName("blinker");
-    while(true) {
-        palSetPad(GPIOC, GPIOC_LED);
-        chThdSleepMilliseconds(500);
-        palClearPad(GPIOC, GPIOC_LED);
-        chThdSleepMilliseconds(500);
+    if(error == FR_OK)
+        return error;
+    switch(error) {
+        case FR_DISK_ERR:            rtt_printf("[ERROR] FR_DISK_ERR\n"); break;
+        case FR_INT_ERR:             rtt_printf("[ERROR] FR_INT_ERR\n"); break;
+        case FR_NOT_READY:           rtt_printf("[ERROR] FR_NOT_READY\n"); break;
+        case FR_NO_FILE:             rtt_printf("[ERROR] FR_NO_FILE\n"); break;
+        case FR_NO_PATH:             rtt_printf("[ERROR] FR_NO_PATH\n"); break;
+        case FR_INVALID_NAME:        rtt_printf("[ERROR] FR_INVALID_NAME\n"); break;
+        case FR_DENIED:              rtt_printf("[ERROR] FR_DENIED\n"); break;
+        case FR_EXIST:               rtt_printf("[ERROR] FR_EXIST\n"); break;
+        case FR_INVALID_OBJECT:      rtt_printf("[ERROR] FR_INVALID_OBJECT\n"); break;
+        case FR_WRITE_PROTECTED:     rtt_printf("[ERROR] FR_WRITE_PROTECTED\n"); break;
+        case FR_INVALID_DRIVE:       rtt_printf("[ERROR] FR_INVALID_DRIVE\n"); break;
+        case FR_NOT_ENABLED:         rtt_printf("[ERROR] FR_NOT_ENABLED\n"); break;
+        case FR_NO_FILESYSTEM:       rtt_printf("[ERROR] FR_NO_FILESYSTEM\n"); break;
+        case FR_MKFS_ABORTED:        rtt_printf("[ERROR] FR_MKFS_ABORTED\n"); break;
+        case FR_TIMEOUT:             rtt_printf("[ERROR] FR_TIMEOUT\n"); break;
+        case FR_LOCKED:              rtt_printf("[ERROR] FR_LOCKED\n"); break;
+        case FR_NOT_ENOUGH_CORE:     rtt_printf("[ERROR] FR_NOT_ENOUGH_CORE\n"); break;
+        case FR_TOO_MANY_OPEN_FILES: rtt_printf("[ERROR] FR_TOO_MANY_OPEN_FILES\n"); break;
+        case FR_INVALID_PARAMETER:   rtt_printf("[ERROR] FR_INVALID_PARAMETER\n"); break;
+        default:                     rtt_printf("[ERROR] UNEXPECTED ERROR\n");
     }
+    return error;
 }
 
-extern uint8_t buf[SD_BUF_SIZE];
-
-/*===========================================================================*/
-/* Command line related.                                                     */
-/*===========================================================================*/
-
-#define SHELL_WA_SIZE THD_WORKING_AREA_SIZE(2048)
-
-void cmd_sdc(BaseSequentialStream *chp, int argc, char *argv[])
-{
-    (void)*chp;
-    if(argc < 1 || argc > 3)
-        goto usage;
-
-    if(strcmp(argv[0], "write") == 0) {
-        if (argc == 3) // write a single value
-            sd_write_byte(atoi(argv[1]), atoi(argv[2]));
-        else
-            goto usage;
-    }
-    else if(strcmp(argv[0], "read") == 0) {
-        if(argc == 3) { // print a whole area
-            int size = atoi(argv[2]);
-            int addr = atoi(argv[1]);
-            uint8_t buffer[size];
-            sd_read(addr, size, buffer);
-            // print
-            int nb_bytes_per_row = 8;
-            if(addr % nb_bytes_per_row != 0) {
-                rtt_printf("0x%08X  ", ((int)addr/nb_bytes_per_row)*nb_bytes_per_row);
-                for(int i = 0; i < addr % nb_bytes_per_row; i++)
-                    rtt_printf("   ");
-            }
-            for (int i = 0; i < size; i++) {
-                if((addr + i) % nb_bytes_per_row == 0)
-                    rtt_printf("\n0x%08X  ", addr + i);
-                rtt_printf("%02X ", buffer[i]);
-            }
-            rtt_printf("\n");
-        }
-        else if (argc == 2) { // print a single value
-            uint8_t value;
-            int addr = atoi(argv[1]);
-            sd_read_byte(addr, &value);
-            rtt_printf("0x%08X  %02X\n", addr, value);
-        }
-        else
-            goto usage;
-    }
-    else if(strcmp(argv[0], "test") == 0) { // read and write test
-        if(argc == 1) {
-            int addr = 0;
-            uint8_t value = 0;
-            sd_write_byte(addr, value);
-            uint8_t result;
-            sd_read_byte(addr, &result);
-            if(result != value) {
-                rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
-                return;
-            }
-            value = 123;
-            sd_write_byte(addr, value);
-            sd_read_byte(addr, &result);
-            if(result != value) {
-                rtt_printf("[ERROR] SD: Value 0x%02X has been written but 0x%02X was read\n", value, result);
-                return;
-            }
-            rtt_printf("[INFO] SD: Read and write byte OK\n");
-            int len = 0x100;
-            uint8_t buffer[len];
-            for(int i = 0; i < len; i++)
-                buffer[i] = i;
-            sd_write(0, len, buffer);
-            sd_read(0, len, buffer);
-            // check written memory
-            int res = 0;
-            for(int i = 0; i < len; i++) {
-                if(buffer[i] != i % 0x100) {
-                    res = 1;
-                    rtt_printf("[ERROR] SD: Value 0x%02X has been written at 0x%08X but 0x%02X was read\n", i % 0x100, i, buffer[i]);
-                    break;
-                }
-            }
-            if(res) {
-                rtt_printf("[ERROR] SD: Area value is different from area written\n");
-                return;
-            }
-            rtt_printf("[INFO] SD: Read and write block OK\n");
-            // reset memory to 0
-            for(int i = 0; i < len; i++)
-                buffer[i] = 0;
-            sd_write(0, len, buffer);
-
-            // FatFs
-            if (sdcConnect(&SDCD1))
-                return;
-            FRESULT fr;
-            FATFS fatfs;
-            fr = f_mount(&fatfs, "", 0);
-            if (fr) {
-                rtt_printf("[ERROR] f_mount: %d\n", fr);
-                return;
-            }
-            rtt_printf("[INFO] File mounted\n");
-            FIL fp;
-            fr = f_open(&fp, "hello.txt", FA_WRITE | FA_OPEN_ALWAYS);
-            if (fr) {
-                rtt_printf("[ERROR] f_open: %d\n", fr);
-                return;
-            }
-            rtt_printf("[INFO] File opened\n");
-            /*char* buff = "Hello world!\n";
-            unsigned int nb_bytes_written;
-            fr = f_write(&fp, buff, 13, &nb_bytes_written);
-            if (fr) {
-                rtt_printf("[ERROR] f_write: %d\n", fr);
-                return;
-            }
-            rtt_printf("nb_bytes_written: %d\n", nb_bytes_written);
-            fr = f_close(&fp);
-            if (fr) {
-                rtt_printf("[ERROR] f_write: %d\n", fr);
-                return;
-            }
-            rtt_printf("File closed\n");*/
-            fr = f_mount(0, "", 0);
-            if (fr) {
-                rtt_printf("[ERROR] f_write: %d\n", fr);
-                return;
-            }
-            sdcDisconnect(&SDCD1);
-
-            rtt_printf("[INFO] SD: Tests successfully passed\n");
-        }
-        else
-            goto usage;
-    }
-    return;
-usage:
-    rtt_printf("Invalid parameters\n");
-    rtt_printf("Usage: sdc read <addr> |\n" \
-               "           read <addr> <size> |\n" \
-               "           write <addr> <value>\n" \
-               "(values in decimal)\n");
-}
-
-static const ShellCommand commands[] = {
-    {"sdc", cmd_sdc},
-    {NULL, NULL}};
-
-static const ShellConfig shell_cfg1 = {
-    (BaseSequentialStream *)&rtt_shell,
-    commands};
-
-/*
- * Application entry point.
- */
 int main(void)
 {
-    /*
-   * System initializations.
-   * - HAL initialization, this also initializes the configured device drivers
-   *   and performs the board-specific initializations.
-   * - Kernel initialization, the main() function becomes a thread and the
-   *   RTOS is active.
-   */
     halInit();
     chSysInit();
 
-    /* Pinout config */
-
     //led_init
-    //palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOC, GPIOC_LED, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPad(GPIOC, GPIOC_LED);  //led off
-    
-    /*
-   * Shell manager initialization.
-   */
-    shellInit();
-
-    /*
-   * Activates the serial driver 6 using the driver default configuration.
-   */
+    // Activates the serial driver 6 using the driver default configuration.
     sdStart(&SD6, NULL);
-
-    /*
-   * Initializes the SDIO drivers.
-   */
+    // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
 
-    /*
-   * Creates the blinker thread.
-   */
-    chThdCreateStatic(waThread1, sizeof(waThread1), NORMALPRIO, Thread1, NULL);
+    rtt_printf("================ INITIALIZATION SUCCESSFUL ================\n\n");
 
-    /*
-   * Normal main() thread activity, spawning shells.
-   */
-    while(true) {
-        thread_t *shelltp = chThdCreateFromHeap(NULL, SHELL_WA_SIZE,
-                                                "shell", NORMALPRIO + 1,
-                                                shellThread, (void *)&shell_cfg1);
-        chThdWait(shelltp); /* Waiting termination.             */
-        chThdSleepMilliseconds(1000);
+    // connect
+    if(sdcConnect(&SDCD1)) {
+        rtt_printf("[ERROR] sdcConnect ERROR\n");
+        goto sleep;
     }
+    rtt_printf("sdcConnect SUCCESS\n");
+
+    // read at 0x0000
+    uint8_t value = 0;
+    int addr = 0;
+    if(sd_read_byte(addr, &value)) {
+        rtt_printf("[ERROR] sd_read_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+
+    // read at 0x0001
+    addr = 1;
+    if(sd_read_byte(addr, &value)) {
+        rtt_printf("[ERROR] sd_read_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+    
+    // write 0x12 at 0x0000
+    value = 0x12;
+    addr = 0;
+    if(sd_write_byte(addr, value)) {
+        rtt_printf("[ERROR] sd_write_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+
+    // read at 0x0000
+    addr = 0;
+    if(sd_read_byte(addr, &value)) {
+        rtt_printf("[ERROR] sd_read_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+    
+    // write 0x34 at 0x0001
+    value = 0x34;
+    addr = 1;
+    if(sd_write_byte(addr, value)) {
+        rtt_printf("[ERROR] sd_write_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+
+    // read at 0x0001
+    addr = 1;
+    if(sd_read_byte(addr, &value)) {
+        rtt_printf("[ERROR] sd_read_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+
+    // write 0x00 at 0x0000
+    value = 0x00;
+    addr = 0;
+    if(sd_write_byte(addr, value)) {
+        rtt_printf("[ERROR] sd_write_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+
+    // write 0x00 at 0x0001
+    value = 0x00;
+    addr = 1;
+    if(sd_write_byte(addr, value)) {
+        rtt_printf("[ERROR] sd_write_byte ERROR\n");
+        goto disconnect;
+    }
+    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
+
+    // mount when it will be needed
+    if(f_print_error(f_mount(&fatfs, "/", 1)))
+        goto disconnect;
+    rtt_printf("f_mount SUCCESS\n");
+
+    /*// create file system to the logical drive
+    if(f_print_error(f_mkfs("", FM_ANY | FM_FAT32, 0, working_buff, sizeof working_buff)))
+        goto disconnect;
+    rtt_printf("f_mount SUCCESS\n");*/
+
+disconnect:
+    // disconnect
+    if(sdcDisconnect(&SDCD1)) {
+        rtt_printf("[ERROR] sdcDisconnect ERROR\n");
+        goto sleep;
+    }
+    rtt_printf("sdcDisconnect SUCCESS\n");
+
+sleep:
+    chThdSleep(TIME_INFINITE);
+    return 0;
 }
 
