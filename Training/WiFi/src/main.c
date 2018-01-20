@@ -24,6 +24,9 @@ int main(void)
 
     led_on();
 
+    break_stream_mode();
+    configure();
+
     char start_seq[] = START_SEQ;
     char buff;
     char filename[MAX_FILENAME_SIZE];
@@ -33,31 +36,31 @@ int main(void)
             continue;
         switch(buff) {
             case 'U': // Upload a file
-                rtt_printf(0, "File uploading: ");
+                rtt_printf("File uploading: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
-                rtt_printf(0, "%s\n", filename);
+                rtt_printf("%s\n", filename);
                 wifi_save_file(filename);
                 break;
             case 'D': // Download a file
-                rtt_printf(0, "File download: ");
+                rtt_printf("File download: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
-                rtt_printf(0, "%s\n", filename);
+                rtt_printf("%s\n", filename);
                 chThdSleep(MS2ST(500));
                 wifi_send_file(filename);
-                rtt_printf(0, "Download ended\n");
+                rtt_printf("Download ended\n");
                 break;
             case 'R': // Remove a file
-                rtt_printf(0, "Remove file: ");
+                rtt_printf("Remove file: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
-                rtt_printf(0, "%s\n", filename);
+                rtt_printf("%s\n", filename);
                 // TODO: Remove file
-                rtt_printf(0, "Done\n");
+                rtt_printf("Done\n");
                 break;
             case 'L': // Get file list
-                rtt_printf(0, "List asked\n");
+                rtt_printf("List asked\n");
                 chThdSleep(MS2ST(500));
                 strcpy(filename, "First_file_name.txt\0");
                 uart_send(filename);
@@ -67,9 +70,9 @@ int main(void)
                 uart_send(filename);
                 strcpy(filename, "\n\0");
                 uart_send(filename);
-                rtt_printf(0, "List sent\n");
+                rtt_printf("List sent\n");
                 break;
-            default: rtt_printf(0, "[ERROR] Unkown command: %c\n", buff);
+            default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
         }
     }
     

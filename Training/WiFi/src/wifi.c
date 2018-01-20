@@ -5,25 +5,28 @@
 #include "uart.h"
 #include "rtt.h"
 
+//#define DEBUG
+
 void break_stream_mode(void)
 {
-    char buff_break[] = "$$$";
+    char buff_break[] = "$$$\r\n";
     uart_send(buff_break);
+    chThdSleep(MS2ST(1000));
 }
 
 void configure(void)
 {
-    wifi_command("set softap.auto_start true\r\n", 1000);
-    wifi_command("set softap.dhcp_server.enabled true\r\n", 1000);
-    wifi_command("set softap.ssid ZeROSEro7\r\n", 1000);
-    wifi_command("set tcp.server.auto_interface softap\r\n", 1000);
-    wifi_command("set tcp.server.auto_start true\r\n", 1000);
-    wifi_command("set tcp.server.idle_timeout 300\r\n", 1000);
-    wifi_command("set bus.log_bus uart1\r\n", 1000);
-    wifi_command("set bus.data_bus uart0\r\n", 1000);
-    wifi_command("set bus.mode stream\r\n", 1000);
+    wifi_command("set softap.auto_start true\r\n", 500);
+    wifi_command("set softap.dhcp_server.enabled true\r\n", 500);
+    wifi_command("set softap.ssid ZeROSEro7\r\n", 500);
+    wifi_command("set tcp.server.auto_interface softap\r\n", 500);
+    wifi_command("set tcp.server.auto_start true\r\n", 500);
+    wifi_command("set tcp.server.idle_timeout 300\r\n", 500);
+    wifi_command("set bus.log_bus uart1\r\n", 500);
+    wifi_command("set bus.data_bus uart0\r\n", 500);
+    wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
-    wifi_command("reboot\r\n", 3000);
+    wifi_command("reboot\r\n", 1000);
 }
 
 /* Reset wifi chip
@@ -34,13 +37,14 @@ static void reset_chip(void)
     palClearPad(GPIOB, GPIOB_I2C1_SCL);  // rst on
     chThdSleep(MS2ST(100));
     palSetPad(GPIOB, GPIOB_I2C1_SCL);  // rst off
-    chThdSleep(MS2ST(2000));
+    chThdSleep(MS2ST(1000));
 }
 
 void wifi_init(void)
 {
-    rtt_printf(0, "\n======== WIFI INITIALIZATION ========\n\n"\
-        "Error codes:\n"\
+    rtt_printf("\n======== WIFI INITIALIZATION ========\n\n");
+#ifdef DEBUG
+    rtt_printf("Error codes:\n"\
         "  0: Command failed\n"\
         "  1: Unknown command\n"\
         "  2: Too few args\n"\
@@ -49,7 +53,7 @@ void wifi_init(void)
         "  5: Invalid argument\n"\
         "  6: Serial command line buffer overflow\n"\
         "  7: Bounds error, command specific, bounds of the command were exceeded\n\n");
-
+#endif
     reset_chip();
 
     uart_init();
@@ -69,7 +73,10 @@ int wifi_command(void* buff, int timeout)
     char uart_buff[2];
     uart_buff[1] = '\0';
     while(uart_receive_timeout(uart_buff, 1, MS2ST(timeout)))
-        rtt_printf(0, uart_buff);
+#ifdef DEBUG
+        rtt_printf(uart_buff)
+#endif
+        ;
     return 0;
 }
 
@@ -80,14 +87,14 @@ void wifi_save_file(char* filename)
     int nb_char_received;
     while((nb_char_received = uart_receive_timeout(uart_buff, BUFF_LEN, MS2ST(TIMEOUT)))) {
         uart_buff[nb_char_received] = '\0';
-        //rtt_printf(0, "%s", uart_buff);
+        rtt_printf("%s", uart_buff);
     }
 }
 
 void wifi_send_file(char* filename)
 {
     if(strcmp(filename, "bleed_it_out.txt") != 0) {
-        rtt_printf(0, "[ERROR] File do not exists: %s\n", filename);
+        rtt_printf("[ERROR] File do not exists: %s\n", filename);
         return;
     }
     char file[] = "This is a file content.\nIf you can read this message, download was successful zefhvbeuvbhekvrjbhnskvrunhlkuvnhqkuvr grjk abjrkdvbhcukbg rajkbh kzjbhgvuvskbhgcjbejvnsklnhviudnbvjerhgcuzjhgvsukdhvusjhgvscdhgvnkjhbvnsfhgjchnfgjkchdjkvhjkvbhgnjkccngcjdhvbkjvdhnvcqjkhdvnjdfhvb jkhvnjkdqhvnjdhvndfjh jfvsjdfvnjdfvhnfjvnfjhvgnv jkhgnvdjfhvngjkvfnhvgnudkrjvgniuej vghiujbh vbhjrbgvjkdbhgniujcbhniugvjbhdrngjkvhsdrngjkvbhnsjkghb jrgh iurnkjh bhjfbhjfb uhj gbqhj hqkjhg qjgkvq nkjg hjk fdj ndf  !!\n";
@@ -96,7 +103,7 @@ void wifi_send_file(char* filename)
 
 void wifi_wait_for(char* msg)
 {
-    rtt_printf(0, "Waiting for: %s... ", msg);
+    rtt_printf("Waiting for: %s... ", msg);
     unsigned int char_received = 0;
     char uart_buff[2];
     uart_buff[1] = '\0';
@@ -108,7 +115,7 @@ void wifi_wait_for(char* msg)
                 char_received = 0;
         }
     }
-    rtt_printf(0, "received !\n");
+    rtt_printf("received !\n");
 }
 
 int wifi_get_word(char* buffer, int max_len, char separator)
@@ -122,7 +129,7 @@ int wifi_get_word(char* buffer, int max_len, char separator)
     }
     if(idx == max_len) {
         buffer[idx - 1] = '\0';
-        rtt_printf(0, "[ERROR] Word too long: %s\n", buffer);
+        rtt_printf("[ERROR] Word too long: %s\n", buffer);
         return 1;
     }
     buffer[idx] = '\0';
