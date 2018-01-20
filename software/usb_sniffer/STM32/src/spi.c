@@ -5,15 +5,18 @@
 #include "hal.h"
 #include "vectors.h"
 
-#define SPI3_CR1     (*(volatile uint32_t *)0x40003c00)
-#define SPI3_CR2     (*(volatile uint32_t *)0x40003c04)
-#define SPI3_SR      (*(volatile uint32_t *)0x40003c08)
-#define SPI3_DR      (*(volatile uint32_t *)0x40003c0c)
-#define SPI3_CRCPR   (*(volatile uint32_t *)0x40003c10)
-#define SPI3_RXCRCR  (*(volatile uint32_t *)0x40003c14)
-#define SPI3_TXCRCR  (*(volatile uint32_t *)0x40003c18)
+#define SPI3_CR1 (*(volatile uint32_t *)0x40003c00)
+#define SPI3_CR2 (*(volatile uint32_t *)0x40003c04)
+#define SPI3_SR (*(volatile uint32_t *)0x40003c08)
+#define SPI3_DR (*(volatile uint32_t *)0x40003c0c)
+#define SPI3_CRCPR (*(volatile uint32_t *)0x40003c10)
+#define SPI3_RXCRCR (*(volatile uint32_t *)0x40003c14)
+#define SPI3_TXCRCR (*(volatile uint32_t *)0x40003c18)
 #define SPI3_I2SCFGR (*(volatile uint32_t *)0x40003c1c)
-#define SPI3_I2SPR   (*(volatile uint32_t *)0x40003c20)
+#define SPI3_I2SPR (*(volatile uint32_t *)0x40003c20)
+
+#define TXE (SPI3_SR & (1 << 1))
+#define RXNE (SPI3_SR & (1 << 0))
 
 char *password;
 
@@ -101,8 +104,11 @@ void SPI_Tx_IRQHandler(void)
 
 void SPI_Rx_IRQHandler(void)
 {
-    rxbuf[1] = SPI3_DR;
-    rtt_printf("SPI receive: %08x", rxbuf[1]);
-//  if(rxbuf[1] == 0x10)
-//      spi_write(password);
+    //Receive buffer not empty
+    if(RXNE) {
+        rxbuf[1] = SPI3_DR;
+        rtt_printf("SPI receive: %08x", rxbuf[1]);
+        //  if(rxbuf[1] == 0x10)
+        //      spi_write(password);
+    }
 }

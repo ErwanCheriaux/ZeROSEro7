@@ -7,5 +7,6 @@ extern char *password;
 
 void spi_init(void);
 void spi_write(char *msg);
+void SPI_Rx_IRQHandler(void);
 
 #endif

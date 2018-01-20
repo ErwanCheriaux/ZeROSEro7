@@ -88,6 +88,10 @@ int main(void)
 #endif
 
     while(1) {
+        SPI_Rx_IRQHandler();
+    }
+
+    while(1) {
         usbhMainLoop(&USBHD1);
         chThdSleepMilliseconds(1000);
     }
