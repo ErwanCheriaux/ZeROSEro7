@@ -85,84 +85,10 @@ int main(void)
     }
     rtt_printf("sdcConnect SUCCESS\n");
 
-    // read at 0x0000
-    uint8_t value = 0;
-    int addr = 0;
-    if(sd_read_byte(addr, &value)) {
-        rtt_printf("[ERROR] sd_read_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-
-    // read at 0x0001
-    addr = 1;
-    if(sd_read_byte(addr, &value)) {
-        rtt_printf("[ERROR] sd_read_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-    
-    // write 0x12 at 0x0000
-    value = 0x12;
-    addr = 0;
-    if(sd_write_byte(addr, value)) {
-        rtt_printf("[ERROR] sd_write_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-
-    // read at 0x0000
-    addr = 0;
-    if(sd_read_byte(addr, &value)) {
-        rtt_printf("[ERROR] sd_read_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-    
-    // write 0x34 at 0x0001
-    value = 0x34;
-    addr = 1;
-    if(sd_write_byte(addr, value)) {
-        rtt_printf("[ERROR] sd_write_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-
-    // read at 0x0001
-    addr = 1;
-    if(sd_read_byte(addr, &value)) {
-        rtt_printf("[ERROR] sd_read_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_read_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-
-    // write 0x00 at 0x0000
-    value = 0x00;
-    addr = 0;
-    if(sd_write_byte(addr, value)) {
-        rtt_printf("[ERROR] sd_write_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-
-    // write 0x00 at 0x0001
-    value = 0x00;
-    addr = 1;
-    if(sd_write_byte(addr, value)) {
-        rtt_printf("[ERROR] sd_write_byte ERROR\n");
-        goto disconnect;
-    }
-    rtt_printf("sd_write_byte SUCCESS 0x%08X: 0x%02X\n", addr, value);
-
     // mount when it will be needed
     if(f_print_error(f_mount(&fatfs, "/", 1)))
         goto disconnect;
     rtt_printf("f_mount SUCCESS\n");
-
-    /*// create file system to the logical drive
-    if(f_print_error(f_mkfs("", FM_ANY | FM_FAT32, 0, working_buff, sizeof working_buff)))
-        goto disconnect;
-    rtt_printf("f_mount SUCCESS\n");*/
 
 disconnect:
     // disconnect
