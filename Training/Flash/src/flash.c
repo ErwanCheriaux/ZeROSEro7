@@ -12,16 +12,18 @@
 
 #define BSY (FLASH_SR & (1 << 16))
 #define SIZE_BLOCK_MEMORIE 4
+#define PSIZE 0
+#define SNB 11
 
-extern volatile uint32_t  _keyboard_storage_start;
-extern volatile uint32_t  _keyboard_storage_end;
-static volatile uint32_t *flash = &_keyboard_storage_start;
+extern volatile char  _keyboard_storage_start;
+extern volatile char  _keyboard_storage_end;
+static volatile char *flash = &_keyboard_storage_start;
 
 void flash_init(void)
 {
     //size x32
-    FLASH_CR |= (2 << 8);   //PSIZE
-    FLASH_CR &= ~(2 << 8);  //PSIZE
+    FLASH_CR |= (PSIZE << 8);   //PSIZE
+    FLASH_CR &= ~(PSIZE << 8);  //PSIZE
 }
 
 void flash_lock(void)
@@ -44,9 +46,9 @@ void flash_erase(void)
     //Check BSY
     while(BSY) continue;
     //Select sector
-    FLASH_CR |= (1 << 1);    //SER
-    FLASH_CR |= (11 << 3);   //SNB
-    FLASH_CR &= ~(11 << 3);  //SNB
+    FLASH_CR |= (1 << 1);     //SER
+    FLASH_CR |= (SNB << 3);   //SNB
+    FLASH_CR &= ~(SNB << 3);  //SNB
     //Start erase
     FLASH_CR |= (1 << 16);
     rtt_printf("Flash erased !");
@@ -79,8 +81,8 @@ void flash_program(uint32_t data)
 
 void flash_display(void)
 {
-    int                i = 0;
-    volatile uint32_t *dst;
+    int            i = 0;
+    volatile char *dst;
 
     rtt_printf("num\tvalue\taddress");
 
