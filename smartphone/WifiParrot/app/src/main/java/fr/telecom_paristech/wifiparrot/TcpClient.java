@@ -8,7 +8,9 @@ import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.InetAddress;
+import java.net.InetSocketAddress;
 import java.net.Socket;
+import java.net.SocketException;
 import java.net.SocketTimeoutException;
 
 /* Inspired by https://stackoverflow.com/questions/38162775/really-simple-tcp-client
@@ -26,9 +28,8 @@ public class TcpClient
     private BufferedReader mBufferIn;
     private Socket socket;
 
-    public TcpClient() {
-
-    }
+    public TcpClient()
+    {}
 
     public void send(String message) {
         if (mBufferOut != null && !mBufferOut.checkError()) {
@@ -36,6 +37,18 @@ public class TcpClient
             mBufferOut.flush();
         } else
             Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
+        Log.i("Tcp send", "End of sending");
+    }
+
+    public String receive_line(int timeout)
+    {
+        try {
+            socket.setSoTimeout(timeout);
+            return receive_line();
+        } catch (SocketException e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 
     public String receive_line()
@@ -44,6 +57,8 @@ public class TcpClient
             return mBufferIn.readLine();
         } catch(SocketTimeoutException e) {
             Log.i("TCP receive", "Timeout");
+        } catch (SocketException e) {
+            e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -68,14 +83,15 @@ public class TcpClient
         return null;
     }
 
-    public void openSocket()
+    public int openSocket()
     {
         try {
             //here you must put your computer's IP address.
             InetAddress serverAddr = InetAddress.getByName(SERVER_IP);
             Log.i("TCP Client", "C: Connecting...");
             //create a socket to make the connection with the server
-            socket = new Socket(serverAddr, SERVER_PORT);
+            socket = new Socket();
+            socket.connect(new InetSocketAddress(serverAddr, SERVER_PORT), 1000);
             socket.setSoTimeout(TIMEOUT);
             try {
                 //sends the message to the server
@@ -83,11 +99,14 @@ public class TcpClient
                 //receives the message which the server sends back
                 mBufferIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             } catch (Exception e) {
-                Log.e("TCP", "S: Error", e);
+                return 1;
             }
+        } catch (SocketTimeoutException e) {
+            return 2;
         } catch (Exception e) {
-            Log.e("TCP", "Error", e);
+            return 1;
         }
+        return 0;
     }
 
     public void closeSocket()

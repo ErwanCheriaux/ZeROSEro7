@@ -23,7 +23,7 @@
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
         android:layout_below="@+id/button_upload"
-        android:text="Download" />
+        android:text="Scan" />
 
     <LinearLayout
         android:id="@+id/layout_scan"

@@ -15,7 +15,6 @@ import android.view.Gravity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import java.net.URISyntaxException;
@@ -40,7 +39,7 @@ public class MainActivity extends AppCompatActivity
                 try {
                     String path = PathUtil.getPath(getApplicationContext(), data.getData());
                     Log.d("File manager data", path);
-                    mService.uploadFile(path);
+                    mService.uploadFile(getApplicationContext(), path);
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
@@ -90,7 +89,7 @@ public class MainActivity extends AppCompatActivity
         buttonScan = (Button)findViewById(R.id.button_scan);
         buttonScan.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.getFiles(callbacks);
+                mService.getFiles(getApplicationContext(), callbacks);
             }
         });
         layout = (LinearLayout)findViewById(R.id.layout_scan);
@@ -124,7 +123,7 @@ public class MainActivity extends AppCompatActivity
         downloadBtn.setText(filename);
         downloadBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.downloadFile(((Button)v).getText().toString());
+                mService.downloadFile(getApplicationContext(), ((Button)v).getText().toString());
             }
         });
         ImageButton removeBtn = new ImageButton(getApplicationContext());
@@ -132,7 +131,7 @@ public class MainActivity extends AppCompatActivity
         removeBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mService.removeFile(((Button)(((LinearLayout)v.getParent()).getChildAt(0))).getText().toString(), callbacks);
+                mService.removeFile(getApplicationContext(), ((Button)(((LinearLayout)v.getParent()).getChildAt(0))).getText().toString(), callbacks);
             }
         });
         LinearLayout hLayout = new LinearLayout(getApplicationContext());

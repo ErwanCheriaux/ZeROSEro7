@@ -87,16 +87,27 @@ void wifi_save_file(char* filename)
     int nb_char_received;
     while((nb_char_received = uart_receive_timeout(uart_buff, BUFF_LEN, MS2ST(TIMEOUT)))) {
         uart_buff[nb_char_received] = '\0';
+#ifdef DEBUG
         rtt_printf("%s", uart_buff);
+#endif
     }
+    rtt_printf("\n");
+    char response[] = "Success\n";
+    uart_send(response);
 }
 
 void wifi_send_file(char* filename)
 {
     if(strcmp(filename, "bleed_it_out.txt") != 0) {
         rtt_printf("[ERROR] File do not exists: %s\n", filename);
+        char response[] = "No file\n";
+        uart_send(response);
+        rtt_printf("Response sent: %s", response);
         return;
     }
+    char response[] = "Success\n";
+    uart_send(response);
+    rtt_printf("Response sent: %s", response);
     char file[] = "This is a file content.\nIf you can read this message, download was successful zefhvbeuvbhekvrjbhnskvrunhlkuvnhqkuvr grjk abjrkdvbhcukbg rajkbh kzjbhgvuvskbhgcjbejvnsklnhviudnbvjerhgcuzjhgvsukdhvusjhgvscdhgvnkjhbvnsfhgjchnfgjkchdjkvhjkvbhgnjkccngcjdhvbkjvdhnvcqjkhdvnjdfhvb jkhvnjkdqhvnjdhvndfjh jfvsjdfvnjdfvhnfjvnfjhvgnv jkhgnvdjfhvngjkvfnhvgnudkrjvgniuej vghiujbh vbhjrbgvjkdbhgniujcbhniugvjbhdrngjkvhsdrngjkvbhnsjkghb jrgh iurnkjh bhjfbhjfb uhj gbqhj hqkjhg qjgkvq nkjg hjk fdj ndf  !!\n";
     uart_send(file);
 }

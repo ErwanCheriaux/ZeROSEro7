@@ -40,23 +40,23 @@ public class Wifi extends Service
         return mBinder;
     }
 
-    public void uploadFile(String filename)
+    public void uploadFile(Context context, String filename)
     {
-        new Upload().execute(filename);
+        new Upload(context).execute(filename);
     }
 
-    public void downloadFile(String filename)
+    public void downloadFile(Context context, String filename)
     {
-        new Download().execute(filename);
+        new Download(context).execute(filename);
     }
 
-    public void getFiles(CallbackInterface callback)
+    public void getFiles(Context context, CallbackInterface callback)
     {
-        new Scan(callback).execute();
+        new Scan(context, callback).execute();
     }
 
-    public void removeFile(String filename, CallbackInterface callback)
+    public void removeFile(Context context, String filename, CallbackInterface callback)
     {
-        new Remove(filename, callback).execute();
+        new Remove(context, filename, callback).execute();
     }
 }

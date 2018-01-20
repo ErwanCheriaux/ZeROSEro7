@@ -36,7 +36,7 @@ int main(void)
             continue;
         switch(buff) {
             case 'U': // Upload a file
-                rtt_printf("File uploading: ");
+                rtt_printf("File upload: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
                 rtt_printf("%s\n", filename);
@@ -63,6 +63,10 @@ int main(void)
                 rtt_printf("List asked\n");
                 chThdSleep(MS2ST(500));
                 strcpy(filename, "First_file_name.txt\0");
+                uart_send(filename);
+                strcpy(filename, " \0");
+                uart_send(filename);
+                strcpy(filename, "bleed_it_out.txt\0");
                 uart_send(filename);
                 strcpy(filename, " \0");
                 uart_send(filename);
