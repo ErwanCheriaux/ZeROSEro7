@@ -7,6 +7,7 @@
 #include "led.h"
 #include "rtt.h"
 #include "usb.h"
+#include "spi.h"
 #include "timer.h"
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
@@ -76,6 +77,7 @@ int main(void)
     led_init();
     rtt_init();
     usb_init();
+    spi_init();
     usbh_init();
     timer_init();
 
