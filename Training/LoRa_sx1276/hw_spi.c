@@ -1,5 +1,6 @@
 #include "nrf_drv_spi.h"
 #include "app_error.h"
+#include "hw.h"
 
 #define SPI_SX12_INSTANCE 0
 static const nrf_drv_spi_t spi_sx12 = NRF_DRV_SPI_INSTANCE(SPI_SX12_INSTANCE);
