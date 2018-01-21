@@ -43,6 +43,9 @@ void spi_init(void)
     SPI3->CR2 = SPI_CR2_RXNEIE;          // RX interrupt if data present
     SPI3->CR1 = SPI_CR1_SPE;             // Enable SPI in slave mode.
 
+    //enable interrupt
+    NVIC->ISER[1] = (1 << 19);  // Position 51
+
     //debug
     spi_display_config();
 }
