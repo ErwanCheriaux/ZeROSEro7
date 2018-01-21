@@ -21,7 +21,7 @@ public class TcpClient
     private static final String SERVER_IP = "10.10.10.1"; //server IP address
     private static final int SERVER_PORT = 3000;
     private static final int TIMEOUT = 4000;
-    private static final int BUFF_LEN_DOWNLOAD = 512;
+    private static final int BUFF_LEN_DOWNLOAD = 1024;
     // used to send messages
     private PrintWriter mBufferOut;
     // used to read messages from the server
