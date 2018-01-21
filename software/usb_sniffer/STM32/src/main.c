@@ -27,7 +27,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
-        usb_report(&UHD2, report, 8);
+        //usb_report(&UHD2, report, 8);
+        if(report[2] == KEY_F2)
+            spi_display_config();
     }
 }
 
@@ -87,14 +89,15 @@ int main(void)
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
 
+    //polling on SPI
     while(1) {
-        SPI_Rx_IRQHandler();
+        SPI_IRQHandler();
     }
 
-    while(1) {
-        usbhMainLoop(&USBHD1);
-        chThdSleepMilliseconds(1000);
-    }
+    //  while(1) {
+    //      usbhMainLoop(&USBHD1);
+    //      chThdSleepMilliseconds(1000);
+    //  }
 
     chThdSleep(TIME_INFINITE);
     return 0;

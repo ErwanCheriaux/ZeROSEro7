@@ -5,4 +5,4 @@
 #endif
 
 //Handler
-#define Vector10C SPI_Rx_IRQHandler
+#define Vector10C SPI_IRQHandler

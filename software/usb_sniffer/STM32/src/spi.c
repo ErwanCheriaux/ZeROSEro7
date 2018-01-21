@@ -37,6 +37,8 @@ void spi_init(void)
     palSetPadMode(GPIOC, GPIOC_SPI3_MOSI, PAL_MODE_ALTERNATE(6));
     palSetPadMode(GPIOA, GPIOA_SPI3_NSS, PAL_MODE_INPUT_PULLDOWN);
 
+    SPI3_CR1 &= ~(1 << 6);  //SPE = 0  : Turn off SPI before config
+
     /* 1. Set the DFF bit to define 8- or 16-bit data frame format */
     SPI3_CR1 &= ~(1 << 11);  //DFF = 0 : 8bit
 
@@ -70,7 +72,20 @@ void spi_init(void)
     /* 6. Clear the MSTR bit and set the SPE bit (both in the SPI_CR1 register) to assign the
     pins to alternate functions. */
     SPI3_CR1 &= ~(1 << 2);  //MSTR = 0 : Slave mode
-    SPI3_CR1 |= (1 << 6);   //SPE = 1
+    SPI3_CR1 |= (1 << 6);   //SPE = 1  : Turn on SPI
+}
+
+void spi_display_config(void)
+{
+    rtt_printf("SPI3_CR1     = %032x", SPI3_CR1);
+    rtt_printf("SPI3_CR2     = %032x", SPI3_CR2);
+    rtt_printf("SPI3_SR      = %032x", SPI3_SR);
+    rtt_printf("SPI3_DR      = %032x", SPI3_DR);
+    rtt_printf("SPI3_CRCPR   = %032x", SPI3_CRCPR);
+    rtt_printf("SPI3_RXCRCR  = %032x", SPI3_RXCRCR);
+    rtt_printf("SPI3_TXCRCR  = %032x", SPI3_TXCRCR);
+    rtt_printf("SPI3_I2SCFGR = %032x", SPI3_I2SCFGR);
+    rtt_printf("SPI3_I2SPR   = %032x", SPI3_I2SPR);
 }
 
 void spi_write(char *msg)
@@ -87,28 +102,26 @@ void spi_write(char *msg)
     SPI3_CR2 |= (1 << 7);  //TXEIE = 1
 }
 
-void SPI_Tx_IRQHandler(void)
-{
-    static uint32_t index = 0;
-
-    if(index >= size_buffer) {
-        //turn off Tx interrupt
-        SPI3_CR2 &= ~(1 << 7);  //TXEIE = 0
-        index = 0;
-    } else {
-        //write data in DR buffer
-        SPI3_DR = txbuf[index];
-        index++;
-    }
-}
-
-void SPI_Rx_IRQHandler(void)
+void SPI_IRQHandler(void)
 {
     //Receive buffer not empty
     if(RXNE) {
         rxbuf[1] = SPI3_DR;
         rtt_printf("SPI receive: %08x", rxbuf[1]);
-        //  if(rxbuf[1] == 0x10)
-        //      spi_write(password);
+    }
+
+    //Transfer buffer empty
+    else if(TXE) {
+        static uint32_t index = 0;
+
+        if(index >= size_buffer) {
+            //turn off Tx interrupt
+            SPI3_CR2 &= ~(1 << 7);  //TXEIE = 0
+            index = 0;
+        } else {
+            //write data in DR buffer
+            SPI3_DR = txbuf[index];
+            index++;
+        }
     }
 }
