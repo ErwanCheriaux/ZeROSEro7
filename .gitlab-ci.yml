@@ -22,6 +22,7 @@ lint_main:
   script:
     - make format -C Training/BLE_nrf52
     - make format -C Training/USB_keyboard
+    - make format -C Training/SD_card
     - make format -C Training/lora_discovery
     - make format -C Training/LoRa_sx1276
     - make format -C Training/WiFi
@@ -56,6 +57,7 @@ build_main:
   script:
     - make -C Training/BLE_nrf52
     - make -C Training/USB_keyboard
+    - make -C Training/SD_card
     - make -C Training/lora_discovery
     - make test_board -C Training/LoRa_sx1276
     - make clean -C Training/LoRa_sx1276
@@ -65,6 +67,7 @@ build_main:
   artifacts:
     paths:
     - Training/BLE_nrf52/_build/nrf52832_xxaa.out
+    - Training/SD_card/build/sd_card.elf
     - Training/USB_keyboard/build/USB_keyboard.elf
     - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
     - Training/WiFi/build/wifi_dev_kit.elf
