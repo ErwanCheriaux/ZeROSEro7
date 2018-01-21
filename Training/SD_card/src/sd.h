@@ -3,69 +3,55 @@
 #ifndef SD_H
 #define SD_H
 
-#include "ch.h"
-#include "hal.h"
+#include "ff.h"
 
-#define SDC_BURST_SIZE 16
-// Buffer for block read/write operations, note that extra bytes are
-// allocated in order to support unaligned operations.
-#define SD_BUF_SIZE    MMCSD_BLOCK_SIZE * SDC_BURST_SIZE
-#define FILENAME_SIZE  128
+#define DATA_FOLDER        "ZEROSERO"
+// MAX_BUFF_LEN must be > MAX_FILENAME_SIZE (see sd.c)
+#define MAX_BUFF_LEN       1024
 
-typedef struct file_info_s {
-    uint8_t filename[FILENAME_SIZE];
-    int     address;
-    int     size;
-} file_info_t;
-
-/* Read the content at the given address
-** addr:   address to read
-** value:  returned content at the given address
-** return: 0 for success, 1 for error
+/* Print a directory content
+** path:   folder path
+** return: 0 for success, something else for error
 */
-int sd_read_byte(int addr, uint8_t* value);
-
-/* Read whole memory area
-** addr:   address to read
-** len:    number of bytes to read
-** buffer: returned content
-** return: 0 for success, 1 for error
-*/
-int sd_read(int addr, unsigned int len, uint8_t* buffer);
-
-/* Write a byte into a given address
-** addr:   address to write the byte
-** value:  content to write
-** return: 0 for success, 1 for error
-*/
-int sd_write_byte(int addr, uint8_t value);
-
-/* Write whole memory area
-** addr:   address to write
-** len:    number of bytes to write
-** buffer: input content
-** return: 0 for success, 1 for error
-*/
-int sd_write(int addr, unsigned int len, uint8_t* buffer);
+int read_folder(char* path);
 
 /* Create a file into SD card
+** if action = FA_WRITE and if the file already exists, it will be overridden
 ** filename: file name
-** len:      file size
-** addr:     returned file address
+** action:   read or write (FA_READ or FA_WRITE)
 ** return:   0 for success, 1 for error
 */
-int sd_file_create(uint8_t* filename, int len, int* addr);
+int sd_file_open(char* filename, int action);
+
+/* Write into the previous opened file
+** data_buff will be written
+** return: 0 for success, 1 for error
+*/
+int sd_file_write(void);
+
+/* Close current file
+** return: 0 for success, 1 for error
+*/
+int sd_file_close(void);
 
 /* Remove file from SD card
 ** filename: file name to remove
 ** return:   0 for success, 1 for error
 */
-int sd_file_remove(uint8_t* filename);
+int sd_file_remove(char* filename);
 
-/* Get all files infos
-** infos:  all file informations
-** return: 0 for success, 1 for error
+/* Read opened file
+** file will be closed at EOF
+** data will be written into data_buff
+** bytes_read: number of bytes read
+** return:     0 for success, 1 for error
 */
-int sd_files_infos(file_info_t* infos);
+int sd_file_read(unsigned int* bytes_read);
+
+/* Get all filenames
+** filenames pointers will be written into filenames
+** return:    0 for success, 1 for error
+*/
+int sd_get_next_filename(void);
 
 #endif // SD_H
