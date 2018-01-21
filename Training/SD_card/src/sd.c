@@ -100,60 +100,6 @@ static void getDate(char* str, int date)
     str[10] = '\0';
 }
 
-int read_folder(char* path)
-{
-    // mount
-    if (mounted) {
-        rtt_printf("[ERROR] SD Card should not be mounted\n");
-        unmount();
-        return 1;
-    }
-    if(mount())
-        return 1;
-
-    int res = 0;
-    char date_str[11];
-    char time_str[9];
-    // open folder
-    if(f_print_error(f_opendir(&directory, path)))
-        res = 1;
-    // print each elements
-    while(!res) {
-        if(f_print_error(f_readdir(&directory, &fileinfos))) {
-            res = 1;
-            break;
-        }
-        if(fileinfos.fname[0] == 0) {
-            rtt_printf("end of folder\n");
-            break;
-        }
-        rtt_printf("fsize: %d\n", fileinfos.fsize);
-        getDate(date_str, fileinfos.fdate);
-        rtt_printf("fdate: %d [%s]\n", fileinfos.fdate, date_str);
-        getTime(time_str, fileinfos.ftime);
-        rtt_printf("ftime: %d [%s]\n", fileinfos.ftime, time_str);
-        rtt_printf("fattrib: %d [ ", fileinfos.fattrib);
-        if(fileinfos.fattrib & AM_RDO)
-            rtt_printf("READONLY ");
-        if(fileinfos.fattrib & AM_HID)
-            rtt_printf("HIDDEN ");
-        if(fileinfos.fattrib & AM_SYS)
-            rtt_printf("SYSTEM ");
-        if(fileinfos.fattrib & AM_DIR)
-            rtt_printf("DIRECTORY ");
-        if(fileinfos.fattrib & AM_ARC)
-            rtt_printf("ARCHVE ");
-        rtt_printf("]\n");
-        rtt_printf("fname: %s\n\n", fileinfos.fname);
-    }
-    // close folder
-    if(f_print_error(f_closedir(&directory)))
-        res = 1;
-    if(unmount())
-        res = 1;
-    return res;
-}
-
 int sd_file_open(char* filename, int action)
 {
     // mount

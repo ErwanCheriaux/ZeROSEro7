@@ -9,12 +9,6 @@
 // MAX_BUFF_LEN must be > MAX_FILENAME_SIZE (see sd.c)
 #define MAX_BUFF_LEN       1024
 
-/* Print a directory content
-** path:   folder path
-** return: 0 for success, something else for error
-*/
-int read_folder(char* path);
-
 /* Create a file into SD card
 ** if action = FA_WRITE and if the file already exists, it will be overridden
 ** filename: file name
