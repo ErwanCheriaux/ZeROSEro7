@@ -1,6 +1,5 @@
 #include "sd.h"
 #include <string.h>
-#include <stdio.h>
 #include "ch.h"
 #include "hal.h"
 #include "rtt.h"
@@ -78,26 +77,6 @@ static int unmount(void)
     rtt_printf("> Unmount SUCCESS\n");
     mounted = 0;
     return 0;
-}
-
-static void getTime(char* str, int time)
-{
-    sprintf(str, "%02d", (time >> 11) & 0b11111);
-    str[2] = ':';
-    sprintf(str+3, "%02d", (time >> 5) & 0b111111);
-    str[5] = ':';
-    sprintf(str+6,   "%02d", time & 0b11111);
-    str[8] = '\0';
-}
-
-static void getDate(char* str, int date)
-{
-    sprintf(str,   "%02d", date & 0b11111);
-    str[2] = '/';
-    sprintf(str+3, "%02d", (date >> 5) & 0b1111);
-    str[5] = '/';
-    sprintf(str+6, "%04d", ((date >> 9) & 0b1111111) + 1980);
-    str[10] = '\0';
 }
 
 int sd_file_open(char* filename, int action)

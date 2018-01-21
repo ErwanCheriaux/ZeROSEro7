@@ -62,9 +62,10 @@ int main(void)
         rtt_printf("filename: %s\n", data_buff);
     rtt_printf("If you see a file list including \"%s\", listing is working !\n", filename);
     sd_file_remove(filename);
-    read_folder(DATA_FOLDER);
+    while(sd_get_next_filename() == 0)
+        rtt_printf("filename: %s\n", data_buff);
     rtt_printf("If you do not see file called \"%s\", removing is working !\n", filename);
-    
+
     chThdSleep(TIME_INFINITE);
     return 0;
 }
