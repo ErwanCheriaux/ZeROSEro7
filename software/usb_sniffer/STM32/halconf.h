@@ -29,7 +29,14 @@
 #define HALCONF_H
 
 #include "mcuconf.h"
-#include "vectorsconf.h"
+
+/**
+ * @brief   Enables Vector.
+ */
+#if !defined(VECTORS_USE_CONF)
+#define VECTORS_USE_CONF
+#endif
+
 
 /**
  * @brief   Enables the TM subsystem.

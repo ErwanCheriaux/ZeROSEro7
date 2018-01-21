@@ -5,6 +5,7 @@
 #include "hal.h"
 #include "vectors.h"
 
+#define OVR (SPI3->SR & SPI_SR_OVR)
 #define TXE (SPI3->SR & SPI_SR_TXE)
 #define RXNE (SPI3->SR & SPI_SR_RXNE)
 
@@ -81,25 +82,30 @@ void spi_write(char *msg)
 
 void SPI_IRQHandler(void)
 {
-    rtt_printf("SPI_IRQHandler");
+    //Overrun flag
+    if(OVR) {
+        rtt_printf("OVERRUN !!!");
+        rxbuf[1] = SPI3->DR;
+        rtt_printf("SPI receive: %08x", rxbuf[1]);
+    }
     //Receive buffer not empty
-    if(RXNE) {
+    else if(RXNE) {
         rxbuf[1] = SPI3->DR;
         rtt_printf("SPI receive: %08x", rxbuf[1]);
     }
 
     //Transfer buffer empty
-    else if(TXE) {
-        static uint32_t index = 0;
+    //  else if(TXE) {
+    //      static uint32_t index = 0;
 
-        if(index >= size_buffer) {
-            //turn off Tx interrupt
-            SPI3->CR2 &= SPI_CR2_TXEIE;  //TXEIE = 0
-            index = 0;
-        } else {
-            //write data in DR buffer
-            SPI3->DR = txbuf[index];
-            index++;
-        }
-    }
+    //      if(index >= size_buffer) {
+    //          //turn off Tx interrupt
+    //          SPI3->CR2 &= SPI_CR2_TXEIE;  //TXEIE = 0
+    //          index = 0;
+    //      } else {
+    //          //write data in DR buffer
+    //          SPI3->DR = txbuf[index];
+    //          index++;
+    //      }
+    //  }
 }

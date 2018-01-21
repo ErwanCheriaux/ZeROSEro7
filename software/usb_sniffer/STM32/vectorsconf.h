@@ -1,8 +1,3 @@
 //vectorsconf.h
 
-#if !defined(VECTORS_USE_CONF)
-#define VECTORS_USE_CONF TRUE
-#endif
-
-//Handler
-#define Vector10C SPI_IRQHandler
+#define SPI_IRQHandler Vector10C 
