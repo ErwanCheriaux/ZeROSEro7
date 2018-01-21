@@ -16,6 +16,7 @@
 
 #include <string.h>
 #include <stdlib.h>
+#include <stdio.h>
 
 #include "ch.h"
 #include "hal.h"
@@ -32,7 +33,10 @@ static const SDCConfig sdccfg = {
     SDC_MODE_4BIT // bus width (D0, D1, D2, ...)
 };
 uint8_t working_buff[4096] __attribute__ ((aligned (4))) ; // Working buffer
-FATFS fatfs;
+static FATFS fatfs;
+static FIL file;
+static DIR directory;
+static FILINFO fileinfos;
 
 static int f_print_error(int error)
 {
@@ -63,6 +67,69 @@ static int f_print_error(int error)
     return error;
 }
 
+static void getTime(char* str, int time)
+{
+    sprintf(str, "%02d", (time >> 11) & 0b11111);
+    str[2] = ':';
+    sprintf(str+3, "%02d", (time >> 5) & 0b111111);
+    str[5] = ':';
+    sprintf(str+6,   "%02d", time & 0b11111);
+    str[8] = '\0';
+}
+
+static void getDate(char* str, int date)
+{
+    sprintf(str,   "%02d", date & 0b11111);
+    str[2] = '/';
+    sprintf(str+3, "%02d", (date >> 5) & 0b1111);
+    str[5] = '/';
+    sprintf(str+6, "%04d", ((date >> 9) & 0b1111111) + 1980);
+    str[10] = '\0';
+}
+
+static int read_folder(char* path)
+{
+    int res = 0;
+    char date_str[11];
+    char time_str[9];
+    // open folder
+    if(f_print_error(f_opendir(&directory, path)))
+        return 1;
+    // print each elements
+    while(1) {
+        if(f_print_error(f_readdir(&directory, &fileinfos))) {
+            res = 1;
+            break;
+        }
+        if(fileinfos.fname[0] == 0) {
+            rtt_printf("end of folder\n");
+            break;
+        }
+        rtt_printf("fsize: %d\n", fileinfos.fsize);
+        getDate(date_str, fileinfos.fdate);
+        rtt_printf("fdate: %d [%s]\n", fileinfos.fdate, date_str);
+        getTime(time_str, fileinfos.ftime);
+        rtt_printf("ftime: %d [%s]\n", fileinfos.ftime, time_str);
+        rtt_printf("fattrib: %d [ ", fileinfos.fattrib);
+        if(fileinfos.fattrib & AM_RDO)
+            rtt_printf("READONLY ");
+        if(fileinfos.fattrib & AM_HID)
+            rtt_printf("HIDDEN ");
+        if(fileinfos.fattrib & AM_SYS)
+            rtt_printf("SYSTEM ");
+        if(fileinfos.fattrib & AM_DIR)
+            rtt_printf("DIRECTORY ");
+        if(fileinfos.fattrib & AM_ARC)
+            rtt_printf("ARCHVE ");
+        rtt_printf("]\n");
+        rtt_printf("fname: %s\n\n", fileinfos.fname);
+    }
+    // close folder
+    if(f_print_error(f_closedir(&directory)))
+        return 1;
+    return res;
+}
+
 int main(void)
 {
     halInit();
@@ -83,12 +150,63 @@ int main(void)
         rtt_printf("[ERROR] sdcConnect ERROR\n");
         goto sleep;
     }
-    rtt_printf("sdcConnect SUCCESS\n");
+    rtt_printf("> sdcConnect SUCCESS\n");
 
     // mount when it will be needed
     if(f_print_error(f_mount(&fatfs, "/", 1)))
         goto disconnect;
-    rtt_printf("f_mount SUCCESS\n");
+    rtt_printf("> f_mount SUCCESS\n");
+
+    // read root dir
+    char path[] = "/";
+    if(read_folder(path))
+        goto disconnect;
+    rtt_printf("> read_folder SUCCESS\n");
+
+    // create folder if it doesn-t already exists
+    char dir_name[] = "FOLDER";
+    int res = f_mkdir(dir_name);
+    if(res != FR_EXIST && res != FR_OK) {
+        f_print_error(res);
+        goto disconnect;
+    }
+    rtt_printf("> f_mkdir SUCCESS\n");
+
+    // create file and erase if it already exists
+    char file_path[] = "FOLDER/FILENAME.TXT";
+    if(f_print_error(f_open(&file, file_path, FA_CREATE_ALWAYS | FA_WRITE | FA_READ)))
+        goto disconnect;
+    rtt_printf("> f_open SUCCESS\n");
+
+    // read previous folder
+    if(read_folder(dir_name))
+        goto disconnect;
+    rtt_printf("> read_folder SUCCESS\n");
+
+    // close opened file
+    if(f_print_error(f_close(&file)))
+        goto disconnect;
+    rtt_printf("> f_close SUCCESS\n");
+
+    // remove previous file
+    if(f_print_error(f_unlink(file_path)))
+        goto disconnect;
+    rtt_printf("> f_unlink SUCCESS\n");
+
+    // read previous folder
+    if(read_folder(dir_name))
+        goto disconnect;
+    rtt_printf("> read_folder SUCCESS\n");
+
+    // remove previous folder
+    if(f_print_error(f_unlink(dir_name)))
+        goto disconnect;
+    rtt_printf("> f_unlink SUCCESS\n");
+
+    // read previous folder
+    if(read_folder(path))
+        goto disconnect;
+    rtt_printf("> read_folder SUCCESS\n");
 
 disconnect:
     // disconnect
@@ -96,7 +214,7 @@ disconnect:
         rtt_printf("[ERROR] sdcDisconnect ERROR\n");
         goto sleep;
     }
-    rtt_printf("sdcDisconnect SUCCESS\n");
+    rtt_printf("> sdcDisconnect SUCCESS\n");
 
 sleep:
     chThdSleep(TIME_INFINITE);
