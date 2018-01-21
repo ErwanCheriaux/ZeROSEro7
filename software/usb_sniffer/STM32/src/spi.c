@@ -5,25 +5,8 @@
 #include "hal.h"
 #include "vectors.h"
 
-#define RCC_AHB1_RSTR (*(volatile uint32_t *)0x40023810)
-#define RCC_APB1_RSTR (*(volatile uint32_t *)0x40023820)
-#define RCC_AHB1_ENR (*(volatile uint32_t *)0x40023830)
-#define RCC_APB1_ENR (*(volatile uint32_t *)0x40023840)
-#define RCC_AHB1_LPENR (*(volatile uint32_t *)0x40023850)
-#define RCC_APB1_LPENR (*(volatile uint32_t *)0x40023860)
-
-#define SPI3_CR1 (*(volatile uint32_t *)0x40003c00)
-#define SPI3_CR2 (*(volatile uint32_t *)0x40003c04)
-#define SPI3_SR (*(volatile uint32_t *)0x40003c08)
-#define SPI3_DR (*(volatile uint32_t *)0x40003c0c)
-#define SPI3_CRCPR (*(volatile uint32_t *)0x40003c10)
-#define SPI3_RXCRCR (*(volatile uint32_t *)0x40003c14)
-#define SPI3_TXCRCR (*(volatile uint32_t *)0x40003c18)
-#define SPI3_I2SCFGR (*(volatile uint32_t *)0x40003c1c)
-#define SPI3_I2SPR (*(volatile uint32_t *)0x40003c20)
-
-#define TXE (SPI3_SR & (1 << 1))
-#define RXNE (SPI3_SR & (1 << 0))
+#define TXE (SPI3->SR & SPI_SR_TXE)
+#define RXNE (SPI3->SR & SPI_SR_RXNE)
 
 char *password;
 
@@ -67,22 +50,15 @@ void spi_init(void)
 void spi_display_config(void)
 {
     rtt_printf("===== SPI config =====");
-    rtt_printf("RCC_AHB1_RSTR  = %08x", RCC_AHB1_RSTR);
-    rtt_printf("RCC_APB1_RSTR  = %08x", RCC_APB1_RSTR);
-    rtt_printf("RCC_AHB1_ENR   = %08x", RCC_AHB1_ENR);
-    rtt_printf("RCC_APB1_ENR   = %08x", RCC_APB1_ENR);
-    rtt_printf("RCC_AHB1_LPENR = %08x", RCC_AHB1_LPENR);
-    rtt_printf("RCC_APB1_LPENR = %08x", RCC_APB1_LPENR);
-    rtt_printf("");
-    rtt_printf("SPI3_CR1       = %08x", SPI3_CR1);
-    rtt_printf("SPI3_CR2       = %08x", SPI3_CR2);
-    rtt_printf("SPI3_SR        = %08x", SPI3_SR);
-    rtt_printf("SPI3_DR        = %08x", SPI3_DR);
-    rtt_printf("SPI3_CRCPR     = %08x", SPI3_CRCPR);
-    rtt_printf("SPI3_RXCRCR    = %08x", SPI3_RXCRCR);
-    rtt_printf("SPI3_TXCRCR    = %08x", SPI3_TXCRCR);
-    rtt_printf("SPI3_I2SCFGR   = %08x", SPI3_I2SCFGR);
-    rtt_printf("SPI3_I2SPR     = %08x", SPI3_I2SPR);
+    rtt_printf("SPI3_CR1       = %08x", SPI3->CR1);
+    rtt_printf("SPI3_CR2       = %08x", SPI3->CR2);
+    rtt_printf("SPI3_SR        = %08x", SPI3->SR);
+    rtt_printf("SPI3_DR        = %08x", SPI3->DR);
+    rtt_printf("SPI3_CRCPR     = %08x", SPI3->CRCPR);
+    rtt_printf("SPI3_RXCRCR    = %08x", SPI3->RXCRCR);
+    rtt_printf("SPI3_TXCRCR    = %08x", SPI3->TXCRCR);
+    rtt_printf("SPI3_I2SCFGR   = %08x", SPI3->I2SCFGR);
+    rtt_printf("SPI3_I2SPR     = %08x", SPI3->I2SPR);
     rtt_printf("");
 }
 
@@ -97,14 +73,15 @@ void spi_write(char *msg)
         txbuf[i]  = (uint8_t)msg[i];
 
     //turn on Tx interrupt
-    SPI3_CR2 |= (1 << 7);  //TXEIE = 1
+    SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
 }
 
 void SPI_IRQHandler(void)
 {
+    rtt_printf("SPI_IRQHandler");
     //Receive buffer not empty
     if(RXNE) {
-        rxbuf[1] = SPI3_DR;
+        rxbuf[1] = SPI3->DR;
         rtt_printf("SPI receive: %08x", rxbuf[1]);
     }
 
@@ -114,11 +91,11 @@ void SPI_IRQHandler(void)
 
         if(index >= size_buffer) {
             //turn off Tx interrupt
-            SPI3_CR2 &= ~(1 << 7);  //TXEIE = 0
+            SPI3->CR2 &= SPI_CR2_TXEIE;  //TXEIE = 0
             index = 0;
         } else {
             //write data in DR buffer
-            SPI3_DR = txbuf[index];
+            SPI3->DR = txbuf[index];
             index++;
         }
     }

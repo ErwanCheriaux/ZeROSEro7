@@ -89,15 +89,10 @@ int main(void)
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 #endif
 
-    //polling on SPI
     while(1) {
-        SPI_IRQHandler();
+        usbhMainLoop(&USBHD1);
+        chThdSleepMilliseconds(1000);
     }
-
-    //  while(1) {
-    //      usbhMainLoop(&USBHD1);
-    //      chThdSleepMilliseconds(1000);
-    //  }
 
     chThdSleep(TIME_INFINITE);
     return 0;
