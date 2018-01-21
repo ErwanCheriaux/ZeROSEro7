@@ -5,6 +5,10 @@
 #include "hal.h"
 #include "vectors.h"
 
+#define RCC_APB1_RSTR (*(volatile uint32_t *)0x40023820)
+#define RCC_APB1_ENR (*(volatile uint32_t *)0x40023840)
+#define RCC_APB1_LPENR (*(volatile uint32_t *)0x40023860)
+
 #define SPI3_CR1 (*(volatile uint32_t *)0x40003c00)
 #define SPI3_CR2 (*(volatile uint32_t *)0x40003c04)
 #define SPI3_SR (*(volatile uint32_t *)0x40003c08)
@@ -37,6 +41,11 @@ void spi_init(void)
     palSetPadMode(GPIOC, GPIOC_SPI3_MOSI, PAL_MODE_ALTERNATE(6));
     palSetPadMode(GPIOA, GPIOA_SPI3_NSS, PAL_MODE_INPUT_PULLDOWN);
 
+    //Clock
+    RCC_APB1_RSTR |= (1 << 15);   //SPI3RST = 1
+    RCC_APB1_ENR |= (1 << 15);    //SPI3EN = 1
+    RCC_APB1_LPENR |= (1 << 15);  //SPI3LPEN = 1
+
     SPI3_CR1 &= ~(1 << 6);  //SPE = 0  : Turn off SPI before config
 
     /* 1. Set the DFF bit to define 8- or 16-bit data frame format */
@@ -59,8 +68,10 @@ void spi_init(void)
     NSS pin must be connected to a low level signal during the complete byte transmit
     sequence. In NSS software mode, set the SSM bit and clear the SSI bit in the SPI_CR1
     register. This step is not required when TI mode is selected. */
-    SPI3_CR1 |= (1 << 9);   //SSM = 1
-    SPI3_CR1 &= ~(1 << 8);  //SSI = 0
+    //SPI3_CR1 |= (1 << 9);   //SSM = 1
+    //SPI3_CR1 &= ~(1 << 8);  //SSI = 0
+
+    SPI3_CR1 &= ~(1 << 9);  //SSM = 0 : NSS Hardware
 
     /* 5. Set the FRF bit in the SPI_CR2 register to select the TI mode protocol for serial
     communications. */
@@ -73,19 +84,28 @@ void spi_init(void)
     pins to alternate functions. */
     SPI3_CR1 &= ~(1 << 2);  //MSTR = 0 : Slave mode
     SPI3_CR1 |= (1 << 6);   //SPE = 1  : Turn on SPI
+
+    //debug
+    spi_display_config();
 }
 
 void spi_display_config(void)
 {
-    rtt_printf("SPI3_CR1     = %032x", SPI3_CR1);
-    rtt_printf("SPI3_CR2     = %032x", SPI3_CR2);
-    rtt_printf("SPI3_SR      = %032x", SPI3_SR);
-    rtt_printf("SPI3_DR      = %032x", SPI3_DR);
-    rtt_printf("SPI3_CRCPR   = %032x", SPI3_CRCPR);
-    rtt_printf("SPI3_RXCRCR  = %032x", SPI3_RXCRCR);
-    rtt_printf("SPI3_TXCRCR  = %032x", SPI3_TXCRCR);
-    rtt_printf("SPI3_I2SCFGR = %032x", SPI3_I2SCFGR);
-    rtt_printf("SPI3_I2SPR   = %032x", SPI3_I2SPR);
+    rtt_printf("===== SPI config =====");
+    rtt_printf("RCC_APB1_RSTR  = %08x", RCC_APB1_RSTR);
+    rtt_printf("RCC_APB1_ENR   = %08x", RCC_APB1_ENR);
+    rtt_printf("RCC_APB1_LPENR = %08x", RCC_APB1_LPENR);
+    rtt_printf("");
+    rtt_printf("SPI3_CR1       = %08x", SPI3_CR1);
+    rtt_printf("SPI3_CR2       = %08x", SPI3_CR2);
+    rtt_printf("SPI3_SR        = %08x", SPI3_SR);
+    rtt_printf("SPI3_DR        = %08x", SPI3_DR);
+    rtt_printf("SPI3_CRCPR     = %08x", SPI3_CRCPR);
+    rtt_printf("SPI3_RXCRCR    = %08x", SPI3_RXCRCR);
+    rtt_printf("SPI3_TXCRCR    = %08x", SPI3_TXCRCR);
+    rtt_printf("SPI3_I2SCFGR   = %08x", SPI3_I2SCFGR);
+    rtt_printf("SPI3_I2SPR     = %08x", SPI3_I2SPR);
+    rtt_printf("");
 }
 
 void spi_write(char *msg)
