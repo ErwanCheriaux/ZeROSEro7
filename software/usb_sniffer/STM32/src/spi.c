@@ -5,8 +5,11 @@
 #include "hal.h"
 #include "vectors.h"
 
+#define RCC_AHB1_RSTR (*(volatile uint32_t *)0x40023810)
 #define RCC_APB1_RSTR (*(volatile uint32_t *)0x40023820)
+#define RCC_AHB1_ENR (*(volatile uint32_t *)0x40023830)
 #define RCC_APB1_ENR (*(volatile uint32_t *)0x40023840)
+#define RCC_AHB1_LPENR (*(volatile uint32_t *)0x40023850)
 #define RCC_APB1_LPENR (*(volatile uint32_t *)0x40023860)
 
 #define SPI3_CR1 (*(volatile uint32_t *)0x40003c00)
@@ -41,7 +44,14 @@ void spi_init(void)
     palSetPadMode(GPIOC, GPIOC_SPI3_MOSI, PAL_MODE_ALTERNATE(6));
     palSetPadMode(GPIOA, GPIOA_SPI3_NSS, PAL_MODE_INPUT_PULLDOWN);
 
-    //Clock
+    /*
+     * Clock
+     */
+    //GPIOA
+    RCC_AHB1_RSTR |= (1 << 0);   //GPIOARST = 1
+    RCC_AHB1_ENR |= (1 << 0);    //GPIOAEN = 1
+    RCC_AHB1_LPENR |= (1 << 0);  //GPIOALPEN = 1
+    //SPI3
     RCC_APB1_RSTR |= (1 << 15);   //SPI3RST = 1
     RCC_APB1_ENR |= (1 << 15);    //SPI3EN = 1
     RCC_APB1_LPENR |= (1 << 15);  //SPI3LPEN = 1
@@ -92,8 +102,11 @@ void spi_init(void)
 void spi_display_config(void)
 {
     rtt_printf("===== SPI config =====");
+    rtt_printf("RCC_AHB1_RSTR  = %08x", RCC_AHB1_RSTR);
     rtt_printf("RCC_APB1_RSTR  = %08x", RCC_APB1_RSTR);
+    rtt_printf("RCC_AHB1_ENR   = %08x", RCC_AHB1_ENR);
     rtt_printf("RCC_APB1_ENR   = %08x", RCC_APB1_ENR);
+    rtt_printf("RCC_AHB1_LPENR = %08x", RCC_AHB1_LPENR);
     rtt_printf("RCC_APB1_LPENR = %08x", RCC_APB1_LPENR);
     rtt_printf("");
     rtt_printf("SPI3_CR1       = %08x", SPI3_CR1);
