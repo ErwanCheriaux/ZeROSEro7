@@ -26,6 +26,7 @@ lint_main:
     - make format -C software/spy_talk
     - make format -C Training/WiFi
     - make format -C software/usb_sniffer/STM32
+    - make format -C software/usb_sniffer/nRF52
     - git status --porcelain
 
 lint_apps:
@@ -62,6 +63,7 @@ build_main:
     - make -C software/spy_talk
     - make -C Training/WiFi
     - make -C software/usb_sniffer/STM32
+    - make -C software/usb_sniffer/nRF52
   artifacts:
     paths:
     - Training/SD_card/build/sd_card.elf
@@ -69,6 +71,7 @@ build_main:
     - software/spy_talk/_build/nrf52832_xxaa.out
     - Training/WiFi/build/wifi_dev_kit.elf
     - software/usb_sniffer/STM32/build/usb_sniffer.elf
+    - software/usb_sniffer/nRF52/_build/nrf52832_xxaa.out
     expire_in: 1 week
 
 build_apps:
