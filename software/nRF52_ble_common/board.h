@@ -11,6 +11,11 @@
 #include "board_usb_sniffer.h"
 
 #else
+#ifdef USE_STEALTH_DROP_BOARD
+
+#include "board_stealth_drop.h"
+
+#else
 #ifdef USE_COMMON_BOARD
 
 // <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
@@ -38,6 +43,7 @@
 #error("Please select a board.h")
 
 #endif // USE_COMMON_BOARD
+#endif // USE_STEALTH_DROP_BOARD
 #endif // USE_USB_SNIFFER_BOARD
 #endif // USE_SPY_TALK_BOARD
 
