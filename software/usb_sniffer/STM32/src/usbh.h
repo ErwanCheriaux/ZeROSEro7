@@ -14,16 +14,12 @@
     limitations under the License.
 */
 
-#ifndef USB_H
-#define USB_H
+#ifndef USBH_H
+#define USBH_H
 
-extern const USBConfig    usbcfg;
-extern const USBHIDConfig usbhidcfg;
-extern USBHIDDriver       UHD2;
+extern uint8_t led_status;
 
-void usb_init(void);
-void usb_send_key(USBHIDDriver *uhdp, uint8_t key);
-void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n);
+void usbh_init(void);
 
 #endif /* USB_H */
 

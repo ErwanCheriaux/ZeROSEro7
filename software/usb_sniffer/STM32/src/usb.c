@@ -16,11 +16,9 @@
 
 #include "hal.h"
 
-#include "usb.h"
 #include "rtt.h"
-
-uint8_t increment_var = 0;
-uint8_t led_status    = 3;
+#include "usb.h"
+#include "usbh.h"
 
 /*
  * USB HID Driver structure.
@@ -376,6 +374,8 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
     return;
 }
 
+uint8_t led_status = 7;
+
 static bool req_handler(USBDriver *usbp)
 {
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
@@ -442,23 +442,6 @@ void usb_init(void)
     chThdSleepMilliseconds(1500);
     usbStart(usbhidcfg.usbp, &usbcfg);
     usbConnectBus(usbhidcfg.usbp);
-}
-
-/*
- * Initialisation of OTG FS port connected to a keyboard.
- */
-void usbh_init(void)
-{
-    /*USBH_FS OTG*/
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
-
-    rtt_printf("Turn on USB power");
-    palSetPad(GPIOB, GPIOA_OTG_FS_VBUS);
-    chThdSleepMilliseconds(100);
-
-    usbhStart(&USBHD1);
 }
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)

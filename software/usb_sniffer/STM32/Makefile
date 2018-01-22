@@ -65,6 +65,7 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/led.c \
        $(SRC)/timer.c \
        $(SRC)/usb.c \
+       $(SRC)/usbh.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/SEGGER_RTT_printf.c \
        $(SRC)/usbh_custom_class_example.c

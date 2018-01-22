@@ -6,10 +6,12 @@
 
 #include "led.h"
 #include "rtt.h"
-#include "usb.h"
 #include "timer.h"
 #include "SEGGER_RTT.h"
 #include "SEGGER_RTT_Conf.h"
+
+#include "usb.h"
+#include "usbh.h"
 #include "usbh_custom_class_example.h"
 #include "usb_hid_keys.h"
 
