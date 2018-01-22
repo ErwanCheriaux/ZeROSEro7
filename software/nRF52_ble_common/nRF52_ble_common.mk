@@ -27,6 +27,7 @@ USER_SRC += \
 	$(nRF52_ble_common_DIR)/ble_peripheral_gap.c \
 	$(nRF52_ble_common_DIR)/ble_peripheral_gatt.c \
 	$(nRF52_ble_common_DIR)/ble_uart_service.c \
+	$(nRF52_ble_common_DIR)/nrf_spim.c \
 
 USER_INC += $(PROJ_DIR) \
 	$(nRF52_ble_common_DIR) \

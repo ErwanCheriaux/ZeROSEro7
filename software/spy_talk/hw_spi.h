@@ -1,6 +1,10 @@
 #ifndef HW_SPI_H
 #define HW_SPI_H
 
+/*
+*   Header required by LoRa driver
+*/
+
 /*!
  * @brief Initializes the SPI object and MCU peripheral
  *
