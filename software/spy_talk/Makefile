@@ -12,9 +12,9 @@ USER_SRC += \
 	$(PROJ_DIR)/lora_board.c \
 	$(PROJ_DIR)/low_power.c \
 	$(PROJ_DIR)/test_board.c \
-	$(PROJ_DIR)/custom_board.c \
+	$(PROJ_DIR)/custom_board.c 
 
-CFLAGS += -D USE_SPY_TALK_BOARD  \
+CFLAGS += -D USE_SPY_TALK_BOARD
 
 # ***** LoRa Semtec Specific *****
 
@@ -45,7 +45,7 @@ CFLAGS += \
 	-D USE_MODEM_LORA \
 	-D _DEBUG \
 	-D DEBUG \
-	-D DIO_PINS_CONNECTED \
+	-D DIO_PINS_CONNECTED
 
 include $(nRF52_ble_common_DIR)/nRF52_ble_common.mk
 
