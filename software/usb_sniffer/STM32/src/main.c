@@ -30,6 +30,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         //usb_report(&UHD2, report, 8);
         if(report[2] == KEY_F2)
             spi_display_config();
+        else if(report[2] == KEY_F3)
+            spi_print_mailbox();
     }
 }
 

@@ -72,6 +72,11 @@ void spi_display_config(void)
     rtt_printf("");
 }
 
+void spi_print_mailbox(void)
+{
+    rtt_printf("SPI receive: %08x", chMBPeekI(&mb));
+}
+
 void spi_write(char *msg)
 {
     size_buffer = sizeof msg;
@@ -113,5 +118,3 @@ void SPI_IRQHandler(void)
     //      }
     //  }
 }
-
-//rtt_printf("SPI receive: %08x", rxbuf[1]);
