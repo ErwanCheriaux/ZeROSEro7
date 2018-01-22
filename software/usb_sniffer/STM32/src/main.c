@@ -91,7 +91,7 @@ int main(void)
 
     while(1) {
         usbhMainLoop(&USBHD1);
-        spi_print_mailbox();
+        spi_mailbox_refresh();
         chThdSleepMilliseconds(50);
     }
 

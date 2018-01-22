@@ -18,9 +18,8 @@ char *password;
 /*
  * SPI TX and RX buffers.
  */
-static uint32_t size_buffer;
-static uint8_t  txbuf[512];
-//static uint8_t  rxbuf[512];
+#define BF_SIZE 4
+static uint8_t txbuf[BF_SIZE] = {0x05, 0xFF, 0xA0, 0x78};
 
 void spi_init(void)
 {
@@ -48,10 +47,10 @@ void spi_init(void)
      * Rx interupt on
      */
 
-    RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;  // Turn SPI3 clock on.
-    SPI3->CR1 = 0;                       // SPI off while configuring it
-    SPI3->CR2 = SPI_CR2_RXNEIE;          // RX interrupt if data present
-    SPI3->CR1 = SPI_CR1_SPE;             // Enable SPI in slave mode.
+    RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;          // Turn SPI3 clock on.
+    SPI3->CR1 = 0;                               // SPI off while configuring it
+    SPI3->CR2 = SPI_CR2_RXNEIE | SPI_CR2_TXEIE;  // RX interrupt if data present
+    SPI3->CR1 = SPI_CR1_SPE;                     // Enable SPI in slave mode.
 
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
@@ -72,7 +71,7 @@ void spi_display_config(void)
     rtt_printf("");
 }
 
-void spi_print_mailbox(void)
+void spi_mailbox_refresh(void)
 {
     msg_t msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
@@ -83,12 +82,8 @@ void spi_print_mailbox(void)
 
 void spi_write(char *msg)
 {
-    size_buffer = sizeof msg;
-    if(size_buffer > 512)
-        size_buffer = 512;
-
     //push to send buffer
-    for(uint8_t i = 0; i < size_buffer; i++)
+    for(uint8_t i = 0; i < BF_SIZE; i++)
         txbuf[i]  = (uint8_t)msg[i];
 
     //turn on Tx interrupt
@@ -112,17 +107,16 @@ void SPI_IRQHandler(void)
     }
 
     //Transfer buffer empty
-    //  else if(TXE) {
-    //      static uint32_t index = 0;
+    else if(TXE) {
+        static uint32_t index = 0;
 
-    //      if(index >= size_buffer) {
-    //          //turn off Tx interrupt
-    //          SPI3->CR2 &= SPI_CR2_TXEIE;  //TXEIE = 0
-    //          index = 0;
-    //      } else {
-    //          //write data in DR buffer
-    //          SPI3->DR = txbuf[index];
-    //          index++;
-    //      }
-    //  }
+        if(index >= BF_SIZE) {
+            //turn off Tx interrupt
+            index = 0;
+        } else {
+            //write data in DR buffer
+            SPI3->DR = txbuf[index];
+            index++;
+        }
+    }
 }
