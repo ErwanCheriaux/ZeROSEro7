@@ -95,15 +95,15 @@ void SPI_IRQHandler(void)
     //Overrun flag
     if(OVR) {
         rtt_printf("Overrun !!!");
-        chSysLock();
+        chSysLockFromISR();
         chMBPostI(&mb, SPI3->DR);
-        chSysUnlock();
+        chSysUnlockFromISR();
     }
     //Receive buffer not empty
     else if(RXNE) {
-        chSysLock();
+        chSysLockFromISR();
         chMBPostI(&mb, SPI3->DR);
-        chSysUnlock();
+        chSysUnlockFromISR();
     }
 
     //Transfer buffer empty
