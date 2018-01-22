@@ -19,7 +19,7 @@ char *password;
  * SPI TX and RX buffers.
  */
 #define BF_SIZE 4
-static uint8_t txbuf[BF_SIZE] = {0x05, 0xFF, 0xA0, 0x78};
+static uint16_t txbuf[BF_SIZE] = {0x0500, 0xF0F0, 0x00A0, 0x7008};
 
 void spi_init(void)
 {
@@ -38,7 +38,7 @@ void spi_init(void)
 
     /*
      * CONFIG SPI
-     * 8bit
+     * 16bit
      * CPHA = 0, CPOL = 0
      * MSB-first
      * NSS Hardware
@@ -50,7 +50,7 @@ void spi_init(void)
     RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;          // Turn SPI3 clock on.
     SPI3->CR1 = 0;                               // SPI off while configuring it
     SPI3->CR2 = SPI_CR2_RXNEIE | SPI_CR2_TXEIE;  // RX interrupt if data present
-    SPI3->CR1 = SPI_CR1_SPE;                     // Enable SPI in slave mode.
+    SPI3->CR1 = SPI_CR1_SPE | SPI_CR1_DFF;       // Enable SPI in slave mode.
 
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
