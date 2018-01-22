@@ -28,9 +28,7 @@ void uart_receive(void* buff, int size)
 
 int uart_receive_timeout(void* buff, int size, int timeout)
 {
-    if((int)sdReadTimeout(&SD6, buff, size, timeout) != size)
-        return 1;
-    return 0;
+    return sdReadTimeout(&SD6, buff, size, timeout);
 }
 
 int uart_is_empty(void)
