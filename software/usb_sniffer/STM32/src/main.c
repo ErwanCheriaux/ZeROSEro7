@@ -30,8 +30,6 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         //usb_report(&UHD2, report, 8);
         if(report[2] == KEY_F2)
             spi_display_config();
-        else if(report[2] == KEY_F3)
-            spi_print_mailbox();
     }
 }
 
@@ -93,7 +91,8 @@ int main(void)
 
     while(1) {
         usbhMainLoop(&USBHD1);
-        chThdSleepMilliseconds(1000);
+        spi_print_mailbox();
+        chThdSleepMilliseconds(50);
     }
 
     chThdSleep(TIME_INFINITE);

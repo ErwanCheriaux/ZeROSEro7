@@ -74,7 +74,11 @@ void spi_display_config(void)
 
 void spi_print_mailbox(void)
 {
-    rtt_printf("SPI receive: %08x", chMBPeekI(&mb));
+    msg_t msg;
+    for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
+        chMBFetch(&mb, &msg, TIME_INFINITE);
+        rtt_printf("Mai box[%d]: %02x", i, msg);
+    }
 }
 
 void spi_write(char *msg)
@@ -96,11 +100,15 @@ void SPI_IRQHandler(void)
     //Overrun flag
     if(OVR) {
         rtt_printf("Overrun !!!");
-        chMBPost(&mb, SPI3->DR, TIME_INFINITE);
+        chSysLock();
+        chMBPostI(&mb, SPI3->DR);
+        chSysUnlock();
     }
     //Receive buffer not empty
     else if(RXNE) {
-        chMBPost(&mb, SPI3->DR, TIME_INFINITE);
+        chSysLock();
+        chMBPostI(&mb, SPI3->DR);
+        chSysUnlock();
     }
 
     //Transfer buffer empty
