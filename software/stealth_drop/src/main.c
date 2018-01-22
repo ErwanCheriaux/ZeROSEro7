@@ -74,6 +74,7 @@ int main(void)
         rtt_printf("filename: %s\n", data_buff);
     rtt_printf("If you do not see file called \"%s\", removing is working !\n", filename_test);
 
+    rtt_printf("\n======== SD CARD TESTS FINISHED ========\n\n");
 
     char start_seq[] = START_SEQ;
     char buff;
@@ -104,7 +105,7 @@ int main(void)
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
                 rtt_printf("%s\n", filename);
-                // TODO: Remove file
+                sd_file_remove(filename);
                 rtt_printf("Done\n");
                 break;
             case 'L': // Get file list

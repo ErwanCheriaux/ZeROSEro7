@@ -7,6 +7,8 @@
 #define PATH_LEN           (MAX_FILENAME_SIZE + sizeof(DATA_FOLDER) + 1)
 #define MAX_FILENAME_SIZE  255
 
+//#define DEBUG 1
+
 char data_buff[MAX_BUFF_LEN + 1];
 
 // Is SD Card mounted
@@ -98,6 +100,9 @@ int sd_file_open(char* filename, int action)
     }
     // set filename
     strcpy(path + sizeof(DATA_FOLDER), filename);
+#ifdef DEBUG
+    rtt_printf("Open path: %s\n", path);
+#endif
     // open file
     if(action == FA_WRITE)
         action |= FA_CREATE_ALWAYS;
@@ -126,7 +131,9 @@ int sd_file_write(void)
         unmount();
         return 1;
     }
+#ifdef DEBUG
     rtt_printf("> File write SUCCESS\n");
+#endif
     return 0;
 }
 

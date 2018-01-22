@@ -8,7 +8,7 @@
 
 //#define DEBUG 1
 
-static char uart_buff[BUFF_LEN + 1];
+extern char data_buff[MAX_BUFF_LEN + 1];
 
 void wifi_break_stream_mode(void)
 {
@@ -75,10 +75,10 @@ static void send_command(void* buff)
 int wifi_command(void* buff, int timeout)
 {
     send_command(buff);
-    uart_buff[1] = '\0';
-    while(uart_receive_timeout(uart_buff, 1, MS2ST(timeout)))
+    data_buff[1] = '\0';
+    while(uart_receive_timeout(data_buff, 1, MS2ST(timeout)))
 #ifdef DEBUG
-        rtt_printf(uart_buff)
+        rtt_printf(data_buff)
 #endif
         ;
     return 0;
@@ -86,14 +86,16 @@ int wifi_command(void* buff, int timeout)
 
 void wifi_save_file(char* filename)
 {
-    (void)filename;
     int nb_char_received;
-    while((nb_char_received = uart_receive_timeout(uart_buff, BUFF_LEN, MS2ST(TIMEOUT)))) {
-        uart_buff[nb_char_received] = '\0';
+    sd_file_open(filename, FA_WRITE);
+    while((nb_char_received = uart_receive_timeout(data_buff, MAX_BUFF_LEN, MS2ST(TIMEOUT)))) {
+        data_buff[nb_char_received] = '\0';
 #ifdef DEBUG
-        rtt_printf("%s", uart_buff);
+        rtt_printf("%s", data_buff);
 #endif
+        sd_file_write();
     }
+    sd_file_close();
     rtt_printf("\n");
     char response[] = "Success\n";
     uart_send(response);
@@ -101,29 +103,33 @@ void wifi_save_file(char* filename)
 
 void wifi_send_file(char* filename)
 {
-    if(strcmp(filename, "bleed_it_out.txt") != 0) {
-        rtt_printf("[ERROR] File do not exists: %s\n", filename);
-        char response[] = "No file\n";
-        uart_send(response);
-        rtt_printf("Response sent: %s", response);
+    if(sd_file_open(filename, FA_READ))
         return;
-    }
     char response[] = "Success\n";
     uart_send(response);
+#ifdef DEBUG
     rtt_printf("Response sent: %s", response);
-    char file[] = "This is a file content.\nIf you can read this message, download was successful zefhvbeuvbhekvrjbhnskvrunhlkuvnhqkuvr grjk abjrkdvbhcukbg rajkbh kzjbhgvuvskbhgcjbejvnsklnhviudnbvjerhgcuzjhgvsukdhvusjhgvscdhgvnkjhbvnsfhgjchnfgjkchdjkvhjkvbhgnjkccngcjdhvbkjvdhnvcqjkhdvnjdfhvb jkhvnjkdqhvnjdhvndfjh jfvsjdfvnjdfvhnfjvnfjhvgnv jkhgnvdjfhvngjkvfnhvgnudkrjvgniuej vghiujbh vbhjrbgvjkdbhgniujcbhniugvjbhdrngjkvhsdrngjkvbhnsjkghb jrgh iurnkjh bhjfbhjfb uhj gbqhj hqkjhg qjgkvq nkjg hjk fdj ndf  !!\n";
-    uart_send(file);
+#endif
+    unsigned int bytes_read = 0;
+    do {
+        sd_file_read(&bytes_read);
+        uart_send(data_buff);
+#ifdef DEBUG
+        rtt_printf("data_read: %s\n", data_buff);
+#endif
+    } while(bytes_read != 0);
+    rtt_printf("Download finished\n");
 }
 
 void wifi_wait_for(char* msg)
 {
     rtt_printf("Waiting for: %s... ", msg);
     unsigned int char_received = 0;
-    uart_buff[1] = '\0';
+    data_buff[1] = '\0';
     while(char_received != strlen(msg)) {
-        if(uart_receive_timeout(uart_buff, 1, MS2ST(1000))) {
-            rtt_printf("%c", uart_buff[0]);
-            if(uart_buff[0] == msg[char_received])
+        if(uart_receive_timeout(data_buff, 1, MS2ST(1000))) {
+            rtt_printf("%c", data_buff[0]);
+            if(data_buff[0] == msg[char_received])
                 char_received++;
             else
                 char_received = 0;
@@ -135,10 +141,10 @@ void wifi_wait_for(char* msg)
 int wifi_get_word(char* buffer, int max_len, char separator)
 {
     int idx = 0;
-    while(uart_receive_timeout(uart_buff, 1, MS2ST(1000)) && idx < max_len) {
-        if(uart_buff[0] == separator)
+    while(uart_receive_timeout(data_buff, 1, MS2ST(1000)) && idx < max_len) {
+        if(data_buff[0] == separator)
             break;
-        buffer[idx++] = uart_buff[0];
+        buffer[idx++] = data_buff[0];
     }
     if(idx == max_len) {
         buffer[idx - 1] = '\0';
