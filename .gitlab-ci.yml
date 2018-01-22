@@ -20,11 +20,10 @@ lint_main:
   stage: lint
   image: rfc1149/rose-dev
   script:
-    - make format -C Training/BLE_nrf52
+    - make format -C software/nRF52_ble_common
     - make format -C Training/USB_keyboard
     - make format -C Training/SD_card
-    - make format -C Training/lora_discovery
-    - make format -C Training/LoRa_sx1276
+    - make format -C software/spy_talk
     - make format -C Training/WiFi
     - make format -C software/usb_sniffer/STM32
     - git status --porcelain
@@ -55,21 +54,19 @@ build_main:
   stage: build
   image: tuetuopay/arm-none-eabi
   script:
-    - make -C Training/BLE_nrf52
+    - make -C software/nRF52_ble_common
     - make -C Training/USB_keyboard
     - make -C Training/SD_card
-    - make -C Training/lora_discovery
-    - make test_board -C Training/LoRa_sx1276
-    - make clean -C Training/LoRa_sx1276
-    - make -C Training/LoRa_sx1276
+    - make test_board -C software/spy_talk
+    - make clean -C software/spy_talk
+    - make -C software/spy_talk
     - make -C Training/WiFi
     - make -C software/usb_sniffer/STM32
   artifacts:
     paths:
-    - Training/BLE_nrf52/_build/nrf52832_xxaa.out
     - Training/SD_card/build/sd_card.elf
     - Training/USB_keyboard/build/USB_keyboard.elf
-    - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
+    - software/spy_talk/_build/nrf52832_xxaa.out
     - Training/WiFi/build/wifi_dev_kit.elf
     - software/usb_sniffer/STM32/build/usb_sniffer.elf
     expire_in: 1 week

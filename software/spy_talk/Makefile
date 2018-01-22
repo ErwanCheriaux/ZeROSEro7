@@ -2,11 +2,11 @@ PROJECT_NAME     := lora_spi
 TARGETS          := nrf52832_xxaa
 OUTPUT_DIRECTORY := _build
 
-NORDIC_DIR	 := ../../SDK/BLE_nordic
+PROJ_DIR     := .
+NORDIC_DIR	 := $(PROJ_DIR)/../../SDK/BLE_nordic
 SDK_ROOT     := $(NORDIC_DIR)/nRF5_SDK
 COMMAND_ROOT := $(NORDIC_DIR)/nRF5x-Command-Line-Tools
-PROJ_DIR     := .
-BLE_TRAINING_DIR = $(PROJ_DIR)/../BLE_nrf52
+BLE_TRAINING_DIR = $(PROJ_DIR)/../nRF52_ble_common
 
 GNU_PREFIX    := arm-none-eabi-
 LINKER_SCRIPT := $(BLE_TRAINING_DIR)/nrf52832_xxaa.ld
@@ -33,7 +33,7 @@ USER_SRC = \
 	$(PROJ_DIR)/custom_board.c \
 
 USER_INC = $(PROJ_DIR) \
-  $(PROJ_DIR)/../BLE_nrf52 \
+  $(BLE_TRAINING_DIR) \
 
 # ***** Nordic SDK Specific *****
 

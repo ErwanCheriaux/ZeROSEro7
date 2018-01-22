@@ -14,6 +14,11 @@
 #include "ble_peripheral_gatt.h"
 #include "rtt.h"
 
+/*
+*   This is an example program launching our UART over BLE service on the dev kit.
+*   The BLE parrot app can be used to communicate with it.
+*/
+
 // Goes in low power mode. Not const lat, not OFF mode
 void power_manage()
 {
