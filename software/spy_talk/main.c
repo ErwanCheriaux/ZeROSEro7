@@ -1,5 +1,9 @@
 #include <stdbool.h>
 #include <stdint.h>
+#include "ble_uart_service.h"
+#include "ble_central.h"
+#include "ble_peripheral_gap.h"
+#include "ble_peripheral_gatt.h"
 #include "rtt.h"
 #include "low_power.h"
 
@@ -90,10 +94,46 @@ static void lora_callback()
     send = !send;
 }
 
+static void phone_noticed_handler()
+{
+    rtt_write_string("Phone get, negociating connection\n");
+    led_on(2);
+    // We advertise to switch role in the GAP connection for lower consumption.
+    // REVIEW Maybe use whitelisted scan requests instead
+    ble_stop_observing();
+    ble_peripheral_start_advertising();
+}
+
+static void phone_connected_handler()
+{
+    rtt_write_string("Phone connected\n");
+    ble_peripheral_stop_advertising();
+    led_on(3);
+}
+
+static void phone_disconnected_handler()
+{
+    rtt_write_string("Phone disconnected\n");
+    ble_peripheral_stop_advertising();
+    ble_start_observing();
+}
+
+static void phone_write_handler(uint8_t *buff, int length)
+{
+    rtt_write_string("Received data from phone :\n");
+    rtt_write_buffer(0, buff, length);
+    rtt_write_string("\n");
+    rtt_write_string("Sending data to phone :\n");
+    rtt_write_buffer(0, buff, length);
+    rtt_write_string("\n");
+    phone_send_notification((uint8_t *)"abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", 50);
+}
+
 // TODO Measure Reset time for deep sleep
 int main(void)
 {
     rtt_init();
+    rtt_write_string("RTT initialized\n");
 
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
@@ -101,11 +141,19 @@ int main(void)
     leds_init();
     rtt_write_string("LEDs initialized\n");
 
-    // Like if we were using BLE, has the side effect of starting LFCLK needed by RTC
+    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler);
     ble_stack_init();
     ble_gap_init();
+    ble_gatt_init();
     ble_advertise_init();
+    ble_services_init();
+    ble_conn_negociation_init();
     rtt_write_string("BLE initialized\n");
+
+    ble_start_observing();
+    ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
+    rtt_write_string("Now observing BLE\n");
+    led_on(1);
 
     ble_peripheral_start_advertising();
 

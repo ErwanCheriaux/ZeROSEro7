@@ -8,16 +8,19 @@ import android.bluetooth.BluetoothGattCallback;
 import android.bluetooth.BluetoothGattCharacteristic;
 import android.bluetooth.BluetoothGattDescriptor;
 import android.bluetooth.BluetoothGattService;
+import android.bluetooth.BluetoothManager;
 import android.bluetooth.BluetoothProfile;
 import android.bluetooth.le.BluetoothLeScanner;
 import android.bluetooth.le.ScanCallback;
 import android.bluetooth.le.ScanResult;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import java.util.List;
 import java.util.UUID;
 
 /*
@@ -32,12 +35,15 @@ public class GAPService extends Service {
     public static final UUID UART_SERVICE_UUID = UUID.fromString("0000abcd-1212-efde-1523-785fef13d123");
     public static final UUID UART_CHARACTERISTIC_UUID = UUID.fromString("00001234-1212-efde-1523-785fef13d123");
     public static final UUID UART_DESCRIPTOR_UUID = UUID.fromString("00002902-0000-1000-8000-00805f9b34fb");
+    public static final String BLE_DEVICE_NAME = "Connected shoe";
+    public static final int MAX_MTU_NRF = 251;
     private final BluetoothLeScanner scannerInstance;
     private final ScanCallback scanCb;
     private final IBinder mBinder = new LocalBinder();
     private BluetoothGattCharacteristic bleUartChara;
     private BluetoothAdapter adapter;
     private BluetoothGatt deviceGatt;
+    private int currentMTU = 20;
 
     public GAPService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
@@ -64,13 +70,32 @@ public class GAPService extends Service {
         startScan();
     }
 
+    // Called after application context is initialized
+    @Override
+    public void onCreate() {
+        // Check if device is already connected
+        BluetoothManager bluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
+        List<BluetoothDevice> devices = bluetoothManager.getConnectedDevices(BluetoothProfile.GATT);
+        for (BluetoothDevice device : devices) {
+            if (device.getType() == BluetoothDevice.DEVICE_TYPE_LE) {
+                if (device.getName().equals(BLE_DEVICE_NAME)) {
+                    connectDevice(device);
+                }
+            }
+        }
+    }
+
     private String parseByteArray(byte[] value) {
         return new String(value);
     }
 
     public void send(String s) {
-        bleUartChara.setValue(s);
-        deviceGatt.writeCharacteristic(bleUartChara);
+        if (s.length() < currentMTU) {
+            bleUartChara.setValue(s);
+            deviceGatt.writeCharacteristic(bleUartChara);
+        } else {
+            int numberOfTransmissions = s.length() / currentMTU + s.length() % currentMTU;
+        }
     }
 
     private void connectDevice(BluetoothDevice device) {
@@ -114,13 +139,23 @@ public class GAPService extends Service {
                         bleUartChara = service.getCharacteristic(UART_CHARACTERISTIC_UUID);
                         deviceGatt.setCharacteristicNotification(bleUartChara, true);
                         BluetoothGattDescriptor descriptor = bleUartChara.getDescriptor(UART_DESCRIPTOR_UUID);
-                        bleUartChara.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);    // No ack required, faster
+                        bleUartChara.setWriteType(BluetoothGattCharacteristic.WRITE_TYPE_NO_RESPONSE);
                         descriptor.setValue(BluetoothGattDescriptor.ENABLE_NOTIFICATION_VALUE);
                         deviceGatt.writeDescriptor(descriptor);
                         Log.i("GAPService", "UART characteristic is " + bleUartChara.getUuid());
                         Log.i("GAPService", "Chara descriptors :" + bleUartChara.getDescriptors().get(0).getUuid());
                     }
                 }
+            }
+
+            @Override
+            // Negociate MTU after notifications
+            public void onDescriptorWrite(BluetoothGatt gatt,
+                                          BluetoothGattDescriptor descriptor,
+                                          int status) {
+                deviceGatt.requestMtu(MAX_MTU_NRF);
+                Log.i("GAPService", "MTU of 251 requested");
+
             }
 
             @Override
@@ -134,11 +169,16 @@ public class GAPService extends Service {
             @Override
             public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
                 super.onCharacteristicChanged(gatt, characteristic);
-                deviceGatt.readRemoteRssi();
                 Log.i("GAPService", "Characteristic changed: " + characteristic.getUuid() + " = " + characteristic.getValue());
                 Intent intent = new Intent(DEVICE_NOTIFICATION_ACTION);
                 intent.putExtra("Message", parseByteArray(characteristic.getValue()));
                 LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
+            }
+
+            @Override
+            public void onMtuChanged(BluetoothGatt gatt, int mtu, int status) {
+                super.onMtuChanged(gatt, mtu, status);
+                currentMTU = mtu;
             }
 
             @Override
@@ -167,6 +207,10 @@ public class GAPService extends Service {
     public void stopScan() {
         scannerInstance.stopScan(scanCb);
         Log.i("GAPService", "BLE stopped Scanning");
+    }
+
+    public void launchRSSITask() {
+        deviceGatt.readRemoteRssi();
     }
 
     @Override

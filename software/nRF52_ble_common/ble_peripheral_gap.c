@@ -125,6 +125,7 @@ void ble_conn_negociation_init()
     conn_neg_init.evt_handler                    = NULL;
     conn_neg_init.error_handler                  = conn_neg_error_handler;
 
+    APP_ERROR_CHECK(app_timer_init());
     APP_ERROR_CHECK(ble_conn_params_init(&conn_neg_init));
 }
 
@@ -156,6 +157,10 @@ void ble_peripheral_start_advertising()
 {
     ret_code_t err_code;
     err_code = ble_advertising_start(&m_advertising, BLE_ADV_MODE_FAST);
+    if(err_code == 0x12) {
+        rtt_write_string("ERROR 0x12 : Undefined SD error on Advertising start");
+        return;
+    }
     if(err_code != NRF_ERROR_INVALID_STATE) {  // Don't restart while started
         APP_ERROR_CHECK(err_code);
     }

@@ -84,13 +84,12 @@ public class MainActivity extends AppCompatActivity {
             }
         }
     };
+    private boolean advertiserStarted = true;
 
     private void startConnectedActiviy() {
         Intent intent = new Intent(this, ConnectedActivity.class);
         startActivity(intent);
     }
-
-    private boolean advertiserStarted = true;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

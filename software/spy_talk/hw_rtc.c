@@ -22,8 +22,8 @@ uint32_t HW_RTC_ms2Tick(TimerTime_t timeMilliSec)
     return APP_TIMER_TICKS(timeMilliSec);
 }
 
-// Nordic doesn't provide this option so we compute the ratio with a
-// convenient precision
+// Nordic doesn't provide this option so we compute the ratio with an
+// adequate precision
 #define MS_CONSTANT 256
 TimerTime_t HW_RTC_Tick2ms(uint32_t tick)
 {

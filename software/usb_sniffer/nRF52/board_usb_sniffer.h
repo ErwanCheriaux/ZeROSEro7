@@ -1,14 +1,13 @@
-#ifndef TEST_BOARD_H
-#define TEST_BOARD_H
+#ifndef BOARD_USB_SNIFFER_H
+#define BOARD_USB_SNIFFER_H
 
-// <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
 
 // <0=> RC
 // <1=> XTAL
 // <2=> Synth
 
 #ifndef CLOCK_CONFIG_LF_SRC
-#define CLOCK_CONFIG_LF_SRC 1
+#define CLOCK_CONFIG_LF_SRC 2
 #endif
 
 // <o> NRF_SDH_CLOCK_LF_SRC  - SoftDevice clock source.
@@ -18,22 +17,11 @@
 // <2=> NRF_CLOCK_LF_SRC_SYNTH
 
 #ifndef NRF_SDH_CLOCK_LF_SRC
-#define NRF_SDH_CLOCK_LF_SRC 1
+#define NRF_SDH_CLOCK_LF_SRC 2
 #endif
 
 /*
-*   Board specific control of the SX1276 including PA, ANTSW and DIO
-*/
-
-#define SX1276_DIO0_PIN 6
-#define SX1276_DIO1_PIN 7
-#define SX1276_DIO2_PIN 8
-#define SX1276_DIO3_PIN 5
-#define SX1276_DIO4_PIN 1
-#define SX1276_DIO5_PIN 0
-
-/*
-*   SX1276 pins
+*   STM pins
 */
 
 // <0=> 0 (P0.0)
@@ -70,31 +58,30 @@
 // <31=> 31 (P0.31)
 // <4294967295=> Not connected
 
+#ifndef SPI_ENABLED
+#define SPI_ENABLED 1
+#endif
+
 #ifndef SPI_SCK_PIN
-#define SPI_SCK_PIN 3
+#define SPI_SCK_PIN 6
 #endif
 
 // <o> SPI_MISO_PIN  - Pin number
 
 #ifndef SPI_MISO_PIN
-#define SPI_MISO_PIN 28
+#define SPI_MISO_PIN 7
 #endif
 
 // <o> SPI_MOSI_PIN  - Pin number
 
 #ifndef SPI_MOSI_PIN
-#define SPI_MOSI_PIN 4
+#define SPI_MOSI_PIN 8
 #endif
 
 // <o> SPI_SS_PIN  - Pin number
 
 #ifndef SPI_SS_PIN
-#define SPI_SS_PIN 29
+#define SPI_SS_PIN 5
 #endif
 
-// LEDs
-
-void leds_init();
-void led_on(int i);
-
-#endif
+#endif // BOARD_USB_SNIFFER_H
