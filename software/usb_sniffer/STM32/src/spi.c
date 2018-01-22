@@ -9,6 +9,10 @@
 #define TXE (SPI3->SR & SPI_SR_TXE)
 #define RXNE (SPI3->SR & SPI_SR_RXNE)
 
+#define MB_SIZE 8
+
+static msg_t mb_buffer[MB_SIZE];
+static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 char *password;
 
 /*
@@ -16,10 +20,15 @@ char *password;
  */
 static uint32_t size_buffer;
 static uint8_t  txbuf[512];
-static uint8_t  rxbuf[512];
+//static uint8_t  rxbuf[512];
 
 void spi_init(void)
 {
+    /*
+     * Mail box
+     */
+    chMBObjectInit(&mb, mb_buffer, MB_SIZE);
+
     /*
      * SPI3 I/O pins setup.
      */
@@ -46,9 +55,6 @@ void spi_init(void)
 
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
-
-    //debug
-    spi_display_config();
 }
 
 void spi_display_config(void)
@@ -84,14 +90,12 @@ void SPI_IRQHandler(void)
 {
     //Overrun flag
     if(OVR) {
-        rtt_printf("OVERRUN !!!");
-        rxbuf[1] = SPI3->DR;
-        rtt_printf("SPI receive: %08x", rxbuf[1]);
+        rtt_printf("Overrun !!!");
+        chMBPost(&mb, SPI3->DR, TIME_INFINITE);
     }
     //Receive buffer not empty
     else if(RXNE) {
-        rxbuf[1] = SPI3->DR;
-        rtt_printf("SPI receive: %08x", rxbuf[1]);
+        chMBPost(&mb, SPI3->DR, TIME_INFINITE);
     }
 
     //Transfer buffer empty
@@ -109,3 +113,5 @@ void SPI_IRQHandler(void)
     //      }
     //  }
 }
+
+//rtt_printf("SPI receive: %08x", rxbuf[1]);
