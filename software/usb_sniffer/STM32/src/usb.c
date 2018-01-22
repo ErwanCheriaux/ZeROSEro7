@@ -374,7 +374,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
     return;
 }
 
-uint8_t led_status = 7;
+uint8_t led_status;
 
 static bool req_handler(USBDriver *usbp)
 {
