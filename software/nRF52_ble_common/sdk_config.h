@@ -46,11 +46,14 @@
 #endif
 // <h> Board Support
 
+
+#include "board.h"
+
 //==========================================================
 // <q> BSP_BTN_BLE_ENABLED  - bsp_btn_ble - Button Control for BLE
 
 #ifndef BSP_BTN_BLE_ENABLED
-#define BSP_BTN_BLE_ENABLED 1
+#define BSP_BTN_BLE_ENABLED 0
 #endif
 
 // </h>
@@ -446,15 +449,7 @@
 #define CLOCK_CONFIG_XTAL_FREQ 0
 #endif
 
-// <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
 
-// <0=> RC
-// <1=> XTAL
-// <2=> Synth
-
-#ifndef CLOCK_CONFIG_LF_SRC
-#define CLOCK_CONFIG_LF_SRC 1
-#endif
 
 // <o> CLOCK_CONFIG_IRQ_PRIORITY  - Interrupt priority
 
@@ -1394,7 +1389,7 @@
 // <e> SPI_ENABLED - nrf_drv_spi - SPI/SPIM peripheral driver
 //==========================================================
 #ifndef SPI_ENABLED
-#define SPI_ENABLED 0
+#define SPI_ENABLED 0   // Usually enabled in board.h
 #endif
 // <o> SPI_DEFAULT_CONFIG_IRQ_PRIORITY  - Interrupt priority
 
@@ -1436,15 +1431,33 @@
 #define NRF_SPI_DRV_MISO_PULLUP_CFG 1
 #endif
 
+// Pins are described in board.h
+
+// <o> SPI_IRQ_PRIORITY  - Interrupt priority
+
+// <i> Priorities 0,2 (nRF51) and 0,1,4,5 (nRF52) are reserved for SoftDevice
+// <0=> 0 (highest)
+// <1=> 1
+// <2=> 2
+// <3=> 3
+// <4=> 4
+// <5=> 5
+// <6=> 6
+// <7=> 7
+
+#ifndef SPI_IRQ_PRIORITY
+#define SPI_IRQ_PRIORITY 7
+#endif
+
 // <e> SPI0_ENABLED - Enable SPI0 instance
 //==========================================================
 #ifndef SPI0_ENABLED
-#define SPI0_ENABLED 0
+#define SPI0_ENABLED 1
 #endif
 // <q> SPI0_USE_EASY_DMA  - Use EasyDMA
 
 #ifndef SPI0_USE_EASY_DMA
-#define SPI0_USE_EASY_DMA 1
+#define SPI0_USE_EASY_DMA 0  // TODO could be used to sleep during transfers, but they are already so short
 #endif
 
 // </e>
@@ -1914,7 +1927,7 @@
 // <q> APP_GPIOTE_ENABLED  - app_gpiote - GPIOTE events dispatcher
 
 #ifndef APP_GPIOTE_ENABLED
-#define APP_GPIOTE_ENABLED 0
+#define APP_GPIOTE_ENABLED 1
 #endif
 
 // <q> APP_PWM_ENABLED  - app_pwm - PWM functionality
@@ -2004,7 +2017,7 @@
 // <i> This option can be used when app_timer is used for timestamping.
 
 #ifndef APP_TIMER_KEEPS_RTC_ACTIVE
-#define APP_TIMER_KEEPS_RTC_ACTIVE 0
+#define APP_TIMER_KEEPS_RTC_ACTIVE 1
 #endif
 
 // <o> APP_TIMER_CONFIG_SWI_NUMBER  - Configure SWI instance used.
@@ -2210,7 +2223,7 @@
 
 // </e>
 
-// <e> HARDFAULT_HANDLER_ENABLED - hardfault_default - HardFault default handler for debugging and release
+// <e> HARDFAULT_HANDLER_ENABLED - hardfault_default - HardFault default handler for ging and release
 //==========================================================
 #ifndef HARDFAULT_HANDLER_ENABLED
 #define HARDFAULT_HANDLER_ENABLED 0
@@ -2344,7 +2357,7 @@
 // <o> MEMORY_MANAGER_SMALL_BLOCK_COUNT - Size of each memory blocks identified as 'small' block.  <0-255>
 
 #ifndef MEMORY_MANAGER_SMALL_BLOCK_COUNT
-#define MEMORY_MANAGER_SMALL_BLOCK_COUNT 1
+#define MEMORY_MANAGER_SMALL_BLOCK_COUNT 0
 #endif
 
 // <o> MEMORY_MANAGER_SMALL_BLOCK_SIZE -  Size of each memory blocks identified as 'small' block.
@@ -2435,7 +2448,7 @@
 // <e> MEM_MANAGER_CONFIG_LOG_ENABLED - Enables logging in the module.
 //==========================================================
 #ifndef MEM_MANAGER_CONFIG_LOG_ENABLED
-#define MEM_MANAGER_CONFIG_LOG_ENABLED 1
+#define MEM_MANAGER_CONFIG_LOG_ENABLED 0
 #endif
 // <o> MEM_MANAGER_CONFIG_LOG_LEVEL  - Default Severity level
 
@@ -2670,7 +2683,7 @@
 // <i> Selected pin will be set when CPU is in sleep mode.
 //==========================================================
 #ifndef NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED
-#define NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED 0
+#define NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED 1
 #endif
 // <o> NRF_PWR_MGMT_SLEEP_DEBUG_PIN  - Pin number
 
@@ -2709,7 +2722,7 @@
 // <4294967295=> Not connected
 
 #ifndef NRF_PWR_MGMT_SLEEP_DEBUG_PIN
-#define NRF_PWR_MGMT_SLEEP_DEBUG_PIN 31
+#define NRF_PWR_MGMT_SLEEP_DEBUG_PIN 9
 #endif
 
 // </e>
@@ -2719,7 +2732,7 @@
 // <i> Module will trace percentage of CPU usage in one second intervals.
 
 #ifndef NRF_PWR_MGMT_CONFIG_CPU_USAGE_MONITOR_ENABLED
-#define NRF_PWR_MGMT_CONFIG_CPU_USAGE_MONITOR_ENABLED 0
+#define NRF_PWR_MGMT_CONFIG_CPU_USAGE_MONITOR_ENABLED 1
 #endif
 
 // <e> NRF_PWR_MGMT_CONFIG_STANDBY_TIMEOUT_ENABLED - Enable standby timeout.
@@ -3013,7 +3026,7 @@
 // <4=> Debug
 
 #ifndef NRF_LOG_DEFAULT_LEVEL
-#define NRF_LOG_DEFAULT_LEVEL 3
+#define NRF_LOG_DEFAULT_LEVEL 4
 #endif
 
 // <q> NRF_LOG_DEFERRED  - Enable deffered logger.
@@ -3021,7 +3034,7 @@
 // <i> Log data is buffered and can be processed in idle.
 
 #ifndef NRF_LOG_DEFERRED
-#define NRF_LOG_DEFERRED 1
+#define NRF_LOG_DEFERRED 0
 #endif
 
 // <o> NRF_LOG_BUFSIZE  - Size of the buffer for storing logs (in bytes).
@@ -4717,7 +4730,7 @@
 // <4=> Debug
 
 #ifndef NRF_PWR_MGMT_CONFIG_LOG_LEVEL
-#define NRF_PWR_MGMT_CONFIG_LOG_LEVEL 3
+#define NRF_PWR_MGMT_CONFIG_LOG_LEVEL 1
 #endif
 
 // <o> NRF_PWR_MGMT_CONFIG_INFO_COLOR  - ANSI escape code prefix.
@@ -5105,7 +5118,7 @@
 
 // <o> NRF_SDH_BLE_GATT_MAX_MTU_SIZE - Static maximum MTU size.
 #ifndef NRF_SDH_BLE_GATT_MAX_MTU_SIZE
-#define NRF_SDH_BLE_GATT_MAX_MTU_SIZE 23
+#define NRF_SDH_BLE_GATT_MAX_MTU_SIZE 251
 #endif
 
 // <o> NRF_SDH_BLE_GATTS_ATTR_TAB_SIZE - Attribute Table size in bytes. The size must be a multiple of 4.
@@ -5448,15 +5461,7 @@
 // <h> Clock - SoftDevice clock configuration
 
 //==========================================================
-// <o> NRF_SDH_CLOCK_LF_SRC  - SoftDevice clock source.
 
-// <0=> NRF_CLOCK_LF_SRC_RC
-// <1=> NRF_CLOCK_LF_SRC_XTAL
-// <2=> NRF_CLOCK_LF_SRC_SYNTH
-
-#ifndef NRF_SDH_CLOCK_LF_SRC
-#define NRF_SDH_CLOCK_LF_SRC 1
-#endif
 
 // <o> NRF_SDH_CLOCK_LF_RC_CTIV - SoftDevice calibration timer interval.
 #ifndef NRF_SDH_CLOCK_LF_RC_CTIV
@@ -5637,7 +5642,6 @@
 // </e>
 
 // </h>
-//==========================================================
 
 // <<< end of configuration section >>>
 #endif  //SDK_CONFIG_H

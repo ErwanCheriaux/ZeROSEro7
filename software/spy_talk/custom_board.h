@@ -68,6 +68,10 @@
 // <31=> 31 (P0.31)
 // <4294967295=> Not connected
 
+#ifndef SPI_ENABLED
+#define SPI_ENABLED 1
+#endif
+
 #ifndef SPI_SCK_PIN
 #define SPI_SCK_PIN 8
 #endif

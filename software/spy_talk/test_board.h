@@ -1,6 +1,10 @@
 #ifndef TEST_BOARD_H
 #define TEST_BOARD_H
 
+/*
+*   PINS and clocks defined according to dev kit nRF and SX12 montage.
+*/
+
 // <o> CLOCK_CONFIG_LF_SRC  - LF Clock Source
 
 // <0=> RC
@@ -69,6 +73,10 @@
 // <30=> 30 (P0.30)
 // <31=> 31 (P0.31)
 // <4294967295=> Not connected
+
+#ifndef SPI_ENABLED
+#define SPI_ENABLED 1
+#endif
 
 #ifndef SPI_SCK_PIN
 #define SPI_SCK_PIN 3

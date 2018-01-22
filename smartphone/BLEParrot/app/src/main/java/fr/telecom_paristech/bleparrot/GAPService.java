@@ -75,9 +75,9 @@ public class GAPService extends Service {
         // Check if device is already connected
         BluetoothManager bluetoothManager = (BluetoothManager) getApplicationContext().getSystemService(Context.BLUETOOTH_SERVICE);
         List<BluetoothDevice> devices = bluetoothManager.getConnectedDevices(BluetoothProfile.GATT);
-        for(BluetoothDevice device : devices) {
-            if(device.getType() == BluetoothDevice.DEVICE_TYPE_LE) {
-                if(device.getName().equals(BLE_DEVICE_NAME)) {
+        for (BluetoothDevice device : devices) {
+            if (device.getType() == BluetoothDevice.DEVICE_TYPE_LE) {
+                if (device.getName().equals(BLE_DEVICE_NAME)) {
                     connectDevice(device);
                 }
             }
@@ -89,12 +89,11 @@ public class GAPService extends Service {
     }
 
     public void send(String s) {
-        if(s.length() < currentMTU) {
+        if (s.length() < currentMTU) {
             bleUartChara.setValue(s);
             deviceGatt.writeCharacteristic(bleUartChara);
-        }
-        else {
-            int numberOfTransmissions = s.length()/currentMTU + s.length()%currentMTU;
+        } else {
+            int numberOfTransmissions = s.length() / currentMTU + s.length() % currentMTU;
         }
     }
 

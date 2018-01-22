@@ -94,7 +94,6 @@ static void lora_callback()
     send = !send;
 }
 
-
 static void phone_noticed_handler()
 {
     rtt_write_string("Phone get, negociating connection\n");
@@ -127,9 +126,8 @@ static void phone_write_handler(uint8_t *buff, int length)
     rtt_write_string("Sending data to phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    phone_send_notification((uint8_t*)"abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", 50);
+    phone_send_notification((uint8_t *)"abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", 50);
 }
-
 
 // TODO Measure Reset time for deep sleep
 int main(void)
@@ -153,7 +151,7 @@ int main(void)
     rtt_write_string("BLE initialized\n");
 
     ble_start_observing();
-    ble_peripheral_start_advertising(); // TODO remove. Convenient for debugging purpose
+    ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
     rtt_write_string("Now observing BLE\n");
     led_on(1);
 
