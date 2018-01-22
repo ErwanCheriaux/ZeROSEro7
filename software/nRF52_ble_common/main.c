@@ -60,6 +60,10 @@ static void phone_write_handler(uint8_t *buff, int length)
     phone_send_notification(buff, length);
 }
 
+static void phone_notification_complete_handler() {
+
+}
+
 static void log_init(void)
 {
     ret_code_t err_code = NRF_LOG_INIT(NULL);
@@ -82,7 +86,7 @@ int main(void)
 
     bsp_board_leds_init();
 
-    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler);
+    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
     ble_stack_init();
     ble_gap_init();
     ble_gatt_init();

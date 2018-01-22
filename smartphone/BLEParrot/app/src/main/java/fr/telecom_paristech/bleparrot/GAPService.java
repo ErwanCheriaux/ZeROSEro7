@@ -120,6 +120,7 @@ public class GAPService extends Service {
                         Log.i("GAPService", "Disconnected");
                         Intent disconnectedIntent = new Intent(DEVICE_DISCONNECTED_ACTION);
                         LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(disconnectedIntent);
+                        gatt.close();
                         break;
                     default:
                         break;

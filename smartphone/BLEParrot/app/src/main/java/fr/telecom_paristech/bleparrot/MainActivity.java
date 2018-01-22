@@ -60,7 +60,8 @@ public class MainActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(GAPService.DEVICE_CONNECTED_ACTION)) {
-                Toast.makeText(getApplicationContext(), "Device connected!", Toast.LENGTH_LONG).show();
+                Log.i("MainActivity","Device connected, switching activity");
+                Toast.makeText(getApplicationContext(), "Device connected!", Toast.LENGTH_SHORT).show();
                 advertiser.pause();
                 gap.stopScan();
                 advertisingProgress.setVisibility(View.INVISIBLE);
@@ -86,9 +87,12 @@ public class MainActivity extends AppCompatActivity {
     };
     private boolean advertiserStarted = true;
 
+    private Intent connectedActivityIntent = null;
     private void startConnectedActiviy() {
-        Intent intent = new Intent(this, ConnectedActivity.class);
-        startActivity(intent);
+        if(connectedActivityIntent == null) {
+            connectedActivityIntent = new Intent(this, ConnectedActivity.class);
+        }
+        startActivity(connectedActivityIntent);
     }
 
     @Override
@@ -163,6 +167,7 @@ public class MainActivity extends AppCompatActivity {
         Log.i("MainActivity", "Activity destroyed");
         stopService(advertisementIntent);
         stopService(gapIntent);
+        unbindService(mConnection);
         super.onDestroy();
     }
 

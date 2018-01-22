@@ -107,6 +107,7 @@ static void phone_noticed_handler()
 static void phone_connected_handler()
 {
     rtt_write_string("Phone connected\n");
+    ble_stop_observing();   // If reconnecting, sometimes the phone hasn't got the time to advertise
     ble_peripheral_stop_advertising();
     led_on(3);
 }
@@ -123,10 +124,12 @@ static void phone_write_handler(uint8_t *buff, int length)
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    rtt_write_string("Sending data to phone :\n");
-    rtt_write_buffer(0, buff, length);
-    rtt_write_string("\n");
-    phone_send_notification((uint8_t *)"abcdefghijklmnopqrstuvwxyz abcdefghijklmnopqrstuvwxyz", 50);
+    rtt_write_string("Sending data to phone\n");
+    phone_send_notification((uint8_t *)"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", 251);
+}
+
+static void phone_notification_complete_handler() {
+
 }
 
 // TODO Measure Reset time for deep sleep
@@ -141,7 +144,7 @@ int main(void)
     leds_init();
     rtt_write_string("LEDs initialized\n");
 
-    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler);
+    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
     ble_stack_init();
     ble_gap_init();
     ble_gatt_init();

@@ -49,7 +49,7 @@ public class ConnectedActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(GAPService.DEVICE_DISCONNECTED_ACTION)) {
-                Toast.makeText(getApplicationContext(), "Lost connection !", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Lost connection !", Toast.LENGTH_SHORT).show();
                 finish();
             }
         }
@@ -97,6 +97,8 @@ public class ConnectedActivity extends AppCompatActivity {
     @Override
     public void onDestroy() {
         unbindService(mConnection);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(disconnectedBroadcastReceiver);
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(notificationBroadcastReceiver);
         super.onDestroy();
     }
 

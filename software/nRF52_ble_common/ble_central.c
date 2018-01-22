@@ -38,6 +38,7 @@ static void (*ble_on_notice_phone)();                          // Handler from m
 static void (*ble_on_phone_connected)();                       // Handler from main
 static void (*ble_on_phone_disconnected)();                    // Handler from main
 static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from main
+static void (*ble_on_notification_complete)();                    // Handler from main
 
 static char *   phone_expected_name = "ZeROSEro7 phone";
 static uint32_t parse_advdata(data_t const *const adv_data)
@@ -169,6 +170,11 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
                 ble_on_phone_write(ble_uart_characteristic_value, write_evt.len);
             break;
 
+        case BLE_GATTS_EVT_HVN_TX_COMPLETE:
+            rtt_printf(0, "Notification sent\n");
+            ble_on_notification_complete();
+            break;
+
         // REVIEW Bonus Bonding events
 
         default:
@@ -204,7 +210,8 @@ void ble_handler_init(
     void (*phone_noticed_handler)(),
     void (*phone_connected_handler)(),
     void (*phone_disconnected_handler)(),
-    void (*phone_write_handler)(uint8_t *buff, int length))
+    void (*phone_write_handler)(uint8_t *buff, int length),
+    void (*phone_notification_complete_handler)())
 {
     if(phone_noticed_handler == NULL ||
        phone_connected_handler == NULL ||
@@ -216,6 +223,7 @@ void ble_handler_init(
     ble_on_phone_connected    = phone_connected_handler;
     ble_on_phone_disconnected = phone_disconnected_handler;
     ble_on_phone_write        = phone_write_handler;
+    ble_on_notification_complete = phone_notification_complete_handler;
 }
 
 void ble_start_observing()

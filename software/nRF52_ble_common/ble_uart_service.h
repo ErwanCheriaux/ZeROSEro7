@@ -11,7 +11,8 @@
 #include "mem_manager.h"
 
 void uart_service_init();
-void phone_send_notification(uint8_t* buff, int length);  // Up to 251 bytes
+void phone_send_notification(uint8_t* buff, int length);  // Up to 251 bytes, must wait for tx event before sending something else
+// No need to correct these deffects given are application. Android has similar behaviour btw.
 
 extern void* ble_uart_characteristic_value;
 
