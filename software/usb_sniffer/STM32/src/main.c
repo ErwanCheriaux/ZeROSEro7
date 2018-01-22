@@ -32,15 +32,17 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
             static uint16_t msg1 = 0x5000;
             spi_write(&msg1, 1);
         } else if(report[2] == KEY_F3) {
+            const int n = 100;
             static uint16_t msg2[100];
-            for(uint16_t i = 0; i < 100; i++)
+            for(uint16_t i = 0; i < n; i++)
                 msg2[i]    = i;
-            spi_write(msg2, 100);
+            spi_write(msg2, n);
         } else if(report[2] == KEY_F4) {
-            static uint16_t msg3[501];
-            for(uint16_t i = 0; i < 501; i++)
+            const int n = 500;
+            static uint16_t msg3[500];
+            for(uint16_t i = 0; i < n; i++)
                 msg3[i]    = i;
-            spi_write(msg3, 501);
+            spi_write(msg3, n);
         }
     }
 }
@@ -103,7 +105,7 @@ int main(void)
 
     while(1) {
         usbhMainLoop(&USBHD1);
-        spi_mailbox_refresh();
+        spiMainLoop();
         chThdSleepMilliseconds(50);
     }
 

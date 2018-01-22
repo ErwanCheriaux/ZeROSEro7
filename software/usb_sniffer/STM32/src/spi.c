@@ -19,9 +19,10 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 /*
  * SPI TX buffers.
  */
-#define BF_SIZE 500
+#define BF_SIZE 200
 
 static uint16_t msg_size;
+static uint16_t rxbuf[BF_SIZE];
 static uint16_t txbuf[BF_SIZE];
 
 void spi_init(void)
@@ -59,27 +60,14 @@ void spi_init(void)
     NVIC->ISER[1] = (1 << 19);  // Position 51
 }
 
-void spi_display_config(void)
+void spiMainLoop(void)
 {
-    rtt_printf("===== SPI config =====");
-    rtt_printf("SPI3_CR1       = %08x", SPI3->CR1);
-    rtt_printf("SPI3_CR2       = %08x", SPI3->CR2);
-    rtt_printf("SPI3_SR        = %08x", SPI3->SR);
-    rtt_printf("SPI3_DR        = %08x", SPI3->DR);
-    rtt_printf("SPI3_CRCPR     = %08x", SPI3->CRCPR);
-    rtt_printf("SPI3_RXCRCR    = %08x", SPI3->RXCRCR);
-    rtt_printf("SPI3_TXCRCR    = %08x", SPI3->TXCRCR);
-    rtt_printf("SPI3_I2SCFGR   = %08x", SPI3->I2SCFGR);
-    rtt_printf("SPI3_I2SPR     = %08x", SPI3->I2SPR);
-    rtt_printf("");
-}
-
-void spi_mailbox_refresh(void)
-{
+    static int index = 0;
     msg_t msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
-        rtt_printf("Mai box[%d]: %04x", i, msg);
+        rxbuf[index++] = msg;
+        if(index >= BF_SIZE) index = 0;
     }
 }
 
