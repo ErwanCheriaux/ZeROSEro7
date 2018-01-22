@@ -51,12 +51,10 @@ int main(void)
     wifi_configure();
 
     (void)sdccfg;
-    // Activates the serial driver 6 using the driver default configuration.
-    sdStart(&SD6, NULL); // ADDING THIS LINE ADD A PROBLEM ON UART
     // Initializes the SDIO drivers.
-    /*sdcStart(&SDCD1, &sdccfg);
+    sdcStart(&SDCD1, &sdccfg);
 
-    rtt_printf("================ INITIALIZATION SUCCESSFUL ================\n\n");
+    rtt_printf("\n======== INITIALIZATION SUCCESSFUL ========\n\n");
 
     char filename_test[] = "test.txt";
     strcpy(data_buff, "If you see this message, Read and Write functions are working !\n");
@@ -75,7 +73,7 @@ int main(void)
     while(sd_get_next_filename() == 0)
         rtt_printf("filename: %s\n", data_buff);
     rtt_printf("If you do not see file called \"%s\", removing is working !\n", filename_test);
-*/
+
 
     char start_seq[] = START_SEQ;
     char buff;
@@ -112,7 +110,7 @@ int main(void)
             case 'L': // Get file list
                 rtt_printf("List asked\n");
                 chThdSleep(MS2ST(500));
-                /*while(sd_get_next_filename() == 0) {
+                while(sd_get_next_filename() == 0) {
                     rtt_printf("filename: %s\n", data_buff);
                     strcpy(filename, data_buff);
                     uart_send(filename);
@@ -120,18 +118,6 @@ int main(void)
                     uart_send(filename);
                 }
                 strcpy(filename, "\n");
-                uart_send(filename);*/
-                strcpy(filename, "First_file_name.txt\0");
-                uart_send(filename);
-                strcpy(filename, " \0");
-                uart_send(filename);
-                strcpy(filename, "bleed_it_out.txt\0");
-                uart_send(filename);
-                strcpy(filename, " \0");
-                uart_send(filename);
-                strcpy(filename, "Second_file_name.txt\0");
-                uart_send(filename);
-                strcpy(filename, "\n\0");
                 uart_send(filename);
                 rtt_printf("List sent\n");
                 break;

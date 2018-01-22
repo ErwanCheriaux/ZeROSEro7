@@ -6,7 +6,9 @@
 #include "rtt.h"
 #include "sd.h"
 
-//#define DEBUG
+//#define DEBUG 1
+
+static char uart_buff[BUFF_LEN + 1];
 
 void wifi_break_stream_mode(void)
 {
@@ -17,6 +19,7 @@ void wifi_break_stream_mode(void)
 
 void wifi_configure(void)
 {
+    rtt_printf("Wifi configuration...\n");
     wifi_command("set softap.auto_start true\r\n", 500);
     wifi_command("set softap.dhcp_server.enabled true\r\n", 500);
     wifi_command("set softap.ssid ZeROSEro7\r\n", 500);
@@ -28,6 +31,7 @@ void wifi_configure(void)
     wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
     wifi_command("reboot\r\n", 1000);
+    rtt_printf("Success\n");
 }
 
 /* Reset wifi chip
@@ -71,7 +75,6 @@ static void send_command(void* buff)
 int wifi_command(void* buff, int timeout)
 {
     send_command(buff);
-    char uart_buff[2];
     uart_buff[1] = '\0';
     while(uart_receive_timeout(uart_buff, 1, MS2ST(timeout)))
 #ifdef DEBUG
@@ -84,7 +87,6 @@ int wifi_command(void* buff, int timeout)
 void wifi_save_file(char* filename)
 {
     (void)filename;
-    char uart_buff[BUFF_LEN + 1];
     int nb_char_received;
     while((nb_char_received = uart_receive_timeout(uart_buff, BUFF_LEN, MS2ST(TIMEOUT)))) {
         uart_buff[nb_char_received] = '\0';
@@ -117,7 +119,6 @@ void wifi_wait_for(char* msg)
 {
     rtt_printf("Waiting for: %s... ", msg);
     unsigned int char_received = 0;
-    char uart_buff[2];
     uart_buff[1] = '\0';
     while(char_received != strlen(msg)) {
         if(uart_receive_timeout(uart_buff, 1, MS2ST(1000))) {
@@ -133,12 +134,11 @@ void wifi_wait_for(char* msg)
 
 int wifi_get_word(char* buffer, int max_len, char separator)
 {
-    char uart_buff;
     int idx = 0;
-    while(uart_receive_timeout(&uart_buff, 1, MS2ST(1000)) && idx < max_len) {
-        if(uart_buff == separator)
+    while(uart_receive_timeout(uart_buff, 1, MS2ST(1000)) && idx < max_len) {
+        if(uart_buff[0] == separator)
             break;
-        buffer[idx++] = uart_buff;
+        buffer[idx++] = uart_buff[0];
     }
     if(idx == max_len) {
         buffer[idx - 1] = '\0';
