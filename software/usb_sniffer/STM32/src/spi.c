@@ -21,14 +21,23 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 /*
  * SPI TX buffers.
  */
-#define BF_SIZE 253
+#define MSG_SIZE 251
+#define BUF_SIZE 254
 
 static uint16_t msg_size;
-static uint16_t txbuf[BF_SIZE];
-static uint16_t test[BF_SIZE] = {'S', 'a', 'l', 'u', 't'};
+static uint16_t txbuf[BUF_SIZE];
+
+static uint8_t test[1000];
 
 void spi_init(void)
 {
+    for(int i=0; i<1000; i++)
+    {
+        test[i] = i;
+        if( test[i] == 0)
+            test[i] = 0xaa;
+    }
+
     /*
      * Mail box
      */
@@ -58,12 +67,15 @@ void spi_init(void)
     SPI3->CR2 = SPI_CR2_RXNEIE;             // RX interrupt if data present
     SPI3->CR1 = SPI_CR1_SPE | SPI_CR1_DFF;  // Enable SPI in slave mode.
 
+    SPI3->DR = 0xFFFF;
+
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
 }
 
 void spiMainLoop(void)
 {
+    static int password_ptr = 0;
     msg_t msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
@@ -71,17 +83,26 @@ void spiMainLoop(void)
         //start
         if(msg == 0x676f) {
             rtt_printf("Receive start");
-            spi_write(test, 6);
+            spi_write(test, 0, MSG_SIZE);
+            password_ptr=1;
+        }
+
+        //next
+        else if(msg == 0x6e78) {
+            rtt_printf("Receive next");
+            spi_write(test, MSG_SIZE*password_ptr, MSG_SIZE*password_ptr + MSG_SIZE);
+            password_ptr++;
         }
     }
 }
 
-void spi_write(uint16_t *msg, int n)
+void spi_write(uint8_t *msg, int begin, int end)
 {
-    msg_size = n;
+    msg_size = end - begin;
 
     //push to send buffer
-    memcpy(txbuf, msg, n * 2);
+    for(int i=0; i<msg_size; i++)
+        txbuf[i] = ((uint16_t)msg[2*i+begin] << 8) + (uint16_t)msg[2*i+1+begin];
 
     //write first data to be read for the first posedge clock
     SPI3->DR = txbuf[0];
@@ -108,13 +129,14 @@ void SPI_IRQHandler(void)
 
     //Transfer buffer empty
     else if(TXE) {
-        static uint32_t index = 1;
+        // Byte 0 is sent during first TX
+        static int index = 1;
 
-        if(index >= msg_size) {
+        if(index >= msg_size +2) {
             //turn off Tx interrupt
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
             SPI3->DR = 0x0000;
-            index    = 0;
+            index    = 1;
         } else {
             //write data in DR buffer
             SPI3->DR = txbuf[index];
