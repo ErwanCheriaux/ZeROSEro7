@@ -13,7 +13,10 @@
 #include "usbh/debug.h"
 #include "usbh/dev/hid.h"
 
+//extern var
 uint8_t led_status = 7;
+uint16_t password[200];
+uint16_t password_size;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -26,7 +29,7 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         /* send the key on the computer */
         usb_report(&UHD2, report, 8);
         if(report[2] == KEY_F2) {
-            static uint16_t msg1 = 0x5000;
+            static uint16_t msg1 = 0x0500;
             spi_write(&msg1, 1);
         } else if(report[2] == KEY_F3) {
             const int n = 100;

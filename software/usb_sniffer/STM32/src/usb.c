@@ -382,10 +382,7 @@ static bool req_handler(USBDriver *usbp)
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
                 rtt_printf("HID_SET_REPORT");
-
                 hidReadReport(&UHD2, &led_status, sizeof led_status);
-                rtt_printf("LED : %d", led_status);
-
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
                 return true;
             default:
