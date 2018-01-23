@@ -18,8 +18,8 @@ int main(void)
     led_init();
     rtt_init();
     usb_init();
-    spi_init();
     usbh_init();
+    spi_init();
     timer_init();
 
     timer_on();

@@ -1,5 +1,7 @@
 //spi.c
 
+#include <string.h>
+
 #include "spi.h"
 #include "rtt.h"
 #include "vectors.h"
@@ -11,7 +13,7 @@
 /*
  * Mail Box
  */
-#define MB_SIZE 8
+#define MB_SIZE 253
 
 static msg_t mb_buffer[MB_SIZE];
 static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
@@ -20,12 +22,14 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
  * SPI TX buffers.
  */
 #define Rx_BF_SIZE 10
-#define Tx_BF_SIZE 200
+#define Tx_BF_SIZE 254
 
 static uint16_t msg_size;
 static uint16_t rxbuf_index = 0;
 static uint16_t rxbuf[Rx_BF_SIZE];
 static uint16_t txbuf[Tx_BF_SIZE];
+
+static uint16_t magic_buf[253];
 
 //extern var
 uint16_t password[200];
@@ -33,6 +37,7 @@ uint16_t password_size;
 
 void spi_init(void)
 {
+    memcpy(magic_buf, password, 5);
     /*
      * Mail box
      */
@@ -64,6 +69,9 @@ void spi_init(void)
 
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
+
+    uint16_t toto = 0xabcd;
+    spi_write(&toto, 1);
 }
 
 void spiMainLoop(void)
@@ -71,11 +79,18 @@ void spiMainLoop(void)
     msg_t msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
-        rxbuf[rxbuf_index] = msg;
+        if(msg) {
+            rxbuf[rxbuf_index] = msg;
+            // loop buffer
+            if(rxbuf_index++ >= Rx_BF_SIZE)
+                rxbuf_index = 0;
+        }
 
         //start command
-        if(msg == (msg_t) "go")
-            spi_write(password, password_size);
+        if(!msg) {
+            (*magic_buf)++;
+            spi_write(magic_buf, 253);
+        }
 
         //stop  command
         else if(msg == (msg_t) "ha")
@@ -84,10 +99,6 @@ void spiMainLoop(void)
         //next command
         else if(msg == (msg_t) "nx")
             spi_write(password, password_size);
-
-        // loop buffer
-        if(rxbuf_index++ >= Rx_BF_SIZE)
-            rxbuf_index = 0;
     }
 }
 
@@ -149,8 +160,8 @@ void SPI_IRQHandler(void)
         if(index >= msg_size) {
             //turn off Tx interrupt
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
-            SPI3->DR = 0x0000;            //if not the last data is sent in loop
-            index    = 0;
+                                          //            SPI3->DR = 0x0000;            //if not the last data is sent in loop
+            index = 0;
         } else {
             //write data in DR buffer
             SPI3->DR = txbuf[index];

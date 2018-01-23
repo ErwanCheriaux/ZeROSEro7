@@ -321,7 +321,7 @@ static inline char hid2azerty(uint8_t *report)
     //no modifier keys
     if(report[0] == 0) {
         int i = 7;
-        while(report[i] == 0x00 || i < 3)
+        while(report[i] == 0x00 && i > 2)
             i--;
         if(report[i] >= KEY_A && report[i] <= KEY_Z)
             return azerty[report[i]];
