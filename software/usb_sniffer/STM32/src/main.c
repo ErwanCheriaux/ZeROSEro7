@@ -17,12 +17,11 @@ int main(void)
 
     led_init();
     rtt_init();
-    usb_init();
     usbh_init();
     timer_init();
 
     timer_on();
-
+    
     while(1) {
         usbhMainLoop(&USBHD1);
         chThdSleepMilliseconds(1000);

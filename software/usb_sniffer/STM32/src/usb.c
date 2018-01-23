@@ -50,7 +50,7 @@ USBHIDDriver UHD2;
  *  iSerialNumber: 0
  *  bNumConfigurations: 1
  */
-static const uint8_t hid_device_descriptor_data[18] = {
+static uint8_t hid_device_descriptor_data[18] = {
     USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
                     0x00,   /* bDeviceClass (CDC).              */
                     0x00,   /* bDeviceSubClass.                 */
@@ -381,11 +381,9 @@ static bool req_handler(USBDriver *usbp)
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
+                // Manage Caps lock and NUM lock input
                 rtt_printf("HID_SET_REPORT");
-
                 hidReadReport(&UHD2, &led_status, sizeof led_status);
-                rtt_printf("LED : %d", led_status);
-
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
                 return true;
             default:
@@ -428,7 +426,12 @@ void usb_init(void)
     palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(12));
 
     /*
-   * Initializes a serial-over-USB CDC driver.
+     * Copy device descriptor from host usb device
+     */
+    usb_update_descriptor(&USBHD1);
+
+    /*
+   * Initializes a serial-over-USB driver.
    */
     hidObjectInit(&UHD2);
     hidStart(&UHD2, &usbhidcfg);
@@ -442,6 +445,29 @@ void usb_init(void)
     chThdSleepMilliseconds(1500);
     usbStart(usbhidcfg.usbp, &usbcfg);
     usbConnectBus(usbhidcfg.usbp);
+}
+
+void usb_update_descriptor(USBHDriver *usbh)
+{
+    usbh_device_descriptor_t *const usbh_devDesc = &usbh->rootport.device.devDesc;
+
+    uint8_t usbh_device_descriptor_data[18] = {
+        USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
+                        0x00,   /* bDeviceClass (CDC).              */
+                        0x00,   /* bDeviceSubClass.                 */
+                        0x00,   /* bDeviceProtocol.                 */
+                        0x40,   /* bMaxPacketSize. Fail with 0x08 ! */
+                        usbh_devDesc->idVendor,
+                        usbh_devDesc->idProduct,
+                        usbh_devDesc->bcdDevice,
+                        1,      /* iManufacturer.                   */
+                        2,      /* iProduct.                        */
+                        0,      /* iSerialNumber.                   */
+                        1)      /* bNumConfigurations.              */
+    };
+
+    for(int i = 0; i < 18; i++)
+        hid_device_descriptor_data[i] = usbh_device_descriptor_data[i];
 }
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)

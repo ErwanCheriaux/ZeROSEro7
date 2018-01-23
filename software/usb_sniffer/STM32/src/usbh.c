@@ -48,6 +48,7 @@ static void ThreadTestHID(void *p)
         for(i = 0; i < HAL_USBHHID_MAX_INSTANCES; i++) {
             if(usbhhidGetState(&USBHHIDD[i]) == USBHHID_STATE_ACTIVE) {
                 rtt_printf("HID: Connected, HID%d", i);
+                if(USBD2.state != USB_ACTIVE && i == 0) usb_init();
                 usbhhidStart(&USBHHIDD[i], &hidcfg[i]);
                 if(usbhhidGetType(&USBHHIDD[i]) != USBHHID_DEVTYPE_GENERIC) {
                     usbhhidSetIdle(&USBHHIDD[i], 0, 0);
@@ -64,6 +65,17 @@ static void ThreadTestHID(void *p)
     }
 }
 
+void usbh_power(bool onoff)
+{
+    if(onoff) {
+        rtt_printf("Turn on USBH power");
+        palSetPad(GPIOB, GPIOA_OTG_FS_VBUS);
+    } else {
+        rtt_printf("Turn off USBH power");
+        palClearPad(GPIOB, GPIOA_OTG_FS_VBUS);
+    }
+}
+
 /*
  * Initialisation of OTG FS port connected to a keyboard.
  */
@@ -74,8 +86,7 @@ void usbh_init(void)
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
 
-    rtt_printf("Turn on USB power");
-    palSetPad(GPIOB, GPIOA_OTG_FS_VBUS);
+    usbh_power(true);
     chThdSleepMilliseconds(100);
 
     usbhStart(&USBHD1);

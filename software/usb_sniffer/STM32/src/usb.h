@@ -22,6 +22,7 @@ extern const USBHIDConfig usbhidcfg;
 extern USBHIDDriver       UHD2;
 
 void usb_init(void);
+void usb_update_descriptor(USBHDriver *usbh);
 void usb_send_key(USBHIDDriver *uhdp, uint8_t key);
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n);
 
