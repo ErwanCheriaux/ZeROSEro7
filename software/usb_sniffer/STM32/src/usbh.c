@@ -16,7 +16,7 @@
 //extern var
 uint8_t  led_status = 7;
 uint16_t password[200];
-uint16_t password_size = 5;
+uint16_t password_size;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -25,31 +25,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     (void)len;
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
-    //get every input
-    //  static int password_index = 0;
-    //  char       input          = hid2azerty(report);
-    //  if(!input) {
-    //      password[password_index] = (uint16_t)input;
-    //      if(password_index++ >= 200)
-    //          password_index = 0;
-    //      if(password_size++ >= 200)
-    //          password_size = 200;
-    //  }
-
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
         usb_report(&UHD2, report, 8);
-
-        //print password
-        if(report[2] == KEY_F2) {
-            for(int i = 0; i < password_size; i++)
-                rtt_printf("input[%d] = '%c'", i, password[i]);
-        }
-
-        //print spi buffer
-        else if(report[2] == KEY_F3) {
-            spi_display_buffer(10);
-        }
     }
 }
 
