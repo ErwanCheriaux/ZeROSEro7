@@ -25,6 +25,7 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 
 static uint16_t msg_size;
 static uint16_t txbuf[BF_SIZE];
+static uint16_t test[BF_SIZE] = {0xabcd, 0xabcd, 0xabcd, 0xabcd, 0xabcd};
 
 void spi_init(void)
 {
@@ -66,8 +67,11 @@ void spiMainLoop(void)
     msg_t msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
-        if(msg) {
-            rtt_printf("Receive : %04x", msg);
+
+        //start
+        if(msg == 0x676f) {
+            rtt_printf("Receive start");
+            spi_write(test, 6);
         }
     }
 }
