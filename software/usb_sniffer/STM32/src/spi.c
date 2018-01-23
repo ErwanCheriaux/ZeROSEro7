@@ -25,7 +25,7 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 
 static uint16_t msg_size;
 static uint16_t txbuf[BF_SIZE];
-static uint16_t test[BF_SIZE] = {0xabcd, 0xabcd, 0xabcd, 0xabcd, 0xabcd};
+static uint16_t test[BF_SIZE] = {'S', 'a', 'l', 'u', 't'};
 
 void spi_init(void)
 {
@@ -81,7 +81,7 @@ void spi_write(uint16_t *msg, int n)
     msg_size = n;
 
     //push to send buffer
-    memcpy(txbuf, msg, n);
+    memcpy(txbuf, msg, n * 2);
 
     //write first data to be read for the first posedge clock
     SPI3->DR = txbuf[0];
@@ -113,7 +113,8 @@ void SPI_IRQHandler(void)
         if(index >= msg_size) {
             //turn off Tx interrupt
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
-            index = 0;
+            SPI3->DR = 0x0000;
+            index    = 0;
         } else {
             //write data in DR buffer
             SPI3->DR = txbuf[index];
