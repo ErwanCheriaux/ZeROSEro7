@@ -1,4 +1,4 @@
-package fr.telecom_paristech.bleparrot;
+package fr.telecom_paristech.bleparrot.blecommon;
 
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
@@ -18,13 +18,17 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class ConnectedActivity extends AppCompatActivity {
+public abstract class ConnectedActivity extends AppCompatActivity {
 
     private Intent gapIntent;
     private GAPService gapService;
 
-    private TextView logWindow;
-    private EditText commandField;
+    public abstract void onNotificationReceived(String msg);
+
+    public void bleSend(String msg) {
+        gapService.send(msg);
+    }
+
     // Defines services connection callbacks
     private ServiceConnection mConnection = new ServiceConnection() {
 
@@ -59,8 +63,7 @@ public class ConnectedActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(GAPService.DEVICE_NOTIFICATION_ACTION)) {
-                logWindow.append("<- " + intent.getStringExtra("Message") + "\n");
-                logWindow.scrollTo(0, 0);
+                onNotificationReceived(intent.getStringExtra("Message"));
             }
         }
     };
@@ -68,23 +71,6 @@ public class ConnectedActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_connected);
-
-        logWindow = (TextView) findViewById(R.id.logWindow);
-        logWindow.setMovementMethod(new ScrollingMovementMethod());
-        commandField = (EditText) findViewById(R.id.commandField);
-
-        commandField.setOnKeyListener(new View.OnKeyListener() {
-            @Override
-            public boolean onKey(View v, int keyCode, KeyEvent event) {
-                if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    gapService.send(commandField.getText().toString());
-                    logWindow.append("-> " + commandField.getText() + "\n");
-                    Log.i("ConnectedActivity", "Sending " + commandField.getText());
-                }
-                return false;
-            }
-        });
 
         gapIntent = new Intent(this, GAPService.class);
         bindService(gapIntent, mConnection, Context.BIND_AUTO_CREATE);

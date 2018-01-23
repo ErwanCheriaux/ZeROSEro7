@@ -1,4 +1,4 @@
-package fr.telecom_paristech.bleparrot;
+package fr.telecom_paristech.bleparrot.blecommon;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;

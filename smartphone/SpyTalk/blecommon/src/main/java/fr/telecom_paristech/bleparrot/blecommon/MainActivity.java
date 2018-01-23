@@ -1,4 +1,4 @@
-package fr.telecom_paristech.bleparrot;
+package fr.telecom_paristech.bleparrot.blecommon;
 
 import android.Manifest;
 import android.content.BroadcastReceiver;
@@ -20,16 +20,17 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class MainActivity extends AppCompatActivity {
+public abstract class MainActivity extends AppCompatActivity {
 
     private Intent advertisementIntent;
     private AdvertiserService advertiser;
-    private Button pauseResumeButton;
-    private ProgressBar advertisingProgress;
-    private TextView advertisingTitle;
 
     private Intent gapIntent;
     private GAPService gap;
+
+    public abstract ProgressBar getAdvertisingProgress();
+    public abstract Button getPauseResumeButton();
+    public abstract TextView getAdvertisingTitle();
 
     // Defines services connection callbacks
     private ServiceConnection mConnection = new ServiceConnection() {
@@ -64,9 +65,9 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), "Device connected!", Toast.LENGTH_SHORT).show();
                 advertiser.pause();
                 gap.stopScan();
-                advertisingProgress.setVisibility(View.INVISIBLE);
-                pauseResumeButton.setText("Stopped");
-                advertisingTitle.setText("Device detected");
+                getAdvertisingProgress().setVisibility(View.INVISIBLE);
+                getPauseResumeButton().setText("Stopped");
+                getAdvertisingTitle().setText("Device detected");
                 startConnectedActiviy();
             }
         }
@@ -79,9 +80,9 @@ public class MainActivity extends AppCompatActivity {
             if (intent.getAction().equals(GAPService.DEVICE_DISCONNECTED_ACTION)) {
                 advertiser.resume();
                 gap.startScan();
-                advertisingProgress.setVisibility(View.VISIBLE);
-                pauseResumeButton.setText("Pause");
-                advertisingTitle.setText("Advertising in BLE");
+                getAdvertisingProgress().setVisibility(View.VISIBLE);
+                getPauseResumeButton().setText("Pause");
+                getAdvertisingTitle().setText("Advertising in BLE");
             }
         }
     };
@@ -108,14 +109,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
 
         LocalBroadcastManager.getInstance(this).registerReceiver(connectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_CONNECTED_ACTION));
         LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
-
-        pauseResumeButton = (Button) findViewById(R.id.pauseResumeButton);
-        advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress);
-        advertisingTitle = (TextView) findViewById(R.id.advertisingTitle);
 
         advertisementIntent = new Intent(this, AdvertiserService.class);
         bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
@@ -130,15 +126,15 @@ public class MainActivity extends AppCompatActivity {
         if (advertiserStarted) {
             advertiser.pause();
             gap.stopScan();
-            advertisingProgress.setVisibility(View.INVISIBLE);
-            pauseResumeButton.setText("Resume");
-            advertisingTitle.setText("Advertising Stopped");
+            getAdvertisingProgress().setVisibility(View.INVISIBLE);
+            getPauseResumeButton().setText("Resume");
+            getAdvertisingTitle().setText("Advertising Stopped");
         } else {
             advertiser.resume();
             gap.startScan();
-            advertisingProgress.setVisibility(View.VISIBLE);
-            pauseResumeButton.setText("Pause");
-            advertisingTitle.setText("Advertising in BLE");
+            getAdvertisingProgress().setVisibility(View.VISIBLE);
+            getPauseResumeButton().setText("Pause");
+            getAdvertisingTitle().setText("Advertising in BLE");
         }
         advertiserStarted = !advertiserStarted;
     }
