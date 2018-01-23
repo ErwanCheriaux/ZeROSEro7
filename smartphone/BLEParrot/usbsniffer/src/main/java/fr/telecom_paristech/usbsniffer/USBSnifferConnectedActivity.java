@@ -4,10 +4,6 @@ import android.content.Context;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
-import android.util.Log;
-import android.view.KeyEvent;
-import android.view.View;
-import android.widget.EditText;
 import android.widget.TextView;
 
 import java.io.File;
@@ -18,9 +14,8 @@ import blecommon.ConnectedActivity;
 
 public class USBSnifferConnectedActivity extends ConnectedActivity {
 
-    private TextView logWindow;
     public static final String FILENAME = "usb_sniffer_dump.txt";
-
+    private TextView logWindow;
     private FileOutputStream dumpFileStream;
 
     @Override
@@ -54,7 +49,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
 
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
         File dumpFile = new File(path, FILENAME);
-        if(dumpFile.exists()) {
+        if (dumpFile.exists()) {
             dumpFile.delete();
         }
         try {

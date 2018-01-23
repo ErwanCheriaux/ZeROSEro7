@@ -26,7 +26,6 @@ public class DialogActivity extends ConnectedActivity {
         commandField = (EditText) findViewById(R.id.commandField);
 
 
-
         logWindow.setMovementMethod(new ScrollingMovementMethod());
         commandField.setOnKeyListener(new View.OnKeyListener() {
             @Override

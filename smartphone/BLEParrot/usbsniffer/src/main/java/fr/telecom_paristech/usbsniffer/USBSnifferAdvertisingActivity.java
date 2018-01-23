@@ -42,7 +42,7 @@ public class USBSnifferAdvertisingActivity extends AdvertisingActivity {
 
     @Override
     public byte[] getAppID() {
-        return APP_ID ;
+        return APP_ID;
     }
 
     @Override

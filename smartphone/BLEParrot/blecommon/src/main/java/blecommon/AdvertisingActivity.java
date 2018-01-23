@@ -113,12 +113,12 @@ public abstract class AdvertisingActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
 
         advertisementIntent = new Intent(this, AdvertiserService.class);
-        advertisementIntent.putExtra(APP_ID_EXTRA,getAppID());
+        advertisementIntent.putExtra(APP_ID_EXTRA, getAppID());
         bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
         startService(advertisementIntent);
 
         gapIntent = new Intent(this, GAPService.class);
-        gapIntent.putExtra(APP_ID_EXTRA,getAppID());
+        gapIntent.putExtra(APP_ID_EXTRA, getAppID());
         bindService(gapIntent, mConnection, Context.BIND_AUTO_CREATE);
         startService(gapIntent);
     }

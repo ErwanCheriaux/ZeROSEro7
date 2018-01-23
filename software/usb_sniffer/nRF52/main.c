@@ -117,10 +117,21 @@ int main(void)
     spim_protocol_init();
     rtt_write_string("SPI initialized\n");
 
+    static buffer_t* spim_buff;
     while(true) {
         nrf_drv_gpiote_out_toggle(LED_PIN);
-        spim_protocol_start();
-        nrf_delay_ms(300);  // TODO Not tested yet
+        spim_buff = spim_protocol_start();
+        rtt_write_string("Received via SPI :\n");
+        rtt_write_buffer(0,spim_buff->data,spim_buff->length);
+        rtt_write_string("\n");
+        while(spim_buff->length > SPIM_PROTOCOL_PACKET_SIZE) {
+            nrf_delay_ms(300);
+            spim_buff = spim_protocol_next();
+            rtt_write_string("Received via SPI :\n");
+            rtt_write_buffer(0,spim_buff->data,spim_buff->length);
+            rtt_write_string("\n");
+        }
+        nrf_delay_ms(300);
     }
 
     return 0;

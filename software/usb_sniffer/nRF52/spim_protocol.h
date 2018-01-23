@@ -2,6 +2,7 @@
 #define SPIM_PROTOCOL_H
 
 #include <stdint.h>
+#include "sdk_config.h"
 
 /*
 *   SPI Master control for handling our custom protocol.
@@ -16,6 +17,8 @@
 
 // We use bloqcking spi transfers without much loss of performance
 // Because of the length of BLE transaction
+
+#define SPIM_PROTOCOL_PACKET_SIZE NRF_SDH_BLE_GATT_MAX_MTU_SIZE
 
 typedef struct {
     uint8_t* data;

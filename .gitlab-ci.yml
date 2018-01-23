@@ -85,13 +85,10 @@ build_apps:
     - ./gradlew build
     - cd ../WifiParrot
     - ./gradlew build
-    - cd ../USBSniffer
-    - ./gradlew build
-    - cd ../SpyTalk
-    - ./gradlew build
   artifacts:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    - smartphone/BLEParrot/usbsniffer/build/outputs/apk/usbsniffer-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
   tags:

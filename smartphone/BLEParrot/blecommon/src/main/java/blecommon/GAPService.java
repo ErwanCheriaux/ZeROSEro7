@@ -64,8 +64,8 @@ public class GAPService extends Service {
                 if (device != null && device.getName() != null && device.getName().equals("Connected shoe")) {
                     Log.i("GAPService", "Manufacturer specific data :" + Arrays.toString(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID)));
                     Log.i("GAPService", "Expected :" + Arrays.toString(appId));
-                    if(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID) != null
-                            && Arrays.equals(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID),appId)) {
+                    if (result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID) != null
+                            && Arrays.equals(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID), appId)) {
                         Log.i("GAPService", "Recognised device advertisement");
                         stopScan();
 

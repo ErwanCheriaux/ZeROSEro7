@@ -11,32 +11,32 @@
     tools:context=".AdvertisingActivity">
 
     <ProgressBar
+        android:id="@+id/advertisingProgress"
         style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/advertisingProgress"
-        android:layout_centerVertical="true"
-        android:layout_centerHorizontal="true" />
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true" />
 
     <TextView
-        android:text="Advertising in BLE"
+        android:id="@+id/advertisingTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/advertisingTitle"
-        android:textAppearance="@style/TextAppearance.AppCompat.Display1"
-        android:textAlignment="center"
-        android:layout_marginBottom="54dp"
         android:layout_above="@+id/advertisingProgress"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_marginBottom="54dp"
+        android:text="Advertising in BLE"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
 
     <Button
-        android:text="Pause"
+        android:id="@+id/pauseResumeButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/advertisingProgress"
         android:layout_alignStart="@+id/advertisingProgress"
+        android:layout_below="@+id/advertisingProgress"
         android:layout_marginTop="52dp"
-        android:id="@+id/pauseResumeButton"
-        android:onClick="onPauseResumeButton" />
+        android:onClick="onPauseResumeButton"
+        android:text="Pause" />
 </RelativeLayout>

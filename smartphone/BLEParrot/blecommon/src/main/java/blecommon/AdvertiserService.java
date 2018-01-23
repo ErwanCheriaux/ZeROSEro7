@@ -14,7 +14,7 @@ import android.widget.Toast;
 
 public class AdvertiserService extends Service {
 
-    public static final int ADIDAS_MANUFACTURER_ID = 0x00C3 ;
+    public static final int ADIDAS_MANUFACTURER_ID = 0x00C3;
 
     private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
@@ -60,7 +60,7 @@ public class AdvertiserService extends Service {
     private AdvertiseData buildData() {
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
 
-        dataBuilder.addManufacturerData(ADIDAS_MANUFACTURER_ID,appId);
+        dataBuilder.addManufacturerData(ADIDAS_MANUFACTURER_ID, appId);
         dataBuilder.setIncludeDeviceName(true);
 
         return dataBuilder.build();
