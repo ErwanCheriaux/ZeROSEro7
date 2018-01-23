@@ -1,1 +1,1 @@
-include ':app', ':blecommon', ':usbsniffer'
+include ':app', ':blecommon', ':usbsniffer', ':spytalk'

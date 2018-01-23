@@ -12,7 +12,7 @@ USER_SRC += \
 	$(PROJ_DIR)/lora_board.c \
 	$(PROJ_DIR)/low_power.c \
 	$(PROJ_DIR)/test_board.c \
-	$(PROJ_DIR)/custom_board.c 
+	$(PROJ_DIR)/custom_board.c
 
 CFLAGS += -D USE_SPY_TALK_BOARD
 
@@ -51,4 +51,15 @@ include $(nRF52_ble_common_DIR)/nRF52_ble_common.mk
 
 test_board: $(ELF)
 # Otherwise, custom_board.h is selected instead of test_board.h
-test_board: CFLAGS += -D TEST_BOARD
+test_board: CFLAGS += -D TEST_BOARD -D PINK_BOARD
+
+# The boards are distinguished by their manufacturer data in BLE advertisements.
+yellow_board: $(ELF)
+yellow_board: CFLAGS += -D YELLOW_BOARD
+
+blue_board: $(ELF)
+blue_board: CFLAGS += -D BLUE_BOARD
+
+# Pink is default
+pink_board: $(ELF)
+pink_board: CFLAGS += -D PINK_BOARD

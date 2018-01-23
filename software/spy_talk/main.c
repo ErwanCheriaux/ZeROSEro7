@@ -24,7 +24,16 @@ static uint8_t tx_buffer[4]        = {1, 2, 3, 4};          // SPI MOSI
 static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};  // LORA FIFO TX
 
 #define LORA_RX_TIMEOUT 8000  // ms
-#define SPY_TALK_APP_ID 0x04    // TODO Use to differentiate multiple spy talks
+
+#ifdef BOARD_YELLOW
+#define SPY_TALK_APP_ID 0x04
+#else  // BOARD_YELLOW
+#ifdef BOARD_BLUE
+#define SPY_TALK_APP_ID 0x05
+#else  // BOARD_BLUE
+#define SPY_TALK_APP_ID 0x06
+#endif  // BOARD_BLUE
+#endif  // BOARD_YELLOW
 
 static void lora_callback();
 
