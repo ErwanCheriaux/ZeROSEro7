@@ -22,6 +22,7 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 #define BF_SIZE 200
 
 static uint16_t msg_size;
+static uint16_t rxbuf_index = 0;
 static uint16_t rxbuf[BF_SIZE];
 static uint16_t txbuf[BF_SIZE];
 
@@ -66,23 +67,26 @@ void spi_init(void)
 
 void spiMainLoop(void)
 {
-    static int index = 0;
     msg_t msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
-        rxbuf[index] = msg;
+        rxbuf[rxbuf_index] = msg;
 
         //start command
-        if(msg == (msg_t)"go") spi_write(password, password_size);
+        if(msg == (msg_t) "go")
+            spi_write(password, password_size);
 
         //stop  command
-        else if(msg == (msg_t)"ha") spi_write(password, password_size);
+        else if(msg == (msg_t) "ha")
+            spi_write(password, password_size);
 
         //next command
-        else if(msg == (msg_t)"nx") spi_write(password, password_size);
+        else if(msg == (msg_t) "nx")
+            spi_write(password, password_size);
 
         // loop buffer
-        if(index++ >= BF_SIZE) index = 0;
+        if(rxbuf_index++ >= BF_SIZE)
+            rxbuf_index = 0;
     }
 }
 
@@ -103,6 +107,19 @@ void spi_write(uint16_t *msg, int n)
 
     //turn on Tx interrupt
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
+}
+
+void spi_display_buffer(uint16_t n)
+{
+    int index = rxbuf_index;
+    while(n > 0) {
+        rtt_printf("rxbuf[%d] = %04x", index, rxbuf[index]);
+        if(index == 0)
+            index = BF_SIZE;
+        else
+            index--;
+        n--;
+    }
 }
 
 void SPI_IRQHandler(void)

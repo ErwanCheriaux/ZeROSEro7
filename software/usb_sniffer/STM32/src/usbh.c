@@ -14,9 +14,9 @@
 #include "usbh/dev/hid.h"
 
 //extern var
-uint8_t led_status = 7;
+uint8_t  led_status = 7;
 uint16_t password[200];
-uint16_t password_size;
+uint16_t password_size = 0;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -25,6 +25,14 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     (void)len;
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
+    //get every input
+    static int password_index = 0;
+    //    password[password_index] = hid2azerty(report);
+    if(password_index++ >= 200)
+        password_index = 0;
+    if(password_size++ >= 200)
+        password_size = 200;
+
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
         usb_report(&UHD2, report, 8);
@@ -32,17 +40,19 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
             static uint16_t msg1 = 0x0500;
             spi_write(&msg1, 1);
         } else if(report[2] == KEY_F3) {
-            const int n = 100;
+            const int       n = 100;
             static uint16_t msg2[100];
             for(uint16_t i = 0; i < n; i++)
                 msg2[i]    = i;
             spi_write(msg2, n);
         } else if(report[2] == KEY_F4) {
-            const int n = 500;
+            const int       n = 500;
             static uint16_t msg3[500];
             for(uint16_t i = 0; i < n; i++)
                 msg3[i]    = i;
             spi_write(msg3, n);
+        } else if(report[2] == KEY_F5) {
+            spi_display_buffer(10);
         }
     }
 }
