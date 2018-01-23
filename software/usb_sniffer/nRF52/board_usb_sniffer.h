@@ -1,7 +1,6 @@
 #ifndef BOARD_USB_SNIFFER_H
 #define BOARD_USB_SNIFFER_H
 
-
 // <0=> RC
 // <1=> XTAL
 // <2=> Synth
@@ -84,4 +83,4 @@
 #define SPI_SS_PIN 5
 #endif
 
-#endif // BOARD_USB_SNIFFER_H
+#endif  // BOARD_USB_SNIFFER_H

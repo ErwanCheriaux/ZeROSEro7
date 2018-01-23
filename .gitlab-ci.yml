@@ -88,6 +88,7 @@ build_apps:
   artifacts:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    - smartphone/BLEParrot/usbsniffer/build/outputs/apk/usbsniffer-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
   tags:

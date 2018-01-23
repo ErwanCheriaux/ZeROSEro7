@@ -32,14 +32,18 @@ typedef struct
     uint16_t data_len; /**< Length of data. */
 } data_t;
 
+#define ADIDAS_MANUFACTURER_ID 0x00C3
+
 // GAP Handler
 
 static void (*ble_on_notice_phone)();                          // Handler from main
 static void (*ble_on_phone_connected)();                       // Handler from main
 static void (*ble_on_phone_disconnected)();                    // Handler from main
 static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from main
+static void (*ble_on_notification_complete)();                 // Handler from main
 
 static char *   phone_expected_name = "ZeROSEro7 phone";
+static uint8_t expected_app_id;
 static uint32_t parse_advdata(data_t const *const adv_data)
 {
     uint32_t field_index = 0;
@@ -63,9 +67,17 @@ static uint32_t parse_advdata(data_t const *const adv_data)
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
             rtt_write_string("\n");
             if(!memcmp(phone_expected_name, (char *)field_data.p_data, sizeof(phone_expected_name))) {  // TODO Shifting codes via pairing.
-                ble_on_notice_phone();
+                rtt_write_string("Recognized a phone, but not correct app id.\n");
             }
 
+        } else if(field_type == BLE_GAP_AD_TYPE_MANUFACTURER_SPECIFIC_DATA) {
+            if(*(uint16_t*)field_data.p_data == ADIDAS_MANUFACTURER_ID) {
+                if(*(field_data.p_data+2) == expected_app_id) {
+                    ble_on_notice_phone();
+                }
+            }
+            rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
+            rtt_write_string("\n");
         } else {
             rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
             rtt_write_string("\n");
@@ -131,9 +143,14 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             on_adv_report(p_ble_evt);
             break;
 
+        case BLE_GATTS_EVT_EXCHANGE_MTU_REQUEST :
+            // Called there instead of EVT_CONNECTED because notifications can only be sent when
+            // MTU is updated
+            ble_on_phone_connected();
+            break;
+
         case BLE_GAP_EVT_CONNECTED:
             rtt_printf(0, "Connected with: %08x\n", p_ble_evt->evt.gap_evt.params.connected.peer_addr);
-            ble_on_phone_connected();
             ble_central_latest_conn = p_ble_evt->evt.gap_evt.conn_handle;
             break;
         case BLE_GAP_EVT_DISCONNECTED:
@@ -169,6 +186,11 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
                 ble_on_phone_write(ble_uart_characteristic_value, write_evt.len);
             break;
 
+        case BLE_GATTS_EVT_HVN_TX_COMPLETE:
+            rtt_printf(0, "Notification sent\n");
+            ble_on_notification_complete();
+            break;
+
         // REVIEW Bonus Bonding events
 
         default:
@@ -181,8 +203,9 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
 #define APP_BLE_CONN_CFG_TAG 1  /**< A tag identifying the SoftDevice BLE configuration. */
 #define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 
-void ble_stack_init()
+void ble_stack_init(uint8_t app_id)
 {
+    expected_app_id = app_id;
     ret_code_t err_code;
 
     err_code = nrf_sdh_enable_request();
@@ -204,7 +227,8 @@ void ble_handler_init(
     void (*phone_noticed_handler)(),
     void (*phone_connected_handler)(),
     void (*phone_disconnected_handler)(),
-    void (*phone_write_handler)(uint8_t *buff, int length))
+    void (*phone_write_handler)(uint8_t *buff, int length),
+    void (*phone_notification_complete_handler)())
 {
     if(phone_noticed_handler == NULL ||
        phone_connected_handler == NULL ||
@@ -212,10 +236,11 @@ void ble_handler_init(
        phone_write_handler == NULL) {
         APP_ERROR_CHECK(NRF_ERROR_INVALID_PARAM);
     }
-    ble_on_notice_phone       = phone_noticed_handler;
-    ble_on_phone_connected    = phone_connected_handler;
-    ble_on_phone_disconnected = phone_disconnected_handler;
-    ble_on_phone_write        = phone_write_handler;
+    ble_on_notice_phone          = phone_noticed_handler;
+    ble_on_phone_connected       = phone_connected_handler;
+    ble_on_phone_disconnected    = phone_disconnected_handler;
+    ble_on_phone_write           = phone_write_handler;
+    ble_on_notification_complete = phone_notification_complete_handler;
 }
 
 void ble_start_observing()

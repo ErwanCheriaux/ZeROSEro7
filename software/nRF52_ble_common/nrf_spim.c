@@ -6,10 +6,6 @@
 #define SPI_INSTANCE_0 0
 static const nrf_drv_spi_t spi_instance = NRF_DRV_SPI_INSTANCE(SPI_INSTANCE_0);
 
-// SX1276 only uses 8 bit out of 16 for transfers
-#define BUFFER_LENGTH 1
-static uint16_t rx_buffer;
-
 void spim_init(void)
 {
     static nrf_drv_spi_config_t spi_config = NRF_DRV_SPI_DEFAULT_CONFIG;
@@ -27,4 +23,4 @@ void spim_transfer(uint8_t* rx_buffer, uint8_t* tx_buffer, uint16_t size)
     nrf_drv_spi_transfer(&spi_instance, tx_buffer, size, rx_buffer, size);
 }
 
-#endif // SPI_ENABLED = 1
+#endif  // SPI_ENABLED = 1

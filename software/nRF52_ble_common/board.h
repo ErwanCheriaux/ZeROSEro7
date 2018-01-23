@@ -25,7 +25,7 @@
 // <2=> Synth
 
 #ifndef CLOCK_CONFIG_LF_SRC
-#define CLOCK_CONFIG_LF_SRC 1
+#define CLOCK_CONFIG_LF_SRC 2
 #endif
 
 // <o> NRF_SDH_CLOCK_LF_SRC  - SoftDevice clock source.
@@ -35,16 +35,16 @@
 // <2=> NRF_CLOCK_LF_SRC_SYNTH
 
 #ifndef NRF_SDH_CLOCK_LF_SRC
-#define NRF_SDH_CLOCK_LF_SRC 1
+#define NRF_SDH_CLOCK_LF_SRC 2
 #endif
 
 #else
 
 #error("Please select a board.h")
 
-#endif // USE_COMMON_BOARD
-#endif // USE_STEALTH_DROP_BOARD
-#endif // USE_USB_SNIFFER_BOARD
-#endif // USE_SPY_TALK_BOARD
+#endif  // USE_COMMON_BOARD
+#endif  // USE_STEALTH_DROP_BOARD
+#endif  // USE_USB_SNIFFER_BOARD
+#endif  // USE_SPY_TALK_BOARD
 
-#endif // BOARD_H
+#endif  // BOARD_H

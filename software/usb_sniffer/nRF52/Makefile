@@ -5,6 +5,7 @@ SDK_COMMON_DIR		 := ../../../SDK
 
 USER_SRC += \
 	$(PROJ_DIR)/main.c \
+	$(PROJ_DIR)/spim_protocol.c \
 
 CFLAGS += -DUSE_USB_SNIFFER_BOARD
 

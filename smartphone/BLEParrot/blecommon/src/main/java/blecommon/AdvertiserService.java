@@ -1,4 +1,4 @@
-package fr.telecom_paristech.bleparrot;
+package blecommon;
 
 import android.app.Service;
 import android.bluetooth.BluetoothAdapter;
@@ -14,28 +14,20 @@ import android.widget.Toast;
 
 public class AdvertiserService extends Service {
 
+    public static final int ADIDAS_MANUFACTURER_ID = 0x00C3;
+
     private final IBinder mBinder = new LocalBinder();
     private BluetoothAdapter adapter;
     private BluetoothLeAdvertiser advertiserInstance;
     private AdvertiseSettings settings;
     private AdvertiseData advertiseData;
     private AdvertiseCallback callback;
+    private byte[] appId;
 
     public AdvertiserService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
         advertiserInstance = adapter.getBluetoothLeAdvertiser();
         Log.i("AdvertiserService", "AdvertiserService Instance : " + advertiserInstance);
-
-        settings = buildSettings();
-        advertiseData = buildData();
-        callback = new AdvertiserCallbackFeedback(this);
-
-        Log.i("AdvertiserService", settings + " " + advertiseData + " " + callback);
-
-        advertiserInstance.startAdvertising(settings,
-                advertiseData,
-                callback
-        );
     }
 
 
@@ -68,6 +60,7 @@ public class AdvertiserService extends Service {
     private AdvertiseData buildData() {
         AdvertiseData.Builder dataBuilder = new AdvertiseData.Builder();
 
+        dataBuilder.addManufacturerData(ADIDAS_MANUFACTURER_ID, appId);
         dataBuilder.setIncludeDeviceName(true);
 
         return dataBuilder.build();
@@ -88,6 +81,18 @@ public class AdvertiserService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+        appId = intent.getByteArrayExtra(AdvertisingActivity.APP_ID_EXTRA);
+
+        settings = buildSettings();
+        advertiseData = buildData();
+        callback = new AdvertiserCallbackFeedback(this);
+
+        Log.i("AdvertiserService", settings + " " + advertiseData + " " + callback);
+
+        advertiserInstance.startAdvertising(settings,
+                advertiseData,
+                callback
+        );
         return mBinder;
     }
 

@@ -111,6 +111,10 @@ static uint16_t               hvx_sent_length;
 
 void phone_send_notification(uint8_t* buff, int length)
 {
+    if(length > NRF_SDH_BLE_GATT_MAX_MTU_SIZE) {
+        APP_ERROR_CHECK(NRF_ERROR_DATA_SIZE);
+    }
+
     hvx_sent_length            = length;
     notification_params.p_len  = &hvx_sent_length;
     notification_params.p_data = buff;
@@ -121,8 +125,5 @@ void phone_send_notification(uint8_t* buff, int length)
         APP_ERROR_CHECK(err_code);
     } else {  // Happens if the client didn't subscribe to notifications.
         rtt_write_string("BLE_ERROR_GATTS_SYS_ATTR_MISSING. CCCD state not defined yet.\n");
-    }
-    if(hvx_sent_length != length) {
-        APP_ERROR_CHECK(NRF_ERROR_DATA_SIZE);
     }
 }  // TODO check conn handle

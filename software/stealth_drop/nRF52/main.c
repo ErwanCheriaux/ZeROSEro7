@@ -14,8 +14,10 @@
 
 #include "nrf_spim.h"
 
-static uint8_t rx_buffer[4];                         // SPI MISO
-static uint8_t tx_buffer[4] = {1, 2, 3, 4};          // SPI MOSI
+static uint8_t rx_buffer[4];                 // SPI MISO
+static uint8_t tx_buffer[4] = {1, 2, 3, 4};  // SPI MOSI
+
+#define STEALTH_DROP_APP_ID 0x03
 
 static void log_init(void)
 {
@@ -27,7 +29,8 @@ static void log_init(void)
 
 #define LED_PIN 19
 
-static void stealth_drop_led_init() {
+static void stealth_drop_led_init()
+{
     static nrf_drv_gpiote_out_config_t led_config = {
         NRF_GPIOTE_POLARITY_TOGGLE,
         NRF_GPIOTE_INITIAL_VALUE_LOW,
@@ -68,12 +71,12 @@ int main(void)
     rtt_write_string("SPI initialized\n");
 
     while(true) {
-        spim_transfer(rx_buffer,tx_buffer,4);
-        rtt_write_buffer_hexa(rx_buffer,4);
+        spim_transfer(rx_buffer, tx_buffer, 4);
+        rtt_write_buffer_hexa(rx_buffer, 4);
         rtt_write_string("\n");
         if(rx_buffer[0] == 5) {
             tx_buffer[0]++;
-            rtt_printf(0,"tx[0] = %u", tx_buffer[0]);
+            rtt_printf(0, "tx[0] = %u", tx_buffer[0]);
         }
         nrf_drv_gpiote_out_toggle(LED_PIN);
 

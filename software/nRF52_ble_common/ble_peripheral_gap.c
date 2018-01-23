@@ -25,6 +25,7 @@
 #include "rtt.h"
 
 #define BLE_DEVICE_NAME "Connected shoe"
+#define ADIDAS_MANUFACTURER_ID 0x00C3
 #define APP_ADV_FAST_INTERVAL 40 /**< The advertising interval (in units of 0.625 ms. This value corresponds to 25 ms). */
 #define APP_ADV_FAST_TIMEOUT 120 /**< The duration of the fast advertising period (in seconds). */
 #define APP_BLE_CONN_CFG_TAG 1   /**< A tag identifying the SoftDevice BLE configuration. */
@@ -43,6 +44,8 @@ static void (*on_phone_connection)();  // Handler from main
 BLE_ADVERTISING_DEF(m_advertising); /**< Advertising module instance. */
 static ble_advertising_t* const advertising;
 static ble_advertising_init_t   advertising_conf;
+
+static uint8_t manufacturer_data_app_id;
 
 static void on_adv_evt(ble_adv_evt_t ble_adv_evt)
 {
@@ -129,6 +132,14 @@ void ble_conn_negociation_init()
     APP_ERROR_CHECK(ble_conn_params_init(&conn_neg_init));
 }
 
+static ble_advdata_manuf_data_t manuf_data = {
+    ADIDAS_MANUFACTURER_ID,
+    {
+        sizeof(manufacturer_data_app_id),
+        &manufacturer_data_app_id
+    }
+};
+
 static void advertising_params_init()
 {
     advertising_conf.advdata.name_type               = BLE_ADVDATA_FULL_NAME;
@@ -136,6 +147,8 @@ static void advertising_params_init()
     advertising_conf.advdata.flags                   = BLE_GAP_ADV_FLAGS_LE_ONLY_LIMITED_DISC_MODE;
     advertising_conf.advdata.uuids_complete.uuid_cnt = 0;  // No need to advertise GATT services, obtained after connection
     advertising_conf.advdata.uuids_complete.p_uuids  = NULL;
+
+    advertising_conf.advdata.p_manuf_specific_data = &manuf_data;
 
     // We use fast advertising because advertising doesn't last long. REVIEW Could use Directed for fast recovery
     advertising_conf.config.ble_adv_fast_enabled  = true;
@@ -145,8 +158,9 @@ static void advertising_params_init()
     advertising_conf.evt_handler = on_adv_evt;
 }
 
-void ble_advertise_init()
+void ble_advertise_init(uint8_t app_id)
 {
+    manufacturer_data_app_id = app_id;
     advertising_params_init();
     APP_ERROR_CHECK(ble_advertising_init(&m_advertising, &advertising_conf));
 
