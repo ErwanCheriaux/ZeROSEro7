@@ -38,7 +38,7 @@ static void (*ble_on_notice_phone)();                          // Handler from m
 static void (*ble_on_phone_connected)();                       // Handler from main
 static void (*ble_on_phone_disconnected)();                    // Handler from main
 static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from main
-static void (*ble_on_notification_complete)();                    // Handler from main
+static void (*ble_on_notification_complete)();                 // Handler from main
 
 static char *   phone_expected_name = "ZeROSEro7 phone";
 static uint32_t parse_advdata(data_t const *const adv_data)
@@ -219,10 +219,10 @@ void ble_handler_init(
        phone_write_handler == NULL) {
         APP_ERROR_CHECK(NRF_ERROR_INVALID_PARAM);
     }
-    ble_on_notice_phone       = phone_noticed_handler;
-    ble_on_phone_connected    = phone_connected_handler;
-    ble_on_phone_disconnected = phone_disconnected_handler;
-    ble_on_phone_write        = phone_write_handler;
+    ble_on_notice_phone          = phone_noticed_handler;
+    ble_on_phone_connected       = phone_connected_handler;
+    ble_on_phone_disconnected    = phone_disconnected_handler;
+    ble_on_phone_write           = phone_write_handler;
     ble_on_notification_complete = phone_notification_complete_handler;
 }
 

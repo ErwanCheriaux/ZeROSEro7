@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="fr.telecom_paristech.bleparrot">
+    package="fr.telecom_paristech.usbsniffer">
 
     <application
         android:allowBackup="true"
@@ -9,7 +9,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".AdvertisingActivityImpl"
+            android:name=".USBSnifferAdvertisingActivity"
             android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,9 +19,8 @@
         </activity>
 
         <activity
-            android:name=".DialogActivity"
+            android:name=".USBSnifferConnectedActivity"
             android:screenOrientation="portrait"></activity>
-
     </application>
 
 </manifest>

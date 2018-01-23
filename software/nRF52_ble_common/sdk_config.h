@@ -46,7 +46,6 @@
 #endif
 // <h> Board Support
 
-
 #include "board.h"
 
 //==========================================================
@@ -448,8 +447,6 @@
 #ifndef CLOCK_CONFIG_XTAL_FREQ
 #define CLOCK_CONFIG_XTAL_FREQ 0
 #endif
-
-
 
 // <o> CLOCK_CONFIG_IRQ_PRIORITY  - Interrupt priority
 
@@ -1389,7 +1386,7 @@
 // <e> SPI_ENABLED - nrf_drv_spi - SPI/SPIM peripheral driver
 //==========================================================
 #ifndef SPI_ENABLED
-#define SPI_ENABLED 0   // Usually enabled in board.h
+#define SPI_ENABLED 0  // Usually enabled in board.h
 #endif
 // <o> SPI_DEFAULT_CONFIG_IRQ_PRIORITY  - Interrupt priority
 
@@ -5461,7 +5458,6 @@
 // <h> Clock - SoftDevice clock configuration
 
 //==========================================================
-
 
 // <o> NRF_SDH_CLOCK_LF_RC_CTIV - SoftDevice calibration timer interval.
 #ifndef NRF_SDH_CLOCK_LF_RC_CTIV

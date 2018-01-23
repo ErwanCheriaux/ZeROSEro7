@@ -1,4 +1,4 @@
-package fr.telecom_paristech.bleparrot;
+package fr.telecom_paristech.usbsniffer;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,8 +8,7 @@ import android.widget.TextView;
 
 import blecommon.AdvertisingActivity;
 
-public class AdvertisingActivityImpl extends AdvertisingActivity {
-
+public class USBSnifferAdvertisingActivity extends AdvertisingActivity {
 
     private Button pauseResumeButton;
     private ProgressBar advertisingProgress;
@@ -34,7 +33,7 @@ public class AdvertisingActivityImpl extends AdvertisingActivity {
     @Override
     public void onPhoneConnected() {
         if (connectedActivityIntent == null) {
-            connectedActivityIntent = new Intent(this, DialogActivity.class);
+            connectedActivityIntent = new Intent(this, USBSnifferConnectedActivity.class);
         }
         startActivity(connectedActivityIntent);
     }
@@ -48,4 +47,5 @@ public class AdvertisingActivityImpl extends AdvertisingActivity {
         advertisingProgress = (ProgressBar) findViewById(R.id.advertisingProgress);
         advertisingTitle = (TextView) findViewById(R.id.advertisingTitle);
     }
+
 }

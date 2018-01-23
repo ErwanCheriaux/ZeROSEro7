@@ -60,8 +60,8 @@ static void phone_write_handler(uint8_t *buff, int length)
     phone_send_notification(buff, length);
 }
 
-static void phone_notification_complete_handler() {
-
+static void phone_notification_complete_handler()
+{
 }
 
 static void log_init(void)

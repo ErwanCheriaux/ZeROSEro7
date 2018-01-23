@@ -40,10 +40,6 @@ lint_apps:
     - ./gradlew lint
     - cd ../WifiParrot
     - ./gradlew lint
-    - cd ../SpyTalk
-    - ./gradlew lint
-    - cd ../USBSniffer
-    - ./gradlew lint
   tags:
     - android
   cache:
@@ -52,8 +48,6 @@ lint_apps:
       - .gradle-cache
       - smartphone/BLEParrot/.gradle/
       - smartphone/WifiParrot/.gradle/
-      - smartphone/USBSniffer/.gradle/
-      - smartphone/SpyTalk/.gradle/
 
 # BUILD STAGE
 
@@ -99,8 +93,6 @@ build_apps:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
-    - smartphone/USBSniffer/app/build/outputs/apk/app-release-unsigned.apk
-    - smartphone/SpyTalk/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
   tags:
     - android
@@ -110,8 +102,6 @@ build_apps:
       - .gradle-cache
       - smartphone/BLEParrot/.gradle/
       - smartphone/WifiParrot/.gradle/
-      - smartphone/USBSniffer/.gradle/
-      - smartphone/SpyTalk/.gradle/
 
 # TEST STAGE
 
@@ -127,10 +117,6 @@ test_apps:
     - ./gradlew test
     - cd ../WifiParrot
     - ./gradlew test
-    - cd ../USBSniffer
-    - ./gradlew test
-    - cd ../SpyTalk
-    - ./gradlew test
   tags:
     - android
   cache:
@@ -139,8 +125,6 @@ test_apps:
       - .gradle-cache
       - smartphone/BLEParrot/.gradle/
       - smartphone/WifiParrot/.gradle/
-      - smartphone/USBSniffer/.gradle/
-      - smartphone/SpyTalk/.gradle/
 
 # DEPLOY STAGE
 

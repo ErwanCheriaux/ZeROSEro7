@@ -42,9 +42,9 @@
 
 #error("Please select a board.h")
 
-#endif // USE_COMMON_BOARD
-#endif // USE_STEALTH_DROP_BOARD
-#endif // USE_USB_SNIFFER_BOARD
-#endif // USE_SPY_TALK_BOARD
+#endif  // USE_COMMON_BOARD
+#endif  // USE_STEALTH_DROP_BOARD
+#endif  // USE_USB_SNIFFER_BOARD
+#endif  // USE_SPY_TALK_BOARD
 
-#endif // BOARD_H
+#endif  // BOARD_H

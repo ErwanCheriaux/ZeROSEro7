@@ -14,8 +14,8 @@
 
 #include "nrf_spim.h"
 
-static uint8_t rx_buffer[4];                         // SPI MISO
-static uint8_t tx_buffer[4] = {1, 2, 3, 4};          // SPI MOSI
+static uint8_t rx_buffer[4];                 // SPI MISO
+static uint8_t tx_buffer[4] = {1, 2, 3, 4};  // SPI MOSI
 
 static void log_init(void)
 {
@@ -27,13 +27,55 @@ static void log_init(void)
 
 #define LED_PIN 22
 
-static void sniffer_led_init() {
+static void sniffer_led_init()
+{
     static nrf_drv_gpiote_out_config_t led_config = {
         NRF_GPIOTE_POLARITY_TOGGLE,
         NRF_GPIOTE_INITIAL_VALUE_LOW,
         false};
     nrf_drv_gpiote_init();
     APP_ERROR_CHECK(nrf_drv_gpiote_out_init(LED_PIN, &led_config));
+}
+
+/*
+    BLE Handlers
+*/
+
+static void phone_noticed_handler()
+{
+    rtt_write_string("Phone get, negociating connection\n");
+    // We advertise to switch role in the GAP connection for lower consumption.
+    // REVIEW Maybe use whitelisted scan requests instead
+    ble_stop_observing();
+    ble_peripheral_start_advertising();
+}
+
+static void phone_connected_handler()
+{
+    rtt_write_string("Phone connected\n");
+    ble_peripheral_stop_advertising();
+}
+
+static void phone_disconnected_handler()
+{
+    rtt_write_string("Phone disconnected\n");
+    ble_peripheral_stop_advertising();
+    ble_start_observing();
+}
+
+static void phone_write_handler(uint8_t *buff, int length)
+{
+    rtt_write_string("Received data from phone :\n");
+    rtt_write_buffer(0, buff, length);
+    rtt_write_string("\n");
+    rtt_write_string("Sending data to phone :\n");
+    rtt_write_buffer(0, buff, length);
+    rtt_write_string("\n");
+    phone_send_notification(buff, length);
+}
+
+static void phone_notification_complete_handler()
+{
 }
 
 /*
@@ -60,7 +102,17 @@ int main(void)
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
 
+    ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
     ble_stack_init();
+    ble_gap_init();
+    ble_gatt_init();
+    ble_advertise_init();
+    ble_services_init();
+    ble_conn_negociation_init();
+    rtt_write_string("BLE initialized\n");
+    ble_start_observing();
+    ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
+    rtt_write_string("Now observing BLE\n");
 
     sniffer_led_init();
 
@@ -68,12 +120,12 @@ int main(void)
     rtt_write_string("SPI initialized\n");
 
     while(true) {
-        spim_transfer(rx_buffer,tx_buffer,4);
-        rtt_write_buffer_hexa(rx_buffer,4);
-        rtt_write_string("\n");
+        spim_transfer(rx_buffer, tx_buffer, 4);
+        //rtt_write_buffer_hexa(rx_buffer, 4);
+        //rtt_write_string("\n");
         if(rx_buffer[0] == 5) {
             tx_buffer[0]++;
-            rtt_printf(0,"tx[0] = %u", tx_buffer[0]);
+            rtt_printf(0, "tx[0] = %u", tx_buffer[0]);
         }
         nrf_drv_gpiote_out_toggle(LED_PIN);
 

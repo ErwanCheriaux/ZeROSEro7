@@ -8,7 +8,7 @@ import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
 
-import fr.telecom_paristech.bleparrot.blecommon.ConnectedActivity;
+import blecommon.ConnectedActivity;
 
 
 public class DialogActivity extends ConnectedActivity {
