@@ -8,7 +8,7 @@
 #define STOP_MESSAGE ((uint8_t*)"ha")
 #define NEXT_MESSAGE ((uint8_t*)"nx")
 
-#define TRANSFER_SIZE (NRF_SDH_BLE_GATT_MAX_MTU_SIZE+2+1) // last byte for parity because STM reads by 16 bits
+#define TRANSFER_SIZE (SPIM_PROTOCOL_PACKET_SIZE+2+1) // last byte for parity because STM reads by 16 bits
 
 static uint8_t rx_buffer[TRANSFER_SIZE];  // SPI MISO
 static uint8_t tx_buffer[TRANSFER_SIZE];  // SPI MOSI
@@ -26,7 +26,10 @@ static uint8_t* ptr_end;
 static buffer_t* detect_end_symbol() {
     strip_buffer.data = rx_buffer+2;
     ptr_end = rx_buffer+2;
-    while(*ptr_end != END_OF_FILE || ptr_end == rx_buffer + 2 + SPIM_PROTOCOL_PACKET_SIZE) {
+    while(*ptr_end != END_OF_FILE) {
+        if(ptr_end == rx_buffer + 2 + SPIM_PROTOCOL_PACKET_SIZE) {
+            break;
+        }
         ptr_end ++;
     }
     strip_buffer.length =(uint8_t)(ptr_end - (rx_buffer+2));
@@ -36,9 +39,6 @@ static buffer_t* detect_end_symbol() {
 buffer_t* spim_protocol_start() {
     memcpy(tx_buffer,START_MESSAGE,2);
     spim_transfer(rx_buffer,tx_buffer,TRANSFER_SIZE);
-    rtt_write_string("Received via SPI :\n");
-    rtt_write_buffer_hexa(rx_buffer,20);
-    rtt_write_string("\n");
     return detect_end_symbol();
 }
 

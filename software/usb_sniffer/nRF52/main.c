@@ -121,14 +121,13 @@ int main(void)
     while(true) {
         nrf_drv_gpiote_out_toggle(LED_PIN);
         spim_buff = spim_protocol_start();
-        rtt_write_string("Received via SPI :\n");
-        rtt_write_buffer(0,spim_buff->data,spim_buff->length);
-        rtt_write_string("\n");
-        while(spim_buff->length > SPIM_PROTOCOL_PACKET_SIZE) {
+        rtt_printf(0,"SPI Start response length :%u\n", spim_buff->length);
+        while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE) {
             nrf_delay_ms(300);
             spim_buff = spim_protocol_next();
-            rtt_write_string("Received via SPI :\n");
-            rtt_write_buffer(0,spim_buff->data,spim_buff->length);
+            rtt_printf(0,"Next! response length :%u\n", spim_buff->length);
+            rtt_write_string("data :\n");
+            rtt_write_buffer(0,spim_buff->data,MIN(spim_buff->length, 50));
             rtt_write_string("\n");
         }
         nrf_delay_ms(300);
