@@ -8,14 +8,14 @@ static uint16_t width = 1;
 static void pwmcb0(PWMDriver *pwmp)
 {
     (void)pwmp;
-    palSetPad(GPIOC, GPIOC_LED);  //led off
+    palSetPad(GPIOC, GPIOC_RGB_R);  //led off
 }
 
 /* PWM LED Intensity Callback */
 static void pwmcb1(PWMDriver *pwmp)
 {
     (void)pwmp;
-    palClearPad(GPIOC, GPIOC_LED);  //led on
+    palClearPad(GPIOC, GPIOC_RGB_R);  //led on
 }
 
 static PWMConfig pwmcfg = {

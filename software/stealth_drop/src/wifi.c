@@ -38,10 +38,10 @@ void wifi_configure(void)
 */
 static void wifi_reset_chip(void)
 {
-    palSetPadMode(GPIOB, GPIOB_I2C1_SCL, PAL_MODE_OUTPUT_PUSHPULL);
-    palClearPad(GPIOB, GPIOB_I2C1_SCL);  // rst on
+    palSetPadMode(GPIOB, GPIOA_WIFI_NRST, PAL_MODE_OUTPUT_PUSHPULL);
+    palClearPad(GPIOB, GPIOA_WIFI_NRST);  // rst on
     chThdSleep(MS2ST(100));
-    palSetPad(GPIOB, GPIOB_I2C1_SCL);  // rst off
+    palSetPad(GPIOB, GPIOA_WIFI_NRST);  // rst off
     chThdSleep(MS2ST(1000));
 }
 

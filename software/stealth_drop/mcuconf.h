@@ -31,7 +31,7 @@
  * 0...3        Lowest...Highest.
  */
 
-#define STM32F4xx_MCUCONF
+#define STM32F2xx_MCUCONF
 
 /*
  * HAL driver system settings.
@@ -44,10 +44,10 @@
 #define STM32_CLOCK48_REQUIRED              TRUE
 #define STM32_SW                            STM32_SW_PLL
 #define STM32_PLLSRC                        STM32_PLLSRC_HSE
-#define STM32_PLLM_VALUE                    12
-#define STM32_PLLN_VALUE                    336
+#define STM32_PLLM_VALUE                    16
+#define STM32_PLLN_VALUE                    240
 #define STM32_PLLP_VALUE                    2
-#define STM32_PLLQ_VALUE                    7
+#define STM32_PLLQ_VALUE                    5
 #define STM32_HPRE                          STM32_HPRE_DIV1
 #define STM32_PPRE1                         STM32_PPRE1_DIV4
 #define STM32_PPRE2                         STM32_PPRE2_DIV2
@@ -247,12 +247,12 @@
 /*
  * SERIAL driver system settings.
  */
-#define STM32_SERIAL_USE_USART1             FALSE
+#define STM32_SERIAL_USE_USART1             TRUE
 #define STM32_SERIAL_USE_USART2             FALSE
 #define STM32_SERIAL_USE_USART3             FALSE
 #define STM32_SERIAL_USE_UART4              FALSE
 #define STM32_SERIAL_USE_UART5              FALSE
-#define STM32_SERIAL_USE_USART6             TRUE
+#define STM32_SERIAL_USE_USART6             FALSE
 #define STM32_SERIAL_USART1_PRIORITY        12
 #define STM32_SERIAL_USART2_PRIORITY        12
 #define STM32_SERIAL_USART3_PRIORITY        12
@@ -284,7 +284,7 @@
  * ST driver system settings.
  */
 #define STM32_ST_IRQ_PRIORITY               8
-#define STM32_ST_USE_TIMER                  2
+#define STM32_ST_USE_TIMER                  5
 
 /*
  * UART driver system settings.

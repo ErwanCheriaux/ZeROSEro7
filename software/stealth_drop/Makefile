@@ -23,11 +23,11 @@ PROJECT = stealth_drop
 # Imported source files and paths
 CHIBIOS = ../../SDK/ChibiOS
 # Startup files.
-include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f4xx.mk
+include $(CHIBIOS)/os/common/startup/ARMCMx/compilers/GCC/mk/startup_stm32f2xx.mk
 # HAL-OSAL files (optional).
 include $(CHIBIOS)/os/hal/hal.mk
 include $(CHIBIOS)/os/hal/ports/STM32/STM32F4xx/platform.mk
-include ./board_E407/board.mk
+include ./board_F205/board.mk
 include $(CHIBIOS)/os/hal/osal/rt/osal.mk
 # RTOS files (optional).
 include $(CHIBIOS)/os/rt/rt.mk
@@ -120,7 +120,7 @@ help:
 	@echo		clean          - remove build
 
 start:
-	    @pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F405ZG
+	    @pidof JLinkGDBServer > /dev/null || JLinkGDBServer -if swd -speed auto -device STM32F205RG
 
 stop:
 	    @pidof JLinkGDBServer > /dev/null && killall JLinkGDBServer || true

@@ -160,7 +160,7 @@
 #define PIN_MODE_ALTERNATE(n)       (2U << ((n) * 2U))
 #define PIN_MODE_ANALOG(n)          (3U << ((n) * 2U))
 #define PIN_ODR_LOW(n)              (0U << (n))
-#define PIN_ODR_LOW(n)             (1U << (n))
+#define PIN_ODR_HIGH(n)             (1U << (n))
 #define PIN_OTYPE_PUSHPULL(n)       (0U << (n))
 #define PIN_OTYPE_OPENDRAIN(n)      (1U << (n))
 #define PIN_OSPEED_VERYLOW(n)       (0U << ((n) * 2U))
@@ -201,10 +201,10 @@
                                      PIN_MODE_INPUT(GPIOA_SPI_MISO) |\
                                      PIN_MODE_INPUT(GPIOA_SPI_MOSI) |\
                                      PIN_MODE_INPUT(GPIOA_WIFI_NRST) |\
-                                     PIN_MODE_INPUT(GPIOA_UART_UC2WIF) |\
-                                     PIN_MODE_INPUT(GPIOA_UART_WIFI2UC) |\
-                                     PIN_MODE_INPUT(GPIOA_UART_WIFI2UC_TS) |\
-                                     PIN_MODE_INPUT(GPIOA_UART_UC2WIFI_TS) |\
+                                     PIN_MODE_ALTERNATE(GPIOA_UART_UC2WIF) |\
+                                     PIN_MODE_ALTERNATE(GPIOA_UART_WIFI2UC) |\
+                                     PIN_MODE_ALTERNATE(GPIOA_UART_WIFI2UC_TS) |\
+                                     PIN_MODE_ALTERNATE(GPIOA_UART_UC2WIFI_TS) |\
                                      PIN_MODE_ALTERNATE(GPIOA_SWDIO) |\
                                      PIN_MODE_ALTERNATE(GPIOA_SWCLK) |\
                                      PIN_MODE_INPUT(GPIOA_WIFI_WAKE))
