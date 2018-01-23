@@ -321,8 +321,25 @@ static inline char hid2azerty(uint8_t *report)
     //no modifier keys
     if(report[0] == 0) {
         int i = 7;
-        while(report[i] == 0x00 || i < 3)
+        static int last_input_position;
+
+        rtt_printf("*** report ***");
+        for(int i=0; i<8; i++)
+            rtt_printf("report[%d] = %02x", i, report[i]);
+
+        //if multiple input pushed
+        while(report[i] == 0x00 && i > 1)
             i--;
+
+        //no input
+        if(i == 1 || last_input_position >= i)
+        {
+            last_input_position = 1;
+            return 0x00;
+        }
+
+        last_input_position = i;
+        //if input is a letter
         if(report[i] >= KEY_A && report[i] <= KEY_Z)
             return azerty[report[i]];
     }

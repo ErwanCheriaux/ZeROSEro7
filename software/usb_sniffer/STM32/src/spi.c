@@ -27,10 +27,6 @@ static uint16_t rxbuf_index = 0;
 static uint16_t rxbuf[Rx_BF_SIZE];
 static uint16_t txbuf[Tx_BF_SIZE];
 
-//extern var
-uint16_t password[200];
-uint16_t password_size;
-
 void spi_init(void)
 {
     /*
@@ -72,18 +68,6 @@ void spiMainLoop(void)
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
         rxbuf[rxbuf_index] = msg;
-
-        //start command
-        if(msg == (msg_t) "go")
-            spi_write(password, password_size);
-
-        //stop  command
-        else if(msg == (msg_t) "ha")
-            spi_write(password, password_size);
-
-        //next command
-        else if(msg == (msg_t) "nx")
-            spi_write(password, password_size);
 
         // loop buffer
         if(rxbuf_index++ >= Rx_BF_SIZE)
