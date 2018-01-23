@@ -28,6 +28,8 @@ void wifi_configure(void)
     wifi_command("set tcp.server.idle_timeout 300\r\n", 500);
     wifi_command("set bus.log_bus uart1\r\n", 500);
     wifi_command("set bus.data_bus uart0\r\n", 500);
+    wifi_command("set uart.baud 1 115200\r\n", 500);
+    wifi_command("set uart.baud 0 115200\r\n", 500);
     wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
     wifi_command("reboot\r\n", 1000);
@@ -64,17 +66,9 @@ void wifi_init(void)
     uart_init();
 }
 
-/* Send acommand to wifi chip using uart
-** buff:    message to send buffer
-*/
-static void send_command(void* buff)
-{
-    uart_send(buff);
-}
-
 int wifi_command(void* buff, int timeout)
 {
-    send_command(buff);
+    uart_send(buff);
     data_buff[1] = '\0';
     while(uart_receive_timeout(data_buff, 1, MS2ST(timeout)))
 #ifdef DEBUG
@@ -90,10 +84,12 @@ void wifi_save_file(char* filename)
     sd_file_open(filename, FA_WRITE);
     while((nb_char_received = uart_receive_timeout(data_buff, MAX_BUFF_LEN, MS2ST(TIMEOUT)))) {
         data_buff[nb_char_received] = '\0';
+        if(nb_char_received) {
 #ifdef DEBUG
-        rtt_printf("%s", data_buff);
+            rtt_printf("(%d)%s", nb_char_received, data_buff);
 #endif
-        sd_file_write();
+            sd_file_write();
+        }
     }
     sd_file_close();
     rtt_printf("\n");
@@ -113,11 +109,13 @@ void wifi_send_file(char* filename)
     unsigned int bytes_read = 0;
     do {
         sd_file_read(&bytes_read);
-        uart_send(data_buff);
 #ifdef DEBUG
         rtt_printf("data_read: %s\n", data_buff);
 #endif
+        if(bytes_read)
+            uart_send(data_buff);
     } while(bytes_read != 0);
+    sd_file_close();
     rtt_printf("Download finished\n");
 }
 
