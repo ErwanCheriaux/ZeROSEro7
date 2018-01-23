@@ -19,12 +19,13 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 /*
  * SPI TX buffers.
  */
-#define BF_SIZE 200
+#define Rx_BF_SIZE 10
+#define Tx_BF_SIZE 200
 
 static uint16_t msg_size;
 static uint16_t rxbuf_index = 0;
-static uint16_t rxbuf[BF_SIZE];
-static uint16_t txbuf[BF_SIZE];
+static uint16_t rxbuf[Rx_BF_SIZE];
+static uint16_t txbuf[Tx_BF_SIZE];
 
 //extern var
 uint16_t password[200];
@@ -85,7 +86,7 @@ void spiMainLoop(void)
             spi_write(password, password_size);
 
         // loop buffer
-        if(rxbuf_index++ >= BF_SIZE)
+        if(rxbuf_index++ >= Rx_BF_SIZE)
             rxbuf_index = 0;
     }
 }
@@ -93,9 +94,9 @@ void spiMainLoop(void)
 void spi_write(uint16_t *msg, int n)
 {
     //verif msg size
-    if(n > BF_SIZE) {
+    if(n > Tx_BF_SIZE) {
         rtt_printf("Can't send msg too long...");
-        rtt_printf("%d > %d", n, BF_SIZE);
+        rtt_printf("%d > %d", n, Tx_BF_SIZE);
         return;
     }
 
@@ -104,6 +105,9 @@ void spi_write(uint16_t *msg, int n)
     //push to send buffer
     for(uint8_t i = 0; i < msg_size; i++)
         txbuf[i]  = (uint16_t)msg[i];
+
+    //write first data to be read for the first posedge clock
+    SPI3->DR = txbuf[0];
 
     //turn on Tx interrupt
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
@@ -115,7 +119,7 @@ void spi_display_buffer(uint16_t n)
     while(n > 0) {
         rtt_printf("rxbuf[%d] = %04x", index, rxbuf[index]);
         if(index == 0)
-            index = BF_SIZE;
+            index = Rx_BF_SIZE;
         else
             index--;
         n--;
@@ -140,12 +144,13 @@ void SPI_IRQHandler(void)
 
     //Transfer buffer empty
     else if(TXE) {
-        static uint32_t index = 0;
+        static uint32_t index = 1;
 
         if(index >= msg_size) {
             //turn off Tx interrupt
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
-            index = 0;
+            SPI3->DR = 0x0000;            //if not the last data is sent in loop
+            index    = 0;
         } else {
             //write data in DR buffer
             SPI3->DR = txbuf[index];
