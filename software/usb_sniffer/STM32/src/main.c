@@ -5,10 +5,10 @@
 
 #include "led.h"
 #include "rtt.h"
-#include "timer.h"
-
+#include "spi.h"
 #include "usb.h"
 #include "usbh.h"
+#include "timer.h"
 
 int main(void)
 {
@@ -18,6 +18,7 @@ int main(void)
     led_init();
     rtt_init();
     usb_init();
+    spi_init();
     usbh_init();
     timer_init();
 
@@ -25,7 +26,8 @@ int main(void)
 
     while(1) {
         usbhMainLoop(&USBHD1);
-        chThdSleepMilliseconds(1000);
+        spiMainLoop();
+        chThdSleepMilliseconds(50);
     }
 
     chThdSleep(TIME_INFINITE);
