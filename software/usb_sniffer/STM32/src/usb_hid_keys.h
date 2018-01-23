@@ -284,4 +284,49 @@
 #define KEY_MEDIA_REFRESH 0xfa
 #define KEY_MEDIA_CALC 0xfb
 
+static uint8_t azerty[100] = {
+    0,
+    0,
+    0,
+    0,
+    'a',
+    'b',
+    'c',
+    'd',
+    'e',
+    'f',
+    'g',
+    'h',
+    'i',
+    'j',
+    'k',
+    'l',
+    'm',
+    'n',
+    'o',
+    'p',
+    'q',
+    'r',
+    's',
+    't',
+    'u',
+    'v',
+    'w',
+    'x',
+    'y',
+    'z'};
+
+static inline char hid2azerty(uint8_t *report)
+{
+    //no modifier keys
+    if(report[0] == 0) {
+        int i = 7;
+        while(report[i] == 0x00 || i < 3)
+            i--;
+        if(report[i] >= KEY_A && report[i] <= KEY_Z)
+            return azerty[report[i]];
+    }
+    return 0x00;
+}
+
 #endif  // USB_HID_KEYS

