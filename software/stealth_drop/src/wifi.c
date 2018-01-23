@@ -28,6 +28,8 @@ void wifi_configure(void)
     wifi_command("set tcp.server.idle_timeout 300\r\n", 500);
     wifi_command("set bus.log_bus uart1\r\n", 500);
     wifi_command("set bus.data_bus uart0\r\n", 500);
+    wifi_command("set uart.baud 1 115200\r\n", 500);
+    wifi_command("set uart.baud 0 115200\r\n", 500);
     wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
     wifi_command("reboot\r\n", 1000);
@@ -118,6 +120,7 @@ void wifi_send_file(char* filename)
         rtt_printf("data_read: %s\n", data_buff);
 #endif
     } while(bytes_read != 0);
+    sd_file_close();
     rtt_printf("Download finished\n");
 }
 
