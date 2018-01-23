@@ -12,10 +12,9 @@
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
 
-#include "nrf_spim.h"
+#include "spim_protocol.h"
 
-static uint8_t rx_buffer[4];                 // SPI MISO
-static uint8_t tx_buffer[4] = {1, 2, 3, 4};  // SPI MOSI
+static buffer_t* spim_received_buffer;
 
 static void log_init(void)
 {
@@ -45,7 +44,6 @@ static void phone_noticed_handler()
 {
     rtt_write_string("Phone get, negociating connection\n");
     // We advertise to switch role in the GAP connection for lower consumption.
-    // REVIEW Maybe use whitelisted scan requests instead
     ble_stop_observing();
     ble_peripheral_start_advertising();
 }
@@ -54,6 +52,8 @@ static void phone_connected_handler()
 {
     rtt_write_string("Phone connected\n");
     ble_peripheral_stop_advertising();
+    spim_received_buffer = spim_protocol_start();
+    phone_send_notification(spim_received_buffer->data,spim_received_buffer->length);
 }
 
 static void phone_disconnected_handler()
@@ -68,10 +68,6 @@ static void phone_write_handler(uint8_t *buff, int length)
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    rtt_write_string("Sending data to phone :\n");
-    rtt_write_buffer(0, buff, length);
-    rtt_write_string("\n");
-    phone_send_notification(buff, length);
 }
 
 static void phone_notification_complete_handler()
@@ -104,7 +100,7 @@ int main(void)
 
     ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
     ble_stack_init();
-    ble_gap_init();
+/*    ble_gap_init();
     ble_gatt_init();
     ble_advertise_init();
     ble_services_init();
@@ -112,24 +108,17 @@ int main(void)
     rtt_write_string("BLE initialized\n");
     ble_start_observing();
     ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
-    rtt_write_string("Now observing BLE\n");
+    rtt_write_string("Now observing BLE\n");*/
 
     sniffer_led_init();
 
-    spim_init();
+    spim_protocol_init();
     rtt_write_string("SPI initialized\n");
 
     while(true) {
-        spim_transfer(rx_buffer, tx_buffer, 4);
-        //rtt_write_buffer_hexa(rx_buffer, 4);
-        //rtt_write_string("\n");
-        if(rx_buffer[0] == 5) {
-            tx_buffer[0]++;
-            rtt_printf(0, "tx[0] = %u", tx_buffer[0]);
-        }
         nrf_drv_gpiote_out_toggle(LED_PIN);
-
-        nrf_delay_ms(100);  // TODO Not tested yet
+        spim_protocol_start();
+        nrf_delay_ms(300);  // TODO Not tested yet
     }
 
     return 0;

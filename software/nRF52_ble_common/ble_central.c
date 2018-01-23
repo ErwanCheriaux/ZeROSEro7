@@ -132,9 +132,14 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             on_adv_report(p_ble_evt);
             break;
 
+        case BLE_GATTS_EVT_EXCHANGE_MTU_REQUEST :
+            // Called there instead of EVT_CONNECTED because notifications can only be sent when
+            // MTU is updated
+            ble_on_phone_connected();
+            break;
+
         case BLE_GAP_EVT_CONNECTED:
             rtt_printf(0, "Connected with: %08x\n", p_ble_evt->evt.gap_evt.params.connected.peer_addr);
-            ble_on_phone_connected();
             ble_central_latest_conn = p_ble_evt->evt.gap_evt.conn_handle;
             break;
         case BLE_GAP_EVT_DISCONNECTED:
