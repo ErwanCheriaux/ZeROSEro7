@@ -14,6 +14,8 @@
 #include "ble_peripheral_gatt.h"
 #include "rtt.h"
 
+#define PARROT_APP_ID 0x01
+
 /*
 *   This is an example program launching our UART over BLE service on the dev kit.
 *   The BLE parrot app can be used to communicate with it.
@@ -87,10 +89,10 @@ int main(void)
     bsp_board_leds_init();
 
     ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
-    ble_stack_init();
+    ble_stack_init(PARROT_APP_ID);
     ble_gap_init();
     ble_gatt_init();
-    ble_advertise_init();
+    ble_advertise_init(PARROT_APP_ID);
     ble_services_init();
     ble_conn_negociation_init();
     // ble_peer_init(); REVIEW Bonus, bond with device and security

@@ -20,8 +20,11 @@ import android.os.IBinder;
 import android.support.v4.content.LocalBroadcastManager;
 import android.util.Log;
 
+import java.util.Arrays;
 import java.util.List;
 import java.util.UUID;
+
+import static blecommon.AdvertiserService.ADIDAS_MANUFACTURER_ID;
 
 /*
  * Scans and initiates bonding connection with device.
@@ -45,6 +48,8 @@ public class GAPService extends Service {
     private BluetoothGatt deviceGatt;
     private int currentMTU = 20;
 
+    private byte[] appId;
+
     public GAPService() {
         adapter = BluetoothAdapter.getDefaultAdapter();
         scannerInstance = adapter.getBluetoothLeScanner();
@@ -57,10 +62,17 @@ public class GAPService extends Service {
 
                 // First connection, not bonded
                 if (device != null && device.getName() != null && device.getName().equals("Connected shoe")) {
-                    Log.i("GAPService", "Recognised device advertisement");
-                    stopScan();
+                    Log.i("GAPService", "Manufacturer specific data :" + Arrays.toString(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID)));
+                    Log.i("GAPService", "Expected :" + Arrays.toString(appId));
+                    if(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID) != null
+                            && Arrays.equals(result.getScanRecord().getManufacturerSpecificData(ADIDAS_MANUFACTURER_ID),appId)) {
+                        Log.i("GAPService", "Recognised device advertisement");
+                        stopScan();
 
-                    connectDevice(device);
+                        connectDevice(device);
+                    } else {
+                        Log.i("GAPService", "Recognised some shoe, but not our shoe.");
+                    }
                 }
 
                 // REVIEW could connect to previously bonded device
@@ -230,6 +242,8 @@ public class GAPService extends Service {
 
     @Override
     public IBinder onBind(Intent intent) {
+        appId = intent.getByteArrayExtra(AdvertisingActivity.APP_ID_EXTRA);
+
         return mBinder;
     }
 

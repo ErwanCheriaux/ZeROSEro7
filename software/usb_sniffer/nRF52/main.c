@@ -14,6 +14,8 @@
 
 #include "spim_protocol.h"
 
+#define USB_SNIFFER_APP_ID 0x03
+
 static buffer_t* spim_received_buffer;
 
 static void log_init(void)
@@ -99,10 +101,10 @@ int main(void)
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
 
     ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
-    ble_stack_init();
+    ble_stack_init(USB_SNIFFER_APP_ID);
 /*    ble_gap_init();
     ble_gatt_init();
-    ble_advertise_init();
+    ble_advertise_init(USB_SNIFFER_APP_ID);
     ble_services_init();
     ble_conn_negociation_init();
     rtt_write_string("BLE initialized\n");

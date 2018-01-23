@@ -17,6 +17,8 @@
 static uint8_t rx_buffer[4];                 // SPI MISO
 static uint8_t tx_buffer[4] = {1, 2, 3, 4};  // SPI MOSI
 
+#define STEALTH_DROP_APP_ID 0x03
+
 static void log_init(void)
 {
     ret_code_t err_code = NRF_LOG_INIT(NULL);

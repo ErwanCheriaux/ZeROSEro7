@@ -10,7 +10,7 @@
 #define NEXT_MESSAGE ((uint8_t*)"nx")
 
 #define PACKET_SIZE NRF_SDH_BLE_GATT_MAX_MTU_SIZE
-#define TRANSFER_SIZE (NRF_SDH_BLE_GATT_MAX_MTU_SIZE+2)
+#define TRANSFER_SIZE (NRF_SDH_BLE_GATT_MAX_MTU_SIZE+2+1) // last byte for parity because STM reads by 16 bits
 
 static uint8_t rx_buffer[TRANSFER_SIZE];  // SPI MISO
 static uint8_t tx_buffer[TRANSFER_SIZE];  // SPI MOSI

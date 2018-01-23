@@ -32,6 +32,8 @@ typedef struct
     uint16_t data_len; /**< Length of data. */
 } data_t;
 
+#define ADIDAS_MANUFACTURER_ID 0x00C3
+
 // GAP Handler
 
 static void (*ble_on_notice_phone)();                          // Handler from main
@@ -41,6 +43,7 @@ static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from m
 static void (*ble_on_notification_complete)();                 // Handler from main
 
 static char *   phone_expected_name = "ZeROSEro7 phone";
+static uint8_t expected_app_id;
 static uint32_t parse_advdata(data_t const *const adv_data)
 {
     uint32_t field_index = 0;
@@ -64,9 +67,17 @@ static uint32_t parse_advdata(data_t const *const adv_data)
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
             rtt_write_string("\n");
             if(!memcmp(phone_expected_name, (char *)field_data.p_data, sizeof(phone_expected_name))) {  // TODO Shifting codes via pairing.
-                ble_on_notice_phone();
+                rtt_write_string("Recognized a phone, but not correct app id.\n");
             }
 
+        } else if(field_type == BLE_GAP_AD_TYPE_MANUFACTURER_SPECIFIC_DATA) {
+            if(*(uint16_t*)field_data.p_data == ADIDAS_MANUFACTURER_ID) {
+                if(*(field_data.p_data+2) == expected_app_id) {
+                    ble_on_notice_phone();
+                }
+            }
+            rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
+            rtt_write_string("\n");
         } else {
             rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
             rtt_write_string("\n");
@@ -192,8 +203,9 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
 #define APP_BLE_CONN_CFG_TAG 1  /**< A tag identifying the SoftDevice BLE configuration. */
 #define APP_BLE_OBSERVER_PRIO 3 /**< Application's BLE observer priority. You shouldn't need to modify this value. */
 
-void ble_stack_init()
+void ble_stack_init(uint8_t app_id)
 {
+    expected_app_id = app_id;
     ret_code_t err_code;
 
     err_code = nrf_sdh_enable_request();

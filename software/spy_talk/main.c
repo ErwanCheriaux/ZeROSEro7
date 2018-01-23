@@ -24,6 +24,7 @@ static uint8_t tx_buffer[4]        = {1, 2, 3, 4};          // SPI MOSI
 static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};  // LORA FIFO TX
 
 #define LORA_RX_TIMEOUT 8000  // ms
+#define SPY_TALK_APP_ID 0x04    // TODO Use to differentiate multiple spy talks
 
 static void lora_callback();
 
@@ -145,10 +146,10 @@ int main(void)
     rtt_write_string("LEDs initialized\n");
 
     ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
-    ble_stack_init();
+    ble_stack_init(SPY_TALK_APP_ID);
     ble_gap_init();
     ble_gatt_init();
-    ble_advertise_init();
+    ble_advertise_init(SPY_TALK_APP_ID);
     ble_services_init();
     ble_conn_negociation_init();
     rtt_write_string("BLE initialized\n");

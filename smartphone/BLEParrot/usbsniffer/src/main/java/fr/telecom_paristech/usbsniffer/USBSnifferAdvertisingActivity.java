@@ -10,6 +10,8 @@ import blecommon.AdvertisingActivity;
 
 public class USBSnifferAdvertisingActivity extends AdvertisingActivity {
 
+    public static final byte[] APP_ID = {0x02};
+
     private Button pauseResumeButton;
     private ProgressBar advertisingProgress;
     private TextView advertisingTitle;
@@ -36,6 +38,11 @@ public class USBSnifferAdvertisingActivity extends AdvertisingActivity {
             connectedActivityIntent = new Intent(this, USBSnifferConnectedActivity.class);
         }
         startActivity(connectedActivityIntent);
+    }
+
+    @Override
+    public byte[] getAppID() {
+        return APP_ID ;
     }
 
     @Override

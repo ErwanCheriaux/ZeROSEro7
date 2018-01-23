@@ -22,6 +22,8 @@ import android.widget.Toast;
 
 public abstract class AdvertisingActivity extends AppCompatActivity {
 
+    public static final String APP_ID_EXTRA = "APP ID";
+
     private Intent advertisementIntent;
     private AdvertiserService advertiser;
 
@@ -90,6 +92,9 @@ public abstract class AdvertisingActivity extends AppCompatActivity {
 
     public abstract void onPhoneConnected();
 
+    // Manufacturer Data in BLE advertisements used to differentiate apps and devices.
+    public abstract byte[] getAppID();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         // Allow location access, strangely required for accessing BLE scan results.
@@ -108,10 +113,12 @@ public abstract class AdvertisingActivity extends AppCompatActivity {
         LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
 
         advertisementIntent = new Intent(this, AdvertiserService.class);
+        advertisementIntent.putExtra(APP_ID_EXTRA,getAppID());
         bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
         startService(advertisementIntent);
 
         gapIntent = new Intent(this, GAPService.class);
+        gapIntent.putExtra(APP_ID_EXTRA,getAppID());
         bindService(gapIntent, mConnection, Context.BIND_AUTO_CREATE);
         startService(gapIntent);
     }

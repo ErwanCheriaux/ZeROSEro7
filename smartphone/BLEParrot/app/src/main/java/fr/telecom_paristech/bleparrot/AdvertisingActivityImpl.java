@@ -10,6 +10,7 @@ import blecommon.AdvertisingActivity;
 
 public class AdvertisingActivityImpl extends AdvertisingActivity {
 
+    public static final byte[] APP_ID = {0x01};
 
     private Button pauseResumeButton;
     private ProgressBar advertisingProgress;
@@ -37,6 +38,11 @@ public class AdvertisingActivityImpl extends AdvertisingActivity {
             connectedActivityIntent = new Intent(this, DialogActivity.class);
         }
         startActivity(connectedActivityIntent);
+    }
+
+    @Override
+    public byte[] getAppID() {
+        return APP_ID;
     }
 
     @Override
