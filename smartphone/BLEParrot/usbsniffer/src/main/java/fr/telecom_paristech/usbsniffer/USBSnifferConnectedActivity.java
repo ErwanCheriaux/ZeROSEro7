@@ -1,6 +1,8 @@
 package fr.telecom_paristech.usbsniffer;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
@@ -11,6 +13,7 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 
 import blecommon.ConnectedActivity;
+import blecommon.GAPService;
 
 public class USBSnifferConnectedActivity extends ConnectedActivity {
 
@@ -24,6 +27,22 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
         logWindow.scrollTo(0, 0);
 
         dumpInFile(msg);
+
+        // Reached end of file
+        if(msg.length() < GAPService.MAX_MTU_NRF) {
+            alertEndOfFile();
+        }
+    }
+
+    private void alertEndOfFile() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(USBSnifferConnectedActivity.this);
+        builder.setMessage("Transfert terminé. Voir Downloads/"+FILENAME)
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        builder.create().show();
     }
 
     private void dumpInFile(String s) {

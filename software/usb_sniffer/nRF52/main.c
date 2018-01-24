@@ -17,6 +17,7 @@
 #define USB_SNIFFER_APP_ID 0x03
 
 static buffer_t* spim_received_buffer;
+static bool spim_transfer_ongoing;
 
 static void log_init(void)
 {
@@ -54,7 +55,12 @@ static void phone_connected_handler()
 {
     rtt_write_string("Phone connected\n");
     ble_peripheral_stop_advertising();
-    spim_received_buffer = spim_protocol_start();
+    spim_protocol_start();
+    spim_transfer_ongoing = true;
+    spim_received_buffer = spim_protocol_next();
+    if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
+        spim_transfer_ongoing = false;
+    }
     phone_send_notification(spim_received_buffer->data,spim_received_buffer->length);
 }
 
@@ -74,6 +80,13 @@ static void phone_write_handler(uint8_t *buff, int length)
 
 static void phone_notification_complete_handler()
 {
+    if(spim_transfer_ongoing) {
+        spim_received_buffer = spim_protocol_next();
+        if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
+            spim_transfer_ongoing = false;
+        }
+        phone_send_notification(spim_received_buffer->data,spim_received_buffer->length);
+    }
 }
 
 /*
@@ -120,17 +133,14 @@ int main(void)
     static buffer_t* spim_buff;
     while(true) {
         nrf_drv_gpiote_out_toggle(LED_PIN);
-        spim_buff = spim_protocol_start();
-        rtt_printf(0,"SPI Start response length :%u\n", spim_buff->length);
-        while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE) {
-            nrf_delay_ms(300);
+        spim_protocol_start();
+        rtt_write_string("SPI START\n");
+        nrf_delay_ms(50);
+        do {
             spim_buff = spim_protocol_next();
-            rtt_printf(0,"Next! response length :%u\n", spim_buff->length);
-            rtt_write_string("data :\n");
-            rtt_write_buffer(0,spim_buff->data,MIN(spim_buff->length, 50));
-            rtt_write_string("\n");
-        }
-        nrf_delay_ms(300);
+            rtt_printf(0,"SPI response length :%u\n", spim_buff->length);
+            nrf_delay_ms(300);
+        } while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE);
     }
 
     return 0;
