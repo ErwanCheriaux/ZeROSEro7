@@ -24,7 +24,7 @@ void lora_protocol_handlers_init(
 
 static void lora_tx_timeout_handler()
 {
-    // Should never happen
+    // Should never happen given the size of packets
     APP_ERROR_CHECK(0xDEADBEEF);
 }
 

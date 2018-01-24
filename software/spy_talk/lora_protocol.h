@@ -7,7 +7,7 @@
 #define BLUE_ADDRESS 0x05
 #define PINK_ADDRESS 0x06
 
-#define LORA_PROTOCOL_MESSAGE_LENGTH NRF_SDH_BLE_GATT_MAX_MTU_SIZE
+#define LORA_PROTOCOL_MESSAGE_LENGTH 26
 
 /*
     LoRa protocol implementation
@@ -16,7 +16,9 @@
         8bit receiver_addr
         8bit sender_addr
 
-        50bit message
+        dynamic, up to LORA_PROTOCOL_MESSAGE_LENGTH bytes
+
+    length is adapted for maximum 3s TX
 */
 
 typedef uint8_t lora_protocol_address_t;

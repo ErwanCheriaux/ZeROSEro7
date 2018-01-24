@@ -132,6 +132,9 @@ int main(void)
     rtt_write_string("\nLoRa online\n");
 
     led_on(3);
+    uint8_t buf[50];
+    Radio.Send(buf,50);
+    led_on(0);
     while(true) {
         low_power_standby();
     }
