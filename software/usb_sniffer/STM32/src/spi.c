@@ -78,22 +78,21 @@ void spiMainLoop(void)
 {
     static int password_ptr = 0;
     msg_t      msg;
-    for(int i = 0; i < chMBGetUsedCountI(&rmb); i++) {
-        chMBFetch(&rmb, &msg, TIME_INFINITE);
+    while (chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
 
-        //start
-        if(msg == 0x676f) {
-            rtt_printf("Receive start");
-            spi_write(test, 0);
-            password_ptr = 1;
-        }
+      //start
+      if(msg == 0x676f) {
+        rtt_printf("Receive start");
+        spi_write(test, 0);
+        password_ptr = 1;
+      }
 
-        //next
-        else if(msg == 0x6e78) {
-            rtt_printf("Receive next");
-            spi_write(test, MSG_SIZE * password_ptr);
-            password_ptr++;
-        }
+      //next
+      else if(msg == 0x6e78) {
+        rtt_printf("Receive next");
+        spi_write(test, MSG_SIZE * password_ptr);
+        password_ptr++;
+      }
     }
 }
 
