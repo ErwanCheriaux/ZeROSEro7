@@ -133,6 +133,6 @@ void SPI_IRQHandler(void)
         SPI3->DR = msg;
       else
         SPI3->CR2 &= ~SPI_CR2_TXEIE;  // Nothing else to transmit
+      chSysUnlockFromISR();
     }
-    chSysUnlockFromISR();
 }
