@@ -7,31 +7,34 @@ static SerialConfig serialcfg = {
     115200,
     0,
     USART_CR2_STOP_1,
-    0};
+    USART_CR3_RTSE | USART_CR3_CTSE // Depend of STM
+};
 
 void uart_init(void)
 {
-    sdStart(&SD6, &serialcfg);
-    palSetPadMode(GPIOC, 6, PAL_MODE_ALTERNATE(8));
-    palSetPadMode(GPIOC, 7, PAL_MODE_ALTERNATE(8));
+    sdStart(&SD3, &serialcfg);
+    palSetPadMode(GPIOD, 8, PAL_MODE_ALTERNATE(7));
+    palSetPadMode(GPIOD, 9, PAL_MODE_ALTERNATE(7));
+    palSetPadMode(GPIOD, 11, PAL_MODE_ALTERNATE(7));
+    palSetPadMode(GPIOD, 12, PAL_MODE_ALTERNATE(7));
 }
 
 void uart_send(void* buff)
 {
-    sdWrite(&SD6, buff, strlen(buff));
+    sdWrite(&SD3, buff, strlen(buff));
 }
 
 void uart_receive(void* buff, int size)
 {
-    sdRead(&SD6, buff, size);
+    sdRead(&SD3, buff, size);
 }
 
 int uart_receive_timeout(void* buff, int size, int timeout)
 {
-    return sdReadTimeout(&SD6, buff, size, timeout);
+    return sdReadTimeout(&SD3, buff, size, timeout);
 }
 
 int uart_is_empty(void)
 {
-    return sdGetWouldBlock(&SD6);
+    return sdGetWouldBlock(&SD3);
 }

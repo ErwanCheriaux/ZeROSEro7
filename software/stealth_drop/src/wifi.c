@@ -33,6 +33,7 @@ void wifi_configure(void)
     wifi_command("set bus.data_bus uart0\r\n", 500);
     wifi_command("set uart.baud 1 115200\r\n", 500);
     wifi_command("set uart.baud 0 115200\r\n", 500);
+    wifi_command("set uart.flow 0 on\r\n", 500);
     wifi_command("set system.wakeup.events gpio22\r\n", 500);
     wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
@@ -101,7 +102,10 @@ void wifi_save_file(char* filename)
         data_buff[nb_char_received] = '\0';
         if(nb_char_received) {
 #ifdef DEBUG
-            rtt_printf("(%d)%s", nb_char_received, data_buff);
+            rtt_printf("(%d)", nb_char_received);
+            for(int i = 0; i < nb_char_received; i++)
+                rtt_printf("%d - %02X (%c)\n", i, data_buff[i], data_buff[i]);
+            SEGGER_RTT_Write(0, data_buff, nb_char_received);
 #endif
             sd_file_write();
         }
