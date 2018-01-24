@@ -12,7 +12,8 @@ USER_SRC += \
 	$(PROJ_DIR)/lora_board.c \
 	$(PROJ_DIR)/low_power.c \
 	$(PROJ_DIR)/test_board.c \
-	$(PROJ_DIR)/custom_board.c
+	$(PROJ_DIR)/custom_board.c \
+	$(PROJ_DIR)/lora_protocol.c
 
 CFLAGS += -D USE_SPY_TALK_BOARD
 

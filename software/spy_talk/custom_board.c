@@ -5,7 +5,7 @@
 
 static nrf_drv_gpiote_out_config_t led_config = {
     NRF_GPIOTE_POLARITY_TOGGLE,
-    NRF_GPIOTE_INITIAL_VALUE_LOW,
+    NRF_GPIOTE_INITIAL_VALUE_HIGH,
     false};
 
 void leds_init()
@@ -20,7 +20,20 @@ void leds_init()
 
 void led_on(int i)
 {
-    // on at init, no toggle for now
+    switch(i) {
+        case 0:
+            nrf_drv_gpiote_out_clear(LEDB_PIN);
+            break;
+        case 1:
+            nrf_drv_gpiote_out_clear(RGBR_PIN);
+            break;
+        case 2:
+            nrf_drv_gpiote_out_clear(RGBG_PIN);
+            break;
+        case 3:
+            nrf_drv_gpiote_out_clear(RGBB_PIN);
+            break;
+    }
 }
 
 #endif
