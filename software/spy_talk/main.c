@@ -40,7 +40,6 @@ static void log_init(void)
 static void phone_noticed_handler()
 {
     rtt_write_string("Phone get, negociating connection\n");
-    led_on(2);
     // We advertise to switch role in the GAP connection for lower consumption.
     // REVIEW Maybe use whitelisted scan requests instead
     ble_stop_observing();
@@ -52,7 +51,7 @@ static void phone_connected_handler()
     rtt_write_string("Phone connected\n");
     ble_stop_observing();  // If reconnecting, sometimes the phone hasn't got the time to advertise
     ble_peripheral_stop_advertising();
-    led_on(3);
+    led_on(1);
 }
 
 static void phone_disconnected_handler()
@@ -105,13 +104,11 @@ int main(void)
     ble_start_observing();
     ble_peripheral_start_advertising();
     rtt_write_string("BLE online\n");
-    led_on(1);
 
     ble_peripheral_start_advertising();
 
     HW_RTC_Init();
     rtt_write_string("RTC initialized\n");
-    led_on(0);
 
     HW_SPI_Init();
     rtt_write_string("SPI initialized\n");

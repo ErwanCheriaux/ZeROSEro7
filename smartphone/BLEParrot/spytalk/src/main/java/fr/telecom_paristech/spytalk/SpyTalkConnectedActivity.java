@@ -48,8 +48,19 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     }
 
     @Override
-    public void onNotificationReceived(String msg) {
-        logWindow.append("<- " + msg + "\n");
+    public void onNotificationReceived(byte[] msg) {
+        switch(msg[0]) {
+            case LogInActivity.YELLOW_ADDR:
+                logWindow.append("Jaune ");
+                break;
+            case LogInActivity.BLUE_ADDR:
+                logWindow.append("Bleu ");
+                break;
+            case LogInActivity.PINK_ADDR:
+                logWindow.append("Rose ");
+                break;
+        }
+        logWindow.append("<- " + GAPService.parseByteArray(msg) + "\n");
         logWindow.scrollTo(0, 0);
     }
 }

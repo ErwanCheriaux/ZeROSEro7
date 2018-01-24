@@ -4,6 +4,7 @@
 #include "lora.h"
 #include "sx1276Regs-LoRa.h"
 #include "lora_protocol.h"
+#include "custom_board.h"
 
 #define LORA_RX_FRAME 8000  // ms
 #define HEADER_LENGTH 2   // bytes
@@ -56,9 +57,11 @@ static void lora_callback() {
     if(tx_length) {
         Radio.Send(tx_buffer, tx_length);
         rtt_write_string("LoRa Sending\n");
+        led_on(0);
     } else {
         Radio.Rx(LORA_RX_FRAME);
         rtt_write_string("LoRa Receiving\n");
+        led_off(0);
     }
 }
 

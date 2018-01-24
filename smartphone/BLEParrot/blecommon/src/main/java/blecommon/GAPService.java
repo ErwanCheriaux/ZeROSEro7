@@ -98,7 +98,7 @@ public class GAPService extends Service {
         }
     }
 
-    private static String parseByteArray(byte[] value) {
+    public static String parseByteArray(byte[] value) {
         return new String(value);
     }
 
@@ -202,7 +202,7 @@ public class GAPService extends Service {
                 super.onCharacteristicChanged(gatt, characteristic);
                 Log.i("GAPService", "Characteristic changed: " + characteristic.getUuid() + " = " + characteristic.getValue());
                 Intent intent = new Intent(DEVICE_NOTIFICATION_ACTION);
-                intent.putExtra("Message", parseByteArray(characteristic.getValue()));
+                intent.putExtra("Message", characteristic.getValue());
                 LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
             }
 

@@ -50,12 +50,12 @@ public abstract class ConnectedActivity extends AppCompatActivity {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (intent.getAction().equals(GAPService.DEVICE_NOTIFICATION_ACTION)) {
-                onNotificationReceived(intent.getStringExtra("Message"));
+                onNotificationReceived(intent.getByteArrayExtra("Message"));
             }
         }
     };
 
-    public abstract void onNotificationReceived(String msg);
+    public abstract void onNotificationReceived(byte[] msg);
 
     public void bleSend(String msg) {
         gapService.send(msg);

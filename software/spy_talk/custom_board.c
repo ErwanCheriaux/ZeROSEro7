@@ -36,4 +36,22 @@ void led_on(int i)
     }
 }
 
+void led_off(int i)
+{
+    switch(i) {
+        case 0:
+            nrf_drv_gpiote_out_set(LEDB_PIN);
+            break;
+        case 1:
+            nrf_drv_gpiote_out_set(RGBR_PIN);
+            break;
+        case 2:
+            nrf_drv_gpiote_out_set(RGBG_PIN);
+            break;
+        case 3:
+            nrf_drv_gpiote_out_set(RGBB_PIN);
+            break;
+    }
+}
+
 #endif

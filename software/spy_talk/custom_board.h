@@ -103,5 +103,6 @@
 
 void leds_init();
 void led_on(int i);
+void led_off(int i);
 
 #endif
