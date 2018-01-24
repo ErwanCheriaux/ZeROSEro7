@@ -3,11 +3,13 @@
 #ifndef USBH_H
 #define USBH_H
 
+#define NB_INPUT             200
+#define PASSWORD_BUFFER_SIZE 1024
+#define PASSWORD_MAX_SIZE    20 // must be > NB_INPUT
+
 extern uint8_t  led_status;
-extern uint16_t password[200];
-extern uint16_t password_size;
 
 void usbh_init(void);
-void usbh_email_detector(void);
+void usbh_email_detector(char input);
 
 #endif

