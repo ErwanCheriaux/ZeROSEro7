@@ -15,8 +15,11 @@
  */
 #define MB_SIZE 253
 
-static msg_t mb_buffer[MB_SIZE];
-static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
+static msg_t rmb_buffer[MB_SIZE];
+static MAILBOX_DECL(rmb, rmb_buffer, MB_SIZE);
+
+static msg_t wmb_buffer[MB_SIZE];
+static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
 
 /*
  * SPI TX buffers.
@@ -44,11 +47,6 @@ void spi_init(void)
     test[502] = 0x03;
     test[753] = 0x04;
     test[999] = 0x00;
-
-    /*
-     * Mail box
-     */
-    chMBObjectInit(&mb, mb_buffer, MB_SIZE);
 
     /*
      * SPI3 I/O pins setup.
@@ -82,8 +80,8 @@ void spiMainLoop(void)
 {
     static int password_ptr = 0;
     msg_t      msg;
-    for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
-        chMBFetch(&mb, &msg, TIME_INFINITE);
+    for(int i = 0; i < chMBGetUsedCountI(&rmb); i++) {
+        chMBFetch(&rmb, &msg, TIME_INFINITE);
 
         //start
         if(msg == 0x676f) {
@@ -139,13 +137,13 @@ void SPI_IRQHandler(void)
     if(OVR) {
         rtt_printf("Overrun !!!");
         chSysLockFromISR();
-        chMBPostI(&mb, SPI3->DR);
+        chMBPostI(&rmb, SPI3->DR);
         chSysUnlockFromISR();
     }
     //Receive buffer not empty
     else if(RXNE) {
         chSysLockFromISR();
-        chMBPostI(&mb, SPI3->DR);
+        chMBPostI(&rmb, SPI3->DR);
         chSysUnlockFromISR();
     }
 
