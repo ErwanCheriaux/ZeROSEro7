@@ -40,7 +40,7 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         if(report[2] == KEY_F2) {
             rtt_printf("=== INPUT ===");
             for(int i = 0; i < NB_INPUT; i++)
-                rtt_printf("input[%d] = '%c'", i, input[i]);
+                rtt_printf("input[%d] = '%c'", i, input_tab[i]);
         }
     }
 }
@@ -102,18 +102,18 @@ void usbh_init(void)
 
 void usbh_email_detector(void)
 {
-    int input_index = 0;
+//  int input_index = 0;
 
-    //find enter input
-    for(int index_enter=0; index_enter<NB_INPUT; index_enter++)
-    {
-        if(input_tab[index_enter] == '\n')
-        {
-            for(int index_at = index_enter; index_at>...
-        }
+//  //find enter input
+//  for(int index_enter=0; index_enter<NB_INPUT; index_enter++)
+//  {
+//      if(input_tab[index_enter] == '\n')
+//      {
+//          for(int index_at = index_enter; index_at>...
+//      }
 
-    //no enter input
-    if(input_index == NB_INPUT) return;
+//  //no enter input
+//  if(input_index == NB_INPUT) return;
 
     //find @
 }
