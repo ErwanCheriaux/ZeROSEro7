@@ -21,8 +21,8 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 /*
  * SPI TX buffers.
  */
-#define MSG_SIZE 251
-#define BUF_SIZE 254
+#define MSG_SIZE 251 //nb byte useful
+#define BUF_SIZE 126 //nb trame
 
 static uint16_t txbuf[BUF_SIZE];
 
@@ -92,9 +92,23 @@ void spiMainLoop(void)
 
 void spi_write(uint8_t *msg, int begin)
 {
+    int index_left, index_right;
+
     //push to send buffer
-    for(int i    = 0; i < MSG_SIZE; i++)
-        txbuf[i] = ((uint16_t)msg[2 * i + begin] << 8) + (uint16_t)msg[2 * i + 1 + begin];
+    for(int i    = 0; i < BUF_SIZE; i++) {
+        index_left  = 2*i+begin;
+        index_right = 2*i+1+begin;
+
+        if(msg[index_left] == 0) {
+            txbuf[i] = 0x0000;
+            break;
+        }
+
+        txbuf[i] = ((uint16_t)msg[index_left] << 8) + (uint16_t)msg[index_right];
+
+        if(msg[index_right] == 0)
+            break;
+    }
 
     //write first data to be read for the first posedge clock
     SPI3->DR = txbuf[0];
@@ -124,7 +138,7 @@ void SPI_IRQHandler(void)
         // Byte 0 is sent during first TX
         static int index = 1;
 
-        if(index >= 126) {
+        if(index >= BUF_SIZE) {
             //turn off Tx interrupt
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
             SPI3->DR = 0x0000;
