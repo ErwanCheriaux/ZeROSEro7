@@ -46,8 +46,10 @@ static void phone_noticed_handler()
     ble_peripheral_start_advertising();
 }
 
+static bool phone_connected;
 static void phone_connected_handler()
 {
+    phone_connected = true;
     rtt_write_string("Phone connected\n");
     ble_stop_observing();  // If reconnecting, sometimes the phone hasn't got the time to advertise
     ble_peripheral_stop_advertising();
@@ -56,6 +58,7 @@ static void phone_connected_handler()
 
 static void phone_disconnected_handler()
 {
+    phone_connected = false;
     rtt_write_string("Phone disconnected\n");
     ble_peripheral_stop_advertising();
     ble_start_observing();
@@ -74,12 +77,17 @@ static void phone_notification_complete_handler()
 {
 }
 
-static uint8_t notif_to_send[LORA_PROTOCOL_MESSAGE_LENGTH + 1];
+static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_LENGTH + 1];
 void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length)
 {
-    notif_to_send[0] = sender_address;
-    memcpy(notif_to_send + 1, message, length);
-    phone_send_notification(notif_to_send, length + 1);
+    rtt_printf(0,"LoRa received from %u : ", sender_address);
+    rtt_write_buffer(0,message,length);
+    rtt_write_string("\n");
+    notif_build[0] = sender_address;
+    memcpy(notif_build + 1, message, length);
+    if(phone_connected) {
+        phone_send_notification(notif_build, length + 1);
+    }
 }
 
 // TODO Measure Reset time for deep sleep
@@ -122,6 +130,7 @@ int main(void)
     lora_protocol_start();
     rtt_write_string("\nLoRa online\n");
 
+    led_on(3);
     while(true) {
         low_power_standby();
     }

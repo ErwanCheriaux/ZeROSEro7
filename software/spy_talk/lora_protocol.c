@@ -12,7 +12,7 @@
 
 static lora_protocol_address_t local_address;
 static uint8_t                 tx_buffer[PAYLOAD_LENGTH];
-static uint8_t                 tx_length;  // Push is handled via this. TODO improve, better synchronization (not mandatory if delays are large enough)
+static uint8_t                 tx_length;  // Only one send at a time. The application doesn't allow multiple writes.
 static void (*lora_on_receive)(uint8_t sender_address, uint8_t* message, unsigned int length);
 
 void lora_protocol_handlers_init(
@@ -71,7 +71,7 @@ static void lora_callback()
 void lora_protocol_send(lora_protocol_address_t address, uint8_t* message, unsigned int length)
 {
     if(tx_length) {
-        APP_ERROR_CHECK(0xDEADBEEF);  // TODO multiple writes unhandled for now
+        rtt_write_string("Multiple LoRa send unsupported; Message ignored\n"); // Cannot be reached when using the spy talk app.
     }
 
     tx_length    = MIN(length + HEADER_LENGTH, PAYLOAD_LENGTH);

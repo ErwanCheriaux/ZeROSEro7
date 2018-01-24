@@ -26,7 +26,6 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
         String s = GAPService.parseByteArray(msg);
 
         logWindow.append("<- " + msg + "\n");
-        logWindow.scrollTo(0, 0);
 
         dumpInFile(s);
 
