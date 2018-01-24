@@ -47,6 +47,7 @@ static void lora_rx_timeout_handler()
 
 static void lora_rx_done_handler(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
 {
+    led_toggle(2);
     if(payload[0] == local_address) {
         lora_on_receive(payload[1], payload+HEADER_LENGTH, size-HEADER_LENGTH);
     }

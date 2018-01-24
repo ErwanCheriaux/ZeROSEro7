@@ -59,6 +59,7 @@ static void phone_disconnected_handler()
     rtt_write_string("Phone disconnected\n");
     ble_peripheral_stop_advertising();
     ble_start_observing();
+    led_off(1);
 }
 
 static void phone_write_handler(uint8_t *buff, int length)
