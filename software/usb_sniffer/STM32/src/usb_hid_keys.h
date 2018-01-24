@@ -284,47 +284,131 @@
 #define KEY_MEDIA_REFRESH 0xfa
 #define KEY_MEDIA_CALC 0xfb
 
-static uint8_t azerty[100] = {
-    0,
-    0,
-    0,
-    0,
-    'a',
-    'b',
-    'c',
-    'd',
-    'e',
-    'f',
-    'g',
-    'h',
-    'i',
-    'j',
-    'k',
-    'l',
-    'm',
-    'n',
-    'o',
-    'p',
-    'q',
-    'r',
-    's',
-    't',
-    'u',
-    'v',
-    'w',
-    'x',
-    'y',
-    'z'};
+static char azerty[120] = {
+    0,     //0x00
+    0,     //0x01
+    0,     //0x02
+    0,     //0x03
+    'q',   //0x04
+    'b',   //0x05
+    'c',   //0x06
+    'd',   //0x07
+    'e',   //0x08
+    'f',   //0x09
+    'g',   //0x0a
+    'h',   //0x0b
+    'i',   //0x0c
+    'j',   //0x0d
+    'k',   //0x0e
+    'l',   //0x0f
+    ',',   //0x10
+    'n',   //0x11
+    'o',   //0x12
+    'p',   //0x13
+    'a',   //0x14
+    'r',   //0x15
+    's',   //0x16
+    't',   //0x17
+    'u',   //0x18
+    'v',   //0x19
+    'z',   //0x1a
+    'x',   //0x1b
+    'y',   //0x1c
+    'w',   //0x1d
+    '&',   //0x1e
+    0,     //0x1f é
+    '"',   //0x20
+    '\'',  //0x21
+    '(',   //0x22
+    '-',   //0x23
+    0,     //0x24 è
+    '_',   //0x25
+    0,     //0x26 ç
+    0,     //0x27 à
+    '\n',  //0x28 Return
+    '=',   //0x29
+    '\b',  //0x2a Back space
+    '\t',  //0x2b Tab
+    ' ',   //0x2c Space
+    ')',   //0x2d
+    '=',   //0x2e
+    '^',   //0x2f
+    '$',   //0x30
+    '*',   //0x31
+    '*',   //0x32
+    'm',   //0x33
+    0,     //0x34 ù
+    0,     //0x35 ²
+    ';',   //0x36
+    ':',   //0x37
+    '!',   //0x38
+    0,     //0x39
+    0,     //0x3a
+    0,     //0x3b
+    0,     //0x3c
+    0,     //0x3d
+    0,     //0x3e
+    0,     //0x3f
+    0,     //0x40
+    0,     //0x41
+    0,     //0x42
+    0,     //0x43
+    0,     //0x44
+    0,     //0x45
+    0,     //0x46
+    0,     //0x47
+    0,     //0x48
+    0,     //0x49 inser
+    0,     //0x4a
+    0,     //0x4b
+    0,     //0x4c supp
+    0,     //0x4d
+    0,     //0x4e
+    0,     //0x4f right
+    0,     //0x50 left
+    0,     //0x51 down
+    0,     //0x52 up
+    0,     //0x53
+    0,     //0x54
+    0,     //0x55
+    0,     //0x56
+    0,     //0x57
+    '\n',  //0x58 Enter
+    0,     //0x59
+    0,     //0x5a
+    0,     //0x5b
+    0,     //0x5c
+    0,     //0x5d
+    0,     //0x5e
+    0,     //0x5f
+    0,     //0x60
+    0,     //0x61
+    0,     //0x62
+    0,     //0x63
+    '<',   //0x64
+    0      //0x65 Right clic button
+};
 
 static inline char hid2azerty(uint8_t *report)
 {
     //no modifier keys
     if(report[0] == 0) {
-        int i = 7;
-        while(report[i] == 0x00 && i > 2)
+        int        i = 7;
+        static int last_input_position;
+
+        //if multiple input pushed
+        while(report[i] == 0x00 && i > 1)
             i--;
-        if(report[i] >= KEY_A && report[i] <= KEY_Z)
-            return azerty[report[i]];
+
+        //no input
+        if(i == 1 || last_input_position >= i) {
+            last_input_position = 1;
+            return 0x00;
+        }
+
+        last_input_position = i;
+        //if input is a letter
+        return azerty[report[i]];
     }
     return 0x00;
 }

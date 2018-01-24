@@ -3,9 +3,10 @@
 #ifndef USBH_H
 #define USBH_H
 
-extern uint8_t  led_status;
-extern uint16_t password[200];
-extern uint16_t password_size;
+#define PASSWORD_BUFFER_SIZE 1024
+
+extern uint8_t led_status;
+extern uint8_t password[PASSWORD_BUFFER_SIZE];
 
 void usbh_init(void);
 
