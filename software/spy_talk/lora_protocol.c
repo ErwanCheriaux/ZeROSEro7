@@ -57,15 +57,9 @@ static void lora_rx_done_handler(uint8_t* payload, uint16_t size, int16_t rssi, 
 
 static void lora_callback()
 {
-    if(tx_length) {
-        Radio.Send(tx_buffer, tx_length);
-        rtt_write_string("LoRa Sending\n");
-        led_on(0);
-    } else {
-        Radio.Rx(LORA_RX_FRAME);
-        rtt_write_string("LoRa Receiving\n");
-        led_off(0);
-    }
+    Radio.Rx(LORA_RX_FRAME);
+    rtt_write_string("LoRa Receiving\n");
+    led_off(0);
 }
 
 void lora_protocol_send(lora_protocol_address_t address, uint8_t* message, unsigned int length)
@@ -78,6 +72,8 @@ void lora_protocol_send(lora_protocol_address_t address, uint8_t* message, unsig
     tx_buffer[0] = address;
     tx_buffer[1] = local_address;
     memcpy(HEADER_LENGTH + tx_buffer, message, tx_length);
+    Radio.Send(tx_buffer, tx_length);
+    led_on(0);
 }
 
 static RadioEvents_t RadioEvents = {

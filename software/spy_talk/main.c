@@ -88,6 +88,7 @@ void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int leng
     if(phone_connected) {
         phone_send_notification(notif_build, length + 1);
     }
+    // lora_protocol_send(sender_address,message,length);  // XXX For parrot
 }
 
 // TODO Measure Reset time for deep sleep

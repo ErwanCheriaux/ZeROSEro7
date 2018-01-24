@@ -1,11 +1,13 @@
 #ifndef LORA_PROTOCOL_H
 #define LORA_PROTOCOL_H
 
+#include "sdk_config.h"
+
 #define YELLOW_ADDRESS 0x04
 #define BLUE_ADDRESS 0x05
 #define PINK_ADDRESS 0x06
 
-#define LORA_PROTOCOL_MESSAGE_LENGTH 50
+#define LORA_PROTOCOL_MESSAGE_LENGTH NRF_SDH_BLE_GATT_MAX_MTU_SIZE
 
 /*
     LoRa protocol implementation
