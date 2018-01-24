@@ -62,23 +62,24 @@ static void phone_disconnected_handler()
     led_off(1);
 }
 
-static void phone_write_handler(uint8_t *buff, int length)
+static void phone_write_handler(uint8_t* buff, int length)
 {
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    lora_protocol_send(*buff, buff+1, length-1);
+    lora_protocol_send(*buff, buff + 1, length - 1);
 }
 
 static void phone_notification_complete_handler()
 {
 }
 
-static uint8_t notif_to_send[LORA_PROTOCOL_MESSAGE_LENGTH+1];
-void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length) {
+static uint8_t notif_to_send[LORA_PROTOCOL_MESSAGE_LENGTH + 1];
+void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length)
+{
     notif_to_send[0] = sender_address;
-    memcpy(notif_to_send+1, message, length);
-    phone_send_notification(notif_to_send,length+1);
+    memcpy(notif_to_send + 1, message, length);
+    phone_send_notification(notif_to_send, length + 1);
 }
 
 // TODO Measure Reset time for deep sleep

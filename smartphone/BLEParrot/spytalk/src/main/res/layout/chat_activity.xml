@@ -51,10 +51,10 @@
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <Spinner
+        android:id="@+id/receiverSelect"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/receiverSelect"
         android:layout_alignBottom="@+id/messageField"
-        android:layout_toStartOf="@+id/messageField"
-        android:layout_alignTop="@+id/messageField" />
+        android:layout_alignTop="@+id/messageField"
+        android:layout_toStartOf="@+id/messageField" />
 </RelativeLayout>

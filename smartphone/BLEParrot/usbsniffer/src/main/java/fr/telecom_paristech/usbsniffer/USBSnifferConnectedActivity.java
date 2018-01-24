@@ -22,21 +22,23 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     private FileOutputStream dumpFileStream;
 
     @Override
-    public void onNotificationReceived(String msg) {
+    public void onNotificationReceived(byte[] msg) {
+        String s = GAPService.parseByteArray(msg);
+
         logWindow.append("<- " + msg + "\n");
         logWindow.scrollTo(0, 0);
 
-        dumpInFile(msg);
+        dumpInFile(s);
 
         // Reached end of file
-        if(msg.length() < GAPService.MAX_MTU_NRF) {
+        if (s.length() < GAPService.MAX_MTU_NRF) {
             alertEndOfFile();
         }
     }
 
     private void alertEndOfFile() {
         AlertDialog.Builder builder = new AlertDialog.Builder(USBSnifferConnectedActivity.this);
-        builder.setMessage("Transfert terminé. Voir Downloads/"+FILENAME)
+        builder.setMessage("Transfert terminé. Voir Downloads/" + FILENAME)
                 .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 

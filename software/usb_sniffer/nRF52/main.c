@@ -17,7 +17,7 @@
 #define USB_SNIFFER_APP_ID 0x03
 
 static buffer_t* spim_received_buffer;
-static bool spim_transfer_ongoing;
+static bool      spim_transfer_ongoing;
 
 static void log_init(void)
 {
@@ -57,11 +57,11 @@ static void phone_connected_handler()
     ble_peripheral_stop_advertising();
     spim_protocol_start();
     spim_transfer_ongoing = true;
-    spim_received_buffer = spim_protocol_next();
+    spim_received_buffer  = spim_protocol_next();
     if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
         spim_transfer_ongoing = false;
     }
-    phone_send_notification(spim_received_buffer->data,spim_received_buffer->length);
+    phone_send_notification(spim_received_buffer->data, spim_received_buffer->length);
 }
 
 static void phone_disconnected_handler()
@@ -71,7 +71,7 @@ static void phone_disconnected_handler()
     ble_start_observing();
 }
 
-static void phone_write_handler(uint8_t *buff, int length)
+static void phone_write_handler(uint8_t* buff, int length)
 {
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
@@ -85,7 +85,7 @@ static void phone_notification_complete_handler()
         if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
             spim_transfer_ongoing = false;
         }
-        phone_send_notification(spim_received_buffer->data,spim_received_buffer->length);
+        phone_send_notification(spim_received_buffer->data, spim_received_buffer->length);
     }
 }
 
@@ -115,7 +115,7 @@ int main(void)
 
     ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
     ble_stack_init(USB_SNIFFER_APP_ID);
-/*    ble_gap_init();
+    /*    ble_gap_init();
     ble_gatt_init();
     ble_advertise_init(USB_SNIFFER_APP_ID);
     ble_services_init();
@@ -137,7 +137,7 @@ int main(void)
         rtt_write_string("SPI START\n");
         do {
             spim_buff = spim_protocol_next();
-            rtt_printf(0,"SPI response length :%u\n", spim_buff->length);
+            rtt_printf(0, "SPI response length :%u\n", spim_buff->length);
             nrf_delay_ms(300);
         } while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE);
     }

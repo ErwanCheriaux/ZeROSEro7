@@ -24,12 +24,12 @@
 
 typedef struct {
     uint8_t* data;
-    int length;
+    int      length;
 } buffer_t;
 
-void spim_protocol_init();
-void spim_protocol_start();
+void      spim_protocol_init();
+void      spim_protocol_start();
 buffer_t* spim_protocol_next();
-void spim_protocol_repeat();
+void      spim_protocol_repeat();
 
 #endif

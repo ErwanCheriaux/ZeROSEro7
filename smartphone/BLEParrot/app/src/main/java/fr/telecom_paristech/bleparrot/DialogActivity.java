@@ -9,6 +9,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 
 import blecommon.ConnectedActivity;
+import blecommon.GAPService;
 
 
 public class DialogActivity extends ConnectedActivity {
@@ -41,8 +42,8 @@ public class DialogActivity extends ConnectedActivity {
     }
 
     @Override
-    public void onNotificationReceived(String msg) {
-        logWindow.append("<- " + msg + "\n");
+    public void onNotificationReceived(byte[] msg) {
+        logWindow.append("<- " + GAPService.parseByteArray(msg) + "\n");
         logWindow.scrollTo(0, 0);
     }
 }

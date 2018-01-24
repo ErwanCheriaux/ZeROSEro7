@@ -11,69 +11,69 @@
     tools:context="fr.telecom_paristech.spytalk.LogInActivity">
 
     <TextView
-        android:text="Identification"
+        android:id="@+id/loginTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/loginTitle"
-        android:textSize="36sp"
-        android:textAlignment="center"
-        android:layout_alignParentTop="true"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignParentTop="true"
+        android:text="Identification"
+        android:textAlignment="center"
+        android:textSize="36sp" />
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@+id/loginTitle"
+        android:orientation="vertical"
         android:weightSum="3">
 
         <Button
-            android:text="Jaune"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@+id/loginTitle"
-            android:layout_marginTop="59dp"
             android:id="@+id/buttonYellow"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_below="@+id/loginTitle"
+            android:layout_column="0"
+            android:layout_marginTop="59dp"
+            android:layout_row="0"
+            android:layout_weight="1"
             android:backgroundTint="@android:color/holo_orange_light"
-            android:textSize="24sp"
             android:fontFamily="sans-serif-medium"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentStart="true"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_weight="1"
-            android:onClick="onYellowClick" />
+            android:onClick="onYellowClick"
+            android:text="Jaune"
+            android:textSize="24sp" />
 
         <Button
-            android:text="Bleu"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
             android:id="@+id/buttonBlue"
-            android:layout_alignStart="@+id/buttonYellow"
-            android:backgroundTint="@android:color/holo_blue_dark"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentBottom="true"
-            android:layout_row="0"
-            android:layout_column="0"
-            android:layout_weight="1"
-            android:textSize="24sp"
-            android:onClick="onBlueClick" />
-
-        <Button
-            android:text="Rose"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:id="@+id/buttonPink"
-            android:backgroundTint="@android:color/holo_purple"
+            android:layout_alignParentBottom="true"
             android:layout_alignParentEnd="true"
-            android:layout_above="@+id/buttonBlue"
-            android:layout_alignParentStart="true"
-            android:layout_row="0"
+            android:layout_alignStart="@+id/buttonYellow"
             android:layout_column="0"
+            android:layout_row="0"
             android:layout_weight="1"
-            android:textSize="24sp"
-            android:onClick="onPinkClick" />
+            android:backgroundTint="@android:color/holo_blue_dark"
+            android:onClick="onBlueClick"
+            android:text="Bleu"
+            android:textSize="24sp" />
+
+        <Button
+            android:id="@+id/buttonPink"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_above="@+id/buttonBlue"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentStart="true"
+            android:layout_column="0"
+            android:layout_row="0"
+            android:layout_weight="1"
+            android:backgroundTint="@android:color/holo_purple"
+            android:onClick="onPinkClick"
+            android:text="Rose"
+            android:textSize="24sp" />
     </LinearLayout>
 
 </RelativeLayout>

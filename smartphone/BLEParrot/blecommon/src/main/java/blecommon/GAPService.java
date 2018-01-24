@@ -82,6 +82,18 @@ public class GAPService extends Service {
         startScan();
     }
 
+    public static String parseByteArray(byte[] value) {
+        return new String(value);
+    }
+
+    // Copied from https://stackoverflow.com/questions/5513152/easy-way-to-concatenate-two-byte-arrays by Jonathan
+    public static byte[] concat(byte[] a, byte[] b) {
+        byte[] c = new byte[a.length + b.length];
+        System.arraycopy(a, 0, c, 0, a.length);
+        System.arraycopy(b, 0, c, a.length, b.length);
+        return c;
+    }
+
     // Called after application context is initialized
     @Override
     public void onCreate() {
@@ -96,18 +108,6 @@ public class GAPService extends Service {
                 }
             }
         }
-    }
-
-    public static String parseByteArray(byte[] value) {
-        return new String(value);
-    }
-
-    // Copied from https://stackoverflow.com/questions/5513152/easy-way-to-concatenate-two-byte-arrays by Jonathan
-    public static byte[] concat(byte[] a, byte[] b) {
-        byte[] c = new byte[a.length + b.length];
-        System.arraycopy(a, 0, c, 0, a.length);
-        System.arraycopy(b, 0, c, a.length, b.length);
-        return c;
     }
 
     public void send(String s) {

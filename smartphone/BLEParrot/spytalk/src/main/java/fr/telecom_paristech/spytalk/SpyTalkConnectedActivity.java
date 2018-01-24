@@ -49,7 +49,7 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
     @Override
     public void onNotificationReceived(byte[] msg) {
-        switch(msg[0]) {
+        switch (msg[0]) {
             case LogInActivity.YELLOW_ADDR:
                 logWindow.append("Jaune ");
                 break;
