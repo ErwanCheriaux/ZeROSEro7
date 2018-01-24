@@ -56,8 +56,8 @@ void wifi_wait_for(char* msg);
 */
 int wifi_get_word(char* buffer, int max_len, char separator);
 
-/* Switch wifi chip to sleep mode
+/* Switch wifi chip to sleep mode (indirect)
 */
-void wifi_sleep(void);
+void wifi_sleep_callback(void);
 
 #endif

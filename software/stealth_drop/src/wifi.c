@@ -11,6 +11,8 @@
 
 extern char data_buff[MAX_BUFF_LEN + 1];
 
+static int sleep_mode = 0;
+
 void wifi_break_stream_mode(void)
 {
     char buff_break[] = "$$$\r\n";
@@ -31,6 +33,7 @@ void wifi_configure(void)
     wifi_command("set bus.data_bus uart0\r\n", 500);
     wifi_command("set uart.baud 1 115200\r\n", 500);
     wifi_command("set uart.baud 0 115200\r\n", 500);
+    wifi_command("set system.wakeup.events gpio22\r\n", 500);
     wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
     wifi_command("reboot\r\n", 1000);
@@ -41,11 +44,21 @@ void wifi_configure(void)
 */
 static void wifi_reset_chip(void)
 {
-    palSetPadMode(GPIOB, GPIOB_I2C1_SCL, PAL_MODE_OUTPUT_PUSHPULL);
     palClearPad(GPIOB, GPIOB_I2C1_SCL);  // rst on
     chThdSleep(MS2ST(100));
     palSetPad(GPIOB, GPIOB_I2C1_SCL);  // rst off
     chThdSleep(MS2ST(1000));
+}
+
+static void wifi_sleep(void)
+{
+#ifdef DEBUG
+    rtt_printf("Wifi chip in sleep mode\n");
+#endif
+    wifi_reset_chip();
+    wifi_break_stream_mode();
+    wifi_command("sleep\r\n", 500);
+    sleep_mode = 0;
 }
 
 void wifi_init(void)
@@ -62,6 +75,7 @@ void wifi_init(void)
         "  6: Serial command line buffer overflow\n"\
         "  7: Bounds error, command specific, bounds of the command were exceeded\n\n");
 #endif
+    palSetPadMode(GPIOB, GPIOB_I2C1_SCL, PAL_MODE_OUTPUT_PUSHPULL);
     wifi_reset_chip();
 
     uart_init();
@@ -133,6 +147,8 @@ void wifi_wait_for(char* msg)
             else
                 char_received = 0;
         }
+        else if(sleep_mode)
+            wifi_sleep();
     }
     rtt_printf("received !\n");
 }
@@ -154,13 +170,7 @@ int wifi_get_word(char* buffer, int max_len, char separator)
     return 0;
 }
 
-void wifi_sleep(void)
+void wifi_sleep_callback(void)
 {
-    timer_off();
-#ifdef DEBUG
-    rtt_printf("Wifi chip in sleep mode\n");
-#endif
-    wifi_reset_chip();
-    wifi_break_stream_mode();
-    wifi_command("sleep\r\n", 500);
+    sleep_mode = 1;
 }
