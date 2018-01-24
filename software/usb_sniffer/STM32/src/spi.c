@@ -24,19 +24,15 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 #define MSG_SIZE 251
 #define BUF_SIZE 254
 
-static uint16_t msg_size;
 static uint16_t txbuf[BUF_SIZE];
 
 static uint8_t test[1000];
 
 void spi_init(void)
 {
-    for(int i=0; i<1000; i++)
-    {
-        test[i] = i;
-        if( test[i] == 0)
-            test[i] = 0xaa;
-    }
+    for(int i   = 0; i < 1000; i++)
+        test[i] = 0xaa;
+    test[999]   = 0x00;
 
     /*
      * Mail box
@@ -67,8 +63,6 @@ void spi_init(void)
     SPI3->CR2 = SPI_CR2_RXNEIE;             // RX interrupt if data present
     SPI3->CR1 = SPI_CR1_SPE | SPI_CR1_DFF;  // Enable SPI in slave mode.
 
-    SPI3->DR = 0xFFFF;
-
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
 }
@@ -76,33 +70,31 @@ void spi_init(void)
 void spiMainLoop(void)
 {
     static int password_ptr = 0;
-    msg_t msg;
+    msg_t      msg;
     for(int i = 0; i < chMBGetUsedCountI(&mb); i++) {
         chMBFetch(&mb, &msg, TIME_INFINITE);
 
         //start
         if(msg == 0x676f) {
             rtt_printf("Receive start");
-            spi_write(test, 0, MSG_SIZE);
-            password_ptr=1;
+            spi_write(test, 0);
+            password_ptr = 1;
         }
 
         //next
         else if(msg == 0x6e78) {
             rtt_printf("Receive next");
-            spi_write(test, MSG_SIZE*password_ptr, MSG_SIZE*password_ptr + MSG_SIZE);
+            spi_write(test, MSG_SIZE * password_ptr);
             password_ptr++;
         }
     }
 }
 
-void spi_write(uint8_t *msg, int begin, int end)
+void spi_write(uint8_t *msg, int begin)
 {
-    msg_size = end - begin;
-
     //push to send buffer
-    for(int i=0; i<msg_size; i++)
-        txbuf[i] = ((uint16_t)msg[2*i+begin] << 8) + (uint16_t)msg[2*i+1+begin];
+    for(int i    = 0; i < MSG_SIZE; i++)
+        txbuf[i] = ((uint16_t)msg[2 * i + begin] << 8) + (uint16_t)msg[2 * i + 1 + begin];
 
     //write first data to be read for the first posedge clock
     SPI3->DR = txbuf[0];
@@ -132,7 +124,7 @@ void SPI_IRQHandler(void)
         // Byte 0 is sent during first TX
         static int index = 1;
 
-        if(index >= msg_size +2) {
+        if(index >= 126) {
             //turn off Tx interrupt
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
             SPI3->DR = 0x0000;
