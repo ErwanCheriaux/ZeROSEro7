@@ -9,7 +9,7 @@
 #include "pwm.h"
 
 void timer_init(void);
-void timer_on(void);
+void timer_on(int delay, void (*f)(void));
 void timer_off(void);
 
 #endif

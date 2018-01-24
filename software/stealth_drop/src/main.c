@@ -39,6 +39,7 @@ int main(void)
     halInit();
     chSysInit();
 
+    timer_init();
     led_init();
     pwm_init();
     timer_init();
@@ -48,9 +49,9 @@ int main(void)
     led_on();
 
     wifi_break_stream_mode();
+    //wifi_sleep();
     wifi_configure();
 
-    (void)sdccfg;
     // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
 
@@ -83,6 +84,7 @@ int main(void)
         wifi_wait_for(start_seq);
         if(!uart_receive_timeout(&buff, 1, MS2ST(1000)))
             continue;
+        timer_off();
         switch(buff) {
             case 'U': // Upload a file
                 rtt_printf("File upload: ");
@@ -124,6 +126,7 @@ int main(void)
                 break;
             default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
         }
+        timer_on(SLEEP_DELAY, wifi_sleep);
     }
 
     chThdSleep(TIME_INFINITE);

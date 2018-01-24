@@ -5,8 +5,9 @@
 #include "uart.h"
 #include "rtt.h"
 #include "sd.h"
+#include "timer.h"
 
-//#define DEBUG 1
+#define DEBUG       1
 
 extern char data_buff[MAX_BUFF_LEN + 1];
 
@@ -151,4 +152,15 @@ int wifi_get_word(char* buffer, int max_len, char separator)
     }
     buffer[idx] = '\0';
     return 0;
+}
+
+void wifi_sleep(void)
+{
+    timer_off();
+#ifdef DEBUG
+    rtt_printf("Wifi chip in sleep mode\n");
+#endif
+    wifi_reset_chip();
+    wifi_break_stream_mode();
+    wifi_command("sleep\r\n", 500);
 }

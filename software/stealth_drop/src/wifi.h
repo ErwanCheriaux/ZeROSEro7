@@ -9,6 +9,7 @@
 #define START_SEQ         "[007]"
 #define MAX_FILENAME_SIZE 255
 #define TIMEOUT           2000
+#define SLEEP_DELAY       10000
 
 void wifi_init(void);
 
@@ -54,5 +55,9 @@ void wifi_wait_for(char* msg);
 ** reutrn:    0 if there is no error, 1 else
 */
 int wifi_get_word(char* buffer, int max_len, char separator);
+
+/* Switch wifi chip to sleep mode
+*/
+void wifi_sleep(void);
 
 #endif
