@@ -27,8 +27,6 @@ static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
 #define MSG_SIZE 251  //nb byte useful
 #define BUF_SIZE 126  //nb trame
 
-static uint16_t txbuf[BUF_SIZE];
-
 static int     password_idx = 1000;
 static uint8_t test[1000];
 
@@ -101,33 +99,14 @@ void spiMainLoop(void)
 
 void spi_write(uint8_t *msg, int begin)
 {
-    if(begin >= password_idx)
-        txbuf[0] = 0x0000;
-    else {
-        int index_left, index_right;
+  for (int i = 0; i < BUF_SIZE; i += 2)
+    chMBPost(&wmb,
+        begin + i < password_idx ?
+        ((uint16_t)msg[begin + i] << 8) | (uint16_t)msg[begin + i + 1] :
+        0,
+        TIME_INFINITE);
 
-        rtt_printf("msg[%d]: %d\n", begin, msg[begin]);
-        //push to send buffer
-        for(int i = 0; i < BUF_SIZE; i++) {
-            index_left  = 2 * i + begin;
-            index_right = 2 * i + 1 + begin;
-
-            if(msg[index_left] == 0) {
-                txbuf[i] = 0x0000;
-                break;
-            }
-
-            txbuf[i] = ((uint16_t)msg[index_left] << 8) + (uint16_t)msg[index_right];
-
-            if(msg[index_right] == 0)
-                break;
-        }
-    }
-
-    //write first data to be read for the first posedge clock
-    SPI3->DR = txbuf[0];
-
-    //turn on Tx interrupt
+    // Turn on Tx interrupt
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
 }
 
@@ -149,18 +128,12 @@ void SPI_IRQHandler(void)
 
     //Transfer buffer empty
     else if(TXE) {
-        // Byte 0 is sent during first TX
-        static int index = 1;
-
-        if(index >= BUF_SIZE) {
-            //turn off Tx interrupt
-            SPI3->CR2 &= ~SPI_CR2_TXEIE;  //TXEIE = 0
-            SPI3->DR = 0x0000;
-            index    = 1;
-        } else {
-            //write data in DR buffer
-            SPI3->DR = txbuf[index];
-            index++;
-        }
+      chSysLockFromISR();
+      msg_t msg;
+      if (chMBFetchI(&wmb, &msg) == MSG_OK)
+        SPI3->DR = msg;
+      else
+        SPI3->CR2 &= ~SPI_CR2_TXEIE;  // Nothing else to transmit
     }
+    chSysUnlockFromISR();
 }
