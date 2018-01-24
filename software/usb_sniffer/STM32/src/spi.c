@@ -21,18 +21,22 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 /*
  * SPI TX buffers.
  */
-#define MSG_SIZE 251 //nb byte useful
-#define BUF_SIZE 126 //nb trame
+#define MSG_SIZE 251  //nb byte useful
+#define BUF_SIZE 126  //nb trame
 
 static uint16_t txbuf[BUF_SIZE];
 
+static int password_idx = 1000;
 static uint8_t test[1000];
 
 void spi_init(void)
 {
-    for(int i   = 0; i < 1000; i++)
-        test[i] = 0xaa;
-    test[999]   = 0x00;
+    for(int i = 0; i < 1000; i++) {
+        test[i] = i + 1;
+        if(test[i] == 0)
+            test[i] = 1;
+    }
+    test[999] = 0x00;
 
     /*
      * Mail box
@@ -92,22 +96,27 @@ void spiMainLoop(void)
 
 void spi_write(uint8_t *msg, int begin)
 {
-    int index_left, index_right;
+    if(begin >= password_idx)
+        txbuf[0] = 0x0000;
+    else {
+        int index_left, index_right;
 
-    //push to send buffer
-    for(int i    = 0; i < BUF_SIZE; i++) {
-        index_left  = 2*i+begin;
-        index_right = 2*i+1+begin;
+        rtt_printf("msg[%d]: %d\n", begin, msg[begin]);
+        //push to send buffer
+        for(int i = 0; i < BUF_SIZE; i++) {
+            index_left  = 2 * i + begin;
+            index_right = 2 * i + 1 + begin;
 
-        if(msg[index_left] == 0) {
-            txbuf[i] = 0x0000;
-            break;
+            if(msg[index_left] == 0) {
+                txbuf[i] = 0x0000;
+                break;
+            }
+
+            txbuf[i] = ((uint16_t)msg[index_left] << 8) + (uint16_t)msg[index_right];
+
+            if(msg[index_right] == 0)
+                break;
         }
-
-        txbuf[i] = ((uint16_t)msg[index_left] << 8) + (uint16_t)msg[index_right];
-
-        if(msg[index_right] == 0)
-            break;
     }
 
     //write first data to be read for the first posedge clock
