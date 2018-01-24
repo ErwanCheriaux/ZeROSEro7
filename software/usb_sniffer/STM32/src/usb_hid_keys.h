@@ -325,7 +325,7 @@ static char azerty[120] = {
     '_',   //0x25
     0,     //0x26 ç
     0,     //0x27 à
-    '\n',  //0x28 Enter
+    '\n',  //0x28 Return
     '=',   //0x29
     '\b',  //0x2a Back space
     '\t',  //0x2b Tab
@@ -335,10 +335,10 @@ static char azerty[120] = {
     '^',   //0x2f
     '$',   //0x30
     '*',   //0x31
-    0,     //0x32
-    0,     //0x33
-    0,     //0x34
-    '\'',  //0x35
+    '*',   //0x32
+    'm',   //0x33
+    0,     //0x34 ù
+    '²',   //0x35
     ';',   //0x36
     ':',   //0x37
     '!',   //0x38
@@ -358,22 +358,22 @@ static char azerty[120] = {
     0,     //0x46
     0,     //0x47
     0,     //0x48
-    0,     //0x49
+    0,     //0x49 inser
     0,     //0x4a
     0,     //0x4b
-    0,     //0x4c
+    0,     //0x4c supp
     0,     //0x4d
     0,     //0x4e
-    0,     //0x4f
-    0,     //0x50
-    0,     //0x51
-    0,     //0x52
+    0,     //0x4f right
+    0,     //0x50 left
+    0,     //0x51 down
+    0,     //0x52 up
     0,     //0x53
     0,     //0x54
     0,     //0x55
     0,     //0x56
     0,     //0x57
-    0,     //0x58
+    '\n',  //0x58 Enter
     0,     //0x59
     0,     //0x5a
     0,     //0x5b
@@ -385,7 +385,8 @@ static char azerty[120] = {
     0,     //0x61
     0,     //0x62
     0,     //0x63
-    '<'    //0x64
+    '<',   //0x64
+    0      //0x65 Right clic button
 };
 
 static inline char hid2azerty(uint8_t *report)
