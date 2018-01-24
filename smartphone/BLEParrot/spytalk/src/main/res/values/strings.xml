@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">Spy Talk</string>
+
+    <string-array name="usernames">
+        <item>Jaune</item>
+        <item>Bleu</item>
+        <item>Rose</item>
+    </string-array>
 </resources>

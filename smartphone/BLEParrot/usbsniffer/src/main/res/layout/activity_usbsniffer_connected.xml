@@ -23,7 +23,7 @@
         android:minLines="15"
         android:scrollHorizontally="true"
         android:scrollbars="vertical"
-        android:text="Notifications Log\n"
+        android:text="Journal\n"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
 </RelativeLayout>

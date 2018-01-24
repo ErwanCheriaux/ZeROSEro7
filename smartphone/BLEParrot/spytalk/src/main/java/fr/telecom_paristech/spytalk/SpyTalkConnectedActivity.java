@@ -5,7 +5,9 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.Spinner;
 import android.widget.TextView;
 
 import blecommon.ConnectedActivity;
@@ -13,9 +15,9 @@ import blecommon.ConnectedActivity;
 
 public class SpyTalkConnectedActivity extends ConnectedActivity {
 
-
     private TextView logWindow;
     private EditText commandField;
+    private Spinner receiverSelect;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,8 +25,11 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
         setContentView(R.layout.chat_activity);
         logWindow = (TextView) findViewById(R.id.logWindow);
-        commandField = (EditText) findViewById(R.id.commandField);
+        commandField = (EditText) findViewById(R.id.messageField);
+        receiverSelect = (Spinner) findViewById(R.id.receiverSelect);
 
+        receiverSelect.setAdapter(ArrayAdapter.createFromResource(this,
+                R.array.usernames, android.R.layout.simple_spinner_item));
 
         logWindow.setMovementMethod(new ScrollingMovementMethod());
         commandField.setOnKeyListener(new View.OnKeyListener() {

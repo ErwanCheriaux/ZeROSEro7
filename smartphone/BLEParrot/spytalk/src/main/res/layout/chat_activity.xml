@@ -35,20 +35,26 @@
         android:minLines="15"
         android:scrollHorizontally="true"
         android:scrollbars="vertical"
-        android:text="Notifications Log\n"
+        android:text="Journal\n"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <EditText
-        android:id="@+id/commandField"
+        android:id="@+id/messageField"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentEnd="true"
-        android:layout_alignParentStart="true"
         android:layout_below="@+id/title"
         android:layout_marginTop="14dp"
         android:ems="10"
-        android:hint="Command to Send"
         android:inputType="text"
-        android:text="Command"
+        android:text="Message"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+
+    <Spinner
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/receiverSelect"
+        android:layout_alignBottom="@+id/messageField"
+        android:layout_toStartOf="@+id/messageField"
+        android:layout_alignTop="@+id/messageField" />
 </RelativeLayout>
