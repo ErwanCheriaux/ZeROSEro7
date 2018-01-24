@@ -2,6 +2,7 @@
 #include "nrf_spim.h"
 #include <string.h>
 #include "rtt.h"
+#include "nrf_delay.h"
 
 #define END_OF_FILE ((uint8_t)0x00)
 #define START_MESSAGE ((uint8_t*)"go")
@@ -43,6 +44,11 @@ static void prepare_tx_buffer(uint8_t * command) {
 void spim_protocol_start() {
     prepare_tx_buffer(START_MESSAGE);
     spim_transfer(rx_buffer,tx_buffer,TRANSFER_SIZE);
+
+    // Workaround for erroneous STM32 behavior FIXME
+    //nrf_delay_ms(50);
+    //spim_protocol_next();
+    //nrf_delay_ms(50);
 }
 
 buffer_t* spim_protocol_next() {

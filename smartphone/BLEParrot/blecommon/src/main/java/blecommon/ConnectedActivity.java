@@ -61,6 +61,10 @@ public abstract class ConnectedActivity extends AppCompatActivity {
         gapService.send(msg);
     }
 
+    public void bleSend(byte[] b) {
+        gapService.send(b);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

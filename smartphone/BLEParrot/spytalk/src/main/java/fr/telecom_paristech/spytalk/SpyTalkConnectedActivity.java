@@ -11,12 +11,13 @@ import android.widget.Spinner;
 import android.widget.TextView;
 
 import blecommon.ConnectedActivity;
+import blecommon.GAPService;
 
 
 public class SpyTalkConnectedActivity extends ConnectedActivity {
 
     private TextView logWindow;
-    private EditText commandField;
+    private EditText messageField;
     private Spinner receiverSelect;
 
     @Override
@@ -25,20 +26,21 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
         setContentView(R.layout.chat_activity);
         logWindow = (TextView) findViewById(R.id.logWindow);
-        commandField = (EditText) findViewById(R.id.messageField);
+        messageField = (EditText) findViewById(R.id.messageField);
         receiverSelect = (Spinner) findViewById(R.id.receiverSelect);
 
         receiverSelect.setAdapter(ArrayAdapter.createFromResource(this,
                 R.array.usernames, android.R.layout.simple_spinner_item));
 
         logWindow.setMovementMethod(new ScrollingMovementMethod());
-        commandField.setOnKeyListener(new View.OnKeyListener() {
+        messageField.setOnKeyListener(new View.OnKeyListener() {
             @Override
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
-                    bleSend(commandField.getText().toString());
-                    logWindow.append("-> " + commandField.getText() + "\n");
-                    Log.i("ConnectedActivity", "Sending " + commandField.getText());
+                    String receiver = receiverSelect.getSelectedItem().toString();
+                    bleSend(GAPService.concat(LogInActivity.getAppId(receiver), messageField.getText().toString().getBytes()));
+                    logWindow.append(receiver + " -> " + messageField.getText() + "\n");
+                    Log.i("ConnectedActivity", "Sending " + messageField.getText());
                 }
                 return false;
             }

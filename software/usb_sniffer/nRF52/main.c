@@ -135,7 +135,6 @@ int main(void)
         nrf_drv_gpiote_out_toggle(LED_PIN);
         spim_protocol_start();
         rtt_write_string("SPI START\n");
-        nrf_delay_ms(50);
         do {
             spim_buff = spim_protocol_next();
             rtt_printf(0,"SPI response length :%u\n", spim_buff->length);

@@ -98,16 +98,33 @@ public class GAPService extends Service {
         }
     }
 
-    private String parseByteArray(byte[] value) {
+    private static String parseByteArray(byte[] value) {
         return new String(value);
     }
 
+    // Copied from https://stackoverflow.com/questions/5513152/easy-way-to-concatenate-two-byte-arrays by Jonathan
+    public static byte[] concat(byte[] a, byte[] b) {
+        byte[] c = new byte[a.length + b.length];
+        System.arraycopy(a, 0, c, 0, a.length);
+        System.arraycopy(b, 0, c, a.length, b.length);
+        return c;
+    }
+
     public void send(String s) {
-        if (s.length() < currentMTU) {
-            bleUartChara.setValue(s);
-            deviceGatt.writeCharacteristic(bleUartChara);
-        } else {
-            int numberOfTransmissions = s.length() / currentMTU + s.length() % currentMTU;
+        Log.e("GAP Service", "Sending : " + s + "\n");
+        bleUartChara.setValue(s);
+        deviceGatt.writeCharacteristic(bleUartChara);
+        if (s.length() > currentMTU) {
+            Log.e("GAP Service", "Cannot send all the data");
+        }
+    }
+
+    public void send(byte[] b) {
+        Log.e("GAP Service", "Sending : " + Arrays.toString(b) + "\n");
+        bleUartChara.setValue(b);
+        deviceGatt.writeCharacteristic(bleUartChara);
+        if (b.length > currentMTU) {
+            Log.e("GAP Service", "Cannot send all the data");
         }
     }
 

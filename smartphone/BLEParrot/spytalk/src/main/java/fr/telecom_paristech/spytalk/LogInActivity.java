@@ -13,6 +13,19 @@ public class LogInActivity extends AppCompatActivity {
     public static final byte[] APP_ID_BLUE = {0x05};
     public static final byte[] APP_ID_PINK = {0x06};
 
+    public static byte[] getAppId(String username) {
+        switch (username) {
+            case "Jaune":
+                return APP_ID_YELLOW;
+            case "Bleu":
+                return APP_ID_BLUE;
+            case "Rose":
+                return APP_ID_PINK;
+            default:
+                throw new NullPointerException("User not defined");
+        }
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
