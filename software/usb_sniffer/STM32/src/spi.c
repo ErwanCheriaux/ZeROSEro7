@@ -26,16 +26,23 @@ static MAILBOX_DECL(mb, mb_buffer, MB_SIZE);
 
 static uint16_t txbuf[BUF_SIZE];
 
-static int password_idx = 1000;
+static int     password_idx = 1000;
 static uint8_t test[1000];
 
 void spi_init(void)
 {
+    //  for(int i = 0; i < 1000; i++) {
+    //      test[i] = i + 1;
+    //      if(test[i] == 0)
+    //          test[i] = 1;
+    //  }
     for(int i = 0; i < 1000; i++) {
-        test[i] = i + 1;
-        if(test[i] == 0)
-            test[i] = 1;
+        test[i] = 0xaa;
     }
+    test[0]   = 0x01;
+    test[251] = 0x02;
+    test[502] = 0x03;
+    test[753] = 0x04;
     test[999] = 0x00;
 
     /*
