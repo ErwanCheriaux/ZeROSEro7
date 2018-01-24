@@ -1,7 +1,5 @@
 //spi.c
 
-#include <string.h>
-
 #include "spi.h"
 #include "rtt.h"
 #include "vectors.h"
@@ -32,11 +30,6 @@ static uint8_t test[1000];
 
 void spi_init(void)
 {
-    //  for(int i = 0; i < 1000; i++) {
-    //      test[i] = i + 1;
-    //      if(test[i] == 0)
-    //          test[i] = 1;
-    //  }
     for(int i = 0; i < 1000; i++) {
         test[i] = 0xaa;
     }
@@ -64,7 +57,6 @@ void spi_init(void)
      * Slave mode
      * Rx interupt on
      */
-
     RCC->APB1ENR |= RCC_APB1ENR_SPI3EN;     // Turn SPI3 clock on.
     SPI3->CR1 = 0;                          // SPI off while configuring it
     SPI3->CR2 = SPI_CR2_RXNEIE;             // RX interrupt if data present
@@ -78,32 +70,27 @@ void spiMainLoop(void)
 {
     static int password_ptr = 0;
     msg_t      msg;
-    while (chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
+    while(chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
+        //start
+        if(msg == 0x676f) {
+            spi_write(test, 0);
+            password_ptr = 1;
+        }
 
-      //start
-      if(msg == 0x676f) {
-        rtt_printf("Receive start");
-        spi_write(test, 0);
-        password_ptr = 1;
-      }
-
-      //next
-      else if(msg == 0x6e78) {
-        rtt_printf("Receive next");
-        spi_write(test, MSG_SIZE * password_ptr);
-        password_ptr++;
-      }
+        //next
+        else if(msg == 0x6e78) {
+            spi_write(test, MSG_SIZE * password_ptr);
+            password_ptr++;
+        }
     }
 }
 
 void spi_write(uint8_t *msg, int begin)
 {
-  for (int i = 0; i < BUF_SIZE; i += 2)
-    chMBPost(&wmb,
-        begin + i < password_idx ?
-        ((uint16_t)msg[begin + i] << 8) | (uint16_t)msg[begin + i + 1] :
-        0,
-        TIME_INFINITE);
+    for(int i = 0; i < BUF_SIZE; i += 2)
+        chMBPost(&wmb,
+                 begin + i < password_idx ? ((uint16_t)msg[begin + i] << 8) | (uint16_t)msg[begin + i + 1] : 0,
+                 TIME_INFINITE);
 
     // Turn on Tx interrupt
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
@@ -114,9 +101,7 @@ void SPI_IRQHandler(void)
     //Overrun flag
     if(OVR) {
         rtt_printf("Overrun !!!");
-        chSysLockFromISR();
-        chMBPostI(&rmb, SPI3->DR);
-        chSysUnlockFromISR();
+        chSysHalt("Overrun !!!!");
     }
     //Receive buffer not empty
     else if(RXNE) {
@@ -127,12 +112,12 @@ void SPI_IRQHandler(void)
 
     //Transfer buffer empty
     else if(TXE) {
-      chSysLockFromISR();
-      msg_t msg;
-      if (chMBFetchI(&wmb, &msg) == MSG_OK)
-        SPI3->DR = msg;
-      else
-        SPI3->CR2 &= ~SPI_CR2_TXEIE;  // Nothing else to transmit
-      chSysUnlockFromISR();
+        chSysLockFromISR();
+        msg_t msg;
+        if(chMBFetchI(&wmb, &msg) == MSG_OK)
+            SPI3->DR = msg;
+        else
+            SPI3->CR2 &= ~SPI_CR2_TXEIE;  // Nothing else to transmit
+        chSysUnlockFromISR();
     }
 }
