@@ -137,15 +137,6 @@ int main(void)
     static buffer_t* spim_buff;
     while(true) {
         sd_app_evt_wait();
-        /*
-        nrf_drv_gpiote_out_toggle(LED_PIN);
-        spim_protocol_start();
-        rtt_write_string("SPI START\n");
-        do {
-            spim_buff = spim_protocol_next();
-            rtt_printf(0, "SPI response length :%u\n", spim_buff->length);
-            nrf_delay_ms(300);
-        } while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE);*/
     }
 
     return 0;
