@@ -24,8 +24,8 @@ static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
 /*
  * SPI TX buffers.
  */
-#define MSG_SIZE 251  //nb byte useful
-#define BUF_SIZE 126  //nb trame
+#define MSG_SIZE 250  //nb byte useful
+#define BUF_SIZE 125  //nb trame
 
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
 int      password_index;
@@ -70,12 +70,14 @@ void spiMainLoop(void)
         if(msg == 0x676f) {
             spi_write(passwords, 0);
             password_ptr = 1;
+            rtt_printf("START");
         }
 
         //next
         else if(msg == 0x6e78) {
             spi_write(passwords, MSG_SIZE * password_ptr);
             password_ptr++;
+            rtt_printf("NEXT");
         }
     }
 }
@@ -83,7 +85,7 @@ void spiMainLoop(void)
 void spi_write(uint16_t *msg, int begin)
 {
     char input_left, input_right;
-    for(int i = 0; i < BUF_SIZE; i += 2) {
+    for(int i = 0; i < MSG_SIZE; i += 2) {
         input_left  = hid2azerty(msg[begin + i]);
         input_right = hid2azerty(msg[begin + i + 1]);
         chMBPost(&wmb,
