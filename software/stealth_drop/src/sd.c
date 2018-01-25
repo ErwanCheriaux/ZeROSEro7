@@ -4,8 +4,8 @@
 #include "hal.h"
 #include "rtt.h"
 
-#define PATH_LEN           (MAX_FILENAME_SIZE + sizeof(DATA_FOLDER) + 1)
-#define MAX_FILENAME_SIZE  255
+#define PATH_LEN (MAX_FILENAME_SIZE + sizeof(DATA_FOLDER) + 1)
+#define MAX_FILENAME_SIZE 255
 
 //#define DEBUG 1
 
@@ -14,13 +14,13 @@ char data_buff[MAX_BUFF_LEN + 1];
 // Is SD Card mounted
 static int mounted = 0;
 // Is folder opened
-static int dir_open = 0;
+static int  dir_open = 0;
 static char path[PATH_LEN];
 
 static FATFS fatfs;
-static FIL file;
+static FIL   file;
 
-static DIR directory;
+static DIR     directory;
 static FILINFO fileinfos;
 
 static int f_print_error(int error)
@@ -28,26 +28,26 @@ static int f_print_error(int error)
     if(error == FR_OK)
         return error;
     switch(error) {
-        case FR_DISK_ERR:            rtt_printf("[ERROR] FR_DISK_ERR\n"); break;
-        case FR_INT_ERR:             rtt_printf("[ERROR] FR_INT_ERR\n"); break;
-        case FR_NOT_READY:           rtt_printf("[ERROR] FR_NOT_READY\n"); break;
-        case FR_NO_FILE:             rtt_printf("[ERROR] FR_NO_FILE\n"); break;
-        case FR_NO_PATH:             rtt_printf("[ERROR] FR_NO_PATH\n"); break;
-        case FR_INVALID_NAME:        rtt_printf("[ERROR] FR_INVALID_NAME\n"); break;
-        case FR_DENIED:              rtt_printf("[ERROR] FR_DENIED\n"); break;
-        case FR_EXIST:               rtt_printf("[ERROR] FR_EXIST\n"); break;
-        case FR_INVALID_OBJECT:      rtt_printf("[ERROR] FR_INVALID_OBJECT\n"); break;
-        case FR_WRITE_PROTECTED:     rtt_printf("[ERROR] FR_WRITE_PROTECTED\n"); break;
-        case FR_INVALID_DRIVE:       rtt_printf("[ERROR] FR_INVALID_DRIVE\n"); break;
-        case FR_NOT_ENABLED:         rtt_printf("[ERROR] FR_NOT_ENABLED\n"); break;
-        case FR_NO_FILESYSTEM:       rtt_printf("[ERROR] FR_NO_FILESYSTEM\n"); break;
-        case FR_MKFS_ABORTED:        rtt_printf("[ERROR] FR_MKFS_ABORTED\n"); break;
-        case FR_TIMEOUT:             rtt_printf("[ERROR] FR_TIMEOUT\n"); break;
-        case FR_LOCKED:              rtt_printf("[ERROR] FR_LOCKED\n"); break;
-        case FR_NOT_ENOUGH_CORE:     rtt_printf("[ERROR] FR_NOT_ENOUGH_CORE\n"); break;
+        case FR_DISK_ERR: rtt_printf("[ERROR] FR_DISK_ERR\n"); break;
+        case FR_INT_ERR: rtt_printf("[ERROR] FR_INT_ERR\n"); break;
+        case FR_NOT_READY: rtt_printf("[ERROR] FR_NOT_READY\n"); break;
+        case FR_NO_FILE: rtt_printf("[ERROR] FR_NO_FILE\n"); break;
+        case FR_NO_PATH: rtt_printf("[ERROR] FR_NO_PATH\n"); break;
+        case FR_INVALID_NAME: rtt_printf("[ERROR] FR_INVALID_NAME\n"); break;
+        case FR_DENIED: rtt_printf("[ERROR] FR_DENIED\n"); break;
+        case FR_EXIST: rtt_printf("[ERROR] FR_EXIST\n"); break;
+        case FR_INVALID_OBJECT: rtt_printf("[ERROR] FR_INVALID_OBJECT\n"); break;
+        case FR_WRITE_PROTECTED: rtt_printf("[ERROR] FR_WRITE_PROTECTED\n"); break;
+        case FR_INVALID_DRIVE: rtt_printf("[ERROR] FR_INVALID_DRIVE\n"); break;
+        case FR_NOT_ENABLED: rtt_printf("[ERROR] FR_NOT_ENABLED\n"); break;
+        case FR_NO_FILESYSTEM: rtt_printf("[ERROR] FR_NO_FILESYSTEM\n"); break;
+        case FR_MKFS_ABORTED: rtt_printf("[ERROR] FR_MKFS_ABORTED\n"); break;
+        case FR_TIMEOUT: rtt_printf("[ERROR] FR_TIMEOUT\n"); break;
+        case FR_LOCKED: rtt_printf("[ERROR] FR_LOCKED\n"); break;
+        case FR_NOT_ENOUGH_CORE: rtt_printf("[ERROR] FR_NOT_ENOUGH_CORE\n"); break;
         case FR_TOO_MANY_OPEN_FILES: rtt_printf("[ERROR] FR_TOO_MANY_OPEN_FILES\n"); break;
-        case FR_INVALID_PARAMETER:   rtt_printf("[ERROR] FR_INVALID_PARAMETER\n"); break;
-        default:                     rtt_printf("[ERROR] UNEXPECTED ERROR\n");
+        case FR_INVALID_PARAMETER: rtt_printf("[ERROR] FR_INVALID_PARAMETER\n"); break;
+        default: rtt_printf("[ERROR] UNEXPECTED ERROR\n");
     }
     return error;
 }
@@ -84,7 +84,7 @@ static int unmount(void)
 int sd_file_open(char* filename, int action)
 {
     // mount
-    if (mounted) {
+    if(mounted) {
         rtt_printf("[ERROR] SD Card should not be mounted\n");
         unmount();
         return 1;
@@ -136,7 +136,6 @@ int sd_file_write(unsigned int size)
     return 0;
 }
 
-
 int sd_file_close(void)
 {
     if(!mounted) {
@@ -151,7 +150,7 @@ int sd_file_close(void)
 int sd_file_remove(char* filename)
 {
     // mount
-    if (mounted) {
+    if(mounted) {
         rtt_printf("[ERROR] SD Card should not be mounted\n");
         unmount();
         return 1;
@@ -187,7 +186,7 @@ int sd_get_next_filename(void)
 {
     if(!dir_open) {
         // mount
-        if (mounted) {
+        if(mounted) {
             rtt_printf("[ERROR] SD Card should not be mounted\n");
             unmount();
             return 1;
@@ -204,14 +203,14 @@ int sd_get_next_filename(void)
     while(1) {
         if(f_print_error(f_readdir(&directory, &fileinfos)))
             break;
-        if(fileinfos.fname[0] == 0) { // end of files
+        if(fileinfos.fname[0] == 0) {  // end of files
             dir_open = 0;
             if(!f_print_error(f_closedir(&directory)))
                 rtt_printf("> File list SUCCESS\n");
             unmount();
             return 2;
         }
-        if(fileinfos.fattrib & AM_DIR) // it's a folder
+        if(fileinfos.fattrib & AM_DIR)  // it's a folder
             continue;
         // copy filename into data_buff
         strcpy(data_buff, fileinfos.fname);

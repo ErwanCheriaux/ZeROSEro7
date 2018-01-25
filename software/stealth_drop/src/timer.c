@@ -4,7 +4,7 @@
 
 static virtual_timer_t timerv;
 static int             rearm = 0;
-static void(*          func)(void);
+static void (*func)(void);
 
 static void timercb(void *arg)
 {

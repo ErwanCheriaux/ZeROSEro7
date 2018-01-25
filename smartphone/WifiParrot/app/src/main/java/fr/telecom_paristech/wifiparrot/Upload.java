@@ -30,7 +30,7 @@ public class Upload extends Transfer
         FileInputStream fileInputStream;
         try{
             fileInputStream = new FileInputStream(selectedFile);
-            byte[] data = new byte[BUFF_LEN_UPLOAD];
+            byte[] data = new byte[BUFF_LEN];
             int dataLen;
             int conn_res = mTcpClient.openSocket();
             if(conn_res != 0)
@@ -38,7 +38,7 @@ public class Upload extends Transfer
             mTcpClient.send(START_SEQ + "U" + filename + "\n");
             while ((dataLen = fileInputStream.read(data)) != -1) {
                 mTcpClient.send(data, dataLen);
-                Thread.sleep(100);
+                Thread.sleep(200);
             }
             fileInputStream.close();
             String response = mTcpClient.receive_line(0); // disable timeout

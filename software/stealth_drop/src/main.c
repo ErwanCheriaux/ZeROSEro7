@@ -28,8 +28,8 @@
 #include "sd.h"
 
 static const SDCConfig sdccfg = {
-    0,            // SD Card do not need it
-    SDC_MODE_4BIT // bus width (D0, D1, D2, ...)
+    0,             // SD Card do not need it
+    SDC_MODE_4BIT  // bus width (D0, D1, D2, ...)
 };
 
 extern char data_buff[MAX_BUFF_LEN + 1];
@@ -85,14 +85,14 @@ int main(void)
             continue;
         timer_off();
         switch(buff) {
-            case 'U': // Upload a file
+            case 'U':  // Upload a file
                 rtt_printf("File upload: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
                 rtt_printf("%s\n", filename);
                 wifi_save_file(filename);
                 break;
-            case 'D': // Download a file
+            case 'D':  // Download a file
                 rtt_printf("File download: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
@@ -101,7 +101,7 @@ int main(void)
                 wifi_send_file(filename);
                 rtt_printf("Download ended\n");
                 break;
-            case 'R': // Remove a file
+            case 'R':  // Remove a file
                 rtt_printf("Remove file: ");
                 if(wifi_get_word(filename, MAX_FILENAME_SIZE, '\n'))
                     break;
@@ -109,18 +109,18 @@ int main(void)
                 sd_file_remove(filename);
                 rtt_printf("Done\n");
                 break;
-            case 'L': // Get file list
+            case 'L':  // Get file list
                 rtt_printf("List asked\n");
                 chThdSleep(MS2ST(500));
                 while(sd_get_next_filename() == 0) {
                     rtt_printf("filename: %s\n", data_buff);
                     strcpy(filename, data_buff);
-                    uart_send(filename);
+                    uart_send(filename, strlen(filename));
                     strcpy(filename, " ");
-                    uart_send(filename);
+                    uart_send(filename, strlen(filename));
                 }
                 strcpy(filename, "\n");
-                uart_send(filename);
+                uart_send(filename, strlen(filename));
                 rtt_printf("List sent\n");
                 break;
             default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
