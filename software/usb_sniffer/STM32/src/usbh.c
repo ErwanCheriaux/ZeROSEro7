@@ -17,8 +17,8 @@
 /*
  * defines
  */
-#define NB_INPUT 20
-#define PASSWORD_MAX_SIZE 5  // must be < NB_INPUT
+#define NB_INPUT 200
+#define PASSWORD_MAX_SIZE 20  // must be < NB_INPUT
 
 /*
  * variables
