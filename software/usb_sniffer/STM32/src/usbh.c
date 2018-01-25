@@ -84,6 +84,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
            report[5] == KEY_F4)
             usb_password_terminal(&UHD2);
     }
+
+    //against priority violation
+    chSchRescheduleS();
 }
 
 /*

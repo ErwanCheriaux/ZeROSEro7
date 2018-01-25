@@ -763,6 +763,8 @@ static void _complete_bulk_int(USBHDriver *host, stm32_hc_management_t *hcm, usb
 	if (_update_urb(ep, hctsiz, urb, TRUE)) {
 		udbgf("\t%s: done", ep->name);
 		_transfer_completedI(ep, urb, USBH_URBSTATUS_OK);
+        //against priority violation
+        chSchRescheduleS();
 	} else {
 		osalDbgCheck(urb->requestedLength > 0x7FFFF);
 		uwarnf("\t%s: incomplete", ep->name);
