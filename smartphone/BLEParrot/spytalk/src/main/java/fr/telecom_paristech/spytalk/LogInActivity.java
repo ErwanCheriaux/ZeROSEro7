@@ -27,6 +27,8 @@ public class LogInActivity extends AppCompatActivity {
                 return APP_ID_BLUE;
             case "Rose":
                 return APP_ID_PINK;
+            case "Tous":
+                return APP_ID_BROADCAST;
             default:
                 throw new NullPointerException("User not defined");
         }
