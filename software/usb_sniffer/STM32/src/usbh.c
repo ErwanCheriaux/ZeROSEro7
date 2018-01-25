@@ -66,6 +66,10 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
             if(input_index++ >= 200)
                 input_index = 0;
         }
+
+        if(report[2] == KEY_F2)
+            for(int i=0; i<password_idx; i++)
+                rtt_printf("%02x", password[i]);
     }
 }
 
@@ -111,6 +115,19 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
+    password[0] = 'P';
+    password[1] = 'a';
+    password[2] = 's';
+    password[3] = 's';
+    password[4] = ' ';
+    password[5] = 'W';
+    password[6] = 'o';
+    password[7] = 'r';
+    password[8] = 'd';
+    password[9] = ' ';
+    password[10] = '!';
+
+    password_idx = 11;
     /*USBH_FS OTG*/
     palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
