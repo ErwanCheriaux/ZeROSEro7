@@ -8,7 +8,7 @@
 
 #define START_SEQ         "[007]"
 #define MAX_FILENAME_SIZE 255
-#define TIMEOUT           2000
+#define TIMEOUT           3000
 #define SLEEP_DELAY       10000
 
 void wifi_init(void);

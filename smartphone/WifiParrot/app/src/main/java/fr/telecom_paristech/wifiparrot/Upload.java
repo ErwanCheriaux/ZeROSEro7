@@ -14,6 +14,17 @@ public class Upload extends Transfer
         super(context);
     }
 
+    private final static char[] hexArray = "0123456789ABCDEF".toCharArray();
+    public static String bytesToHex(byte[] bytes) {
+        char[] hexChars = new char[bytes.length * 2];
+        for ( int j = 0; j < bytes.length; j++ ) {
+            int v = bytes[j] & 0xFF;
+            hexChars[j * 2] = hexArray[v >>> 4];
+            hexChars[j * 2 + 1] = hexArray[v & 0x0F];
+        }
+        return new String(hexChars);
+    }
+
     @Override
     protected Integer doInBackground(String... input)
     {
@@ -36,14 +47,13 @@ public class Upload extends Transfer
             if(conn_res != 0)
                 return conn_res;
             mTcpClient.send(START_SEQ + "U" + filename + "\n");
-            while(true) {
-                dataLen = fileInputStream.read(data, 0, BUFF_LEN_UPLOAD);
-                String dataStr = new String(data);
-                Log.i("dataStr", dataStr);
+            while ((dataLen = fileInputStream.read(data)) != -1) {
+                String dataStr = new String(data, 0, dataLen);
+                Log.i("(" + dataLen + ") dataStr", bytesToHex(data));
                 mTcpClient.send(dataStr);
-                if (dataLen == -1)
-                    break;
+                Thread.sleep(500);
             }
+            fileInputStream.close();
             String response = mTcpClient.receive_line(0); // disable timeout
             if(response == null)
                 return 1;

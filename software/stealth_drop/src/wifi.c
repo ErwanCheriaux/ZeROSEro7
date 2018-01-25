@@ -96,19 +96,16 @@ int wifi_command(void* buff, int timeout)
 
 void wifi_save_file(char* filename)
 {
-    int nb_char_received;
+    unsigned int nb_char_received;
     sd_file_open(filename, FA_WRITE);
     while((nb_char_received = uart_receive_timeout(data_buff, MAX_BUFF_LEN, MS2ST(TIMEOUT)))) {
-        data_buff[nb_char_received] = '\0';
-        if(nb_char_received) {
 #ifdef DEBUG
-            rtt_printf("(%d)", nb_char_received);
-            for(int i = 0; i < nb_char_received; i++)
-                rtt_printf("%d - %02X (%c)\n", i, data_buff[i], data_buff[i]);
-            SEGGER_RTT_Write(0, data_buff, nb_char_received);
+        rtt_printf("(%d)\n", nb_char_received);
+        /*for(int i = 0; i < nb_char_received; i++)
+            rtt_printf("%d - %02X (%c)\n", i, data_buff[i], data_buff[i]);*/
+        //SEGGER_RTT_Write(0, data_buff, nb_char_received);
 #endif
-            sd_file_write();
-        }
+        sd_file_write(nb_char_received);
     }
     sd_file_close();
     rtt_printf("\n");
@@ -129,10 +126,11 @@ void wifi_send_file(char* filename)
     do {
         sd_file_read(&bytes_read);
 #ifdef DEBUG
-        rtt_printf("data_read: %s\n", data_buff);
+        //rtt_printf("data_read: %s\n", data_buff);
 #endif
         if(bytes_read)
             uart_send(data_buff);
+        chThdSleep(MS2ST(500));
     } while(bytes_read != 0);
     sd_file_close();
     rtt_printf("Download finished\n");

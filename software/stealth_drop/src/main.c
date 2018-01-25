@@ -48,9 +48,8 @@ int main(void)
 
     led_on();
 
-    wifi_break_stream_mode();
-    //wifi_sleep();
-    wifi_configure();
+    //wifi_break_stream_mode();
+    //wifi_configure();
 
     // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
@@ -60,7 +59,7 @@ int main(void)
     char filename_test[] = "test.txt";
     strcpy(data_buff, "If you see this message, Read and Write functions are working !\n");
     sd_file_open(filename_test, FA_WRITE);
-    sd_file_write();
+    sd_file_write(strlen(data_buff));
     sd_file_close();
     sd_file_open(filename_test, FA_READ);
     unsigned int bytes_read = 0;

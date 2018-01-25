@@ -33,7 +33,7 @@ public class TcpClient
 
     public void send(String message) {
         if (mBufferOut != null && !mBufferOut.checkError()) {
-            mBufferOut.println(message);
+            mBufferOut.print(message);
             mBufferOut.flush();
         } else
             Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
@@ -74,7 +74,7 @@ public class TcpClient
                 Log.i("Download buffer", "EOF reached");
                 return null;
             }
-            return String.valueOf(buffer);
+            return String.valueOf(buffer).replace("\0", "");
         } catch(SocketTimeoutException e) {
             Log.i("TCP receive", "Timeout");
         } catch (IOException e) {

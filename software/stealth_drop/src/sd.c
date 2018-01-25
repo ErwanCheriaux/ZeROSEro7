@@ -114,20 +114,19 @@ int sd_file_open(char* filename, int action)
     return 0;
 }
 
-int sd_file_write(void)
+int sd_file_write(unsigned int size)
 {
-    unsigned int data_written = 0;;
-    unsigned int buff_len = strlen(data_buff);
+    unsigned int data_written = 0;
     if(!mounted) {
         rtt_printf("[ERROR] SD Card is not mounted\n");
         return 1;
     }
-    if(f_print_error(f_write(&file, data_buff, buff_len, &data_written))) {
+    if(f_print_error(f_write(&file, data_buff, size, &data_written))) {
         unmount();
         return 1;
     }
-    if(data_written != buff_len) {
-        rtt_printf("[ERROR] %d bytes were written but %d must be writted\n", data_written, buff_len);
+    if(data_written != size) {
+        rtt_printf("[ERROR] %d bytes were written but %d must be writted\n", data_written, size);
         unmount();
         return 1;
     }
