@@ -6,21 +6,20 @@
 
 /*
 *   SPI Master control for handling our custom protocol.
-*   We exchange 251 bytes packets of data via SPI between the nRF52 and STM32
-*   The master starts the transmission with the "go" message and the slave responds with 251 bytes
+*   We exchange 250 bytes packets of data via SPI between the nRF52 and STM32
+*   The master starts the transmission with the "go" message and the slave responds with 250 bytes
 *   The master then sends the "nx" message to receive the following packets.
 *   The master can repeat a data with the "ha" message.
 *   The slave can say it is the end of data with 0x00.
 *
-*   We chose 251 bytes because it is the max MTU for BLE on the nRF52.
-*   Transactions are 252 for alignment to 16bits, last byte is unused.
+*   We chose 250 bytes because 251 is the max MTU for BLE on the nRF52.
 *   Repeat functionnality is here in case the phone is disconnected during the transfer.
 */
 
-// We use bloqcking spi transfers without much loss of performance
+// We use blocking spi transfers without much loss of performance
 // Because of the length of BLE transaction
 
-#define SPIM_PROTOCOL_PACKET_SIZE NRF_SDH_BLE_GATT_MAX_MTU_SIZE
+#define SPIM_PROTOCOL_PACKET_SIZE (NRF_SDH_BLE_GATT_MAX_MTU_SIZE-1) // 250
 
 typedef struct {
     uint8_t* data;

@@ -65,6 +65,9 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             case LogInActivity.PINK_ADDR:
                 logWindow.append("Rose ");
                 break;
+            default:
+                logWindow.append("Unknown ");
+                break;
         }
 
         byte[] slice = Arrays.copyOfRange(msg, 1, msg.length);

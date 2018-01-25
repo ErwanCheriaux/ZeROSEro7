@@ -9,7 +9,7 @@
 #define REPEAT_MESSAGE ((uint8_t*)"ha")
 #define NEXT_MESSAGE ((uint8_t*)"nx")
 
-#define TRANSFER_SIZE (SPIM_PROTOCOL_PACKET_SIZE + 1)  // last byte for parity because STM reads by 16 bits
+#define TRANSFER_SIZE (SPIM_PROTOCOL_PACKET_SIZE)
 
 static uint8_t rx_buffer[TRANSFER_SIZE];  // SPI MISO
 static uint8_t tx_buffer[TRANSFER_SIZE];  // SPI MOSI
@@ -46,13 +46,15 @@ static void prepare_tx_buffer(uint8_t* command)
 void spim_protocol_start()
 {
     prepare_tx_buffer(START_MESSAGE);
+    nrf_delay_ms(10);
     spim_transfer(rx_buffer, tx_buffer, TRANSFER_SIZE);
-    nrf_delay_ms(10);  // Workaround Nordic SDK erroneous transfer size.
 
-    // Workaround for erroneous STM32 behavior FIXME
-    //nrf_delay_ms(50);
-    //spim_protocol_next();
-    //nrf_delay_ms(50);
+    // Workaround Nordic SDK cutting a 16 bit packet in two
+    prepare_tx_buffer(START_MESSAGE);
+    nrf_delay_ms(10);
+    spim_transfer(rx_buffer, tx_buffer, TRANSFER_SIZE);
+    nrf_delay_ms(10);
+
 }
 
 buffer_t* spim_protocol_next()

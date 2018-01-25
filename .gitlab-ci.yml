@@ -31,7 +31,7 @@ lint_main:
 
 lint_apps:
   stage: lint
-  image : greyfoxit/alpine-android
+  image : lpzantony/sdk
   script:
     - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
@@ -76,7 +76,7 @@ build_main:
 
 build_apps:
   stage: build
-  image : greyfoxit/alpine-android
+  image : lpzantony/little-brosers
   script:
     - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone

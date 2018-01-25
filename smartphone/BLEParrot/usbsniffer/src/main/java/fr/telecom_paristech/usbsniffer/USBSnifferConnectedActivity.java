@@ -1,17 +1,13 @@
 package fr.telecom_paristech.usbsniffer;
 
 import android.app.AlertDialog;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.TextView;
 
-import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 import blecommon.ConnectedActivity;
 import blecommon.GAPService;
@@ -84,7 +80,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
 
     private void initiateTransfer() {
         bleSend("Would you kindly ?");
-        Log.i("ConnectedActivity","Initiating transfert");
+        Log.i("ConnectedActivity", "Initiating transfert");
     }
 
     @Override
