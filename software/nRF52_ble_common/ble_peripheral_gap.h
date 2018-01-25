@@ -8,7 +8,7 @@
 
 // Init from ble_central is required before this init
 void ble_gap_init();
-void ble_advertise_init(uint8_t app_id);    // app_id expected in Manufacturer data on both sides of the advertisement to distinguish devices and apps
+void ble_advertise_init(uint8_t app_id);  // app_id expected in Manufacturer data on both sides of the advertisement to distinguish devices and apps
 void ble_conn_negociation_init();
 
 // Advertises for 120 seconds

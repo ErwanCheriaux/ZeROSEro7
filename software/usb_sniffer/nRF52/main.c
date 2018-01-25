@@ -126,7 +126,7 @@ int main(void)
     ble_conn_negociation_init();
     rtt_write_string("BLE initialized\n");
     ble_start_observing();
-    ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
+    ble_peripheral_start_advertising();
     rtt_write_string("Now observing BLE\n");
 
     sniffer_led_init();

@@ -28,6 +28,21 @@ static void log_init(void)
 }
 
 #define LED_PIN 19
+#define STM_WKUP_PIN 8
+
+static void wakeup_stm_init()
+{
+    static nrf_drv_gpiote_out_config_t stm_wkup_config = {
+        NRF_GPIOTE_POLARITY_TOGGLE,
+        NRF_GPIOTE_INITIAL_VALUE_LOW,
+        false};
+    APP_ERROR_CHECK(nrf_drv_gpiote_out_init(STM_WKUP_PIN, &stm_wkup_config));
+}
+
+static void wakup_stm_toggle()
+{
+    nrf_drv_gpiote_out_toggle(STM_WKUP_PIN);
+}
 
 static void stealth_drop_led_init()
 {
@@ -35,26 +50,23 @@ static void stealth_drop_led_init()
         NRF_GPIOTE_POLARITY_TOGGLE,
         NRF_GPIOTE_INITIAL_VALUE_LOW,
         false};
-    nrf_drv_gpiote_init();
     APP_ERROR_CHECK(nrf_drv_gpiote_out_init(LED_PIN, &led_config));
 }
 
-/*
-    Spi master test code for communicating with the STM.
+static void do_nothing()
+{
+}
 
-    SPI Parameters are :
-    CPOL = 0 and CPHA = 0 in Motorola/Freescale nomenclature.
-    4 MHz Frequency
+static void phone_noticed_handler()
+{
+    rtt_write_string("Phone detected, waking up the STM\n");
+    wakup_stm_toggle();
+}
 
-    SPI_SCK_PIN     P6
-    SPI_MISO_PIN    P7
-    SPI_MOSI_PIN    P8
-    SPI_SS_PIN      P5
+static void phone_write_handler(uint8_t* buff, int length)
+{
+}
 
-    Every 100ms, it transfers 1,2,3,4. SPI_SS is held high when not transmitting.
-    If 5,X,X,X is received during the transfer,
-    the data emitted is incremented.
-*/
 int main(void)
 {
     rtt_init();
@@ -63,24 +75,22 @@ int main(void)
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
 
-    ble_stack_init();
-
+    nrf_drv_gpiote_init();
     stealth_drop_led_init();
+    wakeup_stm_init();
 
-    spim_init();
-    rtt_write_string("SPI initialized\n");
+    ble_handler_init(phone_noticed_handler, do_nothing, do_nothing, phone_write_handler, do_nothing);
+    ble_stack_init(STEALTH_DROP_APP_ID);
+    ble_gap_init();
+    ble_gatt_init();
+    ble_advertise_init(STEALTH_DROP_APP_ID);
+    ble_services_init();
+    ble_conn_negociation_init();
+    ble_start_observing();
+    rtt_write_string("BLE observing\n");
 
     while(true) {
-        spim_transfer(rx_buffer, tx_buffer, 4);
-        rtt_write_buffer_hexa(rx_buffer, 4);
-        rtt_write_string("\n");
-        if(rx_buffer[0] == 5) {
-            tx_buffer[0]++;
-            rtt_printf(0, "tx[0] = %u", tx_buffer[0]);
-        }
-        nrf_drv_gpiote_out_toggle(LED_PIN);
-
-        nrf_delay_ms(100);  // TODO Not tested yet
+        sd_app_evt_wait();
     }
 
     return 0;
