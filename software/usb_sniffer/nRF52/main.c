@@ -77,7 +77,7 @@ static void phone_write_handler(uint8_t* buff, int length)
         spim_transfer_ongoing = false;
     }
     rtt_write_string("Sending to phone :\n");
-    rtt_write_buffer(0,spim_received_buffer->data, MIN(40,spim_received_buffer->length));
+    rtt_write_buffer(0, spim_received_buffer->data, MIN(40, spim_received_buffer->length));
     rtt_write_string("\n");
     phone_send_notification(spim_received_buffer->data, spim_received_buffer->length);
 }
