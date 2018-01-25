@@ -4,7 +4,7 @@
 #include "lora.h"
 #include "sx1276Regs-LoRa.h"
 #include "lora_protocol.h"
-#include "custom_board.h"
+#include "board.h"
 
 #define LORA_RX_FRAME 8000  // ms
 #define HEADER_LENGTH 2     // bytes
