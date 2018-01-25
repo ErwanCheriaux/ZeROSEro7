@@ -1,12 +1,11 @@
 package fr.telecom_paristech.wifiparrot;
 
 import android.util.Log;
+
+import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -23,7 +22,7 @@ public class TcpClient
     private static final int TIMEOUT = 4000;
     private static final int BUFF_LEN_DOWNLOAD = 1024;
     // used to send messages
-    private PrintWriter mBufferOut;
+    private BufferedOutputStream mBufferOut;
     // used to read messages from the server
     private BufferedReader mBufferIn;
     private Socket socket;
@@ -31,13 +30,30 @@ public class TcpClient
     public TcpClient()
     {}
 
+    public void send(byte[] message, int len) {
+        try {
+            if (mBufferOut != null) {
+                mBufferOut.write(message, 0, len);
+                mBufferOut.flush();
+            } else
+                Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
+            Log.i("Tcp send", "End of sending");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void send(String message) {
-        if (mBufferOut != null && !mBufferOut.checkError()) {
-            mBufferOut.print(message);
-            mBufferOut.flush();
-        } else
-            Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
-        Log.i("Tcp send", "End of sending");
+        try {
+            if (mBufferOut != null) {
+                mBufferOut.write(message.getBytes());
+                mBufferOut.flush();
+            } else
+                Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
+            Log.i("Tcp send", "End of sending");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String receive_line(int timeout)
@@ -95,7 +111,7 @@ public class TcpClient
             socket.setSoTimeout(TIMEOUT);
             try {
                 //sends the message to the server
-                mBufferOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+                mBufferOut = new BufferedOutputStream(socket.getOutputStream());
                 //receives the message which the server sends back
                 mBufferIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             } catch (Exception e) {
@@ -120,11 +136,15 @@ public class TcpClient
 
     public void stopClient()
     {
-        if (mBufferOut != null) {
-            mBufferOut.flush();
-            mBufferOut.close();
+        try {
+            if (mBufferOut != null) {
+                mBufferOut.flush();
+                mBufferOut.close();
+            }
+            mBufferIn = null;
+            mBufferOut = null;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        mBufferIn = null;
-        mBufferOut = null;
     }
 }
