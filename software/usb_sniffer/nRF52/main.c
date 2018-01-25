@@ -14,7 +14,7 @@
 
 #include "spim_protocol.h"
 
-#define USB_SNIFFER_APP_ID 0x03
+#define USB_SNIFFER_APP_ID 0x02
 
 static buffer_t* spim_received_buffer;
 static bool      spim_transfer_ongoing;
@@ -61,6 +61,9 @@ static void phone_connected_handler()
     if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
         spim_transfer_ongoing = false;
     }
+    rtt_write_string("Sending to phone :\n");
+    rtt_write_buffer(0,spim_received_buffer->data, MIN(40,spim_received_buffer->length));
+    rtt_write_string("\n");
     phone_send_notification(spim_received_buffer->data, spim_received_buffer->length);
 }
 
@@ -115,7 +118,7 @@ int main(void)
 
     ble_handler_init(phone_noticed_handler, phone_connected_handler, phone_disconnected_handler, phone_write_handler, phone_notification_complete_handler);
     ble_stack_init(USB_SNIFFER_APP_ID);
-    /*    ble_gap_init();
+    ble_gap_init();
     ble_gatt_init();
     ble_advertise_init(USB_SNIFFER_APP_ID);
     ble_services_init();
@@ -123,7 +126,7 @@ int main(void)
     rtt_write_string("BLE initialized\n");
     ble_start_observing();
     ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
-    rtt_write_string("Now observing BLE\n");*/
+    rtt_write_string("Now observing BLE\n");
 
     sniffer_led_init();
 
@@ -132,6 +135,8 @@ int main(void)
 
     static buffer_t* spim_buff;
     while(true) {
+        sd_app_evt_wait();
+        /*
         nrf_drv_gpiote_out_toggle(LED_PIN);
         spim_protocol_start();
         rtt_write_string("SPI START\n");
@@ -139,7 +144,7 @@ int main(void)
             spim_buff = spim_protocol_next();
             rtt_printf(0, "SPI response length :%u\n", spim_buff->length);
             nrf_delay_ms(300);
-        } while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE);
+        } while(spim_buff->length == SPIM_PROTOCOL_PACKET_SIZE);*/
     }
 
     return 0;

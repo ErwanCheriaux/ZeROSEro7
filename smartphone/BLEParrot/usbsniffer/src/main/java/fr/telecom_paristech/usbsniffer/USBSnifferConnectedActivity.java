@@ -25,7 +25,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     public void onNotificationReceived(byte[] msg) {
         String s = GAPService.parseByteArray(msg);
 
-        logWindow.append("<- " + msg + "\n");
+        logWindow.append(s);
 
         dumpInFile(s);
 
@@ -47,11 +47,11 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     }
 
     private void dumpInFile(String s) {
-        try {
+        /*try {
             dumpFileStream.write(s.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
@@ -67,7 +67,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     protected void onRestart() {
         super.onRestart();
 
-        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
+        /*String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
         File dumpFile = new File(path, FILENAME);
         if (dumpFile.exists()) {
             dumpFile.delete();
@@ -77,17 +77,17 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
             dumpFileStream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
     public void onStop() {
 
-        try {
+        /*try {
             dumpFileStream.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         super.onStop();
     }
 }

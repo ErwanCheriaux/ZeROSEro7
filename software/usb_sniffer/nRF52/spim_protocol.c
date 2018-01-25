@@ -47,7 +47,7 @@ void spim_protocol_start()
 {
     prepare_tx_buffer(START_MESSAGE);
     spim_transfer(rx_buffer, tx_buffer, TRANSFER_SIZE);
-    nrf_delay_ms(10);  // Workaround on Nordic SDK erroneous transfer size.
+    nrf_delay_ms(10);  // Workaround Nordic SDK erroneous transfer size.
 
     // Workaround for erroneous STM32 behavior FIXME
     //nrf_delay_ms(50);
