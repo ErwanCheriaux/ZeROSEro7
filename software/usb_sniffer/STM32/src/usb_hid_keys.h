@@ -623,25 +623,28 @@ static inline uint16_t get_input_hid(uint8_t *report)
     return ((uint16_t)report[0]) << 8 | (uint16_t)input;
 }
 
-static inline char hid2azerty(uint8_t *report)
+static inline char hid2azerty(uint16_t input)
 {
+    uint8_t modifier = (input >> 8);
+    uint8_t key      = (uint8_t)input;
+
     //no CTRL, WIN and ALT
-    if((report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT ||
-        report[0] == KEY_MOD_RALT || report[0] == 0) &&
-       report[1] != 0) {
+    if((modifier == KEY_MOD_LSHIFT || modifier == KEY_MOD_RSHIFT ||
+        modifier == KEY_MOD_RALT || modifier == 0) &&
+       key != 0) {
         //no NUM lock
-        if(!num_lock && report[1] >= 0x59 && report[1] <= 0x63)
+        if(!num_lock && key >= 0x59 && key <= 0x63)
             return 0x00;
         //MAJ lock
-        else if(((report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT) && !caps_lock) ||
-                ((report[0] != KEY_MOD_LSHIFT && report[0] != KEY_MOD_RSHIFT) && caps_lock))
-            return azerty_maj[report[1]];
+        else if(((modifier == KEY_MOD_LSHIFT || modifier == KEY_MOD_RSHIFT) && !caps_lock) ||
+                ((modifier != KEY_MOD_LSHIFT && modifier != KEY_MOD_RSHIFT) && caps_lock))
+            return azerty_maj[key];
         //ALT Gr pressed
-        else if(report[0] == KEY_MOD_RALT)
-            return azerty_alt[report[1]];
+        else if(modifier == KEY_MOD_RALT)
+            return azerty_alt[key];
         //no modifier
         else
-            return azerty[report[1]];
+            return azerty[key];
     }
 
     return 0x00;

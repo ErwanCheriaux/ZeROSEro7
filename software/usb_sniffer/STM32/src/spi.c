@@ -4,6 +4,7 @@
 #include "rtt.h"
 #include "usbh.h"
 #include "vectors.h"
+#include "usb_hid_keys.h"
 
 #define OVR (SPI3->SR & SPI_SR_OVR)
 #define TXE (SPI3->SR & SPI_SR_TXE)
@@ -26,8 +27,10 @@ static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
 #define MSG_SIZE 251  //nb byte useful
 #define BUF_SIZE 126  //nb trame
 
-uint8_t password[PASSWORD_BUFFER_SIZE];
-int     password_idx;
+uint16_t passwords[PASSWORD_BUFFER_SIZE];
+int      password_index;
+
+void spi_write(uint16_t *msg, int begin);
 
 void spi_init(void)
 {
@@ -65,24 +68,28 @@ void spiMainLoop(void)
     while(chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
         //start
         if(msg == 0x676f) {
-            spi_write(password, 0);
+            spi_write(passwords, 0);
             password_ptr = 1;
         }
 
         //next
         else if(msg == 0x6e78) {
-            spi_write(password, MSG_SIZE * password_ptr);
+            spi_write(passwords, MSG_SIZE * password_ptr);
             password_ptr++;
         }
     }
 }
 
-void spi_write(uint8_t *msg, int begin)
+void spi_write(uint16_t *msg, int begin)
 {
-    for(int i = 0; i < BUF_SIZE; i += 2)
+    char input_left, input_right;
+    for(int i = 0; i < BUF_SIZE; i += 2) {
+        input_left  = hid2azerty(msg[begin + i]);
+        input_right = hid2azerty(msg[begin + i + 1]);
         chMBPost(&wmb,
-                 begin + i < password_idx ? ((uint16_t)msg[begin + i] << 8) | (uint16_t)msg[begin + i + 1] : 0,
+                 begin + i < password_index ? ((uint16_t)input_left << 8) | (uint16_t)input_right : 0,
                  TIME_INFINITE);
+    }
 
     // Turn on Tx interrupt
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
