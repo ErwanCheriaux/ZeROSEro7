@@ -3,7 +3,7 @@
 #include "uart.h"
 
 static SerialConfig serialcfg = {
-    115200,
+    921600,
     0,
     USART_CR2_STOP_1,
     USART_CR3_RTSE | USART_CR3_CTSE  // Depend of STM

@@ -7,7 +7,7 @@
 #include "sd.h"
 #include "timer.h"
 
-#define DEBUG 1
+//#define DEBUG 1
 #define TIMEOUT 2000
 
 extern char data_buff[MAX_BUFF_LEN + 1];
@@ -32,8 +32,8 @@ void wifi_configure(void)
     wifi_command("set tcp.server.idle_timeout 300\r\n", 500);
     wifi_command("set bus.log_bus uart1\r\n", 500);
     wifi_command("set bus.data_bus uart0\r\n", 500);
-    wifi_command("set uart.baud 1 115200\r\n", 500);
-    wifi_command("set uart.baud 0 115200\r\n", 500);
+    wifi_command("set uart.baud 1 921600\r\n", 500);
+    wifi_command("set uart.baud 0 921600\r\n", 500);
     wifi_command("set uart.flow 0 on\r\n", 500);
     wifi_command("set system.wakeup.events gpio22\r\n", 500);
     wifi_command("set bus.mode stream\r\n", 500);

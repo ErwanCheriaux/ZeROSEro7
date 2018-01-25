@@ -125,7 +125,7 @@ int main(void)
                 break;
             default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
         }
-        timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
+        //timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
     }
 
     chThdSleep(TIME_INFINITE);
