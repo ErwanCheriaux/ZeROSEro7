@@ -5,16 +5,20 @@
 #include "uart.h"
 #include "rtt.h"
 #include "sd.h"
+#include "timer.h"
 
-//#define DEBUG 1
+#define DEBUG 1
+#define TIMEOUT 2000
 
 extern char data_buff[MAX_BUFF_LEN + 1];
+
+static int sleep_mode = 0;
 
 void wifi_break_stream_mode(void)
 {
     char buff_break[] = "$$$\r\n";
-    uart_send(buff_break);
-    chThdSleep(MS2ST(1000));
+    uart_send(buff_break, strlen(buff_break));
+    chThdSleep(MS2ST(500));
 }
 
 void wifi_configure(void)
@@ -30,6 +34,8 @@ void wifi_configure(void)
     wifi_command("set bus.data_bus uart0\r\n", 500);
     wifi_command("set uart.baud 1 115200\r\n", 500);
     wifi_command("set uart.baud 0 115200\r\n", 500);
+    wifi_command("set uart.flow 0 on\r\n", 500);
+    wifi_command("set system.wakeup.events gpio22\r\n", 500);
     wifi_command("set bus.mode stream\r\n", 500);
     wifi_command("save\r\n", 1000);
     wifi_command("reboot\r\n", 1000);
@@ -40,27 +46,39 @@ void wifi_configure(void)
 */
 static void wifi_reset_chip(void)
 {
-    palSetPadMode(GPIOB, GPIOA_WIFI_NRST, PAL_MODE_OUTPUT_PUSHPULL);
     palClearPad(GPIOB, GPIOA_WIFI_NRST);  // rst on
     chThdSleep(MS2ST(100));
     palSetPad(GPIOB, GPIOA_WIFI_NRST);  // rst off
     chThdSleep(MS2ST(1000));
 }
 
+static void wifi_sleep(void)
+{
+#ifdef DEBUG
+    rtt_printf("Wifi chip in sleep mode\n");
+#endif
+    wifi_reset_chip();
+    wifi_break_stream_mode();
+    wifi_command("sleep\r\n", 500);
+    sleep_mode = 0;
+}
+
 void wifi_init(void)
 {
     rtt_printf("\n======== WIFI INITIALIZATION ========\n\n");
 #ifdef DEBUG
-    rtt_printf("Error codes:\n"\
-        "  0: Command failed\n"\
-        "  1: Unknown command\n"\
-        "  2: Too few args\n"\
-        "  3: Too many args\n"\
-        "  4: Unknown variable or option\n"\
-        "  5: Invalid argument\n"\
-        "  6: Serial command line buffer overflow\n"\
+    rtt_printf(
+        "Error codes:\n"
+        "  0: Command failed\n"
+        "  1: Unknown command\n"
+        "  2: Too few args\n"
+        "  3: Too many args\n"
+        "  4: Unknown variable or option\n"
+        "  5: Invalid argument\n"
+        "  6: Serial command line buffer overflow\n"
         "  7: Bounds error, command specific, bounds of the command were exceeded\n\n");
 #endif
+    palSetPadMode(GPIOB, GPIOA_WIFI_NRST, PAL_MODE_OUTPUT_PUSHPULL);
     wifi_reset_chip();
 
     uart_init();
@@ -68,52 +86,43 @@ void wifi_init(void)
 
 int wifi_command(void* buff, int timeout)
 {
-    uart_send(buff);
+    uart_send(buff, strlen(buff));
     data_buff[1] = '\0';
     while(uart_receive_timeout(data_buff, 1, MS2ST(timeout)))
 #ifdef DEBUG
         rtt_printf(data_buff)
 #endif
-        ;
+            ;
     return 0;
 }
 
 void wifi_save_file(char* filename)
 {
-    int nb_char_received;
+    unsigned int nb_char_received;
     sd_file_open(filename, FA_WRITE);
     while((nb_char_received = uart_receive_timeout(data_buff, MAX_BUFF_LEN, MS2ST(TIMEOUT)))) {
-        data_buff[nb_char_received] = '\0';
-        if(nb_char_received) {
 #ifdef DEBUG
-            rtt_printf("(%d)%s", nb_char_received, data_buff);
+        rtt_printf("(%d)\n", nb_char_received);
 #endif
-            sd_file_write();
-        }
+        sd_file_write(nb_char_received);
     }
     sd_file_close();
     rtt_printf("\n");
     char response[] = "Success\n";
-    uart_send(response);
+    uart_send(response, strlen(response));
 }
 
 void wifi_send_file(char* filename)
 {
     if(sd_file_open(filename, FA_READ))
         return;
-    char response[] = "Success\n";
-    uart_send(response);
-#ifdef DEBUG
-    rtt_printf("Response sent: %s", response);
-#endif
     unsigned int bytes_read = 0;
     do {
         sd_file_read(&bytes_read);
 #ifdef DEBUG
-        rtt_printf("data_read: %s\n", data_buff);
+        rtt_printf("(%d)\n", bytes_read);
 #endif
-        if(bytes_read)
-            uart_send(data_buff);
+        uart_send(data_buff, bytes_read);
     } while(bytes_read != 0);
     sd_file_close();
     rtt_printf("Download finished\n");
@@ -123,7 +132,7 @@ void wifi_wait_for(char* msg)
 {
     rtt_printf("Waiting for: %s... ", msg);
     unsigned int char_received = 0;
-    data_buff[1] = '\0';
+    data_buff[1]               = '\0';
     while(char_received != strlen(msg)) {
         if(uart_receive_timeout(data_buff, 1, MS2ST(1000))) {
             rtt_printf("%c", data_buff[0]);
@@ -131,7 +140,8 @@ void wifi_wait_for(char* msg)
                 char_received++;
             else
                 char_received = 0;
-        }
+        } else if(sleep_mode)
+            wifi_sleep();
     }
     rtt_printf("received !\n");
 }
@@ -151,4 +161,9 @@ int wifi_get_word(char* buffer, int max_len, char separator)
     }
     buffer[idx] = '\0';
     return 0;
+}
+
+void wifi_sleep_callback(void)
+{
+    sleep_mode = 1;
 }

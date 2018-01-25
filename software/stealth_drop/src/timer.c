@@ -3,15 +3,15 @@
 #include "timer.h"
 
 static virtual_timer_t timerv;
-static bool            run = false;
+static int             rearm = 0;
+static void (*func)(void);
 
 static void timercb(void *arg)
 {
     (void)arg;
-    led_toggle();
-
-    //re arm timer
-    if(run) {
+    func();
+    if(rearm) {
+        //re arm timer
         chSysLockFromISR();
         chVTSetI(&timerv, MS2ST(500), timercb, NULL);
         chSysUnlockFromISR();
@@ -23,13 +23,14 @@ void timer_init(void)
     chVTObjectInit(&timerv);
 }
 
-void timer_on(void)
+void timer_on(int delay, void (*f)(void), int loop)
 {
-    chVTSet(&timerv, MS2ST(500), timercb, NULL);
-    run = true;
+    func = f;
+    chVTSet(&timerv, MS2ST(delay), timercb, NULL);
+    rearm = loop;
 }
 
 void timer_off(void)
 {
-    run = false;
+    chVTReset(&timerv);
 }

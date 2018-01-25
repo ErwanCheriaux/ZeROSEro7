@@ -30,26 +30,12 @@ public class Download extends Transfer
             if(file.exists()) {
                 FileOutputStream fo = new FileOutputStream(file);
                 mTcpClient.send(START_SEQ + "D" + filename + "\n");
-                // check server response
-                String response = mTcpClient.receive_line();
-                if(response == null) {
-                    mTcpClient.closeSocket();
-                    return 1;
-                }
-                Log.i("response", response);
-                if(response.compareTo("No file") == 0) {
-                    mTcpClient.closeSocket();
-                    return 4;
-                }
-                if(response.compareTo("Success") != 0) {
-                    mTcpClient.closeSocket();
-                    return 1;
-                }
                 // get file content
+                byte[] data = new byte[BUFF_LEN];
                 while(true) {
-                    response = mTcpClient.receive();
-                    if(response != null)
-                        fo.write(response.getBytes());
+                    int nb_chars = mTcpClient.receive(data);
+                    if(data != null && nb_chars > 0)
+                        fo.write(data, 0, nb_chars);
                     else
                         break;
                 }

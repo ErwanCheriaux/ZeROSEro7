@@ -1,12 +1,10 @@
 package fr.telecom_paristech.wifiparrot;
 
 import android.util.Log;
-import java.io.BufferedReader;
-import java.io.BufferedWriter;
+
+import java.io.BufferedInputStream;
+import java.io.BufferedOutputStream;
 import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
-import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.InetSocketAddress;
 import java.net.Socket;
@@ -20,24 +18,41 @@ public class TcpClient
 {
     private static final String SERVER_IP = "10.10.10.1"; //server IP address
     private static final int SERVER_PORT = 3000;
-    private static final int TIMEOUT = 4000;
-    private static final int BUFF_LEN_DOWNLOAD = 1024;
+    private static final int TIMEOUT = 3000;
+    private static final int BUFF_LEN = 1024;
     // used to send messages
-    private PrintWriter mBufferOut;
+    private BufferedOutputStream mBufferOut;
     // used to read messages from the server
-    private BufferedReader mBufferIn;
+    private BufferedInputStream mBufferIn;
     private Socket socket;
 
     public TcpClient()
     {}
 
+    public void send(byte[] message, int len) {
+        try {
+            if (mBufferOut != null) {
+                mBufferOut.write(message, 0, len);
+                mBufferOut.flush();
+            } else
+                Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
+            Log.i("Tcp send", "End of sending");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public void send(String message) {
-        if (mBufferOut != null && !mBufferOut.checkError()) {
-            mBufferOut.println(message);
-            mBufferOut.flush();
-        } else
-            Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
-        Log.i("Tcp send", "End of sending");
+        try {
+            if (mBufferOut != null) {
+                mBufferOut.write(message.getBytes());
+                mBufferOut.flush();
+            } else
+                Log.e("Tcp send", "mBufferOut == null OR mBufferOut.checkError()");
+            Log.i("Tcp send", "End of sending");
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
     public String receive_line(int timeout)
@@ -54,7 +69,13 @@ public class TcpClient
     public String receive_line()
     {
         try {
-            return mBufferIn.readLine();
+            byte[] data = new byte[BUFF_LEN];
+            int nb_char = mBufferIn.read(data);
+            if(nb_char == -1) {
+                Log.i("Download buffer", "EOF reached");
+                return null;
+            }
+            return (new String(data)).split("\n")[0];
         } catch(SocketTimeoutException e) {
             Log.i("TCP receive", "Timeout");
         } catch (SocketException e) {
@@ -65,22 +86,22 @@ public class TcpClient
         return null;
     }
 
-    public String receive()
+    public int receive(byte[] data)
     {
         try {
-            char[] buffer = new char[BUFF_LEN_DOWNLOAD];
-            int nb_char = mBufferIn.read(buffer, 0, BUFF_LEN_DOWNLOAD);
+            int nb_char = mBufferIn.read(data);
+            Log.i("Download", "(" + nb_char + ")");
             if(nb_char == -1) {
                 Log.i("Download buffer", "EOF reached");
-                return null;
+                return -1;
             }
-            return String.valueOf(buffer);
+            return nb_char;
         } catch(SocketTimeoutException e) {
             Log.i("TCP receive", "Timeout");
         } catch (IOException e) {
             e.printStackTrace();
         }
-        return null;
+        return -1;
     }
 
     public int openSocket()
@@ -95,9 +116,9 @@ public class TcpClient
             socket.setSoTimeout(TIMEOUT);
             try {
                 //sends the message to the server
-                mBufferOut = new PrintWriter(new BufferedWriter(new OutputStreamWriter(socket.getOutputStream())), true);
+                mBufferOut = new BufferedOutputStream(socket.getOutputStream());
                 //receives the message which the server sends back
-                mBufferIn = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                mBufferIn = new BufferedInputStream(socket.getInputStream());
             } catch (Exception e) {
                 return 1;
             }
@@ -120,11 +141,15 @@ public class TcpClient
 
     public void stopClient()
     {
-        if (mBufferOut != null) {
-            mBufferOut.flush();
-            mBufferOut.close();
+        try {
+            if (mBufferOut != null) {
+                mBufferOut.flush();
+                mBufferOut.close();
+            }
+            mBufferIn = null;
+            mBufferOut = null;
+        } catch (IOException e) {
+            e.printStackTrace();
         }
-        mBufferIn = null;
-        mBufferOut = null;
     }
 }

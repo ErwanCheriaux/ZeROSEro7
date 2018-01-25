@@ -6,12 +6,15 @@
 #include "ch.h"
 #include "hal.h"
 
+/* Configure serial port
+*/
 void uart_init(void);
 
 /* Send data using uart
 ** buff: send buffer
+** size: number of bytes to send
 */
-void uart_send(void* buff);
+void uart_send(void* buff, int size);
 
 /* Receive data using uart
 ** buff: receive buffer
