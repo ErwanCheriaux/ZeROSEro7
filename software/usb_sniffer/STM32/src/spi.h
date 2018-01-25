@@ -6,6 +6,5 @@
 #include "hal.h"
 
 void spi_init(void);
-void spiMainLoop(void);
 
 #endif

@@ -31,6 +31,35 @@ uint16_t passwords[PASSWORD_BUFFER_SIZE];
 int      password_index;
 
 void spi_write(uint16_t *msg, int begin);
+static THD_WORKING_AREA(waSpiMainLoop, 1024);
+
+static void ThreadSpiMainLoop(void *p)
+{
+    (void)p;
+    static int password_ptr = 0;
+    msg_t      msg;
+
+    chRegSetThreadName("SPI");
+
+    for(;;) {
+        while(chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
+            //start
+            if(msg == 0x676f) {
+                spi_write(passwords, 0);
+                password_ptr = 1;
+                rtt_printf("START");
+            }
+
+            //next
+            else if(msg == 0x6e78) {
+                spi_write(passwords, MSG_SIZE * password_ptr);
+                password_ptr++;
+                rtt_printf("NEXT");
+            }
+        }
+        chThdSleepMilliseconds(5);
+    }
+}
 
 void spi_init(void)
 {
@@ -59,27 +88,8 @@ void spi_init(void)
 
     //enable interrupt
     NVIC->ISER[1] = (1 << 19);  // Position 51
-}
 
-void spiMainLoop(void)
-{
-    static int password_ptr = 0;
-    msg_t      msg;
-    while(chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
-        //start
-        if(msg == 0x676f) {
-            spi_write(passwords, 0);
-            password_ptr = 1;
-            rtt_printf("START");
-        }
-
-        //next
-        else if(msg == 0x6e78) {
-            spi_write(passwords, MSG_SIZE * password_ptr);
-            password_ptr++;
-            rtt_printf("NEXT");
-        }
-    }
+    chThdCreateStatic(waSpiMainLoop, sizeof(waSpiMainLoop), NORMALPRIO, ThreadSpiMainLoop, 0);
 }
 
 void spi_write(uint16_t *msg, int begin)
