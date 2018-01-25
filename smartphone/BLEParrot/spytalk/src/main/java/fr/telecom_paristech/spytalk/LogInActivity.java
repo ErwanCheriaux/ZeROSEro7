@@ -12,10 +12,12 @@ public class LogInActivity extends AppCompatActivity {
     public static final byte YELLOW_ADDR = 0x04;
     public static final byte BLUE_ADDR = 0x05;
     public static final byte PINK_ADDR = 0x06;
+    public static final byte BROADCAST_ADDR = 0x0F;
 
     public static final byte[] APP_ID_YELLOW = {YELLOW_ADDR};
     public static final byte[] APP_ID_BLUE = {BLUE_ADDR};
     public static final byte[] APP_ID_PINK = {PINK_ADDR};
+    public static final byte[] APP_ID_BROADCAST = {BROADCAST_ADDR};
 
     public static byte[] getAppId(String username) {
         switch (username) {

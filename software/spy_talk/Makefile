@@ -64,3 +64,6 @@ blue_board: CFLAGS += -D BOARD_BLUE
 # Pink is default
 pink_board: $(ELF)
 pink_board: CFLAGS += -D BOARD_PINK
+
+parrot: $(ELF)
+parrot: CFLAGS += -D BOARD_YELLOW -D PARROT

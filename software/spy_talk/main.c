@@ -80,15 +80,14 @@ static void phone_notification_complete_handler()
 static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_LENGTH + 1];
 void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length)
 {
-    rtt_printf(0,"LoRa received from %u : ", sender_address);
-    rtt_write_buffer(0,message,length);
+    rtt_printf(0, "LoRa received from %u : ", sender_address);
+    rtt_write_buffer(0, message, length);
     rtt_write_string("\n");
     notif_build[0] = sender_address;
     memcpy(notif_build + 1, message, length);
     if(phone_connected) {
         phone_send_notification(notif_build, length + 1);
     }
-    // lora_protocol_send(sender_address,message,length);  // XXX For parrot
 }
 
 // TODO Measure Reset time for deep sleep
@@ -132,9 +131,6 @@ int main(void)
     rtt_write_string("\nLoRa online\n");
 
     led_on(3);
-    uint8_t buf[50];
-    Radio.Send(buf,50);
-    led_on(0);
     while(true) {
         low_power_standby();
     }

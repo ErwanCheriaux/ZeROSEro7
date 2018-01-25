@@ -14,9 +14,9 @@
         android:id="@+id/title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignParentEnd="true"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
+        android:layout_toStartOf="@+id/panickButton"
         android:text="Connected"
         android:textAlignment="center"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1" />
@@ -57,4 +57,14 @@
         android:layout_alignBottom="@+id/messageField"
         android:layout_alignTop="@+id/messageField"
         android:layout_toStartOf="@+id/messageField" />
+
+    <Button
+        android:id="@+id/panickButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentTop="true"
+        android:backgroundTint="@android:color/holo_red_light"
+        android:onClick="onPanickButton"
+        android:text="Alerte" />
 </RelativeLayout>
