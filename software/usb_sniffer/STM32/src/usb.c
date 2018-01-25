@@ -386,9 +386,9 @@ static bool req_handler(USBDriver *usbp)
                 hidReadReport(&UHD2, &led_status, sizeof led_status);
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
 
-                caps_lock   = led_status & (1 << 0);
-                num_lock    = led_status & (1 << 1);
-                scroll_lock = led_status & (1 << 2);
+                caps_lock   = 0;
+                num_lock    = 1;
+                scroll_lock = 0;
 
                 return true;
             default:

