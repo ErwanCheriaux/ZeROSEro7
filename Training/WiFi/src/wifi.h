@@ -6,16 +6,10 @@
 #include "ch.h"
 #include "hal.h"
 
-/* This value musn't be between 66 and 72
-** Default is 256
-*/
-#define MAX_DATA_BUFFER_LEN 256
-#define WHITE_LIST_SIZE     3
-
-/* Allow Network SSID (SHA3-256)
-** Only these ID will be allowed to connect to this device
-*/
-extern const unsigned char white_list[WHITE_LIST_SIZE][65];
+#define START_SEQ         "[007]"
+#define MAX_FILENAME_SIZE 256
+#define BUFF_LEN          512
+#define TIMEOUT           2000
 
 void wifi_init(void);
 
@@ -25,5 +19,41 @@ void wifi_init(void);
 ** return:  error code (0 means success)
 */
 int wifi_command(void* buff, int timeout);
+
+/* Move a file from wifi chip flash to stm32 fash
+** file must be composed of one or several files named <filename>_<i>,
+** with i from 0 to NB_FILES (see MAX_FILENAME_EXT).
+** filename: filename to load
+*/
+void wifi_save_file(char* filename);
+
+/* Send a file on the wifi chip flash
+** filename: filename to send
+*/
+void wifi_send_file(char* filename);
+
+/* If stream mode is activated, this function
+** breaks stream mode and swtich to command mode
+*/
+void break_stream_mode(void);
+
+/* Send commands to configure tcp server,
+** swtich to stream mode and reboot the chip
+** This function must be called in command mode
+*/
+void configure(void);
+
+/* Wait that a message is received
+** msg: message to wait for
+*/
+void wifi_wait_for(char* msg);
+
+/* Wait for a line ('\n') and save it
+** buffer:    buffer where line is saved
+** max_len:   max line length
+** separator: character at the end of the word
+** reutrn:    0 if there is no error, 1 else
+*/
+int wifi_get_word(char* buffer, int max_len, char separator);
 
 #endif

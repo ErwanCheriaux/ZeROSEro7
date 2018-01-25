@@ -45,7 +45,6 @@ LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
 
 PROJ = .
 SRC = src
-TEST_FIBO = ../Test/fibo
 
 # C sources that can be compiled in ARM or THUMB mode depending on the global
 # setting.
@@ -66,7 +65,6 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/led.c \
        $(SRC)/timer.c \
        $(SRC)/usb.c \
-       $(TEST_FIBO)/fibo.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/SEGGER_RTT_printf.c \
        $(SRC)/usbh_custom_class_example.c
@@ -79,7 +77,6 @@ INCDIR = $(CHIBIOS)/os/license \
          $(HALINC) $(PLATFORMINC) $(BOARDINC) $(TESTINC) \
          $(STREAMSINC) $(SHELLINC) $(LWINC) $(FATFSINC) \
          $(CHIBIOS)/os/various \
-		 $(TEST_FIBO) \
 		 $(SRC) \
 		 $(PROJ)
 

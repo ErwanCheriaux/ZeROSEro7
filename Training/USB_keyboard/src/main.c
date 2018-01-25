@@ -4,8 +4,6 @@
 #include "hal.h"
 #include "usbh/debug.h" /* for usbDbgPuts/rtt_printf */
 
-#include "fibo.h"
-
 #include "led.h"
 #include "rtt.h"
 #include "usb.h"

@@ -20,38 +20,34 @@ lint_main:
   stage: lint
   image: rfc1149/rose-dev
   script:
-    - cd Training/BLE_nrf52
-    - make format
-    - cd ../USB_keyboard
-    - make format
-    - cd ../lora_discovery
-    - make format
-    - cd ../WiFi
-    - make format
-    - cd ../LoRa_sx1276
-    - make format
+    - make format -C software/nRF52_ble_common
+    - make format -C Training/USB_keyboard
+    - make format -C Training/SD_card
+    - make format -C software/spy_talk
+    - make format -C Training/WiFi
+    - make format -C software/usb_sniffer/STM32
+    - make format -C software/usb_sniffer/nRF52
     - git status --porcelain
 
 lint_apps:
   stage: lint
-  image : lpzantony/ndk
+  image : lpzantony/sdk
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
-    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew lint
     - cd ../WifiParrot
     - ./gradlew lint
   tags:
     - android
-
-lint_test:
-  stage: lint
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make format
-    - git status --porcelain
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # BUILD STAGE
 
@@ -59,30 +55,30 @@ build_main:
   stage: build
   image: tuetuopay/arm-none-eabi
   script:
-    - cd Training/BLE_nrf52
-    - make
-    - cd ../USB_keyboard
-    - make
-    - cd ../lora_discovery
-    - make
-    - cd ../WiFi
-    - make
-    - cd ../LoRa_sx1276
-    - make test_board
-    - make clean
-    - make
+    - make -C software/nRF52_ble_common
+    - make -C Training/USB_keyboard
+    - make -C Training/SD_card
+    - make test_board -C software/spy_talk
+    - make clean -C software/spy_talk
+    - make -C software/spy_talk
+    - make -C Training/WiFi
+    - make -C software/usb_sniffer/STM32
+    - make -C software/usb_sniffer/nRF52
   artifacts:
     paths:
-    - Training/BLE_nrf52/_build/nrf52832_xxaa.out
+    - Training/SD_card/build/sd_card.elf
     - Training/USB_keyboard/build/USB_keyboard.elf
-    - Training/LoRa_sx1276/_build/nrf52832_xxaa.out
+    - software/spy_talk/_build/nrf52832_xxaa.out
     - Training/WiFi/build/wifi_dev_kit.elf
+    - software/usb_sniffer/STM32/build/usb_sniffer.elf
+    - software/usb_sniffer/nRF52/_build/nrf52832_xxaa.out
     expire_in: 1 week
 
 build_apps:
   stage: build
   image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
     - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
@@ -92,21 +88,18 @@ build_apps:
   artifacts:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
+    - smartphone/BLEParrot/usbsniffer/build/outputs/apk/usbsniffer-release-unsigned.apk
+    - smartphone/BLEParrot/spytalk/build/outputs/apk/spytalk-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
   tags:
     - android
-
-build_test:
-  stage: build
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - make
-  artifacts:
+  cache:
+    key: android
     paths:
-    - Training/Test/main
-    expire_in: 20 minutes
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # TEST STAGE
 
@@ -115,21 +108,21 @@ test_apps:
   stage: test
   image : lpzantony/little-brosers
   script:
+    - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
     - cd BLEParrot
-    - mkdir "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
+    - mkdir -p "$ANDROID_HOME/licenses" && cp ../android-sdk-license "$ANDROID_HOME/licenses"
     - ./gradlew test
     - cd ../WifiParrot
     - ./gradlew test
   tags:
     - android
-
-test_test:
-  stage: test
-  image: rfc1149/rose-dev
-  script:
-    - cd Training/Test
-    - ./main
+  cache:
+    key: android
+    paths:
+      - .gradle-cache
+      - smartphone/BLEParrot/.gradle/
+      - smartphone/WifiParrot/.gradle/
 
 # DEPLOY STAGE
 
