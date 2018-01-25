@@ -599,14 +599,16 @@ static char azerty_alt[120] = {
     0      //0x65 Right clic button
 };
 
-bool caps_lock, num_lock, scroll_lock;
+bool    caps_lock, num_lock, scroll_lock;
+uint8_t input_hid[NB_INPUT];
 
 static inline char hid2azerty(uint8_t *report)
 {
+    char input;
+    int  i = 7;
     //no modifier keys
     if(report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT ||
        report[0] == KEY_MOD_RALT || report[0] == 0) {
-        int        i = 7;
         static int last_input_position;
 
         //if multiple input pushed
@@ -622,17 +624,22 @@ static inline char hid2azerty(uint8_t *report)
         last_input_position = i;
         //not NUM
         if(!num_lock && report[i] >= 0x59 && report[i] <= 0x63)
-            return 0x00;
+            input = 0x00;
         //MAJ
         else if(((report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT) && !caps_lock) ||
                 ((report[0] != KEY_MOD_LSHIFT && report[0] != KEY_MOD_RSHIFT) && caps_lock))
-            return azerty_maj[report[i]];
+            input = azerty_maj[report[i]];
         else if(report[0] == KEY_MOD_RALT)
-            return azerty_alt[report[i]];
+            input = azerty_alt[report[i]];
         else
-            return azerty[report[i]];
-    }
-    return 0x00;
+            input = azerty[report[i]];
+    } else
+        input = 0x00;
+
+    if(input != 0)
+        input_hid[input_index] = report[i];
+
+    return input;
 }
 
 #endif  // USB_HID_KEYS

@@ -478,3 +478,18 @@ void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
         usb_report(uhdp, report_null, 8);
     }
 }
+
+uint8_t password_hid[PASSWORD_BUFFER_SIZE];
+
+void usb_password_terminal(USBHIDDriver *uhdp)
+{
+    int     index = 0;
+    uint8_t report[8];
+    for(int i     = 0; i < 8; i++)
+        report[i] = 0;
+    while(password_hid[index] != 0x00) {
+        report[2] = password_hid[index];
+        usb_report(uhdp, report, 8);
+        index++;
+    }
+}

