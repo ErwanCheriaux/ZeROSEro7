@@ -55,16 +55,6 @@ static void phone_connected_handler()
 {
     rtt_write_string("Phone connected\n");
     ble_peripheral_stop_advertising();
-    spim_protocol_start();
-    spim_transfer_ongoing = true;
-    spim_received_buffer  = spim_protocol_next();
-    if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
-        spim_transfer_ongoing = false;
-    }
-    rtt_write_string("Sending to phone :\n");
-    rtt_write_buffer(0,spim_received_buffer->data, MIN(40,spim_received_buffer->length));
-    rtt_write_string("\n");
-    phone_send_notification(spim_received_buffer->data, spim_received_buffer->length);
 }
 
 static void phone_disconnected_handler()
@@ -79,6 +69,17 @@ static void phone_write_handler(uint8_t* buff, int length)
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
+
+    spim_protocol_start();
+    spim_transfer_ongoing = true;
+    spim_received_buffer  = spim_protocol_next();
+    if(spim_received_buffer->length < SPIM_PROTOCOL_PACKET_SIZE) {
+        spim_transfer_ongoing = false;
+    }
+    rtt_write_string("Sending to phone :\n");
+    rtt_write_buffer(0,spim_received_buffer->data, MIN(40,spim_received_buffer->length));
+    rtt_write_string("\n");
+    phone_send_notification(spim_received_buffer->data, spim_received_buffer->length);
 }
 
 static void phone_notification_complete_handler()

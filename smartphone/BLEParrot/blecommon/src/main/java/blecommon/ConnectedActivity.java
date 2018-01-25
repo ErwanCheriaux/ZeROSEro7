@@ -25,6 +25,7 @@ public abstract class ConnectedActivity extends AppCompatActivity {
             if (className.getClassName().equals(GAPService.class.getName())) {
                 GAPService.LocalBinder binder = (GAPService.LocalBinder) service;
                 gapService = binder.getService();
+                onGAPServceConnected();
             } else {
                 throw new UnsupportedOperationException("Unsupported service connection");
             }
@@ -55,10 +56,15 @@ public abstract class ConnectedActivity extends AppCompatActivity {
         }
     };
 
+    // Optionnal override. GAPService isn't available during onStart(). BLE Writes can only be by this callback on activity start.
+    protected void onGAPServceConnected() {
+
+    }
+
     public abstract void onNotificationReceived(byte[] msg);
 
     public void bleSend(String msg) {
-        gapService.send(msg);
+        bleSend(msg.getBytes());
     }
 
     public void bleSend(byte[] b) {
@@ -85,4 +91,8 @@ public abstract class ConnectedActivity extends AppCompatActivity {
         super.onDestroy();
     }
 
+    @Override
+    public void onBackPressed() {
+
+    }
 }

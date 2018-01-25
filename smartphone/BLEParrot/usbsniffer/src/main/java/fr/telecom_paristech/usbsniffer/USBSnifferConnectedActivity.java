@@ -6,6 +6,7 @@ import android.content.DialogInterface;
 import android.os.Bundle;
 import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.widget.TextView;
 
 import java.io.File;
@@ -78,6 +79,12 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
         } catch (IOException e) {
             e.printStackTrace();
         }*/
+
+    }
+
+    private void initiateTransfer() {
+        bleSend("Would you kindly ?");
+        Log.i("ConnectedActivity","Initiating transfert");
     }
 
     @Override
@@ -89,5 +96,10 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
             e.printStackTrace();
         }*/
         super.onStop();
+    }
+
+    @Override
+    protected void onGAPServceConnected() { // GAP Service isn't connected (as an Android connection) during onStart
+        initiateTransfer();
     }
 }

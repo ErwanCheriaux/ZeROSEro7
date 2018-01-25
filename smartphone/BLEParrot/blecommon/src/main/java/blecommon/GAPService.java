@@ -139,9 +139,6 @@ public class GAPService extends Service {
                     case BluetoothProfile.STATE_CONNECTED:
                         Log.i("GAPService", "Connected!");
                         deviceGatt.discoverServices();
-
-                        Intent intent = new Intent(DEVICE_CONNECTED_ACTION);
-                        LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
                         break;
                     case BluetoothProfile.STATE_CONNECTING:
                         Log.i("GAPService", "Connecting");
@@ -210,6 +207,9 @@ public class GAPService extends Service {
             public void onMtuChanged(BluetoothGatt gatt, int mtu, int status) {
                 super.onMtuChanged(gatt, mtu, status);
                 currentMTU = mtu;
+
+                Intent intent = new Intent(DEVICE_CONNECTED_ACTION);
+                LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
             }
 
             @Override
@@ -248,6 +248,7 @@ public class GAPService extends Service {
     public void onDestroy() {
         stopScan();
         Log.i("GAPService", "Service destroyed");
+        deviceGatt.close();
         super.onDestroy();
     }
 
