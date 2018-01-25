@@ -289,33 +289,33 @@ static char azerty[120] = {
     0,     //0x01
     0,     //0x02
     0,     //0x03
-    'q',   //0x04
-    'b',   //0x05
-    'c',   //0x06
-    'd',   //0x07
-    'e',   //0x08
-    'f',   //0x09
-    'g',   //0x0a
-    'h',   //0x0b
-    'i',   //0x0c
-    'j',   //0x0d
-    'k',   //0x0e
-    'l',   //0x0f
-    ',',   //0x10
-    'n',   //0x11
-    'o',   //0x12
-    'p',   //0x13
-    'a',   //0x14
-    'r',   //0x15
-    's',   //0x16
-    't',   //0x17
-    'u',   //0x18
-    'v',   //0x19
-    'z',   //0x1a
-    'x',   //0x1b
-    'y',   //0x1c
-    'w',   //0x1d
-    '&',   //0x1e
+    'q',   //0x04 q | Q | @
+    'b',   //0x05 b | B | ”
+    'c',   //0x06 c | C | ¢
+    'd',   //0x07 d | D | ð
+    'e',   //0x08 e | E | €
+    'f',   //0x09 f | F | đ
+    'g',   //0x0a g | G | ŋ
+    'h',   //0x0b h | H | ħ
+    'i',   //0x0c i | I | →
+    'j',   //0x0d j | J |
+    'k',   //0x0e k | K | ĸ
+    'l',   //0x0f l | L | ł
+    ',',   //0x10 , | , | ´
+    'n',   //0x11 n | N | n
+    'o',   //0x12 o | O | ø
+    'p',   //0x13 p | P | þ
+    'a',   //0x14 a | A | æ
+    'r',   //0x15 r | R | ¶
+    's',   //0x16 s | S | ß
+    't',   //0x17 t | T | ŧ
+    'u',   //0x18 u | U | ↓
+    'v',   //0x19 v | V | “
+    'z',   //0x1a z | Z | «
+    'x',   //0x1b x | X | »
+    'y',   //0x1c y | Y | ←
+    'w',   //0x1d w | W | ł
+    '&',   //0x1e & | 1 | ¹
     0,     //0x1f é
     '"',   //0x20
     '\'',  //0x21
@@ -343,56 +343,271 @@ static char azerty[120] = {
     ':',   //0x37
     '!',   //0x38
     0,     //0x39
-    0,     //0x3a
-    0,     //0x3b
-    0,     //0x3c
-    0,     //0x3d
-    0,     //0x3e
-    0,     //0x3f
-    0,     //0x40
-    0,     //0x41
-    0,     //0x42
-    0,     //0x43
-    0,     //0x44
-    0,     //0x45
-    0,     //0x46
-    0,     //0x47
-    0,     //0x48
-    0,     //0x49 inser
-    0,     //0x4a
-    0,     //0x4b
+    0,     //0x3a F1
+    0,     //0x3b F2
+    0,     //0x3c F3
+    0,     //0x3d F4
+    0,     //0x3e F5
+    0,     //0x3f F6
+    0,     //0x40 F7
+    0,     //0x41 F8
+    0,     //0x42 F9
+    0,     //0x43 F10
+    0,     //0x44 F11
+    0,     //0x45 F12
+    0,     //0x46 Screen shot
+    0,     //0x47 Scroll lock
+    0,     //0x48 Stop
+    0,     //0x49 insert
+    0,     //0x4a Home
+    0,     //0x4b page up
     0,     //0x4c supp
-    0,     //0x4d
-    0,     //0x4e
+    0,     //0x4d end
+    0,     //0x4e page down
     0,     //0x4f right
     0,     //0x50 left
     0,     //0x51 down
     0,     //0x52 up
-    0,     //0x53
-    0,     //0x54
-    0,     //0x55
-    0,     //0x56
-    0,     //0x57
+    0,     //0x53 NUM lock
+    '/',   //0x54
+    '*',   //0x55
+    '-',   //0x56
+    '+',   //0x57
     '\n',  //0x58 Enter
-    0,     //0x59
-    0,     //0x5a
-    0,     //0x5b
-    0,     //0x5c
-    0,     //0x5d
-    0,     //0x5e
-    0,     //0x5f
-    0,     //0x60
-    0,     //0x61
-    0,     //0x62
-    0,     //0x63
-    '<',   //0x64
+    '1',   //0x59 1 | end
+    '2',   //0x5a 2 | down
+    '3',   //0x5b 3 | page down
+    '4',   //0x5c 4 | left
+    '5',   //0x5d 5 |
+    '6',   //0x5e 6 | right
+    '7',   //0x5f 7 | home
+    '8',   //0x60 8 | up
+    '9',   //0x61 9 | page up
+    '0',   //0x62 0 | insert
+    '.',   //0x63 . | supp
+    '<',   //0x64 < | >
     0      //0x65 Right clic button
 };
+
+static char azerty_maj[120] = {
+    0,     //0x00
+    0,     //0x01
+    0,     //0x02
+    0,     //0x03
+    'q',   //0x04 q | Q | @
+    'b',   //0x05 b | B | ”
+    'c',   //0x06 c | C | ¢
+    'd',   //0x07 d | D | ð
+    'e',   //0x08 e | E | €
+    'f',   //0x09 f | F | đ
+    'g',   //0x0a g | G | ŋ
+    'h',   //0x0b h | H | ħ
+    'i',   //0x0c i | I | →
+    'j',   //0x0d j | J |
+    'k',   //0x0e k | K | ĸ
+    'l',   //0x0f l | L | ł
+    ',',   //0x10 , | , | ´
+    'n',   //0x11 n | N | n
+    'o',   //0x12 o | O | ø
+    'p',   //0x13 p | P | þ
+    'a',   //0x14 a | A | æ
+    'r',   //0x15 r | R | ¶
+    's',   //0x16 s | S | ß
+    't',   //0x17 t | T | ŧ
+    'u',   //0x18 u | U | ↓
+    'v',   //0x19 v | V | “
+    'z',   //0x1a z | Z | «
+    'x',   //0x1b x | X | »
+    'y',   //0x1c y | Y | ←
+    'w',   //0x1d w | W | ł
+    '&',   //0x1e & | 1 | ¹
+    0,     //0x1f é | 2 | ~
+    '"',   //0x20
+    '\'',  //0x21
+    '(',   //0x22
+    '-',   //0x23
+    0,     //0x24 è
+    '_',   //0x25
+    0,     //0x26 ç
+    0,     //0x27 à
+    '\n',  //0x28 Return
+    '=',   //0x29
+    '\b',  //0x2a Back space
+    '\t',  //0x2b Tab
+    ' ',   //0x2c Space
+    ')',   //0x2d
+    '=',   //0x2e
+    '^',   //0x2f
+    '$',   //0x30
+    '*',   //0x31
+    '*',   //0x32
+    'm',   //0x33
+    0,     //0x34 ù
+    0,     //0x35 ²
+    ';',   //0x36
+    ':',   //0x37
+    '!',   //0x38
+    0,     //0x39
+    0,     //0x3a F1
+    0,     //0x3b F2
+    0,     //0x3c F3
+    0,     //0x3d F4
+    0,     //0x3e F5
+    0,     //0x3f F6
+    0,     //0x40 F7
+    0,     //0x41 F8
+    0,     //0x42 F9
+    0,     //0x43 F10
+    0,     //0x44 F11
+    0,     //0x45 F12
+    0,     //0x46 Screen shot
+    0,     //0x47 Scroll lock
+    0,     //0x48 Stop
+    0,     //0x49 insert
+    0,     //0x4a Home
+    0,     //0x4b page up
+    0,     //0x4c supp
+    0,     //0x4d end
+    0,     //0x4e page down
+    0,     //0x4f right
+    0,     //0x50 left
+    0,     //0x51 down
+    0,     //0x52 up
+    0,     //0x53 NUM lock
+    '/',   //0x54
+    '*',   //0x55
+    '-',   //0x56
+    '+',   //0x57
+    '\n',  //0x58 Enter
+    '1',   //0x59 1 | end
+    '2',   //0x5a 2 | down
+    '3',   //0x5b 3 | page down
+    '4',   //0x5c 4 | left
+    '5',   //0x5d 5 |
+    '6',   //0x5e 6 | right
+    '7',   //0x5f 7 | home
+    '8',   //0x60 8 | up
+    '9',   //0x61 9 | page up
+    '0',   //0x62 0 | insert
+    '.',   //0x63 . | supp
+    '<',   //0x64 < | >
+    0      //0x65 Right clic button
+};
+
+static char azerty_alt[120] = {
+    0,     //0x00
+    0,     //0x01
+    0,     //0x02
+    0,     //0x03
+    'q',   //0x04 q | Q | @
+    'b',   //0x05 b | B | ”
+    'c',   //0x06 c | C | ¢
+    'd',   //0x07 d | D | ð
+    'e',   //0x08 e | E | €
+    'f',   //0x09 f | F | đ
+    'g',   //0x0a g | G | ŋ
+    'h',   //0x0b h | H | ħ
+    'i',   //0x0c i | I | →
+    'j',   //0x0d j | J |
+    'k',   //0x0e k | K | ĸ
+    'l',   //0x0f l | L | ł
+    ',',   //0x10 , | , | ´
+    'n',   //0x11 n | N | n
+    'o',   //0x12 o | O | ø
+    'p',   //0x13 p | P | þ
+    'a',   //0x14 a | A | æ
+    'r',   //0x15 r | R | ¶
+    's',   //0x16 s | S | ß
+    't',   //0x17 t | T | ŧ
+    'u',   //0x18 u | U | ↓
+    'v',   //0x19 v | V | “
+    'z',   //0x1a z | Z | «
+    'x',   //0x1b x | X | »
+    'y',   //0x1c y | Y | ←
+    'w',   //0x1d w | W | ł
+    '&',   //0x1e & | 1 | ¹
+    0,     //0x1f é
+    '"',   //0x20
+    '\'',  //0x21
+    '(',   //0x22
+    '-',   //0x23
+    0,     //0x24 è
+    '_',   //0x25
+    0,     //0x26 ç
+    0,     //0x27 à
+    '\n',  //0x28 Return
+    '=',   //0x29
+    '\b',  //0x2a Back space
+    '\t',  //0x2b Tab
+    ' ',   //0x2c Space
+    ')',   //0x2d
+    '=',   //0x2e
+    '^',   //0x2f
+    '$',   //0x30
+    '*',   //0x31
+    '*',   //0x32
+    'm',   //0x33
+    0,     //0x34 ù
+    0,     //0x35 ²
+    ';',   //0x36
+    ':',   //0x37
+    '!',   //0x38
+    0,     //0x39
+    0,     //0x3a F1
+    0,     //0x3b F2
+    0,     //0x3c F3
+    0,     //0x3d F4
+    0,     //0x3e F5
+    0,     //0x3f F6
+    0,     //0x40 F7
+    0,     //0x41 F8
+    0,     //0x42 F9
+    0,     //0x43 F10
+    0,     //0x44 F11
+    0,     //0x45 F12
+    0,     //0x46 Screen shot
+    0,     //0x47 Scroll lock
+    0,     //0x48 Stop
+    0,     //0x49 insert
+    0,     //0x4a Home
+    0,     //0x4b page up
+    0,     //0x4c supp
+    0,     //0x4d end
+    0,     //0x4e page down
+    0,     //0x4f right
+    0,     //0x50 left
+    0,     //0x51 down
+    0,     //0x52 up
+    0,     //0x53 NUM lock
+    '/',   //0x54
+    '*',   //0x55
+    '-',   //0x56
+    '+',   //0x57
+    '\n',  //0x58 Enter
+    '1',   //0x59 1 | end
+    '2',   //0x5a 2 | down
+    '3',   //0x5b 3 | page down
+    '4',   //0x5c 4 | left
+    '5',   //0x5d 5 |
+    '6',   //0x5e 6 | right
+    '7',   //0x5f 7 | home
+    '8',   //0x60 8 | up
+    '9',   //0x61 9 | page up
+    '0',   //0x62 0 | insert
+    '.',   //0x63 . | supp
+    '<',   //0x64 < | >
+    0      //0x65 Right clic button
+};
+
+
+
+bool caps_lock, num_lock, scroll_lock;
 
 static inline char hid2azerty(uint8_t *report)
 {
     //no modifier keys
-    if(report[0] == 0) {
+    if(report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT ||
+       report[0] == KEY_MOD_RALT || report[0] == 0) {
         int        i = 7;
         static int last_input_position;
 
@@ -407,8 +622,16 @@ static inline char hid2azerty(uint8_t *report)
         }
 
         last_input_position = i;
-        //if input is a letter
-        return azerty[report[i]];
+        //not NUM
+        if(!num_lock && report[i] >= 0x59 && report[i] <= 0x63)
+            return 0x00;
+        //MAJ
+        else if(((report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT) && !caps_lock) || caps_lock)
+            return azerty_maj[report[i]];
+        else if(report[0] == KEY_MOD_RALT)
+            return azerty_alt[report[i]];
+        else
+            return azerty[report[i]];
     }
     return 0x00;
 }

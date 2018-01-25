@@ -375,6 +375,7 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
 }
 
 uint8_t led_status;
+bool    caps_lock, num_lock, scroll_lock;
 
 static bool req_handler(USBDriver *usbp)
 {
@@ -384,6 +385,11 @@ static bool req_handler(USBDriver *usbp)
                 rtt_printf("HID_SET_REPORT");
                 hidReadReport(&UHD2, &led_status, sizeof led_status);
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
+
+                caps_lock   = led_status & (1 << 0);
+                num_lock    = led_status & (1 << 1);
+                scroll_lock = led_status & (1 << 2);
+
                 return true;
             default:
                 // Do nothing

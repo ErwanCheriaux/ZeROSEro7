@@ -27,6 +27,7 @@ int main(void)
     while(1) {
         usbhMainLoop(&USBHD1);
         spiMainLoop();
+        chThdSleepMilliseconds(50);
     }
 
     chThdSleep(TIME_INFINITE);

@@ -24,14 +24,14 @@
  * variables
  */
 static uint8_t input_tab[NB_INPUT];
-static int     input_index     = 0;
-static int     input_timer     = -1;
+static int     input_index = 0;
+static int     input_timer = -1;
 
-static int     nb_char_pressed = 0;
-uint8_t led_status = 7;
+static int nb_char_pressed = 0;
+uint8_t    led_status      = 7;
 
-uint8_t password[PASSWORD_BUFFER_SIZE];
-static int     password_idx;
+uint8_t    password[PASSWORD_BUFFER_SIZE];
+static int password_idx;
 
 /*
  * prototypes
@@ -61,16 +61,10 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         uint8_t input = hid2azerty(report);
         rtt_printf("Key code: %02X = %c   \tidx = %02x", report[2], input, input_index);
         if(input) {
-            input_tab[input_index] = input;
-            usbh_detector(input);
+            //input_tab[input_index] = input;
+            //usbh_detector(input);
             if(input_index++ >= 200)
                 input_index = 0;
-        }
-
-        if(report[2] == KEY_F2) {
-            rtt_printf("=== INPUT ===");
-            for(int i = 0; i < NB_INPUT; i++)
-                rtt_printf("input[%d] = '%c'", i, input_tab[i]);
         }
     }
 }
