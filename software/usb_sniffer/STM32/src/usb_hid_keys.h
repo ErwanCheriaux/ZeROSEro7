@@ -628,6 +628,8 @@ static inline char hid2azerty(uint16_t input)
     uint8_t modifier = (input >> 8);
     uint8_t key      = (uint8_t)input;
 
+    //rtt_printf("modif: %02x, key: %02x", modifier, key);
+
     //no CTRL, WIN and ALT
     if((modifier == KEY_MOD_LSHIFT || modifier == KEY_MOD_RSHIFT ||
         modifier == KEY_MOD_RALT || modifier == 0) &&
