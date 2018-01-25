@@ -16,11 +16,9 @@
 
 #include "hal.h"
 
-#include "usb.h"
 #include "rtt.h"
-
-uint8_t increment_var = 0;
-uint8_t led_status    = 3;
+#include "usb.h"
+#include "usbh.h"
 
 /*
  * USB HID Driver structure.
@@ -376,17 +374,22 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
     return;
 }
 
+uint8_t led_status;
+bool    caps_lock, num_lock, scroll_lock;
+
 static bool req_handler(USBDriver *usbp)
 {
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
                 rtt_printf("HID_SET_REPORT");
-
                 hidReadReport(&UHD2, &led_status, sizeof led_status);
-                rtt_printf("LED : %d", led_status);
-
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
+
+                caps_lock   = 0;
+                num_lock    = 1;
+                scroll_lock = 0;
+
                 return true;
             default:
                 // Do nothing
@@ -444,23 +447,6 @@ void usb_init(void)
     usbConnectBus(usbhidcfg.usbp);
 }
 
-/*
- * Initialisation of OTG FS port connected to a keyboard.
- */
-void usbh_init(void)
-{
-    /*USBH_FS OTG*/
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
-    palSetPadMode(GPIOA, GPIOA_OTG_FS_DP, PAL_MODE_ALTERNATE(10));
-
-    rtt_printf("Turn on USB power");
-    palSetPad(GPIOB, GPIOA_OTG_FS_VBUS);
-    chThdSleepMilliseconds(100);
-
-    usbhStart(&USBHD1);
-}
-
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
 {
     hidWriteReport(uhdp, bp, n);
@@ -491,4 +477,28 @@ void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
         usb_report(uhdp, report_key, 8);
         usb_report(uhdp, report_null, 8);
     }
+}
+
+uint8_t passwords[PASSWORD_BUFFER_SIZE];
+
+void usb_password_terminal(USBHIDDriver *uhdp)
+{
+    rtt_printf("usb_password_terminal");
+    int     index = 0;
+    uint8_t report[8];
+    //init
+    for(int i     = 0; i < 8; i++)
+        report[i] = 0;
+    //all input from passwords
+    while(passwords[index] != 0x00) {
+        report[0] = passwords[index] >> 8;
+        report[2] = (uint8_t)passwords[index];
+        usb_report(uhdp, report, 8);
+        index++;
+    }
+
+    //unpress all input
+    report[0] = 0;
+    report[2] = 0;
+    usb_report(uhdp, report, 8);
 }
