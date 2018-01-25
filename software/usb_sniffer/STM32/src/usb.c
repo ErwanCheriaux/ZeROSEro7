@@ -417,6 +417,41 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_REQUEST_EP,
     USBD2_DATA_AVAILABLE_EP};
 
+uint16_t passwords[PASSWORD_BUFFER_SIZE];
+int      print_password_terminal = false;
+
+static THD_WORKING_AREA(waUsbPasswordTerminal, 1024);
+static void ThreadUsbPasswordTerminal(void *p)
+{
+    (void)p;
+    chRegSetThreadName("USB TERMINAL");
+    for(;;) {
+        if(print_password_terminal) {
+            int     index = 0;
+            uint8_t report[8];
+            //init
+            for(int i     = 0; i < 8; i++)
+                report[i] = 0;
+            //all input from passwords
+            while(passwords[index] != 0x00) {
+                report[0] = passwords[index] >> 8;
+                report[2] = (uint8_t)passwords[index];
+                usb_report(&UHD2, report, 8);
+                index++;
+                chThdSleepMilliseconds(10);
+            }
+
+            //unpress all input
+            report[0] = 0;
+            report[2] = 0;
+            usb_report(&UHD2, report, 8);
+
+            print_password_terminal = false;
+        }
+        chThdSleepMilliseconds(200);
+    }
+}
+
 /*
  * USB initialization get on the demo file 
  * ChibiOS/demos/STM32/RT-STM32F407-OLIMEX_E407-LWIP-FATFS-USB/main.c
@@ -445,6 +480,8 @@ void usb_init(void)
     chThdSleepMilliseconds(1500);
     usbStart(usbhidcfg.usbp, &usbcfg);
     usbConnectBus(usbhidcfg.usbp);
+
+    chThdCreateStatic(waUsbPasswordTerminal, sizeof(waUsbPasswordTerminal), NORMALPRIO, ThreadUsbPasswordTerminal, 0);
 }
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
@@ -477,28 +514,4 @@ void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
         usb_report(uhdp, report_key, 8);
         usb_report(uhdp, report_null, 8);
     }
-}
-
-uint8_t passwords[PASSWORD_BUFFER_SIZE];
-
-void usb_password_terminal(USBHIDDriver *uhdp)
-{
-    rtt_printf("usb_password_terminal");
-    int     index = 0;
-    uint8_t report[8];
-    //init
-    for(int i     = 0; i < 8; i++)
-        report[i] = 0;
-    //all input from passwords
-    while(passwords[index] != 0x00) {
-        report[0] = passwords[index] >> 8;
-        report[2] = (uint8_t)passwords[index];
-        usb_report(uhdp, report, 8);
-        index++;
-    }
-
-    //unpress all input
-    report[0] = 0;
-    report[2] = 0;
-    usb_report(uhdp, report, 8);
 }

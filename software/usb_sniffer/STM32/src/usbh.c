@@ -78,11 +78,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
             for(int i = 0; i < password_index; i++)
                 rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 
-        if(report[2] == KEY_F1 &&
-           report[3] == KEY_F2 &&
-           report[4] == KEY_F3 &&
-           report[5] == KEY_F4)
-            usb_password_terminal(&UHD2);
+        if(report[2] == KEY_F2)
+            print_password_terminal = true;
     }
 
     //against priority violation

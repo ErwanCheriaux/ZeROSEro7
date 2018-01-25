@@ -21,6 +21,7 @@ extern const USBConfig    usbcfg;
 extern const USBHIDConfig usbhidcfg;
 extern USBHIDDriver       UHD2;
 extern bool               caps_lock, num_lock, scroll_lock;
+extern int                print_password_terminal;
 
 void usb_init(void);
 void usb_send_key(USBHIDDriver *uhdp, uint8_t key);
