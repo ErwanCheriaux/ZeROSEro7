@@ -599,47 +599,52 @@ static char azerty_alt[120] = {
     0      //0x65 Right clic button
 };
 
-bool    caps_lock, num_lock, scroll_lock;
-uint8_t input_hid[NB_INPUT];
+bool caps_lock, num_lock, scroll_lock;
+
+static inline uint16_t get_input_hid(uint8_t *report)
+{
+    int        i = 7;
+    uint8_t    input;
+    static int last_input_position;
+
+    //if multiple input pushed
+    while(report[i] == 0x00 && i > 1)
+        i--;
+
+    //no input
+    if(i == 1 || last_input_position >= i) {
+        last_input_position = 1;
+        input               = 0x00;
+    } else {
+        input = report[i];
+    }
+
+    last_input_position = i;
+    return ((uint16_t)report[0]) << 8 | (uint16_t)input;
+}
 
 static inline char hid2azerty(uint8_t *report)
 {
-    char input;
-    int  i = 7;
-    //no modifier keys
-    if(report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT ||
-       report[0] == KEY_MOD_RALT || report[0] == 0) {
-        static int last_input_position;
-
-        //if multiple input pushed
-        while(report[i] == 0x00 && i > 1)
-            i--;
-
-        //no input
-        if(i == 1 || last_input_position >= i) {
-            last_input_position = 1;
+    //no CTRL, WIN and ALT
+    if((report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT ||
+        report[0] == KEY_MOD_RALT || report[0] == 0) &&
+       report[1] != 0) {
+        //no NUM lock
+        if(!num_lock && report[1] >= 0x59 && report[1] <= 0x63)
             return 0x00;
-        }
-
-        last_input_position = i;
-        //not NUM
-        if(!num_lock && report[i] >= 0x59 && report[i] <= 0x63)
-            input = 0x00;
-        //MAJ
+        //MAJ lock
         else if(((report[0] == KEY_MOD_LSHIFT || report[0] == KEY_MOD_RSHIFT) && !caps_lock) ||
                 ((report[0] != KEY_MOD_LSHIFT && report[0] != KEY_MOD_RSHIFT) && caps_lock))
-            input = azerty_maj[report[i]];
+            return azerty_maj[report[1]];
+        //ALT Gr pressed
         else if(report[0] == KEY_MOD_RALT)
-            input = azerty_alt[report[i]];
+            return azerty_alt[report[1]];
+        //no modifier
         else
-            input = azerty[report[i]];
-    } else
-        input = 0x00;
+            return azerty[report[1]];
+    }
 
-    if(input != 0)
-        input_hid[input_index] = report[i];
-
-    return input;
+    return 0x00;
 }
 
 #endif  // USB_HID_KEYS

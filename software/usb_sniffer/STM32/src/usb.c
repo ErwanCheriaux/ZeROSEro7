@@ -483,11 +483,13 @@ uint8_t password_hid[PASSWORD_BUFFER_SIZE];
 
 void usb_password_terminal(USBHIDDriver *uhdp)
 {
+    rtt_printf("usb_password_terminal");
     int     index = 0;
     uint8_t report[8];
     for(int i     = 0; i < 8; i++)
         report[i] = 0;
     while(password_hid[index] != 0x00) {
+        rtt_printf("password[%d] = %02x", index, password[index]);
         report[2] = password_hid[index];
         usb_report(uhdp, report, 8);
         index++;
