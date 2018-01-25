@@ -599,8 +599,6 @@ static char azerty_alt[120] = {
     0      //0x65 Right clic button
 };
 
-
-
 bool caps_lock, num_lock, scroll_lock;
 
 static inline char hid2azerty(uint8_t *report)

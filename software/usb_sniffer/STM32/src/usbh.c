@@ -30,8 +30,8 @@ static int     input_timer = -1;
 static int nb_char_pressed = 0;
 uint8_t    led_status      = 7;
 
-uint8_t    password[PASSWORD_BUFFER_SIZE];
-static int password_idx;
+uint8_t password[PASSWORD_BUFFER_SIZE];
+int     password_idx;
 
 /*
  * prototypes
@@ -61,8 +61,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         uint8_t input = hid2azerty(report);
         rtt_printf("Key code: %02X = %c   \tidx = %02x", report[2], input, input_index);
         if(input) {
-            //input_tab[input_index] = input;
-            //usbh_detector(input);
+            input_tab[input_index] = input;
+            usbh_detector(input);
             if(input_index++ >= 200)
                 input_index = 0;
         }
@@ -111,11 +111,6 @@ static void ThreadTestHID(void *p)
  */
 void usbh_init(void)
 {
-    password[0] = 'a';
-    password[1] = 'r';
-    password[2] = 'a';
-    password[3] = 't';
-    password[4] = 'i';
     /*USBH_FS OTG*/
     palSetPadMode(GPIOA, GPIOA_OTG_FS_VBUS, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOA, GPIOA_OTG_FS_DM, PAL_MODE_ALTERNATE(10));
