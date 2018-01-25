@@ -10,6 +10,7 @@
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/app" />
             <option value="$PROJECT_DIR$/blecommon" />
+            <option value="$PROJECT_DIR$/spytalk" />
             <option value="$PROJECT_DIR$/usbsniffer" />
           </set>
         </option>

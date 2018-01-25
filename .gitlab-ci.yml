@@ -31,7 +31,7 @@ lint_main:
 
 lint_apps:
   stage: lint
-  image : lpzantony/ndk
+  image : lpzantony/sdk
   script:
     - export GRADLE_USER_HOME=$PWD/.gradle-cache
     - cd smartphone
@@ -89,6 +89,7 @@ build_apps:
     paths:
     - smartphone/BLEParrot/app/build/outputs/apk/app-release-unsigned.apk
     - smartphone/BLEParrot/usbsniffer/build/outputs/apk/usbsniffer-release-unsigned.apk
+    - smartphone/BLEParrot/spytalk/build/outputs/apk/spytalk-release-unsigned.apk
     - smartphone/WifiParrot/app/build/outputs/apk/app-release-unsigned.apk
     expire_in: 1 week
   tags:

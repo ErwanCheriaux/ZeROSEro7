@@ -16,62 +16,18 @@
 #include "ble_peripheral_gap.h"
 #include "lora.h"
 #include "sx1276Regs-LoRa.h"
+#include "lora_protocol.h"
 #include "delay.h"
 
-static uint8_t addr;                                        // SPI address
-static uint8_t rx_buffer[4];                                // SPI MISO
-static uint8_t tx_buffer[4]        = {1, 2, 3, 4};          // SPI MOSI
-static uint8_t lora_send_buffer[4] = {'a', 'b', 'c', 'd'};  // LORA FIFO TX
-
-#define LORA_RX_TIMEOUT 8000  // ms
-#define SPY_TALK_APP_ID 0x04    // TODO Use to differentiate multiple spy talks
-
-static void lora_callback();
-
-static void lora_tx_done_handler()
-{
-    rtt_write_string(" -> Tx done\n");
-    lora_callback();
-}
-
-static void lora_tx_timeout_handler()
-{
-    rtt_write_string(" -> Tx timeout\n");
-    lora_callback();
-}
-
-static void lora_rx_timeout_handler()
-{
-    rtt_write_string(" -> Rx timeout\n");
-    Radio.Standby();
-    lora_callback();
-}
-
-static void lora_rx_error_handler()
-{
-    rtt_write_string(" -> Rx error\n");
-    lora_callback();
-}
-
-static void lora_rx_done_handler(uint8_t *payload, uint16_t size, int16_t rssi, int8_t snr)
-{
-    rtt_write_string(" -> Rx done\nData : ");
-    rtt_write_buffer(0, payload, size);
-    rtt_printf(0, "\nRssiValue=%d dBm, SnrValue=%d\n", rssi, snr);
-    DelayMs(LORA_RX_TIMEOUT - 1000);
-    Radio.Standby();
-    lora_callback();
-}
-
-static RadioEvents_t RadioEvents = {
-    lora_tx_done_handler,
-    lora_tx_timeout_handler,
-    lora_rx_done_handler,
-    lora_rx_timeout_handler,
-    lora_rx_error_handler,
-    NULL,  // Frequency Hopping handler
-    NULL   // CAD done handler
-};
+#ifdef BOARD_YELLOW
+#define SPY_TALK_APP_ID YELLOW_ADDRESS
+#else  // BOARD_YELLOW
+#ifdef BOARD_BLUE
+#define SPY_TALK_APP_ID BLUE_ADDRESS
+#else  // BOARD_BLUE
+#define SPY_TALK_APP_ID PINK_ADDRESS
+#endif  // BOARD_BLUE
+#endif  // BOARD_YELLOW
 
 static void log_init(void)
 {
@@ -81,56 +37,57 @@ static void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
-static bool send = true;
-
-static void lora_callback()
-{
-    if(send) {
-        rtt_write_string("\nLoRa sending\n");
-        Radio.Send(lora_send_buffer, 4);
-    } else {
-        rtt_write_string("\nReceiving\n");
-        Radio.Rx(LORA_RX_TIMEOUT);
-    }
-    send = !send;
-}
-
 static void phone_noticed_handler()
 {
     rtt_write_string("Phone get, negociating connection\n");
-    led_on(2);
     // We advertise to switch role in the GAP connection for lower consumption.
     // REVIEW Maybe use whitelisted scan requests instead
     ble_stop_observing();
     ble_peripheral_start_advertising();
 }
 
+static bool phone_connected;
 static void phone_connected_handler()
 {
+    phone_connected = true;
     rtt_write_string("Phone connected\n");
     ble_stop_observing();  // If reconnecting, sometimes the phone hasn't got the time to advertise
     ble_peripheral_stop_advertising();
-    led_on(3);
+    led_on(1);
 }
 
 static void phone_disconnected_handler()
 {
+    phone_connected = false;
     rtt_write_string("Phone disconnected\n");
     ble_peripheral_stop_advertising();
     ble_start_observing();
+    led_off(1);
 }
 
-static void phone_write_handler(uint8_t *buff, int length)
+static void phone_write_handler(uint8_t* buff, int length)
 {
     rtt_write_string("Received data from phone :\n");
     rtt_write_buffer(0, buff, length);
     rtt_write_string("\n");
-    rtt_write_string("Sending data to phone\n");
-    phone_send_notification((uint8_t *)"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum", 251);
+    lora_protocol_send(*buff, buff + 1, length - 1);
 }
 
 static void phone_notification_complete_handler()
 {
+}
+
+static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_LENGTH + 1];
+void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length)
+{
+    rtt_printf(0, "LoRa received from %u : ", sender_address);
+    rtt_write_buffer(0, message, length);
+    rtt_write_string("\n");
+    notif_build[0] = sender_address;
+    memcpy(notif_build + 1, message, length);
+    if(phone_connected) {
+        phone_send_notification(notif_build, length + 1);
+    }
 }
 
 // TODO Measure Reset time for deep sleep
@@ -155,32 +112,25 @@ int main(void)
     rtt_write_string("BLE initialized\n");
 
     ble_start_observing();
-    ble_peripheral_start_advertising();  // TODO remove. Convenient for debugging purpose
-    rtt_write_string("Now observing BLE\n");
-    led_on(1);
+    ble_peripheral_start_advertising();
+    rtt_write_string("BLE online\n");
 
     ble_peripheral_start_advertising();
 
     HW_RTC_Init();
     rtt_write_string("RTC initialized\n");
-    led_on(0);
 
     HW_SPI_Init();
     rtt_write_string("SPI initialized\n");
 
-    lora_init(&RadioEvents);
+    lora_protocol_handlers_init(lora_on_receive);
+    lora_protocol_init(SPY_TALK_APP_ID);
     rtt_write_string("LoRa initialized\n");
-    addr = REG_LR_MODEMCONFIG1;
-    Radio.ReadBuffer(addr, rx_buffer, 2);
-    rtt_printf(0, "LoRa config regs : 0x%#02X, 0x%#02X\n", rx_buffer[0], rx_buffer[1]);
 
-    rtt_printf(0, "1500 tick in ms : %u\n", HW_RTC_Tick2ms(1500));
-    rtt_printf(0, "1000 ms in ticks : %u\n", HW_RTC_ms2Tick(1000));
+    lora_protocol_start();
+    rtt_write_string("\nLoRa online\n");
 
-    rtt_write_string("\nLoRa sending\n");
-    Radio.Send(lora_send_buffer, 4);
-    send = !send;
-
+    led_on(3);
     while(true) {
         low_power_standby();
     }

@@ -1,16 +1,16 @@
 package fr.telecom_paristech.usbsniffer;
 
-import android.content.Context;
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.os.Bundle;
-import android.os.Environment;
 import android.text.method.ScrollingMovementMethod;
+import android.util.Log;
 import android.widget.TextView;
 
-import java.io.File;
 import java.io.FileOutputStream;
-import java.io.IOException;
 
 import blecommon.ConnectedActivity;
+import blecommon.GAPService;
 
 public class USBSnifferConnectedActivity extends ConnectedActivity {
 
@@ -19,19 +19,36 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     private FileOutputStream dumpFileStream;
 
     @Override
-    public void onNotificationReceived(String msg) {
-        logWindow.append("<- " + msg + "\n");
-        logWindow.scrollTo(0, 0);
+    public void onNotificationReceived(byte[] msg) {
+        String s = GAPService.parseByteArray(msg);
 
-        dumpInFile(msg);
+        logWindow.append(s);
+
+        dumpInFile(s);
+
+        // Reached end of file
+        if (s.length() < GAPService.MAX_MTU_NRF) {
+            alertEndOfFile();
+        }
+    }
+
+    private void alertEndOfFile() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(USBSnifferConnectedActivity.this);
+        builder.setMessage("Transfert terminé. Voir Downloads/" + FILENAME)
+                .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
+                    public void onClick(DialogInterface dialog, int id) {
+
+                    }
+                });
+        builder.create().show();
     }
 
     private void dumpInFile(String s) {
-        try {
+        /*try {
             dumpFileStream.write(s.getBytes());
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
     }
 
     @Override
@@ -47,7 +64,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     protected void onRestart() {
         super.onRestart();
 
-        String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
+        /*String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
         File dumpFile = new File(path, FILENAME);
         if (dumpFile.exists()) {
             dumpFile.delete();
@@ -57,17 +74,28 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
             dumpFileStream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
+
+    }
+
+    private void initiateTransfer() {
+        bleSend("Would you kindly ?");
+        Log.i("ConnectedActivity", "Initiating transfert");
     }
 
     @Override
     public void onStop() {
 
-        try {
+        /*try {
             dumpFileStream.close();
         } catch (IOException e) {
             e.printStackTrace();
-        }
+        }*/
         super.onStop();
+    }
+
+    @Override
+    protected void onGAPServceConnected() { // GAP Service isn't connected (as an Android connection) during onStart
+        initiateTransfer();
     }
 }

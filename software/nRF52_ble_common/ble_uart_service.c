@@ -121,6 +121,9 @@ void phone_send_notification(uint8_t* buff, int length)
     notification_params.type   = BLE_GATT_HVX_NOTIFICATION;
     notification_params.handle = uart_characteristic_config.char_handles.value_handle;
     ret_code_t err_code        = sd_ble_gatts_hvx(ble_central_latest_conn, &notification_params);
+    while(err_code == NRF_ERROR_BUSY) {  // REVIEW dirty, but very rare and short polling (never happened yet)
+        sd_ble_gatts_hvx(ble_central_latest_conn, &notification_params);
+    }
     if(err_code != 0x3401) {
         APP_ERROR_CHECK(err_code);
     } else {  // Happens if the client didn't subscribe to notifications.

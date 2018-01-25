@@ -82,6 +82,18 @@ public class GAPService extends Service {
         startScan();
     }
 
+    public static String parseByteArray(byte[] value) {
+        return new String(value);
+    }
+
+    // Copied from https://stackoverflow.com/questions/5513152/easy-way-to-concatenate-two-byte-arrays by Jonathan
+    public static byte[] concat(byte[] a, byte[] b) {
+        byte[] c = new byte[a.length + b.length];
+        System.arraycopy(a, 0, c, 0, a.length);
+        System.arraycopy(b, 0, c, a.length, b.length);
+        return c;
+    }
+
     // Called after application context is initialized
     @Override
     public void onCreate() {
@@ -98,16 +110,21 @@ public class GAPService extends Service {
         }
     }
 
-    private String parseByteArray(byte[] value) {
-        return new String(value);
+    public void send(String s) {
+        Log.e("GAP Service", "Sending : " + s + "\n");
+        bleUartChara.setValue(s);
+        deviceGatt.writeCharacteristic(bleUartChara);
+        if (s.length() > currentMTU) {
+            Log.e("GAP Service", "Cannot send all the data");
+        }
     }
 
-    public void send(String s) {
-        if (s.length() < currentMTU) {
-            bleUartChara.setValue(s);
-            deviceGatt.writeCharacteristic(bleUartChara);
-        } else {
-            int numberOfTransmissions = s.length() / currentMTU + s.length() % currentMTU;
+    public void send(byte[] b) {
+        Log.e("GAP Service", "Sending : " + Arrays.toString(b) + "\n");
+        bleUartChara.setValue(b);
+        deviceGatt.writeCharacteristic(bleUartChara);
+        if (b.length > currentMTU) {
+            Log.e("GAP Service", "Cannot send all the data");
         }
     }
 
@@ -122,9 +139,6 @@ public class GAPService extends Service {
                     case BluetoothProfile.STATE_CONNECTED:
                         Log.i("GAPService", "Connected!");
                         deviceGatt.discoverServices();
-
-                        Intent intent = new Intent(DEVICE_CONNECTED_ACTION);
-                        LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
                         break;
                     case BluetoothProfile.STATE_CONNECTING:
                         Log.i("GAPService", "Connecting");
@@ -185,7 +199,7 @@ public class GAPService extends Service {
                 super.onCharacteristicChanged(gatt, characteristic);
                 Log.i("GAPService", "Characteristic changed: " + characteristic.getUuid() + " = " + characteristic.getValue());
                 Intent intent = new Intent(DEVICE_NOTIFICATION_ACTION);
-                intent.putExtra("Message", parseByteArray(characteristic.getValue()));
+                intent.putExtra("Message", characteristic.getValue());
                 LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
             }
 
@@ -193,6 +207,9 @@ public class GAPService extends Service {
             public void onMtuChanged(BluetoothGatt gatt, int mtu, int status) {
                 super.onMtuChanged(gatt, mtu, status);
                 currentMTU = mtu;
+
+                Intent intent = new Intent(DEVICE_CONNECTED_ACTION);
+                LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);
             }
 
             @Override
@@ -231,6 +248,7 @@ public class GAPService extends Service {
     public void onDestroy() {
         stopScan();
         Log.i("GAPService", "Service destroyed");
+        deviceGatt.close();
         super.onDestroy();
     }
 

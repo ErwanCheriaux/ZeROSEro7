@@ -134,11 +134,8 @@ void ble_conn_negociation_init()
 
 static ble_advdata_manuf_data_t manuf_data = {
     ADIDAS_MANUFACTURER_ID,
-    {
-        sizeof(manufacturer_data_app_id),
-        &manufacturer_data_app_id
-    }
-};
+    {sizeof(manufacturer_data_app_id),
+     &manufacturer_data_app_id}};
 
 static void advertising_params_init()
 {

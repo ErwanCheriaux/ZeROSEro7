@@ -43,7 +43,7 @@ static void (*ble_on_phone_write)(uint8_t *buff, int length);  // Handler from m
 static void (*ble_on_notification_complete)();                 // Handler from main
 
 static char *   phone_expected_name = "ZeROSEro7 phone";
-static uint8_t expected_app_id;
+static uint8_t  expected_app_id;
 static uint32_t parse_advdata(data_t const *const adv_data)
 {
     uint32_t field_index = 0;
@@ -67,13 +67,15 @@ static uint32_t parse_advdata(data_t const *const adv_data)
             rtt_write_buffer(0, field_data.p_data, field_data.data_len);
             rtt_write_string("\n");
             if(!memcmp(phone_expected_name, (char *)field_data.p_data, sizeof(phone_expected_name))) {  // TODO Shifting codes via pairing.
-                rtt_write_string("Recognized a phone, but not correct app id.\n");
+                rtt_write_string("Recognized a phone.\n");
             }
 
         } else if(field_type == BLE_GAP_AD_TYPE_MANUFACTURER_SPECIFIC_DATA) {
-            if(*(uint16_t*)field_data.p_data == ADIDAS_MANUFACTURER_ID) {
-                if(*(field_data.p_data+2) == expected_app_id) {
+            if(*(uint16_t *)field_data.p_data == ADIDAS_MANUFACTURER_ID) {
+                if(*(field_data.p_data + 2) == expected_app_id) {
                     ble_on_notice_phone();
+                } else {
+                    rtt_write_string("This is not our phone, wrong app ID\n");
                 }
             }
             rtt_write_buffer_hexa(field_data.p_data, field_data.data_len);
@@ -143,7 +145,7 @@ static void ble_evt_handler(ble_evt_t const *p_ble_evt, void *p_context)
             on_adv_report(p_ble_evt);
             break;
 
-        case BLE_GATTS_EVT_EXCHANGE_MTU_REQUEST :
+        case BLE_GATTS_EVT_EXCHANGE_MTU_REQUEST:
             // Called there instead of EVT_CONNECTED because notifications can only be sent when
             // MTU is updated
             ble_on_phone_connected();
