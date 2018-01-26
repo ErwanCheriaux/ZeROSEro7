@@ -27,6 +27,7 @@ void wifi_configure(void)
     wifi_command("set softap.auto_start true\r\n", 500);
     wifi_command("set softap.dhcp_server.enabled true\r\n", 500);
     wifi_command("set softap.ssid ZeROSEro7\r\n", 500);
+    wifi_command("set softap.passkey zerosero7\r\n", 500);
     wifi_command("set tcp.server.auto_interface softap\r\n", 500);
     wifi_command("set tcp.server.auto_start true\r\n", 500);
     wifi_command("set tcp.server.idle_timeout 300\r\n", 500);

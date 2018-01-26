@@ -19,7 +19,6 @@ public class TcpClient
     private static final String SERVER_IP = "10.10.10.1"; //server IP address
     private static final int SERVER_PORT = 3000;
     private static final int TIMEOUT = 3000;
-    private static final int BUFF_LEN = 1024;
     // used to send messages
     private BufferedOutputStream mBufferOut;
     // used to read messages from the server
@@ -69,13 +68,16 @@ public class TcpClient
     public String receive_line()
     {
         try {
-            byte[] data = new byte[BUFF_LEN];
-            int nb_char = mBufferIn.read(data);
-            if(nb_char == -1) {
-                Log.i("Download buffer", "EOF reached");
-                return null;
+            String response = new String("");
+            byte[] buff = new byte[1];
+            while(mBufferIn.read(buff) != -1) {
+                if(buff == null)
+                    return null;
+                if(buff[0] == '\n')
+                    return response;
+                response += new String(buff);
             }
-            return (new String(data)).split("\n")[0];
+            Log.i("Download buffer", "EOF reached");
         } catch(SocketTimeoutException e) {
             Log.i("TCP receive", "Timeout");
         } catch (SocketException e) {
@@ -88,9 +90,13 @@ public class TcpClient
 
     public int receive(byte[] data)
     {
+        return receive(data, data.length);
+    }
+
+    public int receive(byte[] data, int len)
+    {
         try {
-            int nb_char = mBufferIn.read(data);
-            Log.i("Download", "(" + nb_char + ")");
+            int nb_char = mBufferIn.read(data, 0, len);
             if(nb_char == -1) {
                 Log.i("Download buffer", "EOF reached");
                 return -1;

@@ -22,7 +22,7 @@ public class Remove extends Transfer
         int conn_res = mTcpClient.openSocket();
         if(conn_res != 0)
             return conn_res;
-        mTcpClient.send(START_SEQ + "R" + filename + "\n");
+        mTcpClient.send(START_SEQ + "R" + filename.split("[(]")[0] + "\n");
         mTcpClient.closeSocket();
         Log.i("File removed", filename);
         return 0;
@@ -36,6 +36,5 @@ public class Remove extends Transfer
             default: Toast.makeText(context, "Remove error", Toast.LENGTH_SHORT).show(); return;
         }
         callback.removeDownloadButton(filename);
-
     }
 }

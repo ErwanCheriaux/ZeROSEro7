@@ -45,8 +45,9 @@ int sd_file_read(unsigned int* bytes_read);
 
 /* Get all filenames
 ** filenames pointers will be written into filenames
-** return:    0 for success, 1 for error
+** size:   current file size will be stored into this variable
+** return: 0 for success, 1 for error
 */
-int sd_get_next_filename(void);
+int sd_get_next_filename(int* size);
 
 #endif  // SD_H
