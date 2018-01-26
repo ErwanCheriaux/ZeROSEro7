@@ -287,10 +287,10 @@
 #define NOP 0x1A
 
 static char azerty[120] = {
-    0,     //0x00
-    0,     //0x01
-    0,     //0x02
-    0,     //0x03
+    NOP,   //0x00
+    NOP,   //0x01
+    NOP,   //0x02
+    NOP,   //0x03
     'q',   //0x04 q | Q | @
     'b',   //0x05 b | B | ”
     'c',   //0x06 c | C | ¢
@@ -344,33 +344,33 @@ static char azerty[120] = {
     ';',   //0x36 ; | . |
     ':',   //0x37 : | / | ·
     '!',   //0x38 ! | § | ̣̣
-    0,     //0x39
-    0,     //0x3a F1
-    0,     //0x3b F2
-    0,     //0x3c F3
-    0,     //0x3d F4
-    0,     //0x3e F5
-    0,     //0x3f F6
-    0,     //0x40 F7
-    0,     //0x41 F8
-    0,     //0x42 F9
-    0,     //0x43 F10
-    0,     //0x44 F11
-    0,     //0x45 F12
-    0,     //0x46 Screen shot
-    0,     //0x47 Scroll lock
-    0,     //0x48 Stop
-    0,     //0x49 insert
-    0,     //0x4a Home
-    0,     //0x4b page up
-    0,     //0x4c supp
-    0,     //0x4d end
-    0,     //0x4e page down
-    0,     //0x4f right
-    0,     //0x50 left
-    0,     //0x51 down
-    0,     //0x52 up
-    0,     //0x53 NUM lock
+    NOP,   //0x39
+    NOP,   //0x3a F1
+    NOP,   //0x3b F2
+    NOP,   //0x3c F3
+    NOP,   //0x3d F4
+    NOP,   //0x3e F5
+    NOP,   //0x3f F6
+    NOP,   //0x40 F7
+    NOP,   //0x41 F8
+    NOP,   //0x42 F9
+    NOP,   //0x43 F10
+    NOP,   //0x44 F11
+    NOP,   //0x45 F12
+    NOP,   //0x46 Screen shot
+    NOP,   //0x47 Scroll lock
+    NOP,   //0x48 Stop
+    NOP,   //0x49 insert
+    NOP,   //0x4a Home
+    NOP,   //0x4b page up
+    NOP,   //0x4c supp
+    NOP,   //0x4d end
+    NOP,   //0x4e page down
+    NOP,   //0x4f right
+    NOP,   //0x50 left
+    NOP,   //0x51 down
+    NOP,   //0x52 up
+    NOP,   //0x53 NUM lock
     '/',   //0x54
     '*',   //0x55
     '-',   //0x56
@@ -388,14 +388,14 @@ static char azerty[120] = {
     '0',   //0x62 0 | insert
     '.',   //0x63 . | supp
     '<',   //0x64 < | >
-    0      //0x65 Right clic button
+    NOP    //0x65 Right clic button
 };
 
 static char azerty_maj[120] = {
-    0,     //0x00
-    0,     //0x01
-    0,     //0x02
-    0,     //0x03
+    NOP,   //0x00
+    NOP,   //0x01
+    NOP,   //0x02
+    NOP,   //0x03
     'Q',   //0x04 q | Q | @
     'B',   //0x05 b | B | ”
     'C',   //0x06 c | C | ¢
@@ -449,58 +449,58 @@ static char azerty_maj[120] = {
     '.',   //0x36 ; | . |
     '/',   //0x37 : | / | ·
     NOP,   //0x38 ! | § | ̣̣
-    0,     //0x39
-    0,     //0x3a F1
-    0,     //0x3b F2
-    0,     //0x3c F3
-    0,     //0x3d F4
-    0,     //0x3e F5
-    0,     //0x3f F6
-    0,     //0x40 F7
-    0,     //0x41 F8
-    0,     //0x42 F9
-    0,     //0x43 F10
-    0,     //0x44 F11
-    0,     //0x45 F12
-    0,     //0x46 Screen shot
-    0,     //0x47 Scroll lock
-    0,     //0x48 Stop
-    0,     //0x49 insert
-    0,     //0x4a Home
-    0,     //0x4b page up
-    0,     //0x4c supp
-    0,     //0x4d end
-    0,     //0x4e page down
-    0,     //0x4f right
-    0,     //0x50 left
-    0,     //0x51 down
-    0,     //0x52 up
-    0,     //0x53 NUM lock
+    NOP,   //0x39
+    NOP,   //0x3a F1
+    NOP,   //0x3b F2
+    NOP,   //0x3c F3
+    NOP,   //0x3d F4
+    NOP,   //0x3e F5
+    NOP,   //0x3f F6
+    NOP,   //0x40 F7
+    NOP,   //0x41 F8
+    NOP,   //0x42 F9
+    NOP,   //0x43 F10
+    NOP,   //0x44 F11
+    NOP,   //0x45 F12
+    NOP,   //0x46 Screen shot
+    NOP,   //0x47 Scroll lock
+    NOP,   //0x48 Stop
+    NOP,   //0x49 insert
+    NOP,   //0x4a Home
+    NOP,   //0x4b page up
+    NOP,   //0x4c supp
+    NOP,   //0x4d end
+    NOP,   //0x4e page down
+    NOP,   //0x4f right
+    NOP,   //0x50 left
+    NOP,   //0x51 down
+    NOP,   //0x52 up
+    NOP,   //0x53 NUM lock
     '/',   //0x54
     '*',   //0x55
     '-',   //0x56
     '+',   //0x57
     '\n',  //0x58 Enter
-    0,     //0x59 1 | end
-    0,     //0x5a 2 | down
-    0,     //0x5b 3 | page down
-    0,     //0x5c 4 | left
-    0,     //0x5d 5 |
-    0,     //0x5e 6 | right
-    0,     //0x5f 7 | home
-    0,     //0x60 8 | up
-    0,     //0x61 9 | page up
-    0,     //0x62 0 | insert
-    0,     //0x63 . | supp
+    NOP,   //0x59 1 | end
+    NOP,   //0x5a 2 | down
+    NOP,   //0x5b 3 | page down
+    NOP,   //0x5c 4 | left
+    NOP,   //0x5d 5 |
+    NOP,   //0x5e 6 | right
+    NOP,   //0x5f 7 | home
+    NOP,   //0x60 8 | up
+    NOP,   //0x61 9 | page up
+    NOP,   //0x62 0 | insert
+    NOP,   //0x63 . | supp
     '>',   //0x64 < | >
-    0      //0x65 Right clic button
+    NOP    //0x65 Right clic button
 };
 
 static char azerty_alt[120] = {
-    0,     //0x00
-    0,     //0x01
-    0,     //0x02
-    0,     //0x03
+    NOP,   //0x00
+    NOP,   //0x01
+    NOP,   //0x02
+    NOP,   //0x03
     '@',   //0x04 q | Q | @
     '\"',  //0x05 b | B | ”
     NOP,   //0x06 c | C | ¢
@@ -554,33 +554,33 @@ static char azerty_alt[120] = {
     NOP,   //0x36 ; | . |
     NOP,   //0x37 : | / | ·
     ' ',   //0x38 ! | § | ̣̣
-    0,     //0x39
-    0,     //0x3a F1
-    0,     //0x3b F2
-    0,     //0x3c F3
-    0,     //0x3d F4
-    0,     //0x3e F5
-    0,     //0x3f F6
-    0,     //0x40 F7
-    0,     //0x41 F8
-    0,     //0x42 F9
-    0,     //0x43 F10
-    0,     //0x44 F11
-    0,     //0x45 F12
-    0,     //0x46 Screen shot
-    0,     //0x47 Scroll lock
-    0,     //0x48 Stop
-    0,     //0x49 insert
-    0,     //0x4a Home
-    0,     //0x4b page up
-    0,     //0x4c supp
-    0,     //0x4d end
-    0,     //0x4e page down
-    0,     //0x4f right
-    0,     //0x50 left
-    0,     //0x51 down
-    0,     //0x52 up
-    0,     //0x53 NUM lock
+    NOP,   //0x39
+    NOP,   //0x3a F1
+    NOP,   //0x3b F2
+    NOP,   //0x3c F3
+    NOP,   //0x3d F4
+    NOP,   //0x3e F5
+    NOP,   //0x3f F6
+    NOP,   //0x40 F7
+    NOP,   //0x41 F8
+    NOP,   //0x42 F9
+    NOP,   //0x43 F10
+    NOP,   //0x44 F11
+    NOP,   //0x45 F12
+    NOP,   //0x46 Screen shot
+    NOP,   //0x47 Scroll lock
+    NOP,   //0x48 Stop
+    NOP,   //0x49 insert
+    NOP,   //0x4a Home
+    NOP,   //0x4b page up
+    NOP,   //0x4c supp
+    NOP,   //0x4d end
+    NOP,   //0x4e page down
+    NOP,   //0x4f right
+    NOP,   //0x50 left
+    NOP,   //0x51 down
+    NOP,   //0x52 up
+    NOP,   //0x53 NUM lock
     '/',   //0x54
     '*',   //0x55
     '-',   //0x56
@@ -598,7 +598,7 @@ static char azerty_alt[120] = {
     '0',   //0x62 0 | insert
     '.',   //0x63 . | supp
     '<',   //0x64 < | >
-    0      //0x65 Right clic button
+    NOP    //0x65 Right clic button
 };
 
 bool caps_lock, num_lock, scroll_lock;
