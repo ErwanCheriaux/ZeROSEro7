@@ -58,28 +58,28 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
         usb_report(&UHD2, report, 8);
 
         //get every input in a tab
-        uint16_t input = get_input_hid(report);
-        rtt_printf("Key: %c (%04x), input_index = %d", hid2azerty(input), input, input_index);
-        if((uint8_t)input) {
-            inputs[input_index] = input;
-            usbh_detector(hid2azerty(input));
+//      uint16_t input = get_input_hid(report);
+//      rtt_printf("Key: %c (%04x), input_index = %d", hid2azerty(input), input, input_index);
+//      if((uint8_t)input) {
+//          inputs[input_index] = input;
+//          usbh_detector(hid2azerty(input));
 
-            //input loop
-            input_index++;
-            if(input_index >= NB_INPUT)
-                input_index = 0;
-        }
+//          //input loop
+//          input_index++;
+//          if(input_index >= NB_INPUT)
+//              input_index = 0;
+//      }
 
-        if(report[2] == KEY_F6)
-            for(int i = 0; i < input_index; i++)
-                rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
+//      if(report[2] == KEY_F6)
+//          for(int i = 0; i < input_index; i++)
+//              rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
 
-        if(report[2] == KEY_F5)
-            for(int i = 0; i < password_index; i++)
-                rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
+//      if(report[2] == KEY_F5)
+//          for(int i = 0; i < password_index; i++)
+//              rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 
-        if(report[2] == KEY_SCROLLLOCK)
-            print_password_terminal = true;
+//      if(report[2] == KEY_SCROLLLOCK)
+//          print_password_terminal = true;
     }
 
     //against priority violation
