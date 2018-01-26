@@ -78,7 +78,7 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
             for(int i = 0; i < password_index; i++)
                 rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 
-        if(report[2] == KEY_F2)
+        if(report[2] == KEY_SCROLLLOCK)
             print_password_terminal = true;
     }
 
