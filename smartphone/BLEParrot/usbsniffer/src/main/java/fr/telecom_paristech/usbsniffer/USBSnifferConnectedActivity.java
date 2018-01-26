@@ -7,7 +7,7 @@ import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.widget.TextView;
 
-import java.io.FileOutputStream;
+import java.io.OutputStreamWriter;
 
 import blecommon.ConnectedActivity;
 import blecommon.GAPService;
@@ -16,7 +16,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
 
     public static final String FILENAME = "usb_sniffer_dump.txt";
     private TextView logWindow;
-    private FileOutputStream dumpFileStream;
+    private OutputStreamWriter dumpFileStream;
 
     @Override
     public void onNotificationReceived(byte[] msg) {
@@ -34,7 +34,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
 
     private void alertEndOfFile() {
         AlertDialog.Builder builder = new AlertDialog.Builder(USBSnifferConnectedActivity.this);
-        builder.setMessage("Transfert terminé. Voir Downloads/" + FILENAME)
+        builder.setMessage("Transfert terminé.")
                 .setNeutralButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
 
@@ -44,11 +44,7 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
     }
 
     private void dumpInFile(String s) {
-        /*try {
-            dumpFileStream.write(s.getBytes());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
+        // TODO Write in a file
     }
 
     @Override
@@ -60,38 +56,9 @@ public class USBSnifferConnectedActivity extends ConnectedActivity {
         logWindow.setMovementMethod(new ScrollingMovementMethod());
     }
 
-    @Override
-    protected void onRestart() {
-        super.onRestart();
-
-        /*String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
-        File dumpFile = new File(path, FILENAME);
-        if (dumpFile.exists()) {
-            dumpFile.delete();
-        }
-        try {
-            dumpFile.createNewFile();
-            dumpFileStream = openFileOutput(FILENAME, Context.MODE_PRIVATE);
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-
-    }
-
     private void initiateTransfer() {
         bleSend("Would you kindly ?");
         Log.i("ConnectedActivity", "Initiating transfert");
-    }
-
-    @Override
-    public void onStop() {
-
-        /*try {
-            dumpFileStream.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }*/
-        super.onStop();
     }
 
     @Override
