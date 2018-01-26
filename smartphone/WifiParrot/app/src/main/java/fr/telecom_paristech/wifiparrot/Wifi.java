@@ -7,6 +7,7 @@ import android.content.IntentFilter;
 import android.net.wifi.WifiManager;
 import android.os.Binder;
 import android.os.IBinder;
+import android.widget.ProgressBar;
 
 public class Wifi extends Service
 {
@@ -40,14 +41,14 @@ public class Wifi extends Service
         return mBinder;
     }
 
-    public void uploadFile(Context context, String filename)
+    public void uploadFile(Context context, String filename, ProgressBar progress)
     {
-        new Upload(context).execute(filename);
+        new Upload(context, progress).execute(filename);
     }
 
-    public void downloadFile(Context context, String filename)
+    public void downloadFile(Context context, String filename, ProgressBar progress)
     {
-        new Download(context).execute(filename);
+        new Download(context, progress).execute(filename);
     }
 
     public void getFiles(Context context, CallbackInterface callback)

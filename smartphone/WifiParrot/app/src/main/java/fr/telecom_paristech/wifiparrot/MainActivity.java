@@ -16,6 +16,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.LinearLayout;
+import android.widget.ProgressBar;
 
 import java.net.URISyntaxException;
 
@@ -26,6 +27,7 @@ public class MainActivity extends AppCompatActivity
     Button buttonUpload;
     Intent wifiIntent;
     LinearLayout layout;
+    ProgressBar progress;
     CallbackInterface callbacks;
 
     static final int FILE_PICK = 1;
@@ -39,7 +41,7 @@ public class MainActivity extends AppCompatActivity
                 try {
                     String path = PathUtil.getPath(getApplicationContext(), data.getData());
                     Log.d("File manager data", path);
-                    mService.uploadFile(getApplicationContext(), path);
+                    mService.uploadFile(getApplicationContext(), path, progress);
                 } catch (URISyntaxException e) {
                     e.printStackTrace();
                 }
@@ -93,6 +95,7 @@ public class MainActivity extends AppCompatActivity
             }
         });
         layout = (LinearLayout)findViewById(R.id.layout_scan);
+        progress = (ProgressBar)findViewById(R.id.progress_bar);
         // Allow WiFi
         // Location access is only used to make a network scan.
         // If Scan function doesn't works, please enable location on your mobile phone
@@ -123,7 +126,7 @@ public class MainActivity extends AppCompatActivity
         downloadBtn.setText(filename);
         downloadBtn.setOnClickListener(new View.OnClickListener() {
             public void onClick(View v) {
-                mService.downloadFile(getApplicationContext(), ((Button)v).getText().toString());
+                mService.downloadFile(getApplicationContext(), ((Button)v).getText().toString(), progress);
             }
         });
         ImageButton removeBtn = new ImageButton(getApplicationContext());

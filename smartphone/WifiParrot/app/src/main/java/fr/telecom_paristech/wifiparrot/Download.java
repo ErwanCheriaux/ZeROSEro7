@@ -3,6 +3,7 @@ package fr.telecom_paristech.wifiparrot;
 import android.content.Context;
 import android.os.Environment;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.File;
@@ -11,16 +12,22 @@ import java.io.IOException;
 
 public class Download extends Transfer
 {
-    Download(Context context)
+    ProgressBar progress;
+
+    Download(Context context, ProgressBar progress)
     {
         super(context);
+        this.progress = progress;
     }
 
     @Override
     protected Integer doInBackground(String... input)
     {
-        String filename = input[0];
+        String[] split = input[0].split("[(B]");
+        String filename = split[0];
+        int totalDataLen = Integer.parseInt(split[1]);
         int conn_res = mTcpClient.openSocket();
+        int dataSent = 0;
         if(conn_res != 0)
             return conn_res;
         String path = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS) + File.separator;
@@ -38,6 +45,8 @@ public class Download extends Transfer
                         fo.write(data, 0, nb_chars);
                     else
                         break;
+                    dataSent += nb_chars;
+                    publishProgress((int) ((dataSent / (float) totalDataLen) * 100));
                 }
                 fo.close();
                 Log.i("Download", "Success");
@@ -63,5 +72,10 @@ public class Download extends Transfer
             case 4: Toast.makeText(context, "File do not exists\nPlease scan again", Toast.LENGTH_SHORT).show(); break;
             default: Toast.makeText(context, "Download error", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... progress) {
+        this.progress.setProgress(progress[0]);
     }
 }

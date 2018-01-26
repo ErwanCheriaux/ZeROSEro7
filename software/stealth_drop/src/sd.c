@@ -182,7 +182,7 @@ int sd_file_read(unsigned int* bytes_read)
     return 0;
 }
 
-int sd_get_next_filename(void)
+int sd_get_next_filename(int* size)
 {
     if(!dir_open) {
         // mount
@@ -212,6 +212,8 @@ int sd_get_next_filename(void)
         }
         if(fileinfos.fattrib & AM_DIR)  // it's a folder
             continue;
+        if(size != NULL)
+            *size = fileinfos.fsize;
         // copy filename into data_buff
         strcpy(data_buff, fileinfos.fname);
         return 0;
