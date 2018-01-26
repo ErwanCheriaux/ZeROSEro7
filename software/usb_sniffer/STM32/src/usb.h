@@ -17,17 +17,15 @@
 #ifndef USB_H
 #define USB_H
 
-#include "hal_usb_hid.h"
-
 extern const USBConfig    usbcfg;
 extern const USBHIDConfig usbhidcfg;
 extern USBHIDDriver       UHD2;
-extern uint8_t            led_status;
+extern bool               caps_lock, num_lock, scroll_lock;
 
 void usb_init(void);
-void usbh_init(void);
 void usb_send_key(USBHIDDriver *uhdp, uint8_t key);
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n);
+void usb_password_terminal(USBHIDDriver *uhdp);
 
 #endif /* USB_H */
 

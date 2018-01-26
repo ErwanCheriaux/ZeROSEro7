@@ -2,6 +2,7 @@ package fr.telecom_paristech.wifiparrot;
 
 import android.content.Context;
 import android.util.Log;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import java.io.File;
@@ -9,9 +10,12 @@ import java.io.FileInputStream;
 
 public class Upload extends Transfer
 {
-    Upload(Context context)
+    ProgressBar progress;
+
+    Upload(Context context, ProgressBar progress)
     {
         super(context);
+        this.progress = progress;
     }
 
     @Override
@@ -30,20 +34,24 @@ public class Upload extends Transfer
         FileInputStream fileInputStream;
         try{
             fileInputStream = new FileInputStream(selectedFile);
-            byte[] data = new byte[BUFF_LEN_UPLOAD];
+            byte[] data = new byte[BUFF_LEN];
             int dataLen;
+            long totalDataLen = selectedFile.length();
+            int dataSent = 0;
             int conn_res = mTcpClient.openSocket();
             if(conn_res != 0)
                 return conn_res;
             mTcpClient.send(START_SEQ + "U" + filename + "\n");
-            while(true) {
-                dataLen = fileInputStream.read(data, 0, BUFF_LEN_UPLOAD);
-                String dataStr = new String(data);
-                Log.i("dataStr", dataStr);
-                mTcpClient.send(dataStr);
-                if (dataLen == -1)
+            Thread.sleep(500);
+            while ((dataLen = fileInputStream.read(data)) != -1) {
+                mTcpClient.send(data, dataLen);
+                Thread.sleep(200);
+                dataSent += dataLen;
+                publishProgress((int) ((dataSent / (float) totalDataLen) * 100));
+                if(dataSent == totalDataLen)
                     break;
             }
+            fileInputStream.close();
             String response = mTcpClient.receive_line(0); // disable timeout
             if(response == null)
                 return 1;
@@ -64,5 +72,10 @@ public class Upload extends Transfer
             case 2: Toast.makeText(context, "Connection timeout", Toast.LENGTH_SHORT).show(); break;
             default: Toast.makeText(context, "Upload error", Toast.LENGTH_SHORT).show();
         }
+    }
+
+    @Override
+    protected void onProgressUpdate(Integer... progress) {
+        this.progress.setProgress(progress[0]);
     }
 }

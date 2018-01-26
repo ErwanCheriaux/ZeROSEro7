@@ -1,8 +1,9 @@
 *.swp
+*#
 
-# nrf52_dev_kit
+# nrf52
 _build
 
-# usb_dev_kit
+# stm32
 .dep
 build

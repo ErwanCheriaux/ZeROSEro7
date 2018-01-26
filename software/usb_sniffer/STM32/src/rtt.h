@@ -2,6 +2,7 @@
 #define RTT_H
 
 #include "SEGGER_RTT.h"
+#include "SEGGER_RTT_Conf.h"
 
 #define rtt_init SEGGER_RTT_Init
 #define rtt_write_string(a) SEGGER_RTT_WriteString(0, a)
