@@ -16,8 +16,46 @@ Need to know the passwords used on that computer? Or do you want to know email c
 
 This would be a small usb2usb device that you plug in between the computer and it’s keyboard. While for the user it will remain transparent and forward all traffic, it will log all the typing in the background and communicate it on demand through some wireless mean. It could even do some pre-sorting and mark susceptible passwords and emails. This gadget should be as small and discreet as possible so that no one notices the little man in the middle.
 
+## Installation
+
+### STM32
+```
+cd software/usb_sniffer/STM32
+make startgdbserver & make debug
+restart
+```
+
+### nRF52
+```
+cd software/usb_sniffer/nRF52
+make startgdbserver & make flash
+restart
+```
+
+### Application Android
+'''
+?
+'''
+
 # Spy Talk
 Even during a mission, the MI6 agents have to communicate to one another. Still, there might be someone tracking the public network activity and detect them. Hence, they need to have their own private and stealthy communication network. Our goal would be to make some easily concealable relay stations that could be planted across the city. The agents would then be able to communicate using their phones without using any sort of public service.
+
+## Installation
+
+### nRF52
+```
+cd software/spy_talk
+make startgdbserver & make debug
+restart
+Ctrl+C
+make stopgdbserver
+```
+
+### Application Android
+'''
+?
+'''
+
 
 # Stealth Drop
 To transfer big amounts of data without being noticed, you can use a USB key. The sender can hide it in a dead drop and the receiver can come and pick it up in the following days. That way they can’t be spotted in the same place at the same time. Yet, they do have to go to the same place.
