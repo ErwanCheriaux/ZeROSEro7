@@ -37,6 +37,10 @@ static void log_init(void)
     NRF_LOG_DEFAULT_BACKENDS_INIT();
 }
 
+/*
+    BLE Callbacks
+*/
+
 static void phone_noticed_handler()
 {
     rtt_write_string("Phone get, negociating connection\n");
@@ -77,7 +81,11 @@ static void phone_notification_complete_handler()
 {
 }
 
-static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_LENGTH + 1];
+/*
+    LoRa callbacks
+*/
+
+static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_MAX_LENGTH + 1];
 void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length)
 {
     rtt_printf(0, "LoRa received from %u : ", sender_address);
@@ -88,7 +96,30 @@ void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int leng
     if(phone_connected) {
         phone_send_notification(notif_build, length + 1);
     }
+#ifdef PARROT
+    lora_protocol_send(sender_address,message,length);
+#endif
 }
+
+void lora_ack_handler(uint8_t receiver_address) {
+    notif_build[0] = 0x1;
+    notif_build[1] = 0x1;
+    notif_build[2] = 0x1;
+    notif_build[3] = 0x1;   // TODO Handle in app
+    phone_send_notification(notif_build, 4);
+}
+
+void lora_tx_failed_handler(uint8_t receiver_address) {
+    notif_build[0] = 0x2;
+    notif_build[1] = 0x2;
+    notif_build[2] = 0x2;
+    notif_build[3] = 0x2;   // TODO Handle in app
+    phone_send_notification(notif_build, 4);
+}
+
+/*
+    Main
+*/
 
 // TODO Measure Reset time for deep sleep
 int main(void)
@@ -112,7 +143,6 @@ int main(void)
     rtt_write_string("BLE initialized\n");
 
     ble_start_observing();
-    ble_peripheral_start_advertising();
     rtt_write_string("BLE online\n");
 
     ble_peripheral_start_advertising();
@@ -123,7 +153,7 @@ int main(void)
     HW_SPI_Init();
     rtt_write_string("SPI initialized\n");
 
-    lora_protocol_handlers_init(lora_on_receive);
+    lora_protocol_handlers_init(lora_on_receive, lora_ack_handler, lora_tx_failed_handler);
     lora_protocol_init(SPY_TALK_APP_ID);
     rtt_write_string("LoRa initialized\n");
 
