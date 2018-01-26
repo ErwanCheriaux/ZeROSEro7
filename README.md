@@ -32,10 +32,12 @@ make startgdbserver & make flash
 restart
 ```
 
-### Application Android
-'''
-?
-'''
+### Android application
+```
+open smartphone/BLEParrot project with android studio
+choose usbsniffer application
+run it on your android smartphone 
+```
 
 # Spy Talk
 Even during a mission, the MI6 agents have to communicate to one another. Still, there might be someone tracking the public network activity and detect them. Hence, they need to have their own private and stealthy communication network. Our goal would be to make some easily concealable relay stations that could be planted across the city. The agents would then be able to communicate using their phones without using any sort of public service.
@@ -47,17 +49,39 @@ Even during a mission, the MI6 agents have to communicate to one another. Still,
 cd software/spy_talk
 make startgdbserver & make debug
 restart
-Ctrl+C
-make stopgdbserver
 ```
 
-### Application Android
-'''
-?
-'''
+### Android application
+```
+open smartphone/BLEParrot project with android studio
+choose spytalk application
+run it on your android smartphone 
+```
 
 
 # Stealth Drop
 To transfer big amounts of data without being noticed, you can use a USB key. The sender can hide it in a dead drop and the receiver can come and pick it up in the following days. That way they can’t be spotted in the same place at the same time. Yet, they do have to go to the same place.
 
 Our dead drop would add some range to that process so that the agents no longer have to be at the same rendez-vous place. Instead of a USB key, the sender would place a device which will send the data up to a range of a few blocks.The receiver can then activate it and transfer the data with a huge rate and in an even less noticeable way.
+
+## Installation
+
+### nRF52
+```
+cd software/stealth_drop/nRF52
+make startgdbserver & make debug
+restart
+```
+
+### STM32
+```
+cd software/stealth_drop
+make start & make db
+c
+```
+
+### Android application
+```
+open smartphone/WifiParrot project with android studio
+run the application on your android smartphone 
+```
