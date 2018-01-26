@@ -23,7 +23,7 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     public static final byte[] TX_FAILED_MESSAGE = {0x2, 0x2, 0x2, 0x2};
     public static final byte[] ACKNOWLEDGE_MESSAGE = {0x1, 0x1, 0x1, 0x1};
 
-    byte localAddress;
+    private byte localAddress;
 
     private TextView logWindow;
     private EditText messageField;

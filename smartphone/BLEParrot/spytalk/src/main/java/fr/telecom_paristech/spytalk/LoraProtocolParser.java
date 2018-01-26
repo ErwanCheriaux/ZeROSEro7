@@ -6,7 +6,7 @@ import blecommon.GAPService;
 
 public class LoraProtocolParser {
 
-    byte localAddress;
+    private byte localAddress;
 
     // TODO encryption
 
