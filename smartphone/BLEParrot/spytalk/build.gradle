@@ -19,7 +19,7 @@ android {
 
     defaultConfig {
         applicationId "fr.telecom_paristech.spytalk"
-        minSdkVersion 24
+        minSdkVersion 23
         targetSdkVersion 24
         versionCode 1
         versionName "1.0"

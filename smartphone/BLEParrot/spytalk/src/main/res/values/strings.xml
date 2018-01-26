@@ -5,6 +5,6 @@
         <item>Jaune</item>
         <item>Bleu</item>
         <item>Rose</item>
-        <item>Tous</item>
+        <!-- <item>Tous</item> // TODO Deactivated because caused echo. See lora_protocol.h -->
     </string-array>
 </resources>
