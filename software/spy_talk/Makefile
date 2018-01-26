@@ -30,15 +30,16 @@ SRC_FILES += \
 	$(MIDDLEWARES)/Utilities/utilities.c \
 	$(MIDDLEWARES)/Utilities/delay.c \
 	$(MIDDLEWARES)/Utilities/timeServer.c \
+	$(MIDDLEWARES)/Crypto/aes.c \
 #	$(MIDDLEWARES)/Core/lora.c \	for LoRaMAC
 
 INC_FOLDERS += \
 	$(MIDDLEWARES)/Phy \
 	$(BSP)/Components/sx1276 \
 	$(MIDDLEWARES)/Utilities \
+ 	$(MIDDLEWARES)/Crypto \
 #	$(MIDDLEWARES)/Core \
 #	$(CMSIS)/Include \
-#	$(MIDDLEWARES)/Crypto \
 #	$(MIDDLEWARES)/Mac
 
 CFLAGS += \

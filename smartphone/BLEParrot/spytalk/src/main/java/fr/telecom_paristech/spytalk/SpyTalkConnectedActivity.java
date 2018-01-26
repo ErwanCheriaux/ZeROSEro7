@@ -20,14 +20,24 @@ import blecommon.GAPService;
 public class SpyTalkConnectedActivity extends ConnectedActivity {
 
     public static final byte[] PANICK_MESSAGE = {0xD, 0xE, 0xA, 0xD};
+    public static final byte[] TX_FAILED_MESSAGE = {0x2, 0x2, 0x2, 0x2};
+    public static final byte[] ACKNOWLEDGE_MESSAGE = {0x1, 0x1, 0x1, 0x1};
+
+    private byte localAddress;
 
     private TextView logWindow;
     private EditText messageField;
     private Spinner receiverSelect;
 
+    private LoraProtocolParser loraParser;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
+        localAddress = getIntent().getByteExtra(SpyTalkAdvertisingActivity.LOCAL_ADDRESS_EXTRA, localAddress);
+
+        loraParser = new LoraProtocolParser(localAddress);
 
         setContentView(R.layout.chat_activity);
         logWindow = (TextView) findViewById(R.id.logWindow);
@@ -43,7 +53,11 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                     String receiver = receiverSelect.getSelectedItem().toString();
-                    bleSend(GAPService.concat(LogInActivity.getAppId(receiver), messageField.getText().toString().getBytes()));
+
+                    LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, messageField.getText().toString().getBytes());
+                    byte[] blePacket = loraParser.buildMessage(loraMsg);
+                    bleSend(blePacket);
+
                     logWindow.append(receiver + " -> " + messageField.getText() + "\n");
                     Log.i("ConnectedActivity", "Sending " + messageField.getText());
                 }
@@ -54,8 +68,9 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
     @Override
     public void onNotificationReceived(byte[] msg) {
+        LoraMessage loraMsg = loraParser.parseMessage(msg);
 
-        switch (msg[0]) {
+        switch (loraMsg.getSenderAddress()) {
             case LogInActivity.YELLOW_ADDR:
                 logWindow.append("Jaune ");
                 break;
@@ -70,13 +85,21 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
                 break;
         }
 
-        byte[] slice = Arrays.copyOfRange(msg, 1, msg.length);
-        String content = GAPService.parseByteArray(slice);
+        byte[] payload = loraMsg.getMessage();
+        String content = GAPService.parseByteArray(payload);
 
-        if (Arrays.equals(slice, PANICK_MESSAGE)) {
+        if (Arrays.equals(payload, PANICK_MESSAGE)) {
             Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
             v.vibrate(500); // ms
             content = "Alerte !";
+        }
+
+        if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
+            content = "Message Reçu";
+        }
+
+        if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
+            content = "Erreur de transmission";
         }
 
         logWindow.append("<- " + content + "\n");
@@ -84,8 +107,14 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     }
 
     public void onPanickButton(View v) {
-        bleSend(GAPService.concat(LogInActivity.APP_ID_BROADCAST, PANICK_MESSAGE));
-        logWindow.append("-> Alerte générale\n");
+        String receiver = receiverSelect.getSelectedItem().toString();
+
+        LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, PANICK_MESSAGE);
+        byte[] blePacket = loraParser.buildMessage(loraMsg);
+        bleSend(blePacket);
+
+        logWindow.append(receiver + " -> " + "Alert !" + "\n");
+        Log.i("ConnectedActivity", "Sending " + messageField.getText());
     }
 
 }

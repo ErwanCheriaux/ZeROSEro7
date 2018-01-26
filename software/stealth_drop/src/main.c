@@ -16,7 +16,7 @@
 
 #include <string.h>
 #include <stdlib.h>
-
+#include <stdio.h>
 #include "ch.h"
 #include "hal.h"
 #include "led.h"
@@ -66,11 +66,11 @@ int main(void)
     sd_file_read(&bytes_read);
     rtt_printf("data_read: %s\n", data_buff);
     sd_file_close();
-    while(sd_get_next_filename() == 0)
+    while(sd_get_next_filename(NULL) == 0)
         rtt_printf("filename: %s\n", data_buff);
     rtt_printf("If you see a file list including \"%s\", listing is working !\n", filename_test);
     sd_file_remove(filename_test);
-    while(sd_get_next_filename() == 0)
+    while(sd_get_next_filename(NULL) == 0)
         rtt_printf("filename: %s\n", data_buff);
     rtt_printf("If you do not see file called \"%s\", removing is working !\n", filename_test);
 
@@ -112,11 +112,12 @@ int main(void)
             case 'L':  // Get file list
                 rtt_printf("List asked\n");
                 chThdSleep(MS2ST(500));
-                while(sd_get_next_filename() == 0) {
-                    rtt_printf("filename: %s\n", data_buff);
-                    strcpy(filename, data_buff);
+                int size;
+                while(sd_get_next_filename(&size) == 0) {
+                    rtt_printf("filename: %s (%d)\n", data_buff, size);
+                    sprintf(filename, "%s", data_buff);
                     uart_send(filename, strlen(filename));
-                    strcpy(filename, " ");
+                    sprintf(filename, " %d\n", size);
                     uart_send(filename, strlen(filename));
                 }
                 strcpy(filename, "\n");

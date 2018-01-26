@@ -197,7 +197,7 @@ public class GAPService extends Service {
             @Override
             public void onCharacteristicChanged(BluetoothGatt gatt, BluetoothGattCharacteristic characteristic) {
                 super.onCharacteristicChanged(gatt, characteristic);
-                Log.i("GAPService", "Characteristic changed: " + characteristic.getUuid() + " = " + characteristic.getValue());
+                Log.i("GAPService", "Characteristic changed: " + characteristic.getUuid() + " = " + Arrays.toString(characteristic.getValue()));
                 Intent intent = new Intent(DEVICE_NOTIFICATION_ACTION);
                 intent.putExtra("Message", characteristic.getValue());
                 LocalBroadcastManager.getInstance(GAPService.this).sendBroadcast(intent);

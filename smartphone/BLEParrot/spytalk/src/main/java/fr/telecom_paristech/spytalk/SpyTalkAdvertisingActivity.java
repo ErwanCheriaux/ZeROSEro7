@@ -10,6 +10,8 @@ import blecommon.AdvertisingActivity;
 
 public class SpyTalkAdvertisingActivity extends AdvertisingActivity {
 
+    public static final String LOCAL_ADDRESS_EXTRA = "Local Address";
+
     private byte[] appId;
 
     private Button pauseResumeButton;
@@ -36,6 +38,7 @@ public class SpyTalkAdvertisingActivity extends AdvertisingActivity {
     public void onPhoneConnected() {
         if (connectedActivityIntent == null) {
             connectedActivityIntent = new Intent(this, SpyTalkConnectedActivity.class);
+            connectedActivityIntent.putExtra(LOCAL_ADDRESS_EXTRA, appId[0]);
         }
         startActivity(connectedActivityIntent);
     }

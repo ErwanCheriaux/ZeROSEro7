@@ -4,15 +4,18 @@ import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 public class Scan extends Transfer
 {
     CallbackInterface callback = null;
-    String[] filenames = null;
+    ArrayList<String> filenames = null;
 
     Scan(Context context, CallbackInterface callback)
     {
         super(context);
         this.callback = callback;
+        filenames = new ArrayList<>();
     }
 
     @Override
@@ -22,16 +25,16 @@ public class Scan extends Transfer
         if(conn_res != 0)
             return conn_res;
         mTcpClient.send(START_SEQ + "L\n");
-        String response = mTcpClient.receive_line();
-        if(response != null) {
-            filenames = response.split(" ");
-            Log.i("Download", "Download list");
-            for(int i = 0; i < filenames.length; i++)
-                Log.i("Download", filenames[i]);
+        String data;
+        Log.i("Download", "Download list");
+        while((data = mTcpClient.receive_line()) != null) {
+            String split[] = data.split(" ");
+            if(split.length != 2)
+                break;
+            filenames.add(split[0] + " (" + split[1] + "B)");
+            Log.i("Download", filenames.get(filenames.size() - 1));
         }
         mTcpClient.closeSocket();
-        if(response == null)
-            return 1;
         return 0;
     }
 
@@ -52,7 +55,7 @@ public class Scan extends Transfer
             Toast.makeText(context, "No file available", Toast.LENGTH_SHORT).show();
             return;
         }
-        for(int i = 0; i < filenames.length; i++)
-            callback.addDownloadButton(filenames[i]);
+        for(int i = 0; i < filenames.size(); i++)
+            callback.addDownloadButton(filenames.get(i));
     }
 }

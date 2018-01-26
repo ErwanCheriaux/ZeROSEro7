@@ -3,7 +3,7 @@ package fr.telecom_paristech.wifiparrot;
 import android.content.Context;
 import android.os.AsyncTask;
 
-public abstract class Transfer extends AsyncTask<String, Void, Integer>
+public abstract class Transfer extends AsyncTask<String, Integer, Integer>
 {
     protected static final int    BUFF_LEN = 1024;
     protected static final String START_SEQ = "[007]";
