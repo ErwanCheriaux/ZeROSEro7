@@ -102,19 +102,21 @@ void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int leng
 }
 
 void lora_ack_handler(uint8_t receiver_address) {
-    notif_build[0] = 0x1;
+    notif_build[0] = SPY_TALK_APP_ID;
     notif_build[1] = 0x1;
     notif_build[2] = 0x1;
-    notif_build[3] = 0x1;   // TODO Handle in app
-    phone_send_notification(notif_build, 4);
+    notif_build[3] = 0x1;
+    notif_build[4] = 0x1;   // TODO Handle in app
+    phone_send_notification(notif_build, 5);
 }
 
 void lora_tx_failed_handler(uint8_t receiver_address) {
-    notif_build[0] = 0x2;
+    notif_build[0] = SPY_TALK_APP_ID;
     notif_build[1] = 0x2;
     notif_build[2] = 0x2;
-    notif_build[3] = 0x2;   // TODO Handle in app
-    phone_send_notification(notif_build, 4);
+    notif_build[3] = 0x2;
+    notif_build[4] = 0x2;   // TODO Handle in app
+    phone_send_notification(notif_build, 5);
 }
 
 /*

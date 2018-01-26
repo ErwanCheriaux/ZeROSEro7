@@ -20,6 +20,8 @@ import blecommon.GAPService;
 public class SpyTalkConnectedActivity extends ConnectedActivity {
 
     public static final byte[] PANICK_MESSAGE = {0xD, 0xE, 0xA, 0xD};
+    public static final byte[] TX_FAILED_MESSAGE = {0x2, 0x2, 0x2, 0x2};
+    public static final byte[] ACKNOWLEDGE_MESSAGE = {0x1, 0x1, 0x1, 0x1};
 
     byte localAddress;
 
@@ -90,6 +92,14 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
             v.vibrate(500); // ms
             content = "Alerte !";
+        }
+
+        if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
+            content = "Message Reçu";
+        }
+
+        if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
+            content = "Erreur de transmission";
         }
 
         logWindow.append("<- " + content + "\n");
