@@ -28,8 +28,9 @@ restart
 ### nRF52
 ```
 cd software/usb_sniffer/nRF52
-make startgdbserver & make flash
-restart
+make startgdbserver
+make debug
+flash
 ```
 
 ### Android application
@@ -48,7 +49,8 @@ Even during a mission, the MI6 agents have to communicate to one another. Still,
 ```
 cd software/spy_talk
 make startgdbserver & make debug
-restart
+make debug
+flash
 ```
 
 ### Android application
@@ -70,7 +72,8 @@ Our dead drop would add some range to that process so that the agents no longer 
 ```
 cd software/stealth_drop/nRF52
 make startgdbserver & make debug
-restart
+make debug
+flash
 ```
 
 ### STM32
