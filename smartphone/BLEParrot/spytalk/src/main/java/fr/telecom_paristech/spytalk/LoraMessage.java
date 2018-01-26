@@ -25,15 +25,15 @@ public class LoraMessage {
         return senderAddress;
     }
 
+    public void setSenderAddress(byte senderAddress) {
+        this.senderAddress = senderAddress;
+    }
+
     public byte getReceiverAddress() {
         return receiverAddress;
     }
 
     public void setReceiverAddress(byte receiverAddress) {
         this.receiverAddress = receiverAddress;
-    }
-
-    public void setSenderAddress(byte senderAddress) {
-        this.senderAddress = senderAddress;
     }
 }

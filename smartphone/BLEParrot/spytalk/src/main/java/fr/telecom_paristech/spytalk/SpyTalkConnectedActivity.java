@@ -107,8 +107,14 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     }
 
     public void onPanickButton(View v) {
-        bleSend(GAPService.concat(LogInActivity.APP_ID_BROADCAST, PANICK_MESSAGE));
-        logWindow.append("-> Alerte générale\n");
+        String receiver = receiverSelect.getSelectedItem().toString();
+
+        LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, PANICK_MESSAGE);
+        byte[] blePacket = loraParser.buildMessage(loraMsg);
+        bleSend(blePacket);
+
+        logWindow.append(receiver + " -> " + "Alert !" + "\n");
+        Log.i("ConnectedActivity", "Sending " + messageField.getText());
     }
 
 }
