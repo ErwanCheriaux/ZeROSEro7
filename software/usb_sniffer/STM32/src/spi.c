@@ -13,7 +13,7 @@
 /*
  * Mail Box
  */
-#define MB_SIZE 253
+#define MB_SIZE 200
 
 static msg_t rmb_buffer[MB_SIZE];
 static MAILBOX_DECL(rmb, rmb_buffer, MB_SIZE);

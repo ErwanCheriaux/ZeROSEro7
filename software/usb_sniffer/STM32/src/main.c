@@ -10,9 +10,7 @@
 #include "usbh.h"
 #include "timer.h"
 
-#define MB_SIZE 200
-
-extern mailbox_t umb;
+mailbox_t umb;
 
 int main(void)
 {
@@ -29,11 +27,8 @@ int main(void)
     timer_on();
 
     msg_t msg;
-    msg_t umb_buffer[MB_SIZE];
-    MAILBOX_DECL(umb, umb_buffer, MB_SIZE);
 
-    while(1)
-    {
+    while(1) {
         //mailbox check
         chMBFetch(&umb, &msg, TIME_INFINITE);
         rtt_printf("mailbox (umb) = %d", msg);
