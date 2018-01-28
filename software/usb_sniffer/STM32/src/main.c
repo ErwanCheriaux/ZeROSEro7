@@ -24,11 +24,6 @@ int main(void)
 
     timer_on();
 
-    while(1) {
-        usbhMainLoop(&USBHD1);
-        chThdSleepMilliseconds(50);
-    }
-
     chThdSleep(TIME_INFINITE);
     return 0;
 }

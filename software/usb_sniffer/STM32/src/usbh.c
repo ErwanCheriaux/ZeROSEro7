@@ -42,6 +42,7 @@ static void usbh_detector(char input);
  * thread HID
  */
 static THD_WORKING_AREA(waTestHID, 1024);
+static THD_WORKING_AREA(waUsbhMainLoop, 1024);
 static USBH_DEFINE_BUFFER(uint8_t report[HAL_USBHHID_MAX_INSTANCES][8]);
 static USBHHIDConfig hidcfg[HAL_USBHHID_MAX_INSTANCES];
 
@@ -123,6 +124,17 @@ static void ThreadTestHID(void *p)
     }
 }
 
+static void ThreadUsbhMainLoop(void *p)
+{
+    (void)p;
+    chRegSetThreadName("USBH");
+
+    for(;;) {
+        usbhMainLoop(&USBHD1);
+        chThdSleepMilliseconds(50);
+    }
+}
+
 /*
  * Initialisation of OTG FS port connected to a keyboard.
  */
@@ -139,6 +151,7 @@ void usbh_init(void)
 
     usbhStart(&USBHD1);
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
+    chThdCreateStatic(waUsbhMainLoop, sizeof(waUsbhMainLoop), NORMALPRIO, ThreadUsbhMainLoop, 0);
 }
 
 /* 
