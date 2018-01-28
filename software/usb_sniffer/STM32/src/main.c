@@ -10,7 +10,7 @@
 #include "usbh.h"
 #include "timer.h"
 
-#define MB_SIZE 253
+#define MB_SIZE 200
 
 extern mailbox_t umb;
 
