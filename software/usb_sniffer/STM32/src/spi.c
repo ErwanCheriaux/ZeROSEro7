@@ -42,22 +42,22 @@ static void ThreadSpiMainLoop(void *p)
     chRegSetThreadName("SPI");
 
     for(;;) {
-        while(chMBFetch(&rmb, &msg, TIME_IMMEDIATE) == MSG_OK) {
-            //start
-            if(msg == 0x676f) {
-                spi_write(passwords, 0);
-                password_ptr = 1;
-                rtt_printf("START");
-            }
+        //mailbox check
+        chMBFetch(&rmb, &msg, TIME_INFINITE);
 
-            //next
-            else if(msg == 0x6e78) {
-                spi_write(passwords, MSG_SIZE * password_ptr);
-                password_ptr++;
-                rtt_printf("NEXT");
-            }
+        //start
+        if(msg == 0x676f) {
+            spi_write(passwords, 0);
+            password_ptr = 1;
+            rtt_printf("START");
         }
-        chThdSleepMilliseconds(5);
+
+        //next
+        else if(msg == 0x6e78) {
+            spi_write(passwords, MSG_SIZE * password_ptr);
+            password_ptr++;
+            rtt_printf("NEXT");
+        }
     }
 }
 
