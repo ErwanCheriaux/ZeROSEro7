@@ -34,7 +34,7 @@ int main(void)
         usb_report(&UHD2, report, 8);
 
         //get every input in a tab
-        uint16_t *input = 0;
+        uint16_t input[6] = {0,0,0,0,0,0};
         get_input_hid(report, input);
 
         rtt_printf("report : %02x %02x %02x %02x %02x %02x %02x %02x",

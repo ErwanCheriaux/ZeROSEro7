@@ -613,12 +613,12 @@ static inline void get_input_hid(uint8_t *report, uint16_t *input)
     } else {
         int index_input  = 0;
         int index_report = last_input_position;
-        while(index_report > 7 && report[index_report] != 0) {
+        while(index_report < 8 && report[index_report] != 0) {
             input[index_input] = ((uint16_t)report[0]) << 8 | (uint16_t)report[index_report];
             index_report++;
             index_input++;
         }
-        last_input_position = index_report - 1;
+        last_input_position = index_report;
     }
 }
 
