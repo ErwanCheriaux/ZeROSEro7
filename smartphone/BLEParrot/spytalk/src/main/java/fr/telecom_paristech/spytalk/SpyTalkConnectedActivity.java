@@ -53,13 +53,15 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             public boolean onKey(View v, int keyCode, KeyEvent event) {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                     String receiver = receiverSelect.getSelectedItem().toString();
+                    String message = messageField.getText().toString();
 
-                    LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, messageField.getText().toString().getBytes());
+                    LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, message.getBytes());
                     byte[] blePacket = loraParser.buildMessage(loraMsg);
                     bleSend(blePacket);
 
-                    logWindow.append(receiver + " -> " + messageField.getText() + "\n");
-                    Log.i("ConnectedActivity", "Sending " + messageField.getText());
+                    messageField.setText("");
+                    logWindow.append(receiver + " -> " + message + "\n");
+                    Log.i("ConnectedActivity", "Sending " + message);
                 }
                 return false;
             }
