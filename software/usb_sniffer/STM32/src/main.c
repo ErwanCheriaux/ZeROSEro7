@@ -10,8 +10,6 @@
 #include "usbh.h"
 #include "timer.h"
 
-mailbox_t umb;
-
 int main(void)
 {
     halInit();
