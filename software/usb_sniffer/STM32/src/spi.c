@@ -106,8 +106,9 @@ void spi_write(uint16_t *msg, int begin)
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
 }
 
-void SPI_IRQHandler(void)
+CH_IRQ_HANDLER(SPI_IRQHandler)
 {
+    CH_IRQ_PROLOGUE();
     //Overrun flag
     if(OVR) {
         rtt_printf("Overrun !!!");
@@ -130,4 +131,5 @@ void SPI_IRQHandler(void)
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  // Nothing else to transmit
         chSysUnlockFromISR();
     }
+    CH_IRQ_EPILOGUE();
 }
