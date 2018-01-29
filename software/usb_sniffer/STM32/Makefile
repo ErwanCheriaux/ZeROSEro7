@@ -68,6 +68,7 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/spi.c \
        $(SRC)/timer.c \
        $(SRC)/SEGGER_RTT.c \
+       $(SRC)/usb_hid_keys.c \
        $(SRC)/SEGGER_RTT_printf.c \
        $(SRC)/usbh_custom_class_example.c
 
