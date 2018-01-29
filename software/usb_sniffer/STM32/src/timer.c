@@ -1,6 +1,8 @@
 //timer.c
 
 #include "timer.h"
+#include "hal.h"
+#include "led.h"
 
 static virtual_timer_t timerv;
 static bool            run = false;
