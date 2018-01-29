@@ -374,7 +374,6 @@ static bool req_handler(USBDriver *usbp)
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
-                chSysLockFromISR();
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
 
                 //TODO
@@ -382,7 +381,6 @@ static bool req_handler(USBDriver *usbp)
                 num_lock    = 1;
                 scroll_lock = 0;
 
-                chSysUnlockFromISR();
                 return true;
             default:
                 // Do nothing
