@@ -355,6 +355,9 @@ extern "C" {
 }
 #endif
 
+void uart_RTS_start(void);
+void uart_RTS_stop(void);
+
 #endif /* HAL_USE_SERIAL */
 
 #endif /* HAL_SERIAL_LLD_H */

@@ -83,6 +83,7 @@ void iqResetI(input_queue_t *iqp) {
   iqp->q_rdptr = iqp->q_buffer;
   iqp->q_wrptr = iqp->q_buffer;
   iqp->q_counter = 0;
+  uart_RTS_start();
   osalThreadDequeueAllI(&iqp->q_waiting, MSG_RESET);
 }
 
@@ -165,6 +166,7 @@ msg_t iqGetTimeout(input_queue_t *iqp, systime_t timeout) {
   }
 
   osalSysUnlock();
+  uart_RTS_start();
 
   return (msg_t)b;
 }
@@ -226,6 +228,7 @@ size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
            time is an unsigned type.*/
         if (next_timeout > timeout) {
           osalSysUnlock();
+          uart_RTS_start();
           return r;
         }
 
@@ -235,12 +238,14 @@ size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
       /* Anything except MSG_OK causes the operation to stop.*/
       if (msg != MSG_OK) {
         osalSysUnlock();
+        uart_RTS_start();
         return r;
       }
     }
 
     /* Getting the character from the queue.*/
     iqp->q_counter--;
+
     *bp++ = *iqp->q_rdptr++;
     if (iqp->q_rdptr >= iqp->q_top) {
       iqp->q_rdptr = iqp->q_buffer;
@@ -256,6 +261,7 @@ size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
 
     r++;
     if (--n == 0U) {
+      uart_RTS_start();
       return r;
     }
 

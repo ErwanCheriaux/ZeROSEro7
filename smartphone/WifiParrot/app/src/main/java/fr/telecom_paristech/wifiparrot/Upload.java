@@ -42,10 +42,8 @@ public class Upload extends Transfer
             if(conn_res != 0)
                 return conn_res;
             mTcpClient.send(START_SEQ + "U" + filename + "\n");
-            Thread.sleep(500);
             while ((dataLen = fileInputStream.read(data)) != -1) {
                 mTcpClient.send(data, dataLen);
-                Thread.sleep(200);
                 dataSent += dataLen;
                 publishProgress((int) ((dataSent / (float) totalDataLen) * 100));
                 if(dataSent == totalDataLen)
