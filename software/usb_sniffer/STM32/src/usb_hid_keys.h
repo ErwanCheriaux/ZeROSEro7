@@ -602,7 +602,7 @@ static char azerty_alt[120] = {
 };
 
 bool           caps_lock, num_lock, scroll_lock;
-static uint8_t last_input[6] = {0, 0, 0, 0, 0, 0};
+static uint8_t last_input[6];
 
 static inline bool find(uint8_t input)
 {
@@ -617,7 +617,7 @@ static inline void get_input_hid(uint8_t *report, uint16_t *input)
     int index_input = 0;
 
     for(int i = 2; i < 8; i++) {
-        if(report[i] == 0)
+        if(report[i] == 0 || report[i] == 1)
             break;
         else if(!find(report[i])) {
             input[index_input] = ((uint16_t)report[0]) << 8 | (uint16_t)report[i];
@@ -634,8 +634,6 @@ static inline char hid2azerty(uint16_t input)
 {
     uint8_t modifier = (input >> 8);
     uint8_t key      = (uint8_t)input;
-
-    //rtt_printf("modif: %02x, key: %02x", modifier, key);
 
     //no CTRL, WIN and ALT
     if((modifier == KEY_MOD_LSHIFT || modifier == KEY_MOD_RSHIFT ||
