@@ -43,7 +43,7 @@ int main(void)
 
         int i = 0;
         while(input[i] != 0) {
-            rtt_printf("Key: %c (%04x)", hid2azerty(input[i]), input[i]);
+            rtt_printf("Key: %c (%04x)", hid_to_azerty(input[i]), input[i]);
 
             usbh_add_input(input[i]);
 

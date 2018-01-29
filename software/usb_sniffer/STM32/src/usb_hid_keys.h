@@ -630,7 +630,7 @@ static inline void get_input_hid(uint8_t *report, uint16_t *input)
         last_input[i] = report[i + 2];
 }
 
-static inline char hid2azerty(uint16_t input)
+static inline char hid_to_azerty(uint16_t input)
 {
     uint8_t modifier = (input >> 8);
     uint8_t key      = (uint8_t)input;

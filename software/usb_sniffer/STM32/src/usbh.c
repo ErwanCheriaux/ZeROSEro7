@@ -135,7 +135,7 @@ void usbh_add_input(uint16_t input)
 {
     if((uint8_t)input) {
         inputs[input_index] = input;
-        usbh_detector(hid2azerty(input));
+        usbh_detector(hid_to_azerty(input));
 
         //input loop
         input_index++;
@@ -210,7 +210,7 @@ void usbh_print_input(void)
     int nb_input_print = 20;
     int start          = (input_index - nb_input_print > 0) ? input_index - nb_input_print : 0;
     for(int i = start; i < input_index; i++)
-        rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(inputs[i]), inputs[i]);
+        rtt_printf("inputs[%d] = %c (%04x)", i, hid_to_azerty(inputs[i]), inputs[i]);
 }
 
 void usbh_print_password(void)
@@ -218,5 +218,5 @@ void usbh_print_password(void)
     int nb_password_print = 20;
     int start             = (password_index - nb_password_print > 0) ? password_index - nb_password_print : 0;
     for(int i = start; i < password_index; i++)
-        rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
+        rtt_printf("passwords[%d] = %c (%04x)", i, hid_to_azerty(passwords[i]), passwords[i]);
 }
