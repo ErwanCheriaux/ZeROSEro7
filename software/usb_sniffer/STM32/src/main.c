@@ -24,9 +24,9 @@ int main(void)
 
     timer_on();
 
-    uint8_t *report;
-
     while(1) {
+        uint8_t *report;
+
         //mailbox check
         chMBFetch(&umb, (msg_t *)&report, TIME_INFINITE);
 
