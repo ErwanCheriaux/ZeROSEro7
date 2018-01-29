@@ -509,6 +509,9 @@
   /* Trace code here.*/                                                     \
 }
 
+/* mask all priority */
+#define CORTEX_SIMPLIFIED_PRIORITY TRUE
+
 /** @} */
 
 /*===========================================================================*/
