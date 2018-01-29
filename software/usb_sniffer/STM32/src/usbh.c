@@ -217,7 +217,7 @@ void usbh_print_input(void)
 void usbh_print_password(void)
 {
     int nb_password_print = 20;
-    int start             = (input_index - nb_password_print > 0) ? input_index - nb_password_print : 0;
+    int start             = (password_index - nb_password_print > 0) ? password_index - nb_password_print : 0;
     for(int i = start; i < password_index; i++)
         rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 }
