@@ -7,9 +7,11 @@ import android.util.Log;
 import android.view.KeyEvent;
 import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.Arrays;
 
@@ -28,8 +30,30 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     private TextView logWindow;
     private EditText messageField;
     private Spinner receiverSelect;
+    private Button panickButton;
 
     private LoraProtocolParser loraParser;
+    private boolean loraIsSending = false;
+
+    @Override
+    public void bleSend(byte[] b) {
+        if (!loraIsSending) {
+            loraIsSending = true;
+            messageField.setEnabled(false);
+            panickButton.setEnabled(false);
+            super.bleSend(b);
+        } else {
+            Toast.makeText(getApplicationContext(), getString(R.string.cancelled_because_already_sending), Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    @Override
+    protected void onRestart() {
+        loraIsSending = false;  // In case we lost BLE connection during the transfert, we do not freeze the app.
+        // If a transfer was already ongoing, the Spy Talk will simply notify us with a tx failed.
+
+        super.onRestart();
+    }
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +67,7 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         logWindow = (TextView) findViewById(R.id.logWindow);
         messageField = (EditText) findViewById(R.id.messageField);
         receiverSelect = (Spinner) findViewById(R.id.receiverSelect);
+        panickButton = (Button) findViewById(R.id.panickButton);
 
         receiverSelect.setAdapter(ArrayAdapter.createFromResource(this,
                 R.array.usernames, android.R.layout.simple_spinner_item));
@@ -98,9 +123,15 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         } else if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
             v.vibrate(200); // ms
             content = "Message Reçu";
+            loraIsSending = false;
+            messageField.setEnabled(true);
+            panickButton.setEnabled(true);
         } else if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
             v.vibrate(200); // ms
             content = "Erreur de transmission";
+            loraIsSending = false;
+            messageField.setEnabled(true);
+            panickButton.setEnabled(true);
         } else {
             v.vibrate(500); // ms
         }

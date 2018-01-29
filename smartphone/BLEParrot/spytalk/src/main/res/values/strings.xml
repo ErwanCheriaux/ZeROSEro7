@@ -7,4 +7,6 @@
         <item>Rose</item>
         <!-- <item>Tous</item> // TODO Deactivated because caused echo. See lora_protocol.h -->
     </string-array>
+
+    <string name="cancelled_because_already_sending">Un envoi est déjà en cours</string>
 </resources>
