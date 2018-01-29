@@ -1,3 +1,3 @@
 //vectorsconf.h
 
-#define SPI_IRQHandler Vector10C 
+#define Vector10C SPI_IRQHandler

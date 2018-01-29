@@ -5,7 +5,7 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -std=gnu99
+  USE_OPT = -O2 -ggdb -std=gnu99 -DVECTORS_USE_CONF
 endif
 
 #
