@@ -59,9 +59,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-        //chSysLockFromISR();
+        //already in a I-class lock
         chMBPostI(&umb, (msg_t)report);
-        //chSysUnlockFromISR();
     }
 }
 
