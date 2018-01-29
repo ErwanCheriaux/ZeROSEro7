@@ -24,9 +24,9 @@
  * variables
  */
 static uint16_t inputs[NB_INPUT];
-static int      input_timer = -1;
-static int      input_index = 0;
-static int      password_index = 0;
+static int      input_timer     = -1;
+static int      input_index     = 0;
+static int      password_index  = 0;
 static int      nb_char_pressed = 0;
 
 uint8_t  led_status = 7;

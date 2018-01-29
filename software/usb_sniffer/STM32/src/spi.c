@@ -94,10 +94,9 @@ void spi_init(void)
 
 void spi_write(uint16_t *msg, int begin)
 {
-    char input_left, input_right;
     for(int i = 0; i < MSG_SIZE; i += 2) {
-        input_left  = hid_to_azerty(msg[begin + i]);
-        input_right = hid_to_azerty(msg[begin + i + 1]);
+        char input_left  = hid_to_azerty(msg[begin + i]);
+        char input_right = hid_to_azerty(msg[begin + i + 1]);
         chMBPost(&wmb,
                  msg[begin + i] != 0 ? ((uint16_t)input_left << 8) | (uint16_t)input_right : 0,
                  TIME_INFINITE);
