@@ -601,25 +601,33 @@ static char azerty_alt[120] = {
     NOP    //0x65 Right clic button
 };
 
-bool caps_lock, num_lock, scroll_lock;
+bool           caps_lock, num_lock, scroll_lock;
+static uint8_t last_input[6] = {0, 0, 0, 0, 0, 0};
+
+static inline bool find(uint8_t input)
+{
+    for(int i = 0; i < 6; i++)
+        if(input == last_input[i])
+            return true;
+    return false;
+}
 
 static inline void get_input_hid(uint8_t *report, uint16_t *input)
 {
-    static int last_input_position = 2;
+    int index_input = 0;
 
-    if(report[2] == 0) {
-        input[0] = ((uint16_t)report[0]) << 8 | (uint16_t)0x00;
-        last_input_position = 2;
-    } else {
-        int index_input  = 0;
-        int index_report = last_input_position;
-        while(index_report < 8 && report[index_report] != 0) {
-            input[index_input] = ((uint16_t)report[0]) << 8 | (uint16_t)report[index_report];
-            index_report++;
+    for(int i = 2; i < 8; i++) {
+        if(report[i] == 0)
+            break;
+        else if(!find(report[i])) {
+            input[index_input] = ((uint16_t)report[0]) << 8 | (uint16_t)report[i];
             index_input++;
         }
-        last_input_position = index_report;
     }
+
+    //copy report for next input
+    for(int i         = 0; i < 6; i++)
+        last_input[i] = report[i + 2];
 }
 
 static inline char hid2azerty(uint16_t input)

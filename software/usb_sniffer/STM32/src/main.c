@@ -34,14 +34,14 @@ int main(void)
         usb_report(&UHD2, report, 8);
 
         //get every input in a tab
-        uint16_t input[6] = {0,0,0,0,0,0};
+        uint16_t input[6] = {0, 0, 0, 0, 0, 0};
         get_input_hid(report, input);
 
         rtt_printf("report : %02x %02x %02x %02x %02x %02x %02x %02x",
                    report[0], report[1], report[2], report[3], report[4],
                    report[5], report[6], report[7]);
 
-        int i=0;
+        int i = 0;
         while(input[i] != 0) {
             rtt_printf("Key: %c (%04x)", hid2azerty(input[i]), input[i]);
 
