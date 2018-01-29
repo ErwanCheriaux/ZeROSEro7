@@ -6,8 +6,7 @@ static SerialConfig serialcfg = {
     921600,
     0,
     USART_CR2_STOP_1,
-    USART_CR3_CTSE
-};
+    USART_CR3_CTSE};
 
 void uart_RTS_start(void)
 {
@@ -23,10 +22,10 @@ void uart_init(void)
 {
     sdStart(&SD3, &serialcfg);
     // set RX, TX, RTS, CTS pins
-    palSetPadMode(GPIOD, 8, PAL_MODE_ALTERNATE(7)); // TX
-    palSetPadMode(GPIOD, 9, PAL_MODE_ALTERNATE(7)); // RX
-    palSetPadMode(GPIOD, 11, PAL_MODE_ALTERNATE(7)); // CTS
-    palSetPadMode(GPIOD, 12, PAL_MODE_OUTPUT_PUSHPULL); // RTS
+    palSetPadMode(GPIOD, 8, PAL_MODE_ALTERNATE(7));      // TX
+    palSetPadMode(GPIOD, 9, PAL_MODE_ALTERNATE(7));      // RX
+    palSetPadMode(GPIOD, 11, PAL_MODE_ALTERNATE(7));     // CTS
+    palSetPadMode(GPIOD, 12, PAL_MODE_OUTPUT_PUSHPULL);  // RTS
     // set RTS to enable transmition
     uart_RTS_start();
 }
