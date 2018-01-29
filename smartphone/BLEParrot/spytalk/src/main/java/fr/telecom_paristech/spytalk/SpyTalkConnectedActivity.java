@@ -68,6 +68,8 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
     @Override
     public void onNotificationReceived(byte[] msg) {
+        Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
+
         LoraMessage loraMsg = loraParser.parseMessage(msg);
 
         switch (loraMsg.getSenderAddress()) {
@@ -89,17 +91,22 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         String content = GAPService.parseByteArray(payload);
 
         if (Arrays.equals(payload, PANICK_MESSAGE)) {
-            Vibrator v = (Vibrator) getSystemService(this.VIBRATOR_SERVICE);
-            v.vibrate(500); // ms
+            v.vibrate(2000); // ms
             content = "Alerte !";
         }
 
-        if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
+        else if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
+            v.vibrate(200); // ms
             content = "Message Reçu";
         }
 
-        if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
+        else if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
+            v.vibrate(200); // ms
             content = "Erreur de transmission";
+        }
+
+        else {
+            v.vibrate(500); // ms
         }
 
         logWindow.append("<- " + content + "\n");
