@@ -83,7 +83,9 @@ void iqResetI(input_queue_t *iqp) {
   iqp->q_rdptr = iqp->q_buffer;
   iqp->q_wrptr = iqp->q_buffer;
   iqp->q_counter = 0;
+#ifdef STEALTH_DROP
   uart_RTS_start();
+#endif
   osalThreadDequeueAllI(&iqp->q_waiting, MSG_RESET);
 }
 
@@ -166,7 +168,9 @@ msg_t iqGetTimeout(input_queue_t *iqp, systime_t timeout) {
   }
 
   osalSysUnlock();
+#ifdef STEALTH_DROP
   uart_RTS_start();
+#endif
 
   return (msg_t)b;
 }
@@ -228,7 +232,9 @@ size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
            time is an unsigned type.*/
         if (next_timeout > timeout) {
           osalSysUnlock();
+#ifdef STEALTH_DROP
           uart_RTS_start();
+#endif
           return r;
         }
 
@@ -238,7 +244,9 @@ size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
       /* Anything except MSG_OK causes the operation to stop.*/
       if (msg != MSG_OK) {
         osalSysUnlock();
+#ifdef STEALTH_DROP
         uart_RTS_start();
+#endif
         return r;
       }
     }
@@ -261,7 +269,9 @@ size_t iqReadTimeout(input_queue_t *iqp, uint8_t *bp,
 
     r++;
     if (--n == 0U) {
+#ifdef STEALTH_DROP
       uart_RTS_start();
+#endif
       return r;
     }
 
