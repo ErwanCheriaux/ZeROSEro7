@@ -31,14 +31,6 @@
 #include "mcuconf.h"
 
 /**
- * @brief   Enables Vector.
- */
-#if !defined(VECTORS_USE_CONF)
-#define VECTORS_USE_CONF
-#endif
-
-
-/**
  * @brief   Enables the TM subsystem.
  */
 #if !defined(HAL_USE_TM) || defined(__DOXYGEN__)
