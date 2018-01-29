@@ -93,19 +93,13 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         if (Arrays.equals(payload, PANICK_MESSAGE)) {
             v.vibrate(2000); // ms
             content = "Alerte !";
-        }
-
-        else if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
+        } else if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
             v.vibrate(200); // ms
             content = "Message Reçu";
-        }
-
-        else if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
+        } else if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
             v.vibrate(200); // ms
             content = "Erreur de transmission";
-        }
-
-        else {
+        } else {
             v.vibrate(500); // ms
         }
 
