@@ -1,9 +1,12 @@
 package blecommon;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
 import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.ServiceConnection;
@@ -102,16 +105,43 @@ public abstract class AdvertisingActivity extends AppCompatActivity {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
             requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
         }
-        // Allow File
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.WRITE_EXTERNAL_STORAGE) != PackageManager.PERMISSION_GRANTED) {
-            requestPermissions(new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE}, 2);
-        }
 
         super.onCreate(savedInstanceState);
 
-        LocalBroadcastManager.getInstance(this).registerReceiver(connectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_CONNECTED_ACTION));
-        LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
+        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (!mBluetoothAdapter.isEnabled()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Le Bluetooth va être activé.")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            mBluetoothAdapter.enable();
+                            IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+                            registerReceiver(new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    final String action = intent.getAction();
+                                    if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
+                                        final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+                                                BluetoothAdapter.ERROR);
+                                        switch (state) {
+                                            case BluetoothAdapter.STATE_ON:
+                                                startBluetoothServices();
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    }
+                                }
+                            }, filter);
+                        }
+                    });
+            builder.show();
+        } else {
+            startBluetoothServices();
+        }
+    }
 
+    private void startBluetoothServices() {
         advertisementIntent = new Intent(this, AdvertiserService.class);
         advertisementIntent.putExtra(APP_ID_EXTRA, getAppID());
         bindService(advertisementIntent, mConnection, Context.BIND_AUTO_CREATE);
@@ -121,6 +151,9 @@ public abstract class AdvertisingActivity extends AppCompatActivity {
         gapIntent.putExtra(APP_ID_EXTRA, getAppID());
         bindService(gapIntent, mConnection, Context.BIND_AUTO_CREATE);
         startService(gapIntent);
+
+        LocalBroadcastManager.getInstance(this).registerReceiver(connectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_CONNECTED_ACTION));
+        LocalBroadcastManager.getInstance(this).registerReceiver(disconnectedBroadcastReceiver, new IntentFilter(GAPService.DEVICE_DISCONNECTED_ACTION));
     }
 
     public void onPauseResumeButton(View v) {
