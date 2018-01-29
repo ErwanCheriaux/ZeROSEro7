@@ -339,36 +339,28 @@ static void usb_event(USBDriver *usbp, usbevent_t event)
 {
     switch(event) {
         case USB_EVENT_CONFIGURED:
-            rtt_printf("USB_EVENT_CONFIGURED");
+            /* 
+             * Enables the endpoints specified into the configuration.
+             * Note, this callback is invoked from an ISR so I-Class functions
+             * must be used.
+             */
             chSysLockFromISR();
-
-            /* Enables the endpoints specified into the configuration.
-       Note, this callback is invoked from an ISR so I-Class functions
-       must be used.*/
             usbInitEndpointI(usbp, USBD2_DATA_REQUEST_EP, &ep1config);
-
             /* Resetting the state of the CDC subsystem.*/
             hidConfigureHookI(&UHD2);
-
             chSysUnlockFromISR();
             return;
         case USB_EVENT_ADDRESS:
-            rtt_printf("USB_EVENT_ADDRESS");
             return;
         case USB_EVENT_RESET:
-            rtt_printf("USB_EVENT_RESET");
             return;
         case USB_EVENT_UNCONFIGURED:
-            rtt_printf("USB_EVENT_UNCONFIGURED");
             return;
         case USB_EVENT_SUSPEND:
-            rtt_printf("USB_EVENT_SUSPEND");
             return;
         case USB_EVENT_WAKEUP:
-            rtt_printf("USB_EVENT_WAKEUP");
             return;
         case USB_EVENT_STALLED:
-            rtt_printf("USB_EVENT_STALLED");
             return;
     }
     return;
@@ -382,10 +374,9 @@ static bool req_handler(USBDriver *usbp)
     if((usbp->setup[0] & USB_RTYPE_TYPE_MASK) == USB_RTYPE_TYPE_CLASS) {
         switch(usbp->setup[1]) {
             case HID_SET_REPORT:
-                rtt_printf("HID_SET_REPORT");
-                hidReadReport(&UHD2, &led_status, sizeof led_status);
                 usbSetupTransfer(usbp, &led_status, 1, NULL);
 
+                //TODO
                 caps_lock   = 0;
                 num_lock    = 1;
                 scroll_lock = 0;
@@ -393,7 +384,6 @@ static bool req_handler(USBDriver *usbp)
                 return true;
             default:
                 // Do nothing
-                rtt_printf("REQ_HANDLER : %08x", usbp->setup[1]);
                 return hidRequestsHook(usbp);
         }
     }
