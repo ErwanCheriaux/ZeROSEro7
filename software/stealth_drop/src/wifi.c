@@ -100,8 +100,8 @@ int wifi_command(void* buff, int timeout)
 void wifi_save_file(char* filename)
 {
     unsigned int nb_char_received;
-    uint32_t time =  chVTGetSystemTime();
-    int size = 0;
+    uint32_t     time = chVTGetSystemTime();
+    int          size = 0;
     sd_file_open(filename, FA_WRITE);
     while((nb_char_received = uart_receive_timeout(data_buff, MAX_BUFF_LEN, MS2ST(TIMEOUT)))) {
 #ifdef DEBUG
@@ -111,8 +111,8 @@ void wifi_save_file(char* filename)
         size += nb_char_received;
     }
     sd_file_close();
-    time = ST2MS(chVTGetSystemTime() - time); // time used for upload in ms
-    size /= 1024; // data size uploaded in KB
+    time = ST2MS(chVTGetSystemTime() - time);  // time used for upload in ms
+    size /= 1024;                              // data size uploaded in KB
     rtt_printf("Upload %dKB in %dms (%dKB/s)\n", size, time, (size * 1000) / time);
     char response[] = "Success\n";
     uart_send(response, strlen(response));
@@ -123,8 +123,8 @@ void wifi_send_file(char* filename)
     if(sd_file_open(filename, FA_READ))
         return;
     unsigned int bytes_read = 0;
-    uint32_t time =  chVTGetSystemTime();
-    int size = 0;
+    uint32_t     time       = chVTGetSystemTime();
+    int          size       = 0;
     do {
         sd_file_read(&bytes_read);
 #ifdef DEBUG
@@ -134,8 +134,8 @@ void wifi_send_file(char* filename)
         size += bytes_read;
     } while(bytes_read != 0);
     sd_file_close();
-    time = ST2MS(chVTGetSystemTime() - time); // time used for upload in ms
-    size /= 1024; // data size uploaded in KB
+    time = ST2MS(chVTGetSystemTime() - time);  // time used for upload in ms
+    size /= 1024;                              // data size uploaded in KB
     rtt_printf("Download %dKB in %dms (%dKB/s)\n", size, time, (size * 1000) / time);
     rtt_printf("Download finished\n");
 }

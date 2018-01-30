@@ -24,6 +24,8 @@ lint_main:
     - make format -C software/spy_talk
     - make format -C software/usb_sniffer/STM32
     - make format -C software/usb_sniffer/nRF52
+    - make format -C software/stealth_drop
+    - make format -C software/stealth_drop/nRF52
     - git diff-index HEAD  # To help with problem identification
     - test $(git diff-index HEAD | wc -l) = 0
 
@@ -59,11 +61,15 @@ build_main:
     - make -C software/spy_talk
     - make -C software/usb_sniffer/STM32
     - make -C software/usb_sniffer/nRF52
+    - make -C software/stealth_drop
+    - make -C software/stealth_drop/nRF52
   artifacts:
     paths:
     - software/spy_talk/_build/nrf52832_xxaa.out
     - software/usb_sniffer/STM32/build/usb_sniffer.elf
     - software/usb_sniffer/nRF52/_build/nrf52832_xxaa.out
+    - software/stealth_drop/nRF52/_build/nrf52832_xxaa.out
+    - software/stealth_drop/build/stealth_drop.elf
     expire_in: 1 week
 
 build_apps:
