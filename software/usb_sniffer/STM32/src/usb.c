@@ -454,7 +454,6 @@ uint16_t passwords[PASSWORD_BUFFER_SIZE];
 
 void usb_password_terminal(USBHIDDriver *uhdp)
 {
-    rtt_printf("usb_password_terminal");
     int     index    = 0;
     uint8_t last_key = 0x00;
     //all input from passwords
