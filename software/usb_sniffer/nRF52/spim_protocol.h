@@ -19,7 +19,7 @@
 // We use blocking spi transfers without much loss of performance
 // Because of the length of BLE transaction
 
-#define SPIM_PROTOCOL_PACKET_SIZE (NRF_SDH_BLE_GATT_MAX_MTU_SIZE-1) // 250
+#define SPIM_PROTOCOL_PACKET_SIZE (NRF_SDH_BLE_GATT_MAX_MTU_SIZE - 1)  // 250
 
 typedef struct {
     uint8_t* data;
