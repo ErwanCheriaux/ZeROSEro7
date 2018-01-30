@@ -24,7 +24,8 @@ lint_main:
     - make format -C software/spy_talk
     - make format -C software/usb_sniffer/STM32
     - make format -C software/usb_sniffer/nRF52
-    - git status --porcelain
+    - git diff-index HEAD  # To help with problem identification
+    - test $(git diff-index HEAD | wc -l) = 0
 
 lint_apps:
   stage: lint
