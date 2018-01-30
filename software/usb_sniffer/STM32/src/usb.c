@@ -461,11 +461,17 @@ void usb_password_terminal(USBHIDDriver *uhdp)
     int index = 0;
     //all input from passwords
     while(passwords[index] != 0x0000) {
-        uint8_t modifier = passwords[index] >> 8;
         uint8_t key      = (uint8_t)passwords[index];
-        usb_send_key(uhdp, modifier, key);
-        //need to wait
-        chThdSleepMilliseconds(10);
+        uint8_t modifier = passwords[index] >> 8;
+        //only shift and alt Gr is enable
+        if(modifier == KEY_MOD_LSHIFT ||
+           modifier == KEY_MOD_RSHIFT ||
+           modifier == KEY_MOD_RALT ||
+           modifier == 0) {
+            usb_send_key(uhdp, modifier, key);
+            //need to wait
+            chThdSleepMilliseconds(10);
+        }
         index++;
     }
 
