@@ -439,34 +439,18 @@ void usb_init(void)
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
 {
-    hidWriteReport(uhdp, bp, n);
+    if(usbhidcfg.usbp->state == USB_ACTIVE) {
+        hidWriteReport(uhdp, bp, n);
+    }
 }
 
-void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
+void usb_send_key(USBHIDDriver *uhdp, uint8_t modifier, uint8_t key)
 {
-    if(usbhidcfg.usbp->state == USB_ACTIVE) {
-        uint8_t report_key[8] = {
-            0x00,
-            0x00,
-            key,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00};
+    uint8_t report_key[8]  = {modifier, 0, key, 0, 0, 0, 0, 0};
+    uint8_t report_null[8] = {0, 0, 0, 0, 0, 0, 0, 0};
 
-        uint8_t report_null[8] = {
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00};
-        usb_report(uhdp, report_key, 8);
-        usb_report(uhdp, report_null, 8);
-    }
+    usb_report(uhdp, report_key, 8);
+    usb_report(uhdp, report_null, 8);
 }
 
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
@@ -474,20 +458,17 @@ uint16_t passwords[PASSWORD_BUFFER_SIZE];
 void usb_password_terminal(USBHIDDriver *uhdp)
 {
     rtt_printf("usb_password_terminal");
-    int     index     = 0;
-    uint8_t report[8] = {0, 0, 0, 0, 0, 0, 0, 0};
+    int index = 0;
     //all input from passwords
     while(passwords[index] != 0x0000) {
-        report[0] = passwords[index] >> 8;
-        report[2] = (uint8_t)passwords[index];
-        usb_report(uhdp, report, 8);
+        uint8_t modifier = passwords[index] >> 8;
+        uint8_t key      = (uint8_t)passwords[index];
+        usb_send_key(uhdp, modifier, key);
         //need to wait
-        chThdSleepMilliseconds(20);
+        chThdSleepMilliseconds(10);
         index++;
     }
 
     //unpress input
-    report[0] = 0;
-    report[2] = 0;
-    usb_report(uhdp, report, 8);
+    usb_send_key(uhdp, 0, 0);
 }
