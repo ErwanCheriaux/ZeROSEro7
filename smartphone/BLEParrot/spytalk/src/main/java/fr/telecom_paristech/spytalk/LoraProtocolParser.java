@@ -8,6 +8,7 @@ import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
 import java.security.spec.InvalidParameterSpecException;
+import java.security.spec.KeySpec;
 import java.util.Arrays;
 
 import javax.crypto.BadPaddingException;
@@ -15,32 +16,43 @@ import javax.crypto.Cipher;
 import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
-import javax.crypto.spec.SecretKeySpec;
+import javax.crypto.SecretKeyFactory;
+import javax.crypto.spec.PBEKeySpec;
 
 import blecommon.GAPService;
 
 public class LoraProtocolParser {
 
-    private static final byte[] KEY_BYTES = {(byte) 0xA6, (byte) 0xAB, (byte) 0xFA, (byte) 0x9C, (byte) 0xD4, (byte) 0xF5, (byte) 0x1D, (byte) 0x9C, (byte) 0x1A, (byte) 0x15, (byte) 0x32, (byte) 0xC7, (byte) 0xE8, (byte) 0xF9, (byte) 0xD,
-            (byte) 0xA6, (byte) 0xAB, (byte) 0xFA, (byte) 0x9C, (byte) 0xD4, (byte) 0xF5, (byte) 0x1D, (byte) 0x9C, (byte) 0x1A, (byte) 0x15, (byte) 0x32, (byte) 0xC7, (byte) 0xE8, (byte) 0xF9, (byte) 0xD,
-            (byte) 0xA6, (byte) 0xAB};
+    public static final String DEFAULT_PASSWORD = "?n&IrF`d1!=m&-2)z~<*l4,w~}+(pR*YHZo@jxwdYn-Y4(D(%wRG&YQG0*(6R[gu";
+
+    private static byte[] keyBytes = new byte[32];
     private static SecretKey secret;
     private byte localAddress;
 
     public LoraProtocolParser(byte localAddress) {
         this.localAddress = localAddress;
-        try {
-            generateKey();
-        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
-            e.printStackTrace();
-        }
+        generateKey(DEFAULT_PASSWORD);
     }
 
-    // Copied from https://stackoverflow.com/questions/40123319/easy-way-to-encrypt-decrypt-string-in-android by Patrick R
-    public static SecretKey generateKey()
-            throws NoSuchAlgorithmException, InvalidKeySpecException {
-        secret = new SecretKeySpec(KEY_BYTES, "AES");
-        return secret;
+
+    // Copied from https://android-developers.googleblog.com/2013/02/using-cryptography-to-store-credentials.html
+    public void generateKey(String password) {
+        // Number of PBKDF2 hardening rounds to use. Larger values increase
+        // computation time. You should select a value that causes computation
+        // to take >100ms.
+        final int iterations = 1000;
+
+        // Generate a 256-bit key
+        final int outputKeyLength = 256;
+
+        SecretKeyFactory secretKeyFactory = null;
+        try {
+            secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
+            KeySpec keySpec = new PBEKeySpec(password.toCharArray(), "common salt".getBytes(), iterations, outputKeyLength);
+            secret = secretKeyFactory.generateSecret(keySpec);
+        } catch (NoSuchAlgorithmException|InvalidKeySpecException e) {
+            e.printStackTrace();
+        }
     }
 
     public static byte[] encryptMsg(byte[] message, SecretKey secret)
