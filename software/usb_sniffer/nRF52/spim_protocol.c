@@ -54,7 +54,6 @@ void spim_protocol_start()
     nrf_delay_ms(10);
     spim_transfer(rx_buffer, tx_buffer, TRANSFER_SIZE);
     nrf_delay_ms(10);
-
 }
 
 buffer_t* spim_protocol_next()
