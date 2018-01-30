@@ -51,8 +51,8 @@ int main(void)
                 usbh_print_input();
             if(input[i] == KEY_F6)
                 usbh_print_password();
-            //if(input[i] == KEY_F7)
-            //    usb_password_terminal(&UHD2);
+            if(input[i] == KEY_F7)
+                usb_password_terminal(&UHD2);
 
             i++;
         }
