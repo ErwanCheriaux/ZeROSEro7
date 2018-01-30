@@ -40,7 +40,7 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
         loraParser = new LoraProtocolParser(localAddress);
 
-        if(password != null) {
+        if (password != null) {
             loraParser.generateKey(password);
         }
 

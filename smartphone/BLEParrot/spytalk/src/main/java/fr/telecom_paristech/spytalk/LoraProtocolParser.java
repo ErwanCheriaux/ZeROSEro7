@@ -24,8 +24,6 @@ import blecommon.GAPService;
 public class LoraProtocolParser {
 
     public static final String DEFAULT_PASSWORD = "?n&IrF`d1!=m&-2)z~<*l4,w~}+(pR*YHZo@jxwdYn-Y4(D(%wRG&YQG0*(6R[gu";
-
-    private static byte[] keyBytes = new byte[32];
     private static SecretKey secret;
     private byte localAddress;
 
@@ -50,7 +48,7 @@ public class LoraProtocolParser {
             secretKeyFactory = SecretKeyFactory.getInstance("PBKDF2WithHmacSHA1");
             KeySpec keySpec = new PBEKeySpec(password.toCharArray(), "common salt".getBytes(), iterations, outputKeyLength);
             secret = secretKeyFactory.generateSecret(keySpec);
-        } catch (NoSuchAlgorithmException|InvalidKeySpecException e) {
+        } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
     }

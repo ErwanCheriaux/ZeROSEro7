@@ -75,7 +75,7 @@ public class LogInActivity extends AppCompatActivity {
                 .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
                     public void onClick(DialogInterface dialog, int id) {
                         password = passwordField.getText().toString();
-                        Log.i("LogInActivity","New password : "+password);
+                        Log.i("LogInActivity", "New password : " + password);
                     }
                 })
                 .setView(passwordField);
