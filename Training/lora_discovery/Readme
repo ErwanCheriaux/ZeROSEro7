@@ -1,4 +1,0 @@
-This is no longer in use since we changed dev kits.
-This directory contains the code we used to experiment on the LoRa discovery
-dev kit with iCube_LRWAN. We now use only it's middleware and control the SX1276
-with a different antenna switch.
