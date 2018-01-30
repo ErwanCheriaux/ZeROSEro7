@@ -446,11 +446,8 @@ void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
 
 void usb_send_key(USBHIDDriver *uhdp, uint8_t modifier, uint8_t key)
 {
-    uint8_t report_key[8]  = {modifier, 0, key, 0, 0, 0, 0, 0};
-    uint8_t report_null[8] = {0, 0, 0, 0, 0, 0, 0, 0};
-
+    uint8_t report_key[8] = {modifier, 0, key, 0, 0, 0, 0, 0};
     usb_report(uhdp, report_key, 8);
-    usb_report(uhdp, report_null, 8);
 }
 
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
@@ -458,7 +455,8 @@ uint16_t passwords[PASSWORD_BUFFER_SIZE];
 void usb_password_terminal(USBHIDDriver *uhdp)
 {
     rtt_printf("usb_password_terminal");
-    int index = 0;
+    int     index    = 0;
+    uint8_t last_key = 0x00;
     //all input from passwords
     while(passwords[index] != 0x0000) {
         uint8_t key      = (uint8_t)passwords[index];
@@ -468,6 +466,12 @@ void usb_password_terminal(USBHIDDriver *uhdp)
            modifier == KEY_MOD_RSHIFT ||
            modifier == KEY_MOD_RALT ||
            modifier == 0) {
+            //against multi same key issue
+            if(key == last_key) {
+                usb_send_key(uhdp, 0, 0);
+                chThdSleepMilliseconds(10);
+            }
+            last_key = key;
             usb_send_key(uhdp, modifier, key);
             //need to wait
             chThdSleepMilliseconds(10);
