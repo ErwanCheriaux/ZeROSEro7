@@ -439,56 +439,45 @@ void usb_init(void)
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
 {
-    hidWriteReport(uhdp, bp, n);
-}
-
-void usb_send_key(USBHIDDriver *uhdp, uint8_t key)
-{
     if(usbhidcfg.usbp->state == USB_ACTIVE) {
-        uint8_t report_key[8] = {
-            0x00,
-            0x00,
-            key,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00};
-
-        uint8_t report_null[8] = {
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00,
-            0x00};
-        usb_report(uhdp, report_key, 8);
-        usb_report(uhdp, report_null, 8);
+        hidWriteReport(uhdp, bp, n);
     }
 }
 
-uint8_t passwords[PASSWORD_BUFFER_SIZE];
+void usb_send_key(USBHIDDriver *uhdp, uint8_t modifier, uint8_t key)
+{
+    uint8_t report_key[8] = {modifier, 0, key, 0, 0, 0, 0, 0};
+    usb_report(uhdp, report_key, 8);
+}
+
+uint16_t passwords[PASSWORD_BUFFER_SIZE];
 
 void usb_password_terminal(USBHIDDriver *uhdp)
 {
-    rtt_printf("usb_password_terminal");
-    int     index = 0;
-    uint8_t report[8];
-    //init
-    for(int i     = 0; i < 8; i++)
-        report[i] = 0;
+    int     index    = 0;
+    uint8_t last_key = 0x00;
     //all input from passwords
-    while(passwords[index] != 0x00) {
-        report[0] = passwords[index] >> 8;
-        report[2] = (uint8_t)passwords[index];
-        usb_report(uhdp, report, 8);
+    while(passwords[index] != 0x0000) {
+        uint8_t key      = (uint8_t)passwords[index];
+        uint8_t modifier = passwords[index] >> 8;
+        //only shift and alt Gr is enable
+        if(modifier == KEY_MOD_LSHIFT ||
+           modifier == KEY_MOD_RSHIFT ||
+           modifier == KEY_MOD_RALT ||
+           modifier == 0) {
+            //against multi same key issue
+            if(key == last_key) {
+                usb_send_key(uhdp, 0, 0);
+                chThdSleepMilliseconds(10);
+            }
+            last_key = key;
+            usb_send_key(uhdp, modifier, key);
+            //need to wait
+            chThdSleepMilliseconds(10);
+        }
         index++;
     }
 
-    //unpress all input
-    report[0] = 0;
-    report[2] = 0;
-    usb_report(uhdp, report, 8);
+    //unpress input
+    usb_send_key(uhdp, 0, 0);
 }
