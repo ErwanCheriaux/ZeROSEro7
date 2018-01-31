@@ -182,6 +182,7 @@ void usbh_detector(char input)
             nb_char_pressed = 0;
             break;
         case '\n':  // password is expected
+        case '\t':  // password is expected
             rtt_printf("[enter] detected\n");
             if(nb_char_pressed > PASSWORD_MAX_SIZE)
                 nb_char_pressed = PASSWORD_MAX_SIZE;
