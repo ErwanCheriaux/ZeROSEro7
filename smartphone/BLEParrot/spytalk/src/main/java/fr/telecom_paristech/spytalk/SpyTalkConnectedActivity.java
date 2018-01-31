@@ -1,5 +1,6 @@
 package fr.telecom_paristech.spytalk;
 
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
 import android.text.method.ScrollingMovementMethod;
@@ -24,14 +25,13 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     public static final byte[] PANICK_MESSAGE = {0xD, 0xE, 0xA, 0xD};
     public static final byte[] TX_FAILED_MESSAGE = {0x2, 0x2, 0x2, 0x2};
     public static final byte[] ACKNOWLEDGE_MESSAGE = {0x1, 0x1, 0x1, 0x1};
-
+    private static final String LOG_SAVE_KEY = "log save";
+    SharedPreferences logSave;
     private byte localAddress;
-
     private TextView logWindow;
     private EditText messageField;
     private Spinner receiverSelect;
     private Button panickButton;
-
     private LoraProtocolParser loraParser;
     private boolean loraIsSending = false;
 
@@ -48,11 +48,21 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     }
 
     @Override
-    protected void onRestart() {
+    protected void onResume() {
+        super.onResume();
+
         loraIsSending = false;  // In case we lost BLE connection during the transfert, we do not freeze the app.
         // If a transfer was already ongoing, the Spy Talk will simply notify us with a tx failed.
 
-        super.onRestart();
+        String previousLog = logSave.getString(LOG_SAVE_KEY, null);
+        Log.i("SpyTalkConnActivity", "Previous log : " + previousLog);
+        logWindow.setText(previousLog);
+    }
+
+    private void appendLog(String s) {
+        logWindow.append(s);
+        logSave.edit().putString(LOG_SAVE_KEY, s);
+        logSave.edit().commit();
     }
 
     @Override
@@ -90,13 +100,17 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
                         bleSend(blePacket);
 
                         messageField.setText("");
-                        logWindow.append(receiver + " -> " + message + "\n");
+                        appendLog(receiver + " -> " + message + "\n");
                         Log.i("ConnectedActivity", "Sending " + message);
                     }
                 }
                 return false;
             }
         });
+
+        logSave = getApplicationContext().getSharedPreferences("GLOBAL_PREF", 0);
+        logSave.edit().clear();
+        logSave.edit().commit();
     }
 
     @Override
@@ -105,18 +119,20 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
         LoraMessage loraMsg = loraParser.parseMessage(msg);
 
+        String log = "";
+
         switch (loraMsg.getSenderAddress()) {
             case LogInActivity.YELLOW_ADDR:
-                logWindow.append("Jaune ");
+                log += "Jaune ";
                 break;
             case LogInActivity.BLUE_ADDR:
-                logWindow.append("Bleu ");
+                log += "Bleu ";
                 break;
             case LogInActivity.PINK_ADDR:
-                logWindow.append("Rose ");
+                log += "Rose ";
                 break;
             default:
-                logWindow.append("Unknown ");
+                log += "Unknown ";
                 break;
         }
 
@@ -142,8 +158,8 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             v.vibrate(500); // ms
         }
 
-        logWindow.append("<- " + content + "\n");
-
+        log += "<- " + content + "\n";
+        appendLog(log);
     }
 
     public void onPanickButton(View v) {
@@ -153,7 +169,7 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         byte[] blePacket = loraParser.buildMessage(loraMsg);
         bleSend(blePacket);
 
-        logWindow.append(receiver + " -> " + "Alert !" + "\n");
+        appendLog(receiver + " -> " + "Alert !" + "\n");
         Log.i("ConnectedActivity", "Sending " + messageField.getText());
     }
 
