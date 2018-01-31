@@ -19,6 +19,7 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import java.net.URISyntaxException;
+import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -29,6 +30,7 @@ public class MainActivity extends AppCompatActivity
     LinearLayout layout;
     ProgressBar progress;
     CallbackInterface callbacks;
+    ArrayList<String> filenames;
 
     static final int FILE_PICK = 1;
 
@@ -57,19 +59,24 @@ public class MainActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        filenames = new ArrayList<>();
+
         callbacks = new CallbackInterface() {
             @Override
             public void addDownloadButton(String text) {
+                filenames.add(text);
                 addButton(text);
             }
 
             @Override
             public void removeDownloadButtons() {
+                filenames.clear();
                 layout.removeAllViews();
             }
 
             @Override
             public void removeDownloadButton(String filename) {
+                filenames.remove(filename);
                 for(int i = 0; i < layout.getChildCount(); i++)
                     if(((Button)((LinearLayout)layout.getChildAt(i)).getChildAt(0)).getText().equals(filename))
                         layout.removeViewAt(i);
@@ -159,4 +166,20 @@ public class MainActivity extends AppCompatActivity
         public void onServiceDisconnected(ComponentName arg0)
         {}
     };
+
+    // Save the filenames before activity restarts (on screen rotation for example)
+    @Override
+    protected void onSaveInstanceState(final Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putStringArrayList("ScanResult", filenames);
+    }
+
+    @Override
+    protected void onRestoreInstanceState(final Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        // Read the state of item position
+        filenames = savedInstanceState.getStringArrayList("ScanResult");
+        for(String filename : filenames)
+            addButton(filename);
+    }
 }
