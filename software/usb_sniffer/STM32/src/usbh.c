@@ -111,7 +111,7 @@ static void ThreadUsbhMainLoop(void *p)
     for(;;) {
         //start USB_OTG2 when the keyboard is detected for the first time
         if(USBHHIDD->state == USBHHID_STATE_READY && USBD2.state == USB_STOP)
-            usb_start();
+            usb_start(&USBHD1);
         usbhMainLoop(&USBHD1);
         chThdSleepMilliseconds(50);
     }

@@ -50,20 +50,7 @@ USBHIDDriver UHD2;
  *  iSerialNumber: 0
  *  bNumConfigurations: 1
  */
-static const uint8_t hid_device_descriptor_data[18] = {
-    USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
-                    0x00,   /* bDeviceClass (CDC).              */
-                    0x00,   /* bDeviceSubClass.                 */
-                    0x00,   /* bDeviceProtocol.                 */
-                    0x40,   /* bMaxPacketSize. Fail with 0x08 ! */
-                    0x413c, /* idVendor (ST).                   */
-                    0x2107, /* idProduct.                       */
-                    0x0178, /* bcdDevice.                       */
-                    1,      /* iManufacturer.                   */
-                    2,      /* iProduct.                        */
-                    0,      /* iSerialNumber.                   */
-                    1)      /* bNumConfigurations.              */
-};
+static uint8_t hid_device_descriptor_data[18];
 
 /*
  * Device Descriptor wrapper.
@@ -407,6 +394,8 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_REQUEST_EP,
     USBD2_DATA_AVAILABLE_EP};
 
+void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
+
 /*
  * USB initialization get on the demo file 
  * ChibiOS/demos/STM32/RT-STM32F407-OLIMEX_E407-LWIP-FATFS-USB/main.c
@@ -421,8 +410,14 @@ void usb_init(void)
     palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(12));
 }
 
-void usb_start(void)
+void usb_start(USBHDriver *usbh)
 {
+    /*
+    * Update USB descriptors
+    */
+    usbh_device_descriptor_t *const usbh_device_descriptor = &usbh->rootport.device.devDesc;
+    set_device_descriptor(usbh_device_descriptor);
+
     /*
    * Initializes a serial-over-USB CDC driver.
    */
@@ -438,6 +433,27 @@ void usb_start(void)
     chThdSleepMilliseconds(1500);
     usbStart(usbhidcfg.usbp, &usbcfg);
     usbConnectBus(usbhidcfg.usbp);
+}
+
+void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor)
+{
+    uint8_t usbh_device_descriptor_data[18] = {
+        USB_DESC_DEVICE(0x0110, /* bcdUSB (1.1).                    */
+                        0x00,   /* bDeviceClass (CDC).              */
+                        0x00,   /* bDeviceSubClass.                 */
+                        0x00,   /* bDeviceProtocol.                 */
+                        0x40,   /* bMaxPacketSize. Fail with 0x08 ! */
+                        device_descriptor->idVendor,
+                        device_descriptor->idProduct,
+                        device_descriptor->bcdDevice,
+                        1, /* iManufacturer.                   */
+                        2, /* iProduct.                        */
+                        0, /* iSerialNumber.                   */
+                        1) /* bNumConfigurations.              */
+    };
+
+    for(unsigned int i                = 0; i < USB_DESC_DEVICE_SIZE; i++)
+        hid_device_descriptor_data[i] = usbh_device_descriptor_data[i];
 }
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
