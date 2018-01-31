@@ -84,14 +84,15 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
                 if (keyCode == KeyEvent.KEYCODE_ENTER && event.getAction() == KeyEvent.ACTION_DOWN) {
                     String receiver = receiverSelect.getSelectedItem().toString();
                     String message = messageField.getText().toString();
+                    if (message.length() > 0) {
+                        LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, message.getBytes());
+                        byte[] blePacket = loraParser.buildMessage(loraMsg);
+                        bleSend(blePacket);
 
-                    LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, message.getBytes());
-                    byte[] blePacket = loraParser.buildMessage(loraMsg);
-                    bleSend(blePacket);
-
-                    messageField.setText("");
-                    logWindow.append(receiver + " -> " + message + "\n");
-                    Log.i("ConnectedActivity", "Sending " + message);
+                        messageField.setText("");
+                        logWindow.append(receiver + " -> " + message + "\n");
+                        Log.i("ConnectedActivity", "Sending " + message);
+                    }
                 }
                 return false;
             }
