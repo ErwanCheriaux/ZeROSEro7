@@ -20,6 +20,8 @@
 #include "usb.h"
 #include "usbh.h"
 
+#include <string.h>
+
 /*
  * USB HID Driver structure.
  */
@@ -233,10 +235,7 @@ static const uint8_t hid_string0[] = {
  *  bDescriptorType: 0x03 (STRING)
  *  bString: DELL
  */
-static const uint8_t hid_string1[] = {
-    USB_DESC_BYTE(10),                    /* bLength.                         */
-    USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
-    'D', 0, 'E', 0, 'L', 0, 'L', 0};
+static uint8_t hid_string1[64];
 
 /*
  * Device Description string.
@@ -246,12 +245,7 @@ static const uint8_t hid_string1[] = {
  *  bDescriptorType: 0x03 (STRING)
  *  bString: Dell USB Entry Keyboard
  */
-static const uint8_t hid_string2[] = {
-    USB_DESC_BYTE(48),                    /* bLength.                         */
-    USB_DESC_BYTE(USB_DESCRIPTOR_STRING), /* bDescriptorType.                 */
-    'D', 0, 'e', 0, 'l', 0, 'l', 0, ' ', 0, 'U', 0, 'S', 0, 'B', 0,
-    ' ', 0, 'E', 0, 'n', 0, 't', 0, 'r', 0, 'y', 0, ' ', 0, 'K', 0,
-    'e', 0, 'y', 0, 'b', 0, 'o', 0, 'a', 0, 'r', 0, 'd', 0};
+static uint8_t hid_string2[64];
 
 /*
  * Strings wrappers array.
@@ -466,8 +460,24 @@ void set_string_descriptor(usbh_device_t *const device)
     /* Manufacturer */
     usbhDeviceReadString(device, str, sizeof(str), device_descriptor->iManufacturer, device->langID0);
 
+    hid_string1[0] = USB_DESC_BYTE(strlen(str) * 2 + 2);   /* bLength. */
+    hid_string1[1] = USB_DESC_BYTE(USB_DESCRIPTOR_STRING); /* bDescriptorType. */
+
+    for(unsigned int i = 0; i < strlen(str); i++) {
+        hid_string1[2 + i * 2]     = str[i];
+        hid_string1[2 + i * 2 + 1] = 0;
+    }
+
     /* Product */
     usbhDeviceReadString(device, str, sizeof(str), device_descriptor->iProduct, device->langID0);
+
+    hid_string2[0] = USB_DESC_BYTE(strlen(str) * 2 + 2);   /* bLength. */
+    hid_string2[1] = USB_DESC_BYTE(USB_DESCRIPTOR_STRING); /* bDescriptorType. */
+
+    for(unsigned int i = 0; i < strlen(str); i++) {
+        hid_string2[2 + i * 2]     = str[i];
+        hid_string2[2 + i * 2 + 1] = 0;
+    }
 }
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
