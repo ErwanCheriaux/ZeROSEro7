@@ -61,5 +61,4 @@
 #define SPI_ENABLED 0
 #endif
 
-
 #endif  // BOARD_USB_SNIFFER_H
