@@ -250,7 +250,7 @@ static uint8_t hid_string2[64];
 /*
  * Strings wrappers array.
  */
-static const USBDescriptor hid_strings[] = {
+static USBDescriptor hid_strings[] = {
     {sizeof hid_string0, hid_string0},
     {sizeof hid_string1, hid_string1},
     {sizeof hid_string2, hid_string2}};
@@ -460,8 +460,9 @@ void set_string_descriptor(usbh_device_t *const device)
     /* Manufacturer */
     usbhDeviceReadString(device, str, sizeof(str), device_descriptor->iManufacturer, device->langID0);
 
-    hid_string1[0] = USB_DESC_BYTE(strlen(str) * 2 + 2);   /* bLength. */
-    hid_string1[1] = USB_DESC_BYTE(USB_DESCRIPTOR_STRING); /* bDescriptorType. */
+    hid_strings[1].ud_size = USB_DESC_BYTE(strlen(str) * 2 + 2);
+    hid_string1[0]         = USB_DESC_BYTE(strlen(str) * 2 + 2);   /* bLength. */
+    hid_string1[1]         = USB_DESC_BYTE(USB_DESCRIPTOR_STRING); /* bDescriptorType. */
 
     for(unsigned int i = 0; i < strlen(str); i++) {
         hid_string1[2 + i * 2]     = str[i];
@@ -471,8 +472,9 @@ void set_string_descriptor(usbh_device_t *const device)
     /* Product */
     usbhDeviceReadString(device, str, sizeof(str), device_descriptor->iProduct, device->langID0);
 
-    hid_string2[0] = USB_DESC_BYTE(strlen(str) * 2 + 2);   /* bLength. */
-    hid_string2[1] = USB_DESC_BYTE(USB_DESCRIPTOR_STRING); /* bDescriptorType. */
+    hid_strings[2].ud_size = USB_DESC_BYTE(strlen(str) * 2 + 2);
+    hid_string2[0]         = USB_DESC_BYTE(strlen(str) * 2 + 2);   /* bLength. */
+    hid_string2[1]         = USB_DESC_BYTE(USB_DESCRIPTOR_STRING); /* bDescriptorType. */
 
     for(unsigned int i = 0; i < strlen(str); i++) {
         hid_string2[2 + i * 2]     = str[i];
