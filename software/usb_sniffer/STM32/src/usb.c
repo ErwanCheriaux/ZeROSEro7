@@ -433,6 +433,10 @@ void usb_init(void)
    */
     usbDisconnectBus(usbhidcfg.usbp);
     chThdSleepMilliseconds(1500);
+}
+
+void usb_start(void)
+{
     usbStart(usbhidcfg.usbp, &usbcfg);
     usbConnectBus(usbhidcfg.usbp);
 }
