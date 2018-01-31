@@ -388,8 +388,8 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_REQUEST_EP,
     USBD2_DATA_AVAILABLE_EP};
 
-void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
-void set_string_descriptor(usbh_device_t *const device);
+static void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
+static void set_string_descriptor(usbh_device_t *const device);
 
 /*
  * USB initialization get on the demo file 

@@ -29,7 +29,7 @@ static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
 
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
 
-void spi_write(uint16_t *msg, int begin);
+static void spi_write(uint16_t *msg, int begin);
 static THD_WORKING_AREA(waSpiMainLoop, 1024);
 
 static void ThreadSpiMainLoop(void *p)
