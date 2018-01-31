@@ -248,7 +248,9 @@ public class GAPService extends Service {
     public void onDestroy() {
         stopScan();
         Log.i("GAPService", "Service destroyed");
-        deviceGatt.close();
+        if (deviceGatt != null) {
+            deviceGatt.close();
+        }
         super.onDestroy();
     }
 
