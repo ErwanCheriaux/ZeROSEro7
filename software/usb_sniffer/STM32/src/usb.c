@@ -419,7 +419,10 @@ void usb_init(void)
     palSetPadMode(GPIOB, GPIOB_OTG_HS_VBUS, PAL_MODE_INPUT_PULLDOWN);
     palSetPadMode(GPIOB, GPIOB_OTG_HS_DM, PAL_MODE_ALTERNATE(12));
     palSetPadMode(GPIOB, GPIOB_OTG_HS_DP, PAL_MODE_ALTERNATE(12));
+}
 
+void usb_start(void)
+{
     /*
    * Initializes a serial-over-USB CDC driver.
    */
@@ -433,10 +436,6 @@ void usb_init(void)
    */
     usbDisconnectBus(usbhidcfg.usbp);
     chThdSleepMilliseconds(1500);
-}
-
-void usb_start(void)
-{
     usbStart(usbhidcfg.usbp, &usbcfg);
     usbConnectBus(usbhidcfg.usbp);
 }
