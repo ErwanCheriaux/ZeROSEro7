@@ -63,9 +63,12 @@ CSRC = $(STARTUPSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
        $(SRC)/main.c \
        $(SRC)/led.c \
-       $(SRC)/timer.c \
        $(SRC)/usb.c \
+       $(SRC)/usbh.c \
+       $(SRC)/spi.c \
+       $(SRC)/timer.c \
        $(SRC)/SEGGER_RTT.c \
+       $(SRC)/usb_hid_keys.c \
        $(SRC)/SEGGER_RTT_printf.c \
        $(SRC)/usbh_custom_class_example.c
 

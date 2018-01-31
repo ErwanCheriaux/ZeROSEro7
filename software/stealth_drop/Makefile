@@ -5,7 +5,7 @@
 
 # Compiler options here.
 ifeq ($(USE_OPT),)
-  USE_OPT = -O2 -ggdb -std=gnu99
+  USE_OPT = -O2 -ggdb -std=gnu99 -DSTEALTH_DROP
 endif
 
 #
@@ -52,6 +52,7 @@ CSRC = $(STARTUPSRC) \
        $(STREAMSSRC) \
        $(SHELLSRC) \
        $(CHIBIOS)/os/various/evtimer.c \
+       $(CHIBIOS)/os/various/syscalls.c \
        src/main.c \
        src/led.c \
        src/timer.c \

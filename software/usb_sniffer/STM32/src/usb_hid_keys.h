@@ -284,4 +284,16 @@
 #define KEY_MEDIA_REFRESH 0xfa
 #define KEY_MEDIA_CALC 0xfb
 
+/*
+ * Get input from the keyboard HID code.
+ * Return all input detected in a 16bit table:
+ * [ Modifier | key ]
+ */
+void get_input_hid(uint8_t *report, uint16_t *input);
+
+/*
+ * Translate AZERTY keyboard HID code in ASCII.
+ */
+char hid_to_azerty(uint16_t input);
+
 #endif  // USB_HID_KEYS
