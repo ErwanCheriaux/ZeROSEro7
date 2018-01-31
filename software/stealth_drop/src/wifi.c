@@ -101,7 +101,7 @@ void wifi_save_file(char* filename)
 {
     // test to measure SD write speed
     (void)filename;
-    int size = 100;
+    int size = 5000;
     for(int i = 0; i < MAX_BUFF_LEN; i++)
         data_buff[i] = i;
     uint32_t     time = chVTGetSystemTime();
@@ -114,7 +114,7 @@ void wifi_save_file(char* filename)
     time = ST2MS(chVTGetSystemTime() - time);  // time used for upload in ms
     size /= 1024;                              // data size uploaded in KB
     rtt_printf("Upload %dKB in %dms (%dKB/s)\n", size, time, (size * 1000) / time);
-    chThdSleep(MS2ST(3000));
+    chThdSleep(MS2ST(10000));
     char response[] = "Success\n";
     uart_send(response, strlen(response));
 }
