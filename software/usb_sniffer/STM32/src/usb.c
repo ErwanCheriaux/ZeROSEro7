@@ -395,6 +395,7 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_AVAILABLE_EP};
 
 void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
+void set_string_descriptor(usbh_device_t *const device);
 
 /*
  * USB initialization get on the demo file 
@@ -415,8 +416,9 @@ void usb_start(USBHDriver *usbh)
     /*
     * Update USB descriptors
     */
-    usbh_device_descriptor_t *const usbh_device_descriptor = &usbh->rootport.device.devDesc;
-    set_device_descriptor(usbh_device_descriptor);
+    usbh_device_t *const usbh_device = &usbh->rootport.device;
+    set_device_descriptor(&usbh_device->devDesc);
+    set_string_descriptor(usbh_device);
 
     /*
    * Initializes a serial-over-USB CDC driver.
@@ -454,6 +456,18 @@ void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor)
 
     for(unsigned int i                = 0; i < USB_DESC_DEVICE_SIZE; i++)
         hid_device_descriptor_data[i] = usbh_device_descriptor_data[i];
+}
+
+void set_string_descriptor(usbh_device_t *const device)
+{
+    usbh_device_descriptor_t *const device_descriptor = &device->devDesc;
+    USBH_DEFINE_BUFFER(char str[64]);
+
+    /* Manufacturer */
+    usbhDeviceReadString(device, str, sizeof(str), device_descriptor->iManufacturer, device->langID0);
+
+    /* Product */
+    usbhDeviceReadString(device, str, sizeof(str), device_descriptor->iProduct, device->langID0);
 }
 
 void usb_report(USBHIDDriver *uhdp, uint8_t *bp, uint8_t n)
