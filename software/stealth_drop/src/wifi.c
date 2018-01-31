@@ -99,22 +99,21 @@ int wifi_command(void* buff, int timeout)
 
 void wifi_save_file(char* filename)
 {
-    // test to measure SD write speed
-    (void)filename;
-    int size = 5000;
-    for(int i = 0; i < MAX_BUFF_LEN; i++)
-        data_buff[i] = i;
+    unsigned int nb_char_received;
     uint32_t     time = chVTGetSystemTime();
-    sd_file_open("test_write_speed.txt", FA_WRITE); 
-    for(int i = 0; i < size; i++)
-        sd_file_write(MAX_BUFF_LEN);
-    size *= 1024;
-    // end of test
+    int          size = 0;
+    sd_file_open(filename, FA_WRITE);
+    while((nb_char_received = uart_receive_timeout(data_buff, MAX_BUFF_LEN, MS2ST(TIMEOUT)))) {
+#ifdef DEBUG
+        rtt_printf("(%d)\n", nb_char_received);
+#endif
+        sd_file_write(nb_char_received);
+        size += nb_char_received;
+    }
     sd_file_close();
     time = ST2MS(chVTGetSystemTime() - time);  // time used for upload in ms
     size /= 1024;                              // data size uploaded in KB
     rtt_printf("Upload %dKB in %dms (%dKB/s)\n", size, time, (size * 1000) / time);
-    chThdSleep(MS2ST(10000));
     char response[] = "Success\n";
     uart_send(response, strlen(response));
 }
