@@ -24,9 +24,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@+id/loginTitle"
         android:orientation="vertical"
-        android:weightSum="3">
+        android:weightSum="3"
+        android:layout_below="@+id/buttonPassword"
+        android:layout_alignParentEnd="true">
 
         <Button
             android:id="@+id/buttonYellow"
@@ -36,7 +37,6 @@
             android:layout_alignParentStart="true"
             android:layout_below="@+id/loginTitle"
             android:layout_column="0"
-            android:layout_marginTop="59dp"
             android:layout_row="0"
             android:layout_weight="1"
             android:backgroundTint="@android:color/holo_orange_light"
@@ -75,5 +75,15 @@
             android:text="Rose"
             android:textSize="24sp" />
     </LinearLayout>
+
+    <Button
+        android:text="Changer de mot de passe"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/buttonPassword"
+        android:layout_below="@+id/loginTitle"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:onClick="onPasswordButton" />
 
 </RelativeLayout>

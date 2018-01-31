@@ -60,8 +60,13 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         super.onCreate(savedInstanceState);
 
         localAddress = getIntent().getByteExtra(SpyTalkAdvertisingActivity.LOCAL_ADDRESS_EXTRA, localAddress);
+        String password = getIntent().getStringExtra(LogInActivity.PASSWORD_EXTRA);
 
         loraParser = new LoraProtocolParser(localAddress);
+
+        if (password != null) {
+            loraParser.generateKey(password);
+        }
 
         setContentView(R.layout.chat_activity);
         logWindow = (TextView) findViewById(R.id.logWindow);
