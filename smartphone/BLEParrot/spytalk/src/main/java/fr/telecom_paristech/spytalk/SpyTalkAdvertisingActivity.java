@@ -13,6 +13,7 @@ public class SpyTalkAdvertisingActivity extends AdvertisingActivity {
     public static final String LOCAL_ADDRESS_EXTRA = "Local Address";
 
     private byte[] appId;
+    private String password;
 
     private Button pauseResumeButton;
     private ProgressBar advertisingProgress;
@@ -39,6 +40,7 @@ public class SpyTalkAdvertisingActivity extends AdvertisingActivity {
         if (connectedActivityIntent == null) {
             connectedActivityIntent = new Intent(this, SpyTalkConnectedActivity.class);
             connectedActivityIntent.putExtra(LOCAL_ADDRESS_EXTRA, appId[0]);
+            connectedActivityIntent.putExtra(LogInActivity.PASSWORD_EXTRA, password);
         }
         startActivity(connectedActivityIntent);
     }
@@ -52,6 +54,7 @@ public class SpyTalkAdvertisingActivity extends AdvertisingActivity {
     protected void onCreate(Bundle savedInstanceState) {
         Intent createIntent = getIntent();
         appId = createIntent.getByteArrayExtra(APP_ID_EXTRA);
+        password = createIntent.getStringExtra(LogInActivity.PASSWORD_EXTRA);
 
         super.onCreate(savedInstanceState);
 

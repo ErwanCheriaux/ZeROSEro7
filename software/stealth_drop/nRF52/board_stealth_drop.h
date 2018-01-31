@@ -58,29 +58,7 @@
 // <4294967295=> Not connected
 
 #ifndef SPI_ENABLED
-#define SPI_ENABLED 1
-#endif
-
-#ifndef SPI_SCK_PIN
-#define SPI_SCK_PIN 6
-#endif
-
-// <o> SPI_MISO_PIN  - Pin number
-
-#ifndef SPI_MISO_PIN
-#define SPI_MISO_PIN 7
-#endif
-
-// <o> SPI_MOSI_PIN  - Pin number
-
-#ifndef SPI_MOSI_PIN
-#define SPI_MOSI_PIN 8
-#endif
-
-// <o> SPI_SS_PIN  - Pin number
-
-#ifndef SPI_SS_PIN
-#define SPI_SS_PIN 5
+#define SPI_ENABLED 0
 #endif
 
 #endif  // BOARD_USB_SNIFFER_H

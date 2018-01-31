@@ -167,7 +167,7 @@ static void store_lasts_inputs(int size)
     password_index += size;
 }
 
-void usbh_detector(char input)
+static void usbh_detector(char input)
 {
     if(password_index + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
         rtt_printf("[WARNING] Password buffer full\n");
