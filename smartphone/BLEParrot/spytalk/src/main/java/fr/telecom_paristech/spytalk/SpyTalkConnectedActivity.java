@@ -3,6 +3,7 @@ package fr.telecom_paristech.spytalk;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Vibrator;
+import android.preference.PreferenceManager;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.KeyEvent;
@@ -26,7 +27,6 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     public static final byte[] TX_FAILED_MESSAGE = {0x2, 0x2, 0x2, 0x2};
     public static final byte[] ACKNOWLEDGE_MESSAGE = {0x1, 0x1, 0x1, 0x1};
     private static final String LOG_SAVE_KEY = "log save";
-    SharedPreferences logSave;
     private byte localAddress;
     private TextView logWindow;
     private EditText messageField;
@@ -53,16 +53,10 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
         loraIsSending = false;  // In case we lost BLE connection during the transfert, we do not freeze the app.
         // If a transfer was already ongoing, the Spy Talk will simply notify us with a tx failed.
-
-        String previousLog = logSave.getString(LOG_SAVE_KEY, null);
-        Log.i("SpyTalkConnActivity", "Previous log : " + previousLog);
-        logWindow.setText(previousLog);
     }
 
     private void appendLog(String s) {
         logWindow.append(s);
-        logSave.edit().putString(LOG_SAVE_KEY, s);
-        logSave.edit().commit();
     }
 
     @Override
@@ -108,9 +102,18 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             }
         });
 
-        logSave = getApplicationContext().getSharedPreferences("GLOBAL_PREF", 0);
-        logSave.edit().clear();
-        logSave.edit().commit();
+        if(savedInstanceState != null) {
+            Log.i("ConnectedActivity", "Retrieved previous log : " + savedInstanceState.getString(LOG_SAVE_KEY));
+            logWindow.setText(savedInstanceState.getString(LOG_SAVE_KEY));
+        }
+    }
+
+    @Override
+    public void onSaveInstanceState(Bundle savedInstanceState) {
+        savedInstanceState.putString(LOG_SAVE_KEY, logWindow.getText().toString());
+
+        Log.i("ConnectedActivity", "Saving Bundle");
+        super.onSaveInstanceState(savedInstanceState);
     }
 
     @Override
