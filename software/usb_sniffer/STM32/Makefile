@@ -41,7 +41,7 @@ include $(CHIBIOS)/os/hal/lib/streams/streams.mk
 include $(CHIBIOS)/os/various/shell/shell.mk
 
 # Define linker script file here
-LDSCRIPT= $(STARTUPLD)/STM32F407xG.ld
+LDSCRIPT= STM32F205RGT7.ld
 
 PROJ = .
 SRC = src
@@ -67,6 +67,7 @@ CSRC = $(STARTUPSRC) \
        $(SRC)/usbh.c \
        $(SRC)/spi.c \
        $(SRC)/timer.c \
+       $(SRC)/flash.c \
        $(SRC)/SEGGER_RTT.c \
        $(SRC)/usb_hid_keys.c \
        $(SRC)/SEGGER_RTT_printf.c \
