@@ -30,7 +30,6 @@
         android:layout_alignParentStart="true"
         android:layout_below="@+id/title"
         android:layout_marginTop="50dp"
-        android:maxLines="15"
         android:minHeight="179dp"
         android:minLines="15"
         android:scrollHorizontally="true"
