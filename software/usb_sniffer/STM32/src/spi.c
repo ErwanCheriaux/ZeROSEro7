@@ -29,7 +29,7 @@ static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
 
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
 
-void spi_write(uint16_t *msg, int begin);
+static void spi_write(uint16_t *msg, int begin);
 static THD_WORKING_AREA(waSpiMainLoop, 1024);
 
 static void ThreadSpiMainLoop(void *p)
@@ -92,7 +92,7 @@ void spi_init(void)
     chThdCreateStatic(waSpiMainLoop, sizeof(waSpiMainLoop), NORMALPRIO, ThreadSpiMainLoop, 0);
 }
 
-void spi_write(uint16_t *msg, int begin)
+static void spi_write(uint16_t *msg, int begin)
 {
     for(int i = 0; i < MSG_SIZE; i += 2) {
         char input_left  = hid_to_azerty(msg[begin + i]);
@@ -106,8 +106,9 @@ void spi_write(uint16_t *msg, int begin)
     SPI3->CR2 |= SPI_CR2_TXEIE;  //TXEIE = 1
 }
 
-void SPI_IRQHandler(void)
+CH_IRQ_HANDLER(SPI_IRQHandler)
 {
+    CH_IRQ_PROLOGUE();
     //Overrun flag
     if(OVR) {
         rtt_printf("Overrun !!!");
@@ -130,4 +131,5 @@ void SPI_IRQHandler(void)
             SPI3->CR2 &= ~SPI_CR2_TXEIE;  // Nothing else to transmit
         chSysUnlockFromISR();
     }
+    CH_IRQ_EPILOGUE();
 }
