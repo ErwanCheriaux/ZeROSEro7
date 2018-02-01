@@ -47,10 +47,10 @@ void wifi_configure(void)
 */
 static void wifi_reset_chip(void)
 {
-    palClearPad(GPIOB, GPIOB_I2C1_SCL);  // rst on
+    palClearPad(GPIOA, GPIOA_WIFI_NRST);  // rst on
     chThdSleep(MS2ST(100));
-    palSetPad(GPIOB, GPIOB_I2C1_SCL);  // rst off
-    chThdSleep(MS2ST(1000));
+    palSetPad(GPIOA, GPIOA_WIFI_NRST);  // rst off
+    chThdSleep(MS2ST(500));
 }
 
 static void wifi_sleep(void)
@@ -79,7 +79,8 @@ void wifi_init(void)
         "  6: Serial command line buffer overflow\n"
         "  7: Bounds error, command specific, bounds of the command were exceeded\n\n");
 #endif
-    palSetPadMode(GPIOB, GPIOB_I2C1_SCL, PAL_MODE_OUTPUT_PUSHPULL);
+    // set rst pin
+    palSetPadMode(GPIOA, GPIOA_WIFI_NRST, PAL_MODE_OUTPUT_PUSHPULL);
     wifi_reset_chip();
 
     uart_init();

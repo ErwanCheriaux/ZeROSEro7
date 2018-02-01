@@ -2,20 +2,30 @@
 
 #include "pwm.h"
 
-static uint16_t width = 1;
+static uint16_t width = 50;
+static int      led_r = 0;
+static int      led_g = 0;
+static int      led_b = 0;
 
 /* PWM LED Intensity Callback */
 static void pwmcb0(PWMDriver *pwmp)
 {
     (void)pwmp;
-    palSetPad(GPIOC, GPIOC_LED);  //led off
+    palSetPad(GPIOC, GPIOC_RGB_R);  //led off
+    palSetPad(GPIOC, GPIOC_RGB_G);  //led off
+    palSetPad(GPIOC, GPIOC_RGB_B);  //led off
 }
 
 /* PWM LED Intensity Callback */
 static void pwmcb1(PWMDriver *pwmp)
 {
     (void)pwmp;
-    palClearPad(GPIOC, GPIOC_LED);  //led on
+    if(led_r)
+        palClearPad(GPIOC, GPIOC_RGB_R);  //led on
+    if(led_g)
+        palClearPad(GPIOC, GPIOC_RGB_G);  //led on
+    if(led_b)
+        palClearPad(GPIOC, GPIOC_RGB_B);  //led on
 }
 
 static PWMConfig pwmcfg = {
@@ -31,8 +41,9 @@ static PWMConfig pwmcfg = {
     0  /* TIM DIER register initialization data */
 };
 
-void pwm_init(void)
+void pwm_init(uint16_t w)
 {
+    width = w;
     pwmStart(&PWMD1, &pwmcfg);
     pwmEnablePeriodicNotification(&PWMD1);
     pwm_off();
@@ -50,13 +61,30 @@ void pwm_off(void)
     pwmEnableChannelNotification(&PWMD1, 0);
 }
 
-/*
- * [       1      -       99      ]
- * [low intensity - high intensity]
- */
 void pwm_width(uint16_t w)
 {
     //logic ordre
     width = 100 - w;
-    pwm_on();
+}
+
+void pwm_rgb(int r, int g, int b)
+{
+    led_r = r;
+    led_g = g;
+    led_b = b;
+}
+
+void pwm_r(int r)
+{
+    led_r = r;
+}
+
+void pwm_g(int g)
+{
+    led_g = g;
+}
+
+void pwm_b(int b)
+{
+    led_b = b;
 }

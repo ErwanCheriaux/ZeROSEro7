@@ -182,7 +182,12 @@ static void serve_interrupt(SerialDriver *sdp) {
     osalSysUnlockFromISR();
   }
 
+#ifdef STEALTH_DROP
   /* Data available.*/
+  if(sdp->iqueue.q_counter >= SERIAL_BUFFERS_SIZE - 2) { // warning: buffer is almost full
+    uart_RTS_stop();
+  }
+#endif
   osalSysLockFromISR();
   while (sr & (USART_SR_RXNE | USART_SR_ORE | USART_SR_NE | USART_SR_FE |
                USART_SR_PE)) {

@@ -32,7 +32,40 @@ static const SDCConfig sdccfg = {
     SDC_MODE_4BIT  // bus width (D0, D1, D2, ...)
 };
 
+static int wifi_wake_up = 1;
+
 extern char data_buff[MAX_BUFF_LEN + 1];
+
+static void wkup_callback(EXTDriver *extp, expchannel_t channel)
+{
+    (void)extp;
+    (void)channel;
+    wifi_wake_up = 1;
+}
+
+static const EXTConfig extcfg = {{{EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_BOTH_EDGES | EXT_CH_MODE_AUTOSTART | EXT_MODE_GPIOA, wkup_callback},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL},
+                                  {EXT_CH_MODE_DISABLED, NULL}}};
 
 int main(void)
 {
@@ -40,16 +73,18 @@ int main(void)
     chSysInit();
 
     timer_init();
-    led_init();
-    pwm_init();
+    led_init(1, 0, 0, 10);
+    led_on();
     timer_init();
-    wifi_init();
     rtt_init();
 
-    led_on();
-
+    wifi_init();
     //wifi_break_stream_mode();
     //wifi_configure();
+
+    // Initializes sleep mode
+    palSetPadMode(GPIOA, GPIOA_SPI_MOSI, PAL_MODE_INPUT_PULLDOWN);
+    extStart(&EXTD1, &extcfg);
 
     // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
