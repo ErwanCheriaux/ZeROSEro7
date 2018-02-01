@@ -37,6 +37,9 @@ public class Upload extends Transfer
             byte[] data = new byte[BUFF_LEN];
             int dataLen;
             long totalDataLen = selectedFile.length();
+            // Prevent file bigger than 1Mo
+            if(totalDataLen > 1024 * 1000)
+                return 3;
             int dataSent = 0;
             int conn_res = mTcpClient.openSocket();
             if(conn_res != 0)
@@ -68,6 +71,7 @@ public class Upload extends Transfer
         switch (result) {
             case 0: Toast.makeText(context, "Upload successful", Toast.LENGTH_SHORT).show(); break;
             case 2: Toast.makeText(context, "Connection timeout", Toast.LENGTH_SHORT).show(); break;
+            case 3: Toast.makeText(context, "File too big (>1Mo)", Toast.LENGTH_SHORT).show(); break;
             default: Toast.makeText(context, "Upload error", Toast.LENGTH_SHORT).show();
         }
     }

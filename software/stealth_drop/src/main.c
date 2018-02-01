@@ -32,12 +32,14 @@ static const SDCConfig sdccfg = {
     SDC_MODE_4BIT  // bus width (D0, D1, D2, ...)
 };
 
+static int wifi_wake_up = 1;
+
 extern char data_buff[MAX_BUFF_LEN + 1];
 
 static void wkup_callback(EXTDriver *extp, expchannel_t channel)
 {
     (void)extp;
-    rtt_printf("WKUP(%d)\n", channel);
+    wifi_wake_up = 1;
 }
 
 static const EXTConfig extcfg = {{{EXT_CH_MODE_DISABLED, NULL},
@@ -82,7 +84,6 @@ int main(void)
     // Initializes sleep mode
     palSetPadMode(GPIOA, GPIOA_SPI_MOSI, PAL_MODE_INPUT_PULLDOWN);
     extStart(&EXTD1, &extcfg);
-    extChannelEnable(&EXTD1, 0);
 
     // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
