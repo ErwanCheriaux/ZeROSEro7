@@ -80,7 +80,7 @@ INCDIR = $(CHIBIOS)/os/license \
 # Compiler settings
 #
 
-MCU  = cortex-m4
+MCU  = cortex-m3
 ELF  = build/$(PROJECT).elf
 
 TRGT = arm-none-eabi-

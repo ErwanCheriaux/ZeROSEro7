@@ -67,7 +67,7 @@
 #define GPIOA_SPI_MISO              6U
 #define GPIOA_SPI_MOSI              7U
 #define GPIOA_WIFI_NRST             8U
-#define GPIOA_UART_UC2WIF           9U
+#define GPIOA_UART_UC2WIFI          9U
 #define GPIOA_UART_WIFI2UC          10U
 #define GPIOA_UART_WIFI2UC_TS       11U
 #define GPIOA_UART_UC2WIFI_TS       12U
@@ -201,10 +201,10 @@
                                      PIN_MODE_INPUT(GPIOA_SPI_MISO) |\
                                      PIN_MODE_INPUT(GPIOA_SPI_MOSI) |\
                                      PIN_MODE_INPUT(GPIOA_WIFI_NRST) |\
-                                     PIN_MODE_ALTERNATE(GPIOA_UART_UC2WIF) |\
-                                     PIN_MODE_ALTERNATE(GPIOA_UART_WIFI2UC) |\
-                                     PIN_MODE_ALTERNATE(GPIOA_UART_WIFI2UC_TS) |\
-                                     PIN_MODE_ALTERNATE(GPIOA_UART_UC2WIFI_TS) |\
+                                     PIN_MODE_INPUT(GPIOA_UART_UC2WIFI) |\
+                                     PIN_MODE_INPUT(GPIOA_UART_WIFI2UC) |\
+                                     PIN_MODE_INPUT(GPIOA_UART_WIFI2UC_TS) |\
+                                     PIN_MODE_INPUT(GPIOA_UART_UC2WIFI_TS) |\
                                      PIN_MODE_ALTERNATE(GPIOA_SWDIO) |\
                                      PIN_MODE_ALTERNATE(GPIOA_SWCLK) |\
                                      PIN_MODE_INPUT(GPIOA_WIFI_WAKE))
@@ -217,7 +217,7 @@
                                      PIN_OTYPE_PUSHPULL(GPIOA_SPI_MISO) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_SPI_MOSI) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_WIFI_NRST) |\
-                                     PIN_OTYPE_PUSHPULL(GPIOA_UART_UC2WIF) |\
+                                     PIN_OTYPE_PUSHPULL(GPIOA_UART_UC2WIFI) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_UART_WIFI2UC) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_UART_WIFI2UC_TS) |\
                                      PIN_OTYPE_PUSHPULL(GPIOA_UART_UC2WIFI_TS) |\
@@ -231,11 +231,11 @@
                                      PIN_OSPEED_VERYLOW(GPIOA_SPI_NSS) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_SPI_SCK) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_SPI_MISO) |\
-                                     PIN_OSPEED_HIGH(GPIOA_SPI_MOSI) |\
+                                     PIN_OSPEED_VERYLOW(GPIOA_SPI_MOSI) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_WIFI_NRST) |\
-                                     PIN_OSPEED_HIGH(GPIOA_UART_UC2WIF) |\
-                                     PIN_OSPEED_HIGH(GPIOA_UART_WIFI2UC) |\
-                                     PIN_OSPEED_HIGH(GPIOA_UART_WIFI2UC_TS) |\
+                                     PIN_OSPEED_VERYLOW(GPIOA_UART_UC2WIFI) |\
+                                     PIN_OSPEED_VERYLOW(GPIOA_UART_WIFI2UC) |\
+                                     PIN_OSPEED_VERYLOW(GPIOA_UART_WIFI2UC_TS) |\
                                      PIN_OSPEED_HIGH(GPIOA_UART_UC2WIFI_TS) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_SWDIO) |\
                                      PIN_OSPEED_VERYLOW(GPIOA_SWCLK) |\
@@ -249,7 +249,7 @@
                                      PIN_PUPDR_FLOATING(GPIOA_SPI_MISO) |\
                                      PIN_PUPDR_FLOATING(GPIOA_SPI_MOSI) |\
                                      PIN_PUPDR_FLOATING(GPIOA_WIFI_NRST) |\
-                                     PIN_PUPDR_FLOATING(GPIOA_UART_UC2WIF) |\
+                                     PIN_PUPDR_FLOATING(GPIOA_UART_UC2WIFI) |\
                                      PIN_PUPDR_FLOATING(GPIOA_UART_WIFI2UC) |\
                                      PIN_PUPDR_FLOATING(GPIOA_UART_WIFI2UC_TS) |\
                                      PIN_PUPDR_FLOATING(GPIOA_UART_UC2WIFI_TS) |\
@@ -265,7 +265,7 @@
                                      PIN_ODR_LOW(GPIOA_SPI_MISO) |\
                                      PIN_ODR_LOW(GPIOA_SPI_MOSI) |\
                                      PIN_ODR_LOW(GPIOA_WIFI_NRST) |\
-                                     PIN_ODR_LOW(GPIOA_UART_UC2WIF) |\
+                                     PIN_ODR_LOW(GPIOA_UART_UC2WIFI) |\
                                      PIN_ODR_LOW(GPIOA_UART_WIFI2UC) |\
                                      PIN_ODR_LOW(GPIOA_UART_WIFI2UC_TS) |\
                                      PIN_ODR_LOW(GPIOA_UART_UC2WIFI_TS) |\
@@ -281,10 +281,10 @@
                                      PIN_AFIO_AF(GPIOA_SPI_MISO, 5U) |\
                                      PIN_AFIO_AF(GPIOA_SPI_MOSI, 5U))
 #define VAL_GPIOA_AFRH              (PIN_AFIO_AF(GPIOA_WIFI_NRST, 0U) |\
-                                     PIN_AFIO_AF(GPIOA_UART_UC2WIF, 7U) |\
-                                     PIN_AFIO_AF(GPIOA_UART_WIFI2UC, 7U) |\
-                                     PIN_AFIO_AF(GPIOA_UART_WIFI2UC_TS, 7U) |\
-                                     PIN_AFIO_AF(GPIOA_UART_UC2WIFI_TS, 7U) |\
+                                     PIN_AFIO_AF(GPIOA_UART_UC2WIFI, 0U) |\
+                                     PIN_AFIO_AF(GPIOA_UART_WIFI2UC, 0U) |\
+                                     PIN_AFIO_AF(GPIOA_UART_WIFI2UC_TS, 0U) |\
+                                     PIN_AFIO_AF(GPIOA_UART_UC2WIFI_TS, 0U) |\
                                      PIN_AFIO_AF(GPIOA_SWDIO, 0U) |\
                                      PIN_AFIO_AF(GPIOA_SWCLK, 0U) |\
                                      PIN_AFIO_AF(GPIOA_WIFI_WAKE, 0U))

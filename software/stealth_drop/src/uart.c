@@ -10,17 +10,22 @@ static SerialConfig serialcfg = {
 
 void uart_RTS_start(void)
 {
-    palClearPad(GPIOD, 12);
+    palClearPad(GPIOA, GPIOA_UART_UC2WIFI_TS);
 }
 
 void uart_RTS_stop(void)
 {
-    palSetPad(GPIOD, 12);
+    palSetPad(GPIOA, GPIOA_UART_UC2WIFI_TS);
 }
 
 void uart_init(void)
 {
     sdStart(&SD1, &serialcfg);
+    palSetPadMode(GPIOA, GPIOA_UART_UC2WIFI, PAL_MODE_ALTERNATE(7));       // TX
+    palSetPadMode(GPIOA, GPIOA_UART_WIFI2UC, PAL_MODE_ALTERNATE(7));       // RX
+    palSetPadMode(GPIOA, GPIOA_UART_WIFI2UC_TS, PAL_MODE_ALTERNATE(7));    // CTS
+    palSetPadMode(GPIOA, GPIOA_UART_UC2WIFI_TS, PAL_MODE_OUTPUT_PUSHPULL); // RTS
+
     // set RTS to enable transmition
     uart_RTS_start();
 }

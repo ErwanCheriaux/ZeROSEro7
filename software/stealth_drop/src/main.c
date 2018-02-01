@@ -26,12 +26,12 @@
 #include "wifi.h"
 #include "uart.h"
 #include "sd.h"
-/*
+
 static const SDCConfig sdccfg = {
     0,             // SD Card do not need it
     SDC_MODE_4BIT  // bus width (D0, D1, D2, ...)
 };
-*/
+
 extern char data_buff[MAX_BUFF_LEN + 1];
 
 int main(void)
@@ -43,13 +43,12 @@ int main(void)
     led_init(1, 0, 0, 10);
     led_on();
     timer_init();
-    //wifi_init();
     rtt_init();
 
-
-    /*wifi_break_stream_mode();
-    wifi_configure();
-
+    wifi_init();
+    //wifi_break_stream_mode();
+    //wifi_configure();
+    
     // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
 
@@ -126,7 +125,7 @@ int main(void)
             default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
         }
         //timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
-    }*/
+    }
 
     chThdSleep(TIME_INFINITE);
     return 0;
