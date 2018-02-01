@@ -35,6 +35,8 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
     private LoraProtocolParser loraParser;
     private boolean loraIsSending = false;
 
+    private LoraMessage broadcastSecondMessage = null;
+
     @Override
     public void bleSend(byte[] b) {
         if (!loraIsSending) {
@@ -53,6 +55,32 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         // If a transfer was already ongoing, the Spy Talk will simply notify us with a tx failed.
 
         super.onRestart();
+    }
+
+    private void broadcast(byte[] message) {
+        Log.i("ConnectedActivity", "Broadcasting");
+        // FIXME We send the packet to each peer rather than using broadcast address
+        byte firstAddress = 0, secondAddress = 0;
+        switch (localAddress) {
+            case LogInActivity.YELLOW_ADDR:
+                firstAddress = LogInActivity.BLUE_ADDR;
+                secondAddress = LogInActivity.PINK_ADDR;
+                break;
+            case LogInActivity.BLUE_ADDR:
+                firstAddress = LogInActivity.PINK_ADDR;
+                secondAddress = LogInActivity.YELLOW_ADDR;
+                break;
+            case LogInActivity.PINK_ADDR:
+                firstAddress = LogInActivity.BLUE_ADDR;
+                secondAddress = LogInActivity.YELLOW_ADDR;
+                break;
+            default:
+                break;
+        }
+        LoraMessage firstMsg = new LoraMessage(firstAddress, localAddress, message);
+        broadcastSecondMessage = new LoraMessage(secondAddress, localAddress, message);
+        byte[] blePacket = loraParser.buildMessage(firstMsg);
+        bleSend(blePacket);
     }
 
     @Override
@@ -85,13 +113,23 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
                     String receiver = receiverSelect.getSelectedItem().toString();
                     String message = messageField.getText().toString();
                     if (message.length() > 0) {
-                        LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, message.getBytes());
-                        byte[] blePacket = loraParser.buildMessage(loraMsg);
-                        bleSend(blePacket);
+
+                        if (LogInActivity.getAppId(receiver)[0] == LogInActivity.BROADCAST_ADDR) {
+                            broadcast(message.getBytes());
+
+                            logWindow.append("Broadcast" + " -> " + message + "\n");
+                            Log.i("ConnectedActivity", "Sending " + message);
+
+                        } else {
+                            LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, message.getBytes());
+                            byte[] blePacket = loraParser.buildMessage(loraMsg);
+                            bleSend(blePacket);
+
+                            logWindow.append(receiver + " -> " + message + "\n");
+                            Log.i("ConnectedActivity", "Sending " + message);
+                        }
 
                         messageField.setText("");
-                        logWindow.append(receiver + " -> " + message + "\n");
-                        Log.i("ConnectedActivity", "Sending " + message);
                     }
                 }
                 return false;
@@ -130,8 +168,10 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
             v.vibrate(200); // ms
             content = "Message Reçu";
             loraIsSending = false;
-            messageField.setEnabled(true);
-            panickButton.setEnabled(true);
+            if (broadcastSecondMessage == null) {
+                messageField.setEnabled(true);
+                panickButton.setEnabled(true);
+            }
         } else if (Arrays.equals(payload, TX_FAILED_MESSAGE)) {
             v.vibrate(200); // ms
             content = "Erreur de transmission";
@@ -144,16 +184,28 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
 
         logWindow.append("<- " + content + "\n");
 
+        if (broadcastSecondMessage != null) {
+            logWindow.append("Suite du Broadcast\n");
+            Log.i("ConnectedActivity", "Sending");
+            byte[] blePacket = loraParser.buildMessage(broadcastSecondMessage);
+            bleSend(blePacket);
+            broadcastSecondMessage = null;
+        }
     }
 
     public void onPanickButton(View v) {
         String receiver = receiverSelect.getSelectedItem().toString();
 
-        LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, PANICK_MESSAGE);
-        byte[] blePacket = loraParser.buildMessage(loraMsg);
-        bleSend(blePacket);
+        if (LogInActivity.getAppId(receiver)[0] == LogInActivity.BROADCAST_ADDR) {
+            broadcast(PANICK_MESSAGE);
 
-        logWindow.append(receiver + " -> " + "Alert !" + "\n");
+        } else {
+            LoraMessage loraMsg = new LoraMessage(LogInActivity.getAppId(receiver)[0], localAddress, PANICK_MESSAGE);
+            byte[] blePacket = loraParser.buildMessage(loraMsg);
+            bleSend(blePacket);
+        }
+
+        logWindow.append(receiver + " -> " + "Alerte !" + "\n");
         Log.i("ConnectedActivity", "Sending " + messageField.getText());
     }
 
