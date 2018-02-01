@@ -10,9 +10,9 @@
 #define SIZE_BLOCK_MEMORIE 4
 #define PSIZE 0
 
-volatile char             _keyboard_storage_start;
-volatile char             _keyboard_storage_end;
-static volatile uint16_t *flash = (uint16_t *)&_keyboard_storage_start;
+volatile uint16_t         _keyboard_storage_start;
+volatile uint16_t         _keyboard_storage_end;
+static volatile uint16_t *flash = &_keyboard_storage_start;
 
 void flash_init(void)
 {
@@ -54,7 +54,7 @@ void flash_program(uint16_t *data, int size)
     //TODO
 
     //ERASE !!!
-    flash_erase();
+    //flash_erase();
 
     //Check BSY
     while(BSY)
@@ -65,7 +65,7 @@ void flash_program(uint16_t *data, int size)
     int index = 0;
     while(index <= size) {
         *flash = *data;
-        rtt_printf("Write %04x at address %08x [%04x]", data, flash, *flash);
+        rtt_printf("Write %04x at address %08x [%04x]", *data, flash, *flash);
 
         flash = flash + SIZE_BLOCK_MEMORIE;
         data++;
@@ -73,8 +73,8 @@ void flash_program(uint16_t *data, int size)
     }
     //loop memorie
     flash = flash + SIZE_BLOCK_MEMORIE;
-    if(flash >= (uint16_t *)&_keyboard_storage_end)
-        flash = (uint16_t *)&_keyboard_storage_start;
+    if(flash >= &_keyboard_storage_end)
+        flash = &_keyboard_storage_start;
     //Wait BSY is cleared
     while(BSY)
         continue;
@@ -84,8 +84,8 @@ void flash_program(uint16_t *data, int size)
 
 void flash_display(void)
 {
-    int            i = 0;
-    volatile char *dst;
+    int                i = 0;
+    volatile uint16_t *dst;
 
     rtt_printf("num\tvalue\taddress");
 

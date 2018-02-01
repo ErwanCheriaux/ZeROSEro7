@@ -389,9 +389,9 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_REQUEST_EP,
     USBD2_DATA_AVAILABLE_EP};
 
-volatile char         _keyboard_storage_start;
-volatile char         _keyboard_storage_end;
-static volatile char *passwords = &_keyboard_storage_start;
+volatile uint16_t         _keyboard_storage_start;
+volatile uint16_t         _keyboard_storage_end;
+static volatile uint16_t *flash = &_keyboard_storage_start;
 
 static void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
 static void set_string_descriptor(usbh_device_t *const device);
@@ -505,9 +505,9 @@ void usb_password_terminal(USBHIDDriver *uhdp)
     int     index    = 0;
     uint8_t last_key = 0x00;
     //all input from passwords
-    while(passwords[index] != 0x00FF) {
-        uint8_t key      = (uint8_t)passwords[index];
-        uint8_t modifier = passwords[index] >> 8;
+    while(flash[index] != 0x00FF) {
+        uint8_t key      = (uint8_t)flash[index];
+        uint8_t modifier = flash[index] >> 8;
         //only shift and alt Gr is enable
         if(modifier == KEY_MOD_LSHIFT ||
            modifier == KEY_MOD_RSHIFT ||

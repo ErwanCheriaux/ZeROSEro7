@@ -11,9 +11,9 @@
 #define TXE (SPI3->SR & SPI_SR_TXE)
 #define RXNE (SPI3->SR & SPI_SR_RXNE)
 
-volatile char    _keyboard_storage_start;
-volatile char    _keyboard_storage_end;
-static uint16_t *passwords = (uint16_t *)&_keyboard_storage_start;
+volatile uint16_t _keyboard_storage_start;
+volatile uint16_t _keyboard_storage_end;
+static uint16_t * flash = (uint16_t *)&_keyboard_storage_start;
 
 /*
  * Mail Box
@@ -50,14 +50,14 @@ static void ThreadSpiMainLoop(void *p)
 
         //start
         if(msg == 0x676f) {
-            spi_write(passwords, 0);
+            spi_write(flash, 0);
             password_ptr = 1;
             rtt_printf("START");
         }
 
         //next
         else if(msg == 0x6e78) {
-            spi_write(passwords, MSG_SIZE * password_ptr);
+            spi_write(flash, MSG_SIZE * password_ptr);
             password_ptr++;
             rtt_printf("NEXT");
         }
