@@ -167,7 +167,7 @@ static void sleep_stop()
 
 #define WKP_RETRY_ATTEMPTS 10
 
-#define MAX_DATA_RX_FRAME 8000       // ms
+#define MAX_DATA_RX_FRAME 12000       // ms
 #define SMALL_PACKETS_RX_FRAME 1000  // ms  // RDY, DAT, ACK
 #define WAKEUP_PACKET_RX_FRAME 2250  // ms // TODO Reduce  // WKP  // Must be at least double the WKP packet time to ensure first wkup is catched
 #define SLEEP_FRAME 3000             // ms // Approximative 5s worse case latency

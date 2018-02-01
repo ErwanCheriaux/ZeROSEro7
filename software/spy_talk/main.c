@@ -86,6 +86,12 @@ static void phone_notification_complete_handler()
     LoRa callbacks
 */
 
+static char * parrot_message[] = {"C'est beau. On dirait du Maitre Gims...",
+    "Pour des messages pareils, je préfère encore crasher.",
+    "Message from root : la drogue c'est mal.",
+    "T'as rien d'autre à dire?"};
+static unsigned int parrot_counter = 0;
+
 static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_MAX_LENGTH + 1];
 void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int length)
 {
@@ -97,8 +103,16 @@ void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int leng
     if(phone_connected) {
         phone_send_notification(notif_build, length + 1);
     }
-#ifdef PARROT  // FIXME Parrot is sending during acknowledge
-    lora_protocol_send(sender_address, message, length);
+#ifdef PARROT
+    parrot_counter ++;
+    if(parrot_counter >= 2*4) {
+        parrot_counter = 0;
+    }
+    if(parrot_counter & 1) {
+        lora_protocol_send(sender_address, message, length);
+    } else {
+        lora_protocol_send(sender_address, (uint8_t*)parrot_message[parrot_counter/2], strlen(parrot_message[parrot_counter/2]));
+    }
 #endif
 }
 
