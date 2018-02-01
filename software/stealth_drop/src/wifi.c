@@ -13,8 +13,8 @@
 extern char data_buff[MAX_BUFF_LEN + 1];
 
 static int sleep_mode_event = 0;
-static int wake_up_event = 0;
-static int wake_up_state = 1;
+static int wake_up_event    = 0;
+static int wake_up_state    = 1;
 
 void wifi_break_stream_mode(void)
 {
@@ -85,7 +85,7 @@ static void wifi_sleep(void)
     wifi_break_stream_mode();
     wifi_command("sleep\r\n", 500);
     sleep_mode_event = 0;
-    wake_up_state = 0;
+    wake_up_state    = 0;
     rtt_printf("Wifi chip in sleep mode\n");
 }
 
