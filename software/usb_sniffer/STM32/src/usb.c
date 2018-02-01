@@ -19,6 +19,7 @@
 #include "rtt.h"
 #include "usb.h"
 #include "usbh.h"
+#include "flash.h"
 
 #include <string.h>
 
@@ -388,6 +389,10 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_REQUEST_EP,
     USBD2_DATA_AVAILABLE_EP};
 
+volatile char _keyboard_storage_start;
+volatile char _keyboard_storage_end;
+static volatile char *passwords = &_keyboard_storage_start;
+
 static void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
 static void set_string_descriptor(usbh_device_t *const device);
 
@@ -495,14 +500,12 @@ static void usb_send_key(USBHIDDriver *uhdp, uint8_t modifier, uint8_t key)
     usb_report(uhdp, report_key, 8);
 }
 
-uint16_t passwords[PASSWORD_BUFFER_SIZE];
-
 void usb_password_terminal(USBHIDDriver *uhdp)
 {
     int     index    = 0;
     uint8_t last_key = 0x00;
     //all input from passwords
-    while(passwords[index] != 0x0000) {
+    while(passwords[index] != 0x00FF) {
         uint8_t key      = (uint8_t)passwords[index];
         uint8_t modifier = passwords[index] >> 8;
         //only shift and alt Gr is enable

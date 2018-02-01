@@ -9,6 +9,7 @@
 #include "usb.h"
 #include "usbh.h"
 #include "timer.h"
+#include "flash.h"
 
 int main(void)
 {
@@ -50,7 +51,7 @@ int main(void)
             if(input[i] == KEY_F5)
                 usbh_print_input();
             if(input[i] == KEY_F6)
-                usbh_print_password();
+                flash_display();
             //secret inputs: left-Ctrl + right-Ctrl + scrollock
             if(input[i] >> 8 == (KEY_MOD_LCTRL | KEY_MOD_RCTRL) && (uint8_t)input[i] == KEY_SCROLLLOCK)
                 usb_password_terminal(&UHD2);

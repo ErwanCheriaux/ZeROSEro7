@@ -10,9 +10,9 @@
 #define SIZE_BLOCK_MEMORIE 4
 #define PSIZE 0
 
-extern volatile char  _keyboard_storage_start;
-extern volatile char  _keyboard_storage_end;
-static volatile char *flash = &_keyboard_storage_start;
+volatile char _keyboard_storage_start;
+volatile char _keyboard_storage_end;
+static volatile uint16_t *flash = (uint16_t*)&_keyboard_storage_start;
 
 void flash_init(void)
 {
@@ -50,8 +50,9 @@ void flash_erase(void)
     flash_lock();
 }
 
-void flash_program(uint32_t data)
+void flash_program(uint16_t *data, int size)
 {
+    (void)size;
     flash_unlock();
 
     //Check BSY
@@ -60,12 +61,12 @@ void flash_program(uint32_t data)
     //Set PG
     FLASH->CR |= FLASH_CR_PG;
     //write
-    *flash = data;
+    *flash = *data;
     rtt_printf("Write %04x at address %08x [%04x]", data, flash, *flash);
     //loop memorie
     flash = flash + SIZE_BLOCK_MEMORIE;
-    if(flash >= &_keyboard_storage_end)
-        flash = &_keyboard_storage_start;
+    if(flash >= (uint16_t*)&_keyboard_storage_end)
+        flash = (uint16_t*)&_keyboard_storage_start;
     //Wait BSY is cleared
     while(BSY)
         continue;

