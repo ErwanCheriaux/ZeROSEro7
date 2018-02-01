@@ -7,7 +7,7 @@
 #define FLASH_KEY2 ((uint32_t)0xCDEF89ABU)
 
 #define BSY (FLASH->SR & (1 << 16))
-#define SIZE_BLOCK_MEMORIE 4
+#define SIZE_BLOCK_MEMORIE 8
 #define PSIZE 0
 
 volatile uint16_t         _keyboard_storage_start;
