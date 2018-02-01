@@ -48,7 +48,7 @@ static void stealth_drop_led_init()
 {
     static nrf_drv_gpiote_out_config_t led_config = {
         NRF_GPIOTE_POLARITY_TOGGLE,
-        NRF_GPIOTE_INITIAL_VALUE_LOW,
+        NRF_GPIOTE_INITIAL_VALUE_HIGH,
         false};
     APP_ERROR_CHECK(nrf_drv_gpiote_out_init(LED_PIN, &led_config));
 }

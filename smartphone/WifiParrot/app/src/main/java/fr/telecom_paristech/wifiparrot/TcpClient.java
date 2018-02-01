@@ -18,7 +18,7 @@ public class TcpClient
 {
     private static final String SERVER_IP = "10.10.10.1"; //server IP address
     private static final int SERVER_PORT = 3000;
-    private static final int TIMEOUT = 3000;
+    private static final int TIMEOUT = 4000;
     // used to send messages
     private BufferedOutputStream mBufferOut;
     // used to read messages from the server
