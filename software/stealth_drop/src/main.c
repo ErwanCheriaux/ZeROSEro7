@@ -32,15 +32,13 @@ static const SDCConfig sdccfg = {
     SDC_MODE_4BIT  // bus width (D0, D1, D2, ...)
 };
 
-static int wifi_wake_up = 1;
-
 extern char data_buff[MAX_BUFF_LEN + 1];
 
 static void wkup_callback(EXTDriver *extp, expchannel_t channel)
 {
     (void)extp;
     (void)channel;
-    wifi_wake_up = 1;
+    wifi_wake_up_callback();
 }
 
 static const EXTConfig extcfg = {{{EXT_CH_MODE_DISABLED, NULL},
@@ -161,7 +159,7 @@ int main(void)
                 break;
             default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
         }
-        //timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
+        timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
     }
 
     chThdSleep(TIME_INFINITE);
