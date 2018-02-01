@@ -70,6 +70,7 @@ void wifi_sleep_callback(void)
 */
 static void wifi_wake_up(void)
 {
+    led_r(1);
     rtt_printf("Wifi chip wake up\n");
     palSetPad(GPIOA, GPIOA_WIFI_WAKE);  // wake up on
     chThdSleep(MS2ST(100));
@@ -82,6 +83,7 @@ static void wifi_wake_up(void)
 
 static void wifi_sleep(void)
 {
+    led_r(0);
     wifi_break_stream_mode();
     wifi_command("sleep\r\n", 500);
     sleep_mode_event = 0;
