@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/WifiParrot.iml" filepath="$PROJECT_DIR$/WifiParrot.iml" />
       <module fileurl="file://$PROJECT_DIR$/app/app.iml" filepath="$PROJECT_DIR$/app/app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/blecommon/blecommon.iml" filepath="$PROJECT_DIR$/blecommon/blecommon.iml" />
     </modules>
   </component>
 </project>

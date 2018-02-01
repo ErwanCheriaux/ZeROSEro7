@@ -1,9 +1,14 @@
 package fr.telecom_paristech.wifiparrot;
 
 import android.Manifest;
+import android.app.AlertDialog;
+import android.bluetooth.BluetoothAdapter;
+import android.content.BroadcastReceiver;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.ServiceConnection;
 import android.content.pm.PackageManager;
 import android.os.Build;
@@ -19,6 +24,10 @@ import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 
 import java.net.URISyntaxException;
+
+import blecommon.AdvertiserService;
+import blecommon.AdvertisingActivity;
+import blecommon.GAPService;
 
 public class MainActivity extends AppCompatActivity
 {
@@ -51,11 +60,89 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    private Intent advertisementIntent;
+    private AdvertiserService advertiser;
+
+    private void startAdvertising() {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && checkSelfPermission(Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            requestPermissions(new String[]{Manifest.permission.ACCESS_COARSE_LOCATION}, 1);
+        }
+
+        final BluetoothAdapter mBluetoothAdapter = BluetoothAdapter.getDefaultAdapter();
+        if (!mBluetoothAdapter.isEnabled()) {
+            AlertDialog.Builder builder = new AlertDialog.Builder(this);
+            builder.setMessage("Le Bluetooth va être activé.")
+                    .setPositiveButton("Ok", new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int id) {
+                            mBluetoothAdapter.enable();
+                            IntentFilter filter = new IntentFilter(BluetoothAdapter.ACTION_STATE_CHANGED);
+                            registerReceiver(new BroadcastReceiver() {
+                                @Override
+                                public void onReceive(Context context, Intent intent) {
+                                    final String action = intent.getAction();
+                                    if (action.equals(BluetoothAdapter.ACTION_STATE_CHANGED)) {
+                                        final int state = intent.getIntExtra(BluetoothAdapter.EXTRA_STATE,
+                                                BluetoothAdapter.ERROR);
+                                        switch (state) {
+                                            case BluetoothAdapter.STATE_ON:
+                                                startBluetoothServices();
+                                                break;
+                                            default:
+                                                break;
+                                        }
+                                    }
+                                }
+                            }, filter);
+                        }
+                    });
+            builder.show();
+        } else {
+            startBluetoothServices();
+        }
+
+    }
+
+    @Override
+    protected void onDestroy() {
+        stopService(advertisementIntent);
+        unbindService(advConnection);
+
+        super.onDestroy();
+    }
+
+    private ServiceConnection advConnection = new ServiceConnection() {
+
+        @Override
+        public void onServiceConnected(ComponentName className,
+                                       IBinder service) {
+            if (className.getClassName().equals(AdvertiserService.class.getName())) {
+                // We've bound to LocalService, cast the IBinder and get LocalService instance
+                AdvertiserService.LocalBinder binder = (AdvertiserService.LocalBinder) service;
+                advertiser = binder.getService();
+            }
+        }
+
+        @Override // Never disconnected
+        public void onServiceDisconnected(ComponentName arg0) {
+        }
+    };
+
+    public static final byte[] APP_ID_STEALTH_DROP = {0x03};
+
+    private void startBluetoothServices() {
+        advertisementIntent = new Intent(this, AdvertiserService.class);
+        advertisementIntent.putExtra(AdvertisingActivity.APP_ID_EXTRA, APP_ID_STEALTH_DROP);
+        bindService(advertisementIntent, advConnection, Context.BIND_AUTO_CREATE);
+        startService(advertisementIntent);
+    }
+
     @Override
     protected void onCreate(Bundle savedInstanceState)
     {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+        startAdvertising();
 
         callbacks = new CallbackInterface() {
             @Override
