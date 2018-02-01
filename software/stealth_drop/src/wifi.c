@@ -12,7 +12,9 @@
 
 extern char data_buff[MAX_BUFF_LEN + 1];
 
-static int sleep_mode = 0;
+static int sleep_mode_event = 0;
+static int wake_up_event    = 0;
+static int wake_up_state    = 1;
 
 void wifi_break_stream_mode(void)
 {
@@ -53,15 +55,38 @@ static void wifi_reset_chip(void)
     chThdSleep(MS2ST(500));
 }
 
+void wifi_wake_up_callback(void)
+{
+    if(!wake_up_state)
+        wake_up_event = 1;
+}
+
+void wifi_sleep_callback(void)
+{
+    sleep_mode_event = 1;
+}
+
+/* Wake up wifi chip
+*/
+static void wifi_wake_up(void)
+{
+    rtt_printf("Wifi chip wake up\n");
+    palSetPad(GPIOA, GPIOA_WIFI_WAKE);  // wake up on
+    chThdSleep(MS2ST(100));
+    palClearPad(GPIOA, GPIOA_WIFI_WAKE);  // wake up off
+    chThdSleep(MS2ST(500));
+    wake_up_event = 0;
+    wake_up_state = 1;
+    timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
+}
+
 static void wifi_sleep(void)
 {
-#ifdef DEBUG
-    rtt_printf("Wifi chip in sleep mode\n");
-#endif
-    wifi_reset_chip();
     wifi_break_stream_mode();
     wifi_command("sleep\r\n", 500);
-    sleep_mode = 0;
+    sleep_mode_event = 0;
+    wake_up_state    = 0;
+    rtt_printf("Wifi chip in sleep mode\n");
 }
 
 void wifi_init(void)
@@ -81,6 +106,7 @@ void wifi_init(void)
 #endif
     // set rst pin
     palSetPadMode(GPIOA, GPIOA_WIFI_NRST, PAL_MODE_OUTPUT_PUSHPULL);
+    palSetPadMode(GPIOA, GPIOA_WIFI_WAKE, PAL_MODE_OUTPUT_PUSHPULL);
     wifi_reset_chip();
 
     uart_init();
@@ -153,8 +179,12 @@ void wifi_wait_for(char* msg)
                 char_received++;
             else
                 char_received = 0;
-        } else if(sleep_mode)
-            wifi_sleep();
+        } else {
+            if(sleep_mode_event)
+                wifi_sleep();
+            else if(wake_up_event)
+                wifi_wake_up();
+        }
     }
     rtt_printf("received !\n");
 }
@@ -174,9 +204,4 @@ int wifi_get_word(char* buffer, int max_len, char separator)
     }
     buffer[idx] = '\0';
     return 0;
-}
-
-void wifi_sleep_callback(void)
-{
-    sleep_mode = 1;
 }
