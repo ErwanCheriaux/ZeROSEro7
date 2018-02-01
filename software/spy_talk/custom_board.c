@@ -13,7 +13,7 @@ void leds_init()
     nrf_drv_gpiote_init();
 
     APP_ERROR_CHECK(nrf_drv_gpiote_out_init(LEDB_PIN, &led_config));
-    APP_ERROR_CHECK(nrf_drv_gpiote_out_init(RGBR_PIN, &led_config));
+    // RGBR is used by pwr_mngnt
     APP_ERROR_CHECK(nrf_drv_gpiote_out_init(RGBG_PIN, &led_config));
     APP_ERROR_CHECK(nrf_drv_gpiote_out_init(RGBB_PIN, &led_config));
 }
