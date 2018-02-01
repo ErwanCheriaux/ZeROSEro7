@@ -87,14 +87,13 @@ public class LoraProtocolParser {
     public byte[] buildMessage(LoraMessage loraMsg) {
         byte[] receiverArray = {loraMsg.getReceiverAddress()};
         byte[] cipheredMessage = {};
-        if(loraMsg.getReceiverAddress() != LogInActivity.YELLOW_ADDR) {
+        if (loraMsg.getReceiverAddress() != LogInActivity.YELLOW_ADDR) {
             try {
                 cipheredMessage = encryptMsg(loraMsg.getMessage(), secret);
             } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | InvalidParameterSpecException | IllegalBlockSizeException | BadPaddingException | UnsupportedEncodingException e) {
                 e.printStackTrace();
             }
-        }
-        else {
+        } else {
             cipheredMessage = loraMsg.getMessage();
         }
         byte[] blePacket = GAPService.concat(receiverArray, cipheredMessage);
