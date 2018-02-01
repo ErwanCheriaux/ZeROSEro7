@@ -78,7 +78,7 @@ static uint8_t      tx_type;
 static unsigned int tx_addr;
 static void radio_send(uint8_t address, uint8_t type, uint8_t* msg, unsigned int length)
 {
-    led_on(0);
+    led_on(2);
 
     tx_addr = address;
     tx_type = type;
@@ -127,6 +127,7 @@ static protocol_evt_t parse_packet(uint8_t* payload, uint16_t size)
 static void radio_receive(uint32_t timeout_ms)
 {
     Radio.Rx(timeout_ms);
+    led_on(3);
 }
 
 APP_TIMER_DEF(RTC_LORA_SLEEP);
@@ -170,7 +171,7 @@ static volatile protocol_state_t state = PROTOCOL_RECEIVER_SLEEP;  // REVIEW vol
 
 static void lora_tx_done_handler()
 {
-    led_off(0);
+    led_off(2);
 
     event_build.event_type       = PROTOCOL_TX_DONE;
     event_build.sender_address   = local_address;
@@ -195,17 +196,20 @@ static void lora_tx_timeout_handler()
 static void lora_rx_timeout_handler()
 {
     event_build.event_type = PROTOCOL_RX_FAILED;
+    led_off(3);
 
     protocol_main_callback(event_build);
 }
 
 static void lora_rx_error_handler()
 {
+    led_off(3);
     lora_rx_timeout_handler();
 }
 
 static void lora_rx_done_handler(uint8_t* payload, uint16_t size, int16_t rssi, int8_t snr)
 {
+    led_off(3);
     event_build = parse_packet(payload, size);
 
     if(event_build.receiver_address == local_address || event_build.receiver_address == BROADCAST_ADDRESS) {
