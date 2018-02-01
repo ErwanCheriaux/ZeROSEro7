@@ -3,9 +3,9 @@
 #include "pwm.h"
 
 static uint16_t width = 50;
-static int led_r = 0;
-static int led_g = 0;
-static int led_b = 0;
+static int      led_r = 0;
+static int      led_g = 0;
+static int      led_b = 0;
 
 /* PWM LED Intensity Callback */
 static void pwmcb0(PWMDriver *pwmp)
