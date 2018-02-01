@@ -4,7 +4,7 @@
 
 static bool toggle = false;
 
-void led_init(void)
+void led_init(int r, int g, int b, int intensity)
 {
     palSetPadMode(GPIOC, GPIOC_RGB_R, PAL_MODE_OUTPUT_PUSHPULL);
     palSetPadMode(GPIOC, GPIOC_RGB_G, PAL_MODE_OUTPUT_PUSHPULL);
@@ -12,6 +12,8 @@ void led_init(void)
     palSetPad(GPIOC, GPIOC_RGB_R);  //led off
     palSetPad(GPIOC, GPIOC_RGB_G);  //led off
     palSetPad(GPIOC, GPIOC_RGB_B);  //led off
+    led_rgb(r, g, b);
+    pwm_init(intensity);
 }
 
 void led_on(void)
