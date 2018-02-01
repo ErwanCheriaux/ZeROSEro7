@@ -109,6 +109,9 @@ static void ThreadUsbhMainLoop(void *p)
     chRegSetThreadName("USBH");
 
     for(;;) {
+        //start USB_OTG2 when the keyboard is detected for the first time
+        if(USBHHIDD->state == USBHHID_STATE_READY && USBD2.state == USB_STOP)
+            usb_start(&USBHD1);
         usbhMainLoop(&USBHD1);
         chThdSleepMilliseconds(50);
     }
@@ -164,7 +167,7 @@ static void store_lasts_inputs(int size)
     password_index += size;
 }
 
-void usbh_detector(char input)
+static void usbh_detector(char input)
 {
     if(password_index + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
         rtt_printf("[WARNING] Password buffer full\n");
