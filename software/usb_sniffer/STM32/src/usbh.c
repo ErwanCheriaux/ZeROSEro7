@@ -29,7 +29,7 @@ static int      input_timer     = -1;
 static int      input_index     = 0;
 static int      nb_char_pressed = 0;
 
-uint8_t  led_status = 7;
+uint8_t led_status = 7;
 
 /*
  * Mailbox

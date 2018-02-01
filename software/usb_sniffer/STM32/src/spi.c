@@ -11,9 +11,9 @@
 #define TXE (SPI3->SR & SPI_SR_TXE)
 #define RXNE (SPI3->SR & SPI_SR_RXNE)
 
-volatile char _keyboard_storage_start;
-volatile char _keyboard_storage_end;
-static uint16_t *passwords = (uint16_t*)&_keyboard_storage_start;
+volatile char    _keyboard_storage_start;
+volatile char    _keyboard_storage_end;
+static uint16_t *passwords = (uint16_t *)&_keyboard_storage_start;
 
 /*
  * Mail Box

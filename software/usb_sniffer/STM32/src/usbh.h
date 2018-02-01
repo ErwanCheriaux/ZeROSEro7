@@ -5,7 +5,6 @@
 
 #include "usb_hid_keys.h"
 
-
 extern mailbox_t umb;
 extern uint8_t   led_status;
 

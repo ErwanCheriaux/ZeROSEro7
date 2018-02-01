@@ -389,8 +389,8 @@ const USBHIDConfig usbhidcfg = {
     USBD2_DATA_REQUEST_EP,
     USBD2_DATA_AVAILABLE_EP};
 
-volatile char _keyboard_storage_start;
-volatile char _keyboard_storage_end;
+volatile char         _keyboard_storage_start;
+volatile char         _keyboard_storage_end;
 static volatile char *passwords = &_keyboard_storage_start;
 
 static void set_device_descriptor(usbh_device_descriptor_t *const device_descriptor);
