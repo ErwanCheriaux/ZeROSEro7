@@ -78,6 +78,20 @@
 #define SPI_ENABLED 1
 #endif
 
+// <o> SPI_DEFAULT_FREQUENCY  - SPI frequency
+
+// <33554432=> 125 kHz
+// <67108864=> 250 kHz
+// <134217728=> 500 kHz
+// <268435456=> 1 MHz
+// <536870912=> 2 MHz
+// <1073741824=> 4 MHz
+// <2147483648=> 8 MHz
+
+#ifndef SPI_DEFAULT_FREQUENCY
+#define SPI_DEFAULT_FREQUENCY 1073741824
+#endif
+
 #ifndef SPI_SCK_PIN
 #define SPI_SCK_PIN 3
 #endif

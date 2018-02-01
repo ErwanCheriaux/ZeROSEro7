@@ -21,13 +21,13 @@ lint_main:
   image: rfc1149/rose-dev
   script:
     - make format -C software/nRF52_ble_common
-    - make format -C Training/USB_keyboard
-    - make format -C Training/SD_card
     - make format -C software/spy_talk
-    - make format -C Training/WiFi
     - make format -C software/usb_sniffer/STM32
     - make format -C software/usb_sniffer/nRF52
-    - git status --porcelain
+    - make format -C software/stealth_drop
+    - make format -C software/stealth_drop/nRF52
+    - git diff-index HEAD  # To help with problem identification
+    - test $(git diff-index HEAD | wc -l) = 0
 
 lint_apps:
   stage: lint
@@ -56,22 +56,20 @@ build_main:
   image: tuetuopay/arm-none-eabi
   script:
     - make -C software/nRF52_ble_common
-    - make -C Training/USB_keyboard
-    - make -C Training/SD_card
     - make test_board -C software/spy_talk
     - make clean -C software/spy_talk
     - make -C software/spy_talk
-    - make -C Training/WiFi
     - make -C software/usb_sniffer/STM32
     - make -C software/usb_sniffer/nRF52
+    - make -C software/stealth_drop
+    - make -C software/stealth_drop/nRF52
   artifacts:
     paths:
-    - Training/SD_card/build/sd_card.elf
-    - Training/USB_keyboard/build/USB_keyboard.elf
     - software/spy_talk/_build/nrf52832_xxaa.out
-    - Training/WiFi/build/wifi_dev_kit.elf
     - software/usb_sniffer/STM32/build/usb_sniffer.elf
     - software/usb_sniffer/nRF52/_build/nrf52832_xxaa.out
+    - software/stealth_drop/nRF52/_build/nrf52832_xxaa.out
+    - software/stealth_drop/build/stealth_drop.elf
     expire_in: 1 week
 
 build_apps:

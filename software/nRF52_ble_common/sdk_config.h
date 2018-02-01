@@ -1404,20 +1404,6 @@
 #define SPI_DEFAULT_CONFIG_IRQ_PRIORITY 7
 #endif
 
-// <o> SPI_DEFAULT_FREQUENCY  - SPI frequency
-
-// <33554432=> 125 kHz
-// <67108864=> 250 kHz
-// <134217728=> 500 kHz
-// <268435456=> 1 MHz
-// <536870912=> 2 MHz
-// <1073741824=> 4 MHz
-// <2147483648=> 8 MHz
-
-#ifndef SPI_DEFAULT_FREQUENCY
-#define SPI_DEFAULT_FREQUENCY 1073741824
-#endif
-
 // <o> NRF_SPI_DRV_MISO_PULLUP_CFG  - MISO PIN pull-up configuration.
 
 // <0=> NRF_GPIO_PIN_NOPULL
@@ -2680,7 +2666,7 @@
 // <i> Selected pin will be set when CPU is in sleep mode.
 //==========================================================
 #ifndef NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED
-#define NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED 1
+#define NRF_PWR_MGMT_CONFIG_DEBUG_PIN_ENABLED 0
 #endif
 // <o> NRF_PWR_MGMT_SLEEP_DEBUG_PIN  - Pin number
 

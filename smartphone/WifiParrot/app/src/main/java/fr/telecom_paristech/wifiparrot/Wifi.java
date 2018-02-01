@@ -27,6 +27,11 @@ public class Wifi extends Service
         registerReceiver(wifiReceiver, new IntentFilter(WifiManager.SCAN_RESULTS_AVAILABLE_ACTION));
     }
 
+    @Override
+    public void onDestroy() {
+        unregisterReceiver(wifiReceiver);
+        super.onDestroy();
+    }
 
     public class LocalBinder extends Binder
     {

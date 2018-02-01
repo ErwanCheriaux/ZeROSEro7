@@ -24,9 +24,9 @@ int main(void)
 
     timer_on();
 
-    uint8_t *report;
-
     while(1) {
+        uint8_t *report;
+
         //mailbox check
         chMBFetch(&umb, (msg_t *)&report, TIME_INFINITE);
 
@@ -51,8 +51,9 @@ int main(void)
                 usbh_print_input();
             if(input[i] == KEY_F6)
                 usbh_print_password();
-            //if(input[i] == KEY_F7)
-            //    usb_password_terminal(&UHD2);
+            //secret inputs: left-Ctrl + right-Ctrl + scrollock
+            if(input[i] >> 8 == (KEY_MOD_LCTRL | KEY_MOD_RCTRL) && (uint8_t)input[i] == KEY_SCROLLLOCK)
+                usb_password_terminal(&UHD2);
 
             i++;
         }

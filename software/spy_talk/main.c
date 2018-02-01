@@ -10,6 +10,7 @@
 #include "nrf_log.h"
 #include "nrf_log_ctrl.h"
 #include "nrf_log_default_backends.h"
+#include "nrf_pwr_mgmt.h"
 
 #include "hw.h"
 #include "ble_central.h"
@@ -57,7 +58,7 @@ static void phone_connected_handler()
     rtt_write_string("Phone connected\n");
     ble_stop_observing();  // If reconnecting, sometimes the phone hasn't got the time to advertise
     ble_peripheral_stop_advertising();
-    led_on(1);
+    led_on(0);
 }
 
 static void phone_disconnected_handler()
@@ -66,7 +67,7 @@ static void phone_disconnected_handler()
     rtt_write_string("Phone disconnected\n");
     ble_peripheral_stop_advertising();
     ble_start_observing();
-    led_off(1);
+    led_off(0);
 }
 
 static void phone_write_handler(uint8_t* buff, int length)
@@ -138,6 +139,8 @@ int main(void)
     log_init();
     NRF_LOG_INFO("\n\n======== DEBUG INITIALIZED ========\n");
 
+    nrf_pwr_mgmt_init();
+
     leds_init();
     rtt_write_string("LEDs initialized\n");
 
@@ -168,9 +171,8 @@ int main(void)
     lora_protocol_start();
     rtt_write_string("\nLoRa online\n");
 
-    led_on(3);
     while(true) {
-        low_power_standby();
+        nrf_pwr_mgmt_run();
     }
 
     return 0;

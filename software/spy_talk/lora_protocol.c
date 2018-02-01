@@ -58,6 +58,11 @@ static uint8_t outgoing_buffer[MAX_PAYLOAD_LENGTH];  // Buffer to store the data
 static uint8_t outgoing_address;
 static uint8_t outgoing_length;
 
+// Buffer used to store incomming data. Required to delay tx_success after ack is send. Caused problem for broadcasts and parrot.
+static uint8_t incomming_buffer[MAX_PAYLOAD_LENGTH];
+static uint8_t incomming_address;
+static uint8_t incomming_length;
+
 // Handlers provided by main.c
 static void (*lora_on_receive)(uint8_t sender_address, uint8_t* message, unsigned int length);
 static void (*lora_on_ack)(uint8_t receiver_address);
@@ -78,7 +83,7 @@ static uint8_t      tx_type;
 static unsigned int tx_addr;
 static void radio_send(uint8_t address, uint8_t type, uint8_t* msg, unsigned int length)
 {
-    led_on(0);
+    led_on(2);
 
     tx_addr = address;
     tx_type = type;
@@ -127,6 +132,7 @@ static protocol_evt_t parse_packet(uint8_t* payload, uint16_t size)
 static void radio_receive(uint32_t timeout_ms)
 {
     Radio.Rx(timeout_ms);
+    led_on(3);
 }
 
 APP_TIMER_DEF(RTC_LORA_SLEEP);
@@ -170,7 +176,7 @@ static volatile protocol_state_t state = PROTOCOL_RECEIVER_SLEEP;  // REVIEW vol
 
 static void lora_tx_done_handler()
 {
-    led_off(0);
+    led_off(2);
 
     event_build.event_type       = PROTOCOL_TX_DONE;
     event_build.sender_address   = local_address;
@@ -195,17 +201,20 @@ static void lora_tx_timeout_handler()
 static void lora_rx_timeout_handler()
 {
     event_build.event_type = PROTOCOL_RX_FAILED;
+    led_off(3);
 
     protocol_main_callback(event_build);
 }
 
 static void lora_rx_error_handler()
 {
+    led_off(3);
     lora_rx_timeout_handler();
 }
 
 static void lora_rx_done_handler(uint8_t* payload, uint16_t size, int16_t rssi, int8_t snr)
 {
+    led_off(3);
     event_build = parse_packet(payload, size);
 
     if(event_build.receiver_address == local_address || event_build.receiver_address == BROADCAST_ADDRESS) {
@@ -230,15 +239,12 @@ static void protocol_main_callback(protocol_evt_t event)
             break;
 
         case PROTOCOL_RECEIVER_WAKEUP:
-            switch(event.event_type) {
-                case PROTOCOL_RX_DONE:
-                    state = PROTOCOL_RECEIVER_READY;
-                    radio_send(event.sender_address, PACKET_RDY, tx_buffer, 0);
-                    break;
-                default:
-                    radio_sleep(SLEEP_FRAME);
-                    state = PROTOCOL_RECEIVER_SLEEP;
-                    break;
+            if(event.event_type == PROTOCOL_RX_DONE && event.packet_type == PACKET_WKP) {
+                state = PROTOCOL_RECEIVER_READY;
+                radio_send(event.sender_address, PACKET_RDY, tx_buffer, 0);
+            } else {
+                radio_sleep(SLEEP_FRAME);
+                state = PROTOCOL_RECEIVER_SLEEP;
             }
             break;
 
@@ -256,22 +262,24 @@ static void protocol_main_callback(protocol_evt_t event)
             break;
 
         case PROTOCOL_RECEIVER_DATA:
-            switch(event.event_type) {
-                case PROTOCOL_RX_DONE:
-                    state = PROTOCOL_RECEIVER_ACKNOWLEDGE;
-                    radio_send(event.sender_address, PACKET_ACK, tx_buffer, 0);
-                    lora_on_receive(event.sender_address, event.message, event.length);
-                    break;
-                default:
-                    radio_sleep(SLEEP_FRAME);
-                    state = PROTOCOL_RECEIVER_SLEEP;
-                    break;
+            if(event.event_type == PROTOCOL_RX_DONE && event.packet_type == PACKET_DAT) {
+                state = PROTOCOL_RECEIVER_ACKNOWLEDGE;
+                radio_send(event.sender_address, PACKET_ACK, tx_buffer, 0);
+                incomming_length  = event.length;
+                incomming_address = event.sender_address;
+                memcpy(incomming_buffer, event.message, event.length);
+            } else {
+                radio_sleep(SLEEP_FRAME);
+                state = PROTOCOL_RECEIVER_SLEEP;
             }
             break;
 
         case PROTOCOL_RECEIVER_ACKNOWLEDGE:
+            lora_on_receive(incomming_address, incomming_buffer, incomming_length);
+#ifndef PARROT
             radio_sleep(SLEEP_FRAME);
             state = PROTOCOL_RECEIVER_SLEEP;
+#endif  // PARROT
             break;
 
         case PROTOCOL_SENDER_WAKEUP:
@@ -323,7 +331,7 @@ static void protocol_main_callback(protocol_evt_t event)
             break;
 
         case PROTOCOL_SENDER_ACKNOWLEDGE:
-            if(event.event_type == PROTOCOL_RX_DONE && event.sender_address == outgoing_address) {
+            if(event.event_type == PROTOCOL_RX_DONE && event.sender_address == outgoing_address && event.packet_type == PACKET_ACK) {
                 lora_on_ack(event.sender_address);
             } else {
                 lora_on_tx_fail(event.receiver_address);
