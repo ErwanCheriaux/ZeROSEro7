@@ -16,7 +16,7 @@ static volatile uint16_t *flash = &_keyboard_storage_start;
 
 void flash_init(void)
 {
-    FLASH->CR = 0;  //PSIZE = 0 : x8
+    FLASH->CR = FLASH_CR_PSIZE_0;  //PSIZE = 0 : x16
 }
 
 void flash_lock(void)
@@ -64,7 +64,8 @@ void flash_program(uint16_t *data, int size)
     //write
     int index = 0;
     while(index <= size) {
-        *flash = *data;
+        //*flash = *data;
+        *flash = 0xABCD;
         rtt_printf("Write %04x at address %08x [%04x]", *data, flash, *flash);
 
         flash = flash + SIZE_BLOCK_MEMORIE;
