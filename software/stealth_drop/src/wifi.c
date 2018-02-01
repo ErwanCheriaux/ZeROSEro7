@@ -7,7 +7,7 @@
 #include "sd.h"
 #include "timer.h"
 
-#define DEBUG 1
+//#define DEBUG 1
 #define TIMEOUT 2000
 
 extern char data_buff[MAX_BUFF_LEN + 1];
