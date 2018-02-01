@@ -41,7 +41,6 @@ static void wkup_callback(EXTDriver *extp, expchannel_t channel)
 }
 
 static const EXTConfig extcfg = {{
-    {EXT_CH_MODE_RISING_EDGE | EXT_CH_MODE_AUTOSTART | EXT_MODE_GPIOA, wkup_callback},
     {EXT_CH_MODE_DISABLED, NULL},
     {EXT_CH_MODE_DISABLED, NULL},
     {EXT_CH_MODE_DISABLED, NULL},
@@ -49,6 +48,7 @@ static const EXTConfig extcfg = {{
     {EXT_CH_MODE_DISABLED, NULL},
     {EXT_CH_MODE_DISABLED, NULL},
     {EXT_CH_MODE_DISABLED, NULL},
+    {EXT_CH_MODE_BOTH_EDGES | EXT_CH_MODE_AUTOSTART | EXT_MODE_GPIOA, wkup_callback},
     {EXT_CH_MODE_DISABLED, NULL},
     {EXT_CH_MODE_DISABLED, NULL},
     {EXT_CH_MODE_DISABLED, NULL},
@@ -84,6 +84,7 @@ int main(void)
     // Initializes sleep mode
     palSetPadMode(GPIOA, GPIOA_SPI_MOSI, PAL_MODE_INPUT_PULLDOWN);
     extStart(&EXTD1, &extcfg);
+    extChannelEnable(&EXTD1, 0);
     
     // Initializes the SDIO drivers.
     sdcStart(&SDCD1, &sdccfg);
