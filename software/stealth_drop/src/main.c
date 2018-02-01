@@ -39,6 +39,7 @@ extern char data_buff[MAX_BUFF_LEN + 1];
 static void wkup_callback(EXTDriver *extp, expchannel_t channel)
 {
     (void)extp;
+    (void)channel;
     wifi_wake_up = 1;
 }
 
