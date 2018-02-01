@@ -32,6 +32,22 @@ public class LoraProtocolParser {
         generateKey(DEFAULT_PASSWORD);
     }
 
+    public static byte[] encryptMsg(byte[] message, SecretKey secret)
+            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidParameterSpecException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
+        /* Encrypt the message. */
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.ENCRYPT_MODE, secret);
+        byte[] cipherText = cipher.doFinal(message);
+        return cipherText;
+    }
+
+    public static byte[] decryptMsg(byte[] cipherText, SecretKey secret)
+            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidParameterSpecException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
+        /* Decrypt the message, given derived encContentValues and initialization vector. */
+        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
+        cipher.init(Cipher.DECRYPT_MODE, secret);
+        return cipher.doFinal(cipherText);
+    }
 
     // Copied from https://android-developers.googleblog.com/2013/02/using-cryptography-to-store-credentials.html
     public void generateKey(String password) {
@@ -51,23 +67,6 @@ public class LoraProtocolParser {
         } catch (NoSuchAlgorithmException | InvalidKeySpecException e) {
             e.printStackTrace();
         }
-    }
-
-    public static byte[] encryptMsg(byte[] message, SecretKey secret)
-            throws NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeyException, InvalidParameterSpecException, IllegalBlockSizeException, BadPaddingException, UnsupportedEncodingException {
-        /* Encrypt the message. */
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(Cipher.ENCRYPT_MODE, secret);
-        byte[] cipherText = cipher.doFinal(message);
-        return cipherText;
-    }
-
-    public static byte[] decryptMsg(byte[] cipherText, SecretKey secret)
-            throws NoSuchPaddingException, NoSuchAlgorithmException, InvalidParameterSpecException, InvalidAlgorithmParameterException, InvalidKeyException, BadPaddingException, IllegalBlockSizeException, UnsupportedEncodingException {
-        /* Decrypt the message, given derived encContentValues and initialization vector. */
-        Cipher cipher = Cipher.getInstance("AES/ECB/PKCS5Padding");
-        cipher.init(Cipher.DECRYPT_MODE, secret);
-        return cipher.doFinal(cipherText);
     }
 
     public LoraMessage parseMessage(byte[] blePacket) {

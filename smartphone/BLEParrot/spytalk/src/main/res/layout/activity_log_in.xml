@@ -24,10 +24,10 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:weightSum="3"
+        android:layout_alignParentEnd="true"
         android:layout_below="@+id/buttonPassword"
-        android:layout_alignParentEnd="true">
+        android:orientation="vertical"
+        android:weightSum="3">
 
         <Button
             android:id="@+id/buttonYellow"
@@ -77,13 +77,13 @@
     </LinearLayout>
 
     <Button
-        android:text="Changer de mot de passe"
+        android:id="@+id/buttonPassword"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/buttonPassword"
         android:layout_below="@+id/loginTitle"
         android:layout_centerHorizontal="true"
-        android:textSize="18sp"
-        android:onClick="onPasswordButton" />
+        android:onClick="onPasswordButton"
+        android:text="Changer de mot de passe"
+        android:textSize="18sp" />
 
 </RelativeLayout>
