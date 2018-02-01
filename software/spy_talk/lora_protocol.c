@@ -349,7 +349,7 @@ static void protocol_main_callback(protocol_evt_t event)
 
 void lora_protocol_send(uint8_t address, uint8_t* message, unsigned int length)
 {
-    if(outgoing_length || length == 0 || state == PROTOCOL_RECEIVER_READY || state == PROTOCOL_RECEIVER_DATA || state == PROTOCOL_RECEIVER_ACKNOWLEDGE) {
+    if(outgoing_length || length == 0 || state == PROTOCOL_RECEIVER_READY || state == PROTOCOL_RECEIVER_DATA) {
         rtt_write_string("Multiple LoRa operation unsupported; Message discarded.\n");  // Cannot be reached when using the spy talk app.
         lora_on_tx_fail(address);
     } else {
