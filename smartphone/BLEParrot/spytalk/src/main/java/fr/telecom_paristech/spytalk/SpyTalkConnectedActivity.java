@@ -162,7 +162,7 @@ public class SpyTalkConnectedActivity extends ConnectedActivity {
         String content = GAPService.parseByteArray(payload);
 
         if (Arrays.equals(payload, PANICK_MESSAGE)) {
-            v.vibrate(2000); // ms
+            v.vibrate(10000); // ms
             content = "Alerte !";
         } else if (Arrays.equals(payload, ACKNOWLEDGE_MESSAGE)) {
             v.vibrate(200); // ms
