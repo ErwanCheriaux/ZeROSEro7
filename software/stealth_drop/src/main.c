@@ -70,10 +70,10 @@ int main(void)
     halInit();
     chSysInit();
 
-    timer_init();
     led_init(1, 0, 0, 10);
     led_on();
     timer_init();
+    timer_led();
     rtt_init();
 
     wifi_init();
