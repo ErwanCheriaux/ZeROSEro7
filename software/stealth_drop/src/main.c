@@ -117,6 +117,7 @@ int main(void)
         if(!uart_receive_timeout(&buff, 1, MS2ST(1000)))
             continue;
         timer_off();
+        led_g(1);
         switch(buff) {
             case 'U':  // Upload a file
                 rtt_printf("File upload: ");
@@ -159,6 +160,7 @@ int main(void)
                 break;
             default: rtt_printf("[ERROR] Unkown command: %c\n", buff);
         }
+        led_g(0);
         timer_on(SLEEP_DELAY, wifi_sleep_callback, 0);
     }
 
