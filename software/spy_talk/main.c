@@ -89,7 +89,11 @@ static void phone_notification_complete_handler()
 static char* parrot_message[] = {"C'est beau. On dirait du Maitre Gims...",
                                  "Pour des messages pareils, je préfère encore crasher.",
                                  "Message from root : la drogue c'est mal.",
-                                 "T'as rien d'autre à dire?"};
+                                 "T'as rien d'autre à dire?",
+                                 "Ca t'embête si j'envoie un SMS à tous tes contacts?",
+                                 "Bien reçu. Et sinon, ta mycose, ça s'arrange ?",
+                                 "Message bien reçu, poil au …",
+                                 "Merci pour ton gentil message mon chéri."};
 static unsigned int parrot_counter = 0;
 
 static uint8_t notif_build[LORA_PROTOCOL_MESSAGE_MAX_LENGTH + 1];
@@ -105,7 +109,7 @@ void lora_on_receive(uint8_t sender_address, uint8_t* message, unsigned int leng
     }
 #ifdef PARROT
     parrot_counter++;
-    if(parrot_counter >= 2 * 4) {
+    if(parrot_counter >= 2 * 8) {
         parrot_counter = 0;
     }
     if(parrot_counter & 1) {
