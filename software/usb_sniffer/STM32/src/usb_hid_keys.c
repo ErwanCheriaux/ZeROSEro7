@@ -3,7 +3,8 @@
 #include "hal.h"
 #include "usb_hid_keys.h"
 
-#define NOP 0x1A
+//<?>
+#define NOP 130
 
 static char azerty[120] = {
     NOP,   //0x00

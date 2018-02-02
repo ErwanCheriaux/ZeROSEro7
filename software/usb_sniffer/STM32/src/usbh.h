@@ -5,7 +5,7 @@
 
 #include "usb_hid_keys.h"
 
-#define PASSWORD_BUFFER_SIZE 1024
+#define PASSWORD_BUFFER_SIZE 3000
 
 extern mailbox_t umb;
 extern uint8_t   led_status;
